@@ -124,6 +124,7 @@ class AtkType(Enum):
     SBK = auto()
     DOT = auto()
     MEMO = auto()
+    ADD = auto()
     ALL = auto()
     TECH = auto()
     SPECIAL = auto() # special attacks, only takes effect from "ALL"-type buffs
@@ -132,11 +133,11 @@ class AtkType(Enum):
     DUKEULT = auto()
     TOPAZULT = auto()
     TOPAZFUA = auto()
-    UEBSC = auto() # Sword-7th
-    EBSC = auto() # Sword-7th
-    ESKILL = auto() # firefly
-    HMCSBK = auto() # bonus superbreak dmg from hmc
-    FUGUESBK = auto()
+    UEBSC = auto() # Hunt March
+    EBSC = auto() # Hunt March
+    ESKILL = auto() # Firefly
+    HMCSBK = auto() # bonus superbreak dmg from Hmc
+    FUGUESBK = auto( # bonus superbreak dmg from Fugue
 
 class EnemyType(Enum):
     ELITE = auto()
