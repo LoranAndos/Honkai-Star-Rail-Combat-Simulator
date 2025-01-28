@@ -135,9 +135,9 @@ class AtkType(Enum):
     TOPAZFUA = auto()
     UEBSC = auto() # Hunt March
     EBSC = auto() # Hunt March
-    ESKILL = auto() # Firefly
+    ESKILL = auto() # Firefly   
     HMCSBK = auto() # bonus superbreak dmg from Hmc
-    FUGUESBK = auto( # bonus superbreak dmg from Fugue
+    FUGUESBK = auto() # bonus superbreak dmg from Fugue
 
 class EnemyType(Enum):
     ELITE = auto()
