@@ -1,7 +1,6 @@
 from Attributes import *
 from Enemy import Enemy
 
-
 class Result:
     def __init__(self, charName: str, charRole: Role, atkType: list, eleType: list, broken: list[Enemy], turnDmg: float,
                  wbDmg: float, errGain: float, turnName: str, enemiesHit: list[Enemy], preHitStatus: list[bool]):

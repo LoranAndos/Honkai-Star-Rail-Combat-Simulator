@@ -1,7 +1,6 @@
 from Equipment import Equipment
 from Attributes import *
 
-
 class Relic(Equipment):
     name = "Relic"
 

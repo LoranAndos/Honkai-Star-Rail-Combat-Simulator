@@ -6,6 +6,7 @@ eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5
 atkRatio_Elites = [0.5, 0.5, 0]
 atkRatio_Bosses = [0, 0.5, 0.5]
 atkRatio_Adds = [1, 0, 0]
+atkRatio = [0.55, 0.2, 0.25]
 
 class StatTypes(Enum):
     Spd = "Spd"

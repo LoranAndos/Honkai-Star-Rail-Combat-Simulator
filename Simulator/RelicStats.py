@@ -1,6 +1,5 @@
 from Attributes import *
 
-
 class RelicStats:
     def __init__(self, spd, hpF, atkF, defF, hpP, atkP, defP, be, ehr, ers, cr, cd, bodyMain, bootMain, sphereMain,
                  ropeMain):

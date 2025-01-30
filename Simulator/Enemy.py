@@ -1,7 +1,6 @@
 # actionOrder = [1,1,2] means single attack, single attack, double attack
 from Attributes import *
 
-
 class Enemy:
     broken = False
     role = Role.ENEMY

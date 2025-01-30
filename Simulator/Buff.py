@@ -2,7 +2,6 @@ from tkinter import BooleanVar
 
 from Attributes import *
 
-
 class Buff:
     # noinspection PyDefaultArgument
     def __init__(self, name: str, buffType: StatTypes, val: float, target: Role, atkType: list = [AtkType.ALL],

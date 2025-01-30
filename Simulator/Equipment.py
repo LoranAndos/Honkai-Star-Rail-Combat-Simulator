@@ -9,7 +9,6 @@ from Turn_Text import *
 from Result import *
 from Attributes import *
 
-
 class Equipment:
     def __init__(self, wearerRole: Role):
         self.wearerRole = wearerRole

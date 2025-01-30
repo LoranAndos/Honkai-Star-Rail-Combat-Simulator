@@ -1,10 +1,9 @@
-from Turn import Turn
+from Turn_Text import Turn
 from Result import *
-from Misc import *
+from Attributes import *
 import logging
 
 logger = logging.getLogger(__name__)
-
 
 class Character:
     # Standard Character Properties
@@ -20,6 +19,7 @@ class Character:
     ultCost = 100.0
     currEnergy = maxEnergy / 2
     currAV = 100.0
+    aggro = 0
     rotation = ["E", "A", "A"]
     dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.MEMO: 0.0}
     hasSummon = False

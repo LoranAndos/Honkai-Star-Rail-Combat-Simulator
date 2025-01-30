@@ -1,7 +1,6 @@
 from Equipment import Equipment
 from Attributes import *
 
-
 class Planar(Equipment):
     name = "Planar"
 
