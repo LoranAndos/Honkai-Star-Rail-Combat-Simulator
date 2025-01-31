@@ -226,9 +226,9 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
 
     aggroSum = sum(aggroLst)
     AggroNumber = randrange(1,aggroSum, 1)
-    Number_Keeper = 1
     finalEnergy = []
     for enemy in enemyTeam:
+        Number_Keeper = 1
         if enemy == EnemyType.ADD:
             for a in range(len(playerTeam)):
                 if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
