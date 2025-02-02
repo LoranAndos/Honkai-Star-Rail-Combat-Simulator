@@ -1,12 +1,14 @@
 import logging
+from idlelib.autocomplete import TRIGGERS
+
 from Simulator.Buff  import *
 from Simulator.Character import Character
 from Simulator.Delay_Text import *
 from Simulator.RelicStats import RelicStats
-from Simulator.Result import Special
+from Simulator.Result import *
 from Simulator.Turn_Text import Turn
 from Simulator.Enemy import *
-from Simulator.MainFunctions import *
+from random import randrange
 
 logger = logging.getLogger(__name__)
 
@@ -79,6 +81,25 @@ class Sushang(Character):
     def useUlt(self, enemyID=-1):
         self.ults = self.ults + 1
         return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
+
+    def ownTurn(self, turn: Turn, enemy: Enemy, Result: Result):
+        bl, dbl, al, dl, tl = super().ownTurn(turn, Enemy, Result)
+        Once = True
+        for enemy in [Enemy]:
+            if enemy.broken == True and Result.turnName == ("SushangBasic" or "SushangSkill") and Once == True:
+                al.append(Advance("SushangTrace1",self.role,0.15))
+                Once = False
+        if Result.brokenEnemy:
+            e3Mul = 0.21 if self.eidolon >= 3 else 0.2
+            bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,tdType=TickDown.END))
+        return bl, dbl, al, dl, tl
+
+    def allyTurn(self, turn: Turn, result: Result):
+        bl, dbl, al, dl, tl = super().allyTurn(turn, result)
+        if result.brokenEnemy:
+            e3Mul = 0.21 if self.eidolon >= 3 else 0.2
+            bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,tdType=TickDown.END))
+        return bl, dbl, al, dl, tl
 
     def special(self):
         return self.name
