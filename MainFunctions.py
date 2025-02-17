@@ -1,14 +1,11 @@
 import logging
-import random
-from inspect import AGEN_RUNNING
-from random import randrange
-from typing import final
 
 from Character import *
 from Enemy import Enemy
 from Attributes import *
 from Summons import *
 from Trackers import *
+from random import randrange
 
 logger = logging.getLogger(__name__)
 
@@ -73,10 +70,10 @@ def parseAdvance(lst: list[Advance], playerTeam: list[Character]) -> list[Advanc
 def parseDelay(lst: list[Delay], enemyTeam: list[Enemy]) -> list[Delay]:
     delayList = []
     for delay in lst:
-        if delay.target == Role.ALL: # Team wide enemy delay
+        if delay.target == Role.ALL:
             for enemy in enemyTeam:
                 delayList.append(Delay(delay.name, delay.delayPercent, enemy.enemyID, delay.reqBroken, delay.stackable))
-        else: # Single target enemy delay
+        else:
             delayList.append(delay)
     return delayList
 
@@ -95,15 +92,14 @@ def parseTurns(lst: list[Turn], playerTeam: list[Character]) -> list[Turn]:
             turnList.append(turn)
     return turnList
 
-
 def addDelay(currList: list[Delay], newList: list[Delay]) -> list[Delay]:
     def checkValidAdd(delayToCheck: Delay, currDelayList: list[Delay]) -> bool:
-        return all(
-            delayToCheck.name != existingDelay.name or delayToCheck.stackable or delayToCheck.target != existingDelay.target
-            for existingDelay in currDelayList)
+        return all(delayToCheck.name != existingDelay.name or delayToCheck.stackable or delayToCheck.target != existingDelay.target for existingDelay in currDelayList)
+
     for delay in newList:
         if checkValidAdd(delay, currList):
             currList.append(delay)
+
     return currList
 
 def addAdvance(currList: list[Advance], newList: list[Advance]) -> list[Advance]:
@@ -131,7 +127,7 @@ def addBuffs(currList: list, newList: list) -> list:
             currList[buffID].refreshTurns()
     return currList
 
-def findBuffs(charRole: Role, buffType: AtkType, buffList: list[Buff]) -> list:
+def findBuffs(charRole: Role, buffType: StatTypes, buffList: list[Buff]) -> list:
     return [x for x in buffList if (x.buffType == buffType and x.target == charRole)]
 
 def sumBuffs(buffList: list[Buff]):
@@ -139,15 +135,15 @@ def sumBuffs(buffList: list[Buff]):
 
 def getCharSPD(char: Character, buffList: list[Buff]) -> float:
     baseSPD = char.baseSPD
-    spdPercent = sumBuffs(findBuffs(char.role, AtkType.SPD_PERCENT, buffList))
-    spdFlat = sumBuffs(findBuffs(char.role, AtkType.SPD, buffList)) + char.getSPD()
+    spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
+    spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList)) + char.getSPD()
     return baseSPD * (1 + spdPercent) + spdFlat
 
 def getEnemySPD(enemy: Enemy, debuffList: list[Debuff]) -> float:
     baseSPD = enemy.spd
     debuffSum = 0
     for debuff in debuffList:
-        if (debuff.debuffType == AtkType.SPD_PERCENT) and (debuff.target == enemy.enemyID):
+        if (debuff.debuffType == StatTypes.SPD_PERCENT) and (debuff.target == enemy.enemyID):
             debuffSum += debuff.getDebuffVal()
     return baseSPD * (1 - debuffSum)
 
@@ -211,90 +207,92 @@ def delayAdjustment(enemyTeam: list[Enemy], delayList: list[Delay], debuffList: 
         if not delay.reqBroken or (delay.reqBroken and enemy.broken):
             avRed = enemyAV * delay.delayPercent * -1
             enemy.reduceAV(avRed)
-            logger.info(
-                f"DELAY  > {enemy.name} delayed by {delay.delayPercent * 100:.1f}% from {delay.name} | NewAV: {enemy.currAV:.3f}")
+            logger.info(f"DELAY  > {enemy.name} delayed by {delay.delayPercent * 100:.1f}% from {delay.name} | NewAV: {enemy.currAV:.3f}")
         else:
-            res.append(delay)  # keep the delay in delayList until it can be applied
+            res.append(delay) # keep the delay in delayList until it can be applied
     return res
 
+
+# noinspection PyUnresolvedReferences
 def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: int, attackTypeRatio: list[float], buffList: list[Buff]):
     aggroLst = []
     for char in playerTeam:
-        aggro = char.aggro.value
+        aggro = char.aggro
         aggroLst.append(aggro)
     actAttacks = 1 if numAttacks == 0 else numAttacks
 
     aggroSum = sum(aggroLst)
-    AggroNumber = randrange(1,aggroSum, 1)
-    finalEnergy = []
+    AggroNumber = randrange(1,aggroSum+1, 1)
+    finalEnergy = [0]*len(playerTeam)
     for enemy in enemyTeam:
         Number_Keeper = 1
-        if enemy == EnemyType.ADD:
-            for a in range(len(playerTeam)):
+        if enemy.enemyType == EnemyType.ADD:
+            for a in range(len(playerTeam)-1):
                 if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
-                    finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Single Target hit = 10 energy
+                    finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Single Target hit = 10 energy
                     Number_Keeper = Number_Keeper + aggroLst[a]
                 else:
                     finalEnergy[a] = 0
                 Number_Keeper = Number_Keeper + aggroLst[a]
-        if enemy == EnemyType.ELITE:
-            AttackTypeChooser = randrange(1,2,1)
+        if enemy.enemyType == EnemyType.ELITE:
+            AttackTypeChooser = randrange(1,3,1)
             if AttackTypeChooser == 1:
-                for a in range(len(playerTeam)):
+                for a in range(len(playerTeam)-1):
                     if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Single Target hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Single Target hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     else:
                         finalEnergy[a] = finalEnergy[a] + 0
                         Number_Keeper = Number_Keeper + aggroLst[a]
             if AttackTypeChooser == 2:
-                for a in range(len(playerTeam)):
+                for a in range(len(playerTeam)-1):
                     if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and (a != 1 and a != len(playerTeam)):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == len(playerTeam):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     else:
                         finalEnergy[a] = finalEnergy[a] + 0
                         Number_Keeper = Number_Keeper + aggroLst[a]
-        if enemy == EnemyType.BOSS:
-            AttackTypeChooser = randrange(1,2,1)
+        if enemy.enemyType == EnemyType.BOSS:
+            AttackTypeChooser = randrange(1,3,1)
             if AttackTypeChooser == 1:
-                for a in range(len(playerTeam)):
+                for a in range(len(playerTeam)-1):
                     if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and (a != 1 and a != len(playerTeam)):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == len(playerTeam):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks # Blast hit = 10 energy
+                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
+                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
                         Number_Keeper = Number_Keeper + aggroLst[a]
                     else:
-                        finalEnergy[a] = finalEnergy[a] + 0
+                        finalEnergy[a] = finalEnergy[a]
                         Number_Keeper = Number_Keeper + aggroLst[a]
             if AttackTypeChooser == 2:
-                for a in range(len(playerTeam)):
+                for a in range(len(playerTeam)-1):
                     finalEnergy[a] = (finalEnergy[a] + 5)*actAttacks
-    for i in range(len(playerTeam)):
+    for i in range(len(playerTeam)-1):
         char = playerTeam[i]
         placeHolderTurn = Turn(char.name, char.role, -1, Targeting.NA, [AtkType.SPECIAL], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "HitEnergyPlaceholder")
         errMul = getMulERR(char, enemyTeam[0], buffList, [], placeHolderTurn) if not char.specialEnergy else 0
         if numAttacks != 0:
             char.addEnergy(finalEnergy[i] * errMul)
     return [i / (actAttacks * 10) for i in finalEnergy]
+
 
 def checkInTeam(name: str, team: list[Character]) -> bool:
     for char in team:
@@ -317,6 +315,7 @@ def tickDebuffs(enemy: Enemy, debuffList: list[Debuff]) -> list[Debuff]:
         else:
             newList.append(debuff)
     return newList
+
 
 # noinspection PyUnresolvedReferences
 def tickBuffs(char: Character, buffList: list[Buff], tdType: str) -> list[Buff]:
@@ -386,26 +385,11 @@ def inTeam(playerTeam: list[Character], charName) -> bool:
 
 def addSummons(playerTeam: list[Character]) -> list:
     summons = []
-    #for char in playerTeam:
-        #if char.name == "Topaz":
-            #summons.append(Numby(char.role, Role.NUMBY))
-        #elif char.name == "Lingsha":
-            #summons.append(Fuyuan(char.role, Role.FUYUAN))
-        #elif char.name == "Firefly":
-            #summons.append(DeHenshin(char.role, Role.HENSHIN))
-        #elif char.name == "JingYuan":
-            #summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
     return summons
 
-
-def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff],
-                    advList: list[Advance], delayList: list[Delay],
-                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance],
-                    delayToAdd: list[Delay]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay]]:
-    buffs, debuffs, advs, delays = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd,
-                                                                                   enemyTeam), parseAdvance(advToAdd,
-                                                                                                            playerTeam), parseDelay(
-        delayToAdd, enemyTeam)
+def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay],
+                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay]]:
+    buffs, debuffs, advs, delays = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam)
     buffList = addBuffs(buffList, buffs)
     debuffList = addBuffs(debuffList, debuffs)
     advList = addAdvance(advList, advs)
@@ -413,8 +397,7 @@ def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buf
 
     return buffList, debuffList, advList, delayList
 
-def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff],
-               debuffList: list[Debuff], manualMode=False) -> tuple[Result, list[Debuff], list[Delay]]:
+def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], manualMode = False) -> tuple[Result, list[Debuff], list[Delay]]:
     char = findCharRole(playerTeam, turn.charRole)
     charERR = getMulERR(char, enemyTeam[0], buffList, debuffList, turn)
     baseValue = getBaseValue(char, buffList, turn)
@@ -423,8 +406,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     wbDmg = 0
     newDebuff, newDelay = [], []
 
-    def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0,
-                     charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
+    def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0, charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
         nonlocal turnDmg, wbDmg, anyBroken
 
         charWBE = getMulWBE(char, currEnemy, buffList, debuffList, currTurn)
@@ -455,9 +437,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             charBE = getMulBE(char, currEnemy, buffList, debuffList, currTurn)
             anyBroken.append(currEnemy)
             ele = currTurn.element[0]
-            enemyBreakMul = getMulENEMY(char, currEnemy, buffList, debuffList,
-                                        Turn(char.name, char.role, currEnemy.enemyID, Targeting.NA, [AtkType.BRK],
-                                             [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PlaceholderTurn"))
+            enemyBreakMul = getMulENEMY(char, currEnemy, buffList, debuffList, Turn(char.name, char.role, currEnemy.enemyID, Targeting.NA, [AtkType.BRK], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PlaceholderTurn"))
             brkMul = getMulBrkDMG(char, currEnemy, buffList, debuffList, currTurn)
             wbDmg += eleDct[ele.value] * wbMultiplier * currEnemy.maxToughnessMul * charBE * enemyBreakMul * brkMul
             newDelays.extend(wbDelay(ele, charBE, currEnemy))
@@ -471,15 +451,13 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         brkMul = getMulBrkDMG(char, currEnemy, buffList, debuffList, currTurn)
         eleMul = eleDct[char.element.value]
         enemyMul = getMulENEMY(char, currEnemy, buffList, debuffList, currTurn)
-        if breakType == "BREAK":  # should only appear when enemies are broken
+        if breakType == "BREAK": # should only appear when enemies are broken
             breakDMG = eleMul * wbMultiplier * currEnemy.maxToughnessMul * charBE * brkMul * percentMultiplier * enemyMul
             turnDmg += breakDMG
-        elif breakType == "SUPER":  # superbreak logic
-            sbrkMul = getMulSuperBrkDMG(char, currEnemy, buffList, debuffList,
-                                        currTurn)  # should only be affected by HMC A2 trace for now
+        elif breakType == "SUPER": # superbreak logic
+            sbrkMul = getMulSuperBrkDMG(char, currEnemy, buffList, debuffList, currTurn) # should only be affected by HMC A2 trace for now
             charWBE = getMulWBE(char, currEnemy, buffList, debuffList, currTurn)
-            tempDmg = wbMultiplier * percentMultiplier * (
-                        breakUnits / 10 * charWBE) * brkMul * sbrkMul * charBE * enemyMul
+            tempDmg = wbMultiplier * percentMultiplier * (breakUnits / 10 * charWBE) * brkMul * sbrkMul * charBE * enemyMul
             turnDmg += tempDmg
             # print(f"{turn.moveName} | WBMUL: {wbMultiplier:.3f} | SBScg: {percentMultiplier} | ToughnessRed: {breakUnits / 10 * charWBE:.3f} | BrkMul: {brkMul:.3f} | SBrkMul: {sbrkMul:.3f} | CharBE: {charBE:.3f} | EnemyMul: {enemyMul:.3f} | DMG: {tempDmg:.3f}" )
         return
@@ -487,15 +465,14 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     enemiesHit = []
     preHitStatus = [True if e.broken else False for e in enemyTeam]
     if "BREAK" in turn.targeting.value:
-        if "SBREAK" in turn.targeting.value:  # superbreak logic
+        if "SBREAK" in turn.targeting.value: # superbreak logic
             if turn.targeting == Targeting.AOESB:
                 for enemy in enemyTeam:
-                    if enemy.broken:  # only can apply when enemy is weakness broken
+                    if enemy.broken: # only can apply when enemy is weakness broken
                         enemiesHit.append(enemy)
                         processBreak(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], "SUPER")
             else:
-                enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else \
-                enemyTeam[turn.targetID]
+                enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
                 if enemy.broken:
                     enemiesHit.append(enemy)
                     processBreak(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], "SUPER")
@@ -506,13 +483,12 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                             enemiesHit.append(adj_enemy)
                             processBreak(turn, adj_enemy, turn.brkSplit[1], turn.dmgSplit[1], "SUPER")
         else:
-            if turn.targeting == Targeting.AOEBREAK:  # normal break
+            if turn.targeting == Targeting.AOEBREAK: # normal break
                 for enemy in enemyTeam:
                     enemiesHit.append(enemy)
                     processBreak(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], "BREAK")
             else:
-                enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else \
-                enemyTeam[turn.targetID]
+                enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
                 enemiesHit.append(enemy)
                 processBreak(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], "BREAK")
                 if enemy.hasAdj and (turn.brkSplit[1] > 0 or (turn.dmgSplit[1] > 0)):
@@ -528,8 +504,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             newDebuff.extend(a)
             newDelay.extend(b)
     elif turn.targeting == Targeting.SPECIAL:
-        enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[
-            turn.targetID]
+        enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else  enemyTeam[turn.targetID]
         enemiesHit.append(enemy)
         if turn.moveName == "RobinConcertoDMG":
             _, _ = processEnemy(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], 1.0, 2.5)
@@ -537,9 +512,8 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             _, _ = processEnemy(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0], 1.0, 2.5 + 4.5)
         else:
             _, _ = processEnemy(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0])
-    else:
-        enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[
-            turn.targetID]
+    else :
+        enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
         enemiesHit.append(enemy)
         a, b = processEnemy(turn, enemy, turn.brkSplit[0], turn.dmgSplit[0])
         newDebuff.extend(a)
@@ -552,8 +526,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 newDebuff.extend(a)
                 newDelay.extend(b)
 
-    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg,
-                  turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
+    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character], enemyTeam: list[Enemy]) -> list[Buff]:
     errBuffs, newList = [], []
@@ -581,14 +554,12 @@ def handleSPFromBuffs(buffList: list[Buff], spTracker: SpTracker) -> list[Buff]:
             newList.append(buff)
     return newList
 
+
 # noinspection DuplicatedCode,PyUnusedLocal
-def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summons: list[Summon],
-               enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], typ: str,
-               manualMode=False) -> Special:
+def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], typ: str, manualMode = False) -> Special:
     gauge = enemyTeam
     specChar = findCharName(playerTeam, specStr)
-    placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element],
-                           [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
+    placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element], [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
     if typ == "START":
         match specStr:
             case "Aventurine":
@@ -599,8 +570,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
 
             case "Bronya":
                 cd = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
-                cd = cd - findBuffName(buffList, "BronyaUltCD").getBuffVal() if "BronyaUltATK" in getBuffNames(
-                    buffList) else cd
+                cd = cd - findBuffName(buffList, "BronyaUltCD").getBuffVal() if "BronyaUltATK" in getBuffNames(buffList) else cd
                 return Special(name=specStr, attr1=cd, enemies=gauge)
 
             case "DrRatio":
@@ -623,8 +593,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
 
             case "Firefly":
                 res1 = getScalingValues(specChar, buffList, [AtkType.ALL])
-                res2 = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList,
-                                   placeHolderTurn)
+                res2 = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=res1, attr2=res2, enemies=gauge)
 
             case "Fuxuan":
@@ -637,8 +606,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 return Special(name=specStr, attr1=beStat, attr2=canUlt, enemies=gauge)
 
             case "HarmonyMC":
-                hmcBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList,
-                                    placeHolderTurn)
+                hmcBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=hmcBE, enemies=gauge)
 
             case "HuntM7":
@@ -657,11 +625,9 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 tickField = True if unit.name == "Jiaoqiu" else False
                 targetStatus = []
                 for enemy in enemyTeam:
-                    targetStatus.append("SpringVULN" in getBuffNames(
-                        [debuff for debuff in debuffList if debuff.target == enemy.enemyID]))
+                    targetStatus.append("SpringVULN" in getBuffNames([debuff for debuff in debuffList if debuff.target == enemy.enemyID]))
                 ehr = getCharStat(StatTypes.EHR_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=ehr, attr2=maxStacks, attr3=tickField, attr4=targetStatus,
-                               enemies=gauge)
+                return Special(name=specStr, attr1=ehr, attr2=maxStacks, attr3=tickField, attr4=targetStatus, enemies=gauge)
 
             case "Lingsha":
                 fuyuan = findCharName(summons, "Fuyuan")
@@ -703,8 +669,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 energyCap = findCharRole(playerTeam, specChar.targetRole).maxEnergy
                 cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
                 sundayTurn = unit.name == "Sunday"
-                return Special(name=specStr, attr1=summonRole, attr2=energyCap, attr3=cdStat, attr4=sundayTurn,
-                               enemies=gauge)
+                return Special(name=specStr, attr1=summonRole, attr2=energyCap, attr3=cdStat, attr4=sundayTurn, enemies=gauge)
 
             case "Topaz":
                 fireWeak = hasWeakness(Element.FIRE, enemyTeam)
@@ -715,6 +680,10 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 yunliSlot = specChar.pos
                 lst = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
                 return Special(name=specStr, attr1=lst[yunliSlot], enemies=gauge)
+
+            case "Sushang":
+                HasExtraSwordStance = True if "SushangUltimateAttack" in getBuffNames(buffList) else False
+                return Special(name=specStr, attr1=HasExtraSwordStance,attr2=enemyTeam, enemies=gauge)
 
             case _:
                 return Special(specStr, enemies=gauge)
@@ -745,6 +714,7 @@ def wbDelay(ele: Element, charBE: float, enemy: Enemy) -> list[Delay]:
         res.append(Delay(breakName, 0.2 * charBE, enemy.enemyID, True, False))
     elif ele == Element.IMAGINARY:
         res.append(Delay(breakName, 0.3 * charBE, enemy.enemyID, True, False))
+    return res
 
 def wbDebuff(ele: Element, charRole: Role, charBE: float, enemy: Enemy) -> Debuff:
     debuffName = f"{enemy.name} {ele.value}-break"
@@ -760,6 +730,8 @@ def wbDebuff(ele: Element, charRole: Role, charBE: float, enemy: Enemy) -> Debuf
         return Debuff(debuffName, charRole, StatTypes.SHOCK, 2 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, True, [0, 0], False)
     elif ele == Element.QUANTUM:
         return Debuff(debuffName, charRole, StatTypes.ENTANGLE, 1.8 * wbMultiplier * enemy.maxToughnessMul * charBE, enemy.enemyID, [AtkType.ALL], 1, 1, False, [0, 0], False)
+    elif ele == Element.IMAGINARY:
+        return Debuff(debuffName, charRole, StatTypes.SPD_PERCENT, -0.1, enemy.enemyID, [AtkType.ALL], 1, 1, False, [0, 0], False)
 
 def findBestEnemy(char: Character, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> Enemy:
     bestEnemy = None
@@ -802,8 +774,8 @@ def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkTyp
             flat += buff.getBuffVal()
     return base * (1 + mul) + flat
 
-def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList,
-                    spTracker, dmgTracker: DmgTracker, manualMode=False):
+def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker: DmgTracker, manualMode=False):
+
     while turnList:
         turn = turnList[0]
 
@@ -812,8 +784,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
 
         logging.warning(f"    TURN   - {turn}")
         logging.debug("\n        ----------Char Buffs----------")
-        [logging.debug(f"        {buff}") for buff in teamBuffs if
-         (buff.target == turn.charRole and checkValidList(turn.atkType, buff.atkType))]
+        [logging.debug(f"        {buff}") for buff in teamBuffs if (buff.target == turn.charRole and checkValidList(turn.atkType, buff.atkType))]
         logging.debug("        ----------End of Buff List----------")
         logging.debug("\n        ----------Enemy Debuffs----------")
         [logging.debug(f"        {debuff}") for debuff in enemyDebuffs if debuff.target == turn.targetID]
@@ -827,25 +798,21 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.warning(f"    {result}")
         if manualMode:
             print(result)
-        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                      advList, delayList, [], newDebuffs, [], newDelays)
+        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, [], newDebuffs, [], newDelays)
         for char in playerTeam + summons:
             if char.role == turn.charRole:
                 tempB, tempDB, tempA, tempD, newTurns = char.ownTurn(turn, res)
             else:
                 tempB, tempDB, tempA, tempD, newTurns = char.allyTurn(turn, res)
-            teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                          advList, delayList, tempB, tempDB, tempA,
-                                                                          tempD)
+            teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, tempB, tempDB, tempA, tempD)
             turnList.extend(newTurns)
 
         turnList = turnList[1:]
 
     return teamBuffs, enemyDebuffs, advList, delayList, turnList
 
+def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode = False, simAV = 0):
 
-def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker,
-               manualMode=False, simAV=0):
     turnList = []
     # Check if any unit can ult
     for char in playerTeam:
@@ -859,16 +826,11 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
                 if manualMode:
                     print(ult)
                 bl, dbl, al, dl, tl = char.useUlt(target)
-                teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs,
-                                                                              enemyDebuffs, advList, delayList, bl, dbl,
-                                                                              al, dl)
+                teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, bl, dbl, al, dl)
                 turnList.extend(tl)
 
         # Handle any new attacks from unit ults
-        teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam,
-                                                                                teamBuffs, enemyDebuffs, advList,
-                                                                                delayList, spTracker, dmgTracker,
-                                                                                manualMode=manualMode)
+        teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode=manualMode)
 
         # Handle any errGain from unit ults
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -878,26 +840,22 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
 
     return teamBuffs, enemyDebuffs, advList, delayList
 
-def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, checkType,
-                         spTracker, dmgTracker, manualMode=False):
+def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, checkType, spTracker, dmgTracker, manualMode = False):
+
     turnList = []
     # Apply any special effects
     for char in playerTeam:
         spec = char.special()
-        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, checkType,
-                             manualMode=manualMode)
+        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, checkType, manualMode=manualMode)
         if checkType == "START":
             bl, dbl, al, dl, tl = char.handleSpecialStart(specRes)
         else:
             bl, dbl, al, dl, tl = char.handleSpecialEnd(specRes)
-        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                      advList, delayList, bl, dbl, al, dl)
+        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, bl, dbl, al, dl)
         turnList.extend(tl)
 
     # Handle any attacks from special attacks
-    teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam,
-                                                                            teamBuffs, enemyDebuffs, advList, delayList,
-                                                                            spTracker, dmgTracker, manualMode)
+    teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode)
 
     # Add Energy if any was provided from special effects
     teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -957,38 +915,32 @@ def manualModule(spTracker: SpTracker, playerTeam: list[Character], summons: lis
 
 # Use this function to get the stat of the character, without any associated base multipliers:
 # e.g. 1 + dmg%, 1 + err% etc.
-def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],
-                turn: Turn) -> float:
+def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     res = 0
     pwrList = [query, penDct[char.element]] if query == StatTypes.PEN else [query]
 
-    res += sum([buff.getBuffVal() for buff in buffList if ((buff.target == char.role) and checkValidList(turn.atkType,
-                                                                                                         buff.atkType) and buff.buffType in pwrList and (
-                                                                       not buff.reqBroken or enemy.broken))])
-    res += sum([debuff.getDebuffVal() for debuff in debuffList if (
-                (debuff.target == enemy.enemyID) and checkValidList(turn.atkType,
-                                                                    debuff.atkType) and debuff.debuffType in pwrList) and checkValidList(
-        [char.role], debuff.validFor)])
+    res += sum([buff.getBuffVal() for buff in buffList if ((buff.target == char.role) and checkValidList(turn.atkType, buff.atkType) and buff.buffType in pwrList and (not buff.reqBroken or enemy.broken))])
+    res += sum([debuff.getDebuffVal() for debuff in debuffList if ((debuff.target == enemy.enemyID) and checkValidList(turn.atkType, debuff.atkType) and debuff.debuffType in pwrList) and checkValidList([char.role], debuff.validFor)])
 
     match query:
         case StatTypes.BE_PERCENT:
-            return res + char.relicStats.getBE()  # base multiplier of 1 not added
+            return res + char.relicStats.getBE() # base multiplier of 1 not added
         case StatTypes.WB_EFF:
-            return res  # base multiplier of 1 not added
+            return res # base multiplier of 1 not added
         case StatTypes.EHR_PERCENT:
             return res + char.relicStats.getEHR()
         case StatTypes.ERS_PERCENT:
             return res + char.relicStats.getERS()
         case StatTypes.CR_PERCENT:
-            return res + char.relicStats.getCR()  # base value of 0.05 added
+            return res + char.relicStats.getCR() # base value of 0.05 added
         case StatTypes.CD_PERCENT:
-            return res + char.relicStats.getCD()  # base value of 0.5 added, base multi of 1 not added
+            return res + char.relicStats.getCD() # base value of 0.5 added, base multi of 1 not added
         case StatTypes.DMG_PERCENT:
-            return res + char.relicStats.getDMG()  # base value of 1 not added
+            return res + char.relicStats.getDMG() # base value of 1 not added
         case StatTypes.ERR_PERCENT:
-            return res + char.relicStats.getERR()  # base value of 1 not added
+            return res + char.relicStats.getERR() # base value of 1 not added
         case StatTypes.OGH_PERCENT:
-            return res + char.relicStats.getOGH()  # base multiplier of 1 not added
+            return res + char.relicStats.getOGH() # base multiplier of 1 not added
         case StatTypes.BRK_DMG:
             return res
         case StatTypes.SBRK_DMG:
@@ -999,7 +951,6 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res
         case StatTypes.VULN:
             return res
-
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char
 def getMulBE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
@@ -1032,8 +983,7 @@ def getMulOGH(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
 def getMulBrkDMG(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     return getCharStat(StatTypes.BRK_DMG, char, enemy, buffList, debuffList, turn) + 1
 
-def getMulSuperBrkDMG(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],
-                      turn: Turn) -> float:
+def getMulSuperBrkDMG(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     return getCharStat(StatTypes.SBRK_DMG, char, enemy, buffList, debuffList, turn) + 1
 
 def getMulSHRED(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:

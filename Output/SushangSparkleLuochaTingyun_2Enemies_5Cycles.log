@@ -1,0 +1,35 @@
+Enemy Team:
+Enemy 0 | LVL: 95 | SPD: 158.4 | Weakness: ['PHYSICAL'] | Toughness: 160
+Enemy 1 | LVL: 95 | SPD: 145.2 | Weakness: ['PHYSICAL'] | Toughness: 100
+
+Player Team:
+Sushang E6 | PHYSICAL-HUNT | DPS | POS:0
+Cruising in the Stellar Sea S5
+Scholar lost in Erudition (4-pc)
+Rutilant Arena
+
+Sparkle E0 | QUANTUM-HARMONY | SUP1 | POS:1
+Cruising in the Stellar Sea S5
+Scholar lost in Erudition (4-pc)
+Rutilant Arena
+
+Luocha E0 | IMAGINARY-HARMONY | SUS | POS:2
+Cruising in the Stellar Sea S5
+Scholar lost in Erudition (4-pc)
+Rutilant Arena
+
+Tingyun E6 | LIGHTNING-HARMONY | SUP2 | POS:3
+Cruising in the Stellar Sea S5
+Scholar lost in Erudition (4-pc)
+Rutilant Arena
+
+
+Initial AV Adjustments
+
+Initial Enemy Delays
+
+==========COMBAT SIMULATION STARTED==========
+
+<<< NEW TURN >>>
+    TURN   - SparkleTechSP | Sparkle | SUP1 | NA attack | ['QUA'] | ['SPECIAL'] | Scaling: ATK | TargetID: -1 | DMG/BREAK Splits: [0, 0]/[0, 0] | Energy Gained: 0
+    RESULT - SparkleTechSP | Sparkle | SUP1 | DMG: 0.000 | Enemies Hit: [0] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 0.000 | Sparkle Energy: 55/110

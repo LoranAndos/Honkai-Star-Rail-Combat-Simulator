@@ -1,12 +1,15 @@
-from Characters import *
-from RelicStats import RelicStats
+import logging
+
+from Characters.Luocha import Luocha
+from Characters.Sparkle import Sparkle
+from Characters.Sushang import Sushang
+from Characters.Tingyun import Tingyun
 from MainFunctions import *
-from Attributes import *
 from Enemy import *
 
 cycles = 5  # comment out this line if running the simulator from an external script
 log = True
-manual = True
+manual = False
 
 
 # noinspection PyUnboundLocalVariable,PyUnusedLocal
@@ -20,21 +23,21 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [158.4, 145.2]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.LIGHTNING]
+    weaknesses = [Element.PHYSICAL]
     actionOrder = [1, 1, 2]  # determines how many attacks enemies will have per turn
-    enemyModule = enemyModule if enemyModule else EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
+    enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
     # Character Settings
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = "Temp"
-        slot2 = "Temp"
-        slot3 = "Temp"
-        slot4 = "Temp"
+        slot1 = Sushang(0,Role.DPS,1,eidolon=6,targetPrio=Priority.DEFAULT)
+        slot2 = Sparkle(1,Role.SUP1,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot3 = Luocha(2,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot4 = Tingyun(3,Role.SUP2,1,eidolon=6,targetPrio=Priority.DEFAULT)
 
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.INFO
+    logLevel = logging.WARNING
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -89,7 +92,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         eAction = enemyModule.actionOrder
         eWeaknesses = enemyModule.weaknesses
 
-        eTeam.append(Enemy(i, eLevel, eType, eSPD, eToughness, eAction, eWeaknesses, adjList))
+        eTeam.append(Enemy(i, eLevel, eType, eSPD, eToughness, eAction, eWeaknesses, adjList,CanDoDamage=False))
 
     manualPrint(manualMode,
                 "===============================================================================================================================================================")
@@ -172,8 +175,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                                                                                   enemyDebuffs, advList, delayList, bl,
                                                                                   dbl, al, dl)
                     turnList.extend(tl)
-            energyList = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,
-                                   teamBuffs)  # might be useful someday lol
+            energyList = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,teamBuffs)  # might be useful someday lol
             energyMsg = "    CharEnergy -"
             for i in range(4):
                 energyMsg += f" {playerTeam[i].name}: Hit {energyList[i] * 10:.3f} Total: {playerTeam[i].currEnergy:.3f} |"

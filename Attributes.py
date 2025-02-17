@@ -1,6 +1,9 @@
 from enum import Enum, auto
 
-bonusDMG = {} # Will be for special types of damage, and things like additional damage
+bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
+            "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
+            "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
+            ,"SushangSwordStance"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}
 atkRatio_Elites = [0.5, 0.5, 0]
@@ -51,6 +54,7 @@ class StatTypes(Enum):
     BURN = "BURN"
     BLEED = "BLEED"
 
+    GENERIC = "Generic" # generic debuff that weakens the enemy, does not buff the characters damage
     TRUEDAMAGE = "TRUEDAMAGE"
 
 class Element(Enum):
@@ -136,7 +140,7 @@ class AtkType(Enum):
     TOPAZFUA = auto()
     UEBSC = auto() # Hunt March
     EBSC = auto() # Hunt March
-    ESKILL = auto() # Firefly   
+    ESKILL = auto() # Firefly
     HMCSBK = auto() # bonus superbreak dmg from Hmc
     FUGUESBK = auto() # bonus superbreak dmg from Fugue
 
@@ -151,4 +155,4 @@ class Priority(Enum):
     BROKEN = auto()
     MIDDLE = auto()
 
-penDct = {Element.PHYSICAL: StatTypes.PHYPEN, Element.FIRE: StatTypes.FIRPEN, Element.WIND: StatTypes.WINPEN, Element.ICE: StatTypes.ICEPEN, Element.QUANTUM: StatTypes.QUAPEN, Element.LIGHTNING: StatTypes.LNGPEN, Element.IMAGINARY: StatTypes.IMGPEN}
+penDct = {Element.PHYSICAL: StatTypes.PHYPEN, Element.FIRE: StatTypes.FIRPEN,Element.WIND: StatTypes.WINPEN,Element.ICE: StatTypes.ICEPEN, Element.QUANTUM: StatTypes.QUAPEN, Element.LIGHTNING: StatTypes.LNGPEN, Element.IMAGINARY: StatTypes.IMGPEN}
