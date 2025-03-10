@@ -23,6 +23,7 @@ class Tingyun(Character):
     ultCost = 130
     currEnergy = 130
     currAV = 0
+    aggro = 100
     dmgDct = {AtkType.BSC: 0, AtkType.SPECIAL: 0, AtkType.BRK: 0}
 
     # Unique Character Properties

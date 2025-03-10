@@ -6,7 +6,7 @@ class Lightcone(Equipment):
     path = "None"
     baseHP = 0
     baseATK = 0
-    baseDEf = 0
+    baseDEF = 0
 
     def __init__(self, wearerRole: Role, level: int):
         super().__init__(wearerRole)

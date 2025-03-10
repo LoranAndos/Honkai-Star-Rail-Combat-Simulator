@@ -1,9 +1,17 @@
 import logging
+from argparse import Action
+from unittest.mock import DEFAULT
+from wsgiref.handlers import CGIHandler
 
+import Character
+import Turn_Text
 from Character import *
 from Enemy import Enemy
 from Attributes import *
+from Lightcone import Lightcone
+from Memosprite import Memosprite
 from Summons import *
+from Memosprites import Mem
 from Trackers import *
 from random import randrange
 
@@ -225,7 +233,7 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
     AggroNumber = randrange(1,aggroSum+1, 1)
     finalEnergy = [0]*len(playerTeam)
     for enemy in enemyTeam:
-        Number_Keeper = 1
+        Number_Keeper = 0
         if enemy.enemyType == EnemyType.ADD:
             for a in range(len(playerTeam)-1):
                 if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
@@ -685,6 +693,27 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 HasExtraSwordStance = True if "SushangUltimateAttack" in getBuffNames(buffList) else False
                 return Special(name=specStr, attr1=HasExtraSwordStance,attr2=enemyTeam, enemies=gauge)
 
+            case "Mem":
+                RmcBuffs = []
+                Temporary = []
+                HasMemosprite = False
+                SpecialEnergyCharacter = []
+                for buffs in buffList:
+                    Temporary.append(buffs)
+                for ActualBuffs in Temporary:
+                    if ActualBuffs.target == Role.SUP1:
+                        RmcBuffs.append(ActualBuffs)
+                energyList = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
+                for char in playerTeam:
+                    if char.specialEnergy == True:
+                        SpecialEnergyCharacter.append(char.name)
+                    if char.role == Role.DPS:
+                        DpsEnergy = char.maxEnergy
+                        if char.hasMemosprite == True:
+                            HasMemosprite = True
+                return Special(name=specStr, attr1=RmcBuffs, attr2=energyList, attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
+
             case _:
                 return Special(specStr, enemies=gauge)
 
@@ -883,12 +912,17 @@ def manualModule(spTracker: SpTracker, playerTeam: list[Character], summons: lis
     output = ""
     userAction = ""
     if actionType == "TURN":
-        while userAction.upper() not in {"E", "A"}:
-            userAction = input(f"INPUT  > {unit.name} | Energy: {unit.currEnergy:.0f}/{unit.maxEnergy} | Move (E/A): ")
-            if userAction.upper() not in {"E", "A"}:
+        while userAction.upper() not in {"E", "A", "MEMO"}:
+            userAction = input(f"INPUT  > {unit.name} | Energy: {unit.currEnergy:.0f}/{unit.maxEnergy} | Move (E/A/MEMO): ")
+            if userAction.upper() not in {"E", "A", "MEMO"}:
                 print("Invalid Input!")
                 continue
-            string = "SKILL" if userAction.upper() == "E" else "BASIC"
+            if userAction.upper() == "E":
+                string = "SKILL"
+            elif userAction.upper() == "MEMO":
+                string = "MEMOATTACK"
+            else:
+                string = "BASIC"
             output = f"    {unit.name} used {string} against Enemy "
     elif actionType == "ULT":
         while userAction.upper() not in {"Y", "N"}:
@@ -951,6 +985,8 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res
         case StatTypes.VULN:
             return res
+        case StatTypes.TRUEDAMAGE:
+            return res
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char
 def getMulBE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
@@ -999,6 +1035,9 @@ def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
     pen = pen - enemy.getRes(turn.element[0])
     return min(3.0, 1 + pen)
 
+def getTRUEDAMAGE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return getCharStat(StatTypes.TRUEDAMAGE, char, enemy, buffList, debuffList, turn) + 1
+
 def getMulUNI(enemy: Enemy) -> float:
     return enemy.getUniMul()
 
@@ -1006,5 +1045,6 @@ def getMulENEMY(char: Character, enemy: Enemy, buffList: list[Buff], debuffList:
     shredMul = getMulSHRED(char, enemy, buffList, debuffList, turn)
     vulnMul = getMulVULN(char, enemy, buffList, debuffList, turn)
     penMul = getMulPEN(char, enemy, buffList, debuffList, turn)
+    TrueDamageMul = getTRUEDAMAGE(char, enemy, buffList, debuffList, turn)
     uniMul = getMulUNI(enemy)
-    return shredMul * vulnMul * penMul * uniMul
+    return shredMul * vulnMul * penMul * TrueDamageMul * uniMul

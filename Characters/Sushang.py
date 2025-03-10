@@ -52,8 +52,8 @@ class Sushang(Character):
         e3Mul = 0.21 if self.eidolon >= 3 else 0.2
         e6Stacks = 2 if self.eidolon == 6 else 1
         bl.append(Buff("SushangTraceATK",StatTypes.ATK_PERCENT,0.28,self.role))
-        bl.append(Buff("SushangTraceHP",StatTypes.ATK_PERCENT,0.18,self.role))
-        bl.append(Buff("SushangTraceDEF",StatTypes.ATK_PERCENT,0.125,self.role))
+        bl.append(Buff("SushangTraceHP",StatTypes.HP_PERCENT,0.18,self.role))
+        bl.append(Buff("SushangTraceDEF",StatTypes.DEF_PERCENT,0.125,self.role))
         if self.eidolon >= 4:
             bl.append(Buff("SushangE4BE", StatTypes.BE_PERCENT, 0.40, self.role))
         if self.eidolon == 6:
@@ -98,26 +98,26 @@ class Sushang(Character):
             bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,stackLimit = e6Stacks,tdType=TickDown.END))
         if enemy.broken == True and result.turnName == "SushangSkill":
             e5Mul = 1.1 if self.eidolon >= 5 else 1
-            tl.append(Turn(self.name,self.role,-1,Targeting.NA,[AtkType.SKL],[self.element],[0,0],[0,0],0,self.scaling,1,"Sushange1SP"))
-            tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
+            tl.append(Turn(self.name,self.role,-1,Targeting.NA,[AtkType.SPECIAL],[self.element],[0,0],[0,0],0,self.scaling,1,"Sushange1SP"))
+            tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL,AtkType.ADD],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
         if result.turnName == "SushangSkill" and enemy.broken == False:
             SwordStanceChance = randrange(1,100,1)
             e5Mul = 1.1 if self.eidolon >= 5 else 1
             if SwordStanceChance > 67:
-                tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
+                tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL,AtkType.ADD],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
         if enemy.broken == True and self.HasExtraSwordStance == True and result.turnName == "SushangSkill":
-            tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL], [self.element],
+            tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL,AtkType.ADD], [self.element],
                      [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStanceExtra"))
-            tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL], [self.element],
+            tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL,AtkType.ADD], [self.element],
                      [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStanceExtra"))
         if result.turnName == "SushangSkill" and enemy.broken == False:
             for i in range(1,3):
                 SwordStanceChance = randrange(1, 100, 1)
                 e5Mul = 1.1 if self.eidolon >= 5 else 1
                 if SwordStanceChance > 67:
-                    tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE, [AtkType.SKL],[self.element], [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStance"))
+                    tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE, [AtkType.SKL,AtkType.ADD],[self.element], [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStance"))
         if result.turnName == "SushangSwordStance" or result.turnName == "SushangSwordStanceExtra":
-            bl.append(Buff("SushangTrace2",StatTypes.DMG_PERCENT,0.02,[AtkType.ALL],self.role,1,10,Role.SELF,TickDown.PERM))
+            bl.append(Buff("SushangTrace2",StatTypes.DMG_PERCENT,0.02,self.role,[AtkType.ALL],1,10,Role.SELF,TickDown.PERM))
         return bl, dbl, al, dl, tl
 
     def allyTurn(self, turn: Turn, result: Result):

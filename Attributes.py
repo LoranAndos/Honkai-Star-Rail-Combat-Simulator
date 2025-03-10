@@ -3,7 +3,7 @@ from enum import Enum, auto
 bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
             "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
+            ,"SushangSwordStance","MemSkill"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}
 atkRatio_Elites = [0.5, 0.5, 0]
@@ -54,8 +54,9 @@ class StatTypes(Enum):
     BURN = "BURN"
     BLEED = "BLEED"
 
-    GENERIC = "Generic" # generic debuff that weakens the enemy, does not buff the characters damage
     TRUEDAMAGE = "TRUEDAMAGE"
+
+    GENERIC = "Generic" # generic debuff that weakens the enemy, does not buff the characters damage
 
 class Element(Enum):
     WIND = "WIN"
@@ -84,7 +85,9 @@ class Role(Enum):
     SUP1 = auto()
     SUP2 = auto()
     SUS = auto()
-    MEMO = auto()
+    MEMO1 = auto()
+    MEMO2 = auto()
+    MEMO3 = auto()
     ALL = auto()
     SELF = auto()
     TEAM = auto()  # everyone except the source of the buff
@@ -94,6 +97,8 @@ class Role(Enum):
     NUMBY = auto()
     FUYUAN = auto()
     HENSHIN = auto()
+    # Memosprite roles
+    Mem = auto()
 
 class Scaling(Enum):
     ATK = "ATK%"

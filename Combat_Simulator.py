@@ -4,6 +4,8 @@ from Characters.Luocha import Luocha
 from Characters.Sparkle import Sparkle
 from Characters.Sushang import Sushang
 from Characters.Tingyun import Tingyun
+from Characters.Rmc import Rmc
+from Memosprites.Mem import Mem
 from MainFunctions import *
 from Enemy import *
 
@@ -30,14 +32,15 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Character Settings
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Sushang(0,Role.DPS,1,eidolon=6,targetPrio=Priority.DEFAULT)
-        slot2 = Sparkle(1,Role.SUP1,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot3 = Luocha(2,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot4 = Tingyun(3,Role.SUP2,1,eidolon=6,targetPrio=Priority.DEFAULT)
+        slot2 = Rmc(1,Role.SUP1,1,eidolon=6,targetPrio=Priority.DEFAULT)
+        slot3 = Mem.Mem(2,Role.MEMO2,1,eidolon=6,targetPrio=Priority.DEFAULT)
+        slot4 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot5 = Tingyun(4,Role.SUP2,1,eidolon=6,targetPrio=Priority.DEFAULT)
 
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.WARNING
+    logLevel = logging.DEBUG
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -46,7 +49,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Logging Config
     if not s1:
-        playerTeam = [slot1, slot2, slot3, slot4]
+        playerTeam = [slot1, slot2, slot3, slot4, slot5]
     else:
         playerTeam = [s1, s2, s3, s4]
 
@@ -194,6 +197,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                 bl, dbl, al, dl, tl = unit.useSkl(target)
             elif moveType == "A":
                 bl, dbl, al, dl, tl = unit.useBsc(target)
+            elif moveType == "MEMO":
+                bl, dbl, al, dl, tl = unit.useMemo(target)
             else:
                 manualPrint(manualMode, "Invalid move type!")
                 bl, dbl, al, dl, tl = [], [], [], [], []
@@ -306,7 +311,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     for char in playerTeam:
         res, charDMG = char.getTotalDMG()
         logging.critical(
-            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
+            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
         logging.critical(res)
 
     return f"DPAV: {dmg.getTotalDMG() / avLimit:.3f} | SP Used: {spTracker.getSPUsed()}, SP Gain: {spTracker.getSPGain()}"

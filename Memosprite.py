@@ -5,37 +5,39 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class Character:
+class Memosprite:
     # Standard Character Properties
-    name = "Character"
-    path = Path.HUNT
+    name = "Memosprite"
+    path = Path.REMEMBRANCE
     element = Element.LIGHTNING
     scaling = "ATK"
+    MemoSummoner = None
     baseHP = 0
     baseATK = 0
     baseDEF = 0
     baseSPD = 100.0
     maxEnergy = 100.0
-    ultCost = 100.0
+    EnergyCost = 100.0
     currEnergy = maxEnergy / 2
     currAV = 100.0
     aggro = 0
-    rotation = ["E", "A", "A"]
-    dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.MEMO: 0.0}
+    MemoActive = False
+    rotation = ["MemoAtk"]
+    dmgDct = {AtkType.MEMO: 0.0}
     hasSummon = False
-    hasMemosprite = False
     specialEnergy = False
+
     basics = 0
     skills = 0
     ults = 0
     fuas = 0
     Adds = 0
     MemoAttack = 0
-    turn = 0
     lightcone = None
     relic1 = None
     relic2 = None
     planar = None
+    turn = 0
     enemyStatus = []
 
     # Unique Character Properties
@@ -53,7 +55,7 @@ class Character:
         self.targetPrio = targetPrio
 
     def __str__(self) -> str:
-        res = f"{self.name} E{self.eidolon} | {self.element.name}-{self.path.name} | {self.role.name} | POS:{self.pos}\n"
+        res = f"{self.name} | {self.element.name}-{self.path.name} | {self.role.name} | POS:{self.pos}\n"
         res += f"{self.lightcone}\n"
         res += f"{self.relic1}" + (f"| {self.relic2}\n" if self.relic2 is not None else "\n")
         res += f"{self.planar}"
@@ -62,28 +64,12 @@ class Character:
     def equip(self):  # function to add base buffs to wearer
         return self.parseEquipment("EQUIP")
 
-    def useSkl(self, enemyID=-1):
-        self.skills = self.skills + 1
-        return *self.parseEquipment(AtkType.SKL, enemyID=enemyID), []
-
-    def useBsc(self, enemyID=-1):
-        self.basics = self.basics + 1
-        return *self.parseEquipment(AtkType.BSC, enemyID=enemyID), []
+    def useMemo(self, enemyID=-1):
+        self.MemoAttack = self.MemoAttack + 1
+        return *self.parseEquipment(AtkType.MEMO, enemyID=enemyID), []
 
     def useUlt(self, enemyID=-1):
         self.ults = self.ults + 1
-        return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
-
-    def useFua(self, enemyID=-1):
-        self.fuas = self.fuas + 1
-        return *self.parseEquipment(AtkType.FUA, enemyID=enemyID), []
-
-    def useAdd(self, enemyID=-1):
-        self.Adds = self.Adds + 1
-        return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
-
-    def useMemo(self, enemyID=-1):
-        self.MemoAttack = self.MemoAttack + 1
         return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
 
     def useHit(self, enemyID=-1):
@@ -109,6 +95,21 @@ class Character:
     def allyTurn(self, turn: Turn, result: Result):
         return *self.parseEquipment("ALLY", turn=turn, result=result), []
 
+    def enemyTurn(self, turn: Turn, result: Result):
+        return *self.parseEquipment("ENEMY", turn=turn, result=result), []
+
+    def MemoAdd(self, MemoActive: MemoActive, result: Result, MemoSummoner: MemoSummoner):
+        if MemoActive == False and result.turnName == "SummonMemo":
+            return True
+
+    def MemoActive(self, MemoActive: MemoActive):
+        if MemoActive == True:
+            return True
+
+    def MemoRemove(self, MemoActive: MemoActive, result: Result):
+        if MemoActive == True and result.turnName == "RemoveMemo":
+            return True
+
     def parseEquipment(self, actionType, turn=None, result=None, special=None, enemyID=-1):
         buffList, debuffList, advList, delayList = [], [], [], []
         equipmentList = [self.lightcone, self.relic1, self.planar]
@@ -116,17 +117,7 @@ class Character:
             equipmentList.append(self.relic2)
 
         for equipment in equipmentList:
-            if actionType == AtkType.BSC:
-                buffs, debuffs, advs, delays = equipment.useBsc(enemyID)
-            elif actionType == AtkType.SKL:
-                buffs, debuffs, advs, delays = equipment.useSkl(enemyID)
-            elif actionType == AtkType.ULT:
-                buffs, debuffs, advs, delays = equipment.useUlt(enemyID)
-            elif actionType == AtkType.FUA:
-                buffs, debuffs, advs, delays = equipment.useFua(enemyID)
-            elif actionType == AtkType.ADD:
-                buffs, debuffs, advs, delays = equipment.useAdd(enemyID)
-            elif actionType == AtkType.MEMO:
+            if actionType == AtkType.MEMO:
                 buffs, debuffs, advs, delays = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":
                 buffs, debuffs, advs, delays = equipment.equip()
@@ -140,6 +131,8 @@ class Character:
                 buffs, debuffs, advs, delays = equipment.ownTurn(turn, result)
             elif actionType == "ALLY":
                 buffs, debuffs, advs, delays = equipment.allyTurn(turn, result)
+            elif actionType == "ENEMY":
+                buffs, debuffs, advs, delays = equipment.enemyTurn(turn, result)
             else:
                 buffs, debuffs, advs, delays = [], [], [], []
 
@@ -162,7 +155,7 @@ class Character:
         return self.relicStats.getSPD()
 
     def canUseUlt(self) -> bool:
-        return self.currEnergy >= self.ultCost
+        return self.currEnergy >= self.EnergyCost
 
     def takeTurn(self) -> str:
         res = self.turn
@@ -178,11 +171,11 @@ class Character:
 
     def getBaseStat(self):
         if self.scaling == Scaling.ATK:
-            baseStat = self.baseATK + self.lightcone.baseATK
+            baseStat = self.baseATK
         elif self.scaling == Scaling.HP:
-            baseStat = self.baseHP + self.lightcone.baseHP
+            baseStat = self.baseHP
         elif self.scaling == Scaling.DEF:
-            baseStat = self.baseDEF + self.lightcone.baseDEF
+            baseStat = self.baseDEF
         else:
             baseStat = 0.0
         return baseStat, *self.getRelicScalingStats()

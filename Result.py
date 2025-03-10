@@ -23,7 +23,7 @@ class Result:
 
 
 class Special:
-    def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None):
+    def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None, attr6=None):
         self.specialName = name
         self.enemies = enemies
         self.attr1 = attr1
@@ -31,6 +31,7 @@ class Special:
         self.attr3 = attr3
         self.attr4 = attr4
         self.attr5 = attr5
+        self.attr6 = attr6
 
     def __str__(self) -> str:
         return f"{self.specialName} | Attr1: {self.attr1} | Attr2: {self.attr2} | Attr3: {self.attr3} | Attr4: {self.attr4} | Attr5: {self.attr5}"
