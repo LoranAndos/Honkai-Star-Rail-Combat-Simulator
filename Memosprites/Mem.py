@@ -35,7 +35,7 @@ class Mem(Memosprite):
     aggro = 100
     MemoActive = False
     rotation = ["MEMO"]
-    dmgDct = {AtkType.MEMO: 0.0, AtkType.BRK: 0.0}
+    dmgDct = {AtkType.MEMO: 0.0,AtkType.SPECIAL: 0.0 ,AtkType.BRK: 0.0}
 
     # Unique Character Properties
     specialEnergy = True
