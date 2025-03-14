@@ -698,6 +698,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 Temporary = []
                 HasMemosprite = False
                 SpecialEnergyCharacter = []
+                DpsEnergy = 0
                 for buffs in buffList:
                     Temporary.append(buffs)
                 for ActualBuffs in Temporary:
@@ -713,6 +714,14 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                         if char.hasMemosprite == True:
                             HasMemosprite = True
                 return Special(name=specStr, attr1=RmcBuffs, attr2=energyList, attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
+
+            case "Tribbie":
+                CharacterList = []
+                TeamHP = 0
+                for character in playerTeam:
+                    CharacterList.append(character)
+                    TeamHp = TeamHP + character.baseHP #Change this later to MaxHP once damage is coded into the sim
+                return Special(name=specStr, attr1=CharacterList, attr2=TeamHp, enemies=gauge)
 
             case _:
                 return Special(specStr, enemies=gauge)

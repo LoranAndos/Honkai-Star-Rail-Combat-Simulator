@@ -3,7 +3,7 @@ from enum import Enum, auto
 bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
             "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance","MemSkill"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
+            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}
 atkRatio_Elites = [0.5, 0.5, 0]
