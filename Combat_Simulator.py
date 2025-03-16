@@ -20,11 +20,11 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                    outputLog: bool = False, enemyModule=None, manualMode=False) -> str:
     # =============== SETTINGS ===============
     # Enemy Settings
-    numEnemies = 2
-    enemyLevel = [95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemyTypes = [EnemyType.BOSS, EnemyType.ELITE]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemySPD = [158.4, 145.2]  # make sure that the number of entries in this list is the same as "numEnemies"
-    toughness = [160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
+    numEnemies = 3
+    enemyLevel = [95, 95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemySPD = [145.2, 158.4, 145.2]  # make sure that the number of entries in this list is the same as "numEnemies"
+    toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
     weaknesses = [Element.PHYSICAL]
     actionOrder = [1, 1, 2]  # determines how many attacks enemies will have per turn
@@ -42,7 +42,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.DEBUG
+    logLevel = logging.CRITICAL
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -125,6 +125,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Setup initial AV
     for char in playerTeam:
         initCharAV(char, teamBuffs)  # apply any pre-existing speed buffs
+
+    # Setup initial currHp and Maxhp
+    for char in playerTeam:
+        initCharCurrentHP_MaxHp(char, teamBuffs) # apply any pre-existing Hp buffs
 
     logging.warning("\nInitial AV Adjustments")
     avAdjustment(playerTeam, advList)  # apply any "on battle start" advances

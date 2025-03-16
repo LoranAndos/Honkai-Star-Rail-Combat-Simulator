@@ -20,6 +20,8 @@ class Memosprite:
     EnergyCost = 100.0
     currEnergy = maxEnergy / 2
     currAV = 100.0
+    currHP = 1.0
+    maxHP = 1.0
     aggro = 0
     MemoActive = False
     rotation = ["MemoAtk"]
@@ -148,11 +150,26 @@ class Memosprite:
     def reduceAV(self, reduceValue: float):
         self.currAV = max(0.0, self.currAV - reduceValue)
 
+    def changeHP(self, HpChangeValue: float):
+        if HpChangeValue > 0:
+            self.currHP = min(self.maxHP, self.currHP + HpChangeValue)
+        elif HpChangeValue < 0:
+            self.currHP = max(1.0, self.currHP + HpChangeValue)
+
     def getRelicScalingStats(self) -> tuple[float, float]:
         return self.relicStats.getScalingValue(self.scaling)
 
     def getSPD(self) -> float:
         return self.relicStats.getSPD()
+
+    def getHPFlat(self) -> float:
+        return self.relicStats.getHPFlat()
+
+    def getHPPercent(self) -> float:
+        return self.relicStats.getHPPercent()
+
+    def getOGH(self) -> float:
+        return self.relicStats.getOGH()
 
     def canUseUlt(self) -> bool:
         return self.currEnergy >= self.EnergyCost

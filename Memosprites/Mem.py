@@ -24,7 +24,7 @@ class Mem(Memosprite):
     scaling = Scaling.ATK
     MemoSummoner = Rmc
     lightcone = CruisingInTheStellarSea
-    baseHP = 0.86*(1047.8 + lightcone.baseHP) + 688 #if eidolon 3 or lower: 0.8*(1047.8 + lightcone.baseATK) + 640 else 0.86*(1047.8 + lightcone.baseATK) + 688
+    baseHP = 0.86*1047.8 #if eidolon 3 or lower: 0.8*1047.8 else 0.86*1047.8
     baseATK = 543.31 + lightcone.baseATK
     baseDEF = 630.63 + lightcone.baseDEF
     baseSPD = 1
@@ -49,6 +49,7 @@ class Mem(Memosprite):
     hasMemosprite = False
     SpecialEnergyCharacter = []
     ExtraTrueDamage = False
+    firstSkill = True
 
     # Relic Settings
 
@@ -72,91 +73,95 @@ class Mem(Memosprite):
 
     def useMemo(self, enemyID=-1):
         bl, dbl, al, dl, tl = super().useMemo(enemyID)
-        if self.eidolon < 3:
-            SmallMultiplier = 0.36
-            BigMultiplier = 0.9
-        elif 3 <= self.eidolon < 5:
-            SmallMultiplier = 0.396
-            BigMultiplier = 0.99
-        else:
-            SmallMultiplier = 0.432
-            BigMultiplier = 1.08
-        if not self.MemospriteSupport:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
-                     [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
-                     [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
-                     [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
-                     [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.MEMO], [self.element],
-                     [BigMultiplier, 0], [10, 0], 5, self.scaling, 0, "MemBigSkill"))
-        else:
-            if self.eidolon < 3:
-                TrueDamageBuff = 0.28 + min(0.2,(self.DpsEnergy-100)/10*2/100)
-            elif 3 <= self.eidolon < 5:
-                TrueDamageBuff = 0.30 + min(0.2,(self.DpsEnergy-100)/10*2/100)
+        if self.MemoActive:
+            if self.eidolon < 5:
+                SmallMultiplier = 0.36
+                BigMultiplier = 0.9
             else:
-                TrueDamageBuff = 0.32 + min(0.2,(self.DpsEnergy-100)/10*2/100)
-            if self.ExtraTrueDamage == True and self.eidolon >= 4:
-                TrueDamageBuff = 0.28 + 0.06
-            bl.append(Buff("MemSupport",StatTypes.TRUEDAMAGE,TrueDamageBuff,self.MemTarget,[AtkType.ALL],3,1,tickDown=self.MemTarget,tdType=TickDown.START))
-            al.append(Advance("MemSupportAdvance",self.MemTarget,1))
-            if self.eidolon >= 1:
-                bl.append(Buff("MemCRSupport",StatTypes.CR_PERCENT,0.1,self.MemTarget,[AtkType.ALL],3,1,tickDown=self.MemTarget,tdType=TickDown.START))
-            if self.hasMemosprite == True:
-                bl.append(Buff("MemSupport",StatTypes.TRUEDAMAGE,TrueDamageBuff,Role.MEMO1,[AtkType.ALL],3,1,tickDown=Role.MEMO1,tdType=TickDown.START))
+                SmallMultiplier = 0.396
+                BigMultiplier = 0.99
+            if not self.MemospriteSupport:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
+                         [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
+                         [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
+                         [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.MEMO], [self.element],
+                         [SmallMultiplier, 0], [5, 0], 0, self.scaling, 0, "MemSkill"))
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.MEMO], [self.element],
+                         [BigMultiplier, 0], [10, 0], 5, self.scaling, 0, "MemBigSkill"))
+            else:
+                if self.eidolon < 5:
+                    TrueDamageBuff = 0.28 + min(0.2,(self.DpsEnergy-100)/10*2/100)
+                else:
+                    TrueDamageBuff = 0.30 + min(0.2,(self.DpsEnergy-100)/10*2/100)
+                if self.ExtraTrueDamage == True and self.eidolon == 4:
+                    TrueDamageBuff = 0.28 + 0.06
+                elif self.ExtraTrueDamage == True and self.eidolon > 5:
+                    TrueDamageBuff = 0.30 + 0.06
+                bl.append(Buff("MemSupport",StatTypes.TRUEDAMAGE,TrueDamageBuff,self.MemTarget,[AtkType.ALL],3,1,tickDown=self.MemTarget,tdType=TickDown.START))
+                al.append(Advance("MemSupportAdvance",self.MemTarget,1))
                 if self.eidolon >= 1:
-                    bl.append(Buff("MemCRSupport", StatTypes.CR_PERCENT, 0.1,Role.MEMO1, [AtkType.ALL], 3, 1,tickDown=Role.MEMO1, tdType=TickDown.START))
-            self.MemospriteSupport = False
+                    bl.append(Buff("MemCRSupport",StatTypes.CR_PERCENT,0.1,self.MemTarget,[AtkType.ALL],3,1,tickDown=self.MemTarget,tdType=TickDown.START))
+                if self.hasMemosprite == True:
+                    bl.append(Buff("MemSupport",StatTypes.TRUEDAMAGE,TrueDamageBuff,Role.MEMO1,[AtkType.ALL],3,1,tickDown=Role.MEMO1,tdType=TickDown.START))
+                    if self.eidolon >= 1:
+                        bl.append(Buff("MemCRSupport", StatTypes.CR_PERCENT, 0.1,Role.MEMO1, [AtkType.ALL], 3, 1,tickDown=Role.MEMO1, tdType=TickDown.START))
+                self.MemospriteSupport = False
         return bl, dbl, al, dl, tl
     def useUlt(self, enemyID=-1):
-        self.currEnergy = self.currEnergy - self.EnergyCost
-        bl, dbl, al, dl, tl = super().useUlt(enemyID)
-        al.append(Advance("MemUltAdvance",self.role,1))
-        self.MemospriteSupport = True
+        if self.MemoActive:
+            self.currEnergy = self.currEnergy - self.EnergyCost
+            bl, dbl, al, dl, tl = super().useUlt(enemyID)
+            al.append(Advance("MemUltAdvance",self.role,1))
+            self.MemospriteSupport = True
         return bl, dbl, al, dl, tl
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl = super().ownTurn(turn, result)
-        if self.eidolon < 3:
-            CdMultiplier = self.cdStat*0.12+0.24
-        elif 3 <= self.eidolon < 5:
-            CdMultiplier = self.cdStat*0.132+0.264
-        else:
-            CdMultiplier = self.cdStat*0.144+0.288
-        if result.errGain > 0 and not result.charName in self.SpecialEnergyCharacter and turn.moveName != "MemUltimateEnergy":
-            energy = result.errGain/10
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
-                     [0, 0], [0, 0], energy, self.scaling, 0, "MemUltimateEnergy"))
-        bl.append(Buff("MemCdBuff",StatTypes.CD_PERCENT,CdMultiplier,Role.ALL,[AtkType.ALL],1,1,self.role,TickDown.START))
+        if self.MemoActive:
+            if self.eidolon < 3:
+                CdMultiplier = self.cdStat*0.12+0.24
+            else:
+                CdMultiplier = self.cdStat*0.132+0.264
+            if result.errGain > 0 and not result.charName in self.SpecialEnergyCharacter and turn.moveName != "MemUltimateEnergy":
+                energy = result.errGain/10
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
+                         [0, 0], [0, 0], energy, self.scaling, 0, "MemUltimateEnergy"))
+            bl.append(Buff("MemCdBuff",StatTypes.CD_PERCENT,CdMultiplier,Role.ALL,[AtkType.ALL],1,1,self.role,TickDown.START))
         return bl, dbl, al, dl, tl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl = super().allyTurn(turn, result)
-        if result.turnName == "MemSpawn":
+        if result.turnName == "MemSpawn" and self.firstSkill == True:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 10, self.scaling, 0, "RmcSkillEnergy"))
             self.MemSpawn = True
+            self.MemoActive = True
+            self.firstSkill = False
             self.baseSPD = 130
             self.currAV = 10000/self.currSPD
-        if result.turnName == "RmcUltimate" and result.charName == "Remembrance Trailblazer":
-            if self.eidolon == 6:
-                bl.append(Buff("MemCRult", StatTypes.CR_PERCENT, 1,self.role, [AtkType.ALL], 1, 1,tickDown=self.role, tdType=TickDown.START))
-            e5Mul = 2.64 if self.eidolon >= 5 else 2.4
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.MEMO], [self.element],
-                     [e5Mul, 0], [20, 0], 40, self.scaling, 0, "MemUltimate"))
-            if self.eidolon == 6:
-                bl.append(Buff("MemCRremove", StatTypes.CR_PERCENT, -1,self.role, [AtkType.ALL], 1, 1,tickDown=self.role, tdType=TickDown.START))
-        if result.errGain > 0 and not (result.charName in self.SpecialEnergyCharacter) and (turn.moveName != "MemUltimateEnergy"):
-            energy = result.errGain/10
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
-                     [0, 0], [0, 0], energy, self.scaling, 0, "MemUltimateEnergy"))
-        if turn.charName in self.SpecialEnergyCharacter and (turn.atkType == AtkType.BSC or turn.atkType == AtkType.SKL or turn.atkType == AtkType.ULT) and not AtkType.ADD and self.eidolon >= 4:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
-                     [0, 0], [0, 0], 3, self.scaling, 0, "MemE4Energy"))
-            self.ExtraTrueDamage = True
+        elif result.turnName == "MemSpawn" and self.firstSkill == False:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL],[self.element],
+                           [0, 0], [0, 0], 10, self.scaling, 0, "RmcSkillEnergy"))
+        if self.MemoActive:
+            if result.turnName == "RmcUltimate" and result.charName == "Remembrance Trailblazer":
+                if self.eidolon == 6:
+                    bl.append(Buff("MemCRult", StatTypes.CR_PERCENT, 1,self.role, [AtkType.ALL], 1, 1,tickDown=self.role, tdType=TickDown.START))
+                e5Mul = 2.64 if self.eidolon >= 5 else 2.4
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.MEMO], [self.element],
+                         [e5Mul, 0], [20, 0], 40, self.scaling, 0, "MemUltimate"))
+                if self.eidolon == 6:
+                    bl.append(Buff("MemCRremove", StatTypes.CR_PERCENT, -1,self.role, [AtkType.ALL], 1, 1,tickDown=self.role, tdType=TickDown.START))
+            if result.errGain > 0 and not (result.charName in self.SpecialEnergyCharacter) and (turn.moveName != "MemUltimateEnergy"):
+                energy = result.errGain/10
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
+                         [0, 0], [0, 0], energy, self.scaling, 0, "MemUltimateEnergy"))
+            if turn.charName in self.SpecialEnergyCharacter and (turn.atkType == AtkType.BSC or turn.atkType == AtkType.SKL or turn.atkType == AtkType.ULT) and not AtkType.ADD and self.eidolon >= 4:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
+                         [0, 0], [0, 0], 3, self.scaling, 0, "MemE4Energy"))
+                self.ExtraTrueDamage = True
         return bl, dbl, al, dl, tl
 
     def takeTurn(self) -> str:
@@ -168,9 +173,10 @@ class Mem(Memosprite):
 
     def useHit(self, enemyID=-1):
         bl, dbl, al, dl, tl = super().useHit(enemyID)
-        energy = sum(self.HitEnergy)
-        tl.append(Turn("Remembrance Trailblazer", Role.SUP1, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
-                 [0, 0], [0, 0], energy, self.scaling, 0, "HitEnergyToRmc"))
+        if self.MemoActive:
+            energy = sum(self.HitEnergy)
+            tl.append(Turn("Remembrance Trailblazer", Role.SUP1, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
+                     [0, 0], [0, 0], energy, self.scaling, 0, "HitEnergyToRmc"))
         return bl, dbl, al, dl, tl
 
     def handleSpecialStart(self, specialRes: Special):

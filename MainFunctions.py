@@ -8,6 +8,7 @@ import Turn_Text
 from Character import *
 from Enemy import Enemy
 from Attributes import *
+from Healing import Healing
 from Lightcone import Lightcone
 from Memosprite import Memosprite
 from Summons import *
@@ -146,6 +147,63 @@ def getCharSPD(char: Character, buffList: list[Buff]) -> float:
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
     spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList)) + char.getSPD()
     return baseSPD * (1 + spdPercent) + spdFlat
+
+def getCharMaxHP(char: Character, lightcone: Lightcone ,buffList: list[Buff]) -> float:
+    baseHP= char.baseHP
+    baseLcHP = lightcone.baseHP
+    HPPercent = sumBuffs(findBuffs(char.role, StatTypes.HP_PERCENT, buffList)) + char.getHPPercent()
+    HPFlat = sumBuffs(findBuffs(char.role,StatTypes.HP, buffList)) + char.getHPFlat()
+    if char.name == "Mem":
+        HPFlat = 0.86*HPFlat + 688 # 688 if eidolon higher than 3 else 640
+        baseLcHP = baseLcHP*0.86
+    return ((baseHP + baseLcHP)*(1 + HPPercent) + HPFlat)
+
+def initCharCurrentHP_MaxHp(char: Character, buffList: list[Buff]):
+    char.maxHP = getCharMaxHP(char, char.lightcone, buffList)
+    char.currHP = getCharMaxHP(char, char.lightcone, buffList)
+
+def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
+    HealingList = []
+    HpList = []
+    for character in playerTeam:
+        HpList.append(character.currHP)
+    LowestHp = min(HpList)
+    NumberLowestHp = HpList.index(LowestHp)
+    for Heal in lst:
+        if Heal.target == Targeting.AOE: #teamwide Heal
+            for char in playerTeam:
+                HealingList.append(Healing(Heal.name,Heal.val[0],Heal.scaling,Heal.target,Heal.stackLimit,Heal.tickDown,Heal.turns,Heal.tdType))
+        elif Heal.target == Targeting.BLAST:
+            for i in range(len(playerTeam)):
+                if i == NumberLowestHp and NumberLowestHp > 0:
+                    HealingList[i-1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
+                    HealingList[i+1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                elif i == NumberLowestHp and NumberLowestHp == 0:
+                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
+                    HealingList[i+1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                elif i == NumberLowestHp and NumberLowestHp == len(playerTeam):
+                    HealingList[i-1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                else:
+                    HealingList[i] = (Healing(Heal.name,0, Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+        else:
+            for i in range(len(playerTeam)):
+                if i == NumberLowestHp:
+                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+                else:
+                    HealingList[i] = (Healing(Heal.name, 0, Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
+    return HealingList
+
+def addHealing(currList: list[Healing], newList: list[Healing]) -> list[Healing]:
+    def checkValidAdd(HealingToCheck: Healing, currHealingList: list[Healing]) -> bool:
+        return all(HealingToCheck.name != existingHealing.name or HealingToCheck.target != existingHealing.target for existingHealing in currHealingList)
+
+    for Heal in newList:
+        if checkValidAdd(Heal, currList):
+            currList.append(Heal)
+
+    return currList
 
 def getEnemySPD(enemy: Enemy, debuffList: list[Debuff]) -> float:
     baseSPD = enemy.spd
@@ -395,15 +453,16 @@ def addSummons(playerTeam: list[Character]) -> list:
     summons = []
     return summons
 
-def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay],
-                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay]]:
-    buffs, debuffs, advs, delays = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam)
+def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: List[Healing],
+                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay], healingToAdd: list[Healing]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Healing]]:
+    buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam)
     buffList = addBuffs(buffList, buffs)
     debuffList = addBuffs(debuffList, debuffs)
     advList = addAdvance(advList, advs)
     delayList = addDelay(delayList, delays)
+    healingList = addHealing(healingList, heals)
 
-    return buffList, debuffList, advList, delayList
+    return buffList, debuffList, advList, delayList, healingList
 
 def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], manualMode = False) -> tuple[Result, list[Debuff], list[Delay]]:
     char = findCharRole(playerTeam, turn.charRole)
@@ -719,9 +778,11 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 CharacterList = []
                 TeamHP = 0
                 for character in playerTeam:
-                    CharacterList.append(character)
-                    TeamHp = TeamHP + character.baseHP #Change this later to MaxHP once damage is coded into the sim
-                return Special(name=specStr, attr1=CharacterList, attr2=TeamHp, enemies=gauge)
+                    CharacterList.append(character.name)
+                    if character.name != "Tribbie" and character.role != Role.MEMO1 and character.role != Role.MEMO2 and character.role != Role.MEMO3:
+                        TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
+                UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
+                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
 
             case _:
                 return Special(specStr, enemies=gauge)
@@ -1037,12 +1098,12 @@ def getMulSHRED(char: Character, enemy: Enemy, buffList: list[Buff], debuffList:
 
 def getMulVULN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     vuln = getCharStat(StatTypes.VULN, char, enemy, buffList, debuffList, turn)
-    return min(3.5, 1 + vuln)
+    return min(10.0, 1 + vuln)
 
 def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     pen = getCharStat(StatTypes.PEN, char, enemy, buffList, debuffList, turn)
     pen = pen - enemy.getRes(turn.element[0])
-    return min(3.0, 1 + pen)
+    return min(10.0, 1 + pen)
 
 def getTRUEDAMAGE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.TRUEDAMAGE, char, enemy, buffList, debuffList, turn) + 1

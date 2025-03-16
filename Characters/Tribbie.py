@@ -1,7 +1,7 @@
 import logging
 
 from Lightcones.CruisingInTheStellarSea import CruisingInTheStellarSea
-from Relics.ScholarLostInErudition import ScholarLostInErudition
+from Relics.PoetsDillWreath import PoetsDillWreathTribbie
 from Planars.RutilantArena import RutilantArena
 from Buff import *
 from Character import Character
@@ -33,16 +33,17 @@ class Tribbie(Character):
     # Unique Character Properties
     CharacterList = []
     TeamHp = 0
+    UltIsActive = False
     # Relic Settings
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else CruisingInTheStellarSea(self.role)
-        self.relic1 = r1 if r1 else ScholarLostInErudition(self.role,4)
+        self.relic1 = r1 if r1 else PoetsDillWreathTribbie(self.role,4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(self.role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 11, 2, 2, 2, 2, 5, 12, StatTypes.CR_PERCENT, StatTypes.Spd,
-                                                       StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 12, 2, 2, 2, 2, 2, 4, 12, StatTypes.CR_PERCENT, StatTypes.HP_PERCENT,
+                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A","A","E"]
 
     def equip(self):  # function to add base buffs to wearer
@@ -91,22 +92,24 @@ class Tribbie(Character):
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
         e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*len(result.enemiesHit),0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
             bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role))
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
             bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role))
 
-        if result.atkType == AtkType.ULT and (turn.moveName not in bonusDMG) and result.charName in self.CharacterList:
+        if result.turnName in UltimateList and result.charName in self.CharacterList:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
                      [e5TalentFua], [5, 0], 5, self.scaling, 0,"TribbieTalentFua"))
-            bl.append("TribbieTrace3Dmg",StatTypes.DMG_PERCENT,0.72,self.role,[AtkType.ALL],3,3,self.role,TickDown.START)
+            bl.append(Buff("TribbieTrace3Dmg",StatTypes.DMG_PERCENT,0.72,self.role,[AtkType.ALL],3,3,self.role,TickDown.START))
             self.CharacterList.remove(result.charName)
 
         return bl, dbl, al, dl, tl
@@ -115,21 +118,23 @@ class Tribbie(Character):
         bl, dbl, al, dl, tl = super().ownTurn(turn, result)
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
         e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(
                 Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ADD], [self.element],
                      [e3AdditionalMulti * len(result.enemiesHit),0], [0, 0], 0, self.scaling, 0,
                      "TribbieAdditionalDamage"))
             # Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
             bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5 * len(result.enemiesHit), self.role))
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0:
             bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role))
 
-        if result.atkType == AtkType.ULT and (turn.moveName not in bonusDMG) and result.charName in self.CharacterList and self.eidolon >= 6:
+        if result.turnName in UltimateList and (result.charName in self.CharacterList) and self.eidolon >= 6:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
                      [e5TalentFua], [5, 0], 5, self.scaling, 0,"TribbieTalentFua"))
             self.CharacterList.remove(result.charName)
@@ -141,4 +146,5 @@ class Tribbie(Character):
         bl, dbl, al, dl, tl = super().handleSpecialEnd(specialRes)
         self.CharacterList = specialRes.attr1
         self.TeamHp = specialRes.attr2
+        self.UltIsActive = specialRes.attr3
         return bl, dbl, al, dl, tl
