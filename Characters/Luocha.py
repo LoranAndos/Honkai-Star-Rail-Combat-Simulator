@@ -1,6 +1,7 @@
 import logging
 
 from Buff import *
+from Healing import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.CruisingInTheStellarSea import CruisingInTheStellarSea
@@ -47,37 +48,38 @@ class Luocha(Character):
         self.planar = pl if pl else RutilantArena(role)
         self.relicStats = subs if subs else RelicStats(13, 2, 3, 2, 4, 8, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.Spd,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else ["A"]
+        self.rotation = rotation if rotation else ["E", "A"]
 
     def equip(self):
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         bl.append(
             Buff("LuochaTraceATK", StatTypes.ATK_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("LuochaTraceHP", StatTypes.HP_PERCENT, 0.18, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(
             Buff("LuochaTraceDEF", StatTypes.DEF_PERCENT, 0.125, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         if self.turn % 3 == 1:
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 30,
                            self.scaling, 0, "LuochaAutohealERR"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "LuochaBasic"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         if self.canStack == 0:
             self.stackCount += 1
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,
                        self.scaling, -1, "LuochaSkill"))
-        return bl, dbl, al, dl, tl
+        hl.append(Healing("LuochaTestDamage",[-0.25],self.scaling,Role.ALL,Targeting.AOE))
+        return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         e5Mul = 2.16 if self.eidolon >= 5 else 2.0
         self.currEnergy = self.currEnergy - self.ultCost
         if self.canStack == 0:
@@ -86,10 +88,10 @@ class Luocha(Character):
                        [e5Mul, 0], [20, 0], 5, self.scaling, 0, "LuochaUlt"))
         if self.eidolon == 6:
             dbl.append(Debuff("LuochaE6PEN", self.role, StatTypes.PEN, 0.20, Role.ALL, [AtkType.ALL], 2))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         if result.turnName != "LuochaAutohealERR" and self.turn % 3 == 1:
             if self.canStack == 0:
                 self.stackCount += 1
@@ -100,17 +102,17 @@ class Luocha(Character):
             bl.append(Buff("LuochaField", StatTypes.ATK_PERCENT, atk, Role.ALL))
             if self.eidolon >= 4:
                 dbl.append(Debuff("LuochaE4Weaken", self.role, StatTypes.GENERIC, 0.12, Role.ALL, [AtkType.ALL], 1000))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         return super().handleSpecialStart(specialRes)
 
     def handleSpecialEnd(self, specialRes: Special):
-        bl, dbl, al, dl, tl = super().handleSpecialEnd(specialRes)
+        bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
         self.canStack = max(0, self.canStack - 1)
         if self.canStack == 0:
             bl.append(Buff("LuochaField", StatTypes.ATK_PERCENT, 0, Role.ALL))
             if self.eidolon >= 4:
                 dbl.append(Debuff("LuochaE4Weaken", self.role, StatTypes.GENERIC, 0, Role.ALL, [AtkType.ALL], 1000))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 

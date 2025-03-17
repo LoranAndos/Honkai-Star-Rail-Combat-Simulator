@@ -25,6 +25,8 @@ class Enemy:
         self.maxToughnessMul = 0.5 + (self.toughness / 40)
         self.priority = 0
         self.debuffDMG = 0
+        self.maxHP = 1000000
+        self.currHP = 1000000
 
     def __str__(self) -> str:
         res = f"Enemy {self.enemyID} | LVL: {self.level} | SPD: {self.spd} | "

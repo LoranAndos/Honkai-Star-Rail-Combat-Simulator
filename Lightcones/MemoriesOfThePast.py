@@ -1,6 +1,7 @@
 from Lightcone import Lightcone
 from Buff import Buff
 from Attributes import *
+from Healing import *
 
 
 class MOTP(Lightcone):
@@ -14,22 +15,22 @@ class MOTP(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        buffList, debuffList, advList, delayList = super().equip()
+        buffList, debuffList, advList, delayList, healingList = super().equip()
         breakBuff = self.level * 0.07 + 0.21
         buffList.append(
             Buff("MotpBE", StatTypes.BE_PERCENT, breakBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return buffList, debuffList, advList, delayList
+        return buffList, debuffList, advList, delayList, healingList
 
     def useBsc(self, enemyID=-1):
-        buffList, debuffList, advList, delayList = super().useBsc(enemyID)
+        buffList, debuffList, advList, delayList, healingList = super().useBsc(enemyID)
         errGain = self.level + 3
         buffList.append(
             Buff("MotpBonusEnergy", StatTypes.ERR_T, errGain, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return buffList, debuffList, advList, delayList
+        return buffList, debuffList, advList, delayList, healingList
 
 
 class MotpHMC(MOTP):
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl = super().useSkl(enemyID)
         bl.append(Buff("MotpBonusEnergy", StatTypes.ERR_T, self.level + 3, self.wearerRole))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl

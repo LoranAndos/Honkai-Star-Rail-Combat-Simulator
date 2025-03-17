@@ -13,6 +13,7 @@ from RelicStats import RelicStats
 from Result import *
 from Turn_Text import Turn
 from Enemy import *
+from Healing import *
 from random import randrange
 
 logger = logging.getLogger(__name__)
@@ -42,7 +43,7 @@ class Mem(Memosprite):
     firstTurn = True
     Rmc_Bufflist = []
     MemSpawn = False
-    HitEnergy = []
+    HitEnergy = 0
     cdStat = 0
     MemospriteSupport = False
     DpsEnergy = 0
@@ -65,14 +66,14 @@ class Mem(Memosprite):
         self.rotation = rotation if rotation else ["MEMO"]
 
     def equip(self):  # function to add base buffs to wearer
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         bl.append(Buff("RmcTraceCD", StatTypes.CD_PERCENT, 0.373, self.role))
         bl.append(Buff("RmcTraceATK", StatTypes.ATK_PERCENT, 0.14, self.role))
         bl.append(Buff("RmcTraceHP", StatTypes.HP_PERCENT, 0.14, self.role))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
     def useMemo(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useMemo(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useMemo(enemyID)
         if self.MemoActive:
             if self.eidolon < 5:
                 SmallMultiplier = 0.36
@@ -109,17 +110,17 @@ class Mem(Memosprite):
                     if self.eidolon >= 1:
                         bl.append(Buff("MemCRSupport", StatTypes.CR_PERCENT, 0.1,Role.MEMO1, [AtkType.ALL], 3, 1,tickDown=Role.MEMO1, tdType=TickDown.START))
                 self.MemospriteSupport = False
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
     def useUlt(self, enemyID=-1):
+        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         if self.MemoActive:
             self.currEnergy = self.currEnergy - self.EnergyCost
-            bl, dbl, al, dl, tl = super().useUlt(enemyID)
             al.append(Advance("MemUltAdvance",self.role,1))
             self.MemospriteSupport = True
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         if self.MemoActive:
             if self.eidolon < 3:
                 CdMultiplier = self.cdStat*0.12+0.24
@@ -130,10 +131,10 @@ class Mem(Memosprite):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
                          [0, 0], [0, 0], energy, self.scaling, 0, "MemUltimateEnergy"))
             bl.append(Buff("MemCdBuff",StatTypes.CD_PERCENT,CdMultiplier,Role.ALL,[AtkType.ALL],1,1,self.role,TickDown.START))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "MemSpawn" and self.firstSkill == True:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 10, self.scaling, 0, "RmcSkillEnergy"))
@@ -162,7 +163,7 @@ class Mem(Memosprite):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
                          [0, 0], [0, 0], 3, self.scaling, 0, "MemE4Energy"))
                 self.ExtraTrueDamage = True
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def takeTurn(self) -> str:
         res = super().takeTurn()
@@ -172,15 +173,15 @@ class Mem(Memosprite):
         return res
 
     def useHit(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useHit(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useHit(enemyID)
         if self.MemoActive:
-            energy = sum(self.HitEnergy)
+            energy = self.HitEnergy
             tl.append(Turn("Remembrance Trailblazer", Role.SUP1, self.bestEnemy(enemyID=-1), Targeting.SPECIAL, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], energy, self.scaling, 0, "HitEnergyToRmc"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl = super().handleSpecialEnd(specialRes)
+        bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
         self.Rmc_Bufflist = specialRes.attr1
         if self.MemSpawn:
             for buff in self.Rmc_Bufflist:
@@ -191,4 +192,4 @@ class Mem(Memosprite):
         self.DpsEnergy = specialRes.attr4
         self.hasMemosprite = specialRes.attr5
         self.SpecialEnergyCharacter = specialRes.attr6
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl

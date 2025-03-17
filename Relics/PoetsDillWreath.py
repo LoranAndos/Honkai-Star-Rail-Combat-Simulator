@@ -1,6 +1,7 @@
 from Relic import Relic
 from Buff import *
 from Attributes import *
+from Healing import *
 
 #
 
@@ -12,13 +13,13 @@ class PoetsDillWreathTribbie(Relic):
         self.wearerEle = wearerEle
 
     def equip(self):
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         if self.wearerEle == Element.QUANTUM:
             bl.append(Buff("PoetQuantumDmg",StatTypes.DMG_PERCENT,0.1,self.wearerRole,[AtkType.ALL]))
         if self.setType == 4:
             bl.append(Buff("PoetSpdDecrease",StatTypes.SPD_PERCENT,-0.08,self.wearerRole,[AtkType.ALL]))
             bl.append(Buff("PoetCrIncrease",StatTypes.CR_PERCENT,0.32,self.wearerRole,[AtkType.ALL]))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
 class PoetsDillWreathCastorice(Relic):
     name = "Poet's Dill Wreath"
@@ -28,10 +29,10 @@ class PoetsDillWreathCastorice(Relic):
         self.wearerEle = wearerEle
 
     def equip(self):
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         if self.wearerEle == Element.QUANTUM:
             bl.append(Buff("PoetQuantumDmg",StatTypes.DMG_PERCENT,0.1,self.wearerRole,[AtkType.ALL]))
         if self.setType == 4:
             bl.append(Buff("PoetSpdDecrease",StatTypes.SPD_PERCENT,-0.08,self.wearerRole,[AtkType.ALL]))
             bl.append(Buff("PoetCrIncrease", StatTypes.CR_PERCENT, 0.32, self.wearerRole, [AtkType.ALL]))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl

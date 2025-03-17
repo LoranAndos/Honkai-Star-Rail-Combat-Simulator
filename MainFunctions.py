@@ -8,7 +8,7 @@ import Turn_Text
 from Character import *
 from Enemy import Enemy
 from Attributes import *
-from Healing import Healing
+from Healing import *
 from Lightcone import Lightcone
 from Memosprite import Memosprite
 from Summons import *
@@ -158,9 +158,10 @@ def getCharMaxHP(char: Character, lightcone: Lightcone ,buffList: list[Buff]) ->
         baseLcHP = baseLcHP*0.86
     return ((baseHP + baseLcHP)*(1 + HPPercent) + HPFlat)
 
-def initCharCurrentHP_MaxHp(char: Character, buffList: list[Buff]):
-    char.maxHP = getCharMaxHP(char, char.lightcone, buffList)
-    char.currHP = getCharMaxHP(char, char.lightcone, buffList)
+def initCharCurrentHP_MaxHp(playerTeam: list[Character], buffList: list[Buff]):
+    for char in playerTeam:
+        char.maxHP = getCharMaxHP(char, char.lightcone, buffList)
+        char.currHP = getCharMaxHP(char, char.lightcone, buffList)
 
 def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
     HealingList = []
@@ -170,39 +171,42 @@ def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
     LowestHp = min(HpList)
     NumberLowestHp = HpList.index(LowestHp)
     for Heal in lst:
-        if Heal.target == Targeting.AOE: #teamwide Heal
-            for char in playerTeam:
-                HealingList.append(Healing(Heal.name,Heal.val[0],Heal.scaling,Heal.target,Heal.stackLimit,Heal.tickDown,Heal.turns,Heal.tdType))
-        elif Heal.target == Targeting.BLAST:
-            for i in range(len(playerTeam)):
-                if i == NumberLowestHp and NumberLowestHp > 0:
-                    HealingList[i-1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
-                    HealingList[i+1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-                elif i == NumberLowestHp and NumberLowestHp == 0:
-                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
-                    HealingList[i+1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-                elif i == NumberLowestHp and NumberLowestHp == len(playerTeam):
-                    HealingList[i-1] = (Healing(Heal.name, Heal.val[1], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
+        if Heal.target == Role.ALL:
+            if Heal.targeting == Targeting.AOE: #teamwide Heal
+                for char in playerTeam:
+                    HealingList.append(Healing(Heal.name,Heal.val,Heal.scaling,Heal.target,Heal.targeting))
+            elif Heal.targeting == Targeting.BLAST:
+                for i in range(len(playerTeam)):
+                    if i == NumberLowestHp and NumberLowestHp > 0:
+                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                    elif i == NumberLowestHp and NumberLowestHp == 0:
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                    elif i == NumberLowestHp and NumberLowestHp == len(playerTeam):
+                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                    else:
+                        HealingList[i] = (Healing(Heal.name,[0], Heal.scaling, Heal.target, Heal.targeting))
+            else:
+                for i in range(len(playerTeam)):
+                    if i == NumberLowestHp:
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                    else:
+                        HealingList[i] = (Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.targeting))
+        elif Heal.target != Role.ALL:
+            for character in playerTeam:
+                if character.role == Heal.target:
+                    HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
                 else:
-                    HealingList[i] = (Healing(Heal.name,0, Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-        else:
-            for i in range(len(playerTeam)):
-                if i == NumberLowestHp:
-                    HealingList[i] = (Healing(Heal.name, Heal.val[0], Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown,Heal.turns, Heal.tdType))
-                else:
-                    HealingList[i] = (Healing(Heal.name, 0, Heal.scaling, Heal.target, Heal.stackLimit, Heal.tickDown, Heal.turns,Heal.tdType))
+                    HealingList.append((Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.targeting)))
+
     return HealingList
 
 def addHealing(currList: list[Healing], newList: list[Healing]) -> list[Healing]:
-    def checkValidAdd(HealingToCheck: Healing, currHealingList: list[Healing]) -> bool:
-        return all(HealingToCheck.name != existingHealing.name or HealingToCheck.target != existingHealing.target for existingHealing in currHealingList)
-
     for Heal in newList:
-        if checkValidAdd(Heal, currList):
-            currList.append(Heal)
-
+        currList.append(Heal)
     return currList
 
 def getEnemySPD(enemy: Enemy, debuffList: list[Debuff]) -> float:
@@ -286,7 +290,6 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
         aggro = char.aggro
         aggroLst.append(aggro)
     actAttacks = 1 if numAttacks == 0 else numAttacks
-
     aggroSum = sum(aggroLst)
     AggroNumber = randrange(1,aggroSum+1, 1)
     finalEnergy = [0]*len(playerTeam)
@@ -300,7 +303,7 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
                 else:
                     finalEnergy[a] = 0
                 Number_Keeper = Number_Keeper + aggroLst[a]
-        if enemy.enemyType == EnemyType.ELITE:
+        elif enemy.enemyType == EnemyType.ELITE:
             AttackTypeChooser = randrange(1,3,1)
             if AttackTypeChooser == 1:
                 for a in range(len(playerTeam)-1):
@@ -328,7 +331,7 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
                     else:
                         finalEnergy[a] = finalEnergy[a] + 0
                         Number_Keeper = Number_Keeper + aggroLst[a]
-        if enemy.enemyType == EnemyType.BOSS:
+        elif enemy.enemyType == EnemyType.BOSS:
             AttackTypeChooser = randrange(1,3,1)
             if AttackTypeChooser == 1:
                 for a in range(len(playerTeam)-1):
@@ -349,15 +352,15 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
                         finalEnergy[a] = finalEnergy[a]
                         Number_Keeper = Number_Keeper + aggroLst[a]
             if AttackTypeChooser == 2:
-                for a in range(len(playerTeam)-1):
+                for a in range(len(playerTeam)):
                     finalEnergy[a] = (finalEnergy[a] + 5)*actAttacks
-    for i in range(len(playerTeam)-1):
+    for i in range(len(playerTeam)):
         char = playerTeam[i]
         placeHolderTurn = Turn(char.name, char.role, -1, Targeting.NA, [AtkType.SPECIAL], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "HitEnergyPlaceholder")
         errMul = getMulERR(char, enemyTeam[0], buffList, [], placeHolderTurn) if not char.specialEnergy else 0
         if numAttacks != 0:
             char.addEnergy(finalEnergy[i] * errMul)
-    return [i / (actAttacks * 10) for i in finalEnergy]
+    return [i / (actAttacks) for i in finalEnergy]
 
 
 def checkInTeam(name: str, team: list[Character]) -> bool:
@@ -453,7 +456,7 @@ def addSummons(playerTeam: list[Character]) -> list:
     summons = []
     return summons
 
-def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: List[Healing],
+def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
                     buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay], healingToAdd: list[Healing]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Healing]]:
     buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam)
     buffList = addBuffs(buffList, buffs)
@@ -464,13 +467,14 @@ def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buf
 
     return buffList, debuffList, advList, delayList, healingList
 
-def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], manualMode = False) -> tuple[Result, list[Debuff], list[Delay]]:
+def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], healingList: list[Healing], manualMode = False) -> tuple[Result, list[Debuff], list[Delay]]:
     char = findCharRole(playerTeam, turn.charRole)
     charERR = getMulERR(char, enemyTeam[0], buffList, debuffList, turn)
     baseValue = getBaseValue(char, buffList, turn)
     anyBroken = []
     turnDmg = 0
     wbDmg = 0
+    Total_HP_Change = 0
     newDebuff, newDelay = [], []
 
     def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0, charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
@@ -593,7 +597,30 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 newDebuff.extend(a)
                 newDelay.extend(b)
 
-    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
+    if healingList != []:
+        for i in range(len(playerTeam)):
+            Heal = healingList[i]
+            character = playerTeam[i]
+            if Heal.target == character.role:
+                if Heal.scaling != Scaling.Other:
+                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
+                    character.ChangeHpValue(Heal.val[0] * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn))
+                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn)
+                elif Heal.scaling == Scaling.Other:
+                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
+                    character.ChangeHpValue(Heal.val[0] * getMulOGH(character, enemy,buffList, debuffList,turn))
+                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getMulOGH(character, enemy,buffList, debuffList,turn)
+            elif Heal.target == Role.ALL:
+                if Heal.scaling != Scaling.Other:
+                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
+                    character.ChangeHpValue(Heal.val[0] * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn))
+                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn)
+                elif Heal.scaling == Scaling.Other:
+                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
+                    character.ChangeHpValue(Heal.val[0] * getMulOGH(character,enemy,buffList,debuffList,turn))
+                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getMulOGH(character,enemy,buffList,debuffList,turn)
+
+    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, Total_HP_Change,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character], enemyTeam: list[Enemy]) -> list[Buff]:
     errBuffs, newList = [], []
@@ -772,7 +799,7 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                         DpsEnergy = char.maxEnergy
                         if char.hasMemosprite == True:
                             HasMemosprite = True
-                return Special(name=specStr, attr1=RmcBuffs, attr2=energyList, attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
+                return Special(name=specStr, attr1=RmcBuffs, attr2=sum(energyList)/len(playerTeam), attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
 
             case "Tribbie":
                 CharacterList = []
@@ -873,7 +900,7 @@ def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkTyp
             flat += buff.getBuffVal()
     return base * (1 + mul) + flat
 
-def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker: DmgTracker, manualMode=False):
+def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, spTracker, dmgTracker: DmgTracker, manualMode=False):
 
     while turnList:
         turn = turnList[0]
@@ -888,29 +915,37 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("\n        ----------Enemy Debuffs----------")
         [logging.debug(f"        {debuff}") for debuff in enemyDebuffs if debuff.target == turn.targetID]
         logging.debug("        ----------End of Debuff List----------")
+        [logging.debug(f"        {heal}") for heal in healList]
+        logging.debug("        ----------End of Healing List----------")
 
-        res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, manualMode=manualMode)
+        res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, healList,manualMode=manualMode)
+        for character in playerTeam:
+            oldMaxHp = character.maxHP
+            character.maxHP = getCharMaxHP(character, character.lightcone, teamBuffs)
+            character.currHP = character.currHP*(character.maxHP/oldMaxHp)
+        healList = []
         dmgTracker.addActionDMG(res.turnDmg)
         dmgTracker.addWeaknessBreakDMG(res.wbDmg)
+        dmgTracker.addHealing(res.Healing)
         char = findCharRole(playerTeam, res.charRole)
         result = f"RESULT - {res} | {char.name} Energy: {min(char.maxEnergy, char.currEnergy + res.errGain):.0f}/{char.maxEnergy}"
         logging.warning(f"    {result}")
         if manualMode:
             print(result)
-        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, [], newDebuffs, [], newDelays)
+        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, [], newDebuffs, [], newDelays, [])
         for char in playerTeam + summons:
             if char.role == turn.charRole:
-                tempB, tempDB, tempA, tempD, newTurns = char.ownTurn(turn, res)
+                tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)
             else:
-                tempB, tempDB, tempA, tempD, newTurns = char.allyTurn(turn, res)
-            teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, tempB, tempDB, tempA, tempD)
+                tempB, tempDB, tempA, tempD , newTurns, tempH = char.allyTurn(turn, res)
+            teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,tempB, tempDB, tempA, tempD, tempH)
             turnList.extend(newTurns)
 
         turnList = turnList[1:]
 
-    return teamBuffs, enemyDebuffs, advList, delayList, turnList
+    return teamBuffs, enemyDebuffs, advList, delayList, turnList, healList
 
-def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode = False, simAV = 0):
+def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,spTracker, dmgTracker, manualMode = False, simAV = 0):
 
     turnList = []
     # Check if any unit can ult
@@ -924,12 +959,12 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
                 logging.critical(ult)
                 if manualMode:
                     print(ult)
-                bl, dbl, al, dl, tl = char.useUlt(target)
-                teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, bl, dbl, al, dl)
+                bl, dbl, al, dl, tl, hl = char.useUlt(target)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,bl, dbl, al, dl, hl)
                 turnList.extend(tl)
 
         # Handle any new attacks from unit ults
-        teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode=manualMode)
+        teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,spTracker, dmgTracker, manualMode=manualMode)
 
         # Handle any errGain from unit ults
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -937,9 +972,9 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
         # Add/Minus any SP changes from special effects
         teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
 
-    return teamBuffs, enemyDebuffs, advList, delayList
+    return teamBuffs, enemyDebuffs, advList, delayList, healingList
 
-def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, checkType, spTracker, dmgTracker, manualMode = False):
+def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, checkType, spTracker, dmgTracker, manualMode = False):
 
     turnList = []
     # Apply any special effects
@@ -947,14 +982,14 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
         spec = char.special()
         specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, checkType, manualMode=manualMode)
         if checkType == "START":
-            bl, dbl, al, dl, tl = char.handleSpecialStart(specRes)
+            bl, dbl, al, dl, tl, hl = char.handleSpecialStart(specRes)
         else:
-            bl, dbl, al, dl, tl = char.handleSpecialEnd(specRes)
-        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, bl, dbl, al, dl)
+            bl, dbl, al, dl, tl, hl = char.handleSpecialEnd(specRes)
+        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, bl, dbl, al, dl, hl)
         turnList.extend(tl)
 
     # Handle any attacks from special attacks
-    teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, spTracker, dmgTracker, manualMode)
+    teamBuffs, enemyDebuffs, advList, delayList, turnList, healList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, spTracker, dmgTracker, manualMode)
 
     # Add Energy if any was provided from special effects
     teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -962,7 +997,7 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
     # Add/Minus any SP changes from special effects
     teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
 
-    return teamBuffs, enemyDebuffs, advList, delayList
+    return teamBuffs, enemyDebuffs, advList, delayList, healList
 
 def manualModule(spTracker: SpTracker, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], simAV: float, unit, actionType) -> tuple[str, int]:
     unit.takeTurn()

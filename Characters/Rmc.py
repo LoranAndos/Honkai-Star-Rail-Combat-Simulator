@@ -10,6 +10,7 @@ from RelicStats import RelicStats
 from Result import *
 from Turn_Text import Turn
 from Enemy import *
+from Healing import *
 
 logger = logging.getLogger(__name__)
 
@@ -49,35 +50,35 @@ class Rmc(Character):
         self.rotation = rotation if rotation else ["A"]
 
     def equip(self):  # function to add base buffs to wearer
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         bl.append(Buff("RmcTraceCD", StatTypes.CD_PERCENT, 0.373, self.role))
         bl.append(Buff("RmcTraceATK", StatTypes.ATK_PERCENT, 0.14, self.role))
         bl.append(Buff("RmcTraceHP", StatTypes.HP_PERCENT, 0.14, self.role))
         al.append(Advance("RmcStartADV", self.role, 0.30))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e5Mul = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5Mul, 0], [10, 0], 20, self.scaling, 1, "RmcBasic"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 30, self.scaling, -1, "MemSpawn"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
         self.currEnergy = self.currEnergy - self.ultCost
-        bl, dbl, al, dl, tl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ULT], [self.element],
                      [0, 0], [0, 0], 5, self.scaling, 0, "RmcUltimate"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "MemBigSkill":
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ULT], [self.element],
                      [0, 0], [0, 0], 10, self.scaling, 0, "MemAttackEnergy"))
@@ -86,12 +87,12 @@ class Rmc(Character):
                      [0, 0], [0, 0], 8, self.scaling, 0, "MemAttackEnergy"))
             self.CanGetEnergy = False
 
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         self.CanGetEnergy = True
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def takeTurn(self) -> str:
         res = super().takeTurn()
@@ -101,10 +102,10 @@ class Rmc(Character):
         return res
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl = super().handleSpecialEnd(specialRes)
+        bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
         if self.technique:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.SPECIAL], [self.element],
                      [1, 0], [0, 0], 0, self.scaling, 0, "RmcTechnique"))
             dl.append(Delay("RmcTechnique", 0.5,Role.ALL, False, False))
             self.technique = False
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl

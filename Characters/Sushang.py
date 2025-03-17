@@ -10,6 +10,7 @@ from RelicStats import RelicStats
 from Result import *
 from Turn_Text import Turn
 from Enemy import *
+from Healing import *
 from random import randrange
 
 logger = logging.getLogger(__name__)
@@ -48,7 +49,7 @@ class Sushang(Character):
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):  # function to add base buffs to wearer
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         e3Mul = 0.21 if self.eidolon >= 3 else 0.2
         e6Stacks = 2 if self.eidolon == 6 else 1
         bl.append(Buff("SushangTraceATK",StatTypes.ATK_PERCENT,0.28,self.role))
@@ -58,35 +59,35 @@ class Sushang(Character):
             bl.append(Buff("SushangE4BE", StatTypes.BE_PERCENT, 0.40, self.role))
         if self.eidolon == 6:
             bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,stackLimit = e6Stacks,tdType=TickDown.END))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e5Mul = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5Mul, 0], [10, 0], 20, self.scaling, 1, "SushangBasic"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5Mul = 2.31 if self.eidolon >= 5 else 2.1
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL], [self.element],
                        [e5Mul, 0], [20, 0], 30, self.scaling, -1, "SushangSkill"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
         self.currEnergy = self.currEnergy - self.ultCost
-        bl, dbl, al, dl, tl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         e3Mul = 3.46 if self.eidolon >= 3 else 3.20
         e3Buff = 0.32 if self.eidolon >= 3 else 0.3
         bl.append(Buff("SushangUltimateAttack", StatTypes.ATK_PERCENT, e3Buff, self.role, turns=2, stackLimit=1,
                        tdType=TickDown.END))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ULT], [self.element],
                        [e3Mul, 0], [30, 0], 5, self.scaling, 0, "SushangUltimate"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         Once = True
         for enemy in self.enemyteam:
             if enemy.broken == True and result.turnName == ("SushangBasic" or "SushangSkill") and Once == True:
@@ -118,15 +119,15 @@ class Sushang(Character):
                     tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE, [AtkType.SKL,AtkType.ADD],[self.element], [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStance"))
         if result.turnName == "SushangSwordStance" or result.turnName == "SushangSwordStanceExtra":
             bl.append(Buff("SushangTrace2",StatTypes.DMG_PERCENT,0.02,self.role,[AtkType.ALL],1,10,Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.brokenEnemy == True:
             e3Mul = 0.21 if self.eidolon >= 3 else 0.2
             e6Stacks = 2 if self.eidolon == 6 else 1
             bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,stackLimit = e6Stacks,tdType=TickDown.END))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         if specialRes.attr1 == True:

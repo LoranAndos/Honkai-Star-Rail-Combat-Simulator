@@ -42,7 +42,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.CRITICAL
+    logLevel = logging.DEBUG
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -115,20 +115,19 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         manualPrint(manualMode, f"{char}\n")
 
     # Setup equipment and char traces
-    teamBuffs, enemyDebuffs, advList, delayList = [], [], [], []
+    teamBuffs, enemyDebuffs, advList, delayList, healingList = [], [], [], [], []
     for char in playerTeam:
-        initBuffs, initDebuffs, initAdv, initDelay = char.equip()
-        teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                      advList, delayList, initBuffs, initDebuffs,
-                                                                      initAdv, initDelay)
+        initBuffs, initDebuffs, initAdv, initDelay, initHealing = char.equip()
+        teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
+                                                                      advList, delayList, healingList,initBuffs, initDebuffs,
+                                                                      initAdv, initDelay, initHealing)
 
     # Setup initial AV
     for char in playerTeam:
         initCharAV(char, teamBuffs)  # apply any pre-existing speed buffs
 
     # Setup initial currHp and Maxhp
-    for char in playerTeam:
-        initCharCurrentHP_MaxHp(char, teamBuffs) # apply any pre-existing Hp buffs
+    initCharCurrentHP_MaxHp(playerTeam, teamBuffs) # apply any pre-existing Hp buffs
 
     logging.warning("\nInitial AV Adjustments")
     avAdjustment(playerTeam, advList)  # apply any "on battle start" advances
@@ -156,18 +155,18 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         for u in allUnits:
             u.standardAVred(av)
             logging.info(
-                f"-   {u.name} AV: {u.currAV:.3f} ENERGY: {u.currEnergy if u.isChar() and not u.isSummon() else 0:.3f}")
+                f"-   {u.name} AV: {u.currAV:.3f} ENERGY: {u.currEnergy if u.isChar() and not u.isSummon() else 0:.3f} MaxHP: {u.maxHP:.3f} CurrHp {u.currHP:.3f}" )
         logging.info("")
 
         # Apply any special effects
-        teamBuffs, enemyDebuffs, advList, delayList = handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs,
-                                                                           enemyDebuffs, advList, delayList, "START",
+        teamBuffs, enemyDebuffs, advList, delayList, healingList = handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs,
+                                                                           enemyDebuffs, advList, delayList, healingList, "START",
                                                                            spTracker, dmg, manualMode=manualMode)
 
         if unit.isChar() and not unit.isSummon():
             # Check if any unit can ult
-            teamBuffs, enemyDebuffs, advList, delayList = handleUlts(playerTeam, summons, eTeam, teamBuffs,
-                                                                     enemyDebuffs, advList, delayList, spTracker, dmg,
+            teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(playerTeam, summons, eTeam, teamBuffs,
+                                                                     enemyDebuffs, advList, delayList, healingList, spTracker, dmg,
                                                                      manualMode=manualMode, simAV=simAV)
 
         # Handle unit Turns
@@ -179,15 +178,15 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             manualPrint(manualMode, action)
             for i in range(numAttacks):
                 for char in playerTeam:
-                    bl, dbl, al, dl, tl = char.useHit(unit.enemyID)
-                    teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs,
-                                                                                  enemyDebuffs, advList, delayList, bl,
-                                                                                  dbl, al, dl)
+                    bl, dbl, al, dl, tl, hl = char.useHit(unit.enemyID)
+                    teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs,
+                                                                                  enemyDebuffs, advList, delayList, healingList, bl,
+                                                                                  dbl, al, dl, hl)
                     turnList.extend(tl)
-            energyList = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,teamBuffs)  # might be useful someday lol
+            energyList = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,teamBuffs)
             energyMsg = "    CharEnergy -"
-            for i in range(4):
-                energyMsg += f" {playerTeam[i].name}: Hit {energyList[i] * 10:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
+            for i in range(len(playerTeam)):
+                energyMsg += f" {playerTeam[i].name}: Hit {energyList[i]:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
             logging.warning(energyMsg)
             dmg.addDebuffDMG(takeDebuffDMG(unit, playerTeam, teamBuffs, enemyDebuffs))
         elif unit.isChar() and not unit.isSummon():  # Character Turn
@@ -200,38 +199,38 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             manualPrint(manualMode, action)
             teamBuffs = tickBuffs(unit, teamBuffs, "START")
             if moveType == "E":
-                bl, dbl, al, dl, tl = unit.useSkl(target)
+                bl, dbl, al, dl, tl, hl = unit.useSkl(target)
             elif moveType == "A":
-                bl, dbl, al, dl, tl = unit.useBsc(target)
+                bl, dbl, al, dl, tl, hl = unit.useBsc(target)
             elif moveType == "MEMO":
-                bl, dbl, al, dl, tl = unit.useMemo(target)
+                bl, dbl, al, dl, tl, hl = unit.useMemo(target)
             else:
                 manualPrint(manualMode, "Invalid move type!")
-                bl, dbl, al, dl, tl = [], [], [], [], []
-            teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                          advList, delayList, bl, dbl, al, dl)
+                bl, dbl, al, dl, tl, hl = [], [], [], [], [], []
+            teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
+                                                                          advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
         elif unit.isChar() and unit.isSummon():
             action = f"ACTION > [SUMMON] TotalAV: {simAV:.3f} | TurnAV: {av:.3f} | {unit.name}"
             logging.critical(action)  # Summon logic
             manualPrint(manualMode, action)
-            bl, dbl, al, dl, tl = unit.takeTurn()
-            teamBuffs, enemyDebuffs, advList, delayList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
-                                                                          advList, delayList, bl, dbl, al, dl)
+            bl, dbl, al, dl, tl, hl = unit.takeTurn()
+            teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
+                                                                          advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
 
         # Handle any pending attacks:
-        teamBuffs, enemyDebuffs, advList, delayList, turnList = processTurnList(turnList, playerTeam, summons, eTeam,
+        teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList  = processTurnList(turnList, playerTeam, summons, eTeam,
                                                                                 teamBuffs, enemyDebuffs, advList,
-                                                                                delayList, spTracker, dmg,
+                                                                                delayList, healingList, spTracker, dmg,
                                                                                 manualMode=manualMode)
 
         # Handle any errGain from unit turns
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
 
         # Check if any unit can ult
-        teamBuffs, enemyDebuffs, advList, delayList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
-                                                                 advList, delayList, spTracker, dmg,
+        teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
+                                                                 advList, delayList, healingList, spTracker, dmg,
                                                                  manualMode=manualMode, simAV=simAV)
 
         if unit.isChar() and not unit.isSummon():
@@ -240,13 +239,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             enemyDebuffs = tickDebuffs(unit, enemyDebuffs)  # THIS MARKS THE END OF THE ENEMY TURN
 
         # Apply any special effects
-        teamBuffs, enemyDebuffs, advList, delayList = handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs,
-                                                                           enemyDebuffs, advList, delayList, "END",
+        teamBuffs, enemyDebuffs, advList, delayList, healingList = handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs,
+                                                                           enemyDebuffs, advList, delayList, healingList, "END",
                                                                            spTracker, dmg, manualMode=manualMode)
 
         # Check if any unit can ult
-        teamBuffs, enemyDebuffs, advList, delayList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
-                                                                 advList, delayList, spTracker, dmg,
+        teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
+                                                                 advList, delayList, healingList, spTracker, dmg,
                                                                  manualMode=manualMode, simAV=simAV)
 
         # Apply any speed adjustments
@@ -270,6 +269,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         # Apply any character/summon AV adjustments
         avAdjustment(playerTeam + summons, advList)
         advList = []
+
+        # Reset Healing List
+        healingList = []
 
         if unit.isChar() and unit.isSummon():
             resetUnitAV(unit, [], [])  # summons cannot be advanced during their own turn

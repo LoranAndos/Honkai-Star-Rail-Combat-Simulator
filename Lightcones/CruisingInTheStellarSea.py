@@ -1,6 +1,7 @@
 from Lightcone import Lightcone
 from Buff import Buff
 from Attributes import *
+from Healing import *
 
 
 class CruisingInTheStellarSea(Lightcone):
@@ -15,11 +16,11 @@ class CruisingInTheStellarSea(Lightcone):
         self.uptime = uptime
 
     def equip(self):
-        buffList, debuffList, advList, delayList = super().equip()
+        buffList, debuffList, advList, delayList, healingList = super().equip()
         crBuff = (self.level * 0.02 + 0.06) + (self.level * 0.02 + 0.06) * self.uptime
         buffList.append(
             Buff("CruisingCR", StatTypes.CR_PERCENT, crBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         atkBuff = (self.level * 0.05 + 0.15) * self.uptime
         buffList.append(Buff("CruisingATK", StatTypes.ATK_PERCENT, atkBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                              TickDown.PERM))
-        return buffList, debuffList, advList, delayList
+        return buffList, debuffList, advList, delayList, healingList

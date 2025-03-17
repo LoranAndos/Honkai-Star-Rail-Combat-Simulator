@@ -3,7 +3,7 @@ from enum import Enum, auto
 bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
             "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
+            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
 UltimateList = {"LuochaUlt","RmcUltimate","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 
 wbMultiplier = 3767.5533
@@ -106,6 +106,7 @@ class Scaling(Enum):
     ATK = "ATK%"
     HP = "HP%"
     DEF = "DEF%"
+    Other = "Other"
 
 class TickDown(Enum):
     END = auto()

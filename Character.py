@@ -112,44 +112,45 @@ class Character:
         return *self.parseEquipment("ALLY", turn=turn, result=result), []
 
     def parseEquipment(self, actionType, turn=None, result=None, special=None, enemyID=-1):
-        buffList, debuffList, advList, delayList = [], [], [], []
+        buffList, debuffList, advList, delayList, healingList = [], [], [], [], []
         equipmentList = [self.lightcone, self.relic1, self.planar]
         if self.relic2:
             equipmentList.append(self.relic2)
 
         for equipment in equipmentList:
             if actionType == AtkType.BSC:
-                buffs, debuffs, advs, delays = equipment.useBsc(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useBsc(enemyID)
             elif actionType == AtkType.SKL:
-                buffs, debuffs, advs, delays = equipment.useSkl(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useSkl(enemyID)
             elif actionType == AtkType.ULT:
-                buffs, debuffs, advs, delays = equipment.useUlt(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useUlt(enemyID)
             elif actionType == AtkType.FUA:
-                buffs, debuffs, advs, delays = equipment.useFua(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useFua(enemyID)
             elif actionType == AtkType.ADD:
-                buffs, debuffs, advs, delays = equipment.useAdd(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useAdd(enemyID)
             elif actionType == AtkType.MEMO:
-                buffs, debuffs, advs, delays = equipment.useMemo(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":
-                buffs, debuffs, advs, delays = equipment.equip()
+                buffs, debuffs, advs, delays, heals = equipment.equip()
             elif actionType == "HIT":
-                buffs, debuffs, advs, delays = equipment.useHit(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useHit(enemyID)
             elif actionType == "SPECIALS":
-                buffs, debuffs, advs, delays = equipment.specialStart(special)
+                buffs, debuffs, advs, delays, heals = equipment.specialStart(special)
             elif actionType == "SPECIALE":
-                buffs, debuffs, advs, delays = equipment.specialEnd(special)
+                buffs, debuffs, advs, delays, heals = equipment.specialEnd(special)
             elif actionType == "OWN":
-                buffs, debuffs, advs, delays = equipment.ownTurn(turn, result)
+                buffs, debuffs, advs, delays, heals = equipment.ownTurn(turn, result)
             elif actionType == "ALLY":
-                buffs, debuffs, advs, delays = equipment.allyTurn(turn, result)
+                buffs, debuffs, advs, delays, heals = equipment.allyTurn(turn, result)
             else:
-                buffs, debuffs, advs, delays = [], [], [], []
+                buffs, debuffs, advs, delays, heals = [], [], [], [], []
 
             buffList.extend(buffs)
             debuffList.extend(debuffs)
             advList.extend(advs)
             delayList.extend(delays)
-        return buffList, debuffList, advList, delayList
+            healingList.extend(heals)
+        return buffList, debuffList, advList, delayList, healingList
 
     def addEnergy(self, amount: float):
         self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
@@ -157,11 +158,11 @@ class Character:
     def reduceAV(self, reduceValue: float):
         self.currAV = max(0.0, self.currAV - reduceValue)
 
-    def changeHP(self, HpChangeValue: float):
-        if HpChangeValue > 0:
-            self.currHP = min(self.maxHP, self.currHP + HpChangeValue)
-        elif HpChangeValue < 0:
-            self.currHP = max(1.0, self.currHP + HpChangeValue)
+    def ChangeHpValue(self, HPChangingValue: float):
+        if HPChangingValue < 0:
+            self.currHP = max(1.0,self.currHP + HPChangingValue)
+        if HPChangingValue > 0:
+            self.currHP = min(self.maxHP, self.currHP + HPChangingValue)
 
     def getRelicScalingStats(self) -> tuple[float, float]:
         return self.relicStats.getScalingValue(self.scaling)
@@ -226,13 +227,14 @@ class Character:
         return False
 
     @staticmethod
-    def extendLists(bl: list, dbl: list, al: list, dl: list, tl: list, nbl: list, ndbl: list, nal: list, ndl: list,
-                    ntl: list):
+    def extendLists(bl: list, dbl: list, al: list, dl: list, tl: list, hl: list, nbl: list, ndbl: list, nal: list, ndl: list,
+                    ntl: list, nhl: list):
         bl.extend(nbl)
         dbl.extend(ndbl)
         al.extend(nal)
         dl.extend(ndl)
         tl.extend(ntl)
-        return bl, dbl, al, dl, tl
+        hl.extend(nhl)
+        return bl, dbl, al, dl, tl, hl
 
 

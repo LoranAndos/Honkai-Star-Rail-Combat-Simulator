@@ -9,6 +9,7 @@ from RelicStats import RelicStats
 from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Result import *
 from Turn_Text import Turn
+from Healing import *
 
 logger = logging.getLogger(__name__)
 
@@ -52,7 +53,7 @@ class Sparkle(Character):
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
-        bl, dbl, al, dl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         bl.append(Buff("SparkleTraceHP", StatTypes.HP_PERCENT, 0.28, self.role))
         bl.append(Buff("SparkleTraceCD", StatTypes.CD_PERCENT, 0.24, self.role))
         bl.append(Buff("SparkleTraceERS", StatTypes.ERS_PERCENT, 0.10, self.role))
@@ -64,17 +65,17 @@ class Sparkle(Character):
             bl.append(Buff("SparkleE2SHRED", StatTypes.SHRED, 0.24, Role.ALL))
         if self.eidolon == 6:
             bl.append(Buff("SparkleE6CD", StatTypes.CD_PERCENT, 0.30, Role.ALL))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 30, self.scaling, 1, "SparkleBasic"))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e3CDMul = 0.264 if self.eidolon >= 3 else 0.24
         e3CDFlat = 0.486 if self.eidolon >= 3 else 0.45
         bl.append(Buff("SparkleCD", StatTypes.CD_PERCENT, self.cdStat * e3CDMul + e3CDFlat, self.targetRole, turns=2,
@@ -83,10 +84,10 @@ class Sparkle(Character):
                        self.scaling, -1, "SparkleSkill"))
         if self.role != self.targetRole:
             al.append(Advance("SparkleForward", self.targetRole, 0.50))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e1Turns = 3 if self.eidolon >= 1 else 2
         e4SP = 5 if self.eidolon >= 4 else 4
@@ -97,13 +98,13 @@ class Sparkle(Character):
         bl.append(Buff("SparkleUltDMG", StatTypes.DMG_PERCENT, e5DMG * 3, Role.ALL, turns=e1Turns, tdType=TickDown.END))
         if self.eidolon >= 1:
             bl.append(Buff("SparkleE1ATK", StatTypes.ATK_PERCENT, 0.40, Role.ALL, turns=3, tdType=TickDown.END))
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
         if self.startSP:
             self.startSP = False
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SPECIAL], [self.element], [0, 0], [0, 0], 0,
                            self.scaling, 3, "SparkleTechSP"))
         self.cdStat = specialRes.attr1
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl

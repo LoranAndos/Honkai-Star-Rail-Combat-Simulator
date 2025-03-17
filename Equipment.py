@@ -14,48 +14,49 @@ class Equipment:
         self.wearerRole = wearerRole
 
     def equip(self):  # init function to add base buffs to wearer
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useSkl(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useBsc(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useUlt(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useFua(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useAdd(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useMemo(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def useHit(self, enemyID=-1):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def allyTurn(self, turn: Turn, result: Result):
-        return [], [], [], []
+        return [], [], [], [], []
 
     def ownTurn(self, turn: Turn, result: Result):
-        return [], [], [], []
+        return [], [], [], [], []
 
     @staticmethod
     def specialStart(special: Special):
-        return [], [], [], []
+        return [], [], [], [], []
 
     # noinspection PyUnusedLocal
     @staticmethod
     def specialEnd(special: Special):
-        return [], [], [], []
+        return [], [], [], [], []
 
     @staticmethod
-    def extendLists(bl: list, dbl: list, al: list, dl: list, nbl: list, ndbl: list, nal: list, ndl: list):
+    def extendLists(bl: list, dbl: list, al: list, dl: list, hl: list, nbl: list, ndbl: list, nal: list, ndl: list, nhl: list):
         bl.extend(nbl)
         dbl.extend(ndbl)
         al.extend(nal)
         dl.extend(ndl)
-        return bl, dbl, al, dl
+        hl.extend(nhl)
+        return bl, dbl, al, dl, hl
