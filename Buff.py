@@ -6,7 +6,7 @@ class Buff:
     # noinspection PyDefaultArgument
     def __init__(self, name: str, buffType: StatTypes, val: float, target: Role, atkType: list = [AtkType.ALL],
                  turns: int = 1, stackLimit: int = 1, tickDown: Role = Role.SELF, tdType: TickDown = TickDown.PERM,
-                 reqBroken: BooleanVar = False):
+                 reqBroken: bool = False):
         self.reqBroken = reqBroken
         self.name = name
         self.buffType = buffType

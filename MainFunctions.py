@@ -174,33 +174,33 @@ def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
         if Heal.target == Role.ALL:
             if Heal.targeting == Targeting.AOE: #teamwide Heal
                 for char in playerTeam:
-                    HealingList.append(Healing(Heal.name,Heal.val,Heal.scaling,Heal.target,Heal.targeting))
+                    HealingList.append(Healing(Heal.name,Heal.val,Heal.scaling,Heal.target, Heal.applier,Heal.targeting))
             elif Heal.targeting == Targeting.BLAST:
                 for i in range(len(playerTeam)):
                     if i == NumberLowestHp and NumberLowestHp > 0:
-                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
-                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     elif i == NumberLowestHp and NumberLowestHp == 0:
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
-                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     elif i == NumberLowestHp and NumberLowestHp == len(playerTeam):
-                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.targeting))
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     else:
-                        HealingList[i] = (Healing(Heal.name,[0], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name,[0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
             else:
                 for i in range(len(playerTeam)):
                     if i == NumberLowestHp:
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     else:
-                        HealingList[i] = (Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.targeting))
+                        HealingList[i] = (Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
         elif Heal.target != Role.ALL:
             for character in playerTeam:
                 if character.role == Heal.target:
-                    HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.targeting))
+                    HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                 else:
-                    HealingList.append((Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.targeting)))
+                    HealingList.append((Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting)))
 
     return HealingList
 
@@ -454,6 +454,15 @@ def inTeam(playerTeam: list[Character], charName) -> bool:
 
 def addSummons(playerTeam: list[Character]) -> list:
     summons = []
+    for char in playerTeam:
+        if char.name == "Topaz":
+            summons.append(Numby(char.role, Role.NUMBY))
+        elif char.name == "Lingsha":
+            summons.append(Fuyuan(char.role, Role.FUYUAN))
+        elif char.name == "Firefly":
+            summons.append(DeHenshin(char.role, Role.HENSHIN))
+        elif char.name == "JingYuan":
+            summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
     return summons
 
 def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
@@ -474,7 +483,10 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     anyBroken = []
     turnDmg = 0
     wbDmg = 0
-    Total_HP_Change = 0
+    Total_HPGain = 0
+    Total_HPLoss = 0
+    Scaling_Multiplier = 0
+    OGH_Multiplier = 0
     newDebuff, newDelay = [], []
 
     def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0, charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
@@ -598,29 +610,43 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 newDelay.extend(b)
 
     if healingList != []:
+        for character in playerTeam:
+            for heal in healingList:
+                if character.role == heal.applier:
+                    enemy = findBestEnemy(character, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
+                    OGH_Multiplier = getMulOGH(character,enemy,buffList,debuffList,turn)
+                    Scaling_Multiplier = getBaseValue(character, buffList, turn)
         for i in range(len(playerTeam)):
             Heal = healingList[i]
             character = playerTeam[i]
             if Heal.target == character.role:
                 if Heal.scaling != Scaling.Other:
-                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
-                    character.ChangeHpValue(Heal.val[0] * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn))
-                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn)
+                    character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
+                    if Heal.val[0] > 0:
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                    elif Heal.val[0] < 0:
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
                 elif Heal.scaling == Scaling.Other:
-                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
-                    character.ChangeHpValue(Heal.val[0] * getMulOGH(character, enemy,buffList, debuffList,turn))
-                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getMulOGH(character, enemy,buffList, debuffList,turn)
+                    character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
+                    if Heal.val[0] > 0:
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier
+                    elif Heal.val[0] < 0:
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
             elif Heal.target == Role.ALL:
                 if Heal.scaling != Scaling.Other:
-                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
-                    character.ChangeHpValue(Heal.val[0] * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn))
-                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getBaseValue(character, buffList, turn) * getMulOGH(character,enemy,buffList,debuffList,turn)
+                    character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
+                    if Heal.val[0] > 0:
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                    elif Heal.val[0] < 0:
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
                 elif Heal.scaling == Scaling.Other:
-                    enemy = findBestEnemy(char, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
-                    character.ChangeHpValue(Heal.val[0] * getMulOGH(character,enemy,buffList,debuffList,turn))
-                    Total_HP_Change = Total_HP_Change + abs(Heal.val[0]) * getMulOGH(character,enemy,buffList,debuffList,turn)
+                    character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
+                    if Heal.val[0] > 0:
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier
+                    elif Heal.val[0] < 0:
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
 
-    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, Total_HP_Change,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
+    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character], enemyTeam: list[Enemy]) -> list[Buff]:
     errBuffs, newList = [], []
@@ -926,7 +952,8 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         healList = []
         dmgTracker.addActionDMG(res.turnDmg)
         dmgTracker.addWeaknessBreakDMG(res.wbDmg)
-        dmgTracker.addHealing(res.Healing)
+        dmgTracker.addHPGain(res.HPGain)
+        dmgTracker.addHPLoss(res.HPLoss)
         char = findCharRole(playerTeam, res.charRole)
         result = f"RESULT - {res} | {char.name} Energy: {min(char.maxEnergy, char.currEnergy + res.errGain):.0f}/{char.maxEnergy}"
         logging.warning(f"    {result}")

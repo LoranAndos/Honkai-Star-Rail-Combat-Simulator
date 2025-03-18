@@ -3,7 +3,7 @@ from Enemy import Enemy
 
 class Result:
     def __init__(self, charName: str, charRole: Role, atkType: list, eleType: list, broken: list[Enemy], turnDmg: float,
-                 wbDmg: float, Healing: float,errGain: float, turnName: str, enemiesHit: list[Enemy], preHitStatus: list[bool]):
+                 wbDmg: float, HPGain: float, Damaging: float,errGain: float, turnName: str, enemiesHit: list[Enemy], preHitStatus: list[bool]):
         self.charName = charName
         self.charRole = charRole
         self.atkType = atkType
@@ -11,7 +11,8 @@ class Result:
         self.brokenEnemy = broken
         self.turnDmg = turnDmg
         self.wbDmg = wbDmg
-        self.Healing = Healing
+        self.HPGain = HPGain
+        self.HPLoss = Damaging
         self.errGain = errGain
         self.turnName = turnName
         self.enemiesHit = enemiesHit
@@ -20,8 +21,7 @@ class Result:
     def __str__(self) -> str:
         eHit = [e.enemyID for e in self.enemiesHit]
         broken = [e.enemyID for e in self.brokenEnemy]
-        return f"{self.turnName} | {self.charName} | {self.charRole.name} | DMG: {self.turnDmg:.3f} | Enemies Hit: {eHit} | Enemies Broken: {broken} | WB DMG: {self.wbDmg:.3f} | Energy: {self.errGain:.3f} | Amount HP Changed: {self.Healing:.3f}"
-
+        return f"{self.turnName} | {self.charName} | {self.charRole.name} | DMG: {self.turnDmg:.3f} | Enemies Hit: {eHit} | Enemies Broken: {broken} | WB DMG: {self.wbDmg:.3f} | Energy: {self.errGain:.3f} | Amount HP Healed: {self.HPGain:.3f} | Amount HP Lost: {self.HPLoss:.3f}"
 
 class Special:
     def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None, attr6=None):

@@ -29,7 +29,8 @@ class DmgTracker:
         self.actionDMG = 0
         self.debuffDMG = 0
         self.weaknessBreakDMG = 0
-        self.actionHealing = 0
+        self.actionHPGain = 0
+        self.actionHPLoss = 0
 
     def addDebuffDMG(self, dmg: float):
         self.debuffDMG += dmg
@@ -40,8 +41,11 @@ class DmgTracker:
     def addWeaknessBreakDMG(self, dmg: float):
         self.weaknessBreakDMG += dmg
 
-    def addHealing(self, Healing: float):
-        self.actionHealing += Healing
+    def addHPGain(self, Healing: float):
+        self.actionHPGain += Healing
+
+    def addHPLoss(self, Damage: float):
+        self.actionHPLoss += Damage
 
     def getDebuffDMG(self):
         return self.debuffDMG
@@ -55,5 +59,8 @@ class DmgTracker:
     def getTotalDMG(self):
         return self.actionDMG + self.debuffDMG + self.weaknessBreakDMG
 
-    def getTotalHealing(self):
-        return self.actionHealing
+    def getTotalHPGain(self):
+        return self.actionHPGain
+
+    def getTotalHPLoss(self):
+        return self.actionHPLoss

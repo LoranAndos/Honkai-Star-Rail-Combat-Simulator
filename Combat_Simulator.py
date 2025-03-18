@@ -304,6 +304,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     logging.critical(f"TOTAL TEAM DMG: {dmg.getTotalDMG():.3f} | AV: {avLimit}")
     logging.critical(f"TEAM DPAV: {dmg.getTotalDMG() / avLimit:.3f}")
+    logging.critical(f"TOTAL TEAM HPGAIN: {dmg.getTotalHPGain():.3f} | TOTAL TEAM HPLOSS {dmg.getTotalHPLoss():.3f}")
     logging.critical(
         f"DEBUFF DMG: {dmg.getDebuffDMG():.3f} | CHAR DMG: {dmg.getActionDMG():.3f} | WB DMG: {dmg.getWeaknessBreakDMG():.3f}")
     logging.critical(
