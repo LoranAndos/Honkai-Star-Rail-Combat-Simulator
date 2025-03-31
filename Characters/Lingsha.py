@@ -5,6 +5,7 @@ from Character import Character
 from Delay_Text import *
 
 from Delay_Text import Advance
+from Healing import Healing
 from Lightcones import PostOp
 from Lightcones.Scent import ScentLingsha
 from Planars.Kalpagni import KalpagniLingsha
@@ -126,8 +127,12 @@ class Lingsha(Character):
     def useFua(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
         e3Bonus = 0.825 if self.eidolon >= 3 else 0.75
+        e3HealingMult = 0.128 if self.eidolon >= 3 else 0.12
+        e3HealingFlat = 400.5 if self.eidolon >= 3 else 360
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA], [self.element], [e3Bonus, 0], [10, 0], 0, self.scaling, 0, "LingshaFua"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element], [e3Bonus, 0], [10, 0], 0, self.scaling, 0, "LingshaFuaExtra"))
+        hl.append(Healing("LingshaFuaHeal",[e3HealingMult,0],self.scaling,Role.ALL,self.role,Targeting.AOE))
+        hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0], self.scaling, Role.ALL, self.role, Targeting.AOE))
         if self.eidolon == 6:
             for _ in range(4):tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],[0.5, 0], [5, 0], 0, self.scaling, 0, "LingshaE6Extras"))
         return bl, dbl, al, dl, tl, hl
@@ -141,7 +146,9 @@ class Lingsha(Character):
         self.canUlt = specialRes.attr1
         self.beStat = specialRes.attr3
         atkBuff = min(0.5, self.beStat * 0.25)
+        ohbBuff = min(0.2, self.beStat * 0.10)
         bl.append(Buff("LingshaBEtoATK", StatTypes.ATK_PERCENT, atkBuff, self.role))
+        bl.append(Buff("LingshaBEtoOHB",StatTypes.OGH_PERCENT, ohbBuff, self.role))
         return bl, dbl, al, dl, tl, hl
 
     def canUseUlt(self) -> bool:

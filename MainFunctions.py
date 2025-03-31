@@ -629,9 +629,9 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 elif Heal.scaling == Scaling.Other:
                     character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * OGH_Multiplier
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * OGH_Multiplier
             elif Heal.target == Role.ALL:
                 if Heal.scaling != Scaling.Other:
                     character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
@@ -642,9 +642,9 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 elif Heal.scaling == Scaling.Other:
                     character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * OGH_Multiplier
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * OGH_Multiplier
 
     return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
