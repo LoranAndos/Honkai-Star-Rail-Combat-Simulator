@@ -174,27 +174,27 @@ def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
         if Heal.target == Role.ALL:
             if Heal.targeting == Targeting.AOE: #teamwide Heal
                 for char in playerTeam:
-                    HealingList.append(Healing(Heal.name,Heal.val,Heal.scaling,Heal.target, Heal.applier,Heal.targeting))
+                    HealingList.append(Healing(Heal.name,Heal.val,Heal.scaling,Heal.target,Heal.applier,Heal.targeting))
             elif Heal.targeting == Targeting.BLAST:
                 for i in range(len(playerTeam)):
                     if i == NumberLowestHp and NumberLowestHp > 0:
-                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
-                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     elif i == NumberLowestHp and NumberLowestHp == 0:
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
-                        HealingList[i+1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     elif i == NumberLowestHp and NumberLowestHp == len(playerTeam):
-                        HealingList[i-1] = (Healing(Heal.name, [Heal.val[1]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     else:
-                        HealingList[i] = (Healing(Heal.name,[0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
             else:
-                for i in range(len(playerTeam)):
+                for i in (range(len(playerTeam))):
                     if i == NumberLowestHp:
-                        HealingList[i] = (Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [Heal.val[0]], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
                     else:
-                        HealingList[i] = (Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
+                        HealingList.append(Healing(Heal.name, [0], Heal.scaling, Heal.target, Heal.applier, Heal.targeting))
         elif Heal.target != Role.ALL:
             for character in playerTeam:
                 if character.role == Heal.target:
@@ -941,6 +941,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("\n        ----------Enemy Debuffs----------")
         [logging.debug(f"        {debuff}") for debuff in enemyDebuffs if debuff.target == turn.targetID]
         logging.debug("        ----------End of Debuff List----------")
+        logging.debug("        ----------Healing List----------")
         [logging.debug(f"        {heal}") for heal in healList]
         logging.debug("        ----------End of Healing List----------")
 

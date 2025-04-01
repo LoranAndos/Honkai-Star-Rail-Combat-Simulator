@@ -48,7 +48,7 @@ class Luocha(Character):
         self.planar = pl if pl else RutilantArena(role)
         self.relicStats = subs if subs else RelicStats(13, 2, 3, 2, 4, 8, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.Spd,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else ["A"]
+        self.rotation = rotation if rotation else ["E","A"]
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
@@ -75,6 +75,8 @@ class Luocha(Character):
             self.stackCount += 1
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,
                        self.scaling, -1, "LuochaSkill"))
+        hl.append(Healing("LuochaSkillHealing",[0.6,0],self.scaling,Role.ALL,self.role,Targeting.SINGLE))
+        hl.append(Healing("LuochaSkillHealing",[800,0],Scaling.Other,Role.ALL,self.role,Targeting.SINGLE))
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
