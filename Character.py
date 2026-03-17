@@ -14,7 +14,9 @@ class Character:
     baseHP = 0
     baseATK = 0
     baseDEF = 0
+    baseELA = 0
     baseSPD = 100.0
+    ElationID = 0
     maxEnergy = 100.0
     ultCost = 100.0
     currEnergy = maxEnergy / 2

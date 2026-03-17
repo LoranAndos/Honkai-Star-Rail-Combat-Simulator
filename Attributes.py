@@ -18,6 +18,7 @@ class StatTypes(Enum):
     HP = "HP"
     ATK = "ATK"
     DEF = "DEF"
+    ELA = "Elation"
     SPD_PERCENT = "SPD%"
     HP_PERCENT = "HP%"
     ATK_PERCENT = "ATK%"
