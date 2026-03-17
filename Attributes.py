@@ -77,6 +77,7 @@ class Path(Enum):
     ABUNDANCE = 4
     REMEMBRANCE = 4
     MEM = 4
+    ELATION = 4
     DESTRUCTION = 5
     GARMENTMAKER = 5
     PRESERVATION = 6
@@ -137,6 +138,7 @@ class AtkType(Enum):
     SBK = auto()
     DOT = auto()
     MEMO = auto()
+    ELA = auto()
     ADD = auto()
     ALL = auto()
     TECH = auto()
