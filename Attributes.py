@@ -108,6 +108,7 @@ class Scaling(Enum):
     ATK = "ATK%"
     HP = "HP%"
     DEF = "DEF%"
+    ELA = "ELA%"
     Other = "Other"
 
 class TickDown(Enum):
