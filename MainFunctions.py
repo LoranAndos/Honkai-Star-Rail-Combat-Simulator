@@ -502,7 +502,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
             PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
             MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
-
+        #Finish Elation formula for damage.
         enemyBroken = False
         newDebuffs, newDelays = [], []
         # if turn.moveName == "H7UltEnhancedBSC":
@@ -844,6 +844,14 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                         TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
                 UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
                 return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
+
+            case "Sparxie":
+
+            case "YaoGuang":
+
+            case "SilverWolf999":
+
+            case "Evanescia":
 
             case _:
                 return Special(specStr, enemies=gauge)
