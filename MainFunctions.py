@@ -482,6 +482,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     baseValue = getBaseValue(char, buffList, turn)
     anyBroken = []
     turnDmg = 0
+    ElationturnDmg = 0
     wbDmg = 0
     Total_HPGain = 0
     Total_HPLoss = 0
@@ -490,19 +491,26 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     newDebuff, newDelay = [], []
 
     def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0, charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
-        nonlocal turnDmg, wbDmg, anyBroken
+        nonlocal turnDmg, wbDmg, anyBroken, ElationturnDmg
 
         charWBE = getMulWBE(char, currEnemy, buffList, debuffList, currTurn)
         charDMG = getMulDMG(char, currEnemy, buffList, debuffList, currTurn)
         charCR = getMulCR(char, currEnemy, buffList, debuffList, currTurn) if charCR == 0 else charCR
         charCD = getMulCD(char, currEnemy, buffList, debuffList, currTurn) if charCD == 0 else charCD
         enemyMul = getMulENEMY(char, currEnemy, buffList, debuffList, currTurn)
+        if currTurn.scaling == Scaling.ELA:
+            BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
+            PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
+            MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
 
         enemyBroken = False
         newDebuffs, newDelays = [], []
         # if turn.moveName == "H7UltEnhancedBSC":
         #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
-        turnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+        if currTurn.scaling == Scaling.ELA:
+            ElationturnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+        else:
+            turnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
 
         gauge = 0
         if checkValidList(currTurn.element, currEnemy.weakness):
@@ -646,7 +654,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                     elif Heal.val[0] < 0:
                         Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * OGH_Multiplier
 
-    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
+    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character], enemyTeam: list[Enemy]) -> list[Buff]:
     errBuffs, newList = [], []
@@ -906,14 +914,14 @@ def checkValidList(list1: list, list2: list) -> bool:
     return any(l1 in set2 for l1 in list1)
 
 def getBaseValue(char, buffList: list[Buff], turn: Turn) -> float:
-    if turn.scaling == Scaling.ATK or turn.scaling == Scaling.DEF or turn.scaling == Scaling.HP: # normal scaling attacks
+    if turn.scaling == Scaling.ATK or turn.scaling == Scaling.DEF or turn.scaling == Scaling.HP or turn.scaling == Scaling.ELA: # normal scaling attacks
         return getScalingValues(char, buffList, turn.atkType)
     else:
         return 0
 
 def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkType]) -> float:
     base, mul, flat = char.getBaseStat()
-    mulChecker = StatTypes.ATK_PERCENT if char.scaling == Scaling.ATK else (StatTypes.HP_PERCENT if char.scaling == Scaling.HP else StatTypes.DEF_PERCENT)
+    mulChecker = StatTypes.ATK_PERCENT if char.scaling == Scaling.ATK else (StatTypes.HP_PERCENT if char.scaling == Scaling.HP else StatTypes.DEF_PERCENT if char.scaling == Scaling.DEF else Scaling.ELA)
     flatChecker = StatTypes.ATK if char.scaling == Scaling.ATK else (StatTypes.HP if char.scaling == Scaling.HP else StatTypes.DEF)
     for buff in buffList:
         if buff.target != char.role:
@@ -952,6 +960,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             character.currHP = character.currHP*(character.maxHP/oldMaxHp)
         healList = []
         dmgTracker.addActionDMG(res.turnDmg)
+        dmgTracker.addActionDMG(res.ElationturnDMG)
         dmgTracker.addWeaknessBreakDMG(res.wbDmg)
         dmgTracker.addHPGain(res.HPGain)
         dmgTracker.addHPLoss(res.HPLoss)
@@ -1120,6 +1129,10 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res
         case StatTypes.TRUEDAMAGE:
             return res
+        case StatTypes.ELA:
+            return res
+        case StatTypes.BANGER:
+            return res
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char
 def getMulBE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
@@ -1170,6 +1183,18 @@ def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
 
 def getTRUEDAMAGE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.TRUEDAMAGE, char, enemy, buffList, debuffList, turn) + 1
+
+def getMulELA(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return getCharStat(StatTypes.ELA, char, enemy, buffList, debuffList, turn) + 1
+
+def getMulBANGER(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return 1 + getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)*5/(getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)+240)
+
+def getMulPUNCH(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return 1 + getCharStat(StatTypes.PUNCH, char, enemy, buffList, debuffList, turn)*5/(getCharStat(StatTypes.PUNCH, char, enemy, buffList, debuffList, turn)+240)
+
+def getMulMERRY(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return getCharStat(StatTypes.MERRY, char, enemy, buffList, debuffList, turn) + 1
 
 def getMulUNI(enemy: Enemy) -> float:
     return enemy.getUniMul()

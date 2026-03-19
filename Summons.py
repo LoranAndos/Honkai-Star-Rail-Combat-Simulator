@@ -97,7 +97,6 @@ class DeHenshin(Summon):
             self.currAV = 10000 / 70
         return bl, dbl, al, dl, tl, hl
 
-
 class LightningLord(Summon):
     name = "LightningLord"
     element = Element.LIGHTNING
@@ -131,12 +130,12 @@ class LightningLord(Summon):
         else:
             self.currAV = self.currAV * (self.currSPD / spd)
             self.currSPD = spd
+
 class Aha(Summon):
     name = "Aha"
     element = Element.QUANTUM
     currSPD = 80
     currAV = 10000 / currSPD
-    Punchline = 0
 
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)

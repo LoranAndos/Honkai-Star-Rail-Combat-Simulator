@@ -27,6 +27,7 @@ class SpTracker:
 class DmgTracker:
     def __init__(self) -> None:
         self.actionDMG = 0
+        self.ElationDMG = 0
         self.debuffDMG = 0
         self.weaknessBreakDMG = 0
         self.actionHPGain = 0
@@ -53,11 +54,14 @@ class DmgTracker:
     def getActionDMG(self):
         return self.actionDMG
 
+    def getElationDMG(self):
+        return self.ElationDMG
+
     def getWeaknessBreakDMG(self):
         return self.weaknessBreakDMG
 
     def getTotalDMG(self):
-        return self.actionDMG + self.debuffDMG + self.weaknessBreakDMG
+        return self.actionDMG + self.debuffDMG + self.weaknessBreakDMG + self.ElationDMG
 
     def getTotalHPGain(self):
         return self.actionHPGain

@@ -24,7 +24,8 @@ class Character:
     currHP = 1.0
     maxHP = 1.0
     aggro = 0
-    Certifief_Banger = 0
+    Banger = 0
+    Punchline = 0
     rotation = ["E", "A", "A"]
     dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.MEMO: 0.0}
     hasSummon = False

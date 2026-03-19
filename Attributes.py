@@ -41,6 +41,9 @@ class StatTypes(Enum):
     ERR_T = "ERR_T"
     ERR_F = "ERR_F"
     SKLPT = "SKILLPOINT"
+    BANGER = "BANGER"
+    PUNCH = "PUNCH"
+    MERRY = "MERRY"
 
     ICEPEN = "ICEPEN"
     FIRPEN = "FIRPEN"
