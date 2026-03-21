@@ -104,6 +104,7 @@ class Role(Enum):
     NUMBY = auto()
     FUYUAN = auto()
     HENSHIN = auto()
+    AHA = auto()
     # Memosprite roles
     Mem = auto()
 
@@ -143,7 +144,8 @@ class AtkType(Enum):
     SBK = auto()
     DOT = auto()
     MEMO = auto()
-    ELA = auto()
+    ELABANGER = auto()
+    ELAPUNCH = auto()
     ADD = auto()
     ALL = auto()
     TECH = auto()

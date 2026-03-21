@@ -498,17 +498,17 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         charCR = getMulCR(char, currEnemy, buffList, debuffList, currTurn) if charCR == 0 else charCR
         charCD = getMulCD(char, currEnemy, buffList, debuffList, currTurn) if charCD == 0 else charCD
         enemyMul = getMulENEMY(char, currEnemy, buffList, debuffList, currTurn)
-        if currTurn.scaling == Scaling.ELA:
-            BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
-            PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
-            MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
-        #Finish Elation formula for damage.
+        BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
+        PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
+        MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
         enemyBroken = False
         newDebuffs, newDelays = [], []
         # if turn.moveName == "H7UltEnhancedBSC":
         #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
-        if currTurn.scaling == Scaling.ELA:
-            ElationturnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+        if currTurn.scaling == Scaling.ELA and currTurn.atkType == AtkType.ELABANGER:
+            ElationturnDmg += expectedDMG(7535.107 * (1+baseValue/100) * percentMultiplier * BangerMUL * MerryMUL * enemyMul, charCR, charCD)
+        elif currTurn.scaling == Scaling.ELA and currTurn.atkType == AtkType.ELAPUNCH:
+            ElationturnDmg += expectedDMG(7535.107 * (1+baseValue/100) * percentMultiplier * PunchMUL * MerryMUL * enemyMul, charCR, charCD)
         else:
             turnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
 
@@ -846,13 +846,49 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
 
             case "Sparxie":
-
+                SpdList = []
+                AHASpdBuffAmount = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character,buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                for i in AHASpdList:
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5^(i-1)
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat)
             case "YaoGuang":
-
+                SpdList = []
+                AHASpdBuffAmount = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                for i in AHASpdList:
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=AHASpdBuffAmount)
             case "SilverWolf999":
-
+                SpdList = []
+                AHASpdBuffAmount = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                for i in AHASpdList:
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=AHASpdBuffAmount)
             case "Evanescia":
-
+                SpdList = []
+                AHASpdBuffAmount = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                for i in AHASpdList:
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=AHASpdBuffAmount)
             case _:
                 return Special(specStr, enemies=gauge)
 
@@ -1140,6 +1176,10 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
         case StatTypes.ELA:
             return res
         case StatTypes.BANGER:
+            return res
+        case StatTypes.PUNCH:
+            return res
+        case StatTypes.MERRY:
             return res
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char

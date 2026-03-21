@@ -2,7 +2,7 @@ from Attributes import *
 from Enemy import Enemy
 
 class Result:
-    def __init__(self, charName: str, charRole: Role, atkType: list, eleType: list, broken: list[Enemy], turnDmg: float, ElationturnDmg: float,
+    def __init__(self, charName: str, charRole: Role, atkType: list, eleType: list, broken: list[Enemy], turnDmg: float, ElationturnDMG: float,
                  wbDmg: float, HPGain: float, Damaging: float,errGain: float, turnName: str, enemiesHit: list[Enemy], preHitStatus: list[bool]):
         self.charName = charName
         self.charRole = charRole
@@ -10,7 +10,7 @@ class Result:
         self.eleType = eleType
         self.brokenEnemy = broken
         self.turnDmg = turnDmg
-        self.ElationturnDMG = ElationturnDmg
+        self.ElationturnDMG = ElationturnDMG
         self.wbDmg = wbDmg
         self.HPGain = HPGain
         self.HPLoss = Damaging

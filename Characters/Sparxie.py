@@ -29,7 +29,7 @@ class Sparxie(Character):
     ultCost = 160
     currAV = 0
     aggro = 100
-    dmgDct = {AtkType.BSC: 0, AtkType.FUA: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.ELA: 0}  # Adjust accordingly
+    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.ELABANGER: 0, AtkType.ELAPUNCH: 0}  # Adjust accordingly
 
     # Unique Character Properties
     cdStat = 0
@@ -54,17 +54,9 @@ class Sparxie(Character):
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
-        bl.append(Buff("SparkleTraceHP", StatTypes.HP_PERCENT, 0.28, self.role))
-        bl.append(Buff("SparkleTraceCD", StatTypes.CD_PERCENT, 0.24, self.role))
-        bl.append(Buff("SparkleTraceERS", StatTypes.ERS_PERCENT, 0.10, self.role))
-        atkBoost = [0, 0.05, 0.15, 0.30]
-        bl.append(Buff("SparkleTeamATK", StatTypes.ATK_PERCENT, 0.15 + atkBoost[self.quaAllies], Role.ALL))
-        e5DMG = 0.066 if self.eidolon >= 5 else 0.06
-        bl.append(Buff("SparkleDMG", StatTypes.DMG_PERCENT, e5DMG * 3, Role.ALL))
-        if self.eidolon >= 2:
-            bl.append(Buff("SparkleE2SHRED", StatTypes.SHRED, 0.24, Role.ALL))
-        if self.eidolon == 6:
-            bl.append(Buff("SparkleE6CD", StatTypes.CD_PERCENT, 0.30, Role.ALL))
+        bl.append(Buff("SparxieTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
+        bl.append(Buff("SparxieTraceCD", StatTypes.CD_PERCENT, 0.133, self.role))
+        bl.append(Buff("SparxieTraceELA", StatTypes.ELA, 0.28, self.role))
         return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
