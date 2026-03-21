@@ -38,7 +38,7 @@ class WelcometotheCityofStars(Lightcone):
     def useUlt(self, enemyID=-1):
         bl, dl, al, dl, hl = super().equip()
         DefShred = self.level * 0.03 + 0.15
-        bl.append(Buff("Superpower", StatTypes.SHRED, DefShred, self.wearerRole, [AtkType.ELA], 3, 1, Role.SELF, TickDown.END))
+        bl.append(Buff("SuperpowerDefShred", StatTypes.SHRED, DefShred, self.wearerRole, [AtkType.ELA], 3, 1, Role.SELF, TickDown.END))
         self.Superpower = True
         self.SuperpowerCount = 3
         return bl, dl, al, dl, hl
