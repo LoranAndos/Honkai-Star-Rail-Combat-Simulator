@@ -463,6 +463,8 @@ def addSummons(playerTeam: list[Character]) -> list:
             summons.append(DeHenshin(char.role, Role.HENSHIN))
         elif char.name == "JingYuan":
             summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
+        elif char.name == "YaoGuang" or char.name == "Sparxie" or char.name == "SilverWolf999" or char.name == "Evanescia":
+            summons.append(Aha(char.role, Role.AHA))
     return summons
 
 def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
@@ -629,30 +631,35 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             character = playerTeam[i]
             if Heal.target == character.role:
                 if Heal.scaling != Scaling.Other:
-                    character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPGain = Total_HPGain + Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier)
                 elif Heal.scaling == Scaling.Other:
-                    character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * OGH_Multiplier
+                        Total_HPGain = Total_HPGain + Heal.val[0] * OGH_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * OGH_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0])
+                        character.ChangeHpValue(Heal.val[0])
             elif Heal.target == Role.ALL:
                 if Heal.scaling != Scaling.Other:
-                    character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPGain = Total_HPGain + Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier)
                 elif Heal.scaling == Scaling.Other:
                     character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + abs(Heal.val[0]) * OGH_Multiplier
+                        Total_HPGain = Total_HPGain + Heal.val[0] * OGH_Multiplier
+                        character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * OGH_Multiplier
+                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0])
+                        character.ChangeHpValue(Heal.val[0])
 
     return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 

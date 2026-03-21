@@ -112,8 +112,7 @@ class HuoHuo(Character):
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
-        if (
-                "Skill" in turn.moveName or "Basic" in turn.moveName or "Ult" in turn.moveName) and turn.moveName not in bonusDMG and self.divineTrigger > 0:
+        if ("Skill" in turn.moveName or "Basic" in turn.moveName or "Ult" in turn.moveName) and turn.moveName not in bonusDMG and self.divineTrigger > 0:
             self.divineTrigger = max(0, self.divineTrigger - 1)
             tl.append(
                 Turn(self.name, self.role, self.defaultTarget, Targeting.NA, [AtkType.SPECIAL], [self.element], [0, 0],
