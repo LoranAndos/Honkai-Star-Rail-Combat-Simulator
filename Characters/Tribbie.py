@@ -79,11 +79,11 @@ class Tribbie(Character):
     def useUlt(self, enemyID=-1):
         self.currEnergy = self.currEnergy - self.ultCost
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
-        e3MultUltimate = 0.33 if self.eidolon >= 5 else 0.3
-        e3VulnUltimate = 0.33 if self.eidolon >= 5 else 0.3
+        e5MultUltimate = 0.33 if self.eidolon >= 5 else 0.3
+        e5VulnUltimate = 0.33 if self.eidolon >= 5 else 0.3
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.ULT], [self.element],
-                     [e3MultUltimate], [20,0], 5, self.scaling, 0, "TribbieUltimate"))
-        bl.append(Buff("TribbieUltVuln",StatTypes.VULN,e3VulnUltimate,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
+                     [e5MultUltimate], [20,0], 5, self.scaling, 0, "TribbieUltimate"))
+        bl.append(Buff("TribbieUltVuln",StatTypes.VULN,e5VulnUltimate,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
         if self.eidolon >= 1:
             bl.append(Buff("TribbieTrueDmg",StatTypes.TRUEDAMAGE,0.24,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
             # Change target to enemy with highest hp once hp for enemies and them taking damage has been coded

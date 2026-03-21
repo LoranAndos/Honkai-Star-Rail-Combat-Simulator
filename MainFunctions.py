@@ -689,9 +689,22 @@ def handleSPFromBuffs(buffList: list[Buff], spTracker: SpTracker) -> list[Buff]:
             newList.append(buff)
     return newList
 
+def handlePunchlineFromBuffs(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    PunchBuffs, newList = [], []
+    for buff in buffList:
+        if buff.buffType == StatTypes.PUNCH:
+            PunchBuffs.append(buff)
+        else:
+            newList.append(buff)
+    for pb in PunchBuffs:
+        char = findCharRole(playerTeam, pb.target)
+        PunchToAdd = pb.getBuffVal()
+        char.addPunchLine(PunchToAdd)
+        logger.info(f"Punch    > {PunchToAdd:.3f} Punchline added to {char.name} from {pb.name} | {char.name} Punchline: {char.Punchline:.3f}")
+    return newList
 
 # noinspection DuplicatedCode,PyUnusedLocal
-def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], typ: str, manualMode = False) -> Special:
+def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], SPTracker, typ: str, manualMode = False) -> Special:
     gauge = enemyTeam
     specChar = findCharName(playerTeam, specStr)
     placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element], [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
@@ -862,7 +875,10 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 for i in AHASpdList:
                     AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5^(i-1)
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat)
+                SPAmount = SPTracker
+                TotalElationChar = len(AHASpdList)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA)
             case "YaoGuang":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -1068,7 +1084,7 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
     # Apply any special effects
     for char in playerTeam:
         spec = char.special()
-        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, checkType, manualMode=manualMode)
+        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, spTracker, checkType, manualMode=manualMode)
         if checkType == "START":
             bl, dbl, al, dl, tl, hl = char.handleSpecialStart(specRes)
         else:

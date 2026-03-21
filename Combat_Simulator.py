@@ -228,6 +228,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         # Handle any errGain from unit turns
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
 
+        # Handle any PunchlineGain from unit turns
+        teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
+
         # Check if any unit can ult
         teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
                                                                  advList, delayList, healingList, spTracker, dmg,

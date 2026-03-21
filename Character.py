@@ -36,6 +36,8 @@ class Character:
     ults = 0
     fuas = 0
     Adds = 0
+    ElaPunch = 0
+    ElaBanger = 0
     MemoAttack = 0
     turn = 0
     lightcone = None
@@ -86,11 +88,19 @@ class Character:
 
     def useAdd(self, enemyID=-1):
         self.Adds = self.Adds + 1
-        return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
+        return *self.parseEquipment(AtkType.ADD, enemyID=enemyID), []
+
+    def useElaPunch(self, enemyID=-1):
+        self.ElaPunch = self.ElaPunch + 1
+        return *self.parseEquipment(AtkType.ELAPUNCH, enemyID=enemyID), []
+
+    def useElaBanger(self, enemyID=-1):
+        self.ElaBanger = self.ElaBanger + 1
+        return *self.parseEquipment(AtkType.ELABANGER, enemyID=enemyID), []
 
     def useMemo(self, enemyID=-1):
         self.MemoAttack = self.MemoAttack + 1
-        return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
+        return *self.parseEquipment(AtkType.MEMO, enemyID=enemyID), []
 
     def useHit(self, enemyID=-1):
         return *self.parseEquipment("HIT", enemyID=enemyID), []
@@ -132,6 +142,10 @@ class Character:
                 buffs, debuffs, advs, delays, heals = equipment.useFua(enemyID)
             elif actionType == AtkType.ADD:
                 buffs, debuffs, advs, delays, heals = equipment.useAdd(enemyID)
+            elif actionType == AtkType.ELAPUNCH:
+                buffs, debuffs, advs, delays, heals = equipment.useElaPunch(enemyID)
+            elif actionType == AtkType.ELABANGER:
+                buffs, debuffs, advs, delays, heals = equipment.useElaBanger(enemyID)
             elif actionType == AtkType.MEMO:
                 buffs, debuffs, advs, delays, heals = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":
@@ -158,6 +172,9 @@ class Character:
 
     def addEnergy(self, amount: float):
         self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
+
+    def addPunchLine(self, amount: float):
+        self.Punchline = self.Punchline + amount
 
     def reduceAV(self, reduceValue: float):
         self.currAV = max(0.0, self.currAV - reduceValue)

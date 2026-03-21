@@ -10,6 +10,7 @@ from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Result import *
 from Turn_Text import Turn
 from Healing import *
+from random import random
 
 logger = logging.getLogger(__name__)
 
@@ -32,8 +33,10 @@ class Sparxie(Character):
     dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.ELABANGER: 0, AtkType.ELAPUNCH: 0}  # Adjust accordingly
 
     # Unique Character Properties
-    cdStat = 0
-    startSP = True
+    AHASpdBuff = 0
+    AtkStat = 0
+    TotalSP = 0
+    TotalElationChar = 0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -54,6 +57,7 @@ class Sparxie(Character):
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
+        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ELABANGER],1,1,self.role,TickDown.END))
         bl.append(Buff("SparxieTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("SparxieTraceCD", StatTypes.CD_PERCENT, 0.133, self.role))
         bl.append(Buff("SparxieTraceELA", StatTypes.ELA, 0.28, self.role))
@@ -62,41 +66,32 @@ class Sparxie(Character):
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
-                       [e3Mul, 0], [10, 0], 30, self.scaling, 1, "SparkleBasic"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],[e3Mul, 0], [10, 0], 30, self.scaling, 1, "SparxieBasic"))
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        e3CDMul = 0.264 if self.eidolon >= 3 else 0.24
-        e3CDFlat = 0.486 if self.eidolon >= 3 else 0.45
-        bl.append(Buff("SparkleCD", StatTypes.CD_PERCENT, self.cdStat * e3CDMul + e3CDFlat, self.targetRole, turns=2,
-                       tickDown=self.targetRole, tdType=TickDown.START))
-        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,
-                       self.scaling, -1, "SparkleSkill"))
-        if self.role != self.targetRole:
-            al.append(Advance("SparkleForward", self.targetRole, 0.50))
+        e3Big1 = 1.1 if self.eidolon >= 3 else 1.0
+        e3Small1 = 0.22 if self.eidolon >= 3 else 0.2
+        e3Big3 = 0.55 if self.eidolon >= 3 else 0.5
+        e3Small3 = 0.11 if self.eidolon >= 3 else 0.1
+        tries = self.TotalSP
+        successes = sum(random() < 0.2 for _ in range(tries))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
+        [self.element],[e3Big1+e3Small1*(self.TotalSP+successes*2), e3Big3+e3Small3*(self.TotalSP+successes*2)],
+        [10, 5], 40, self.scaling, -self.TotalSP+1, "SparxieSkill"))
+        bl.append(Buff("SparxieSkillPunch", StatTypes.PUNCH, self.TotalSP+successes*2, self.role, [AtkType.SPECIAL  ], 1, 1, Role.ALL,TickDown.START))
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
-        self.currEnergy = self.currEnergy - self.ultCost
-        e1Turns = 3 if self.eidolon >= 1 else 2
-        e4SP = 5 if self.eidolon >= 4 else 4
-        e5DMG = 0.108 if self.eidolon >= 5 else 0.1
-        tl.append(
-            Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ULT], [self.element], [0, 0], [0, 0], 5, self.scaling,
-                 e4SP, "SparkleUlt"))
-        bl.append(Buff("SparkleUltDMG", StatTypes.DMG_PERCENT, e5DMG * 3, Role.ALL, turns=e1Turns, tdType=TickDown.END))
-        if self.eidolon >= 1:
-            bl.append(Buff("SparkleE1ATK", StatTypes.ATK_PERCENT, 0.40, Role.ALL, turns=3, tdType=TickDown.END))
+
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
-        if self.startSP:
-            self.startSP = False
-            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SPECIAL], [self.element], [0, 0], [0, 0], 0,
-                           self.scaling, 3, "SparkleTechSP"))
-        self.cdStat = specialRes.attr1
+        self.AHASpdBuff = specialRes.attr1
+        self.AtkStat = specialRes.attr2
+        self.TotalSP = specialRes.attr3
+        self.TotalElationChar = specialRes.attr4
         return bl, dbl, al, dl, tl, hl

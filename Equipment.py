@@ -31,6 +31,12 @@ class Equipment:
     def useAdd(self, enemyID=-1):
         return [], [], [], [], []
 
+    def useElaPunch(self, enemyID=-1):
+        return [], [], [], [], []
+
+    def useElaBanger(self, enemyID=-1):
+        return [], [], [], [], []
+
     def useMemo(self, enemyID=-1):
         return [], [], [], [], []
 

@@ -26,19 +26,19 @@ class WelcometotheCityofStars(Lightcone):
         ElationCount = self.level * 2 + 10
         if self.Superpower:
             if self.SuperpowerCount >1:
-                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.SELF,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
                 self.SuperpowerCount -= 1
             if self.SuperpowerCount == 1:
-                bl.append(
-                    Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.SELF,TickDown.START))
-                bl.append(Buff("SuperPowerPunchLineEnd", StatTypes.PUNCH, ElationCount, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.SELF,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLineEnd", StatTypes.PUNCH, ElationCount, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
                 self.SuperpowerCount -= 1
         return bl, dbl, al, dl, hl
 
     def useUlt(self, enemyID=-1):
         bl, dl, al, dl, hl = super().equip()
         DefShred = self.level * 0.03 + 0.15
-        bl.append(Buff("SuperpowerDefShred", StatTypes.SHRED, DefShred, self.wearerRole, [AtkType.ELA], 3, 1, Role.SELF, TickDown.END))
+        bl.append(Buff("SuperpowerDefShred", StatTypes.SHRED, DefShred, self.wearerRole, [AtkType.ELABANGER], 3, 1, Role.SELF, TickDown.END))
+        bl.append(Buff("SuperpowerDefShred", StatTypes.SHRED, DefShred, self.wearerRole, [AtkType.ELAPUNCH], 3, 1, Role.SELF, TickDown.END))
         self.Superpower = True
         self.SuperpowerCount = 3
         return bl, dl, al, dl, hl
