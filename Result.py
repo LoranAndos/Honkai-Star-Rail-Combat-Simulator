@@ -22,7 +22,7 @@ class Result:
     def __str__(self) -> str:
         eHit = [e.enemyID for e in self.enemiesHit]
         broken = [e.enemyID for e in self.brokenEnemy]
-        return f"{self.turnName} | {self.charName} | {self.charRole.name} | DMG: {self.turnDmg:.3f} | Enemies Hit: {eHit} | Enemies Broken: {broken} | WB DMG: {self.wbDmg:.3f} | Energy: {self.errGain:.3f} | Amount HP Healed: {self.HPGain:.3f} | Amount HP Lost: {self.HPLoss:.3f}"
+        return f"{self.turnName} | {self.charName} | {self.charRole.name} | DMG: {self.turnDmg:.3f} | ELADMG: {self.ElationturnDMG:.3f} | Enemies Hit: {eHit} | Enemies Broken: {broken} | WB DMG: {self.wbDmg:.3f} | Energy: {self.errGain:.3f} | Amount HP Healed: {self.HPGain:.3f} | Amount HP Lost: {self.HPLoss:.3f}"
 
 class Special:
     def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None, attr6=None, attr7=None, attr8=None):

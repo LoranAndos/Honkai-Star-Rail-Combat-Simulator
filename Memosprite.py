@@ -15,6 +15,7 @@ class Memosprite:
     baseHP = 0
     baseATK = 0
     baseDEF = 0
+    baseELA = 0
     baseSPD = 100.0
     maxEnergy = 100.0
     EnergyCost = 100.0
@@ -23,6 +24,8 @@ class Memosprite:
     currHP = 1.0
     maxHP = 1.0
     aggro = 0
+    Banger = 0
+    Punchline = 0
     MemoActive = False
     rotation = ["MemoAtk"]
     dmgDct = {AtkType.MEMO: 0.0}
@@ -34,6 +37,9 @@ class Memosprite:
     ults = 0
     fuas = 0
     Adds = 0
+    ElaPunch = 0
+    ElaBanger = 0
+    MemoAttack = 0
     MemoAttack = 0
     lightcone = None
     relic1 = None
@@ -148,6 +154,9 @@ class Memosprite:
     def addEnergy(self, amount: float):
         self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
 
+    def addPunchLine(self, amount: float):
+        self.Punchline = self.Punchline + amount
+
     def reduceAV(self, reduceValue: float):
         self.currAV = max(0.0, self.currAV - reduceValue)
 
@@ -187,16 +196,21 @@ class Memosprite:
             res += f"-{key.name}: {val:.3f} | {val / ttl * 100 if ttl > 0 else 0:.3f}%\n"
         return res, ttl
 
-    def getBaseStat(self):
-        if self.scaling == Scaling.ATK:
-            baseStat = self.baseATK
-        elif self.scaling == Scaling.HP:
-            baseStat = self.baseHP
-        elif self.scaling == Scaling.DEF:
-            baseStat = self.baseDEF
+    def getBaseStat(self, scaling: Scaling = None):
+        scaling = scaling if scaling is not None else self.scaling
+        if scaling == Scaling.ATK:
+            baseStat = self.baseATK + self.lightcone.baseATK
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.HP:
+            baseStat = self.baseHP + self.lightcone.baseHP
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.DEF:
+            baseStat = self.baseDEF + self.lightcone.baseDEF
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.ELA:
+            return 0, 0, 0  # ← no base, no relic contribution for ELA
         else:
-            baseStat = 0.0
-        return baseStat, *self.getRelicScalingStats()
+            return 0, 0, 0
 
     def standardAVred(self, av: float):
         self.currAV = max(0.0, self.currAV - av)

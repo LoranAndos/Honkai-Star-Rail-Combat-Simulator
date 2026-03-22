@@ -1,7 +1,7 @@
 import logging
 
 from Characters.Luocha import Luocha
-from Characters.Sparkle import Sparkle
+from Characters.Sparxie import Sparxie
 from Characters.Sushang import Sushang
 from Characters.Tingyun import Tingyun
 from Characters.Rmc import Rmc
@@ -33,7 +33,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Character Settings
     # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Sushang(0,Role.DPS,1,eidolon=6,targetPrio=Priority.DEFAULT)
+        slot1 = Sparxie(0,Role.DPS,1,eidolon=0,targetPrio=Priority.DEFAULT)
         slot2 = Rmc(1,Role.SUP1,1,eidolon=6,targetPrio=Priority.DEFAULT)
         slot3 = Mem.Mem(2,Role.MEMO2,1,eidolon=6,targetPrio=Priority.DEFAULT)
         slot4 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
@@ -81,12 +81,14 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         if char.path == Path.ELATION:
             ElationCount += 1
     maxSP = 5
-    if findCharName(playerTeam, "Sparkle").eidolon >= 4:
-        maxSP += 3
-    elif findCharName(playerTeam, "Sparkle").eidolon < 4:
-        maxSP += 2
-    elif findCharName(playerTeam, "Sparxie").lightcone == "DazzledByAFloweryWorld":
-        maxSP += min(ElationCount,3)
+    if inTeam(playerTeam, "Sparkle"):
+        if findCharName(playerTeam, "Sparkle").eidolon >= 4:
+            maxSP += 3
+        elif findCharName(playerTeam, "Sparkle").eidolon < 4:
+            maxSP += 2
+    if inTeam(playerTeam, "Sparxie"):
+        if findCharName(playerTeam, "Sparxie").lightcone == "DazzledByAFloweryWorld":
+            maxSP += min(ElationCount,3)
     spTracker = SpTracker(startingSP, maxSP)
 
     # Summons
@@ -229,6 +231,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                                                                           advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
 
+        # Handle any PunchlineGain from unit turns
+        teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
+
         # Handle any pending attacks:
         teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList  = processTurnList(turnList, playerTeam, summons, eTeam,
                                                                                 teamBuffs, enemyDebuffs, advList,
@@ -237,9 +242,6 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
         # Handle any errGain from unit turns
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
-
-        # Handle any PunchlineGain from unit turns
-        teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
 
         # Check if any unit can ult
         teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs,
@@ -262,8 +264,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                                                                  manualMode=manualMode, simAV=simAV)
 
         # Apply any speed adjustments
-        spdAdjustment(playerTeam, teamBuffs)
+        spdAdjustment(playerTeam + summons, teamBuffs)
         enemySPDAdjustment(eTeam, enemyDebuffs)
+
 
         # Reset the AV of the current unit by checking its current speed
         if not unit.isChar() or not unit.isSummon():

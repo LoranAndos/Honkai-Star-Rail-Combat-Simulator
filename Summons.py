@@ -10,6 +10,8 @@ class Summon:
     element = None
     currSPD = 100
     currAV = 10000 / currSPD
+    maxHP = 0
+    currHP = 0
     currEnergy = 0
     maxEnergy = 0
 
@@ -136,6 +138,7 @@ class Aha(Summon):
     element = Element.QUANTUM
     scaling = Scaling.ATK
     currSPD = 80
+    baseSPD = 80
     currAV = 10000 / currSPD
 
     def __init__(self, ownerRole: Role, role: Role) -> None:
@@ -144,17 +147,17 @@ class Aha(Summon):
     def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
         bl, dbl, al, dl, tl, hl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaYaoGuang"))
+                       self.scaling, 0, "AhaYaoGuangGoGo"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaEMC"))
+                       self.scaling, 0, "AhaEMCGoGo"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaSparxie"))
+                       self.scaling, 0, "AhaSparxieGoGo"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaEvanescia"))
+                       self.scaling, 0, "AhaEvanesciaGoGo"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaSilverWolf999"))
+                       self.scaling, 0, "AhaSilverWolf999GoGo"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
-                       self.scaling, 0, "AhaEnd"))
+                       self.scaling, 0, "AhaEndGoGo"))
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn, result):

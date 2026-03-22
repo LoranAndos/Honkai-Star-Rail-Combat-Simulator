@@ -125,7 +125,12 @@ def addBuffs(currList: list, newList: list) -> list:
                     return False, i
         return True, -1
 
-    # Only add a new entry if unique name or repeated name but different target
+    # Deduplicate newList first — keep only the last entry per (name, target) pair
+    deduped = {}
+    for buff in newList:
+        deduped[(buff.name, buff.target)] = buff
+    newList = list(deduped.values())
+
     for buff in newList:
         check, buffID = checkValidAdd(buff, currList)
         if check:
@@ -142,7 +147,11 @@ def findBuffs(charRole: Role, buffType: StatTypes, buffList: list[Buff]) -> list
 def sumBuffs(buffList: list[Buff]):
     return sum([x.getBuffVal() for x in buffList])
 
-def getCharSPD(char: Character, buffList: list[Buff]) -> float:
+def getCharSPD(char, buffList):
+    if char.isSummon():
+        spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList))
+        spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
+        return char.baseSPD * (1 + spdPercent) + spdFlat  # ← use baseSPD not currSPD
     baseSPD = char.baseSPD
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
     spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList)) + char.getSPD()
@@ -463,7 +472,7 @@ def addSummons(playerTeam: list[Character]) -> list:
             summons.append(DeHenshin(char.role, Role.HENSHIN))
         elif char.name == "JingYuan":
             summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
-        elif char.name == "YaoGuang" or char.name == "Sparxie" or char.name == "SilverWolf999" or char.name == "Evanescia":
+        elif char.name == "YaoGuang" or char.name == "Sparxie" or char.name == "SilverWolf999" or char.name == "Evanescia" or char.name == "ElationMC":
             summons.append(Aha(char.role, Role.AHA))
     return summons
 
@@ -507,12 +516,22 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         newDebuffs, newDelays = [], []
         # if turn.moveName == "H7UltEnhancedBSC":
         #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
-        if currTurn.scaling == Scaling.ELA and currTurn.atkType == AtkType.ELABANGER:
-            ElationturnDmg += expectedDMG(7535.107 * (1+baseValue/100) * percentMultiplier * BangerMUL * MerryMUL * enemyMul, charCR, charCD)
-        elif currTurn.scaling == Scaling.ELA and currTurn.atkType == AtkType.ELAPUNCH:
-            ElationturnDmg += expectedDMG(7535.107 * (1+baseValue/100) * percentMultiplier * PunchMUL * MerryMUL * enemyMul, charCR, charCD)
+        if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
+            effectiveBase = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)  # ← pass Scaling.ELA
         else:
-            turnDmg += expectedDMG(baseValue * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+            effectiveBase = baseValue
+
+        #if currTurn.atkType[0] == AtkType.ELABANGER: #(Ela Damage Debugger)
+        #    print(f"ELA DEBUG | effectiveBase: {effectiveBase:.3f} | percentMul: {percentMultiplier:.3f} | PunchMUL: {PunchMUL:.3f} | MerryMUL: {MerryMUL:.3f} | enemyMul: {enemyMul:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f}")
+
+        if currTurn.atkType[0] == AtkType.ELABANGER:
+            ElationturnDmg += expectedDMG(
+                7535.107 * (1 + effectiveBase) * percentMultiplier * BangerMUL * MerryMUL * enemyMul, charCR, charCD)
+        elif currTurn.atkType[0] == AtkType.ELAPUNCH:
+            ElationturnDmg += expectedDMG(
+                7535.107 * (1 + effectiveBase) * percentMultiplier * PunchMUL * MerryMUL * enemyMul, charCR, charCD)
+        else:
+            turnDmg += expectedDMG(effectiveBase * charDMG * percentMultiplier * enemyMul, charCR, charCD)
 
         gauge = 0
         if checkValidList(currTurn.element, currEnemy.weakness):
@@ -704,7 +723,7 @@ def handlePunchlineFromBuffs(buffList: list[Buff], playerTeam: list[Character]) 
     return newList
 
 # noinspection DuplicatedCode,PyUnusedLocal
-def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], SPTracker, typ: str, manualMode = False) -> Special:
+def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffList, spTracker, typ, manualMode=False):
     gauge = enemyTeam
     specChar = findCharName(playerTeam, specStr)
     placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element], [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
@@ -868,14 +887,16 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
             case "Sparxie":
                 SpdList = []
                 AHASpdBuffAmount = 0
+                i = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character,buffList))
                 AHASpdList = sorted(SpdList, reverse=True)
-                for i in AHASpdList:
-                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5^(i-1)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                SPAmount = SpTracker.getCurrenSP(SPTracker)
+                SPAmount = spTracker.getCurrenSP()
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
@@ -987,10 +1008,17 @@ def getBaseValue(char, buffList: list[Buff], turn: Turn) -> float:
     else:
         return 0
 
-def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkType]) -> float:
-    base, mul, flat = char.getBaseStat()
-    mulChecker = StatTypes.ATK_PERCENT if char.scaling == Scaling.ATK else (StatTypes.HP_PERCENT if char.scaling == Scaling.HP else StatTypes.DEF_PERCENT if char.scaling == Scaling.DEF else Scaling.ELA)
-    flatChecker = StatTypes.ATK if char.scaling == Scaling.ATK else (StatTypes.HP if char.scaling == Scaling.HP else StatTypes.DEF)
+def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkType], scaling: Scaling = None) -> float:
+    scaling = scaling if scaling is not None else char.scaling
+    base, mul, flat = char.getBaseStat(scaling)
+    mulChecker = (StatTypes.ATK_PERCENT if scaling == Scaling.ATK
+                  else StatTypes.HP_PERCENT if scaling == Scaling.HP
+                  else StatTypes.DEF_PERCENT if scaling == Scaling.DEF
+                  else None)
+    flatChecker = (StatTypes.ATK if scaling == Scaling.ATK
+                   else StatTypes.HP if scaling == Scaling.HP
+                   else StatTypes.DEF if scaling == Scaling.DEF
+                   else StatTypes.ELA)
     for buff in buffList:
         if buff.target != char.role:
             continue
@@ -1028,7 +1056,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             character.currHP = character.currHP*(character.maxHP/oldMaxHp)
         healList = []
         dmgTracker.addActionDMG(res.turnDmg)
-        dmgTracker.addActionDMG(res.ElationturnDMG)
+        dmgTracker.addElationDMG(res.ElationturnDMG)
         dmgTracker.addWeaknessBreakDMG(res.wbDmg)
         dmgTracker.addHPGain(res.HPGain)
         dmgTracker.addHPLoss(res.HPLoss)
@@ -1045,6 +1073,8 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
                 tempB, tempDB, tempA, tempD , newTurns, tempH = char.allyTurn(turn, res)
             teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,tempB, tempDB, tempA, tempD, tempH)
             turnList.extend(newTurns)
+
+        teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
 
         turnList = turnList[1:]
 
@@ -1259,11 +1289,12 @@ def getTRUEDAMAGE(char: Character, enemy: Enemy, buffList: list[Buff], debuffLis
 def getMulELA(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.ELA, char, enemy, buffList, debuffList, turn) + 1
 
-def getMulBANGER(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
-    return 1 + getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)*5/(getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)+240)
+def getMulPUNCH(char, enemy, buffList, debuffList, turn):
+    return 1 + char.Punchline * 5 / (char.Punchline + 240)
 
-def getMulPUNCH(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
-    return 1 + getCharStat(StatTypes.PUNCH, char, enemy, buffList, debuffList, turn)*5/(getCharStat(StatTypes.PUNCH, char, enemy, buffList, debuffList, turn)+240)
+def getMulBANGER(char, enemy, buffList, debuffList, turn):
+    banger = getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)
+    return 1 + banger * 5 / (banger + 240)
 
 def getMulMERRY(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.MERRY, char, enemy, buffList, debuffList, turn) + 1

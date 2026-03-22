@@ -27,7 +27,7 @@ class Character:
     Banger = 0
     Punchline = 0
     rotation = ["E", "A", "A"]
-    dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.MEMO: 0.0}
+    dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.ELABANGER: 0, AtkType.ELAPUNCH: 0, AtkType.MEMO: 0.0}
     hasSummon = False
     hasMemosprite = False
     specialEnergy = False
@@ -107,7 +107,7 @@ class Character:
 
     def ownTurn(self, turn: Turn, result: Result):
         if result.atkType[0] in self.dmgDct:
-            self.dmgDct[result.atkType[0]] = self.dmgDct[result.atkType[0]] + result.turnDmg
+            self.dmgDct[result.atkType[0]] = self.dmgDct[result.atkType[0]] + result.turnDmg + result.ElationturnDMG
         self.dmgDct[AtkType.BRK] = self.dmgDct[AtkType.BRK] + result.wbDmg
         self.currEnergy = min(self.maxEnergy, self.currEnergy + result.errGain)
         return *self.parseEquipment("OWN", turn=turn, result=result), []
@@ -215,16 +215,21 @@ class Character:
             res += f"-{key.name}: {val:.3f} | {val / ttl * 100 if ttl > 0 else 0:.3f}%\n"
         return res, ttl
 
-    def getBaseStat(self):
-        if self.scaling == Scaling.ATK:
+    def getBaseStat(self, scaling: Scaling = None):
+        scaling = scaling if scaling is not None else self.scaling
+        if scaling == Scaling.ATK:
             baseStat = self.baseATK + self.lightcone.baseATK
-        elif self.scaling == Scaling.HP:
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.HP:
             baseStat = self.baseHP + self.lightcone.baseHP
-        elif self.scaling == Scaling.DEF:
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.DEF:
             baseStat = self.baseDEF + self.lightcone.baseDEF
+            return baseStat, *self.getRelicScalingStats()
+        elif scaling == Scaling.ELA:
+            return 0, 0, 0  # ← no base, no relic contribution for ELA
         else:
-            baseStat = 0.0
-        return baseStat, *self.getRelicScalingStats()
+            return 0, 0, 0
 
     def standardAVred(self, av: float):
         self.currAV = max(0.0, self.currAV - av)

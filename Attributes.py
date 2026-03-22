@@ -5,7 +5,7 @@ bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "F
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
             ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
-UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoULT","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoULT","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate","SparxieUltReg","SparxieUltEla"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}
@@ -75,17 +75,17 @@ class Element(Enum):
     PHYSICAL = "PHY"
 
 class Path(Enum):
-    HUNT = 3
-    ERUDITION = 3
-    HARMONY = 4
+    HUNT = 1
+    ERUDITION = 2
+    HARMONY = 3
     NIHILITY = 4
-    ABUNDANCE = 4
-    REMEMBRANCE = 4
-    MEM = 4
-    ELATION = 4
-    DESTRUCTION = 5
-    GARMENTMAKER = 5
-    PRESERVATION = 6
+    ABUNDANCE = 5
+    REMEMBRANCE = 6
+    MEM = 7
+    ELATION = 8
+    DESTRUCTION = 9
+    GARMENTMAKER = 10
+    PRESERVATION = 11
 
 class Role(Enum):
     DPS = auto()

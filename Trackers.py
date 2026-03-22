@@ -16,7 +16,7 @@ class SpTracker:
         return self.spUsed
 
     def getCurrenSP(self):
-        return self.startingSP+self.spGain-self.spUsed
+        return self.diSP # ← already capped at maxSP
 
     def addSP(self, num):
         self.spGain += num
@@ -41,6 +41,9 @@ class DmgTracker:
 
     def addActionDMG(self, dmg: float):
         self.actionDMG += dmg
+
+    def addElationDMG(self, dmg: float):
+        self.ElationDMG += dmg
 
     def addWeaknessBreakDMG(self, dmg: float):
         self.weaknessBreakDMG += dmg
