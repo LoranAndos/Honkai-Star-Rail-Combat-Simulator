@@ -875,10 +875,11 @@ def handleSpec(specStr: str, unit: Character, playerTeam: list[Character], summo
                 for i in AHASpdList:
                     AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5^(i-1)
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                SPAmount = SPTracker
+                SPAmount = SpTracker.getCurrenSP(SPTracker)
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA)
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger)
             case "YaoGuang":
                 SpdList = []
                 AHASpdBuffAmount = 0

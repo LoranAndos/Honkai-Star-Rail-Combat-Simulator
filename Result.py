@@ -25,7 +25,7 @@ class Result:
         return f"{self.turnName} | {self.charName} | {self.charRole.name} | DMG: {self.turnDmg:.3f} | Enemies Hit: {eHit} | Enemies Broken: {broken} | WB DMG: {self.wbDmg:.3f} | Energy: {self.errGain:.3f} | Amount HP Healed: {self.HPGain:.3f} | Amount HP Lost: {self.HPLoss:.3f}"
 
 class Special:
-    def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None, attr6=None):
+    def __init__(self, name: str, enemies=None, attr1=None, attr2=None, attr3=None, attr4=None, attr5=None, attr6=None, attr7=None, attr8=None):
         self.specialName = name
         self.enemies = enemies
         self.attr1 = attr1
@@ -34,6 +34,8 @@ class Special:
         self.attr4 = attr4
         self.attr5 = attr5
         self.attr6 = attr6
+        self.attr7 = attr7
+        self.attr8 = attr8
 
     def __str__(self) -> str:
-        return f"{self.specialName} | Attr1: {self.attr1} | Attr2: {self.attr2} | Attr3: {self.attr3} | Attr4: {self.attr4} | Attr5: {self.attr5}"
+        return f"{self.specialName} | Attr1: {self.attr1} | Attr2: {self.attr2} | Attr3: {self.attr3} | Attr4: {self.attr4} | Attr5: {self.attr5} | Attr6: {self.attr6}"

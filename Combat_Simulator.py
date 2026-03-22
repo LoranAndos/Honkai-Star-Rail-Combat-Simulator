@@ -76,7 +76,17 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Skill Point Module
     startingSP = 3 + [p.relic1.name for p in playerTeam if p.relic1.setType == 4].count("Passerby of Wandering Cloud")
-    maxSP = (8 if findCharName(playerTeam, "Sparkle").eidolon >= 4 else 7) if inTeam(playerTeam, "Sparkle") else 5
+    ElationCount = 0
+    for char in playerTeam:
+        if char.path == Path.ELATION:
+            ElationCount += 1
+    maxSP = 5
+    if findCharName(playerTeam, "Sparkle").eidolon >= 4:
+        maxSP += 3
+    elif findCharName(playerTeam, "Sparkle").eidolon < 4:
+        maxSP += 2
+    elif findCharName(playerTeam, "Sparxie").lightcone == "DazzledByAFloweryWorld":
+        maxSP += min(ElationCount,3)
     spTracker = SpTracker(startingSP, maxSP)
 
     # Summons

@@ -134,11 +134,28 @@ class LightningLord(Summon):
 class Aha(Summon):
     name = "Aha"
     element = Element.QUANTUM
+    scaling = Scaling.ATK
     currSPD = 80
     currAV = 10000 / currSPD
 
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)
+
+    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaYaoGuang"))
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaEMC"))
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaSparxie"))
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaEvanescia"))
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaSilverWolf999"))
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, "AhaEnd"))
+        return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn, result):
         return super().allyTurn(turn, result)

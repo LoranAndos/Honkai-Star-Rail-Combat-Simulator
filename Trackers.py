@@ -15,6 +15,9 @@ class SpTracker:
     def getSPUsed(self):
         return self.spUsed
 
+    def getCurrenSP(self):
+        return self.startingSP+self.spGain-self.spUsed
+
     def addSP(self, num):
         self.spGain += num
         self.diSP = min(self.diSP + num, self.maxSP)
