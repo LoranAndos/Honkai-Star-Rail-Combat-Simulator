@@ -193,7 +193,10 @@ class Sparxie(Character):
                            [self.element], [e5MulSmall * (20 + E6ExtraProc), 0], [1.67 * (20 + E6ExtraProc), 0], 0,
                            Scaling.ELA, 0, "SparxieElaSkillSmall"))
             self.addThrill(2)
+            bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline, self.role, [AtkType.ALL], 2, 1, self.role,
+                           TickDown.END))
             self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
+
         if result.turnName == "AhaSparxieGoGo" and self.eidolon >= 1:
             bl.append(Buff("SparxieE1AhaPunch", StatTypes.PUNCH, 5, Role.ALL,[AtkType.SPECIAL], 1, 1, self.role, TickDown.START))
         if result.turnName == "AhaSparxieGoGo" and self.eidolon >= 2:
