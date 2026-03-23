@@ -87,7 +87,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         elif findCharName(playerTeam, "Sparkle").eidolon < 4:
             maxSP += 2
     if inTeam(playerTeam, "Sparxie"):
-        if findCharName(playerTeam, "Sparxie").lightcone == "DazzledByAFloweryWorld":
+        if findCharName(playerTeam, "Sparxie").lightcone == "Dazzled by a Flowery World":
             maxSP += min(ElationCount,3)
     spTracker = SpTracker(startingSP, maxSP)
 

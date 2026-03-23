@@ -4,6 +4,7 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.CruisingInTheStellarSea import CruisingInTheStellarSea
+from Lightcones.DazzledByAFloweryWorld import DazzledByAFloweryWorld
 from Planars.RutilantArena import RutilantArena
 from RelicStats import RelicStats
 from Relics.ScholarLostInErudition import ScholarLostInErudition
@@ -51,12 +52,12 @@ class Sparxie(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else CruisingInTheStellarSea(role)
+        self.lightcone = lc if lc else DazzledByAFloweryWorld(role,1)
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CD_PERCENT, StatTypes.Spd,
-                                                       StatTypes.HP_PERCENT,StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
+                                                       StatTypes.ATK_PERCENT,StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
@@ -116,7 +117,7 @@ class Sparxie(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
                        [self.element], [e3Big1 + e3Small1 * totalSPConsumed, e3Big3 + e3Small3 * totalSPConsumed],
-                       [10, 5], 40, self.scaling, spChange, "SparxieSkill"))
+                       [10, 5], 40, self.scaling, spChange + 1, "SparxieSkill"))
 
         if self.ELABanger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.ELABANGER],
@@ -171,7 +172,7 @@ class Sparxie(Character):
             bl.append(
                 Buff("SparxieE4Punch", StatTypes.PUNCH, 5, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
             bl.append(
-                Buff("SparxieE4Ela", StatTypes.ELA, 0.36, self.role, [AtkType.ALL], 1, 1, Role.ALL, TickDown.START))
+                Buff("SparxieE4Ela", StatTypes.ELA, 0.36, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -193,7 +194,7 @@ class Sparxie(Character):
                            [self.element], [e5MulSmall * (20 + E6ExtraProc), 0], [1.67 * (20 + E6ExtraProc), 0], 0,
                            Scaling.ELA, 0, "SparxieElaSkillSmall"))
             self.addThrill(2)
-            bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline, self.role, [AtkType.ALL], 2, 1, self.role,
+            bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline , self.role, [AtkType.ALL], 2, 1, self.role,
                            TickDown.END))
             self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
 
