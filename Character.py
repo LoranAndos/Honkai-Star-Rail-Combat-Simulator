@@ -36,8 +36,7 @@ class Character:
     ults = 0
     fuas = 0
     Adds = 0
-    ElaPunch = 0
-    ElaBanger = 0
+    ElationSkills = 0
     MemoAttack = 0
     turn = 0
     lightcone = None
@@ -90,13 +89,9 @@ class Character:
         self.Adds = self.Adds + 1
         return *self.parseEquipment(AtkType.ADD, enemyID=enemyID), []
 
-    def useElaPunch(self, enemyID=-1):
-        self.ElaPunch = self.ElaPunch + 1
+    def useElaSkill(self, enemyID=-1):
+        self.ElationSkills = self.ElationSkills + 1
         return *self.parseEquipment(AtkType.ELAPUNCH, enemyID=enemyID), []
-
-    def useElaBanger(self, enemyID=-1):
-        self.ElaBanger = self.ElaBanger + 1
-        return *self.parseEquipment(AtkType.ELABANGER, enemyID=enemyID), []
 
     def useMemo(self, enemyID=-1):
         self.MemoAttack = self.MemoAttack + 1
@@ -143,9 +138,7 @@ class Character:
             elif actionType == AtkType.ADD:
                 buffs, debuffs, advs, delays, heals = equipment.useAdd(enemyID)
             elif actionType == AtkType.ELAPUNCH:
-                buffs, debuffs, advs, delays, heals = equipment.useElaPunch(enemyID)
-            elif actionType == AtkType.ELABANGER:
-                buffs, debuffs, advs, delays, heals = equipment.useElaBanger(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useElationSkill(enemyID)
             elif actionType == AtkType.MEMO:
                 buffs, debuffs, advs, delays, heals = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":

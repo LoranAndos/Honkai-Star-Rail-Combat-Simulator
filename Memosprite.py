@@ -37,9 +37,7 @@ class Memosprite:
     ults = 0
     fuas = 0
     Adds = 0
-    ElaPunch = 0
-    ElaBanger = 0
-    MemoAttack = 0
+    ElationSkills = 0
     MemoAttack = 0
     lightcone = None
     relic1 = None

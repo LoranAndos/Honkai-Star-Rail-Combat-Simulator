@@ -463,6 +463,16 @@ def inTeam(playerTeam: list[Character], charName) -> bool:
 
 def addSummons(playerTeam: list[Character]) -> list:
     summons = []
+    ahaAdded = False
+    charToTurnName = {
+        "YaoGuang": "AhaYaoGuangGoGo",
+        "ElationMC": "AhaEMCGoGo",
+        "Sparxie": "AhaSparxieGoGo",
+        "Evanescia": "AhaEvanesciaGoGo",
+        "SilverWolf999": "AhaSilverWolf999GoGo"
+    }
+    fixedOrder = ["YaoGuang", "ElationMC", "Sparxie", "Evanescia", "SilverWolf999"]
+
     for char in playerTeam:
         if char.name == "Topaz":
             summons.append(Numby(char.role, Role.NUMBY))
@@ -472,8 +482,13 @@ def addSummons(playerTeam: list[Character]) -> list:
             summons.append(DeHenshin(char.role, Role.HENSHIN))
         elif char.name == "JingYuan":
             summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
-        elif char.name == "YaoGuang" or char.name == "Sparxie" or char.name == "SilverWolf999" or char.name == "Evanescia" or char.name == "ElationMC":
-            summons.append(Aha(char.role, Role.AHA))
+        elif char.name in charToTurnName:
+            if not ahaAdded:
+                elationTeam = [(c.role, charToTurnName[c.name]) for c in
+                               sorted([c for c in playerTeam if c.path == Path.ELATION and c.name in charToTurnName],
+                                      key=lambda c: fixedOrder.index(c.name))]
+                summons.append(Aha(char.role, Role.AHA, elationTeam))
+                ahaAdded = True
     return summons
 
 def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
@@ -910,8 +925,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 AHASpdList = sorted(SpdList, reverse=True)
                 for i in AHASpdList:
                     AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
-                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                return Special(name=specStr, attr1=AHASpdBuffAmount)
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case "SilverWolf999":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -921,8 +936,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 AHASpdList = sorted(SpdList, reverse=True)
                 for i in AHASpdList:
                     AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
-                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                return Special(name=specStr, attr1=AHASpdBuffAmount)
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case "Evanescia":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -932,8 +947,19 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 AHASpdList = sorted(SpdList, reverse=True)
                 for i in AHASpdList:
                     AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
-                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                return Special(name=specStr, attr1=AHASpdBuffAmount)
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+            case "ElationMC":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                for i in AHASpdList:
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case _:
                 return Special(specStr, enemies=gauge)
 

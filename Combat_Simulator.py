@@ -87,8 +87,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         elif findCharName(playerTeam, "Sparkle").eidolon < 4:
             maxSP += 2
     if inTeam(playerTeam, "Sparxie"):
-        if findCharName(playerTeam, "Sparxie").lightcone == "Dazzled by a Flowery World":
-            maxSP += min(ElationCount,3)
+        sparxie = findCharName(playerTeam, "Sparxie")
+        if sparxie.lightcone.name == "Dazzled by a Flowery World":
+            maxSP += min(ElationCount, 3)
     spTracker = SpTracker(startingSP, maxSP)
 
     # Summons
@@ -140,6 +141,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Setup initial currHp and Maxhp
     initCharCurrentHP_MaxHp(playerTeam, teamBuffs) # apply any pre-existing Hp buffs
+
+    # Initialize starting Punchline for all characters
+    for char in playerTeam:
+        char.Punchline = ElationCount
 
     logging.warning("\nInitial AV Adjustments")
     avAdjustment(playerTeam, advList)  # apply any "on battle start" advances
@@ -336,7 +341,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     for char in playerTeam:
         res, charDMG = char.getTotalDMG()
         logging.critical(
-            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
+            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | ElationSkills: {char.ElationSkills} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
         logging.critical(res)
 
     return f"DPAV: {dmg.getTotalDMG() / avLimit:.3f} | SP Used: {spTracker.getSPUsed()}, SP Gain: {spTracker.getSPGain()}"

@@ -1,9 +1,10 @@
 """
-Returns 4 lists:
+Returns 5 lists:
 - list of buffs added
 - list of debuffs added
 - list of adv% adjustments
 - list of enemy debuffs to be applied
+- list of healing done
 """
 from Turn_Text import *
 from Result import *
@@ -31,10 +32,7 @@ class Equipment:
     def useAdd(self, enemyID=-1):
         return [], [], [], [], []
 
-    def useElaPunch(self, enemyID=-1):
-        return [], [], [], [], []
-
-    def useElaBanger(self, enemyID=-1):
+    def useElationSkill(self, enemyID = -1):
         return [], [], [], [], []
 
     def useMemo(self, enemyID=-1):
