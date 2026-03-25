@@ -195,7 +195,7 @@ class Sparxie(Character):
         if self.eidolon >= 5:
             e5MulBig = 0.55
             e5MulSmall = 0.275
-        elif 5 < self.eidolon >= 3:
+        elif 5 > self.eidolon >= 3:
             e5MulBig = 0.525
             e5MulSmall = 0.2625
         else:
