@@ -2,9 +2,9 @@ from Buff import *
 from Lightcone import Lightcone
 from Attributes import *
 
-class Void(Lightcone):
-    name = "Void"
-    path = Path.NIHILITY
+class Chorus(Lightcone):
+    name = "Chorus"
+    path = Path.HARMONY
     baseHP = 847
     baseATK = 318
     baseDEF = 265
@@ -14,6 +14,6 @@ class Void(Lightcone):
 
     def equip(self):
         bl, dl, al, dl, hl = super().equip()
-        BuffAmount = self.level * 0.05 + 0.15
-        bl.append(Buff("VoidEHR", StatTypes.EHR_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.END))
+        BuffAmount = self.level * 0.01 + 0.07
+        bl.append(Buff("ChorusATK", StatTypes.ATK_PERCENT, BuffAmount, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dl, al, dl, hl

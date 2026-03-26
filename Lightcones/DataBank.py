@@ -15,5 +15,5 @@ class DataBank(Lightcone):
     def equip(self):
         bl, dl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.07 + 0.21
-        bl.append(Buff("DataBankDB_ULT", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
+        bl.append(Buff("DataBank_ULTDMG", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
         return bl, dl, al, dl, hl

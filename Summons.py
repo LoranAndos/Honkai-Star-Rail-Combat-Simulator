@@ -140,6 +140,7 @@ class Aha(Summon):
     currSPD = 80
     baseSPD = 80
     currAV = 10000 / currSPD
+    skipAVReset = False
 
     def __init__(self, ownerRole: Role, role: Role, elationTeam: list = None) -> None:
         super().__init__(ownerRole, role)

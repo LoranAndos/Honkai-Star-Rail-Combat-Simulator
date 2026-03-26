@@ -15,6 +15,6 @@ class Cornucopia(Lightcone):
     def equip(self):
         bl, dl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.03 + 0.09
-        bl.append(Buff("CornucopiaDB_SKL", StatTypes.OGH_PERCENT, BuffAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("CornucopiaDB_ULT", StatTypes.OGH_PERCENT, BuffAmount, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("Cornucopia_SKLOGH", StatTypes.OGH_PERCENT, BuffAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("Cornucopia_ULTOGH", StatTypes.OGH_PERCENT, BuffAmount, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dl, al, dl, hl

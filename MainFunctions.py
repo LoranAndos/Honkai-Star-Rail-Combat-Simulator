@@ -919,45 +919,59 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "YaoGuang":
                 SpdList = []
                 AHASpdBuffAmount = 0
+                i = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
                 AHASpdList = sorted(SpdList, reverse=True)
-                for i in AHASpdList:
-                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
                 TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                elaDict = {char.role: getCharStat(StatTypes.ELA, char, enemyTeam[0], buffList, debuffList,
+                                                  Turn(char.name, char.role, -1, Targeting.NA, [AtkType.ALL],
+                                                       [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PH"))
+                           for char in playerTeam}
+                TotalSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=elaDict, attr5=TotalSPD)
             case "SilverWolf999":
                 SpdList = []
                 AHASpdBuffAmount = 0
+                i = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
                 AHASpdList = sorted(SpdList, reverse=True)
-                for i in AHASpdList:
-                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
                 TotalElationChar = len(AHASpdList)
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case "Evanescia":
                 SpdList = []
                 AHASpdBuffAmount = 0
+                i = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
                 AHASpdList = sorted(SpdList, reverse=True)
-                for i in AHASpdList:
-                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
                 TotalElationChar = len(AHASpdList)
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case "ElationMC":
                 SpdList = []
                 AHASpdBuffAmount = 0
+                i = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
                 AHASpdList = sorted(SpdList, reverse=True)
-                for i in AHASpdList:
-                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ^ (i - 1)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
                 TotalElationChar = len(AHASpdList)
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
             case _:

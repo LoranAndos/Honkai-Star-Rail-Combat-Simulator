@@ -3,7 +3,8 @@ from enum import Enum, auto
 bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
             "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
+            "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoULT","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate","SparxieUltReg"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 

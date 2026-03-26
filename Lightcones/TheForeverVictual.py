@@ -15,11 +15,11 @@ class TheForeverVictual(Lightcone):
     def equip(self):
         bl, dl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.03 + 0.09
-        bl.append(Buff("ForeverVictualDB", StatTypes.ATK_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("ForeverVictualATK", StatTypes.ATK_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dl, al, dl, hl
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().useSkl(enemyID)
         atkAmount = self.level * 0.02 + 0.06
-        bl.append(Buff("ForeverVictual_SKL", StatTypes.ATK_PERCENT, atkAmount, self.wearerRole, [AtkType.ALL], 1, 3, Role.SELF, TickDown.PERM))
+        bl.append(Buff("ForeverVictual_SKLATK", StatTypes.ATK_PERCENT, atkAmount, self.wearerRole, [AtkType.ALL], 1, 3, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl

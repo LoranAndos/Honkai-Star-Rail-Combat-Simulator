@@ -16,6 +16,6 @@ class Defense(Lightcone):
 
     def useUlt(self, enemyID=-1):
         bl, dl, al, dl, hl = super().useUlt(enemyID)
-        HealAmount = (self.level * 0.03 + 0.15)
+        HealAmount = self.level * 0.03 + 0.15
         hl.append(Healing("DefenseHeal",[HealAmount,0],Scaling.HP,self.wearerRole,self.wearerRole,Targeting.SINGLE))
         return bl, dl, al, dl, hl

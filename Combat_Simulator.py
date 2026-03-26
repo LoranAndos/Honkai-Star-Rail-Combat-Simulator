@@ -2,9 +2,7 @@ import logging
 
 from Characters.Luocha import Luocha
 from Characters.Sparxie import Sparxie
-from Characters.Sushang import Sushang
-from Characters.Tingyun import Tingyun
-from Characters.Rmc import Rmc
+from Characters.Yao_Guang import YaoGuang
 from Characters.Tribbie import Tribbie
 from Memosprites.Mem import Mem
 from MainFunctions import *
@@ -34,10 +32,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Sparxie(0,Role.DPS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot2 = Rmc(1,Role.SUP1,1,eidolon=6,targetPrio=Priority.DEFAULT)
-        slot3 = Mem.Mem(2,Role.MEMO2,1,eidolon=6,targetPrio=Priority.DEFAULT)
-        slot4 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot5 = Tribbie(4,Role.SUP2,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1,Role.SUP1,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot3 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot4 = Tribbie(4,Role.SUP2,1,eidolon=0,targetPrio=Priority.DEFAULT)
 
 
     # Simulation Settings
@@ -51,7 +48,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Logging Config
     if not s1:
-        playerTeam = [slot1, slot2, slot3, slot4, slot5]
+        playerTeam = [slot1, slot2, slot3, slot4]
     else:
         playerTeam = [s1, s2, s3, s4]
 
@@ -295,10 +292,21 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         healingList = []
 
         if unit.isChar() and unit.isSummon():
-            resetUnitAV(unit, [], [])  # summons cannot be advanced during their own turn
-            avLog = f"AV     > {unit.name} AV reset to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
-            logging.warning(avLog)
-            manualPrint(manualMode, avLog)
+            if unit.name == "Aha" and Character.ahaSkipAVReset:
+                unit.skipAVReset = True
+                Character.ahaSkipAVReset = False
+            if not unit.skipAVReset:
+                resetUnitAV(unit, teamBuffs, enemyDebuffs)
+                avLog = f"AV     > {unit.name} AV reset to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
+                logging.warning(avLog)
+                manualPrint(manualMode, avLog)
+            else:
+                # Extra turn — restore AV to pre-advance value instead of resetting
+                unit.currAV += 10000 / unit.currSPD
+                unit.skipAVReset = False
+                avLog = f"AV     > {unit.name} extra turn complete, AV restored to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
+                logging.warning(avLog)
+                manualPrint(manualMode, avLog)
 
         allUnits = sortUnits(allUnits)
 

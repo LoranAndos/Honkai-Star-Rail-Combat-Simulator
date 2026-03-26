@@ -15,6 +15,6 @@ class CollapsingSky(Lightcone):
     def equip(self):
         bl, dl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.05 + 0.15
-        bl.append(Buff("CollapsingSkyDB_SKL", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("CollapsingSkyDB_BSC", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.BSC], 1, 1, Role.SELF,TickDown.PERM))
+        bl.append(Buff("CollapsingSky_SKLDMG", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("CollapsingSky_BSCDMG", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.BSC], 1, 1, Role.SELF,TickDown.PERM))
         return bl, dl, al, dl, hl
