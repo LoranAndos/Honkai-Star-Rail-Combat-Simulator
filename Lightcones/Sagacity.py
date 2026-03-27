@@ -13,7 +13,7 @@ class Sagacity(Lightcone):
         super().__init__(wearerRole, level)
 
     def useUlt(self, enemyID=-1):
-        bl, dl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl = super().useUlt(enemyID)
         BuffAmount = self.level * 0.06 + 0.18
         bl.append(Buff("Sagacity_ATK", StatTypes.ATK_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 2, 1, Role.SELF,TickDown.START))
-        return bl, dl, al, dl, hl
+        return bl, dbl, al, dl, hl

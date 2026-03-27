@@ -16,10 +16,10 @@ class DazzledByAFloweryWorld(Lightcone):
         self.spConsumedThisTurn = 0
 
     def equip(self):
-        bl, dl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         CDBuff = self.level * 0.08 + 0.40
         bl.append(Buff("FloweryWorldCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dl, al, dl, hl
+        return bl, dbl, al, dl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)

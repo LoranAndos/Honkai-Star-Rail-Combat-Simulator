@@ -39,7 +39,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.DEBUG
+    logLevel = logging.CRITICAL
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn

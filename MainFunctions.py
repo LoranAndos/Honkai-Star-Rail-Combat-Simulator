@@ -947,7 +947,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
                     i += 1
                 TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
             case "Evanescia":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -960,7 +961,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
                     i += 1
                 TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
             case "ElationMC":
                 SpdList = []
                 AHASpdBuffAmount = 0

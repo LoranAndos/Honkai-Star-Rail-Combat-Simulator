@@ -32,7 +32,7 @@ class Equipment:
     def useAdd(self, enemyID=-1):
         return [], [], [], [], []
 
-    def useElationSkill(self, enemyID = -1):
+    def useElaSkill(self, enemyID = -1):
         return [], [], [], [], []
 
     def useMemo(self, enemyID=-1):

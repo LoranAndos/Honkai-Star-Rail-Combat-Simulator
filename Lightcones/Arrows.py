@@ -13,7 +13,7 @@ class Arrows(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.03 + 0.09
         bl.append(Buff("ArrowsCR", StatTypes.CR_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
-        return bl, dl, al, dl, hl
+        return bl, dbl, al, dl, hl
