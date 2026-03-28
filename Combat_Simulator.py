@@ -78,10 +78,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         if char.path == Path.ELATION:
             ElationCount += 1
     maxSP = 5
-    if inTeam(playerTeam, "Sparkle"):
-        if findCharName(playerTeam, "Sparkle").eidolon >= 4:
+    if inTeam(playerTeam, "Sparkle") or inTeam(playerTeam, "SparkleOld"):
+        if findCharName(playerTeam, "Sparkle").eidolon >= 4 or findCharName(playerTeam, "SparkleOld").eidolon >= 4:
             maxSP += 3
-        elif findCharName(playerTeam, "Sparkle").eidolon < 4:
+        elif findCharName(playerTeam, "Sparkle").eidolon < 4 or findCharName(playerTeam, "SparkleOld").eidolon < 4:
             maxSP += 2
     if inTeam(playerTeam, "Sparxie"):
         sparxie = findCharName(playerTeam, "Sparxie")

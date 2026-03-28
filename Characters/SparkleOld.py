@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 class SparkleOld(Character):
     # Standard Character Settings
-    name = "Sparkle_Old"
+    name = "SparkleOld"
     path = Path.HARMONY
     element = Element.QUANTUM
     scaling = Scaling.ATK

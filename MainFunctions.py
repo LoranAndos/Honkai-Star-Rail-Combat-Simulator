@@ -760,6 +760,35 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 canUlt = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
                 return Special(name=specStr, attr1=enemyDebuffs, attr2=canUlt, enemies=gauge)
 
+            case "ElationMC":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                i = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+
+            case "Evanescia":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                i = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
+                TotalElationChar = len(AHASpdList)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
+
             case "Feixiao":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
                 feixiaoTurn = True if specChar.name == "Feixiao" else False
@@ -817,56 +846,6 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=canUlt, enemies=gauge, attr3=charBE)
 
-            case "Moze":
-                res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
-                return Special(name=specStr, attr1=res, enemies=gauge)
-
-            case "Rappa":
-                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
-                return Special(name=specStr, attr1=atkStat, enemies=gauge, attr2=inTeam(playerTeam, "RuanMei"))
-
-            case "Robin":
-                atk = getBaseValue(specChar, buffList, placeHolderTurn)
-                if "RobinUltBuff" in getBuffNames(buffList):
-                    atk -= findBuffName(buffList, "RobinUltBuff").getBuffVal()
-                return Special(name=specStr, attr1=atk, enemies=gauge)
-
-            case "RuanMei":
-                be = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=be, enemies=gauge)
-
-            case "Sparkle":
-                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
-                if "EarthlyTeamCD" in getBuffNames(buffList):
-                    cdStat -= findBuffName(buffList, "EarthlyTeamCD").getBuffVal()
-                return Special(name=specStr, attr1=cdStat, enemies=gauge)
-
-            case "Sunday":
-                if inTeam(playerTeam, "JingYuan"):
-                    summonRole = Role.LIGHTNINGLORD
-                elif inTeam(playerTeam, "Topaz"):
-                    summonRole = Role.NUMBY
-                else:
-                    summonRole = None
-                energyCap = findCharRole(playerTeam, specChar.targetRole).maxEnergy
-                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
-                sundayTurn = unit.name == "Sunday"
-                return Special(name=specStr, attr1=summonRole, attr2=energyCap, attr3=cdStat, attr4=sundayTurn, enemies=gauge)
-
-            case "Topaz":
-                fireWeak = hasWeakness(Element.FIRE, enemyTeam)
-                canUlt = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
-                return Special(name=specStr, attr1=fireWeak, attr2=canUlt, enemies=gauge)
-
-            case "Yunli":
-                yunliSlot = specChar.pos
-                lst = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
-                return Special(name=specStr, attr1=lst[yunliSlot], enemies=gauge)
-
-            case "Sushang":
-                HasExtraSwordStance = True if "SushangUltimateAttack" in getBuffNames(buffList) else False
-                return Special(name=specStr, attr1=HasExtraSwordStance,attr2=enemyTeam, enemies=gauge)
-
             case "Mem":
                 RmcBuffs = []
                 Temporary = []
@@ -889,15 +868,35 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                             HasMemosprite = True
                 return Special(name=specStr, attr1=RmcBuffs, attr2=sum(energyList)/len(playerTeam), attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
 
-            case "Tribbie":
-                CharacterList = []
-                TeamHP = 0
-                for character in playerTeam:
-                    CharacterList.append(character.name)
-                    if character.name != "Tribbie" and character.role != Role.MEMO1 and character.role != Role.MEMO2 and character.role != Role.MEMO3:
-                        TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
-                UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
-                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
+            case "Moze":
+                res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
+                return Special(name=specStr, attr1=res, enemies=gauge)
+
+            case "Rappa":
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=atkStat, enemies=gauge, attr2=inTeam(playerTeam, "RuanMei"))
+
+            case "Robin":
+                atk = getBaseValue(specChar, buffList, placeHolderTurn)
+                if "RobinUltBuff" in getBuffNames(buffList):
+                    atk -= findBuffName(buffList, "RobinUltBuff").getBuffVal()
+                return Special(name=specStr, attr1=atk, enemies=gauge)
+
+            case "RuanMei":
+                be = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=be, enemies=gauge)
+
+            case "SparkleOld":
+                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
+                if "EarthlyTeamCD" in getBuffNames(buffList):
+                    cdStat -= findBuffName(buffList, "EarthlyTeamCD").getBuffVal()
+                return Special(name=specStr, attr1=cdStat, enemies=gauge)
+
+            case "Sparkle":
+                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
+                if "EarthlyTeamCD" in getBuffNames(buffList):
+                    cdStat -= findBuffName(buffList, "EarthlyTeamCD").getBuffVal()
+                return Special(name=specStr, attr1=cdStat, enemies=gauge)
 
             case "Sparxie":
                 SpdList = []
@@ -916,6 +915,53 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger)
+
+            case "SilverWolf999":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                i = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
+                    i += 1
+                TotalElationChar = len(AHASpdList)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
+
+            case "Sunday":
+                if inTeam(playerTeam, "JingYuan"):
+                    summonRole = Role.LIGHTNINGLORD
+                elif inTeam(playerTeam, "Topaz"):
+                    summonRole = Role.NUMBY
+                else:
+                    summonRole = None
+                energyCap = findCharRole(playerTeam, specChar.targetRole).maxEnergy
+                cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
+                sundayTurn = unit.name == "Sunday"
+                return Special(name=specStr, attr1=summonRole, attr2=energyCap, attr3=cdStat, attr4=sundayTurn, enemies=gauge)
+
+            case "Sushang":
+                HasExtraSwordStance = True if "SushangUltimateAttack" in getBuffNames(buffList) else False
+                return Special(name=specStr, attr1=HasExtraSwordStance,attr2=enemyTeam, enemies=gauge)
+
+            case "Topaz":
+                fireWeak = hasWeakness(Element.FIRE, enemyTeam)
+                canUlt = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
+                return Special(name=specStr, attr1=fireWeak, attr2=canUlt, enemies=gauge)
+
+            case "Tribbie":
+                CharacterList = []
+                TeamHP = 0
+                for character in playerTeam:
+                    CharacterList.append(character.name)
+                    if character.name != "Tribbie" and character.role != Role.MEMO1 and character.role != Role.MEMO2 and character.role != Role.MEMO3:
+                        TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
+                UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
+                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
+
             case "YaoGuang":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -935,47 +981,12 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                            for char in playerTeam}
                 TotalSPD = getCharSPD(specChar, buffList)
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=elaDict, attr5=TotalSPD)
-            case "SilverWolf999":
-                SpdList = []
-                AHASpdBuffAmount = 0
-                i = 0
-                for character in playerTeam:
-                    if character.path == Path.ELATION:
-                        SpdList.append(getCharSPD(character, buffList))
-                AHASpdList = sorted(SpdList, reverse=True)
-                while i < len(AHASpdList):
-                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
-                    i += 1
-                TotalElationChar = len(AHASpdList)
-                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
-            case "Evanescia":
-                SpdList = []
-                AHASpdBuffAmount = 0
-                i = 0
-                for character in playerTeam:
-                    if character.path == Path.ELATION:
-                        SpdList.append(getCharSPD(character, buffList))
-                AHASpdList = sorted(SpdList, reverse=True)
-                while i < len(AHASpdList):
-                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
-                    i += 1
-                TotalElationChar = len(AHASpdList)
-                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
-            case "ElationMC":
-                SpdList = []
-                AHASpdBuffAmount = 0
-                i = 0
-                for character in playerTeam:
-                    if character.path == Path.ELATION:
-                        SpdList.append(getCharSPD(character, buffList))
-                AHASpdList = sorted(SpdList, reverse=True)
-                while i < len(AHASpdList):
-                    AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
-                    i += 1
-                TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+
+            case "Yunli":
+                yunliSlot = specChar.pos
+                lst = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                return Special(name=specStr, attr1=lst[yunliSlot], enemies=gauge)
+
             case _:
                 return Special(specStr, enemies=gauge)
 
