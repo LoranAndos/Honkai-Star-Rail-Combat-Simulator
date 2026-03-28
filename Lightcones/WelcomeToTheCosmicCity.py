@@ -2,8 +2,8 @@ from Buff import *
 from Lightcone import Lightcone
 from Attributes import *
 
-class WelcometotheCityofStars(Lightcone):
-    name = "Welcome to the City of Stars"
+class WelcometotheCosmicCity(Lightcone):
+    name = "Welcome to the Cosmic City"
     path = Path.ELATION
     baseHP = 953
     baseATK = 635
@@ -18,19 +18,19 @@ class WelcometotheCityofStars(Lightcone):
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
         AtkBuff = self.level * 0.16 + 0.48
-        bl.append(Buff("CityOfStarsATK", StatTypes.ATK_PERCENT, AtkBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("CosmicCityATK", StatTypes.ATK_PERCENT, AtkBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().useBsc(enemyID)
-        ElationCount = self.level * 2 + 10
+        PunchlineBuff = self.level * 2 + 10
         if self.Superpower:
             if self.SuperpowerCount >1:
-                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.ALL], 1, 1, Role.ALL,TickDown.START))
                 self.SuperpowerCount -= 1
             if self.SuperpowerCount == 1:
-                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
-                bl.append(Buff("SuperPowerPunchLineEnd", StatTypes.PUNCH, ElationCount, self.wearerRole, [AtkType.SPECIAL], 1, 1, Role.ALL,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 2, self.wearerRole, [AtkType.ALL], 1, 1, Role.ALL,TickDown.START))
+                bl.append(Buff("SuperPowerPunchLineEnd", StatTypes.PUNCH, PunchlineBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.ALL,TickDown.START))
                 self.SuperpowerCount -= 1
         return bl, dbl, al, dl, hl
 
