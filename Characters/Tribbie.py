@@ -1,7 +1,7 @@
 import logging
 
 from Lightcones.CruisingInTheStellarSea import CruisingInTheStellarSea
-from Relics.PoetsDillWreath import PoetsDillWreathTribbie
+from Relics.PoetsDillWreath import PoetsDillWreath
 from Planars.RutilantArena import RutilantArena
 from Buff import *
 from Character import Character
@@ -40,7 +40,7 @@ class Tribbie(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else CruisingInTheStellarSea(self.role)
-        self.relic1 = r1 if r1 else PoetsDillWreathTribbie(self.role,4)
+        self.relic1 = r1 if r1 else PoetsDillWreath(self.role,4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(self.role)
         self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 12, 2, 2, 2, 2, 2, 4, 12, StatTypes.CR_PERCENT, StatTypes.HP_PERCENT,

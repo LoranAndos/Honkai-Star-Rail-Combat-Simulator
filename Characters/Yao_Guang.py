@@ -102,10 +102,8 @@ class YaoGuang(Character):
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
         bl.append(Buff("YaoGuangUltPunchline", StatTypes.PUNCH, 5, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.START))
-        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUltimate"))
-        al.append(Advance("YaoGuangUltAhaAdvance", Role.AHA, 1.0))
-        Character.ahaFixedPunchline = True
-        Character.ahaSkipAVReset = True
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUlt"))
+        Character.ahaExtraTurnPending = True  # signal that Aha needs an extra turn
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5

@@ -27,11 +27,11 @@ class Character:
     Banger = 0
     Punchline = 0
     ahaFixedPunchline = False
-    ahaSkipAVReset = False
     ahaFixedPunchlineValue = 20
     ahaElaDMGBoost = 1.0
     savedPunchline = 0
     prePunchline = 0
+    totalPunchline = 0
     rotation = ["E", "A", "A"]
     dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.ELABANGER: 0, AtkType.ELAPUNCH: 0, AtkType.MEMO: 0.0}
     hasSummon = False
@@ -174,6 +174,7 @@ class Character:
 
     def addPunchLine(self, amount: float):
         self.Punchline = self.Punchline + amount
+        self.totalPunchline = self.totalPunchline + amount
 
     def reduceAV(self, reduceValue: float):
         self.currAV = max(0.0, self.currAV - reduceValue)

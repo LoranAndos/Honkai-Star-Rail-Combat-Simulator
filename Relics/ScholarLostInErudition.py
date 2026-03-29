@@ -1,6 +1,5 @@
 from Relic import Relic
 from Buff import *
-from Attributes import *
 from Healing import *
 
 

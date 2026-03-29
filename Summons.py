@@ -140,7 +140,6 @@ class Aha(Summon):
     currSPD = 80
     baseSPD = 80
     currAV = 10000 / currSPD
-    skipAVReset = False
 
     def __init__(self, ownerRole: Role, role: Role, elationTeam: list = None) -> None:
         super().__init__(ownerRole, role)
@@ -156,4 +155,11 @@ class Aha(Summon):
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn, result):
-        return super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        if result.turnName == "YaoGuangUlt":
+            for role, turnName in self.elationTeam:
+                tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                               [0, 0], [0, 0], 0, self.scaling, 0, turnName))
+            tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                           [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
+        return bl, dbl, al, dl, tl, hl

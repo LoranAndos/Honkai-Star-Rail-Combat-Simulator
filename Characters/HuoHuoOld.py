@@ -1,7 +1,7 @@
 from Buff import *
 from Healing import *
 from Character import Character
-from Lightcones.PostOpConversation import PostOp
+from Lightcones.PostOpConversation import PostOpConversation
 from Planars.Keel import Keel
 from RelicStats import RelicStats
 from Relics.Longevous import Longevous
@@ -44,7 +44,7 @@ class HuoHuo(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else PostOp(self.role, 5)
+        self.lightcone = lc if lc else PostOpConversation(self.role, 5)
         self.relic1 = r1 if r1 else Messenger(self.role, 2, True)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else Longevous(self.role, 2))
         self.planar = pl if pl else Keel(self.role)

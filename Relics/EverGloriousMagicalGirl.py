@@ -1,0 +1,31 @@
+from Relic import Relic
+from Buff import *
+from Attributes import *
+from Result import *
+from Turn_Text import Turn
+
+class EverGloriousMagicalGirl(Relic):
+    name = "Ever-Glorious Magical Girl"
+
+    def __init__(self, wearerRole, setType):
+        super().__init__(wearerRole, setType)
+
+    def equip(self):
+        bl, dbl, al, dl, hl = super().equip()
+        bl.append(Buff("MagicalGirlCD",StatTypes.CD_PERCENT,0.16,self.wearerRole,[AtkType.ALL],1,1,Role.SELF,TickDown.PERM))
+        if self.setType == 4:
+            bl.append(Buff("MagicalGirlShredBanger",StatTypes.SHRED,0.1,self.wearerRole,[AtkType.ELABANGER],1,1,Role.SELF,TickDown.PERM))
+            bl.append(Buff("MagicalGirlShredPunch",StatTypes.SHRED,0.1,self.wearerRole,[AtkType.ELAPUNCH],1,1,Role.SELF,TickDown.PERM))
+        return bl, dbl, al, dl, hl
+
+
+    def specialStart(self, special: Special):
+        bl, dbl, al, dl, hl = super().specialStart(special)
+        if self.setType == 4 and special.specialName == "Sparxie":
+            # 1% DEF ignore per 5 Punchline, max 10 stacks = max 10%
+            punchline = special.attr7
+            stacks = min(int(punchline) // 5, 10)
+            shredVal = stacks * 0.01
+            bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
+        return bl, dbl, al, dl, hl

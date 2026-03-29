@@ -6,7 +6,7 @@ bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "F
             ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
             "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
-UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoULT","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate","SparxieUltReg"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoULT","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak","SparkleUlt","SushangUltimate","TingyunUlt","TribbieUltimate","SparxieUltReg","YaoGuangUlt"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}

@@ -142,6 +142,16 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     for char in playerTeam:
         initCharAV(char, teamBuffs)  # apply any pre-existing speed buffs
 
+    # Apply initial AhaSpdBuff
+    for s in summons:
+        if s.name == "Aha":
+            SpdList = sorted([getCharSPD(char, teamBuffs) for char in playerTeam
+                              if char.path == Path.ELATION], reverse=True)
+            AHASpdBuffAmount = sum(0.2 * spd * 0.5 ** i for i, spd in enumerate(SpdList))
+            teamBuffs = addBuffs(teamBuffs, [Buff("AhaSpdBuff", StatTypes.Spd, AHASpdBuffAmount,
+                                                  Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA, TickDown.START)])
+            initCharAV(s, teamBuffs)  # re-init Aha's AV with the buff applied
+
     # Setup initial currHp and Maxhp
     initCharCurrentHP_MaxHp(playerTeam, teamBuffs) # apply any pre-existing Hp buffs
 
@@ -277,7 +287,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
 
         # Reset the AV of the current unit by checking its current speed
-        if not unit.isChar() or not unit.isSummon():
+        if not unit.isSummon():
             resetUnitAV(unit, teamBuffs, enemyDebuffs)
             avLog = f"AV     > {unit.name} AV reset to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
             logging.warning(avLog)
@@ -298,21 +308,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         healingList = []
 
         if unit.isChar() and unit.isSummon():
-            if unit.name == "Aha" and Character.ahaSkipAVReset:
-                unit.skipAVReset = True
-                Character.ahaSkipAVReset = False
-            if not unit.skipAVReset:
-                resetUnitAV(unit, teamBuffs, enemyDebuffs)
-                avLog = f"AV     > {unit.name} AV reset to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
-                logging.warning(avLog)
-                manualPrint(manualMode, avLog)
-            else:
-                # Extra turn — restore AV to pre-advance value instead of resetting
-                unit.currAV += 10000 / unit.currSPD
-                unit.skipAVReset = False
-                avLog = f"AV     > {unit.name} extra turn complete, AV restored to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
-                logging.warning(avLog)
-                manualPrint(manualMode, avLog)
+            resetUnitAV(unit, [], [])
+            avLog = f"AV     > {unit.name} AV reset to {unit.currAV:.3f} | {unit.currSPD:.3f} SPD"
+            logging.warning(avLog)
+            manualPrint(manualMode, avLog)
 
         allUnits = sortUnits(allUnits)
 
