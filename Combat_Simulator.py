@@ -3,6 +3,7 @@ import logging
 from Characters.Luocha import Luocha
 from Characters.Sparxie import Sparxie
 from Characters.Yao_Guang import YaoGuang
+from Characters.Sparkle import Sparkle
 from Characters.Tribbie import Tribbie
 from Memosprites.Mem import Mem
 from MainFunctions import *
@@ -34,12 +35,12 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         slot1 = Sparxie(0,Role.DPS,1,eidolon=0,targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1,Role.SUP1,1,eidolon=0,targetPrio=Priority.DEFAULT)
         slot3 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot4 = Tribbie(4,Role.SUP2,1,eidolon=0,targetPrio=Priority.DEFAULT)
+        slot4 = Sparkle(4,Role.SUP2,1,eidolon=0,targetPrio=Priority.DEFAULT)
 
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.CRITICAL
+    logLevel = logging.DEBUG
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -78,10 +79,15 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         if char.path == Path.ELATION:
             ElationCount += 1
     maxSP = 5
-    if inTeam(playerTeam, "Sparkle") or inTeam(playerTeam, "SparkleOld"):
-        if findCharName(playerTeam, "Sparkle").eidolon >= 4 or findCharName(playerTeam, "SparkleOld").eidolon >= 4:
+    if inTeam(playerTeam, "Sparkle"):
+        if findCharName(playerTeam, "Sparkle").eidolon >= 4:
             maxSP += 3
-        elif findCharName(playerTeam, "Sparkle").eidolon < 4 or findCharName(playerTeam, "SparkleOld").eidolon < 4:
+        elif findCharName(playerTeam, "Sparkle").eidolon < 4:
+            maxSP += 2
+    if inTeam(playerTeam, "SparkleOld"):
+        if findCharName(playerTeam, "SparkleOld").eidolon >= 4:
+            maxSP += 3
+        elif findCharName(playerTeam, "SparkleOld").eidolon < 4:
             maxSP += 2
     if inTeam(playerTeam, "Sparxie"):
         sparxie = findCharName(playerTeam, "Sparxie")

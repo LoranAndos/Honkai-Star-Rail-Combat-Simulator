@@ -896,7 +896,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
                 if "EarthlyTeamCD" in getBuffNames(buffList):
                     cdStat -= findBuffName(buffList, "EarthlyTeamCD").getBuffVal()
-                return Special(name=specStr, attr1=cdStat, enemies=gauge)
+                currentSP = spTracker.getCurrenSP()
+                maxSP = spTracker.maxSP
+                return Special(name=specStr, attr1=cdStat, attr2=currentSP, attr3=maxSP, enemies=gauge)
 
             case "Sparxie":
                 SpdList = []

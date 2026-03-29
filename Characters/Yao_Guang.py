@@ -102,6 +102,7 @@ class YaoGuang(Character):
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
         bl.append(Buff("YaoGuangUltPunchline", StatTypes.PUNCH, 5, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.START))
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUltimate"))
         al.append(Advance("YaoGuangUltAhaAdvance", Role.AHA, 1.0))
         Character.ahaFixedPunchline = True
         Character.ahaSkipAVReset = True
@@ -166,7 +167,7 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
                        [self.element], [e5MulBig*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 1, "YaoGuangELASkillAOE"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
-                       [self.element], [e5MulSmall*5*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [5*5, 0], 5, Scaling.ELA, 0, "YaoGuangELASkillSINGLE"))
+                       [self.element], [e5MulSmall*5*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [5*5, 0], 0, Scaling.ELA, 0, "YaoGuangELASkillSINGLE"))
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline , self.role, [AtkType.ALL], 3, 1, self.role,TickDown.END))
         self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
         return bl, dbl, al, dl, tl, hl

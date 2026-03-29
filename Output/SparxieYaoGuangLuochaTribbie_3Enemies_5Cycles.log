@@ -25,236 +25,50 @@ Poet's Dill Wreath (4-pc)
 Rutilant Arena
 
 
+Initial AV Adjustments
+
+Initial Enemy Delays
+
 ==========COMBAT SIMULATION STARTED==========
 
 <<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 60.631 | TurnAV: 60.631 | YaoGuang | A-move
-ULT    > YaoGuang used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 60.631 | TurnAV: 0.000 | Aha
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 63.131 | TurnAV: 2.500 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 64.131 | TurnAV: 0.999 | Luocha | A-move
-ULT    > Luocha used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 68.871 | TurnAV: 4.740 | Enemy 0 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 68.871 | TurnAV: 0.000 | Enemy 2 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 73.046 | TurnAV: 4.175 | Sparxie | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 107.619 | TurnAV: 34.573 | Tribbie | A-move
-ULT    > Tribbie used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 121.262 | TurnAV: 13.643 | YaoGuang | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 126.263 | TurnAV: 5.001 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 128.261 | TurnAV: 1.998 | Luocha | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 137.741 | TurnAV: 9.480 | Enemy 2 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 137.741 | TurnAV: 0.000 | Enemy 0 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 139.572 | TurnAV: 1.831 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 146.092 | TurnAV: 6.520 | Sparxie | E-move
-ULT    > Sparxie used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 181.893 | TurnAV: 35.801 | YaoGuang | E-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 189.394 | TurnAV: 7.501 | Enemy 1 | 2 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 192.392 | TurnAV: 2.998 | Luocha | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 206.612 | TurnAV: 14.220 | Enemy 0 | 2 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 206.612 | TurnAV: 0.000 | Enemy 2 | 2 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 215.239 | TurnAV: 8.627 | Tribbie | A-move
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 218.514 | TurnAV: 3.275 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 219.138 | TurnAV: 0.624 | Sparxie | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 242.524 | TurnAV: 23.386 | YaoGuang | A-move
-ULT    > YaoGuang used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 242.524 | TurnAV: 0.000 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 256.522 | TurnAV: 13.998 | Luocha | A-move
-ULT    > Luocha used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 268.308 | TurnAV: 11.786 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 275.482 | TurnAV: 7.174 | Enemy 2 | 1 attacks
-ULT    > Tribbie used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 275.482 | TurnAV: 0.000 | Enemy 0 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 292.184 | TurnAV: 16.702 | Sparxie | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 303.155 | TurnAV: 10.971 | YaoGuang | A-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 320.653 | TurnAV: 17.497 | Luocha | A-move
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 321.465 | TurnAV: 0.813 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 322.858 | TurnAV: 1.393 | Tribbie | E-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 331.439 | TurnAV: 8.581 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 361.570 | TurnAV: 30.131 | Enemy 0 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 361.570 | TurnAV: 0.000 | Enemy 2 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 363.786 | TurnAV: 2.216 | YaoGuang | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 365.230 | TurnAV: 1.444 | Sparxie | E-move
-ULT    > Sparxie used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 384.783 | TurnAV: 19.553 | Luocha | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 394.571 | TurnAV: 9.788 | Enemy 1 | 2 attacks
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 400.407 | TurnAV: 5.836 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 424.417 | TurnAV: 24.011 | YaoGuang | A-move
-ULT    > YaoGuang used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 424.417 | TurnAV: 0.000 | Aha
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 430.441 | TurnAV: 6.023 | Enemy 2 | 2 attacks
-ULT    > Luocha used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 430.441 | TurnAV: 0.000 | Enemy 0 | 2 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 430.478 | TurnAV: 0.037 | Tribbie | A-move
-ULT    > Tribbie used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 438.276 | TurnAV: 7.798 | Sparxie | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 448.914 | TurnAV: 10.638 | Luocha | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 457.702 | TurnAV: 8.788 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 485.048 | TurnAV: 27.346 | YaoGuang | A-move
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 499.311 | TurnAV: 14.263 | Enemy 0 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 499.311 | TurnAV: 0.000 | Enemy 2 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [SUMMON] TotalAV: 503.359 | TurnAV: 4.047 | Aha
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 511.322 | TurnAV: 7.963 | Sparxie | E-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 513.044 | TurnAV: 1.722 | Luocha | A-move
-ULT    > Luocha used their ultimate
-
-<<< NEW TURN >>>
-ACTION > [ENEMY] TotalAV: 536.616 | TurnAV: 23.572 | Enemy 1 | 1 attacks
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 538.097 | TurnAV: 1.481 | Tribbie | A-move
-
-<<< NEW TURN >>>
-ACTION > [CHAR] TotalAV: 545.679 | TurnAV: 7.582 | YaoGuang | E-move
-
-==========COMBAT SIMULATION ENDED==========
-
-==========SIMULATION RESULTS==========
-TOTAL TEAM DMG: 11643625.661 | AV: 550
-TEAM DPAV: 21170.228
-TOTAL TEAM HPGAIN: 0.000 | TOTAL TEAM HPLOSS 0.000
-DEBUFF DMG: 198688.193 | CHAR DMG: 1458909.718 | WB DMG: 124450.666 |ELATION DMG: 9861577.084
-SP GAINED: 28 | SP USED: 12 | Enemy Attacks: 28
-
-Sparxie DPAV: 12265.438, 57.937%
-YaoGuang DPAV: 6732.769, 31.803%
-Luocha DPAV: 267.516, 1.264%
-Tribbie DPAV: 1543.255, 7.290%
-
-Sparxie > Total DMG: 6745990.632 | Basics: 0 | Skills: 7 | Ults: 2 | FuAs: 0 | MemoAttacks: 0 | ElationSkills: 8 | Leftover AV: 38.689 | Excess Energy: 147.222
--BSC: 321770.190 | 4.770%
--SKL: 0.000 | 0.000%
--ULT: 92450.730 | 1.370%
--BRK: 0.000 | 0.000%
--ELAPUNCH: 3923866.572 | 58.166%
--ELABANGER: 2407903.141 | 35.694%
-
-YaoGuang > Total DMG: 3703023.053 | Basics: 6 | Skills: 3 | Ults: 3 | FuAs: 0 | MemoAttacks: 0 | ElationSkills: 8 | Leftover AV: 60.631 | Excess Energy: 156.997
--BSC: 48765.016 | 1.317%
--ULT: 0.000 | 0.000%
--BRK: 124450.666 | 3.361%
--ELAPUNCH: 2605008.291 | 70.348%
--ELABANGER: 924799.081 | 24.974%
-
-Luocha > Total DMG: 147133.696 | Basics: 8 | Skills: 0 | Ults: 4 | FuAs: 0 | MemoAttacks: 0 | ElationSkills: 0 | Leftover AV: 31.495 | Excess Energy: 13.271
--BSC: 37771.271 | 25.671%
--ULT: 109362.424 | 74.329%
--BRK: 0.000 | 0.000%
-
-Tribbie > Total DMG: 848790.088 | Basics: 4 | Skills: 1 | Ults: 3 | FuAs: 0 | MemoAttacks: 0 | ElationSkills: 0 | Leftover AV: 100.037 | Excess Energy: 90.022
--BSC: 99848.369 | 11.764%
--FUA: 142771.292 | 16.821%
--ULT: 126537.944 | 14.908%
--ADD: 479632.484 | 56.508%
--BRK: 0.000 | 0.000%
--SBK: 0.000 | 0.000%
-
+-   YaoGuang AV: 0.000 ENERGY: 90.000 MaxHP: 3515.711 CurrHp 3515.711
+-   Enemy 1 AV: 8.520 ENERGY: 0.000 MaxHP: 1000000.000 CurrHp 1000000.000
+-   Luocha AV: 9.519 ENERGY: 50.000 MaxHP: 3764.424 CurrHp 3764.424
+-   Enemy 0 AV: 14.259 ENERGY: 0.000 MaxHP: 1000000.000 CurrHp 1000000.000
+-   Enemy 2 AV: 14.259 ENERGY: 0.000 MaxHP: 1000000.000 CurrHp 1000000.000
+-   Sparxie AV: 18.435 ENERGY: 80.000 MaxHP: 3291.540 CurrHp 3291.540
+-   Tribbie AV: 53.008 ENERGY: 60.000 MaxHP: 5643.900 CurrHp 5643.900
+-   Aha AV: 70.389 ENERGY: 0.000 MaxHP: 0.000 CurrHp 0.000
+
+    TURN   - SparxieTech | Sparxie | DPS | NA attack | ['FIR'] | ['TECH'] | Scaling: ATK | TargetID: -1 | DMG/BREAK Splits: [0, 0]/[0, 0] | Energy Gained: 0
+
+        ----------Char Buffs----------
+        FloweryWorldCD | CD% | Stacks: 1 | Value: 0.480 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        ScholarCR | CR% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        RutilantCR | CR% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        BangerStartBattle | BANGER | Stacks: 1 | Value: 20.000 | Remaining Turns: 2 | TickDown: DPS, END | Target: DPS | Affects: ['ALL']
+        SparxieTraceCR | CR% | Stacks: 1 | Value: 0.120 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        SparxieTraceCD | CD% | Stacks: 1 | Value: 0.133 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        SparxieTraceELA | Elation | Stacks: 1 | Value: 0.280 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        YaoGuangTechElaBuff | Elation | Stacks: 1 | Value: 0.200 | Remaining Turns: 3 | TickDown: SUP1, START | Target: DPS | Affects: ['ALL']
+        YaoGuangTechPunchline | PUNCH | Stacks: 1 | Value: 3.000 | Remaining Turns: 1 | TickDown: SUP1, START | Target: DPS | Affects: ['ALL']
+        Numinosity | PEN | Stacks: 1 | Value: 0.240 | Remaining Turns: 3 | TickDown: SUP2, START | Target: DPS | Affects: ['ALL']
+        SparxieATKtoELA | Elation | Stacks: 1 | Value: 0.550 | Remaining Turns: 1 | TickDown: DPS, START | Target: DPS | Affects: ['ALL']
+        SparxiePunchtoCD | CD% | Stacks: 1 | Value: 0.000 | Remaining Turns: 1 | TickDown: DPS, START | Target: DPS | Affects: ['ALL']
+        YaoGuangTalentELABuff | Elation | Stacks: 1 | Value: 2.300 | Remaining Turns: 3 | TickDown: SUP1, START | Target: DPS | Affects: ['ALL']
+        ----------End of Buff List----------
+
+        ----------Enemy Debuffs----------
+        ----------End of Debuff List----------
+        ----------Healing List----------
+        ----------End of Healing List----------
+    GAUGE  - Enemy 0 toughness reduced by 0.000
+    RESULT - SparxieTech | Sparxie | DPS | DMG: 0.000 | ELADMG: 0.000 | Enemies Hit: [0] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 0.000 | Amount HP Healed: 0.000 | Amount HP Lost: 0.000 | Sparxie Energy: 80/160
+Punch    > 3.000 Punchline added to Sparxie from YaoGuangTechPunchline | Sparxie Punchline: 5.000
+Punch    > 3.000 Punchline added to YaoGuang from YaoGuangTechPunchline | YaoGuang Punchline: 5.000
+Punch    > 3.000 Punchline added to Luocha from YaoGuangTechPunchline | Luocha Punchline: 5.000
+Punch    > 3.000 Punchline added to Tribbie from YaoGuangTechPunchline | Tribbie Punchline: 5.000
+ERR    > 15.000 energy added to YaoGuang from DecidedToSeeERR | YaoGuang Energy: 105.000
+ERR    > 39.432 energy added to YaoGuang from YaoGuangTech | YaoGuang Energy: 144.432
+ERR    > 30.000 energy added to Tribbie from TribbieTechniqueBuff | Tribbie Energy: 90.000

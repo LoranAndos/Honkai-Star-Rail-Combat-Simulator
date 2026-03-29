@@ -144,7 +144,7 @@ class Character:
             elif actionType == AtkType.ADD:
                 buffs, debuffs, advs, delays, heals = equipment.useAdd(enemyID)
             elif actionType == AtkType.ELAPUNCH:
-                buffs, debuffs, advs, delays, heals = equipment.useElationSkill(enemyID)
+                buffs, debuffs, advs, delays, heals = equipment.useElaSkill(enemyID)
             elif actionType == AtkType.MEMO:
                 buffs, debuffs, advs, delays, heals = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":

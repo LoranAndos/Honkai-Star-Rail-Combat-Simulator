@@ -19,7 +19,7 @@ class WhenSheDecidedToSee(Lightcone):
         CDBuff = self.level * 0.075 + 0.225
         ERBuff = self.level * 0.02 + 0.1
         bl.append(Buff("DecidedToSeeSPD", StatTypes.SPD_PERCENT, SpdBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("DecidedToSeeSPD", StatTypes.ERR_F, 15, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        bl.append(Buff("DecidedToSeeERR", StatTypes.ERR_F, 15, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         bl.append(Buff("GreatFortuneCR", StatTypes.CR_PERCENT, CRBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL, TickDown.START))
         bl.append(Buff("GreatFortuneCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL,TickDown.START))
         bl.append(Buff("GreatFortuneER", StatTypes.ERR_PERCENT, ERBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.START))

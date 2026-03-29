@@ -111,14 +111,14 @@ class Sparxie(Character):
 
         totalSPConsumed = SPUsed + bonusSPConsumed
         realSPConsumed = min(self.TotalSP, SPUsed)  # only real SP, not Thrill
-        spChange = spGain - realSPConsumed
+        spChange = - realSPConsumed
 
         bl.append(Buff("SparxieSkillPunch", StatTypes.PUNCH, totalPunch, Role.ALL, [AtkType.ALL], 1, 1, self.role,
                        TickDown.START))
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
                        [self.element], [e3Big1 + e3Small1 * totalSPConsumed, e3Big3 + e3Small3 * totalSPConsumed],
-                       [10, 5], 40, self.scaling, spChange + 1, "SparxieSkill"))
+                       [10, 5], 40, self.scaling, -self.TotalSP+1, "SparxieSkill"))
 
         if self.Banger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.ELABANGER],
