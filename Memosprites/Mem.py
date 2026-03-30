@@ -1,10 +1,7 @@
-import logging
-
-from Characters import Rmc
-from Lightcones.CruisingInTheStellarSea import CruisingInTheStellarSea
+from Characters.Remembrance import Rmc
+from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
 from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Planars.RutilantArena import RutilantArena
-from MainFunctions import getBaseValue, getCharSPD
 from Buff import *
 from Memosprite import Memosprite
 from Character import *
@@ -12,9 +9,7 @@ from Delay_Text import *
 from RelicStats import RelicStats
 from Result import *
 from Turn_Text import Turn
-from Enemy import *
 from Healing import *
-from random import randrange
 
 logger = logging.getLogger(__name__)
 

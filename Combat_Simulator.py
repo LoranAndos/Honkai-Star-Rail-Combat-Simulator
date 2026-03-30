@@ -1,11 +1,7 @@
-import logging
-
-from Characters.Luocha import Luocha
-from Characters.Sparxie import Sparxie
-from Characters.Yao_Guang import YaoGuang
-from Characters.Sparkle import Sparkle
-from Characters.Tribbie import Tribbie
-from Memosprites.Mem import Mem
+from Characters.Abundance.Luocha import Luocha
+from Characters.Elation.Sparxie import Sparxie
+from Characters.Elation.Yao_Guang import YaoGuang
+from Characters.Harmony.Sparkle import Sparkle
 from MainFunctions import *
 from Enemy import *
 

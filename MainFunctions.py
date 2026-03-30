@@ -666,34 +666,52 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             if Heal.target == character.role:
                 if Heal.scaling != Scaling.Other:
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPLoss += abs(Heal.val[0]) * Scaling_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier)
                 elif Heal.scaling == Scaling.Other:
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + Heal.val[0] * OGH_Multiplier
+                        Total_HPGain += Heal.val[0] * OGH_Multiplier
                         character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0])
+                        Total_HPLoss += abs(Heal.val[0])
                         character.ChangeHpValue(Heal.val[0])
+                elif Heal.scaling == Scaling.MAXHP:
+                    if Heal.val[0] > 0:
+                        healAmt = Heal.val[0] * character.maxHP * OGH_Multiplier
+                        Total_HPGain += healAmt
+                        character.ChangeHpValue(healAmt)
+                    elif Heal.val[0] < 0:
+                        healAmt = Heal.val[0] * character.maxHP * OGH_Multiplier
+                        Total_HPLoss += abs(healAmt)
+                        character.ChangeHpValue(healAmt)
             elif Heal.target == Role.ALL:
                 if Heal.scaling != Scaling.Other:
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
+                        Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0]) * Scaling_Multiplier
+                        Total_HPLoss += abs(Heal.val[0]) * Scaling_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier)
                 elif Heal.scaling == Scaling.Other:
                     character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     if Heal.val[0] > 0:
-                        Total_HPGain = Total_HPGain + Heal.val[0] * OGH_Multiplier
+                        Total_HPGain += Heal.val[0] * OGH_Multiplier
                         character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
                     elif Heal.val[0] < 0:
-                        Total_HPLoss = Total_HPLoss + abs(Heal.val[0])
+                        Total_HPLoss += abs(Heal.val[0])
                         character.ChangeHpValue(Heal.val[0])
+                elif Heal.scaling == Scaling.MAXHP:
+                    if Heal.val[0] > 0:
+                        healAmt = Heal.val[0] * character.maxHP * OGH_Multiplier
+                        Total_HPGain += healAmt
+                        character.ChangeHpValue(healAmt)
+                    elif Heal.val[0] < 0:
+                        healAmt = Heal.val[0] * character.maxHP * OGH_Multiplier
+                        Total_HPLoss += abs(healAmt)
+                        character.ChangeHpValue(healAmt)
 
     return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
@@ -787,7 +805,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     i += 1
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
+                charPunch = specChar.totalPunchline
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch )
 
             case "Feixiao":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
@@ -932,7 +951,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     i += 1
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA)
+                charPunch = specChar.totalPunchline
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch)
 
             case "Sunday":
                 if inTeam(playerTeam, "JingYuan"):

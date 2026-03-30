@@ -28,4 +28,18 @@ class EverGloriousMagicalGirl(Relic):
             shredVal = stacks * 0.01
             bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
             bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
+        if self.setType == 4 and special.specialName == "SilverWolf999":
+            # 1% DEF ignore per 5 Punchline, max 10 stacks = max 10%
+            punchline = special.attr4
+            stacks = min(int(punchline) // 5, 10)
+            shredVal = stacks * 0.01
+            bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
+        if self.setType == 4 and special.specialName == "Evanescia":
+            # 1% DEF ignore per 5 Punchline, max 10 stacks = max 10%
+            punchline = special.attr4
+            stacks = min(int(punchline) // 5, 10)
+            shredVal = stacks * 0.01
+            bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
         return bl, dbl, al, dl, hl
