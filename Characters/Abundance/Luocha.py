@@ -46,7 +46,7 @@ class Luocha(Character):
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(13, 2, 3, 2, 4, 8, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.Spd,
+        self.relicStats = subs if subs else RelicStats(13, 2, 3, 2, 4, 8, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A","E"]
 

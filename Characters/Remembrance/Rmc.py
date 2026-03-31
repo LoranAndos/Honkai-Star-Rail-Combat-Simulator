@@ -44,7 +44,7 @@ class Rmc(Character):
         self.relic1 = r1 if r1 else ScholarLostInErudition(self.role,4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(self.role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 11, 2, 2, 2, 2, 5, 12, StatTypes.CR_PERCENT, StatTypes.Spd,
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 11, 2, 2, 2, 2, 5, 12, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["A"]
 

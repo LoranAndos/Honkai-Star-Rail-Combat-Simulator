@@ -109,7 +109,6 @@ class Sparxie(Character):
 
         totalSPConsumed = SPUsed + bonusSPConsumed
         realSPConsumed = min(self.TotalSP, SPUsed)  # only real SP, not Thrill
-        spChange = - realSPConsumed
 
         bl.append(Buff("SparxieSkillPunch", StatTypes.PUNCH, totalPunch, Role.ALL, [AtkType.ALL], 1, 1, self.role,
                        TickDown.START))
@@ -176,7 +175,7 @@ class Sparxie(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
-        if result.turnName == "AhaSparxieGoGo":
+        if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
@@ -184,6 +183,22 @@ class Sparxie(Character):
             Character.ahaFixedPunchline = False
         if self.eidolon >= 1 and result.turnName == "AhaEndGoGo":
             bl.append(Buff("SparxieE1AhaPunch", StatTypes.PUNCH, 5, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
+        if result.turnName == "ElationMCUlt" and result.charRole == self.role:
+            return self.useElaSkill(-1)
+        return bl, dbl, al, dl, tl, hl
+
+    def allyTurn(self, turn: Turn, result: Result):
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
+            return self.useElaSkill(-1)
+        if result.turnName == "AhaEndGoGo":
+            if Character.ahaFixedPunchline:
+                self.Punchline = self.savedPunchline + self.TotalElationChar
+            Character.ahaFixedPunchline = False
+        if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
+            if Character.ahaFixedPunchline:
+                self.Punchline = self.savedPunchline
+            Character.ahaFixedPunchline = False
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):
@@ -215,7 +230,8 @@ class Sparxie(Character):
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useSkl(-1))
             self.addThrill(2)
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline , self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
-        self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
+        if not Character.ahaFixedPunchline:
+            self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
@@ -226,7 +242,7 @@ class Sparxie(Character):
         self.TotalElationChar = specialRes.attr4
         self.ELAStat = specialRes.attr5
         self.Banger = specialRes.attr6
-        bl.append(Buff("AhaSpdBuff",StatTypes.Spd,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
+        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0, 0], [0, 0], 0,self.scaling,2, "SparxieTech"))
             #tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech")) 'For if Sparxie the DPS.

@@ -1,7 +1,7 @@
 from Characters.Abundance.Luocha import Luocha
 from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.Yao_Guang import YaoGuang
-from Characters.Harmony.Sparkle import Sparkle
+from Characters.Elation.ElationMC import ElationMC
 from MainFunctions import *
 from Enemy import *
 
@@ -26,12 +26,6 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
     # Character Settings
-    # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-    if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Sparxie(0,Role.DPS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot2 = YaoGuang(1,Role.SUP1,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot3 = Luocha(3,Role.SUS,1,eidolon=0,targetPrio=Priority.DEFAULT)
-        slot4 = Sparkle(4,Role.SUP2,1,eidolon=0,targetPrio=Priority.DEFAULT)
 
 
     # Simulation Settings
@@ -44,6 +38,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # =============== END OF SETTINGS ===============
 
     # Logging Config
+
+    if all([a is None for a in [s1, s2, s3, s4]]):
+        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT, targetRole=Role.DPS)
+        slot4 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -144,7 +145,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             SpdList = sorted([getCharSPD(char, teamBuffs) for char in playerTeam
                               if char.path == Path.ELATION], reverse=True)
             AHASpdBuffAmount = sum(0.2 * spd * 0.5 ** i for i, spd in enumerate(SpdList))
-            teamBuffs = addBuffs(teamBuffs, [Buff("AhaSpdBuff", StatTypes.Spd, AHASpdBuffAmount,
+            teamBuffs = addBuffs(teamBuffs, [Buff("AhaSpdBuff", StatTypes.SPD, AHASpdBuffAmount,
                                                   Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA, TickDown.START)])
             initCharAV(s, teamBuffs)  # re-init Aha's AV with the buff applied
 
@@ -357,8 +358,112 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
 
 if __name__ == "__main__":
-    # Start the simulator with logging output to a file
+    import cProfile
+    import pstats
+    import io
+    import os
+
+    # =============== TOGGLE ===============
+    multiRun = False   # Set to True for multiple runs, False for single run
+    numRuns = 100     # Number of runs (only used when multiRun = True)
+    # =============== END TOGGLE ===============
+
+    # Enemy setup — shared between single and multi run
     fiveEnemies = EnemyModule(5, [85, 85, 85, 85, 85],
                               [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],
                               [100, 120, 144, 100, 100], [20, 60, 70, 20, 20], atkRatio, [Element.LIGHTNING], [1])
-    print(startSimulator(cycleLimit=cycles, outputLog=log, manualMode=manual, enemyModule=fiveEnemies))
+
+    # For checking which functions in the sim get called the most and how much time it takes for those calls.
+    #pr = cProfile.Profile()
+    #pr.enable()
+
+    #print(startSimulator(cycleLimit=cycles, outputLog=False, enemyModule=fiveEnemies))
+
+    #pr.disable()
+    #s = io.StringIO()
+    #ps = pstats.Stats(pr, stream=s).sort_stats('cumulative')
+    #ps.print_stats(20)  # top 20 slowest functions
+    #print(s.getvalue())
+
+    if not multiRun:
+        # Single run
+        print(startSimulator(cycleLimit=cycles, outputLog=log, manualMode=manual, enemyModule=fiveEnemies))
+    else:
+        # Multiple runs
+        os.makedirs("Output", exist_ok=True)
+
+        # Build filename matching log format (So basically change both characters here and next instance, but only
+        # next instance of characters matters for the result.
+        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = Sparkle(4, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
+        enemyInfo = f"_{fiveEnemies.numEnemies}Enemies_{cycles}Cycles"
+        outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
+
+        teamDPAVList = []
+        charDPAVDict = {}
+        CharTotalDmg = [0, 0, 0, 0, 0, 0, 0, 0]
+        CharDamageCycle = [0, 0, 0, 0, 0, 0, 0, 0]
+
+        avLimit = cycles * 100 + 50
+
+        with open(outputFile, "w") as f:
+            f.write(f"Simulation Results - {numRuns} runs\n")
+            f.write("=" * 80 + "\n\n")
+
+            for i in range(numRuns):
+                # Recreate characters fresh each run
+                # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
+                slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot4 = Sparkle(4, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+
+                result = startSimulator(
+                    cycleLimit=cycles,
+                    s1=slot1, s2=slot2, s3=slot3, s4=slot4,
+                    outputLog=False,
+                    enemyModule=fiveEnemies
+                )
+
+                # Parse team DPAV from result string
+                dpav = float(result.split("DPAV: ")[1].split(" |")[0])
+                teamDPAVList.append(dpav)
+
+                # Get per-character DPAV
+                team = [slot1, slot2, slot3, slot4]
+                k = 0
+                runLine = f"Run {i+1:>4}: Team DPAV: {dpav:.3f}"
+                for char in team:
+                    _, charTotalDMG = char.getTotalDMG()
+                    CharDamageCycle[k] = charTotalDMG - CharTotalDmg[k]
+                    CharTotalDmg[k] += CharDamageCycle[k]
+                    charDPAV = CharDamageCycle[k] / (avLimit)
+                    if char.name not in charDPAVDict:
+                        charDPAVDict[char.name] = []
+                    charDPAVDict[char.name].append(charDPAV)
+                    k += 1
+                    runLine += f" | {char.name}: {charDPAV:.3f}"
+
+                f.write(runLine + "\n")
+
+                if (i + 1) % 10 == 0:
+                    print(f"Completed {i+1}/{numRuns} runs...")
+
+            # Write averages
+            avgTeamDPAV = sum(teamDPAVList) / numRuns
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("AVERAGES\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Average Team DPAV: {avgTeamDPAV:.3f}\n")
+            for charName, dpavList in charDPAVDict.items():
+                avgCharDPAV = sum(dpavList) / numRuns
+                f.write(f"Average {charName} DPAV: {avgCharDPAV:.3f}\n")
+            f.write("\n")
+            f.write(f"Min Team DPAV: {min(teamDPAVList):.3f}\n")
+            f.write(f"Max Team DPAV: {max(teamDPAVList):.3f}\n")
+
+        print(f"\nDone! Results written to {outputFile}")
+        print(f"Average Team DPAV: {avgTeamDPAV:.3f}")

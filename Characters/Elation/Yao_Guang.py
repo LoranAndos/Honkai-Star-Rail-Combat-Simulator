@@ -49,7 +49,7 @@ class YaoGuang(Character):
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT, StatTypes.Spd,
+        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT,StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A","A","E"]
 
@@ -58,7 +58,7 @@ class YaoGuang(Character):
         ElationBuff = 0.22 if self.eidolon >=3 else 0.20
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("YaoGuangTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
-        bl.append(Buff("YaoGuangTraceSPD", StatTypes.Spd, 9, self.role))
+        bl.append(Buff("YaoGuangTraceSPD", StatTypes.SPD, 9, self.role))
         bl.append(Buff("YaoGuangTraceELA", StatTypes.ELA, 0.10, self.role))
         bl.append(Buff("YaoGuangTech", StatTypes.ERR_T, 30, self.role))
         bl.append(Buff("YaoGuangTechElaBuff",StatTypes.ELA,ElationBuff,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
@@ -110,7 +110,7 @@ class YaoGuang(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
-        if result.turnName == "AhaYaoGuangGoGo":
+        if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
@@ -118,11 +118,23 @@ class YaoGuang(Character):
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
+        if result.turnName == "ElationMCUlt" and result.charRole == self.role:
+            return self.useElaSkill(-1)
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         e5Mul = 0.22 if self.eidolon >= 5 else 0.2
+        if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
+            return self.useElaSkill(-1)
+        if result.turnName == "AhaEndGoGo":
+            if Character.ahaFixedPunchline:
+                self.Punchline = self.savedPunchline + self.TotalElationChar
+            Character.ahaFixedPunchline = False
+        if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
+            if Character.ahaFixedPunchline:
+                self.Punchline = self.savedPunchline
+            Character.ahaFixedPunchline = False
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
             attackerELA = self.elaDict.get(turn.charRole, 0)
             yaoGuangELA = self.elaDict.get(self.role, 0)
@@ -166,7 +178,8 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
                        [self.element], [e5MulSmall*5*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [5*5, 0], 0, Scaling.ELA, 0, "YaoGuangELASkillSINGLE"))
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.Punchline , self.role, [AtkType.ALL], 3, 1, self.role,TickDown.END))
-        self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
+        if not Character.ahaFixedPunchline:
+            self.Punchline = self.TotalElationChar  # ← consumed then reset to TotalElationChar base
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
@@ -176,7 +189,7 @@ class YaoGuang(Character):
         self.Banger = specialRes.attr3
         self.elaDict = specialRes.attr4
         self.SPDStat = specialRes.attr5
-        bl.append(Buff("AhaSpdBuff", StatTypes.Spd, self.AHASpdBuff, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,TickDown.START))
+        bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuff, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,TickDown.START))
         if self.currSPD >= 120:
             ELABuff = min(max((self.SPDStat-120), 0), 2.0)
             bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,

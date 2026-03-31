@@ -10,7 +10,7 @@ class BrokenKeel(Planar):
         super().__init__(wearerRole)
 
     def equip(self):
-        buffList, debuffList, advList, delayList = super().equip()
-        buffList.append(Buff("KeelEFFRES", StatTypes.ERS_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        buffList.append(Buff(f"KeelCD({self.wearerRole.name})", StatTypes.CD_PERCENT, 0.10, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-        return buffList, debuffList, advList, delayList
+        bl, dbl, al, dl, hl = super().equip()
+        bl.append(Buff("KeelEFFRES", StatTypes.ERS_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff(f"KeelCD({self.wearerRole.name})", StatTypes.CD_PERCENT, 0.10, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+        return bl, dbl, al, dl, hl

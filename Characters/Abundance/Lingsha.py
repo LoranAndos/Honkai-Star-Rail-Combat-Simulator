@@ -53,7 +53,7 @@ class Lingsha(Character):
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else KalpagniLingsha(role)
         rope = StatTypes.BE_PERCENT if self.lightcone.name == "Post-Op Conversation" else StatTypes.ERR_PERCENT
-        self.relicStats = subs if subs else RelicStats(12, 4, 0, 4, 4, 0, 4, 12, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.Spd,
+        self.relicStats = subs if subs else RelicStats(12, 4, 0, 4, 4, 0, 4, 12, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, rope)
         self.rotation = rotation if rotation else ["E", "A", "A"]
 

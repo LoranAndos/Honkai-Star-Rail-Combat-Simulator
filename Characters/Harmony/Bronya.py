@@ -45,7 +45,7 @@ class Bronya(Character):
         self.relic1 = r1 if r1 else Messenger(role, 4, True)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else Lushaka(role)
-        self.relicStats = subs if subs else RelicStats(3, 4, 0, 4, 4, 0, 6, 4, 4, 4, 0, 15, StatTypes.CD_PERCENT, StatTypes.Spd,
+        self.relicStats = subs if subs else RelicStats(3, 4, 0, 4, 4, 0, 6, 4, 4, 4, 0, 15, StatTypes.CD_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 

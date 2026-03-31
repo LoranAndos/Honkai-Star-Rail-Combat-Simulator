@@ -116,14 +116,28 @@ def addAdvance(currList: list[Advance], newList: list[Advance]) -> list[Advance]
     return currList
 
 def addBuffs(currList: list, newList: list) -> list:
-    def checkValidAdd(buffToCheck: Buff, currentList: list) -> tuple[bool, int]:
-        for i in range(len(currentList)):
-            checkAgainst = currentList[i]
-            if buffToCheck.name == checkAgainst.name:
-                if buffToCheck.target == checkAgainst.target:
-                    checkAgainst.val = buffToCheck.val
-                    return False, i
-        return True, -1
+    # Build a dict of existing buffs keyed by (name, target) for O(1) lookup
+    buffDict = {(b.name, b.target): i for i, b in enumerate(currList)}
+
+    # Deduplicate newList first — keep only last entry per (name, target)
+    deduped = {}
+    for buff in newList:
+        deduped[(buff.name, buff.target)] = buff
+    newList = list(deduped.values())
+
+    for buff in newList:
+        key = (buff.name, buff.target)
+        if key in buffDict:
+            idx = buffDict[key]
+            currList[idx].val = buff.val
+            if not currList[idx].atMaxStacks():
+                currList[idx].incStack()
+            currList[idx].refreshTurns()
+        else:
+            buffDict[key] = len(currList)  # track new index
+            currList.append(buff)
+
+    return currList
 
     # Deduplicate newList first — keep only the last entry per (name, target) pair
     deduped = {}
@@ -149,12 +163,12 @@ def sumBuffs(buffList: list[Buff]):
 
 def getCharSPD(char, buffList):
     if char.isSummon():
-        spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList))
+        spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList))
         spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
         return char.baseSPD * (1 + spdPercent) + spdFlat  # ← use baseSPD not currSPD
     baseSPD = char.baseSPD
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
-    spdFlat = sumBuffs(findBuffs(char.role, StatTypes.Spd, buffList)) + char.getSPD()
+    spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList)) + char.getSPD()
     return baseSPD * (1 + spdPercent) + spdFlat
 
 def getCharMaxHP(char: Character, lightcone: Lightcone ,buffList: list[Buff]) -> float:
@@ -466,7 +480,7 @@ def addSummons(playerTeam: list[Character]) -> list:
     ahaAdded = False
     charToTurnName = {
         "YaoGuang": "AhaYaoGuangGoGo",
-        "ElationMC": "AhaEMCGoGo",
+        "ElationMC": "AhaElationMCGoGo",
         "Sparxie": "AhaSparxieGoGo",
         "Evanescia": "AhaEvanesciaGoGo",
         "SilverWolf999": "AhaSilverWolf999GoGo"
@@ -790,7 +804,23 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     AHASpdBuffAmount += 0.2*AHASpdList[i]*0.5**(i)
                     i += 1
                 TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar)
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                TotalSPD = getCharSPD(specChar, buffList)
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                BangerDict = {char.role: getCharStat(StatTypes.BANGER, char, enemyTeam[0], buffList, debuffList,
+                                                  Turn(char.name, char.role, -1, Targeting.NA, [AtkType.ALL],
+                                                       [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PH"))
+                           for char in playerTeam}
+                targetChar = findCharRole(playerTeam, specChar.targetRole)
+                targetHasElaSkill = targetChar.path == Path.ELATION
+                elaSkillTurnMap = {
+                    "Sparxie": "AhaSparxieGoGo",
+                    "YaoGuang": "AhaYaoGuangGoGo",
+                    "Evanescia": "AhaEvanesciaGoGo",
+                    "SilverWolf999": "AhaSilverWolf999GoGo",
+                    "ElationMC": "AhaElationMCGoGo",}
+                targetElaSkillTurn = elaSkillTurnMap.get(targetChar.name, "")
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=atkStat, attr4=TotalSPD, attr5=charBanger, attr6=BangerDict, attr7=targetHasElaSkill, attr8=targetElaSkillTurn)
 
             case "Evanescia":
                 SpdList = []
@@ -1142,6 +1172,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         if manualMode:
             print(result)
         teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, [], newDebuffs, [], newDelays, [])
+
         for char in playerTeam + summons:
             if char.role == turn.charRole:
                 tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)

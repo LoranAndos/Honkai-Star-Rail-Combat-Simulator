@@ -36,7 +36,7 @@ class RelicStats:
         return self.spd + self.hpFlat + self.atkFlat + self.defFlat + self.hpPercent + self.atkPercent + self.defPercent + self.be + self.ehr + self.ers + self.cr + self.cd
 
     def getSPD(self) -> float:
-        return self.spd * 2.3 + self.findMains(StatTypes.Spd) * 25.032
+        return self.spd * 2.3 + self.findMains(StatTypes.SPD) * 25.032
 
     def getHPFlat(self) -> float:
         return 705.6 + self.hpFlat * 38.103755
