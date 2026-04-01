@@ -179,8 +179,9 @@ class Sparxie(Character):
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
             Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
         if self.eidolon >= 1 and result.turnName == "AhaEndGoGo":
             bl.append(Buff("SparxieE1AhaPunch", StatTypes.PUNCH, 5, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         if result.turnName == "ElationMCUlt" and result.charRole == self.role:
@@ -193,8 +194,9 @@ class Sparxie(Character):
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
             Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
         if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
             if Character.ahaFixedPunchline:
                 self.Punchline = self.savedPunchline

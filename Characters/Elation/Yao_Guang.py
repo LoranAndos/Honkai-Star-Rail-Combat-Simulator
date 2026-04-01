@@ -104,6 +104,7 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUlt"))
         Character.ahaExtraTurnPending = True  # signal that Aha needs an extra turn
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
+        Character.ahaYaoGuangUlt = True
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
         return bl, dbl, al, dl, tl, hl
@@ -114,8 +115,9 @@ class YaoGuang(Character):
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
             Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
         if result.turnName == "ElationMCUlt" and result.charRole == self.role:
@@ -129,8 +131,9 @@ class YaoGuang(Character):
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
             Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
         if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
             if Character.ahaFixedPunchline:
                 self.Punchline = self.savedPunchline

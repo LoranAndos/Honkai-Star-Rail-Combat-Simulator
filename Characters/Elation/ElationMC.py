@@ -110,7 +110,7 @@ class ElationMC(Character):
             # Grant 10 Certified Banger to target
             bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10, self.targetRole, [AtkType.ALL], 1, 1, self.role,TickDown.START))
 
-            # Signal fixed 20 Punchline extra turn
+            # Signal fixed 20 Punchline for the triggered Elation Skill
             Character.ahaFixedPunchline = True
             Character.ahaFixedPunchlineValue = 20
             # Trigger target's Elation Skill via their GoGo turn
@@ -129,9 +129,14 @@ class ElationMC(Character):
         e3TalMul = 0.33 if self.eidolon >= 3 else 0.3
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}"    :
             return self.useElaSkill(-1)
-        if result.turnName == "AhaEndGoGo" or result.turnName == "ElationMCEndGoGo":
+        if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
+            Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
+        if result.turnName == "ElationMCEndGoGo":
+            if Character.ahaFixedPunchline:
+                self.Punchline = self.savedPunchline
             Character.ahaFixedPunchline = False
         if result.turnName in ("ElationMCELASkillBig", "ElationMCELASkillSmall") and self.eidolon >= 1:
             self.bangerBonus = min(self.bangerBonus + 2, 2)
@@ -157,8 +162,9 @@ class ElationMC(Character):
             return self.useElaSkill(-1)
         if result.turnName == "AhaEndGoGo":
             if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline + self.TotalElationChar
+                self.Punchline = self.savedPunchline + (self.TotalElationChar if Character.ahaYaoGuangUlt else 0)
             Character.ahaFixedPunchline = False
+            Character.ahaYaoGuangUlt = False
         if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
             if Character.ahaFixedPunchline:
                 self.Punchline = self.savedPunchline

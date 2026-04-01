@@ -28,6 +28,7 @@ class Character:
     Punchline = 0
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
+    ahaYaoGuangUlt = False
     ahaElaDMGBoost = 1.0
     savedPunchline = 0
     prePunchline = 0
