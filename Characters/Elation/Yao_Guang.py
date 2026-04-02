@@ -62,7 +62,7 @@ class YaoGuang(Character):
         bl.append(Buff("YaoGuangTraceELA", StatTypes.ELA, 0.10, self.role))
         bl.append(Buff("YaoGuangTech", StatTypes.ERR_T, 30, self.role))
         bl.append(Buff("YaoGuangTechElaBuff",StatTypes.ELA,ElationBuff,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
-        Character.addSharedPunchline(3, "YaoGuangSkillPunch")
+        Character.SharedPunchline += 3
         bl.append(Buff("YaoGuangTraceCD",StatTypes.CD_PERCENT,0.60,self.role))
         if self.eidolon >= 1:
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELAPUNCH], 1, 1,self.role, TickDown.START))
@@ -77,7 +77,7 @@ class YaoGuang(Character):
         e3MulSmall = 0.33 if self.eidolon >= 3 else 0.3
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
 [self.element],[e3MulBig, e3MulSmall], [10, 5], 30, self.scaling, 1, "YaoGuangBasic"))
-        self.addSharedPunchline(3, "YaoGuangBasicPunch")
+        Character.SharedPunchline += 3
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
@@ -87,7 +87,7 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.SKL],
                        [self.element], [0, 0], [0, 0], 30, self.scaling, -1, "YaoGuangSkill"))
         bl.append(Buff("YaoGuangSkillELABuff",StatTypes.ELA,ElationBuff,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
-        Character.addSharedPunchline (3, "YaoGuangSkillPunch")
+        Character.SharedPunchline += 3
         if self.eidolon >= 2:
             bl.append(Buff("YaoGuangE2SPDBuff", StatTypes.SPD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 3, 1, self.role,
                            TickDown.START))
@@ -99,7 +99,7 @@ class YaoGuang(Character):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
-        Character.addSharedPunchline(5, "YaoGuangUltPunch")
+        Character.SharedPunchline += 5
         bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.START))
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUlt"))
         Character.ahaExtraTurnPending = True  # signal that Aha needs an extra turn
@@ -162,10 +162,10 @@ class YaoGuang(Character):
         else:
             E6ELASkillIncrease = 1
 
-        self.savedPunchline = Character.getSharedPunchline()  # save current value
+        self.savedPunchline = Character.SharedPunchline
 
-        if Character.addSharedPunchline is not None and callable(Character.addSharedPunchline):
-            Character.addSharedPunchline(self.TotalElationChar, "FixedAhaPunchRestore")
+        if Character.ahaFixedPunchline:
+            Character.SharedPunchline = Character.ahaFixedPunchlineValue
 
         dbl.append(Debuff("YaoGuangELASkillVUL", self.role, StatTypes.VULN, 0.16, Role.ALL, [AtkType.ALL], 3, 1, False, [0, 0],False))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
@@ -174,9 +174,9 @@ class YaoGuang(Character):
                        [self.element], [e5MulSmall*5*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [5*5, 0], 0, Scaling.ELA, 0, "YaoGuangELASkillSINGLE"))
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline , self.role, [AtkType.ALL], 3, 1, self.role,TickDown.END))
         if Character.ahaFixedPunchline:
-            Character.addSharedPunchline(self.savedPunchline, "FixedAhaPunchRestore")
+            Character.SharedPunchline = self.savedPunchline
         else:
-            Character.addSharedPunchline(self.TotalElationChar, "FixedAhaPunchRestore")
+            Character.SharedPunchline = self.TotalElationChar
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

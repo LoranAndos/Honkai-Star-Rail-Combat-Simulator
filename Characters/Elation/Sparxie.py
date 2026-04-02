@@ -110,7 +110,7 @@ class Sparxie(Character):
         totalSPConsumed = SPUsed + bonusSPConsumed
         realSPConsumed = min(self.TotalSP, SPUsed)  # only real SP, not Thrill
 
-        Character.addSharedPunchline += (totalPunch, "SparxieSkillPunch")
+        Character.SharedPunchline += totalPunch
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
                        [self.element], [e3Big1 + e3Small1 * totalSPConsumed, e3Big3 + e3Small3 * totalSPConsumed],
@@ -139,17 +139,17 @@ class Sparxie(Character):
         e5MulEla = 0.528 if self.eidolon >= 5 else 0.48
 
         # Base 2 Punchline from ult
-        Character.addSharedPunchline += (2, "SparxieUltPunch")
+        Character.SharedPunchline += 2
 
         # Additional Punchline and Thrill based on Elation character count
         if self.TotalElationChar >= 3:
-            Character.addSharedPunchline += (8, "SparxieUltExtraPunch")
+            Character.SharedPunchline += 8
             self.addThrill(4)
         elif self.TotalElationChar == 2:
-            Character.addSharedPunchline += (4, "SparxieUltExtraPunch")
+            Character.SharedPunchline += 4
             self.addThrill(1)
         elif self.TotalElationChar == 1:
-            Character.addSharedPunchline += (2, "SparxieUltExtraPunch")
+            Character.SharedPunchline += 2
             self.addThrill(1)
 
         # Base ult DMG — ATK scaling with Elation modifier
@@ -162,7 +162,7 @@ class Sparxie(Character):
                            [self.element], [e5MulEla, 0], [0, 0], 0, Scaling.ELA, 0, "SparxieUltEla"))
 
         if self.eidolon >= 4:
-            Character.addSharedPunchline += (5, "SparxieE4Punch")
+            Character.SharedPunchline += 5
             bl.append(
                 Buff("SparxieE4Ela", StatTypes.ELA, 0.36, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         return bl, dbl, al, dl, tl, hl
@@ -174,7 +174,7 @@ class Sparxie(Character):
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
         if self.eidolon >= 1 and result.turnName == "AhaEndGoGo":
-            Character.addSharedPunchline += (5, "SparxieE1Punch")
+            Character.SharedPunchline += 5
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -203,8 +203,8 @@ class Sparxie(Character):
         E6ExtraProc = min(self.Punchline, 40) if self.eidolon == 6 else 0
 
         if Character.ahaFixedPunchline:
-            self.savedPunchline = Character.getSharedPunchline()
-            self.prePunchline = Character.getSharedPunchline()
+            self.savedPunchline = self.SharedPunchline
+            self.prePunchline = self.SharedPunchline
             self.SharedPunchline = Character.ahaFixedPunchlineValue
         else:
             self.prePunchline = self.SharedPunchline
@@ -219,9 +219,9 @@ class Sparxie(Character):
             self.addThrill(2)
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline , self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
         if Character.ahaFixedPunchline:
-            Character.addSharedPunchline = (self.savedPunchline, "FixedAhaPunchRestore")
+            Character.SharedPunchline = self.savedPunchline
         else:
-            Character.addSharedPunchline = (self.TotalElationChar, "FixedAhaPunchRestore")
+            Character.SharedPunchline = self.TotalElationChar
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

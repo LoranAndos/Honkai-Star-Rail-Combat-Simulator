@@ -986,7 +986,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                charPunch = Character.getSharedPunchline()
+                charPunch = Character.SharedPunchline
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch)
 
             case "SilverWolf999":
@@ -1418,7 +1418,7 @@ def getMulELA(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
     return getCharStat(StatTypes.ELA, char, enemy, buffList, debuffList, turn) + 1
 
 def getMulPUNCH(char, enemy, buffList, debuffList, turn):
-    return 1 + Character.getSharedPunchline() * 5 / (Character.getSharedPunchline() + 240)
+    return 1 + Character.SharedPunchline * 5 / (Character.SharedPunchline + 240)
 
 def getMulBANGER(char, enemy, buffList, debuffList, turn):
     banger = getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)

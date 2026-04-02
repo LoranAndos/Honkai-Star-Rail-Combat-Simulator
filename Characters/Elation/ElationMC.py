@@ -81,7 +81,7 @@ class ElationMC(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC],
 [self.element],[e5Mul, 0], [10, 0], 20, self.scaling, 1, "ElationMCBasic"))
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
-        Character.addSharedPunchline += (3, "ElationMCTalentPunch")
+        Character.SharedPunchline += 3
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
@@ -90,7 +90,7 @@ class ElationMC(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
                        [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkill"))
         bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,5,Role.SELF,TickDown.END))
-        Character.addSharedPunchline += (3, "ElationMCTalentPunch")
+        Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         self.bangerBonus = 0
         return bl, dbl, al, dl, tl, hl
@@ -101,7 +101,7 @@ class ElationMC(Character):
         self.preFiredPunchline = self.SharedPunchline  # ← add this before any buffs
         e5Mul = 0.54 if self.eidolon >= 5 else 0.50
 
-        Character.addSharedPunchline += (5, "ElationMCUltPunch")
+        Character.SharedPunchline += 5
         bl.append(Buff("ElationMCUltCD", StatTypes.CD_PERCENT, e5Mul, self.targetRole, [AtkType.ALL], 3, 1, self.role,TickDown.START))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ULT],[self.element], [0, 0], [0, 0], 5, self.scaling, 1, "ElationMCUlt"))
 
@@ -135,7 +135,7 @@ class ElationMC(Character):
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-            Character.addSharedPunchline += (3, "ElationMCTalentPunch")
+            Character.SharedPunchline += 3
         if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
@@ -165,7 +165,7 @@ class ElationMC(Character):
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-            Character.addSharedPunchline += (3, "ElationMCTalentPunch")
+            Character.SharedPunchline += 3
         if result.turnName == "ElationMCEndGoGo":
             if Character.ahaFixedPunchline:
                 self.SharedPunchline = self.preFiredPunchline + self.TotalElationChar
@@ -185,9 +185,9 @@ class ElationMC(Character):
         else:
             e5MulBig = 0.6
             e5MulSmall = 0.2
-        self.savedPunchline = Character.getSharedPunchline()
+        self.savedPunchline = Character.SharedPunchline
         if Character.ahaFixedPunchline:
-            Character.setSharedPunchline(Character.ahaFixedPunchlineValue, "FixedAha")
+            Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*8, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
@@ -211,5 +211,5 @@ class ElationMC(Character):
         self.targetHasElaSkill = specialRes.attr7
         self.targetElaSkillTurn = specialRes.attr8
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
-        bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         return bl, dbl, al, dl, tl, hl
