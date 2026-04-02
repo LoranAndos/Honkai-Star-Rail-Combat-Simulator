@@ -171,8 +171,22 @@ class Sparxie(Character):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
         if self.eidolon >= 1 and result.turnName == "AhaEndGoGo":
             Character.SharedPunchline += 5
         return bl, dbl, al, dl, tl, hl
@@ -181,12 +195,22 @@ class Sparxie(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
-        if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
-            if Character.ahaFixedPunchline:
-                self.SharedPunchline = self.savedPunchline
-            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):

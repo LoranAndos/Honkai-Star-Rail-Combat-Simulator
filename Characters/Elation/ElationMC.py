@@ -131,14 +131,23 @@ class ElationMC(Character):
         e3TalMul = 0.33 if self.eidolon >= 3 else 0.3
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}"    :
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-            Character.SharedPunchline += 3
-        if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
+
         if result.turnName in ("ElationMCELASkillBig", "ElationMCELASkillSmall") and self.eidolon >= 1:
             self.bangerBonus = min(self.bangerBonus + 2, 2)
         if turn.moveName == "ElationMCSkill":
@@ -153,25 +162,35 @@ class ElationMC(Character):
                                [self.element], [e3TalMul, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCTalentSkill"))
         if result.turnName == "ElationMCUlt" and result.charRole == self.role:
             if self.targetHasElaSkill:
-                tl.append(Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL],[self.element], [0, 0], [0, 0], 0, self.scaling, 0,f"ElationMCUltTrigger_{self.targetRole.name}"))
-                tl.append(Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,self.scaling, 0, "ElationMCEndGoGo"))
+                tl.append(
+                    Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                         self.scaling, 0, f"ElationMCUltTrigger_{self.targetRole.name}"))
+                # Change from "ElationMCEndGoGo" to "AhaFixedEndGoGo"
+                tl.append(
+                    Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                         self.scaling, 0, "AhaFixedEndGoGo"))
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}"    :
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-            Character.SharedPunchline += 3
-        if result.turnName == "ElationMCEndGoGo":
-            if Character.ahaFixedPunchline:
-                self.SharedPunchline = self.preFiredPunchline + self.TotalElationChar
-            Character.ahaFixedPunchline = False
-        if result.atkType[0] == AtkType.ELAPUNCH and result.charRole != self.role and self.eidolon >= 1:
-            self.bangerBonus = min(self.bangerBonus + 2, 2)  # cap at 2 since it resets on skill use
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):

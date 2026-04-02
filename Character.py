@@ -5,7 +5,21 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class Character:
+
+class CharacterMeta(type):
+    """Metaclass that logs SharedPunchline changes"""
+
+    @property
+    def SharedPunchline(cls):
+        return cls._SharedPunchline_value
+
+    @SharedPunchline.setter
+    def SharedPunchline(cls, value):
+        old = getattr(cls, '_SharedPunchline_value', 0)
+        cls._SharedPunchline_value = value
+        logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f}")
+
+class Character(metaclass=CharacterMeta):
     # Standard Character Properties
     name = "Character"
     path = Path.HUNT
@@ -25,7 +39,7 @@ class Character:
     maxHP = 1.0
     aggro = 0
     Banger = 0
-    SharedPunchline = 0
+    _SharedPunchline_value = 0
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
@@ -263,5 +277,17 @@ class Character:
         tl.extend(ntl)
         hl.extend(nhl)
         return bl, dbl, al, dl, tl, hl
+
+    @property
+    def SharedPunchline(self):
+        """Instance-level access to class SharedPunchline"""
+        return Character._SharedPunchline_value
+
+    @SharedPunchline.setter
+    def SharedPunchline(self, value):
+        """Instance-level setter that logs changes"""
+        old = Character._SharedPunchline_value
+        Character._SharedPunchline_value = value
+        logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f}")
 
 

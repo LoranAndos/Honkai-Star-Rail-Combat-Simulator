@@ -150,6 +150,11 @@ class Aha(Summon):
         for role, turnName in self.elationTeam:
             tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
                            [0, 0], [0, 0], 0, self.scaling, 0, turnName))
+        # Add a signal turn before AhaEndGoGo to indicate last character used skill
+        if self.elationTeam:
+            last_role, last_turnName = self.elationTeam[-1]
+            tl.append(Turn(self.name, last_role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                           [0, 0], [0, 0], 0, self.scaling, 0, "AhaElationSequenceComplete"))
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                        [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
         return bl, dbl, al, dl, tl, hl
@@ -160,6 +165,11 @@ class Aha(Summon):
             for role, turnName in self.elationTeam:
                 tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
                                [0, 0], [0, 0], 0, self.scaling, 0, turnName))
+            # Add same signal here too
+            if self.elationTeam:
+                last_role, last_turnName = self.elationTeam[-1]
+                tl.append(Turn(self.name, last_role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                               [0, 0], [0, 0], 0, self.scaling, 0, "AhaElationSequenceComplete"))
             tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                            [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
         return bl, dbl, al, dl, tl, hl

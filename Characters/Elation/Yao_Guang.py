@@ -100,10 +100,16 @@ class YaoGuang(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
         Character.SharedPunchline += 5
-        bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.START))
-        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "YaoGuangUlt"))
-        Character.ahaExtraTurnPending = True  # signal that Aha needs an extra turn
+        bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,
+                       TickDown.START))
+        tl.append(
+            Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5, self.scaling,
+                 0, "YaoGuangUlt"))
+        Character.ahaExtraTurnPending = True
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
+        # Change from "AhaEndGoGo" to "AhaFixedEndGoGo"
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                       [0, 0], [0, 0], 0, self.scaling, 0, "AhaFixedEndGoGo"))
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
         return bl, dbl, al, dl, tl, hl
@@ -112,12 +118,23 @@ class YaoGuang(Character):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-        if result.turnName == "ElationMCUlt" and result.charRole == self.role:
-            return self.useElaSkill(-1)
+
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -125,12 +142,23 @@ class YaoGuang(Character):
         e5Mul = 0.22 if self.eidolon >= 5 else 0.2
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+
+            # Fixed Aha turns - reset flags but NOT punchline
+        if result.turnName == "AhaFixedEndGoGo":
+            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
+            # Normal Aha sequence end - reset punchline
+        if result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline = 3
+            Character.ahaFixedPunchline = False
+
         if result.turnName == "AhaEndGoGo":
             Character.ahaFixedPunchline = False
-        if result.turnName == "ElationMCEndGoGo" and result.charRole == self.role:
-            if Character.ahaFixedPunchline:
-                self.Punchline = self.savedPunchline
-            Character.ahaFixedPunchline = False
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaElaDMGBoost = 1.0
+
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
             attackerELA = self.elaDict.get(turn.charRole, 0)
             yaoGuangELA = self.elaDict.get(self.role, 0)
