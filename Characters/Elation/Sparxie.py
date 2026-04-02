@@ -187,7 +187,7 @@ class Sparxie(Character):
             Character.ahaFixedPunchline = False
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
-        if self.eidolon >= 1 and result.turnName == "AhaEndGoGo":
+        if self.eidolon >= 1 and result.turnName == "AhaElationSequenceComplete":
             Character.SharedPunchline += 5
         return bl, dbl, al, dl, tl, hl
 
@@ -232,6 +232,9 @@ class Sparxie(Character):
             self.SharedPunchline = Character.ahaFixedPunchlineValue
         else:
             self.prePunchline = self.SharedPunchline
+
+        #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
+
         tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.ELAPUNCH],
                 [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [6.67, 0], 5, Scaling.ELA, 0, "SparxieElaSkillBig"))
         tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELAPUNCH],
@@ -244,8 +247,6 @@ class Sparxie(Character):
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline , self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = self.savedPunchline
-        else:
-            Character.SharedPunchline = self.TotalElationChar
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

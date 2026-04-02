@@ -3,7 +3,7 @@ from Delay_Text import *
 from Healing import Healing
 from Result import *
 from Turn_Text import Turn
-
+from Character import Character
 
 class Summon:
     name = "Summon"
@@ -162,6 +162,7 @@ class Aha(Summon):
     def allyTurn(self, turn, result):
         bl, dbl, al, dl, tl, hl = super().takeTurn()
         if result.turnName == "YaoGuangUlt":
+            Character.ahaFixedPunchline = True
             for role, turnName in self.elationTeam:
                 tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
                                [0, 0], [0, 0], 0, self.scaling, 0, turnName))
@@ -169,7 +170,7 @@ class Aha(Summon):
             if self.elationTeam:
                 last_role, last_turnName = self.elationTeam[-1]
                 tl.append(Turn(self.name, last_role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                               [0, 0], [0, 0], 0, self.scaling, 0, "AhaElationSequenceComplete"))
+                               [0, 0], [0, 0], 0, self.scaling, 0, "AhaYaoElationSequenceComplete"))
             tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                           [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
+                           [0, 0], [0, 0], 0, self.scaling, 0, "AhaYaoEndGoGo"))
         return bl, dbl, al, dl, tl, hl

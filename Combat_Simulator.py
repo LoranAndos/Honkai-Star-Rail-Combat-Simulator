@@ -1,3 +1,5 @@
+import logging
+
 from Characters.Abundance.Luocha import Luocha
 from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.Yao_Guang import YaoGuang
@@ -360,7 +362,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
