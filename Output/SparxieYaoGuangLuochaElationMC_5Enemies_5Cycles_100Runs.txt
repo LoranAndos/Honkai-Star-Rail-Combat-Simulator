@@ -1,0 +1,20 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 33307.704 | Sparxie: 18499.883 | YaoGuang: 7237.135 | Luocha: 211.166 | ElationMC: 7053.868
+Run    2: Team DPAV: 33711.894 | Sparxie: 18848.793 | YaoGuang: 7234.495 | Luocha: 173.721 | ElationMC: 7156.874
+Run    3: Team DPAV: 31043.699 | Sparxie: 16678.182 | YaoGuang: 7157.474 | Luocha: 164.378 | ElationMC: 6755.843
+Run    4: Team DPAV: 32096.239 | Sparxie: 17411.156 | YaoGuang: 7299.620 | Luocha: 171.793 | ElationMC: 6953.867
+Run    5: Team DPAV: 30764.474 | Sparxie: 16637.723 | YaoGuang: 6964.504 | Luocha: 176.003 | ElationMC: 6680.592
+Run    6: Team DPAV: 31402.489 | Sparxie: 17011.430 | YaoGuang: 7120.691 | Luocha: 214.597 | ElationMC: 6762.855
+Run    7: Team DPAV: 31670.828 | Sparxie: 16966.344 | YaoGuang: 7287.804 | Luocha: 212.419 | ElationMC: 6944.456
+Run    8: Team DPAV: 33213.146 | Sparxie: 18456.060 | YaoGuang: 7219.424 | Luocha: 173.098 | ElationMC: 7066.554
+Run    9: Team DPAV: 33869.409 | Sparxie: 18713.310 | YaoGuang: 7480.531 | Luocha: 213.021 | ElationMC: 7202.743
+Run   10: Team DPAV: 31111.568 | Sparxie: 16582.009 | YaoGuang: 7192.338 | Luocha: 211.872 | ElationMC: 6827.339
+Run   11: Team DPAV: 31087.363 | Sparxie: 16691.280 | YaoGuang: 7141.683 | Luocha: 171.735 | ElationMC: 6789.748
+Run   12: Team DPAV: 31503.879 | Sparxie: 17060.709 | YaoGuang: 7168.911 | Luocha: 213.234 | ElationMC: 6773.203
+Run   13: Team DPAV: 32054.672 | Sparxie: 17363.184 | YaoGuang: 7272.438 | Luocha: 210.509 | ElationMC: 6902.890
+Run   14: Team DPAV: 31295.378 | Sparxie: 16868.109 | YaoGuang: 7146.201 | Luocha: 172.096 | ElationMC: 6821.150
+Run   15: Team DPAV: 31800.259 | Sparxie: 17340.758 | YaoGuang: 7136.107 | Luocha: 176.003 | ElationMC: 6841.738
+Run   16: Team DPAV: 34083.604 | Sparxie: 18793.091 | YaoGuang: 7514.357 | Luocha: 175.084 | ElationMC: 7295.420
+Run   17: Team DPAV: 30867.664 | Sparxie: 16622.775 | YaoGuang: 7033.718 | Luocha: 166.364 | ElationMC: 6756.986

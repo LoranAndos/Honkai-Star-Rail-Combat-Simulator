@@ -25,7 +25,7 @@ class Character:
     maxHP = 1.0
     aggro = 0
     Banger = 0
-    Punchline = 0
+    SharedPunchline = 0
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
@@ -263,5 +263,22 @@ class Character:
         tl.extend(ntl)
         hl.extend(nhl)
         return bl, dbl, al, dl, tl, hl
+
+    _SharedPunchline = 0  # private backing field
+
+    @classmethod
+    def getSharedPunchline(cls):
+        return cls._SharedPunchline
+
+    @classmethod
+    def setSharedPunchline(cls, value, source=""):
+        old = cls._SharedPunchline
+        cls._SharedPunchline = value
+        import logging
+        logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f} | Source: {source}")
+
+    @classmethod
+    def addSharedPunchline(cls, amount, source=""):
+        cls.setSharedPunchline(cls._SharedPunchline + amount, source)
 
 

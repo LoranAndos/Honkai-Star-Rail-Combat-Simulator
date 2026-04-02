@@ -1,6 +1,7 @@
 from Buff import *
 from Lightcone import Lightcone
 from Attributes import *
+from Character import Character
 
 class WelcometotheCosmicCity(Lightcone):
     name = "Welcome to the Cosmic City"
@@ -26,6 +27,6 @@ class WelcometotheCosmicCity(Lightcone):
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().equip()
-        bl.append(Buff("SuperPowerPunchLine", StatTypes.PUNCH, 20, self.wearerRole, [AtkType.ALL], 1, 1, Role.ALL,TickDown.START))
+        Character.SharedPunchline += 20
         return bl, dbl, al, dl, hl
 

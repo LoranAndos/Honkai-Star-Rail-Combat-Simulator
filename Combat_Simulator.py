@@ -42,7 +42,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT, targetRole=Role.DPS)
+        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT, targetRole=Role.DPS)
         slot4 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
     if not s1:
@@ -153,8 +153,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     initCharCurrentHP_MaxHp(playerTeam, teamBuffs) # apply any pre-existing Hp buffs
 
     # Initialize starting Punchline for all characters
-    for char in playerTeam:
-        char.Punchline = ElationCount
+    Character.SharedPunchline = ElationCount
 
     logging.warning("\nInitial AV Adjustments")
     avAdjustment(playerTeam, advList)  # apply any "on battle start" advances
@@ -245,9 +244,6 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
                                                                           advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
-
-        # Handle any PunchlineGain from unit turns
-        teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
 
         # Handle any pending attacks:
         teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList  = processTurnList(turnList, playerTeam, summons, eTeam,
@@ -371,7 +367,7 @@ if __name__ == "__main__":
     # Enemy setup — shared between single and multi run
     fiveEnemies = EnemyModule(5, [85, 85, 85, 85, 85],
                               [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],
-                              [100, 120, 144, 100, 100], [20, 60, 70, 20, 20], atkRatio, [Element.LIGHTNING], [1])
+                              [100, 120, 144, 100, 100], [20, 60, 70, 20, 20], atkRatio, [Element.FIRE], [1])
 
     # For checking which functions in the sim get called the most and how much time it takes for those calls.
     #pr = cProfile.Profile()
@@ -397,7 +393,7 @@ if __name__ == "__main__":
         slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = Sparkle(4, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = ElationMC(4, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{fiveEnemies.numEnemies}Enemies_{cycles}Cycles"
         outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
@@ -419,7 +415,7 @@ if __name__ == "__main__":
                 slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot4 = Sparkle(4, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot4 = ElationMC(4, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
 
                 result = startSimulator(
                     cycleLimit=cycles,

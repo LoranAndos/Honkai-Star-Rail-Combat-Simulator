@@ -669,6 +669,10 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
 
     if healingList != []:
         for character in playerTeam:
+            if character.name == "Huohuo" and character.eidolon >= 4:
+                HuohuoExtraMult = True
+            else:
+                HuohuoExtraMult = False
             for heal in healingList:
                 if character.role == heal.applier:
                     enemy = findBestEnemy(character, enemyTeam, buffList, debuffList, turn) if turn.targetID == -1 else enemyTeam[turn.targetID]
@@ -678,17 +682,22 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
             Heal = healingList[i]
             character = playerTeam[i]
             if Heal.target == character.role:
+                if HuohuoExtraMult == True and character.maxHP != character.currHP and (
+                        Heal.name == "HuoHuoSkillHealingScaling" or Heal.name == "HuoHuoSkillHealingFlat" or Heal.name == "HuoHuoTalentHealingScaling" or Heal.name == "HuoHuoTalentHealingFlat"):
+                    ExtraMult = 1+0.8*((character.maxHP-character.currHP)/character.maxHP)
+                else:
+                    ExtraMult = 1
                 if Heal.scaling != Scaling.Other:
                     if Heal.val[0] > 0:
-                        Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
-                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
+                        Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier * ExtraMult
+                        character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier * ExtraMult)
                     elif Heal.val[0] < 0:
                         Total_HPLoss += abs(Heal.val[0]) * Scaling_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier)
                 elif Heal.scaling == Scaling.Other:
                     if Heal.val[0] > 0:
-                        Total_HPGain += Heal.val[0] * OGH_Multiplier
-                        character.ChangeHpValue(Heal.val[0] * OGH_Multiplier)
+                        Total_HPGain += Heal.val[0] * OGH_Multiplier * ExtraMult
+                        character.ChangeHpValue(Heal.val[0] * OGH_Multiplier * ExtraMult)
                     elif Heal.val[0] < 0:
                         Total_HPLoss += abs(Heal.val[0])
                         character.ChangeHpValue(Heal.val[0])
@@ -875,9 +884,21 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "HuoHuo":
                 lst = []
+                HPList = []
                 for char in [char for char in playerTeam if char.name != "HuoHuo"]:
                     lst.append([0 if char.specialEnergy else char.maxEnergy, char.role])
-                return Special(name=specStr, attr1=lst[0], attr2=lst[1], attr3=lst[2], enemies=gauge)
+                for char in playerTeam:
+                    HPList.append([getCharMaxHP(char,char.lightcone,buffList), char.role, char.currHP])
+                return Special(name=specStr, attr1=lst[0], attr2=lst[1], attr3=lst[2], attr4=HPList[0], attr5=HPList[1], attr6=HPList[2], attr7=HPList[3], enemies=gauge)
+
+            case "HuoHuoOld":
+                lst = []
+                HPList = []
+                for char in [char for char in playerTeam if char.name != "HuoHuo"]:
+                    lst.append([0 if char.specialEnergy else char.maxEnergy, char.role])
+                for char in playerTeam:
+                    HPList.append([getCharMaxHP(char,char.lightcone,buffList), char.role, char.currHP])
+                return Special(name=specStr, attr1=lst[0], attr2=lst[1], attr3=lst[2], attr4=HPList[0], attr5=HPList[1], attr6=HPList[2], attr7=HPList[3], enemies=gauge)
 
             case "Jiaoqiu":
                 ashenList = [db.stacks for db in debuffList if db.name == "AshenRoasted"]
@@ -965,7 +986,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                charPunch = specChar.totalPunchline
+                charPunch = Character.getSharedPunchline()
                 return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch)
 
             case "SilverWolf999":
@@ -1397,7 +1418,7 @@ def getMulELA(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
     return getCharStat(StatTypes.ELA, char, enemy, buffList, debuffList, turn) + 1
 
 def getMulPUNCH(char, enemy, buffList, debuffList, turn):
-    return 1 + char.Punchline * 5 / (char.Punchline + 240)
+    return 1 + Character.getSharedPunchline() * 5 / (Character.getSharedPunchline() + 240)
 
 def getMulBANGER(char, enemy, buffList, debuffList, turn):
     banger = getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)
