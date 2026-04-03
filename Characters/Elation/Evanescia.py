@@ -359,6 +359,13 @@ class Evanescia(Character):
     # ---------------------------------------------------------------------------
 
     def _getEnemyCount(self):
+        """Get the current number of alive enemies.
+
+        Used for dynamic bounce calculation in Ultimate:
+        - 3+ enemies: 6 bounces total
+        - 2 enemies: 7 bounces total
+        - 1 enemy: 9 bounces total
+        """
         return self.get_alive_enemy_count()
 
     def _handleTeammateBangerConversion(self, turn: Turn, result: Result, bl: list):

@@ -5,7 +5,7 @@ from MainFunctions import Special
 
 class DivinerOfDistantReach(Relic):
     name = "Diviner of Distant Reach"
-    SPDStat = 0
+    SPDStat = 1
 
     def __init__(self, wearerRole, setType):
         super().__init__(wearerRole, setType)
@@ -36,3 +36,4 @@ class DivinerOfDistantReach(Relic):
                     bl.append(Buff("DivinerCR", StatTypes.CR_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
                 elif self.SPDStat >= 160:
                     bl.append(Buff("DivinerCR", StatTypes.CR_PERCENT, 0.18, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+        return bl, dbl, al, dl, hl

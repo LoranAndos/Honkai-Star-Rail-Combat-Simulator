@@ -19,6 +19,48 @@ from random import randrange
 logger = logging.getLogger(__name__)
 _current_combat_enemy_team = None
 
+
+def initializeCombatContext(playerTeam: list[Character], enemyTeam: list[Enemy]) -> None:
+    Character.set_combat_context(enemyTeam, playerTeam)
+
+    # Register all Elation characters for priority tracking
+    for char in playerTeam:
+        if hasattr(char, 'path') and char.path == Path.ELATION:
+            Character.register_elation_character(char)
+
+    logger.debug(f"Combat context initialized: {len(enemyTeam)} enemies, Elation team registered")
+
+
+def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    evanescia = findCharName(playerTeam, "Evanescia")
+    if not evanescia:
+        return buffList  # No conversion if Evanescia not in team
+
+    newBuffsToAdd = []
+
+    # Scan for Banger buffs from lower-priority teammates
+    for buff in buffList:
+        # Only process Banger buffs that are NOT for Evanescia
+        if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role:
+            source_char = findCharRole(playerTeam, buff.target)
+
+            # Check if source is an Elation character with lower participation ID
+            if source_char and hasattr(source_char, 'elationParticipationID'):
+                if source_char.elationParticipationID < evanescia.elationParticipationID:
+                    # Convert 50% of their Banger to Evanescia's
+                    convertedAmount = int(buff.val * 0.5)
+                    bl = []
+                    evanescia.receiveBangerFromTeammate(convertedAmount, source_char.name, bl)
+                    newBuffsToAdd.extend(bl)
+
+                    logger.info(f"BANGER > {evanescia.name} converted {convertedAmount} Banger from {source_char.name}")
+
+    # Add converted Banger buffs to the list
+    if newBuffsToAdd:
+        buffList = addBuffs(buffList, newBuffsToAdd)
+
+    return buffList
+
 def manualPrint(prnt, msg: any):
     print(msg) if prnt else 0
 
