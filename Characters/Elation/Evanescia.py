@@ -117,7 +117,10 @@ class Evanescia(Character):
         """
         bl.append(Buff(f"TalentErrFromBanger_{source}", StatTypes.ERR_F, bangerAmount,
                        self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
-        logger.debug(f"{self.name} +{bangerAmount} ERR from Banger sync ({source})")
+        # CRITICAL FIX: Actually add to masterFoxEnergy when Banger is gained
+        self.masterFoxEnergy += bangerAmount
+        logger.debug(
+            f"{self.name} +{bangerAmount} ERR from Banger sync ({source}) | masterFoxEnergy now {self.masterFoxEnergy}")
 
     def _tryMasterFoxFUA(self, enemyID: int, bl: list, tl: list) -> bool:
         """Check masterFoxEnergy threshold and emit Master Fox FUA if reached.
