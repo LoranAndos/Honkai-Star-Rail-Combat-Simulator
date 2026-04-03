@@ -845,7 +845,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charPunch = Character.SharedPunchline
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch )
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                charCD = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charBanger, attr6=charCD)
 
             case "Feixiao":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
