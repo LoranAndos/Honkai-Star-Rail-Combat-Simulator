@@ -47,6 +47,9 @@ class Character(metaclass=CharacterMeta):
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
+    _current_enemy_team = None
+    _current_player_team = None
+    _elation_characters_registry = {}
     rotation = ["E", "A", "A"]
     dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.FUA: 0.0, AtkType.ADD: 0.0, AtkType.ELABANGER: 0, AtkType.ELAPUNCH: 0, AtkType.MEMO: 0.0}
     hasSummon = False
@@ -200,6 +203,12 @@ class Character(metaclass=CharacterMeta):
         if HPChangingValue > 0:
             self.currHP = min(self.maxHP, self.currHP + HPChangingValue)
 
+    def get_alive_enemy_count(self):
+        if Character._current_enemy_team is None:
+            return 3
+        alive = len([e for e in Character._current_enemy_team if hasattr(e, 'currHP') and e.currHP > 0])
+        return max(1, alive)
+
     def getRelicScalingStats(self) -> tuple[float, float]:
         return self.relicStats.getScalingValue(self.scaling)
 
@@ -277,6 +286,20 @@ class Character(metaclass=CharacterMeta):
         tl.extend(ntl)
         hl.extend(nhl)
         return bl, dbl, al, dl, tl, hl
+
+    @classmethod
+    def set_combat_context(cls, enemy_team, player_team):
+        """Set the combat context for all character instances during initialization"""
+        cls._current_enemy_team = enemy_team
+        cls._current_player_team = player_team
+        logger.debug(f"Combat context set: {len(enemy_team)} enemies, {len(player_team)} players")
+
+    @classmethod
+    def register_elation_character(cls, character):
+        """Register an Elation character for Banger conversion tracking"""
+        if hasattr(character, 'elationParticipationID') and character.elationParticipationID is not None:
+            cls._elation_characters_registry[character.elationParticipationID] = character
+            logger.debug(f"Registered {character.name} (ID: {character.elationParticipationID})")
 
     @property
     def SharedPunchline(self):

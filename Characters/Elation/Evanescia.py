@@ -3,10 +3,10 @@ import logging
 from Buff import *
 from Delay_Text import Advance
 from Character import Character
-from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessings
-from Planars.BrokenKeel import BrokenKeel
+from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
+from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
-from Relics.EagleOfTwilightLine import EagleOfTwilightLine
+from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -59,13 +59,13 @@ class Evanescia(Character):
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
-                 elationParticipationID=0) -> None:
+                 elationParticipationID=146) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ElationBrimmingWithBlessings(role, 1)
-        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
+        self.lightcone = lc if lc else UntilTheFlowersBloomAgain(role, 1)
+        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else BrokenKeel(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT,
+        self.planar = pl if pl else PunklordeStageZero(role)
+        self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 8, 14, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
@@ -131,13 +131,10 @@ class Evanescia(Character):
             self.masterFoxEnergy -= self.MASTER_FOX_THRESHOLD
             logger.debug(f"{self.name} Master Fox FUA triggered! masterFoxEnergy remaining: {self.masterFoxEnergy}")
 
-            # Master Fox physical FUA hit — AOE, 100% ATK
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.FUA], [self.element],
                            [1.0, 0], [20, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
-            # Master Fox Elation hit — AOE ELAPUNCH, 25% (if Banger >= 1, implied by talent wording)
-            # This hit always fires as part of the FUA; Banger check is on the ATK hit above.
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
                            [0.25, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
@@ -262,6 +259,11 @@ class Evanescia(Character):
             Character.ahaFixedPunchlineValue = 20
             Character.ahaElaDMGBoost = 1.0
 
+        if result.turnName == "EvanesciaMasterFoxFUA":
+            dbl.append(Debuff("EvanesciaMasterFoxDebuff",self.role, StatTypes.VULN,0.12,Role.ALL, [AtkType.ALL], 1, 1))
+            if self.eidolon >= 1:
+                return self.useElaSkill(-1)
+
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -298,6 +300,7 @@ class Evanescia(Character):
             e5Mul = 1.05
         else:
             e5Mul = 1
+        BangerBuff = 15 if self.eidolon >= 1 else 5
         self.savedPunchline = Character.SharedPunchline
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
@@ -305,7 +308,7 @@ class Evanescia(Character):
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
                        [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
         bl.append(
-            Buff("EvanesciaELASkillBanger", StatTypes.BANGER, 5, self.role, [AtkType.ALL], self.BangerDuration, 10,
+            Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 10,
                  self.role, TickDown.END))
         bl.append(
             Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline, self.role, [AtkType.ALL], 2, 1, self.role,
@@ -356,40 +359,25 @@ class Evanescia(Character):
     # ---------------------------------------------------------------------------
 
     def _getEnemyCount(self):
-        """Get the current number of alive enemies.
-        This should be implemented to match your simulation's enemy tracking.
-        For now, returns a placeholder value.
-        """
-        # TODO: Implement actual enemy count tracking from the simulation
-        # This might require passing enemy list to the character or accessing a global state
-        # Placeholder implementation:
-        return 3  # Default to 3 enemies
+        return self.get_alive_enemy_count()
 
     def _handleTeammateBangerConversion(self, turn: Turn, result: Result, bl: list):
-        """NEW: Handle Banger conversion from teammates.
+        """Handle Banger conversion from teammates.
 
         When a teammate with lower Elation Skill Participation ID gains Banger,
         Evanescia converts 50% of it into her own Banger.
 
-        When a teammate's Banger buff ends, Evanescia converts 50% of it into her own Banger.
+        This method is triggered from MainFunctions.handleBangerConversions()
+        when a teammate's Banger buff is detected.
         """
-        # This needs to be called from the main simulation loop when:
-        # 1. A teammate gains a Banger buff (check their elationParticipationID)
-        # 2. A teammate's Banger buff expires
-
-        # The actual implementation would need access to:
-        # - The teammate character object to check elationParticipationID
-        # - The Banger buff that was added/removed
-        # - Logic to determine if this is a gain or expiration event
-
-        # Placeholder for integration with main simulation:
         pass
 
     def receiveBangerFromTeammate(self, bangerAmount: int, source: str, bl: list):
         """Called by the simulation when a teammate with lower ID gains Banger.
         Converts 50% of the teammate's Banger into Evanescia's own Banger.
         """
-        convertedBanger = bangerAmount * 0.5
+        Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
+        convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerConvert_{source}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
         logger.debug(f"{self.name} converted {convertedBanger} Banger from teammate {source}")
@@ -401,7 +389,8 @@ class Evanescia(Character):
         """Called by the simulation when a teammate's Banger buff expires.
         Converts 50% of the expired Banger into Evanescia's own Banger.
         """
-        convertedBanger = bangerAmount * 0.5
+        Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
+        convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerExpire_{source}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
         logger.debug(f"{self.name} converted {convertedBanger} Banger from expired {source} buff")

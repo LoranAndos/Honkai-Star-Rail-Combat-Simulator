@@ -1,7 +1,7 @@
 import logging
 
-from Characters.Abundance.Luocha import Luocha
-from Characters.Elation.Sparxie import Sparxie
+from Characters.Abundance.HuoHuo import HuoHuo
+from Characters.Elation.Evanescia import Evanescia
 from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Elation.ElationMC import ElationMC
 from MainFunctions import *
@@ -32,7 +32,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     # Simulation Settings
     totalEnemyAttacks = 0
-    logLevel = logging.DEBUG
+    logLevel = logging.WARNING
     # CRITICAL: Only prints the main action taken during each turn + ultimates
     # WARNING: Prints the above plus details on all actions recorded during the turn (FuA/Bonus attacks etc.), and all AV adjustments
     # INFO: Prints the above plus buff and debuff expiry, speed adjustments, av of all chars at the start of each turn
@@ -42,10 +42,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT, targetRole=Role.DPS)
-        slot4 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -362,7 +362,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True   # Set to True for multiple runs, False for single run
+    multiRun = False   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -392,9 +392,9 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = ElationMC(4, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{fiveEnemies.numEnemies}Enemies_{cycles}Cycles"
@@ -414,9 +414,9 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = Luocha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = ElationMC(4, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
 
                 result = startSimulator(

@@ -17,6 +17,7 @@ from Trackers import *
 from random import randrange
 
 logger = logging.getLogger(__name__)
+_current_combat_enemy_team = None
 
 def manualPrint(prnt, msg: any):
     print(msg) if prnt else 0
@@ -754,6 +755,68 @@ def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], player
         logger.info(f"ERR    > {errToAdd:.3f} energy added to {char.name} from {eb.name} | {char.name} Energy: {char.currEnergy:.3f}")
     return newList
 
+
+def initializeCombatContext(playerTeam: list[Character], enemyTeam: list[Enemy]) -> None:
+    """Initialize combat context for all characters at the START of simulation.
+
+    This sets the global references that characters need for:
+    - _getEnemyCount() for dynamic Elation mechanics (Evanescia's ult bounces)
+    - Banger conversion tracking between Elation characters
+
+    Called from handleSpecialEffects() with checkType="START"
+    """
+    global _current_combat_enemy_team
+    _current_combat_enemy_team = enemyTeam
+    Character.set_combat_context(enemyTeam, playerTeam)
+
+    # Register all Elation characters by their participation ID
+    for char in playerTeam:
+        if hasattr(char, 'path') and char.path == Path.ELATION:
+            Character.register_elation_character(char)
+
+    logger.debug(
+        f"Combat context initialized: {len(enemyTeam)} enemies, Elation team size: {len([c for c in playerTeam if c.path == Path.ELATION])}")
+
+
+def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    """Process Banger conversions for Elation characters.
+
+    When an Elation character with lower participation ID gains Banger,
+    Evanescia (if present) converts 50% of it to her own Banger.
+
+    Lower ID = higher priority in the Elation skill order
+    Evanescia (ID: 146) has the lowest priority (highest ID)
+    """
+    evanescia = findCharName(playerTeam, "Evanescia")
+    if not evanescia:
+        return buffList  # No conversion if Evanescia not in team
+
+    newBuffsToAdd = []
+
+    for buff in buffList:
+        # Only process Banger buffs that are NOT for Evanescia herself
+        if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role:
+            # Find the character receiving this Banger buff
+            source_char = findCharRole(playerTeam, buff.target)
+
+            # Check if source is an Elation character with lower ID than Evanescia
+            if source_char and hasattr(source_char, 'elationParticipationID'):
+                if source_char.elationParticipationID < evanescia.elationParticipationID:
+                    # Convert 50% of their Banger to Evanescia's
+                    convertedAmount = buff.val * 0.5
+                    bl = []
+                    evanescia.receiveBangerFromTeammate(int(convertedAmount), source_char.name, bl)
+                    newBuffsToAdd.extend(bl)
+
+                    logger.info(
+                        f"BANGER > {evanescia.name} converted {convertedAmount:.1f} Banger from {source_char.name} (ID {source_char.elationParticipationID})")
+
+    # Add the converted Banger buffs to the buff list
+    if newBuffsToAdd:
+        buffList = addBuffs(buffList, newBuffsToAdd)
+
+    return buffList
+
 def handleSPFromBuffs(buffList: list[Buff], spTracker: SpTracker) -> list[Buff]:
     newList = []
     for buff in buffList:
@@ -1239,28 +1302,44 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
 
     return teamBuffs, enemyDebuffs, advList, delayList, healingList
 
-def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, checkType, spTracker, dmgTracker, manualMode = False):
 
+def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,
+                         checkType, spTracker, dmgTracker, manualMode=False):
     turnList = []
+
+    # Initialize combat context on START
+    if checkType == "START":
+        initializeCombatContext(playerTeam, eTeam)
+
     # Apply any special effects
     for char in playerTeam:
         spec = char.special()
-        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, spTracker, checkType, manualMode=manualMode)
+        specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, spTracker, checkType,
+                             manualMode=manualMode)
         if checkType == "START":
             bl, dbl, al, dl, tl, hl = char.handleSpecialStart(specRes)
         else:
             bl, dbl, al, dl, tl, hl = char.handleSpecialEnd(specRes)
-        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, bl, dbl, al, dl, hl)
+        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs,
+                                                                                enemyDebuffs, advList, delayList,
+                                                                                healList, bl, dbl, al, dl, hl)
         turnList.extend(tl)
 
     # Handle any attacks from special attacks
-    teamBuffs, enemyDebuffs, advList, delayList, turnList, healList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, spTracker, dmgTracker, manualMode)
+    teamBuffs, enemyDebuffs, advList, delayList, turnList, healList = processTurnList(turnList, playerTeam, summons,
+                                                                                      eTeam, teamBuffs, enemyDebuffs,
+                                                                                      advList, delayList, healList,
+                                                                                      spTracker, dmgTracker,
+                                                                                      manualMode=manualMode)
 
     # Add Energy if any was provided from special effects
     teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
 
     # Add/Minus any SP changes from special effects
     teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
+
+    # Process Banger conversions for Elation characters
+    teamBuffs = handleBangerConversions(teamBuffs, playerTeam)
 
     return teamBuffs, enemyDebuffs, advList, delayList, healList
 

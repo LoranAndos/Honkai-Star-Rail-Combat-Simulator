@@ -57,7 +57,7 @@ class HuoHuo(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else PostOpConversation(self.role, 5)
-        self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(self.role, 4, True)
+        self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(self.role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(self.role)
         self.relicStats = subs if subs else RelicStats(12, 0, 4, 4, 8, 4, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
@@ -141,29 +141,6 @@ class HuoHuo(Character):
                  0, "HuoHuoUlt"))
         return bl, dbl, al, dl, tl, hl
 
-    def handleSpecialStart(self, specialRes: Special):
-        if not self.foundEnergy:
-            self.foundEnergy = True
-            self.ally1Energy = specialRes.attr1[0]
-            self.ally1Role = specialRes.attr1[1]
-            self.ally2Energy = specialRes.attr2[0]
-            self.ally2Role = specialRes.attr2[1]
-            self.ally3Energy = specialRes.attr3[0]
-            self.ally3Role = specialRes.attr3[1]
-            self.ally1MaxHP = specialRes.attr4[0]
-            self.ally1HPRole = specialRes.attr4[1]
-            self.ally1CurrentHP = specialRes.attr4[2]
-            self.ally2MaxHP = specialRes.attr5[0]
-            self.ally2HPRole = specialRes.attr5[1]
-            self.ally2CurrentHP = specialRes.attr5[2]
-            self.ally3MaxHP = specialRes.attr6[0]
-            self.ally3HPRole = specialRes.attr6[1]
-            self.ally3CurrentHP = specialRes.attr6[2]
-            self.ally4MaxHP = specialRes.attr7[0]
-            self.ally4HPRole = specialRes.attr7[1]
-            self.ally4CurrentHP = specialRes.attr7[2]
-        return super().handleSpecialStart(specialRes)
-
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         E3HealScale = 0.048 if self.eidolon >= 3 else 0.045
@@ -198,3 +175,26 @@ class HuoHuo(Character):
                 hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally4HPRole,
                                   Targeting.SINGLE))
         return bl, dbl, al, dl, tl, hl
+
+    def handleSpecialStart(self, specialRes: Special):
+        if not self.foundEnergy:
+            self.foundEnergy = True
+            self.ally1Energy = specialRes.attr1[0]
+            self.ally1Role = specialRes.attr1[1]
+            self.ally2Energy = specialRes.attr2[0]
+            self.ally2Role = specialRes.attr2[1]
+            self.ally3Energy = specialRes.attr3[0]
+            self.ally3Role = specialRes.attr3[1]
+            self.ally1MaxHP = specialRes.attr4[0]
+            self.ally1HPRole = specialRes.attr4[1]
+            self.ally1CurrentHP = specialRes.attr4[2]
+            self.ally2MaxHP = specialRes.attr5[0]
+            self.ally2HPRole = specialRes.attr5[1]
+            self.ally2CurrentHP = specialRes.attr5[2]
+            self.ally3MaxHP = specialRes.attr6[0]
+            self.ally3HPRole = specialRes.attr6[1]
+            self.ally3CurrentHP = specialRes.attr6[2]
+            self.ally4MaxHP = specialRes.attr7[0]
+            self.ally4HPRole = specialRes.attr7[1]
+            self.ally4CurrentHP = specialRes.attr7[2]
+        return super().handleSpecialStart(specialRes)

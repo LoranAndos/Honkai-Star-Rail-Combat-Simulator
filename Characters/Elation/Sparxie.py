@@ -49,15 +49,18 @@ class Sparxie(Character):
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
-                 eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
+                 eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
+                 elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else DazzledByAFloweryWorld(role,1)
+        self.lightcone = lc if lc else DazzledByAFloweryWorld(role, 1)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
-                                                       StatTypes.ATK_PERCENT,StatTypes.ATK_PERCENT)
+        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT,
+                                                       StatTypes.ATK_PERCENT,
+                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
+        self.elationParticipationID = elationParticipationID
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
