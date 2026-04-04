@@ -781,22 +781,92 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
 
     return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
 
-def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character], enemyTeam: list[Enemy]) -> list[Buff]:
+
+def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character],
+                          enemyTeam: list[Enemy]) -> list[Buff]:
+    """Handle energy from all sources and convert to Banger for Evanescia."""
     errBuffs, newList = [], []
     for buff in buffList:
         if buff.buffType == StatTypes.ERR_T or buff.buffType == StatTypes.ERR_F:
             errBuffs.append(buff)
         else:
             newList.append(buff)
+
+    # Track energy added for Banger conversion
+    evanescia_energy_gained = {}  # {role: amount}
+
     for eb in errBuffs:
         char = findCharRole(playerTeam, eb.target)
-        placeholderTurn = Turn(char.name, char.role, 0, Targeting.NA, [AtkType.SPECIAL], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PlaceHolderTurn: ERR")
-        charERR = getMulERR(char, enemyTeam[0], buffList, debuffList, placeholderTurn) if ((eb.buffType == StatTypes.ERR_T) and not char.specialEnergy) else 1
+        placeholderTurn = Turn(char.name, char.role, 0, Targeting.NA, [AtkType.SPECIAL], [char.element], [0, 0], [0, 0],
+                               0, char.scaling, 0, "PlaceHolderTurn: ERR")
+        charERR = getMulERR(char, enemyTeam[0], buffList, debuffList, placeholderTurn) if (
+                    (eb.buffType == StatTypes.ERR_T) and not char.specialEnergy) else 1
         errToAdd = eb.getBuffVal() * charERR
         char.addEnergy(errToAdd)
-        logger.info(f"ERR    > {errToAdd:.3f} energy added to {char.name} from {eb.name} | {char.name} Energy: {char.currEnergy:.3f}")
+
+        # Track energy for Evanescia
+        if char.name == "Evanescia":
+            evanescia_energy_gained[char.role] = evanescia_energy_gained.get(char.role, 0) + errToAdd
+
+        logger.info(
+            f"ERR    > {errToAdd:.3f} energy added to {char.name} from {eb.name} | {char.name} Energy: {char.currEnergy:.3f}")
+
+    # Convert Evanescia's energy gains to Banger
+    if evanescia_energy_gained:
+        evanescia = findCharName(playerTeam, "Evanescia")
+        if evanescia:
+            for role, energy_amt in evanescia_energy_gained.items():
+                # Energy → Banger conversion: add Banger buff equal to energy gained
+                banger_buff = Buff(
+                    f"EvanesciaBangerFromEnergy_{energy_amt:.0f}",
+                    StatTypes.BANGER,
+                    int(energy_amt),  # Convert to Banger
+                    evanescia.role,
+                    [AtkType.ALL],
+                    1,
+                    1,
+                    evanescia.role,
+                    TickDown.END
+                )
+                newList.append(banger_buff)
+                logger.info(
+                    f"BANGER > {energy_amt:.1f} Banger added to {evanescia.name} from energy gain | Total Banger: {int(energy_amt)}")
+
     return newList
 
+
+def handleEvanesciaOwnActionBanger(result: Result, playerTeam: list[Character]) -> list[Buff]:
+    """Convert Evanescia's own action energy gains into Banger.
+
+    When Evanescia uses Basic/Skill/Ult/Elation Skill, the energy she gains
+    is also converted to an equal amount of Banger.
+    """
+    banger_buffs = []
+    evanescia = findCharName(playerTeam, "Evanescia")
+
+    if not evanescia or result.charRole != evanescia.role:
+        return banger_buffs
+
+    # Check if this is an Evanescia action that gives energy
+    if result.turnDmg == 0 and result.errGain > 0:  # Actions that give energy
+        energy_to_convert = int(result.errGain)
+        if energy_to_convert > 0:
+            banger_buff = Buff(
+                f"EvanesciaBangerFromAction_{result.turnName}",
+                StatTypes.BANGER,
+                energy_to_convert,
+                evanescia.role,
+                [AtkType.ALL],
+                1,
+                1,
+                evanescia.role,
+                TickDown.END
+            )
+            banger_buffs.append(banger_buff)
+            logger.info(
+                f"BANGER > {energy_to_convert:.1f} Banger added to {evanescia.name} from {result.turnName} energy gain")
+
+    return banger_buffs
 
 def initializeCombatContext(playerTeam: list[Character], enemyTeam: list[Enemy]) -> None:
     """Initialize combat context for all characters at the START of simulation.
@@ -1308,6 +1378,11 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
                 tempB, tempDB, tempA, tempD , newTurns, tempH = char.allyTurn(turn, res)
             teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,tempB, tempDB, tempA, tempD, tempH)
             turnList.extend(newTurns)
+
+        # Handle Evanescia's own action energy → Banger conversion
+        evanescia_banger_from_action = handleEvanesciaOwnActionBanger(res, playerTeam)
+        if evanescia_banger_from_action:
+            teamBuffs = addBuffs(teamBuffs, evanescia_banger_from_action)
 
         teamBuffs = handlePunchlineFromBuffs(teamBuffs, playerTeam)
 

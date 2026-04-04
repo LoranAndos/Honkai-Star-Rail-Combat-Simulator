@@ -31,7 +31,7 @@ class Evanescia(Character):
     ultCost = 240
     currAV = 0
     aggro = 100
-    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.BRK: 0, AtkType.FUA: 0, AtkType.ELAPUNCH: 0, AtkType.ELABANGER: 0}
+    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0,AtkType.BRK: 0, AtkType.FUA: 0, AtkType.ELAPUNCH: 0, AtkType.ELABANGER: 0}
 
     # Unique Character Properties
     hasSummon = True
@@ -130,17 +130,19 @@ class Evanescia(Character):
           - Also deals 25% ELAPUNCH AOE (Elation DMG)
         Returns True if FUA fired.
         """
+        E5MulFUA = 1.1 if self.eidolon >= 5 else 1.0
+        E5MulELA = 0.276 if self.eidolon >= 5 else 0.25
         if self.masterFoxEnergy >= self.MASTER_FOX_THRESHOLD:
             self.masterFoxEnergy -= self.MASTER_FOX_THRESHOLD
             logger.debug(f"{self.name} Master Fox FUA triggered! masterFoxEnergy remaining: {self.masterFoxEnergy}")
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.FUA], [self.element],
-                           [1.0, 0], [20, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
+                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                           [E5MulFUA, 0], [20, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
-                           [0.25, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
+                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                           [E5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
 
             # The 10 ERR from FUA feeds back into masterFoxEnergy via the Energy<->Banger sync
             self._addEnergy(10, bl, "MasterFoxFUARegen")
@@ -165,6 +167,7 @@ class Evanescia(Character):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5MulMain = 3.3 if self.eidolon >= 5 else 3.0
         e5MulSub = 1.65 if self.eidolon >= 5 else 1.5
+        e5MulELA = 0.176 if self.eidolon >= 5 else 0.16
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.BLAST, [AtkType.SKL], [self.element],
                        [e5MulMain, e5MulSub], [20, 10], 30, self.scaling, -1, "EvanesciaSkill"))
@@ -175,8 +178,8 @@ class Evanescia(Character):
         # Talent: if Banger >= 1, Skill also deals 16% ELAPUNCH ST to the attacked target
         if self.Banger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.SINGLE, [AtkType.ELAPUNCH], [self.element],
-                           [0.16, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
+                           Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
+                           [e5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
 
         self._tryMasterFoxFUA(enemyID, bl, tl)
         return bl, dbl, al, dl, tl, hl
@@ -186,6 +189,8 @@ class Evanescia(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         e3MulAOE = 1.76 if self.eidolon >= 3 else 1.6
         e3MulSingle = 1.296 if self.eidolon >= 3 else 1.2
+        e5MulAOE = 0.264 if self.eidolon >= 5 else 0.24
+        e5MulSingle = 0.275 if self.eidolon >= 5 else 0.25
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ULT], [self.element],
@@ -219,13 +224,13 @@ class Evanescia(Character):
             Character.SharedPunchline = max(Character.SharedPunchline, self.maxEnergy)
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
-                           [0.24, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_AOE"))
+                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                           [e5MulAOE, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_AOE"))
 
             # ST ELAPUNCH: 25% to the random enemy target already chosen by bestEnemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.SINGLE, [AtkType.ELAPUNCH], [self.element],
-                           [0.25, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
+                           Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
+                           [e5MulSingle, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
 
             Character.SharedPunchline = savedPunch
 
@@ -236,6 +241,7 @@ class Evanescia(Character):
             if self.UltCounter % 4 == 0:
                 bl.append(Buff("EvanesciaUltExtraERR", StatTypes.ERR_F, 120, self.role, [AtkType.ALL], 1, 1, self.role,
                                TickDown.START))
+                self._addEnergy(120, bl, "E6Ult")
             self.UltCounter += 1
 
         self._tryMasterFoxFUA(enemyID, bl, tl)
@@ -332,11 +338,12 @@ class Evanescia(Character):
         self.Punch = specialRes.attr4
         self.Banger = specialRes.attr5
         self.CD = specialRes.attr6
+        E5CdBuff = 0.275 if self.eidolon >= 5 else 0.25
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
 
         bl.append(
-            Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * 0.25, self.role, [AtkType.ALL], 1, 1, self.role,
+            Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * E5CdBuff, self.role, [AtkType.ALL], 1, 1, self.role,
                  TickDown.START))
 
         if self.tech:
