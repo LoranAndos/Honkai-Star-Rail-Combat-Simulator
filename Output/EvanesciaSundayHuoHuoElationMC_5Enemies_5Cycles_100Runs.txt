@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 66126.037 | Evanescia: 63737.802 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1666.137
+Run    2: Team DPAV: 62421.525 | Evanescia: 60105.402 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1594.026
+Run    3: Team DPAV: 69389.415 | Evanescia: 67014.306 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1653.324
+Run    4: Team DPAV: 59584.513 | Evanescia: 57254.812 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1607.603
+Run    5: Team DPAV: 65025.620 | Evanescia: 62706.315 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1597.207
+Run    6: Team DPAV: 61932.088 | Evanescia: 59615.965 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1594.026
+Run    7: Team DPAV: 63705.533 | Evanescia: 61326.998 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1656.437
+Run    8: Team DPAV: 60742.712 | Evanescia: 58424.625 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1595.989
+Run    9: Team DPAV: 59994.637 | Evanescia: 57665.579 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1606.960
+Run   10: Team DPAV: 63397.633 | Evanescia: 60977.494 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1698.041
+Run   11: Team DPAV: 61231.650 | Evanescia: 58898.580 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1610.972
+Run   12: Team DPAV: 65885.801 | Evanescia: 63485.931 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1677.772
+Run   13: Team DPAV: 62286.587 | Evanescia: 59961.829 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1602.660
+Run   14: Team DPAV: 70961.501 | Evanescia: 68589.464 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1649.940
+Run   15: Team DPAV: 70160.082 | Evanescia: 67776.318 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1661.666
+Run   16: Team DPAV: 68072.271 | Evanescia: 65685.496 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1664.678
+Run   17: Team DPAV: 62398.941 | Evanescia: 60067.871 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.973
+Run   18: Team DPAV: 63428.422 | Evanescia: 61093.385 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1612.940
+Run   19: Team DPAV: 70582.988 | Evanescia: 68212.892 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1647.998
+Run   20: Team DPAV: 68136.288 | Evanescia: 65760.440 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1653.750
+Run   21: Team DPAV: 64640.654 | Evanescia: 62321.349 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1597.207
+Run   22: Team DPAV: 68602.002 | Evanescia: 66229.965 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1649.940
+Run   23: Team DPAV: 62129.881 | Evanescia: 59800.029 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1607.755
+Run   24: Team DPAV: 70795.122 | Evanescia: 68395.253 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1677.772
+Run   25: Team DPAV: 59800.187 | Evanescia: 57466.508 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1611.581
+Run   26: Team DPAV: 66843.487 | Evanescia: 64514.521 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1606.869
+Run   27: Team DPAV: 65222.036 | Evanescia: 62849.217 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1650.721
+Run   28: Team DPAV: 62783.045 | Evanescia: 60394.836 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1666.112
+Run   29: Team DPAV: 65883.266 | Evanescia: 63469.261 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1691.908
+Run   30: Team DPAV: 58277.167 | Evanescia: 55908.943 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1646.127
+Run   31: Team DPAV: 62814.207 | Evanescia: 60489.449 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1602.660
+Run   32: Team DPAV: 66760.347 | Evanescia: 64360.327 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1678.236
+Run   33: Team DPAV: 63306.642 | Evanescia: 60987.338 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1597.207
+Run   34: Team DPAV: 61072.927 | Evanescia: 58739.249 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1611.581
+Run   35: Team DPAV: 60811.001 | Evanescia: 58479.952 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.952
+Run   36: Team DPAV: 62487.962 | Evanescia: 60102.372 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1663.493
+Run   37: Team DPAV: 71260.852 | Evanescia: 68888.814 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1649.940
+Run   38: Team DPAV: 67366.038 | Evanescia: 65031.068 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1613.185
+Run   39: Team DPAV: 62956.075 | Evanescia: 60624.362 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1609.616
+Run   40: Team DPAV: 64036.530 | Evanescia: 61645.511 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1668.922
+Run   41: Team DPAV: 68031.644 | Evanescia: 65627.895 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1681.652
+Run   42: Team DPAV: 60529.060 | Evanescia: 58152.316 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1654.646
+Run   43: Team DPAV: 66755.032 | Evanescia: 64379.838 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1653.097
+Run   44: Team DPAV: 63035.268 | Evanescia: 60700.257 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1613.226
+Run   45: Team DPAV: 67850.809 | Evanescia: 65475.615 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1653.097
+Run   46: Team DPAV: 62896.832 | Evanescia: 60565.118 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1609.616
+Run   47: Team DPAV: 62540.062 | Evanescia: 60152.459 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1665.506
+Run   48: Team DPAV: 57301.986 | Evanescia: 54943.155 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1636.733
+Run   49: Team DPAV: 62642.014 | Evanescia: 60327.867 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1592.050
+Run   50: Team DPAV: 63452.158 | Evanescia: 61032.019 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1698.041
+Run   51: Team DPAV: 62751.834 | Evanescia: 60420.785 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.952
+Run   52: Team DPAV: 62016.455 | Evanescia: 59681.979 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1612.379
+Run   53: Team DPAV: 67659.018 | Evanescia: 65311.132 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1626.100
+Run   54: Team DPAV: 64356.256 | Evanescia: 61971.153 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1663.006
+Run   55: Team DPAV: 62738.063 | Evanescia: 60407.013 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.952
+Run   56: Team DPAV: 64080.694 | Evanescia: 61664.146 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1694.451
+Run   57: Team DPAV: 64675.245 | Evanescia: 62277.248 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1675.900
+Run   58: Team DPAV: 61379.835 | Evanescia: 59049.982 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1607.755
+Run   59: Team DPAV: 68760.361 | Evanescia: 66389.542 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1648.722
+Run   60: Team DPAV: 67061.643 | Evanescia: 64672.136 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1667.410
+Run   61: Team DPAV: 59100.430 | Evanescia: 56771.372 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1606.960
+Run   62: Team DPAV: 60095.136 | Evanescia: 57764.086 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.952
+Run   63: Team DPAV: 71162.179 | Evanescia: 68790.142 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1649.940
+Run   64: Team DPAV: 63886.751 | Evanescia: 61535.260 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1684.291
+Run   65: Team DPAV: 60583.969 | Evanescia: 58197.172 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1664.699
+Run   66: Team DPAV: 65908.825 | Evanescia: 63561.710 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1625.018
+Run   67: Team DPAV: 62317.053 | Evanescia: 59983.374 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1611.581
+Run   68: Team DPAV: 62376.698 | Evanescia: 60044.978 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1609.623
+Run   69: Team DPAV: 63721.435 | Evanescia: 61389.721 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1609.616
+Run   70: Team DPAV: 64262.916 | Evanescia: 61842.839 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1697.979
+Run   71: Team DPAV: 59222.996 | Evanescia: 56854.772 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1646.127
+Run   72: Team DPAV: 60520.650 | Evanescia: 58186.971 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1611.581
+Run   73: Team DPAV: 64696.450 | Evanescia: 62382.303 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1592.050
+Run   74: Team DPAV: 62623.440 | Evanescia: 60235.685 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1665.658
+Run   75: Team DPAV: 65036.207 | Evanescia: 62716.902 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1597.207
+Run   76: Team DPAV: 59455.976 | Evanescia: 57126.918 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1606.960
+Run   77: Team DPAV: 61300.172 | Evanescia: 58883.602 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1694.472
+Run   78: Team DPAV: 69163.786 | Evanescia: 66783.173 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1658.516
+Run   79: Team DPAV: 61245.934 | Evanescia: 58912.255 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1611.581
+Run   80: Team DPAV: 63427.299 | Evanescia: 61110.593 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1594.609
+Run   81: Team DPAV: 62103.661 | Evanescia: 59741.424 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1640.139
+Run   82: Team DPAV: 66592.751 | Evanescia: 64247.356 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1623.610
+Run   83: Team DPAV: 62350.763 | Evanescia: 60016.287 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1612.379
+Run   84: Team DPAV: 66609.514 | Evanescia: 64267.769 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1619.960
+Run   85: Team DPAV: 60625.114 | Evanescia: 58294.043 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1608.973
+Run   86: Team DPAV: 60833.080 | Evanescia: 58517.715 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1593.268
+Run   87: Team DPAV: 59733.397 | Evanescia: 57404.339 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1606.960
+Run   88: Team DPAV: 65441.777 | Evanescia: 63066.583 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1653.097
+Run   89: Team DPAV: 63441.946 | Evanescia: 61084.483 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1635.365
+Run   90: Team DPAV: 65697.063 | Evanescia: 63381.568 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1593.397
+Run   91: Team DPAV: 60931.138 | Evanescia: 58540.314 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1668.727
+Run   92: Team DPAV: 59816.334 | Evanescia: 57398.038 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1696.199
+Run   93: Team DPAV: 64785.161 | Evanescia: 62467.819 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1595.244
+Run   94: Team DPAV: 64478.911 | Evanescia: 62127.124 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1629.689
+Run   95: Team DPAV: 66877.039 | Evanescia: 64529.785 | Sunday: 0.000 | HuoHuo: 17.558 | ElationMC: 1625.469
+Run   96: Team DPAV: 61476.318 | Evanescia: 59146.617 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1607.603
+Run   97: Team DPAV: 64216.225 | Evanescia: 61828.643 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1665.484
+Run   98: Team DPAV: 62271.106 | Evanescia: 59925.818 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1623.190
+Run   99: Team DPAV: 70683.156 | Evanescia: 68301.324 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1659.734
+Run  100: Team DPAV: 63758.816 | Evanescia: 61342.268 | Sunday: 0.000 | HuoHuo: 17.870 | ElationMC: 1694.451
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 63966.595
+Average Evanescia DPAV: 61609.646
+Average Sunday DPAV: 0.000
+Average HuoHuo DPAV: 17.845
+Average ElationMC DPAV: 1635.425
+
+Min Team DPAV: 57301.986
+Max Team DPAV: 71260.852

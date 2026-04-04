@@ -50,8 +50,8 @@ class Sparkle(Character):
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CD_PERCENT, StatTypes.SPD,
-                                                       StatTypes.HP_PERCENT,StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 12, StatTypes.CD_PERCENT, StatTypes.SPD,
+                                                       StatTypes.DEF_PERCENT,StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
 

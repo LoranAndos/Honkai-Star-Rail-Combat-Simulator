@@ -59,7 +59,7 @@ class HuoHuo(Character):
         self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(self.role, 2, True)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(self.role)
-        self.relicStats = subs if subs else RelicStats(12, 0, 4, 4, 8, 4, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 15, 2, 2, 2, 2, 2, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else (["E", "A", "A"] if eidolon >= 1 else ["E", "A"])
 
@@ -153,24 +153,24 @@ class HuoHuo(Character):
                      [0, 0], 1, self.scaling, 0, "HuoHuoAllyERR"))
             hl.append(Healing("HuoHuoSkillHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL,self.role, Targeting.SINGLE))
             hl.append(Healing("HuoHuoSkillHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.role,Targeting.SINGLE))
-            if self.ally1CurrentHP <= self.ally1MaxHP:
+            if self.ally1CurrentHP <= self.ally1MaxHP*0.5:
                 hl.append(Healing("HuoHuoSkillHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally1HPRole,
                                   Targeting.SINGLE))
                 hl.append(Healing("HuoHuoSkillHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally1HPRole,
                                   Targeting.SINGLE))
-            if self.ally2CurrentHP <= self.ally2MaxHP:
+            if self.ally2CurrentHP <= self.ally2MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoSkillHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally2HPRole,
                             Targeting.SINGLE))
                 hl.append(Healing("HuoHuoSkillHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally2HPRole,
                                   Targeting.SINGLE))
-            if self.ally3CurrentHP <= self.ally3MaxHP:
+            if self.ally3CurrentHP <= self.ally3MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoSkillHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally3HPRole,
                             Targeting.SINGLE))
                 hl.append(Healing("HuoHuoSkillHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally3HPRole,
                                   Targeting.SINGLE))
-            if self.ally4CurrentHP <= self.ally4MaxHP:
+            if self.ally4CurrentHP <= self.ally4MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoSkillHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally4HPRole,
                             Targeting.SINGLE))

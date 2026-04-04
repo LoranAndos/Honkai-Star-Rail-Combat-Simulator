@@ -5,10 +5,9 @@ from RelicStats import RelicStats
 from Result import *
 from Buff import *
 from Delay_Text import *
-from Lightcones.Ascent import AscentSunday
-from Lightcones.Btbio import Btbio
+from Lightcones.Harmony.PastAndFuture import PastAndFuture
 from Relics.SacerdosRelivedOrdeal import SacerdosSunday
-from Planars.Keel import Keel
+from Planars.BrokenKeel import BrokenKeel
 from Turn_Text import Turn
 
 logger = logging.getLogger(__name__)
@@ -43,10 +42,10 @@ class Sunday(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT, targetRole=Role.DPS) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else AscentSunday(role, level=1, targetRole=targetRole)
+        self.lightcone = lc if lc else PastAndFuture(role, level=1, targetRole=targetRole)
         self.relic1 = r1 if r1 else SacerdosSunday(role, 4, targetRole=targetRole)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else Keel(role)
+        self.planar = pl if pl else BrokenKeel(role)
         # Fast Sunday Build RelicStats(14, 4, 0, 4, 4, 0, 4, 4, 4, 4, 0, 6, Pwr.CD_PERCENT, Pwr.SPD, Pwr.DEF_PERCENT, Pwr.HP_PERCENT)
         # Normal Sunday Build RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, Pwr.CD_PERCENT, Pwr.SPD, Pwr.DEF_PERCENT, Pwr.HP_PERCENT)
         self.relicStats = subs if subs else RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, StatTypes.CD_PERCENT, StatTypes.SPD,
@@ -71,17 +70,14 @@ class Sunday(Character):
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         sp = 0 if self.turn % 2 == 1 else -1
-        dmgbuffMul = 2 if self.targetSummonRole is not None else 1
-        e5DMG = 0.44 if self.eidolon >= 5 else 0.40
+        e5DMG = 0.33 if self.eidolon >= 5 else 0.30
         e5CR = 0.22 if self.eidolon >= 5 else 0.20
         e6Stacks = 3 if self.eidolon >= 6 else 1
-        bl.append(Buff("SundaySklDMG", StatTypes.DMG_PERCENT, e5DMG * dmgbuffMul, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+        bl.append(Buff("SundaySklDMG", StatTypes.DMG_PERCENT, e5DMG, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, e5CR, self.targetRole, [AtkType.ALL], 2, e6Stacks, self.role, TickDown.END))
         if self.eidolon >= 1:
             bl.append(Buff("SundayE1RP", StatTypes.PEN, 0.20, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.START))
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,self.scaling, sp, "SundaySkill"))
-        if self.targetSummonRole is not None:
-            al.append(Advance("SundaySummonADV", self.targetSummonRole, 1.0))
         al.append(Advance("SundayTargetADV", self.targetRole, 1.0))
         al.append(Advance("SundayTargetADV", self.targetRole, 0.1))  # Forces character to act before their summon
         return bl, dbl, al, dl, tl, hl
@@ -89,9 +85,13 @@ class Sunday(Character):
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
-        e3Mul = 0.28 if self.eidolon >= 3 else 0.25
-        e3Add = 0.0832 if self.eidolon >= 3 else 0.08
-        bl.append(Buff("SundayUltERR", StatTypes.ERR_F, self.targetEnergyCap * 0.2, self.targetRole, [AtkType.ALL]))
+        e3Mul = 0.336 if self.eidolon >= 3 else 0.30
+        e3Add = 0.128 if self.eidolon >= 3 else 0.12
+        if self.targetSummonRole * 0.2  >= 40:
+            EnergyBuff = 40
+        else:
+            EnergyBuff = self.targetSummonRole * 0.2
+        bl.append(Buff("SundayUltERR", StatTypes.ERR_F, EnergyBuff, self.targetRole, [AtkType.ALL]))
         bl.append(Buff("SundayBeatified", StatTypes.CD_PERCENT, self.cdStat * e3Mul + e3Add, self.targetRole, [AtkType.ALL], 3, 1,self.role, TickDown.END))
         if self.eidolon >= 2:
             bl.append(

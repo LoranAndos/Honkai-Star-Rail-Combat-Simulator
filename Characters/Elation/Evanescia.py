@@ -4,6 +4,7 @@ from Buff import *
 from Delay_Text import Advance
 from Character import Character
 from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
+from Lightcones.Elation.TomorrowTogether import TomorrowTogether
 from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
@@ -65,9 +66,8 @@ class Evanescia(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
-        self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 8, 14, StatTypes.CR_PERCENT,
-                                                       StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 13, 10, StatTypes.CD_PERCENT,
+                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.masterFoxEnergy = 0
@@ -82,7 +82,6 @@ class Evanescia(Character):
         bl.append(Buff("EvenesciaTraceELA", StatTypes.ELA, 0.18, self.role))
         bl.append(Buff("EvanesciaTrace1CR", StatTypes.CR_PERCENT, 0.30, self.role))
 
-        # NEW: Additional 30% CRIT Rate from Trace
         bl.append(Buff("EvanesciaTrace2CR", StatTypes.CR_PERCENT, 0.30, self.role))
 
         if self.eidolon >= 1:
@@ -105,7 +104,7 @@ class Evanescia(Character):
         """
         bangerGain = min(amount, 100)
         bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, bangerGain,
-                       self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
         self.masterFoxEnergy += amount
         logger.debug(
             f"{self.name} +{amount} masterFoxEnergy (total {self.masterFoxEnergy}) | +{bangerGain} Banger from Energy")
@@ -137,7 +136,7 @@ class Evanescia(Character):
             logger.debug(f"{self.name} Master Fox FUA triggered! masterFoxEnergy remaining: {self.masterFoxEnergy}")
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                           Targeting.AOE, [AtkType.FUA], [self.element],
                            [E5MulFUA, 0], [20, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
@@ -212,7 +211,7 @@ class Evanescia(Character):
         # Single target bounces with dynamic count
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.ULT], [self.element],
-                       [e3MulSingle, 0], [5 * bounceCount, 0], 0, self.scaling, 0, "EvanesciaUltSingle"))
+                       [e3MulSingle * bounceCount, 0], [5 * bounceCount, 0], 0, self.scaling, 0, "EvanesciaUltSingle"))
 
         # Talent: if Banger >= 1, Ult also fires Elation hits
         # Ult Elation DMG uses Banger >= maxEnergy (480) — clamp via savedPunchline + forced floor
@@ -230,7 +229,7 @@ class Evanescia(Character):
             # ST ELAPUNCH: 25% to the random enemy target already chosen by bestEnemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
-                           [e5MulSingle, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
+                           [e5MulSingle*bounceCount, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
 
             Character.SharedPunchline = savedPunch
 
@@ -359,7 +358,7 @@ class Evanescia(Character):
         if self.eidolon == 6:
             self.BangerDuration = 3
             bl.append(
-                Buff("EvanesciaE6Merry", StatTypes.MERRY, 0.15 + min(floor(self.Banger / 100) * 0.02, 0.35), self.role,
+                Buff("EvanesciaE6Merry", StatTypes.MERRY, 0.15 + min(floor(self.Banger / 100) * 0.02, 0.20), self.role,
                      [AtkType.ALL], 1, 1, self.role, TickDown.START))
 
         return bl, dbl, al, dl, tl, hl
@@ -396,7 +395,7 @@ class Evanescia(Character):
         Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
         convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerConvert_{source}", StatTypes.BANGER, convertedBanger,
-                       self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         logger.debug(f"{self.name} converted {convertedBanger} Banger from teammate {source}")
 
         # Apply bidirectional sync: Banger → Energy
@@ -409,7 +408,7 @@ class Evanescia(Character):
         Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
         convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerExpire_{source}", StatTypes.BANGER, convertedBanger,
-                       self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         logger.debug(f"{self.name} converted {convertedBanger} Banger from expired {source} buff")
 
         # Apply bidirectional sync: Banger → Energy
@@ -421,7 +420,7 @@ class Evanescia(Character):
         """
         bangerGain = min(energyAmount, 100)
         bl.append(Buff(f"EvanesciaBangerFromEnergyBuff_{source}", StatTypes.BANGER, bangerGain,
-                       self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy buff from {source}")
 
         # Also add to masterFoxEnergy (the energy itself)
@@ -434,7 +433,7 @@ class Evanescia(Character):
         """
         bangerGain = min(energyAmount, 100)
         bl.append(Buff(f"EvanesciaBangerFromDamage", StatTypes.BANGER, bangerGain,
-                       self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy received from damage")
 
         # Also add to masterFoxEnergy

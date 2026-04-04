@@ -15,7 +15,7 @@ class PastAndFuture(Lightcone):
         self.targetRole = targetRole
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl = super().useSkl(enemyID)
         DmgBuff = self.level * 0.04 + 0.12
         bl.append(Buff("PastAndFutureSkillBuff", StatTypes.DMG_PERCENT, DmgBuff, self.targetRole, [AtkType.ALL], 1, 1,self.targetRole, TickDown.END))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl

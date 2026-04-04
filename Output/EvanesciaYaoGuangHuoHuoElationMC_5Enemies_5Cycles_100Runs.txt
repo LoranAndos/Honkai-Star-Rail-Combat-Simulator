@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 70201.783 | Evanescia: 44015.837 | YaoGuang: 12318.070 | HuoHuo: 24.589 | ElationMC: 9410.532
-Run    2: Team DPAV: 74009.744 | Evanescia: 46304.054 | YaoGuang: 12888.962 | HuoHuo: 24.589 | ElationMC: 10109.689
-Run    3: Team DPAV: 74162.033 | Evanescia: 46648.076 | YaoGuang: 12850.848 | HuoHuo: 24.159 | ElationMC: 10221.018
-Run    4: Team DPAV: 70984.484 | Evanescia: 44536.076 | YaoGuang: 12324.361 | HuoHuo: 23.729 | ElationMC: 9616.503
-Run    5: Team DPAV: 73959.317 | Evanescia: 46193.198 | YaoGuang: 12965.733 | HuoHuo: 24.589 | ElationMC: 10322.942
-Run    6: Team DPAV: 70268.855 | Evanescia: 44230.198 | YaoGuang: 12155.153 | HuoHuo: 24.589 | ElationMC: 9468.050
-Run    7: Team DPAV: 70531.316 | Evanescia: 44609.187 | YaoGuang: 12136.500 | HuoHuo: 24.589 | ElationMC: 9338.303
-Run    8: Team DPAV: 70207.071 | Evanescia: 44100.996 | YaoGuang: 12276.318 | HuoHuo: 24.589 | ElationMC: 9264.884
-Run    9: Team DPAV: 72138.649 | Evanescia: 45586.746 | YaoGuang: 12488.032 | HuoHuo: 24.589 | ElationMC: 9470.959
-Run   10: Team DPAV: 75407.130 | Evanescia: 47218.184 | YaoGuang: 13180.729 | HuoHuo: 24.589 | ElationMC: 10324.194
-Run   11: Team DPAV: 71017.106 | Evanescia: 44853.921 | YaoGuang: 12232.203 | HuoHuo: 24.589 | ElationMC: 9504.670
-Run   12: Team DPAV: 73160.685 | Evanescia: 45627.931 | YaoGuang: 12878.580 | HuoHuo: 24.589 | ElationMC: 10253.590
-Run   13: Team DPAV: 74529.852 | Evanescia: 46671.090 | YaoGuang: 12920.530 | HuoHuo: 24.589 | ElationMC: 10257.216
-Run   14: Team DPAV: 76999.969 | Evanescia: 48833.953 | YaoGuang: 13039.734 | HuoHuo: 24.589 | ElationMC: 10393.643
-Run   15: Team DPAV: 73644.961 | Evanescia: 45941.441 | YaoGuang: 13049.547 | HuoHuo: 24.589 | ElationMC: 10190.319
-Run   16: Team DPAV: 74195.720 | Evanescia: 46712.209 | YaoGuang: 12786.686 | HuoHuo: 24.159 | ElationMC: 10205.239
-Run   17: Team DPAV: 71548.339 | Evanescia: 45663.192 | YaoGuang: 12183.503 | HuoHuo: 25.022 | ElationMC: 9255.246
-Run   18: Team DPAV: 71187.180 | Evanescia: 44788.180 | YaoGuang: 12356.370 | HuoHuo: 24.589 | ElationMC: 9593.002
-Run   19: Team DPAV: 69937.380 | Evanescia: 44207.836 | YaoGuang: 12070.489 | HuoHuo: 24.589 | ElationMC: 9195.899
-Run   20: Team DPAV: 70273.365 | Evanescia: 44152.304 | YaoGuang: 12246.664 | HuoHuo: 24.589 | ElationMC: 9413.954
-Run   21: Team DPAV: 74167.611 | Evanescia: 46751.609 | YaoGuang: 12720.996 | HuoHuo: 24.159 | ElationMC: 10200.076
-Run   22: Team DPAV: 71509.199 | Evanescia: 45622.463 | YaoGuang: 12119.736 | HuoHuo: 25.022 | ElationMC: 9414.235
-Run   23: Team DPAV: 68018.574 | Evanescia: 42193.036 | YaoGuang: 12007.082 | HuoHuo: 23.729 | ElationMC: 9330.108
-Run   24: Team DPAV: 75020.205 | Evanescia: 46991.279 | YaoGuang: 13000.825 | HuoHuo: 24.589 | ElationMC: 10340.231
-Run   25: Team DPAV: 67995.878 | Evanescia: 42213.752 | YaoGuang: 12037.712 | HuoHuo: 24.589 | ElationMC: 9311.962
-Run   26: Team DPAV: 74983.235 | Evanescia: 47025.058 | YaoGuang: 12979.755 | HuoHuo: 24.589 | ElationMC: 10354.591
-Run   27: Team DPAV: 72109.658 | Evanescia: 45416.286 | YaoGuang: 12462.648 | HuoHuo: 24.589 | ElationMC: 9625.956
-Run   28: Team DPAV: 72262.811 | Evanescia: 45678.538 | YaoGuang: 12443.784 | HuoHuo: 24.589 | ElationMC: 9582.882
-Run   29: Team DPAV: 74686.191 | Evanescia: 46645.191 | YaoGuang: 13207.844 | HuoHuo: 24.589 | ElationMC: 10363.679
-Run   30: Team DPAV: 71174.798 | Evanescia: 44931.662 | YaoGuang: 12172.134 | HuoHuo: 25.022 | ElationMC: 9449.789
-Run   31: Team DPAV: 71027.344 | Evanescia: 44699.342 | YaoGuang: 12275.641 | HuoHuo: 25.022 | ElationMC: 9454.129
-Run   32: Team DPAV: 72620.312 | Evanescia: 45667.649 | YaoGuang: 12654.762 | HuoHuo: 24.159 | ElationMC: 9993.887
-Run   33: Team DPAV: 74419.191 | Evanescia: 46758.749 | YaoGuang: 12897.414 | HuoHuo: 24.589 | ElationMC: 10284.457
-Run   34: Team DPAV: 71385.146 | Evanescia: 45506.771 | YaoGuang: 12127.189 | HuoHuo: 24.589 | ElationMC: 9358.678
-Run   35: Team DPAV: 74351.711 | Evanescia: 46929.113 | YaoGuang: 12728.191 | HuoHuo: 24.159 | ElationMC: 10186.953
-Run   36: Team DPAV: 73976.416 | Evanescia: 46307.845 | YaoGuang: 13009.721 | HuoHuo: 24.589 | ElationMC: 10286.430
-Run   37: Team DPAV: 74261.217 | Evanescia: 46804.349 | YaoGuang: 12753.234 | HuoHuo: 24.159 | ElationMC: 10195.251
-Run   38: Team DPAV: 74342.858 | Evanescia: 47012.087 | YaoGuang: 12670.815 | HuoHuo: 24.159 | ElationMC: 10215.850
-Run   39: Team DPAV: 70615.010 | Evanescia: 44249.730 | YaoGuang: 12344.743 | HuoHuo: 24.589 | ElationMC: 9551.061
-Run   40: Team DPAV: 73802.172 | Evanescia: 46363.354 | YaoGuang: 12757.119 | HuoHuo: 24.159 | ElationMC: 10228.954
-Run   41: Team DPAV: 73932.522 | Evanescia: 46356.700 | YaoGuang: 12978.404 | HuoHuo: 25.022 | ElationMC: 10155.812
-Run   42: Team DPAV: 69407.198 | Evanescia: 43676.769 | YaoGuang: 12081.612 | HuoHuo: 24.589 | ElationMC: 9198.543
-Run   43: Team DPAV: 73367.684 | Evanescia: 45955.294 | YaoGuang: 12913.069 | HuoHuo: 24.589 | ElationMC: 10049.494
-Run   44: Team DPAV: 72413.885 | Evanescia: 45181.470 | YaoGuang: 12735.187 | HuoHuo: 24.159 | ElationMC: 10254.656
-Run   45: Team DPAV: 70554.904 | Evanescia: 44498.622 | YaoGuang: 12066.915 | HuoHuo: 24.589 | ElationMC: 9551.061
-Run   46: Team DPAV: 74186.112 | Evanescia: 46695.755 | YaoGuang: 12827.249 | HuoHuo: 24.159 | ElationMC: 10221.018
-Run   47: Team DPAV: 70222.858 | Evanescia: 44069.929 | YaoGuang: 12242.906 | HuoHuo: 24.589 | ElationMC: 9420.374
-Run   48: Team DPAV: 71843.949 | Evanescia: 45889.208 | YaoGuang: 12153.911 | HuoHuo: 24.159 | ElationMC: 9402.535
-Run   49: Team DPAV: 73612.521 | Evanescia: 46078.651 | YaoGuang: 13006.623 | HuoHuo: 24.589 | ElationMC: 10057.771
-Run   50: Team DPAV: 70475.917 | Evanescia: 44140.022 | YaoGuang: 12312.276 | HuoHuo: 24.589 | ElationMC: 9513.883
-Run   51: Team DPAV: 68042.024 | Evanescia: 42465.637 | YaoGuang: 11869.505 | HuoHuo: 24.159 | ElationMC: 9480.097
-Run   52: Team DPAV: 72601.036 | Evanescia: 45820.523 | YaoGuang: 12604.267 | HuoHuo: 24.589 | ElationMC: 9486.750
-Run   53: Team DPAV: 70362.808 | Evanescia: 44066.162 | YaoGuang: 12352.835 | HuoHuo: 24.589 | ElationMC: 9480.157
-Run   54: Team DPAV: 71160.201 | Evanescia: 45151.473 | YaoGuang: 12122.509 | HuoHuo: 24.589 | ElationMC: 9483.578
-Run   55: Team DPAV: 70083.118 | Evanescia: 43930.420 | YaoGuang: 12217.379 | HuoHuo: 24.589 | ElationMC: 9409.933
-Run   56: Team DPAV: 67484.019 | Evanescia: 41852.742 | YaoGuang: 12029.505 | HuoHuo: 24.589 | ElationMC: 9225.318
-Run   57: Team DPAV: 71139.694 | Evanescia: 44668.521 | YaoGuang: 12256.401 | HuoHuo: 24.589 | ElationMC: 9595.668
-Run   58: Team DPAV: 71209.720 | Evanescia: 44870.227 | YaoGuang: 12229.891 | HuoHuo: 23.729 | ElationMC: 9507.711
-Run   59: Team DPAV: 72741.096 | Evanescia: 45840.173 | YaoGuang: 12591.264 | HuoHuo: 24.589 | ElationMC: 9567.992
-Run   60: Team DPAV: 70451.195 | Evanescia: 44390.673 | YaoGuang: 12273.765 | HuoHuo: 24.589 | ElationMC: 9227.726
-Run   61: Team DPAV: 76500.980 | Evanescia: 49046.099 | YaoGuang: 12729.792 | HuoHuo: 23.729 | ElationMC: 10209.501
-Run   62: Team DPAV: 70781.917 | Evanescia: 44684.489 | YaoGuang: 12214.148 | HuoHuo: 24.589 | ElationMC: 9418.499
-Run   63: Team DPAV: 75194.269 | Evanescia: 47489.717 | YaoGuang: 12951.598 | HuoHuo: 24.589 | ElationMC: 10294.198
-Run   64: Team DPAV: 71228.869 | Evanescia: 44745.870 | YaoGuang: 12233.384 | HuoHuo: 24.589 | ElationMC: 9595.668
-Run   65: Team DPAV: 75161.285 | Evanescia: 47216.164 | YaoGuang: 13103.086 | HuoHuo: 24.589 | ElationMC: 10199.011
-Run   66: Team DPAV: 70160.943 | Evanescia: 44515.831 | YaoGuang: 11942.264 | HuoHuo: 24.159 | ElationMC: 9295.325
-Run   67: Team DPAV: 70855.686 | Evanescia: 44817.290 | YaoGuang: 12155.150 | HuoHuo: 24.589 | ElationMC: 9482.661
-Run   68: Team DPAV: 69460.752 | Evanescia: 43674.362 | YaoGuang: 12125.409 | HuoHuo: 24.589 | ElationMC: 9196.201
-Run   69: Team DPAV: 70638.816 | Evanescia: 44689.213 | YaoGuang: 12057.956 | HuoHuo: 24.589 | ElationMC: 9420.574
-Run   70: Team DPAV: 74924.825 | Evanescia: 46953.107 | YaoGuang: 12973.466 | HuoHuo: 25.022 | ElationMC: 10291.652
-Run   71: Team DPAV: 68732.635 | Evanescia: 42920.035 | YaoGuang: 12132.563 | HuoHuo: 24.589 | ElationMC: 9183.422
-Run   72: Team DPAV: 70572.904 | Evanescia: 44647.313 | YaoGuang: 12078.326 | HuoHuo: 24.159 | ElationMC: 9392.499
-Run   73: Team DPAV: 70094.461 | Evanescia: 43934.331 | YaoGuang: 12242.624 | HuoHuo: 24.589 | ElationMC: 9416.849
-Run   74: Team DPAV: 73737.722 | Evanescia: 47512.272 | YaoGuang: 12199.812 | HuoHuo: 24.592 | ElationMC: 9393.953
-Run   75: Team DPAV: 70287.082 | Evanescia: 44216.933 | YaoGuang: 12297.613 | HuoHuo: 24.589 | ElationMC: 9257.558
-Run   76: Team DPAV: 70700.898 | Evanescia: 44177.200 | YaoGuang: 12359.416 | HuoHuo: 24.589 | ElationMC: 9425.195
-Run   77: Team DPAV: 74308.200 | Evanescia: 46463.902 | YaoGuang: 13079.375 | HuoHuo: 24.589 | ElationMC: 10347.955
-Run   78: Team DPAV: 72029.207 | Evanescia: 45417.667 | YaoGuang: 12320.395 | HuoHuo: 24.589 | ElationMC: 9595.406
-Run   79: Team DPAV: 70170.846 | Evanescia: 44402.982 | YaoGuang: 12108.509 | HuoHuo: 24.589 | ElationMC: 9193.587
-Run   80: Team DPAV: 72081.315 | Evanescia: 45300.774 | YaoGuang: 12600.158 | HuoHuo: 24.159 | ElationMC: 9559.632
-Run   81: Team DPAV: 70879.464 | Evanescia: 44289.860 | YaoGuang: 12496.980 | HuoHuo: 24.589 | ElationMC: 9461.489
-Run   82: Team DPAV: 70600.410 | Evanescia: 44236.118 | YaoGuang: 12343.755 | HuoHuo: 24.589 | ElationMC: 9551.061
-Run   83: Team DPAV: 74052.154 | Evanescia: 46591.860 | YaoGuang: 12804.331 | HuoHuo: 24.159 | ElationMC: 10215.829
-Run   84: Team DPAV: 74342.362 | Evanescia: 46622.024 | YaoGuang: 12948.783 | HuoHuo: 24.589 | ElationMC: 10140.781
-Run   85: Team DPAV: 69645.262 | Evanescia: 43981.922 | YaoGuang: 11941.130 | HuoHuo: 24.159 | ElationMC: 9463.557
-Run   86: Team DPAV: 74942.849 | Evanescia: 47379.621 | YaoGuang: 12862.104 | HuoHuo: 24.159 | ElationMC: 10225.246
-Run   87: Team DPAV: 70971.667 | Evanescia: 44544.802 | YaoGuang: 12377.102 | HuoHuo: 24.589 | ElationMC: 9417.320
-Run   88: Team DPAV: 69491.918 | Evanescia: 43780.623 | YaoGuang: 12059.652 | HuoHuo: 24.589 | ElationMC: 9195.899
-Run   89: Team DPAV: 75775.058 | Evanescia: 47850.266 | YaoGuang: 13077.735 | HuoHuo: 24.589 | ElationMC: 10064.720
-Run   90: Team DPAV: 70527.020 | Evanescia: 44403.003 | YaoGuang: 12210.590 | HuoHuo: 24.589 | ElationMC: 9417.815
-Run   91: Team DPAV: 74223.246 | Evanescia: 46840.759 | YaoGuang: 12701.048 | HuoHuo: 24.159 | ElationMC: 10155.641
-Run   92: Team DPAV: 74480.462 | Evanescia: 46805.417 | YaoGuang: 12871.636 | HuoHuo: 24.159 | ElationMC: 10256.681
-Run   93: Team DPAV: 73918.426 | Evanescia: 46652.505 | YaoGuang: 12687.155 | HuoHuo: 24.159 | ElationMC: 10032.444
-Run   94: Team DPAV: 68821.232 | Evanescia: 43140.218 | YaoGuang: 11966.522 | HuoHuo: 24.159 | ElationMC: 9480.097
-Run   95: Team DPAV: 70242.643 | Evanescia: 43790.634 | YaoGuang: 12359.332 | HuoHuo: 24.589 | ElationMC: 9408.485
-Run   96: Team DPAV: 71927.264 | Evanescia: 45222.322 | YaoGuang: 12564.008 | HuoHuo: 24.589 | ElationMC: 9568.645
-Run   97: Team DPAV: 70441.200 | Evanescia: 44527.730 | YaoGuang: 12061.311 | HuoHuo: 25.022 | ElationMC: 9465.140
-Run   98: Team DPAV: 70171.054 | Evanescia: 43917.800 | YaoGuang: 12292.178 | HuoHuo: 25.022 | ElationMC: 9418.552
-Run   99: Team DPAV: 70602.245 | Evanescia: 44773.753 | YaoGuang: 12131.669 | HuoHuo: 24.589 | ElationMC: 9257.558
-Run  100: Team DPAV: 71124.977 | Evanescia: 45049.433 | YaoGuang: 12120.685 | HuoHuo: 24.159 | ElationMC: 9458.559
+Run    1: Team DPAV: 219583.334 | Evanescia: 192948.852 | YaoGuang: 15576.837 | HuoHuo: 24.471 | ElationMC: 10037.034
+Run    2: Team DPAV: 221695.306 | Evanescia: 195137.550 | YaoGuang: 15369.364 | HuoHuo: 24.471 | ElationMC: 10218.140
+Run    3: Team DPAV: 218788.791 | Evanescia: 193665.354 | YaoGuang: 14631.702 | HuoHuo: 24.471 | ElationMC: 9521.483
+Run    4: Team DPAV: 237630.244 | Evanescia: 210189.987 | YaoGuang: 16162.113 | HuoHuo: 24.471 | ElationMC: 10307.891
+Run    5: Team DPAV: 221337.122 | Evanescia: 194484.633 | YaoGuang: 15524.116 | HuoHuo: 24.471 | ElationMC: 10358.122
+Run    6: Team DPAV: 217339.759 | Evanescia: 192412.666 | YaoGuang: 14568.134 | HuoHuo: 24.471 | ElationMC: 9338.348
+Run    7: Team DPAV: 214340.260 | Evanescia: 187722.658 | YaoGuang: 15431.243 | HuoHuo: 24.471 | ElationMC: 10216.108
+Run    8: Team DPAV: 210270.477 | Evanescia: 185214.781 | YaoGuang: 14692.084 | HuoHuo: 24.471 | ElationMC: 9343.003
+Run    9: Team DPAV: 200270.729 | Evanescia: 175671.490 | YaoGuang: 14271.481 | HuoHuo: 24.471 | ElationMC: 9307.148
+Run   10: Team DPAV: 230952.963 | Evanescia: 203974.056 | YaoGuang: 15851.282 | HuoHuo: 24.471 | ElationMC: 10167.444
+Run   11: Team DPAV: 213087.071 | Evanescia: 187900.959 | YaoGuang: 14783.553 | HuoHuo: 24.471 | ElationMC: 9432.307
+Run   12: Team DPAV: 218447.977 | Evanescia: 191734.319 | YaoGuang: 15474.925 | HuoHuo: 24.471 | ElationMC: 10268.480
+Run   13: Team DPAV: 220733.536 | Evanescia: 194050.119 | YaoGuang: 15427.537 | HuoHuo: 24.471 | ElationMC: 10285.629
+Run   14: Team DPAV: 208563.732 | Evanescia: 183518.065 | YaoGuang: 14558.521 | HuoHuo: 24.471 | ElationMC: 9516.895
+Run   15: Team DPAV: 231435.475 | Evanescia: 204630.389 | YaoGuang: 15685.142 | HuoHuo: 24.471 | ElationMC: 10149.692
+Run   16: Team DPAV: 224161.841 | Evanescia: 198807.671 | YaoGuang: 14991.122 | HuoHuo: 24.471 | ElationMC: 9342.438
+Run   17: Team DPAV: 222032.097 | Evanescia: 195266.818 | YaoGuang: 15575.471 | HuoHuo: 24.471 | ElationMC: 10219.556
+Run   18: Team DPAV: 215063.439 | Evanescia: 190235.127 | YaoGuang: 14478.161 | HuoHuo: 24.471 | ElationMC: 9329.540
+Run   19: Team DPAV: 203140.602 | Evanescia: 178496.982 | YaoGuang: 14301.342 | HuoHuo: 24.471 | ElationMC: 9321.668
+Run   20: Team DPAV: 224985.339 | Evanescia: 198158.426 | YaoGuang: 15696.381 | HuoHuo: 24.471 | ElationMC: 10109.922
+Run   21: Team DPAV: 224611.883 | Evanescia: 198033.140 | YaoGuang: 15536.908 | HuoHuo: 24.471 | ElationMC: 10021.225
+Run   22: Team DPAV: 227463.951 | Evanescia: 201567.838 | YaoGuang: 15318.782 | HuoHuo: 24.471 | ElationMC: 9607.079
+Run   23: Team DPAV: 228144.721 | Evanescia: 202809.675 | YaoGuang: 14914.770 | HuoHuo: 24.471 | ElationMC: 9450.025
+Run   24: Team DPAV: 224798.826 | Evanescia: 197916.257 | YaoGuang: 15689.907 | HuoHuo: 24.471 | ElationMC: 10222.410
+Run   25: Team DPAV: 205613.444 | Evanescia: 180623.720 | YaoGuang: 14494.837 | HuoHuo: 24.471 | ElationMC: 9524.635
+Run   26: Team DPAV: 218178.733 | Evanescia: 191643.260 | YaoGuang: 15345.233 | HuoHuo: 24.471 | ElationMC: 10219.988
+Run   27: Team DPAV: 217163.679 | Evanescia: 190773.180 | YaoGuang: 15404.345 | HuoHuo: 24.471 | ElationMC: 9965.543
+Run   28: Team DPAV: 226297.617 | Evanescia: 199262.448 | YaoGuang: 15849.096 | HuoHuo: 24.471 | ElationMC: 10215.821
+Run   29: Team DPAV: 222886.910 | Evanescia: 196142.135 | YaoGuang: 15621.250 | HuoHuo: 24.471 | ElationMC: 10102.914
+Run   30: Team DPAV: 215095.063 | Evanescia: 190279.852 | YaoGuang: 14483.776 | HuoHuo: 24.471 | ElationMC: 9310.824
+Run   31: Team DPAV: 207799.025 | Evanescia: 181731.536 | YaoGuang: 15006.661 | HuoHuo: 24.471 | ElationMC: 10040.218
+Run   32: Team DPAV: 222335.772 | Evanescia: 195598.450 | YaoGuang: 15480.296 | HuoHuo: 24.471 | ElationMC: 10286.774
+Run   33: Team DPAV: 219144.638 | Evanescia: 193962.515 | YaoGuang: 14689.680 | HuoHuo: 24.471 | ElationMC: 9522.191
+Run   34: Team DPAV: 214524.165 | Evanescia: 189598.350 | YaoGuang: 14577.156 | HuoHuo: 24.471 | ElationMC: 9328.047
+Run   35: Team DPAV: 205749.482 | Evanescia: 179514.310 | YaoGuang: 15104.298 | HuoHuo: 24.471 | ElationMC: 10170.694
+Run   36: Team DPAV: 212999.047 | Evanescia: 186309.703 | YaoGuang: 15364.752 | HuoHuo: 24.471 | ElationMC: 10354.340
+Run   37: Team DPAV: 208316.132 | Evanescia: 183463.603 | YaoGuang: 14369.242 | HuoHuo: 24.471 | ElationMC: 9513.035
+Run   38: Team DPAV: 214742.156 | Evanescia: 189825.665 | YaoGuang: 14549.972 | HuoHuo: 24.471 | ElationMC: 9345.909
+Run   39: Team DPAV: 213140.815 | Evanescia: 188030.324 | YaoGuang: 14766.513 | HuoHuo: 24.471 | ElationMC: 9323.367
+Run   40: Team DPAV: 213747.810 | Evanescia: 188936.357 | YaoGuang: 14477.289 | HuoHuo: 24.471 | ElationMC: 9313.553
+Run   41: Team DPAV: 215469.437 | Evanescia: 188975.772 | YaoGuang: 15313.014 | HuoHuo: 24.471 | ElationMC: 10210.400
+Run   42: Team DPAV: 229938.818 | Evanescia: 204643.372 | YaoGuang: 14871.309 | HuoHuo: 24.471 | ElationMC: 9453.884
+Run   43: Team DPAV: 213544.372 | Evanescia: 187175.957 | YaoGuang: 15188.537 | HuoHuo: 24.471 | ElationMC: 10209.626
+Run   44: Team DPAV: 228899.302 | Evanescia: 203311.162 | YaoGuang: 15153.918 | HuoHuo: 24.471 | ElationMC: 9463.970
+Run   45: Team DPAV: 202736.785 | Evanescia: 178019.084 | YaoGuang: 14422.438 | HuoHuo: 24.471 | ElationMC: 9274.652
+Run   46: Team DPAV: 218369.558 | Evanescia: 193205.154 | YaoGuang: 14671.962 | HuoHuo: 24.471 | ElationMC: 9522.191
+Run   47: Team DPAV: 225164.040 | Evanescia: 198313.869 | YaoGuang: 15711.549 | HuoHuo: 24.471 | ElationMC: 10118.011
+Run   48: Team DPAV: 212694.204 | Evanescia: 186135.878 | YaoGuang: 15303.290 | HuoHuo: 24.471 | ElationMC: 10284.784
+Run   49: Team DPAV: 213788.014 | Evanescia: 188889.368 | YaoGuang: 14556.996 | HuoHuo: 24.471 | ElationMC: 9321.040
+Run   50: Team DPAV: 211089.870 | Evanescia: 184640.325 | YaoGuang: 15255.445 | HuoHuo: 24.471 | ElationMC: 10223.848
+Run   51: Team DPAV: 219732.872 | Evanescia: 193054.813 | YaoGuang: 15565.847 | HuoHuo: 24.471 | ElationMC: 10091.601
+Run   52: Team DPAV: 230314.244 | Evanescia: 203068.098 | YaoGuang: 15866.335 | HuoHuo: 24.471 | ElationMC: 10359.201
+Run   53: Team DPAV: 220181.207 | Evanescia: 193358.349 | YaoGuang: 15562.400 | HuoHuo: 24.471 | ElationMC: 10290.207
+Run   54: Team DPAV: 223399.420 | Evanescia: 198245.121 | YaoGuang: 14808.823 | HuoHuo: 24.471 | ElationMC: 9324.866
+Run   55: Team DPAV: 217589.056 | Evanescia: 190967.083 | YaoGuang: 15374.839 | HuoHuo: 24.471 | ElationMC: 10276.883
+Run   56: Team DPAV: 214945.781 | Evanescia: 190039.613 | YaoGuang: 14558.924 | HuoHuo: 24.471 | ElationMC: 9326.633
+Run   57: Team DPAV: 215622.029 | Evanescia: 189048.036 | YaoGuang: 15385.601 | HuoHuo: 24.471 | ElationMC: 10218.140
+Run   58: Team DPAV: 204642.817 | Evanescia: 179920.842 | YaoGuang: 14406.554 | HuoHuo: 24.902 | ElationMC: 9294.379
+Run   59: Team DPAV: 220429.563 | Evanescia: 195331.535 | YaoGuang: 14677.054 | HuoHuo: 24.471 | ElationMC: 9450.721
+Run   60: Team DPAV: 217888.481 | Evanescia: 191425.154 | YaoGuang: 15325.262 | HuoHuo: 24.471 | ElationMC: 10177.884
+Run   61: Team DPAV: 216948.883 | Evanescia: 191756.536 | YaoGuang: 14778.953 | HuoHuo: 24.471 | ElationMC: 9392.782
+Run   62: Team DPAV: 216524.209 | Evanescia: 191685.616 | YaoGuang: 14493.835 | HuoHuo: 24.471 | ElationMC: 9324.148
+Run   63: Team DPAV: 214025.861 | Evanescia: 187562.498 | YaoGuang: 15352.257 | HuoHuo: 24.471 | ElationMC: 10150.926
+Run   64: Team DPAV: 212747.726 | Evanescia: 186233.755 | YaoGuang: 15333.320 | HuoHuo: 24.471 | ElationMC: 10210.400
+Run   65: Team DPAV: 215578.751 | Evanescia: 190299.486 | YaoGuang: 14870.118 | HuoHuo: 24.471 | ElationMC: 9438.896
+Run   66: Team DPAV: 200549.421 | Evanescia: 175847.393 | YaoGuang: 14412.760 | HuoHuo: 24.471 | ElationMC: 9268.657
+Run   67: Team DPAV: 202845.053 | Evanescia: 178208.953 | YaoGuang: 14349.160 | HuoHuo: 24.471 | ElationMC: 9266.330
+Run   68: Team DPAV: 230612.430 | Evanescia: 204773.136 | YaoGuang: 15332.257 | HuoHuo: 24.471 | ElationMC: 9536.784
+Run   69: Team DPAV: 221759.580 | Evanescia: 194913.379 | YaoGuang: 15492.913 | HuoHuo: 24.471 | ElationMC: 10383.035
+Run   70: Team DPAV: 212411.808 | Evanescia: 186037.745 | YaoGuang: 15185.671 | HuoHuo: 24.471 | ElationMC: 10218.140
+Run   71: Team DPAV: 216132.800 | Evanescia: 190980.955 | YaoGuang: 14736.562 | HuoHuo: 24.471 | ElationMC: 9394.673
+Run   72: Team DPAV: 212284.788 | Evanescia: 185945.190 | YaoGuang: 15088.372 | HuoHuo: 24.471 | ElationMC: 10280.974
+Run   73: Team DPAV: 226195.690 | Evanescia: 199469.138 | YaoGuang: 15693.370 | HuoHuo: 24.471 | ElationMC: 10012.571
+Run   74: Team DPAV: 221634.152 | Evanescia: 194989.469 | YaoGuang: 15464.031 | HuoHuo: 24.471 | ElationMC: 10210.400
+Run   75: Team DPAV: 232003.667 | Evanescia: 204960.374 | YaoGuang: 15847.777 | HuoHuo: 24.471 | ElationMC: 10225.264
+Run   76: Team DPAV: 213041.768 | Evanescia: 186265.510 | YaoGuang: 15528.118 | HuoHuo: 24.471 | ElationMC: 10277.889
+Run   77: Team DPAV: 219626.875 | Evanescia: 194242.699 | YaoGuang: 14887.874 | HuoHuo: 24.471 | ElationMC: 9526.051
+Run   78: Team DPAV: 217204.380 | Evanescia: 190670.782 | YaoGuang: 15274.591 | HuoHuo: 24.471 | ElationMC: 10288.755
+Run   79: Team DPAV: 209578.169 | Evanescia: 184804.443 | YaoGuang: 14484.459 | HuoHuo: 24.471 | ElationMC: 9268.657
+Run   80: Team DPAV: 213362.773 | Evanescia: 188224.399 | YaoGuang: 14792.898 | HuoHuo: 24.471 | ElationMC: 9324.866
+Run   81: Team DPAV: 214420.287 | Evanescia: 187956.309 | YaoGuang: 15283.326 | HuoHuo: 24.471 | ElationMC: 10210.400
+Run   82: Team DPAV: 220049.024 | Evanescia: 193436.095 | YaoGuang: 15430.429 | HuoHuo: 24.471 | ElationMC: 10212.248
+Run   83: Team DPAV: 221394.855 | Evanescia: 194620.676 | YaoGuang: 15582.215 | HuoHuo: 24.471 | ElationMC: 10221.712
+Run   84: Team DPAV: 220321.473 | Evanescia: 194999.375 | YaoGuang: 14755.493 | HuoHuo: 24.471 | ElationMC: 9596.354
+Run   85: Team DPAV: 215526.651 | Evanescia: 189191.751 | YaoGuang: 15152.168 | HuoHuo: 24.471 | ElationMC: 10212.480
+Run   86: Team DPAV: 216001.165 | Evanescia: 190715.615 | YaoGuang: 14870.286 | HuoHuo: 24.471 | ElationMC: 9394.654
+Run   87: Team DPAV: 228338.576 | Evanescia: 202711.694 | YaoGuang: 15128.284 | HuoHuo: 24.471 | ElationMC: 9528.346
+Run   88: Team DPAV: 210528.158 | Evanescia: 184285.498 | YaoGuang: 15110.304 | HuoHuo: 24.471 | ElationMC: 10172.176
+Run   89: Team DPAV: 203957.027 | Evanescia: 179323.241 | YaoGuang: 14296.791 | HuoHuo: 24.471 | ElationMC: 9316.385
+Run   90: Team DPAV: 212858.580 | Evanescia: 187912.366 | YaoGuang: 14596.643 | HuoHuo: 24.471 | ElationMC: 9328.961
+Run   91: Team DPAV: 218254.534 | Evanescia: 192854.461 | YaoGuang: 14823.438 | HuoHuo: 24.471 | ElationMC: 9606.382
+Run   92: Team DPAV: 204839.231 | Evanescia: 178351.751 | YaoGuang: 15347.270 | HuoHuo: 24.471 | ElationMC: 10119.599
+Run   93: Team DPAV: 223299.702 | Evanescia: 196530.913 | YaoGuang: 15579.987 | HuoHuo: 24.471 | ElationMC: 10218.550
+Run   94: Team DPAV: 204576.464 | Evanescia: 179971.441 | YaoGuang: 14273.187 | HuoHuo: 24.471 | ElationMC: 9311.226
+Run   95: Team DPAV: 203475.045 | Evanescia: 178775.654 | YaoGuang: 14355.823 | HuoHuo: 24.471 | ElationMC: 9322.957
+Run   96: Team DPAV: 226086.010 | Evanescia: 199131.550 | YaoGuang: 15681.467 | HuoHuo: 24.471 | ElationMC: 10302.742
+Run   97: Team DPAV: 221140.204 | Evanescia: 194572.114 | YaoGuang: 15379.698 | HuoHuo: 24.471 | ElationMC: 10218.140
+Run   98: Team DPAV: 225519.777 | Evanescia: 198731.407 | YaoGuang: 15603.141 | HuoHuo: 24.471 | ElationMC: 10214.977
+Run   99: Team DPAV: 232482.840 | Evanescia: 205020.619 | YaoGuang: 16270.395 | HuoHuo: 24.471 | ElationMC: 10221.574
+Run  100: Team DPAV: 222091.098 | Evanescia: 195210.312 | YaoGuang: 15626.490 | HuoHuo: 24.471 | ElationMC: 10284.044
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 72011.915
-Average Evanescia DPAV: 45314.877
-Average YaoGuang DPAV: 12473.686
-Average HuoHuo DPAV: 24.491
-Average ElationMC DPAV: 9716.540
+Average Team DPAV: 217432.833
+Average Evanescia DPAV: 191501.861
+Average YaoGuang DPAV: 15106.215
+Average HuoHuo DPAV: 24.476
+Average ElationMC DPAV: 9835.365
 
-Min Team DPAV: 67484.019
-Max Team DPAV: 76999.969
+Min Team DPAV: 200270.729
+Max Team DPAV: 237630.244

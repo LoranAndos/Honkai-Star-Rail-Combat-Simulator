@@ -4,6 +4,7 @@ from Buff import *
 from Delay_Text import Advance
 from Character import Character
 from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessings
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
 from Planars.BrokenKeel import BrokenKeel
 from RelicStats import RelicStats
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
@@ -53,13 +54,12 @@ class ElationMC(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=120) -> None:  # ELATIONMC ID: 120
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ElationBrimmingWithBlessings(role, 1)
+        self.lightcone = lc if lc else ElationBrimmingWithBlessings(role, 5)
         self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT,
-                                                       StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT,
+                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID

@@ -4,6 +4,7 @@ from Buff import *
 from Character import Character
 from Lightcones.Elation.WhenSheDecidedToSee import WhenSheDecidedToSee
 from Planars.BrokenKeel import BrokenKeel
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.DivinerOfDistantReach import DivinerOfDistantReach
 from Result import *
@@ -49,10 +50,9 @@ class YaoGuang(Character):
         self.lightcone = lc if lc else WhenSheDecidedToSee(role, 1)
         self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else BrokenKeel(role)
-        self.relicStats = subs if subs else RelicStats(13, 4, 0, 4, 4, 0, 3, 3, 3, 3, 0, 11, StatTypes.CR_PERCENT,
-                                                       StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.planar = pl if pl else SprightlyVonwacq(role)
+        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 5, 2, 5, 2, 2, 6, 6, 10, StatTypes.CR_PERCENT,
+                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A", "A", "E"]
         self.elationParticipationID = elationParticipationID
 

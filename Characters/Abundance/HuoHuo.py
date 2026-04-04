@@ -151,24 +151,24 @@ class HuoHuo(Character):
                      [0, 0], 1, self.scaling, 0, "HuoHuoAllyERR"))
             hl.append(Healing("HuoHuoTalentHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL,self.role, Targeting.SINGLE))
             hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.role,Targeting.SINGLE))
-            if self.ally1CurrentHP <= self.ally1MaxHP:
+            if self.ally1CurrentHP <= self.ally1MaxHP*0.5:
                 hl.append(Healing("HuoHuoTalentHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally1HPRole,
                                   Targeting.SINGLE))
                 hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally1HPRole,
                                   Targeting.SINGLE))
-            if self.ally2CurrentHP <= self.ally2MaxHP:
+            if self.ally2CurrentHP <= self.ally2MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoTalentHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally2HPRole,
                             Targeting.SINGLE))
                 hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally2HPRole,
                                   Targeting.SINGLE))
-            if self.ally3CurrentHP <= self.ally3MaxHP:
+            if self.ally3CurrentHP <= self.ally3MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoTalentHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally3HPRole,
                             Targeting.SINGLE))
                 hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally3HPRole,
                                   Targeting.SINGLE))
-            if self.ally4CurrentHP <= self.ally4MaxHP:
+            if self.ally4CurrentHP <= self.ally4MaxHP*0.5:
                 hl.append(
                     Healing("HuoHuoTalentHealingScaling", [E3HealScale, 0], self.scaling, Role.ALL, self.ally4HPRole,
                             Targeting.SINGLE))
