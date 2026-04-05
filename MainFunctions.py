@@ -1211,7 +1211,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     if character.name != "Tribbie" and character.role != Role.MEMO1 and character.role != Role.MEMO2 and character.role != Role.MEMO3:
                         TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
                 UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
-                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, enemies=gauge)
+                charHP = getCharMaxHP(specChar, specChar.lightcone, buffList)
+                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, attr4=charHP,enemies=gauge)
 
             case "YaoGuang":
                 SpdList = []

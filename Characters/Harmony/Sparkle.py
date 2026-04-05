@@ -4,9 +4,9 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Harmony.EarthlyEscapade import EarthlyEscapade
-from Planars.RutilantArena import RutilantArena
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
-from Relics.ScholarLostInErudition import ScholarLostInErudition
+from Relics.SacerdosRelivedOrdeal import SacerdosSparkle
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -47,9 +47,9 @@ class Sparkle(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else EarthlyEscapade(role)
-        self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
+        self.relic1 = r1 if r1 else SacerdosSparkle(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else RutilantArena(role)
+        self.planar = pl if pl else SprightlyVonwacq(role)
         self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 12, StatTypes.CD_PERCENT, StatTypes.SPD,
                                                        StatTypes.DEF_PERCENT,StatTypes.ERR_PERCENT)
         self.targetRole = targetRole

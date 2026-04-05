@@ -25,7 +25,7 @@ class DazzledByAFloweryWorld(Lightcone):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
         # Track SP consumed this turn from SparxieSkill
         if turn.moveName == "SparxieSkill":
-            spConsumed = abs(min(turn.spChange-3, 0))  # spChange is negative, get absolute value
+            spConsumed = abs(min(turn.spChange-2, 0))  # spChange is negative, get absolute value
             self.spConsumedThisTurn += spConsumed
             # DEF ignore per SP consumed, stacking up to 4 times
             stacks = min(self.spConsumedThisTurn, 4)
