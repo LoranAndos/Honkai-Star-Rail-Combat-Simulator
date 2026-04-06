@@ -34,7 +34,7 @@ class DazzledByAFloweryWorld(Lightcone):
             bl.append(Buff("FloweryWorldSHREDBangerBuff", StatTypes.SHRED, ShredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.END))
             # Stream Promo: if 4+ SP consumed in same turn, +20% Elation for all allies
             if self.spConsumedThisTurn >= 4:
-                ELABuff = self.level * 0.16 + 0.04
+                ELABuff = self.level * 0.04 + 0.16
                 bl.append(Buff("FloweryWorldELABuff", StatTypes.ELA, ELABuff, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
             self.spConsumedThisTurn = 0  # reset after skill resolves
         return bl, dbl, al, dl, hl

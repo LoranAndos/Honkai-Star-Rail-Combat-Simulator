@@ -80,7 +80,7 @@ class Sparxie(Character):
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        print(f"SKL DEBUG | TotalSP: {self.TotalSP} | Thrill: {self.Thrill} | TotalElationChar: {self.TotalElationChar} | AHASpdBuff: {self.AHASpdBuff:.3f}")
+        #print(f"SKL DEBUG | TotalSP: {self.TotalSP} | Thrill: {self.Thrill} | TotalElationChar: {self.TotalElationChar} | AHASpdBuff: {self.AHASpdBuff:.3f}")
         e3Big1 = 1.1 if self.eidolon >= 3 else 1.0
         e3Small1 = 0.22 if self.eidolon >= 3 else 0.2
         e3Big3 = 0.55 if self.eidolon >= 3 else 0.5

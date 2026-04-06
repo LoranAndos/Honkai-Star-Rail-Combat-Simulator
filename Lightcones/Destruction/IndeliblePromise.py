@@ -22,5 +22,5 @@ class IndeliblePromise(Lightcone):
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().useUlt()
         crAmount = floor(self.level*3.75 +11.25)
-        bl.append(Buff("IndeliblePromiseCR", StatTypes.CR_PERCENT, crAmount, self.wearerRole, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
+        bl.append(Buff("IndeliblePromiseCR", StatTypes.CR_PERCENT, crAmount/100, self.wearerRole, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
         return bl, dbl, al, dl, hl

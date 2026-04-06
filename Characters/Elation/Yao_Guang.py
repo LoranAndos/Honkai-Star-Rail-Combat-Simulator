@@ -2,6 +2,7 @@ import logging
 
 from Buff import *
 from Character import Character
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
 from Lightcones.Elation.WhenSheDecidedToSee import WhenSheDecidedToSee
 from Planars.BrokenKeel import BrokenKeel
 from Planars.SprightlyVonwacq import SprightlyVonwacq
@@ -47,10 +48,10 @@ class YaoGuang(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=116) -> None:  # YAOGUANG ID: 116
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else WhenSheDecidedToSee(role, 1)
+        self.lightcone = lc if lc else MushyShroomysAdventures(role, 5)
         self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else SprightlyVonwacq(role)
+        self.planar = pl if pl else BrokenKeel(role)
         self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 5, 2, 5, 2, 2, 6, 6, 10, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A", "A", "E"]

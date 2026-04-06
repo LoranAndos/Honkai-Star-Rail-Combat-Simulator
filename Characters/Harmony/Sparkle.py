@@ -5,6 +5,7 @@ from Character import Character
 from Delay_Text import *
 from Lightcones.Harmony.EarthlyEscapade import EarthlyEscapade
 from Planars.SprightlyVonwacq import SprightlyVonwacq
+from Planars.BrokenKeel import BrokenKeel
 from RelicStats import RelicStats
 from Relics.SacerdosRelivedOrdeal import SacerdosSparkle
 from Result import *
@@ -49,7 +50,7 @@ class Sparkle(Character):
         self.lightcone = lc if lc else EarthlyEscapade(role)
         self.relic1 = r1 if r1 else SacerdosSparkle(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else SprightlyVonwacq(role)
+        self.planar = pl if pl else BrokenKeel(role)
         self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 12, StatTypes.CD_PERCENT, StatTypes.SPD,
                                                        StatTypes.DEF_PERCENT,StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
@@ -117,7 +118,7 @@ class Sparkle(Character):
         if turn.spChange <= -1:
             bl.append(Buff("SparkleVUL", StatTypes.VULN, e5VUL, Role.ALL,[AtkType.ALL], 2, 3, Role.SELF, TickDown.END))
             if self.eidolon >= 2:
-                bl.append(Buff("SparkleE2SHRED", StatTypes.SHRED, 0.10, Role.ALL,[AtkType.ALL], 2, 3, Role.SELF, TickDown.END))
+                    bl.append(Buff("SparkleE2SHRED", StatTypes.SHRED, 0.10, Role.ALL,[AtkType.ALL], 2, 3, Role.SELF, TickDown.END))
         if turn.spChange <= -1 and turn.charRole == self.targetRole:
             spConsumed = abs(min(turn.spChange, 0))
             for _ in range(spConsumed):

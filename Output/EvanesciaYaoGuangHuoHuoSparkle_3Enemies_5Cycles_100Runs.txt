@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 45429.518 | Evanescia: 37285.963 | YaoGuang: 7193.492 | HuoHuo: 37.104 | Sparkle: 0.000
+Run    2: Team DPAV: 42282.529 | Evanescia: 34152.362 | YaoGuang: 7184.062 | HuoHuo: 37.104 | Sparkle: 0.000
+Run    3: Team DPAV: 41420.729 | Evanescia: 33527.103 | YaoGuang: 6995.176 | HuoHuo: 36.019 | Sparkle: 0.000
+Run    4: Team DPAV: 43862.905 | Evanescia: 35621.879 | YaoGuang: 7294.680 | HuoHuo: 36.019 | Sparkle: 0.000
+Run    5: Team DPAV: 44319.164 | Evanescia: 36315.482 | YaoGuang: 7077.473 | HuoHuo: 36.019 | Sparkle: 0.000
+Run    6: Team DPAV: 45622.381 | Evanescia: 37367.134 | YaoGuang: 7308.044 | HuoHuo: 37.104 | Sparkle: 0.000
+Run    7: Team DPAV: 45817.439 | Evanescia: 37271.779 | YaoGuang: 7627.841 | HuoHuo: 37.104 | Sparkle: 0.000
+Run    8: Team DPAV: 44143.406 | Evanescia: 35877.377 | YaoGuang: 7327.751 | HuoHuo: 37.104 | Sparkle: 0.000
+Run    9: Team DPAV: 45823.474 | Evanescia: 37371.008 | YaoGuang: 7514.279 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   10: Team DPAV: 42121.800 | Evanescia: 33984.940 | YaoGuang: 7171.373 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   11: Team DPAV: 45092.517 | Evanescia: 36760.288 | YaoGuang: 7359.749 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   12: Team DPAV: 42654.605 | Evanescia: 34391.435 | YaoGuang: 7345.997 | HuoHuo: 36.640 | Sparkle: 0.000
+Run   13: Team DPAV: 40262.329 | Evanescia: 32841.931 | YaoGuang: 6479.162 | HuoHuo: 36.687 | Sparkle: 0.000
+Run   14: Team DPAV: 44581.690 | Evanescia: 36658.797 | YaoGuang: 6977.247 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   15: Team DPAV: 42501.671 | Evanescia: 34289.762 | YaoGuang: 7267.200 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   16: Team DPAV: 46170.391 | Evanescia: 37736.772 | YaoGuang: 7476.371 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   17: Team DPAV: 43765.568 | Evanescia: 35610.363 | YaoGuang: 7203.540 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   18: Team DPAV: 47140.006 | Evanescia: 38697.079 | YaoGuang: 7504.585 | HuoHuo: 37.260 | Sparkle: 0.000
+Run   19: Team DPAV: 42417.432 | Evanescia: 34839.864 | YaoGuang: 6691.887 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   20: Team DPAV: 41073.801 | Evanescia: 33530.495 | YaoGuang: 6615.746 | HuoHuo: 34.899 | Sparkle: 0.000
+Run   21: Team DPAV: 45119.447 | Evanescia: 37187.062 | YaoGuang: 6969.781 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   22: Team DPAV: 46579.347 | Evanescia: 38383.608 | YaoGuang: 7249.634 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   23: Team DPAV: 42309.856 | Evanescia: 34213.519 | YaoGuang: 7146.274 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   24: Team DPAV: 44126.569 | Evanescia: 35909.343 | YaoGuang: 7243.409 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   25: Team DPAV: 41627.038 | Evanescia: 33808.259 | YaoGuang: 6856.176 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   26: Team DPAV: 42650.297 | Evanescia: 34322.273 | YaoGuang: 7377.961 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   27: Team DPAV: 42437.073 | Evanescia: 34246.889 | YaoGuang: 7240.120 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   28: Team DPAV: 43184.247 | Evanescia: 35580.589 | YaoGuang: 6641.055 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   29: Team DPAV: 43079.810 | Evanescia: 34737.491 | YaoGuang: 7443.722 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   30: Team DPAV: 40783.364 | Evanescia: 32893.375 | YaoGuang: 6938.439 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   31: Team DPAV: 43084.841 | Evanescia: 34881.204 | YaoGuang: 7257.726 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   32: Team DPAV: 43141.505 | Evanescia: 34804.362 | YaoGuang: 7418.083 | HuoHuo: 37.772 | Sparkle: 0.000
+Run   33: Team DPAV: 44844.146 | Evanescia: 36729.075 | YaoGuang: 7174.559 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   34: Team DPAV: 42206.977 | Evanescia: 34099.851 | YaoGuang: 7157.063 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   35: Team DPAV: 45181.812 | Evanescia: 36764.275 | YaoGuang: 7454.934 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   36: Team DPAV: 45709.068 | Evanescia: 37106.190 | YaoGuang: 7658.467 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   37: Team DPAV: 42747.073 | Evanescia: 34279.955 | YaoGuang: 7548.726 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   38: Team DPAV: 44324.365 | Evanescia: 36126.002 | YaoGuang: 7248.300 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   39: Team DPAV: 45447.934 | Evanescia: 37086.144 | YaoGuang: 7399.325 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   40: Team DPAV: 45070.509 | Evanescia: 36738.281 | YaoGuang: 7359.749 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   41: Team DPAV: 42397.821 | Evanescia: 34031.566 | YaoGuang: 7420.151 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   42: Team DPAV: 42578.974 | Evanescia: 34699.104 | YaoGuang: 6925.299 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   43: Team DPAV: 45140.781 | Evanescia: 36673.697 | YaoGuang: 7511.849 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   44: Team DPAV: 47194.233 | Evanescia: 38795.349 | YaoGuang: 7452.780 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   45: Team DPAV: 47060.794 | Evanescia: 38700.294 | YaoGuang: 7414.396 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   46: Team DPAV: 42515.497 | Evanescia: 34750.106 | YaoGuang: 6791.575 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   47: Team DPAV: 42068.651 | Evanescia: 34612.077 | YaoGuang: 6570.893 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   48: Team DPAV: 43334.726 | Evanescia: 35147.124 | YaoGuang: 7241.497 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   49: Team DPAV: 42921.990 | Evanescia: 34906.979 | YaoGuang: 7057.031 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   50: Team DPAV: 42117.443 | Evanescia: 33784.052 | YaoGuang: 7378.981 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   51: Team DPAV: 44548.792 | Evanescia: 36043.661 | YaoGuang: 7531.315 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   52: Team DPAV: 41908.989 | Evanescia: 33700.848 | YaoGuang: 7250.571 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   53: Team DPAV: 42251.135 | Evanescia: 34140.556 | YaoGuang: 7152.598 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   54: Team DPAV: 39022.994 | Evanescia: 31176.412 | YaoGuang: 6874.103 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   55: Team DPAV: 42486.240 | Evanescia: 34179.628 | YaoGuang: 7360.045 | HuoHuo: 37.568 | Sparkle: 0.000
+Run   56: Team DPAV: 46035.394 | Evanescia: 37623.421 | YaoGuang: 7461.910 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   57: Team DPAV: 44225.942 | Evanescia: 35727.422 | YaoGuang: 7524.704 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   58: Team DPAV: 48752.646 | Evanescia: 40382.606 | YaoGuang: 7428.592 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   59: Team DPAV: 42101.932 | Evanescia: 33955.076 | YaoGuang: 7203.498 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   60: Team DPAV: 42286.386 | Evanescia: 34152.362 | YaoGuang: 7187.919 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   61: Team DPAV: 44537.585 | Evanescia: 36430.666 | YaoGuang: 7158.674 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   62: Team DPAV: 40736.783 | Evanescia: 33325.950 | YaoGuang: 6474.952 | HuoHuo: 36.687 | Sparkle: 0.000
+Run   63: Team DPAV: 43231.274 | Evanescia: 35507.134 | YaoGuang: 6782.044 | HuoHuo: 35.567 | Sparkle: 0.000
+Run   64: Team DPAV: 42627.445 | Evanescia: 34401.613 | YaoGuang: 7275.769 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   65: Team DPAV: 42213.387 | Evanescia: 33821.995 | YaoGuang: 7433.823 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   66: Team DPAV: 42322.933 | Evanescia: 34214.079 | YaoGuang: 7158.791 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   67: Team DPAV: 39499.121 | Evanescia: 31744.841 | YaoGuang: 6810.648 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   68: Team DPAV: 43203.471 | Evanescia: 35250.606 | YaoGuang: 7061.829 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   69: Team DPAV: 41315.605 | Evanescia: 33251.983 | YaoGuang: 7126.717 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   70: Team DPAV: 45329.638 | Evanescia: 37213.139 | YaoGuang: 7158.518 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   71: Team DPAV: 46323.532 | Evanescia: 37775.090 | YaoGuang: 7602.338 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   72: Team DPAV: 46268.550 | Evanescia: 37636.024 | YaoGuang: 7706.216 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   73: Team DPAV: 42180.705 | Evanescia: 34051.773 | YaoGuang: 7163.445 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   74: Team DPAV: 44746.026 | Evanescia: 36533.273 | YaoGuang: 7269.121 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   75: Team DPAV: 46742.557 | Evanescia: 38371.682 | YaoGuang: 7429.427 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   76: Team DPAV: 44855.770 | Evanescia: 36627.705 | YaoGuang: 7272.830 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   77: Team DPAV: 39626.595 | Evanescia: 32203.187 | YaoGuang: 6490.493 | HuoHuo: 34.899 | Sparkle: 0.000
+Run   78: Team DPAV: 45950.366 | Evanescia: 37684.721 | YaoGuang: 7306.611 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   79: Team DPAV: 43165.254 | Evanescia: 35293.899 | YaoGuang: 6922.139 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   80: Team DPAV: 41592.850 | Evanescia: 34160.959 | YaoGuang: 6504.331 | HuoHuo: 34.899 | Sparkle: 0.000
+Run   81: Team DPAV: 46212.044 | Evanescia: 37875.338 | YaoGuang: 7374.103 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   82: Team DPAV: 45467.341 | Evanescia: 36932.237 | YaoGuang: 7583.439 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   83: Team DPAV: 45483.144 | Evanescia: 37273.842 | YaoGuang: 7259.240 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   84: Team DPAV: 45746.626 | Evanescia: 37351.069 | YaoGuang: 7423.077 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   85: Team DPAV: 41641.912 | Evanescia: 34193.414 | YaoGuang: 6499.282 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   86: Team DPAV: 45553.070 | Evanescia: 37285.242 | YaoGuang: 7316.164 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   87: Team DPAV: 43584.283 | Evanescia: 35331.232 | YaoGuang: 7299.725 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   88: Team DPAV: 44554.149 | Evanescia: 36570.694 | YaoGuang: 7044.524 | HuoHuo: 36.019 | Sparkle: 0.000
+Run   89: Team DPAV: 42077.875 | Evanescia: 34033.635 | YaoGuang: 7092.689 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   90: Team DPAV: 45210.524 | Evanescia: 37419.032 | YaoGuang: 6837.753 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   91: Team DPAV: 45121.958 | Evanescia: 36823.651 | YaoGuang: 7325.828 | HuoHuo: 35.767 | Sparkle: 0.000
+Run   92: Team DPAV: 45715.240 | Evanescia: 37163.874 | YaoGuang: 7602.847 | HuoHuo: 37.150 | Sparkle: 0.000
+Run   93: Team DPAV: 45382.318 | Evanescia: 37053.952 | YaoGuang: 7376.702 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   94: Team DPAV: 45628.211 | Evanescia: 37181.427 | YaoGuang: 7503.151 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   95: Team DPAV: 43066.140 | Evanescia: 34933.610 | YaoGuang: 7194.367 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   96: Team DPAV: 47044.205 | Evanescia: 38682.719 | YaoGuang: 7412.270 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   97: Team DPAV: 45234.098 | Evanescia: 36920.264 | YaoGuang: 7340.018 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   98: Team DPAV: 43253.451 | Evanescia: 34799.523 | YaoGuang: 7480.112 | HuoHuo: 37.104 | Sparkle: 0.000
+Run   99: Team DPAV: 43293.900 | Evanescia: 34848.572 | YaoGuang: 7508.613 | HuoHuo: 36.640 | Sparkle: 0.000
+Run  100: Team DPAV: 41632.645 | Evanescia: 34210.770 | YaoGuang: 6466.636 | HuoHuo: 37.772 | Sparkle: 0.000
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 43784.826
+Average Evanescia DPAV: 35635.963
+Average YaoGuang DPAV: 7201.881
+Average HuoHuo DPAV: 36.801
+Average Sparkle DPAV: 0.000
+
+Min Team DPAV: 39022.994
+Max Team DPAV: 48752.646

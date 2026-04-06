@@ -5,6 +5,7 @@ from Delay_Text import Advance
 from Character import Character
 from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
 from Lightcones.Elation.TomorrowTogether import TomorrowTogether
+from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
 from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl

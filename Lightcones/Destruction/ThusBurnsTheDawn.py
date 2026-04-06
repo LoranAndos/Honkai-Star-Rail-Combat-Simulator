@@ -22,7 +22,7 @@ class ThusBurnsTheDawn(Lightcone):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
-        ShredAmount = floor(self.level * 0.045 + 0.135)
+        ShredAmount = self.level * 0.045 + 0.135
         if result.turnDmg > 0:
             bl.append(Buff("ThusBurnsTheDawnSHRED", StatTypes.SHRED, ShredAmount, self.wearerRole, [AtkType.ALL], 1, 1,Role.SELF, TickDown.PERM))
         return dl, dbl, al, dl, hl

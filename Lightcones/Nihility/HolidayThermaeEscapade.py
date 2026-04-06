@@ -24,7 +24,7 @@ class HolidayThermaeEscapade(Lightcone):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
         if self.level <= 3:
-            vulnAmount = floor(self.level * 0.015 + 0.085)
+            vulnAmount = self.level * 0.015 + 0.085
         elif self.level == 4:
             vulnAmount = 0.14
         else:

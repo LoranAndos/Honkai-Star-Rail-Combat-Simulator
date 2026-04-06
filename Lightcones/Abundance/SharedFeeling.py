@@ -16,7 +16,7 @@ class SharedFeeling(Lightcone):
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
         oghAmount = floor(self.level * 2.5 + 7.5)
-        bl.append(Buff("SharedFeelingOGH", StatTypes.OGH_PERCENT, oghAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("SharedFeelingOGH", StatTypes.OGH_PERCENT, oghAmount/100, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl
 
     def useSkl(self, enemyID=-1):
