@@ -91,7 +91,7 @@ class SilverWolf999(Character):
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
-        self.currEnergy = self.currEnergy - self.ultCost
+        self.currEnergy = self.currEnergy - self.ultCost + 20
 
         return bl, dbl, al, dl, tl, hl
 
@@ -155,6 +155,7 @@ class SilverWolf999(Character):
         if self.WolfInstants == 0:
             self.currEnergy += 15
         else:
+            self.LootBoxChance = 1.00
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELAPUNCH], [self.element],
                            [e5Mul, 0], [5, 0], 0, Scaling.ELA, -1, "SilverWolf999ELASkill"))
@@ -162,7 +163,6 @@ class SilverWolf999(Character):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELAPUNCH], [self.element],
                            [e5Mul, 0], [5, 0], 0, Scaling.ELA, -1, "SilverWolf999ELASkillExtra"))
-
         bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline, self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = self.savedPunchline
