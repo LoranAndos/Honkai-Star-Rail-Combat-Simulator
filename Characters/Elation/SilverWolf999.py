@@ -152,6 +152,7 @@ class SilverWolf999(Character):
         self.savedPunchline = Character.SharedPunchline
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
+            self.currEnergy += Character.ahaFixedPunchlineValue
         if self.WolfInstants == 0:
             self.currEnergy += 15
         else:
