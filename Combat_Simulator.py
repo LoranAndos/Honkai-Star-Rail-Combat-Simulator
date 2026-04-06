@@ -2,6 +2,7 @@ import logging
 
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Elation.Evanescia import Evanescia
+from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Harmony.Sunday import Sunday
 from Characters.Harmony.Sparkle import Sparkle
@@ -22,8 +23,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Enemy Settings
     numEnemies = 3
     enemyLevel = [95, 95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemySPD = [145.2, 158.4, 145.2]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE] # make sure that the number of entries in this list is the same as "numEnemies"
+    enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
     weaknesses = [Element.PHYSICAL]
@@ -47,7 +48,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT, targetRole=Role.DPS)
+        slot3 = Sparxie(2, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
     if not s1:
@@ -365,14 +366,18 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True  # Set to True for multiple runs, False for single run
+    multiRun = False  # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
     # Enemy setup — shared between single and multi run
-    fiveEnemies = EnemyModule(5, [85, 85, 85, 85, 85],
-                              [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],
-                              [100, 120, 144, 100, 100], [20, 60, 70, 20, 20], atkRatio, [Element.FIRE], [1])
+
+    enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.PHYSICAL], [1]) # 2 enemyModule
+
+    #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95],
+    #                          [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],
+    #                          [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
 
     # For checking which functions in the sim get called the most and how much time it takes for those calls.
     #pr = cProfile.Profile()
@@ -388,7 +393,7 @@ if __name__ == "__main__":
 
     if not multiRun:
         # Single run
-        print(startSimulator(cycleLimit=cycles, outputLog=log, manualMode=manual, enemyModule=fiveEnemies))
+        print(startSimulator(cycleLimit=cycles, outputLog=log, manualMode=manual, enemyModule=enemyModule))
     else:
         # Multiple runs
         os.makedirs("Output", exist_ok=True)
@@ -396,11 +401,11 @@ if __name__ == "__main__":
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = ElationMC(4, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = HuoHuo(2, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = Sparxie(3, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
-        enemyInfo = f"_{fiveEnemies.numEnemies}Enemies_{cycles}Cycles"
+        enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
         outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
 
         teamDPAVList = []
@@ -418,15 +423,15 @@ if __name__ == "__main__":
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = HuoHuo(2, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot4 = ElationMC(3, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+                slot4 = Sparxie(3, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=slot1, s2=slot2, s3=slot3, s4=slot4,
                     outputLog=False,
-                    enemyModule=fiveEnemies
+                    enemyModule=enemyModule
                 )
 
                 # Parse team DPAV from result string

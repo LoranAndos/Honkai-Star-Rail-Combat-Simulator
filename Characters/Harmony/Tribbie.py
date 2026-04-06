@@ -1,6 +1,7 @@
 import logging
 
 from Lightcones.Harmony.DanceDanceDance import DanceDanceDance
+from Lightcones.Harmony.IfTimeWereAFlower import IfTimeWereAFlower
 from Relics.PoetsDillWreath import PoetsDillWreath
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Planars.BoneCollectionsSereneDemesne import BoneCollectionsSereneDemesne
@@ -38,7 +39,7 @@ class Tribbie(Character):
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else DanceDanceDance(self.role)
+        self.lightcone = lc if lc else IfTimeWereAFlower(self.role)
         self.relic1 = r1 if r1 else PoetsDillWreath(self.role,4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BoneCollectionsSereneDemesne(self.role)
@@ -91,7 +92,6 @@ class Tribbie(Character):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
-        e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
@@ -105,11 +105,9 @@ class Tribbie(Character):
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
 
-        if result.turnName in UltimateList and result.charName in self.CharacterList:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
-                     [e5TalentFua], [5, 0], 5, self.scaling, 0,"TribbieTalentFua"))
-            bl.append(Buff("TribbieTrace3Dmg",StatTypes.DMG_PERCENT,0.72,self.role,[AtkType.ALL],3,3,self.role,TickDown.START))
+        if result.turnName in UltimateList and (result.charName in self.CharacterList) and self.eidolon >= 6:
             self.CharacterList.remove(result.charName)
+            return self.useFua(-1)
 
         return bl, dbl, al, dl, tl, hl
 
@@ -129,17 +127,22 @@ class Tribbie(Character):
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
-
         if result.turnName in UltimateList and (result.charName in self.CharacterList) and self.eidolon >= 6:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
-                     [e5TalentFua], [5, 0], 5, self.scaling, 0,"TribbieTalentFua"))
             self.CharacterList.remove(result.charName)
-            bl.append("TribbieTrace3Dmg", StatTypes.DMG_PERCENT, 0.72, self.role, [AtkType.ALL], 3, 3, self.role,TickDown.START)
+            return self.useFua(-1)
         bl.append(Buff("TribbieTrace2HP",StatTypes.HP,0.09*self.TeamHp,self.role,[AtkType.ALL],1,1,self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl
 
+    def useFua(self, enemyID=-1):
+        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
+                       [e5TalentFua], [5, 0], 5, self.scaling, 0, "TribbieTalentFua"))
+        bl.append("TribbieTrace3Dmg", StatTypes.DMG_PERCENT, 0.72, self.role, [AtkType.ALL], 3, 3, self.role,TickDown.START)
+        return bl, dbl, al, dl, tl, hl
+
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
+        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
         self.CharacterList = specialRes.attr1
         self.TeamHp = specialRes.attr2
         self.UltIsActive = specialRes.attr3

@@ -3,7 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
-from Planars.RutilantArena import RutilantArena
+from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
 from Result import *
@@ -55,8 +55,8 @@ class Sparxie(Character):
         self.lightcone = lc if lc else DazzledByAFloweryWorld(role, 1)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
+        self.planar = pl if pl else TengokuLivestream(role)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
@@ -80,7 +80,7 @@ class Sparxie(Character):
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        #print(f"SKL DEBUG | TotalSP: {self.TotalSP} | Thrill: {self.Thrill} | TotalElationChar: {self.TotalElationChar} | AHASpdBuff: {self.AHASpdBuff:.3f}")
+        print(f"SKL DEBUG | TotalSP: {self.TotalSP} | Thrill: {self.Thrill} | TotalElationChar: {self.TotalElationChar} | AHASpdBuff: {self.AHASpdBuff:.3f}")
         e3Big1 = 1.1 if self.eidolon >= 3 else 1.0
         e3Small1 = 0.22 if self.eidolon >= 3 else 0.2
         e3Big3 = 0.55 if self.eidolon >= 3 else 0.5
@@ -261,8 +261,7 @@ class Sparxie(Character):
         self.Banger = specialRes.attr6
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
         if self.tech:
-            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0, 0], [0, 0], 0,self.scaling,2, "SparxieTech"))
-            #tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech")) 'For if Sparxie the DPS.
+            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
             self.tech = False
         bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.START))
         bl.append(Buff("SparxiePunchtoCD", StatTypes.CD_PERCENT, min(self.prePunchline * 0.08, 0.8), Role.ALL, [AtkType.ALL],

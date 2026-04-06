@@ -75,14 +75,11 @@ class Evanescia(Character):
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
-        bl.append(
-            Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
         bl.append(Buff("EvanesciaTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("EvanesciaTraceSPD", StatTypes.SPD, 5, self.role))
         bl.append(Buff("EvenesciaTraceELA", StatTypes.ELA, 0.18, self.role))
         bl.append(Buff("EvanesciaTrace1CR", StatTypes.CR_PERCENT, 0.30, self.role))
-
-        bl.append(Buff("EvanesciaTrace2CR", StatTypes.CR_PERCENT, 0.30, self.role))
 
         if self.eidolon >= 1:
             bl.append(Buff("EvanesciaE1CD", StatTypes.CD_PERCENT, 0.36, self.role))

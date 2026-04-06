@@ -220,7 +220,6 @@ class YaoGuang(Character):
         self.SPDStat = specialRes.attr5
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuff, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,TickDown.START))
         if self.currSPD >= 120:
-            ELABuff = min(max((self.SPDStat-120), 0), 2.0)
-            bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,
-                           TickDown.START))
+            ELABuff = min(max((self.SPDStat-120), 0), 200)
+            bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role  , [AtkType.ALL], 1, 1, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl

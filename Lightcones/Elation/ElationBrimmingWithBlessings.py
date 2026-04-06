@@ -19,14 +19,10 @@ class ElationBrimmingWithBlessings(Lightcone):
         bl.append(Buff("ElationBrimmingATK", StatTypes.ATK_PERCENT, atkAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl
 
+class ElationBrimmingWithBlessingsElationMC(ElationBrimmingWithBlessings):
+
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().useUlt(enemyID)
         elaAmount = self.level * 0.03 + 0.09
         bl.append(Buff("ElationBrimmingELA_ULT", StatTypes.ELA, elaAmount, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
-
-    def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
-        elaAmount = self.level * 0.03 + 0.09
-        bl.append(Buff("ElationBrimmingELA_SKL", StatTypes.ELA, elaAmount, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
         return bl, dbl, al, dl, hl

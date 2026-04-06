@@ -1179,8 +1179,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     i += 1
                 TotalElationChar = len(AHASpdList)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                charPunch = specChar.totalPunchline
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch)
+                charPunch = Character.SharedPunchline
+                charSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charSPD)
 
             case "Sunday":
                 if inTeam(playerTeam, "JingYuan"):

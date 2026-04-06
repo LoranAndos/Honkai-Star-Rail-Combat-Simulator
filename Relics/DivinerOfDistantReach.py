@@ -30,7 +30,7 @@ class DivinerOfDistantReach(Relic):
                     bl.append(Buff("DivinerCR", StatTypes.CR_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
                 elif self.SPDStat >= 160:
                     bl.append(Buff("DivinerCR", StatTypes.CR_PERCENT, 0.18, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-            if special.specialName == "ElationMC" :
+            elif special.specialName == "ElationMC" :
                 self.SPDStat = special.attr4
                 if 160 > self.SPDStat >= 120:
                     bl.append(Buff("DivinerCR", StatTypes.CR_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))

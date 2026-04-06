@@ -3,9 +3,10 @@ import logging
 from Buff import *
 from Delay_Text import Advance
 from Character import Character
-from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessings
+from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessingsElationMC
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
 from Planars.BrokenKeel import BrokenKeel
+from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
@@ -54,10 +55,10 @@ class ElationMC(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=120) -> None:  # ELATIONMC ID: 120
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ElationBrimmingWithBlessings(role, 5)
-        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
+        self.lightcone = lc if lc else ElationBrimmingWithBlessingsElationMC(role, 5)
+        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4, self.element)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else BrokenKeel(role)
+        self.planar = pl if pl else LushakaTheSunkenSeas(role)
         self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole

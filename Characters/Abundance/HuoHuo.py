@@ -1,7 +1,9 @@
 from Buff import *
 from Character import Character
 from Lightcones.Abundance.PostOpConversation import PostOpConversation
+from Lightcones.Abundance.NightOfFright import NightOfFright
 from Planars.BrokenKeel import BrokenKeel
+from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.WarriorGoddessOfSunAndThunder import WarriorGoddessOfSunAndThunder
 from Result import *
@@ -59,8 +61,8 @@ class HuoHuo(Character):
         self.lightcone = lc if lc else PostOpConversation(self.role, 5)
         self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(self.role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else BrokenKeel(self.role)
-        self.relicStats = subs if subs else RelicStats(12, 0, 4, 4, 8, 4, 4, 4, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
+        self.planar = pl if pl else LushakaTheSunkenSeas(self.role)
+        self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 15, 2, 2, 2, 2, 2, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["E", "A", "A"])
 

@@ -1,12 +1,13 @@
+import logging
 from Buff import Buff
 from Planar import Planar
 from MainFunctions import Special
 from Attributes import *
 
+logger = logging.getLogger(__name__)
 
 class BoneCollectionsSereneDemesne(Planar):
     name = "Bone Collection's Serene Demesne"
-    HPStat = 0
 
     def __init__(self, wearerRole: Role):
         super().__init__(wearerRole)
@@ -19,6 +20,7 @@ class BoneCollectionsSereneDemesne(Planar):
     def specialStart(self, special: Special):
         bl, dbl, al, dl, hl = super().specialStart(special)
         if special.specialName == "Tribbie" :
-            self.HPStat = special.attr4
-            if self.HPStat >= 5000:
-                bl.append(Buff("BoneCDBuff", StatTypes.CD_PERCENT, 0.28, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+            HPStat = special.attr4
+            if HPStat >= 5000:
+                bl.append(Buff("BoneCDBuff", StatTypes.CD_PERCENT, 0.28, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+        return bl, dbl, al, dl, hl
