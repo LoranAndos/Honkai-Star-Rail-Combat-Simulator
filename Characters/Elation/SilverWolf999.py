@@ -52,9 +52,11 @@ class SilverWolf999(Character):
     godmodeActive = False  # State for Godmode Player
     godmodeBasicCount = 0  # Count Enhanced Basic ATK uses
     godmodeBasicUsesRemaining = 3  # E2: Extra uses from Hidden MMR breakpoints
+    lastMMRThreshold = 0  # E2: Track last processed MMR threshold
     GuaranteedLootBoxChance = False  # Guaranteed chance from enhanced basic
     topLootBoxChance = 1.0  # Initial 100%, reduces to 20% after each trigger
     topLootBoxTriggersRemaining = 3  # 3 triggers per Ultimate
+    EnhancedBasicLootBox = False # Checks if a Loot box is from enhanced basic
     WolfInstants = 0  # Legacy property
     lastPunchlineValue = 0  # Track Punchline changes for Hidden MMR sync
     techniqueTriggered = False  # Track if technique was triggered this wave
@@ -81,6 +83,7 @@ class SilverWolf999(Character):
         self.godmodeActive = False
         self.godmodeBasicCount = 0
         self.godmodeBasicUsesRemaining = 3
+        self.lastMMRThreshold = 0
         self.topLootBoxChance = 1.0
         self.topLootBoxTriggersRemaining = 3
         self.techniqueTriggered = False
@@ -132,6 +135,7 @@ class SilverWolf999(Character):
             self.godmodeActive = True
             self.godmodeBasicCount = 0
             self.godmodeBasicUsesRemaining = 3
+            self.lastMMRThreshold = 0
             self.topLootBoxChance = 1.0
             self.topLootBoxTriggersRemaining = 3
 
@@ -140,16 +144,7 @@ class SilverWolf999(Character):
             # E2: Extend all buffs by 1 turn on entering Godmode
             if self.eidolon >= 2:
                 bl.append(Buff("SilverWolf999E2ExtendBuffs", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 1, 1,
-                               self.role, TickDown.START))
-
-            # E2: For every 120 points of Hidden MMR, gain extra turn and enhanced basic use
-            extra_turns_from_mmr = floor(self.hiddenMMR / 120)
-            if extra_turns_from_mmr > 0:
-                self.godmodeBasicUsesRemaining = 3 + extra_turns_from_mmr
-                for _ in range(extra_turns_from_mmr):
-                    al.append(Advance("SilverWolf999E2ExtraTurn", self.role, 1.0))
-                logger.info(
-                    f"{self.name} E2: +{extra_turns_from_mmr} extra turns from Hidden MMR ({extra_turns_from_mmr} x 120)")
+                              self.role, TickDown.START))
 
             logger.info(f"{self.name} entered Godmode Player state (Hidden MMR: {self.hiddenMMR})")
             return True
@@ -170,6 +165,28 @@ class SilverWolf999(Character):
                 self.hiddenMMR = 0
 
             logger.info(f"{self.name} exited Godmode Player state")
+
+    def _checkAndExecuteE2ExtraBasic(self, enemyID: int, bl: list, al: list, dbl: list) -> list:
+        """E2: Constantly check if MMR threshold crossed (120, 240). If so, immediately execute extra Enhanced Basic (no AV advance).
+        This is called after ANY action that might change Hidden MMR."""
+        tl = []
+
+        if self.eidolon < 2 or not self.godmodeActive:
+            return tl
+
+        current_threshold = floor(self.hiddenMMR / 120) * 120
+
+        # Check if new threshold reached
+        if current_threshold > self.lastMMRThreshold:
+            self.lastMMRThreshold = current_threshold
+            logger.info(
+                f"{self.name} E2: Hidden MMR crossed {current_threshold} threshold! Executing extra Enhanced Basic (no AV advance)")
+
+            # Execute Enhanced Basic immediately without incrementing count initially
+            enhanced_basic_turns = self._useEnhancedBasic(enemyID, bl, al, dbl, skip_exit_check=True)
+            tl.extend(enhanced_basic_turns)
+
+        return tl
 
     # =========================================================================
     # CORE ACTIONS
@@ -212,6 +229,10 @@ class SilverWolf999(Character):
                 Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER], [self.element],
                      [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999Talent"))
 
+        # E2: Check for MMR threshold and grant extra Enhanced Basic if needed (no AV advance)
+        extra_basic_turns = self._checkAndExecuteE2ExtraBasic(enemyID, bl, al, dbl)
+        tl.extend(extra_basic_turns)
+
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -231,20 +252,18 @@ class SilverWolf999(Character):
 
         return bl, dbl, al, dl, tl, hl
 
-    def _useEnhancedBasic(self, enemyID: int, bl: list, al: list, dbl: list) -> list:
-        """Enhanced Basic ATK: 100 bounces with 3 Top Loot Box triggers. E1: Enemies take +20% DMG."""
+    def _useEnhancedBasic(self, enemyID: int, bl: list, al: list, dbl: list, skip_exit_check: bool = False) -> list:
+        """Enhanced Basic ATK: 100 bounces with 3 Top Loot Box triggers. E1: Enemies take +20% DMG.
+        skip_exit_check: If True, don't check for Godmode exit (used for E2 threshold bonus uses)."""
         tl = []
         base_mul = 2.42 / 100 if self.eidolon >= 3 else 2.2 / 100  # 220% split among 100 bounces
         e3Mul = 0.99 if self.eidolon >= 3 else 0.90
+        e1Mul = 1.2 if self.eidolon >= 1 else 1.0
 
         # DMG boost from Hidden MMR: +15% per 60 points (stackable up to 2x = +30%)
         mmr_boost_multiplier = 1.0 + (floor(min(self.hiddenMMR, 120) / 60) * 0.15)
-        base_mul_boosted = base_mul * mmr_boost_multiplier
+        base_mul_boosted = base_mul * mmr_boost_multiplier * e1Mul
 
-        # E1: Apply DMG taken debuff on enemies
-        if self.eidolon >= 1:
-            dbl.append(Debuff("SilverWolf999E1EnhancedBasicVuln", self.role, StatTypes.VULN, 0.20, Role.ALL,
-                              [AtkType.ALL], 1, 1, False, [0, 0], False))
 
         # Each bounce
         bounce_count = 100
@@ -257,16 +276,19 @@ class SilverWolf999(Character):
 
             # Pause for Top Loot Box trigger every ~33 bounces
             if (i + 1) % bounces_per_lootbox == 0 and self.topLootBoxTriggersRemaining > 0:
+                self.EnhancedBasicLootBox = True
                 self._triggerTopLootBox(enemyID, tl, bl)
                 self.GuaranteedLootBoxChance = True
 
         # Final Hit: 90% ATK split among all enemies
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.BSC],
-                       [self.element], [e3Mul, 0], [0, 0], 0, self.scaling, 0, "SilverWolf999EnhancedFinal"))
+                       [self.element], [e3Mul*e1Mul, 0], [0, 0], 0, self.scaling, 0, "SilverWolf999EnhancedFinal"))
 
-        # Increment basic count and check Godmode exit
+        # Increment basic count
         self.godmodeBasicCount += 1
-        if self.godmodeBasicCount >= self.godmodeBasicUsesRemaining:
+
+        # Check Godmode exit only if not skipped (skip_exit_check = True means this is a bonus Enhanced Basic from E2)
+        if not skip_exit_check and self.godmodeBasicCount >= self.godmodeBasicUsesRemaining:
             self._exitGodmode()
 
         return tl
@@ -275,7 +297,6 @@ class SilverWolf999(Character):
         """Top Loot Box: 90% Imaginary Elation DMG + random effect. E6: +40% DMG."""
         # Check trigger chance
         if random() > self.topLootBoxChance and self.GuaranteedLootBoxChance == False:
-            # Chance failed, reduce for next time
             self.topLootBoxChance *= 0.2
             logger.debug(f"{self.name} Top Loot Box trigger failed (chance was {self.topLootBoxChance / 0.2:.0%})")
             return
@@ -286,11 +307,16 @@ class SilverWolf999(Character):
         self.topLootBoxChance *= 0.2  # Reduce to 20% of current
 
         e5Mul = 0.99 if self.eidolon >= 5 else 0.90
+        if self.EnhancedBasicLootBox:
+            e1Mul = 1.2 if self.eidolon >= 1 else 1.0
+            self.EnhancedBasicLootBox = False
+        else:
+            e1Mul = 1.0
         enemyCount = self._getEnemyCount()
 
         # Top Loot Box hit: 90% split among enemies
         # E6: Gain 40% more DMG
-        tlb_mul = e5Mul * (1.4 if self.eidolon >= 6 else 1.0)
+        tlb_mul = e5Mul * e1Mul * (1.4 if self.eidolon >= 6 else 1.0)
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                        [self.element], [tlb_mul, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
 
@@ -299,7 +325,7 @@ class SilverWolf999(Character):
         if effect == 1:
             # Big Flipping Sword: 20% True DMG to highest HP enemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [e5Mul * 0.2 * enemyCount, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [e5Mul * 0.2 * enemyCount * e1Mul, 0], [0, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999BigFlippingSword"))
             logger.info(f"{self.name} Top Loot Box: Big Flipping Sword triggered")
         elif effect == 2:
@@ -330,29 +356,30 @@ class SilverWolf999(Character):
             self.hiddenMMR += Character.ahaFixedPunchlineValue
 
         if self.godmodeActive:
+            if self.eidolon >= 4:
+                ExtraPunchMul = (Character.SharedPunchline + 999)*5/240*(Character.SharedPunchline + 999)/(Character.SharedPunchline*5/240*Character.SharedPunchline)
+            else:
+                ExtraPunchMul = 1
             self.topLootBoxChance = 1.0
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
-                           [self.element], [e5Mul, 0], [5, 0], 0, Scaling.ELA, 0, "SilverWolf999ELASkill"))
+                           [self.element], [e5Mul*ExtraPunchMul, 0], [5, 0], 0, Scaling.ELA, 0, "SilverWolf999ELASkill"))
             for i in range(1, 5, 1):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                                Targeting.SINGLE, [AtkType.ELAPUNCH], [self.element],
-                               [e5Mul, 0], [5, 0], 0, Scaling.ELA, 0, "SilverWolf999ELASkillExtra"))
+                               [e5Mul*ExtraPunchMul, 0], [5, 0], 0, Scaling.ELA, 0, "SilverWolf999ELASkillExtra"))
         else:
             # Normal Elation Skill
             self.hiddenMMR = min(self.hiddenMMR + 15, self.hiddenMMR_MAX)
-
-        # Banger talent: 40% Imaginary Elation DMG
-        if self.Banger >= 1:
-            # E4: Use 999 Punchline instead of current
-            punchline_to_use = 999 if self.eidolon >= 4 else self.SharedPunchline
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
-                           [self.element], [0.40, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999ElaSkillBangerTalent"))
 
         bl.append(
             Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline, self.role, [AtkType.ALL], 2, 1, self.role,
                  TickDown.END))
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = self.savedPunchline
+
+        # E2: Check for MMR threshold and grant extra Enhanced Basic if needed (no AV advance)
+        extra_basic_turns = self._checkAndExecuteE2ExtraBasic(enemyID, bl, al, dbl)
+        tl.extend(extra_basic_turns)
 
         return bl, dbl, al, dl, tl, hl
 
@@ -378,7 +405,8 @@ class SilverWolf999(Character):
             Character.ahaElaDMGBoost = 1.0
 
         if result.turnName == "SilverWolf999TechniqueFunkyMunchBean":
-            bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, -99, self.role, [AtkType.ALL], 1, 1, self.role,TickDown.START))
+            bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, -99, self.role, [AtkType.ALL], 1, 1,
+                           self.role, TickDown.START))
 
         return bl, dbl, al, dl, tl, hl
 
@@ -404,6 +432,9 @@ class SilverWolf999(Character):
 
         if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1:
             self._triggerTopLootBox(turn.targetID, tl, bl)
+        # E2: Check for MMR threshold after ally turn damage (no AV advance)
+        extra_basic_turns = self._checkAndExecuteE2ExtraBasic(turn.targetID, bl, al, dbl)
+        tl.extend(extra_basic_turns)
 
         return bl, dbl, al, dl, tl, hl
 
@@ -417,7 +448,8 @@ class SilverWolf999(Character):
         self.Banger = specialRes.attr6
         self.CR = specialRes.attr7
 
-        bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1,Role.AHA, TickDown.START))
+        bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1,
+                       Role.AHA, TickDown.START))
 
         if self.tech:
             if not self.techniqueTriggered:
@@ -425,10 +457,11 @@ class SilverWolf999(Character):
                 # Use fixed 99 Certified Banger for Elation DMG
                 tlb_mul = 0.99 if self.eidolon >= 5 else 0.90
                 tlb_mul = tlb_mul * (1.4 if self.eidolon >= 6 else 1.0)
-                bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, 99, self.role, [AtkType.ALL], 1, 1,self.role, TickDown.START))
+                bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, 99, self.role, [AtkType.ALL], 1, 1,
+                              self.role, TickDown.START))
                 tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.ELABANGER],
-                               [self.element], [tlb_mul, 0], [0, 0], 0, Scaling.ELA, 0,
-                               "SilverWolf999TechniqueFunkyMunchBean"))
+                              [self.element], [tlb_mul, 0], [0, 0], 0, Scaling.ELA, 0,
+                              "SilverWolf999TechniqueFunkyMunchBean"))
                 self.hiddenMMR = min(self.hiddenMMR + 3, self.hiddenMMR_MAX)
                 logger.info(f"{self.name} Technique: Funky Munch Bean triggered (+3 Punchline, 99 Banger used)")
 
