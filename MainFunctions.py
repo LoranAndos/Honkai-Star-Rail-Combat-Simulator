@@ -42,20 +42,73 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
     for buff in buffList:
         # Only process Banger buffs that are NOT for Evanescia
         if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role:
+            # ✅ FIX: Skip buffs already converted in a previous cycle
+            if getattr(buff, 'bangerConverted', False):
+                continue
+
             source_char = findCharRole(playerTeam, buff.target)
+
+            if buff.name.startswith("TalentBangerFromEnergy_"):
+                buff.bangerConverted = True
+                continue
 
             # Check if source is an Elation character with lower participation ID
             if source_char and hasattr(source_char, 'elationParticipationID'):
                 if source_char.elationParticipationID < evanescia.elationParticipationID:
                     # Convert 50% of their Banger to Evanescia's
-                    convertedAmount = int(buff.val * 0.5)
+                    convertedAmount = int(buff.val * 1)
                     bl = []
                     evanescia.receiveBangerFromTeammate(convertedAmount, source_char.name, bl)
                     newBuffsToAdd.extend(bl)
 
+                    # ✅ FIX: Mark this buff as converted so it is never processed again
+                    buff.bangerConverted = True
+
                     logger.info(f"BANGER > {evanescia.name} converted {convertedAmount} Banger from {source_char.name}")
 
     # Add converted Banger buffs to the list
+    if newBuffsToAdd:
+        buffList = addBuffs(buffList, newBuffsToAdd)
+
+    return buffList
+
+def handleBangerExpiry(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    """When a teammate's Banger buff is about to expire (turns == 1),
+    Evanescia gains 50% of that Banger amount as both Banger and Energy.
+    Must be called BEFORE tickBuffs so the expiring buffs are still present.
+    """
+    evanescia = findCharName(playerTeam, "Evanescia")
+    if not evanescia:
+        return buffList
+
+    newBuffsToAdd = []
+
+    for buff in buffList:
+        # Only process Banger buffs belonging to non-Evanescia teammates
+        if (buff.buffType == StatTypes.BANGER
+                and buff.target != evanescia.role
+                and buff.name != "BangerStartBattle"
+                and buff.turns <= 1):
+
+            # Skip if already flagged to avoid double-processing
+            if getattr(buff, 'bangerExpired', False):
+                continue
+
+            expiryAmount = int(buff.val)
+            if expiryAmount <= 0:
+                continue
+
+            bl = []
+            evanescia.receiveBangerFromExpiration(expiryAmount, buff.name, bl)
+            newBuffsToAdd.extend(bl)
+
+            # Mark so this buff isn't processed again if tickBuffs hasn't removed it yet
+            buff.bangerExpired = True
+
+            logger.info(
+                f"BANGER > {evanescia.name} gained {expiryAmount} Banger+Energy "
+                f"from expired buff '{buff.name}' (target: {buff.target})")
+
     if newBuffsToAdd:
         buffList = addBuffs(buffList, newBuffsToAdd)
 
@@ -903,27 +956,80 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
     if not evanescia:
         return buffList  # No conversion if Evanescia not in team
 
+
     newBuffsToAdd = []
 
     for buff in buffList:
         # Only process Banger buffs that are NOT for Evanescia herself
-        if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role:
+        if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role and buff.name != "BangerStartBattle":
+            # ✅ FIX: Skip buffs already converted in a previous cycle
+            if getattr(buff, 'bangerConverted', False):
+                continue
+
             # Find the character receiving this Banger buff
             source_char = findCharRole(playerTeam, buff.target)
+
+            if buff.name.startswith("TalentBangerFromEnergy_"):
+                buff.bangerConverted = True
+                continue
 
             # Check if source is an Elation character with lower ID than Evanescia
             if source_char and hasattr(source_char, 'elationParticipationID'):
                 if source_char.elationParticipationID < evanescia.elationParticipationID:
-                    # Convert 50% of their Banger to Evanescia's
-                    convertedAmount = buff.val * 0.5
+                    convertedAmount = buff.val
                     bl = []
                     evanescia.receiveBangerFromTeammate(int(convertedAmount), source_char.name, bl)
                     newBuffsToAdd.extend(bl)
+
+                    # ✅ FIX: Mark this buff as converted so it is never processed again
+                    buff.bangerConverted = True
 
                     logger.info(
                         f"BANGER > {evanescia.name} converted {convertedAmount:.1f} Banger from {source_char.name} (ID {source_char.elationParticipationID})")
 
     # Add the converted Banger buffs to the buff list
+    if newBuffsToAdd:
+        buffList = addBuffs(buffList, newBuffsToAdd)
+
+    return buffList
+
+def handleBangerExpiry(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    """When a teammate's Banger buff is about to expire (turns == 1),
+    Evanescia gains 50% of that Banger amount as both Banger and Energy.
+    Must be called BEFORE tickBuffs so the expiring buffs are still present.
+    """
+    evanescia = findCharName(playerTeam, "Evanescia")
+    if not evanescia:
+        return buffList
+
+    newBuffsToAdd = []
+
+    for buff in buffList:
+        # Only process Banger buffs belonging to non-Evanescia teammates
+        if (buff.buffType == StatTypes.BANGER
+                and buff.target != evanescia.role
+                and buff.name != "BangerStartBattle"
+                and buff.turns <= 1):
+
+            # Skip if already flagged to avoid double-processing
+            if getattr(buff, 'bangerExpired', False):
+                continue
+
+            expiryAmount = int(buff.val)
+            if expiryAmount <= 0:
+                continue
+
+            bl = []
+            evanescia.receiveBangerFromExpiration(expiryAmount, buff.name, bl)
+            newBuffsToAdd.extend(bl)
+
+            # Mark so this buff isn't processed again if tickBuffs hasn't removed it yet
+            buff.bangerExpired = True
+
+            logger.info(
+                f"BANGER > {evanescia.name} gained {expiryAmount} Banger+Energy "
+                f"from expired buff '{buff.name}' (target: {buff.target})")
+
     if newBuffsToAdd:
         buffList = addBuffs(buffList, newBuffsToAdd)
 
@@ -1022,7 +1128,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charPunch = Character.SharedPunchline
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charCD = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charBanger, attr6=charCD)
+                charERR = getCharStat(StatTypes.ERR_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charBanger, attr6=charCD, attr7=charERR)
 
             case "Feixiao":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
@@ -1459,6 +1566,9 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
     # Add/Minus any SP changes from special effects
     teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
 
+    # Process Banger expiry for Elation characters (must run before tickBuffs)
+    teamBuffs = handleBangerExpiry(teamBuffs, playerTeam)
+
     # Process Banger conversions for Elation characters
     teamBuffs = handleBangerConversions(teamBuffs, playerTeam)
 
@@ -1620,7 +1730,7 @@ def getMulELA(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: l
     return getCharStat(StatTypes.ELA, char, enemy, buffList, debuffList, turn) + 1
 
 def getMulPUNCH(char, enemy, buffList, debuffList, turn):
-    return 1 + Character.SharedPunchline * 5 / (Character.SharedPunchline + 240)
+    return 1 + ((Character.SharedPunchline * 5) / (Character.SharedPunchline + 240))
 
 def getMulBANGER(char, enemy, buffList, debuffList, turn):
     banger = getCharStat(StatTypes.BANGER, char, enemy, buffList, debuffList, turn)

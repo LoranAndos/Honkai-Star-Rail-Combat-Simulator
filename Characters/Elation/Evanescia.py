@@ -45,6 +45,7 @@ class Evanescia(Character):
     tech = True
     BangerDuration = 2
     UltCounter = 0
+    ERR = 0.0
 
     # Elation Skill Participation ID (for Banger conversion mechanics)
     # Lower ID = higher priority for Banger conversion
@@ -68,7 +69,7 @@ class Evanescia(Character):
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
         self.relicStats = subs if subs else RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 13, 10, StatTypes.CD_PERCENT,
-                                                       StatTypes.ATK_PERCENT,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.masterFoxEnergy = 0
@@ -81,11 +82,12 @@ class Evanescia(Character):
         bl.append(Buff("EvanesciaTraceSPD", StatTypes.SPD, 5, self.role))
         bl.append(Buff("EvenesciaTraceELA", StatTypes.ELA, 0.18, self.role))
         bl.append(Buff("EvanesciaTrace1CR", StatTypes.CR_PERCENT, 0.30, self.role))
+        bl.append(Buff("EvanesciaBangerStart", StatTypes.BANGER, 240, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
 
-        if self.eidolon >= 1:
-            bl.append(Buff("EvanesciaE1CD", StatTypes.CD_PERCENT, 0.36, self.role))
         if self.eidolon >= 2:
-            bl.append(Buff("EvanesciaE2PEN", StatTypes.PEN, 0.20, self.role))
+            bl.append(Buff("EvanesciaE2CD", StatTypes.CD_PERCENT, 0.36, self.role))
+        if self.eidolon >= 1:
+            bl.append(Buff("EvanesciaE1PEN", StatTypes.PEN, 0.20, self.role))
         if self.eidolon >= 4:
             bl.append(Buff("EvanesciaE4Shred", StatTypes.SHRED, 0.15, self.role))
         return bl, dbl, al, dl, hl
@@ -101,11 +103,12 @@ class Evanescia(Character):
         Returns (bangerGained, energyAdded) for logging/chaining.
         """
         bangerGain = min(amount, 100)
-        bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, bangerGain,
+        amount = floor(amount*(1+self.ERR))
+        bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, floor(bangerGain*(1+self.ERR)),
                        self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
-        self.masterFoxEnergy += amount
+        self.masterFoxEnergy += floor(amount*(1+self.ERR))
         logger.debug(
-            f"{self.name} +{amount} masterFoxEnergy (total {self.masterFoxEnergy}) | +{bangerGain} Banger from Energy")
+            f"{self.name} +{amount} masterFoxEnergy (total {self.masterFoxEnergy}) | +{floor(bangerGain*(1+self.ERR))} Banger from Energy")
         return bangerGain, amount
 
     def _addBangerEnergy(self, bangerAmount: int, bl: list, source: str = ""):
@@ -135,11 +138,12 @@ class Evanescia(Character):
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.FUA], [self.element],
-                           [E5MulFUA, 0], [20, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
+                           [E5MulFUA, 0], [20, 0], 10*(1+self.ERR), self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
-                           [E5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
+            if self.Banger >= 1:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
+                               Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                               [E5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
 
             # The 10 ERR from FUA feeds back into masterFoxEnergy via the Energy<->Banger sync
             self._addEnergy(10, bl, "MasterFoxFUARegen")
@@ -155,7 +159,7 @@ class Evanescia(Character):
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.BSC], [self.element],
-                       [e3Mul, 0], [10, 0], 20, self.scaling, 1, "EvanesciaBasic"))
+                       [e3Mul, 0], [10, 0], 20*(1+self.ERR), self.scaling, 1, "EvanesciaBasic"))
         # Basic gives 20 ERR — sync to masterFoxEnergy
         self._addEnergy(20, bl, "Basic")
         return bl, dbl, al, dl, tl, hl
@@ -167,7 +171,7 @@ class Evanescia(Character):
         e5MulELA = 0.176 if self.eidolon >= 5 else 0.16
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.BLAST, [AtkType.SKL], [self.element],
-                       [e5MulMain, e5MulSub], [20, 10], 30, self.scaling, -1, "EvanesciaSkill"))
+                       [e5MulMain, e5MulSub], [20, 10], 30*(1+self.ERR), self.scaling, -1, "EvanesciaSkill"))
         Character.SharedPunchline += 10
         # Skill gives 30 ERR — sync to masterFoxEnergy
         self._addEnergy(30, bl, "Skill")
@@ -187,11 +191,11 @@ class Evanescia(Character):
         e3MulAOE = 1.76 if self.eidolon >= 3 else 1.6
         e3MulSingle = 1.296 if self.eidolon >= 3 else 1.2
         e5MulAOE = 0.264 if self.eidolon >= 5 else 0.24
-        e5MulSingle = 0.275 if self.eidolon >= 5 else 0.25
+        e5MulSingle = 0.308 if self.eidolon >= 5 else 0.28
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ULT], [self.element],
-                       [e3MulAOE, 0], [20, 0], 5, self.scaling, 0, "EvanesciaUlt"))
+                       [e3MulAOE, 0], [20, 0], 5*(1+self.ERR), self.scaling, 0, "EvanesciaUlt"))
 
         # NEW: Calculate bounce count based on enemy count
         # Base bounce is 5 (from the original single target turn below)
@@ -217,8 +221,6 @@ class Evanescia(Character):
             # AOE ELAPUNCH: 24%
             # For Ult Elation hits the Banger used must be at least maxEnergy (480).
             # We temporarily force SharedPunchline to max(SharedPunchline, maxEnergy) for these turns.
-            savedPunch = Character.SharedPunchline
-            Character.SharedPunchline = max(Character.SharedPunchline, self.maxEnergy)
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.ELABANGER], [self.element],
@@ -228,8 +230,6 @@ class Evanescia(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
                            [e5MulSingle*bounceCount, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
-
-            Character.SharedPunchline = savedPunch
 
         # Ult gives 5 ERR — sync to masterFoxEnergy
         self._addEnergy(5, bl, "Ult")
@@ -249,24 +249,8 @@ class Evanescia(Character):
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-        # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
         if result.turnName == "EvanesciaMasterFoxFUA":
-            dbl.append(Debuff("EvanesciaMasterFoxDebuff",self.role, StatTypes.VULN,0.12,Role.ALL, [AtkType.ALL], 1, 1))
+            dbl.append(Debuff("EvanesciaMasterFoxDebuff",self.role, StatTypes.VULN,0.12,Role.ALL, [AtkType.ALL], 3, 1))
             if self.eidolon >= 1:
                 return self.useElaSkill(-1)
 
@@ -277,22 +261,6 @@ class Evanescia(Character):
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-        # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
         # NEW: Handle teammate Banger buffs for conversion
         self._handleTeammateBangerConversion(turn, result, bl)
 
@@ -301,29 +269,28 @@ class Evanescia(Character):
     def useElaSkill(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
         if self.eidolon >= 5:
-            e5Mul = 1.1
+            e5Mul = 1.21
         elif 5 > self.eidolon >= 3:
-            e5Mul = 1.05
+            e5Mul = 1.155
         else:
-            e5Mul = 1
+            e5Mul = 1.11
         BangerBuff = 15 if self.eidolon >= 1 else 5
         self.savedPunchline = Character.SharedPunchline
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
+
+        #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
+
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
-                       [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
-        bl.append(
-            Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 10,
+                       [e5Mul, 0], [20, 0], 5*(1+self.ERR), Scaling.ELA, 0, "EvanesciaELASkill"))
+        bl.append(Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 10,
                  self.role, TickDown.END))
-        bl.append(
-            Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline, self.role, [AtkType.ALL], 2, 1, self.role,
-                 TickDown.END))
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = self.savedPunchline
 
         # ElaSkill gives 5 ERR — sync to masterFoxEnergy
-        self._addEnergy(5, bl, "ElaSkill")
+        self._addEnergy(BangerBuff, bl, "ElaSkill")
         self._tryMasterFoxFUA(enemyID, bl, tl)
         return bl, dbl, al, dl, tl, hl
 
@@ -335,7 +302,8 @@ class Evanescia(Character):
         self.Punch = specialRes.attr4
         self.Banger = specialRes.attr5
         self.CD = specialRes.attr6
-        E5CdBuff = 0.275 if self.eidolon >= 5 else 0.25
+        self.ERR = specialRes.attr7
+        E5CdBuff = 0.22 if self.eidolon >= 5 else 0.20
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
 
@@ -345,7 +313,7 @@ class Evanescia(Character):
 
         if self.tech:
             tl.append(
-                Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.TECH], [self.element], [1, 0], [20, 0], 0,
+                Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1, 0], [20, 0], 0,
                      self.scaling, 0, "EvanesciaTech"))
             bl.append(
                 Buff("EvanesciaTechBanger", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1,
@@ -390,7 +358,7 @@ class Evanescia(Character):
         """Called by the simulation when a teammate with lower ID gains Banger.
         Converts 50% of the teammate's Banger into Evanescia's own Banger.
         """
-        Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
+        Conversion_Amount = 1.5 if self.eidolon >= 2 else 1
         convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerConvert_{source}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
@@ -403,7 +371,7 @@ class Evanescia(Character):
         """Called by the simulation when a teammate's Banger buff expires.
         Converts 50% of the expired Banger into Evanescia's own Banger.
         """
-        Conversion_Amount = 1 if self.eidolon >= 2 else 0.5
+        Conversion_Amount = 2 if self.eidolon >= 2 else 1
         convertedBanger = bangerAmount * Conversion_Amount
         bl.append(Buff(f"EvanesciaBangerExpire_{source}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))

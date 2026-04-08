@@ -28,7 +28,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.IMAGINARY]
+    weaknesses = [Element.PHYSICAL]
     actionOrder = [1, 1, 2]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -47,9 +47,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Sparxie(2, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
     if not s1:

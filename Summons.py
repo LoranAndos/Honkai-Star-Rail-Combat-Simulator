@@ -5,6 +5,7 @@ from Result import *
 from Turn_Text import Turn
 from Character import Character
 
+
 class Summon:
     name = "Summon"
     element = None
@@ -53,7 +54,7 @@ class Numby(Summon):
         super().__init__(ownerRole, role)
 
     def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        bl, dbl, al, dl, tl, hl= super().takeTurn()
+        bl, dbl, al, dl, tl, hl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, "NumbyGoGo"))
         return bl, dbl, al, dl, tl, hl
@@ -93,11 +94,13 @@ class DeHenshin(Summon):
                        self.scaling, 0, self.name))
         return bl, dbl, al, dl, tl, hl
 
-    def allyTurn(self, turn: Turn, result: Result) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+    def allyTurn(self, turn: Turn, result: Result) -> tuple[
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if turn.moveName == "FireflyUlt":
             self.currAV = 10000 / 70
         return bl, dbl, al, dl, tl, hl
+
 
 class LightningLord(Summon):
     name = "LightningLord"
@@ -133,6 +136,7 @@ class LightningLord(Summon):
             self.currAV = self.currAV * (self.currSPD / spd)
             self.currSPD = spd
 
+
 class Aha(Summon):
     name = "Aha"
     element = Element.QUANTUM
@@ -140,6 +144,10 @@ class Aha(Summon):
     currSPD = 80
     baseSPD = 80
     currAV = 10000 / currSPD
+    i = 0
+    last_turnName = "0"
+    last_role = Role.DPS
+    IsAhaTurn = False
 
     def __init__(self, ownerRole: Role, role: Role, elationTeam: list = None) -> None:
         super().__init__(ownerRole, role)
@@ -147,30 +155,97 @@ class Aha(Summon):
 
     def takeTurn(self):
         bl, dbl, al, dl, tl, hl = super().takeTurn()
+        self.IsAhaTurn = True
+        Character.ahaFixedPunchline = False
+        Character.savedPunchline = Character.SharedPunchline
         for role, turnName in self.elationTeam:
-            tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                           [0, 0], [0, 0], 0, self.scaling, 0, turnName))
-        # Add a signal turn before AhaEndGoGo to indicate last character used skill
+            ElationAmount = 0
+            tl.append(
+                Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0, self.scaling,
+                     0, turnName))
+            if turnName == "AhaEvanesciaGoGo":
+                BangerReduction = 1
+            else:
+                BangerReduction = 0.5
+
+            # Determine BangerDuration based on character
+            if turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo" #If Evanescia = E6.
+                BangerDuraction = 3
+            else:
+                BangerDuraction = 2
+
+            bl.append(
+                Buff(f"BangerELASkill{turnName}{self.i}", StatTypes.BANGER, Character.savedPunchline * BangerReduction,
+                     role, [AtkType.ALL], BangerDuraction, 1, role, TickDown.END))
+            ElationAmount += 1
+        self.i += 1
         if self.elationTeam:
-            last_role, last_turnName = self.elationTeam[-1]
-            tl.append(Turn(self.name, last_role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                           [0, 0], [0, 0], 0, self.scaling, 0, "AhaElationSequenceComplete"))
+            last_role, self.last_turnName = self.elationTeam[-1]
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                        [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
+        Character.SharedPunchline = Character.savedPunchline
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn, result):
         bl, dbl, al, dl, tl, hl = super().takeTurn()
         if result.turnName == "YaoGuangUlt":
+            self.IsAhaTurn = True
+            ElationAmount = 0
             Character.ahaFixedPunchline = True
             for role, turnName in self.elationTeam:
-                tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                               [0, 0], [0, 0], 0, self.scaling, 0, turnName))
-            # Add same signal here too
+                if turnName == "AhaEvanesciaGoGo":
+                    BangerReduction = 1
+                    bl.append(Buff(f"EnergyEvaELASkill{turnName}{self.i}", StatTypes.ERR_F,
+                                   Character.SharedPunchline, role, [AtkType.ALL], 1, 1,
+                                   role, TickDown.END))
+                else:
+                    BangerReduction = 0.5
+                if turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo" #If Evanescia = E6.
+                    BangerDuraction = 3
+                else:
+                    BangerDuraction = 2
+                tl.append(Turn(self.name, role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,self.scaling,
+                         0, turnName))
+                bl.append(Buff(f"BangerELASkill{turnName}{self.i}", StatTypes.BANGER,
+                               Character.SharedPunchline * BangerReduction, role, [AtkType.ALL], BangerDuraction, 1,
+                               role, TickDown.END))
+                ElationAmount += 1
+            self.i += 1
             if self.elationTeam:
-                last_role, last_turnName = self.elationTeam[-1]
-                tl.append(Turn(self.name, last_role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                               [0, 0], [0, 0], 0, self.scaling, 0, "AhaYaoElationSequenceComplete"))
+                last_role, self.last_turnName = self.elationTeam[-1]
             tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                            [0, 0], [0, 0], 0, self.scaling, 0, "AhaYaoEndGoGo"))
+
+        if (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True:
+            tl.append(
+                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = False
+        elif (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True:
+            tl.append(
+                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationSequenceComplete"))
+            Character.SharedPunchline = len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = True
+        elif (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True:
+            tl.append(
+                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = False
+        elif (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True:
+            tl.append(
+                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationSequenceComplete"))
+            Character.SharedPunchline = len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = True
         return bl, dbl, al, dl, tl, hl

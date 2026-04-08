@@ -1,0 +1,10 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 48748.543 | SilverWolf999: 35841.536 | YaoGuang: 3899.089 | HuoHuo: 16.411 | Sparxie: 8989.502
+Run    2: Team DPAV: 52040.518 | SilverWolf999: 38269.787 | YaoGuang: 4304.538 | HuoHuo: 16.411 | Sparxie: 9447.777
+Run    3: Team DPAV: 49980.485 | SilverWolf999: 36146.778 | YaoGuang: 4207.959 | HuoHuo: 16.765 | Sparxie: 9606.978
+Run    4: Team DPAV: 55640.937 | SilverWolf999: 41604.991 | YaoGuang: 4038.043 | HuoHuo: 16.765 | Sparxie: 9979.132
+Run    5: Team DPAV: 55769.481 | SilverWolf999: 40726.441 | YaoGuang: 4455.104 | HuoHuo: 16.411 | Sparxie: 10569.520
+Run    6: Team DPAV: 50270.737 | SilverWolf999: 36802.221 | YaoGuang: 4205.557 | HuoHuo: 16.765 | Sparxie: 9244.188
+Run    7: Team DPAV: 51000.235 | SilverWolf999: 37165.924 | YaoGuang: 4300.485 | HuoHuo: 16.411 | Sparxie: 9515.410

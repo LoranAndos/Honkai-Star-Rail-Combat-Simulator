@@ -93,7 +93,7 @@ class ElationMC(Character):
         e3Mul = 0.66 if self.eidolon >= 3 else 0.6
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
                        [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkill"))
-        bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,5,Role.SELF,TickDown.END))
+        bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         self.bangerBonus = 0
@@ -106,7 +106,7 @@ class ElationMC(Character):
         e5Mul = 0.54 if self.eidolon >= 5 else 0.50
 
         Character.SharedPunchline += 5
-        bl.append(Buff("ElationMCUltCD", StatTypes.CD_PERCENT, e5Mul, self.targetRole, [AtkType.ALL], 3, 1, self.role,TickDown.START))
+        bl.append(Buff("ElationMCUltCD", StatTypes.CD_PERCENT, e5Mul, self.targetRole, [AtkType.ALL], 3, 1, self.targetRole,TickDown.START))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ULT],[self.element], [0, 0], [0, 0], 5, self.scaling, 1, "ElationMCUlt"))
 
         # Check if target has Elation Skill
@@ -114,7 +114,7 @@ class ElationMC(Character):
 
         if targetHasElaSkill:
             # Grant 10 Certified Banger to target
-            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10, self.targetRole, [AtkType.ALL], 1, 1, self.role,TickDown.START))
+            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole,TickDown.START))
 
             # Signal fixed 20 Punchline extra turn
             Character.ahaFixedPunchline = True
@@ -126,8 +126,7 @@ class ElationMC(Character):
             al.append(Advance("ElationMCUltAdvance", self.targetRole, 0.50))
         if self.eidolon >= 2:
             bl.append(Buff("ElationMCUltE2ELA", StatTypes.ELA, 0.12, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
-        if self.eidolon >= 6:
-            bl.append(Buff("ElationMCUltE6SPD", StatTypes.SPD_PERCENT, 0.12, self.targetRole, [AtkType.ALL], 3, 1, self.role, TickDown.END))
+        Character.savedPunchline = Character.SharedPunchline
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -135,22 +134,6 @@ class ElationMC(Character):
         e3TalMul = 0.33 if self.eidolon >= 3 else 0.3
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-
-            # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-            # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
 
         if result.turnName in ("ElationMCELASkillBig", "ElationMCELASkillSmall") and self.eidolon >= 1:
             self.bangerBonus = min(self.bangerBonus + 2, 2)
@@ -179,22 +162,6 @@ class ElationMC(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-
-            # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-            # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):
@@ -216,10 +183,13 @@ class ElationMC(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*8, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
+        if self.eidolon >= 6:
+            bl.append(Buff("ElationMCUltE6CD", StatTypes.CD_PERCENT, 1.00, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
+        Character.savedPunchline += 3
+        Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         if self.eidolon >= 4:
             dbl.append(Debuff("ElationMCELASkillVul", self.role, StatTypes.VULN, 0.10, Role.ALL, [AtkType.ALL], 2, 1, False, [0, 0], False))
-        bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline , self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
         if Character.ahaFixedPunchline:
             Character.SharedPunchline = self.savedPunchline
         return bl, dbl, al, dl, tl, hl

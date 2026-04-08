@@ -56,8 +56,8 @@ class Sparxie(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 5, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 
@@ -122,9 +122,8 @@ class Sparxie(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.ELABANGER],
                            [self.element], [e5MulEla1, e5MulEla3], [5, 0], 0, Scaling.ELA, 0, "SparxieSkillEla"))
             engagementProcs = min(totalSPConsumed, 20)
-            for _ in range(engagementProcs):
-                tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
-                               [self.element], [e5MulEla3, 0], [0, 0], 0, Scaling.ELA, 0, "SparxieSkillElaExtra"))
+            tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
+                               [self.element], [e5MulEla3*engagementProcs, 0], [0, 0], 0, Scaling.ELA, 0, "SparxieSkillElaExtra"))
 
         if self.eidolon >= 2:
             bl.append(
@@ -174,21 +173,6 @@ class Sparxie(Character):
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-            # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-            # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
         if self.eidolon >= 1 and result.turnName == "AhaElationSequenceComplete":
             Character.SharedPunchline += 5
         return bl, dbl, al, dl, tl, hl
@@ -198,21 +182,6 @@ class Sparxie(Character):
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-            # Fixed Aha turns - reset flags but NOT punchline
-        if result.turnName == "AhaFixedEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
-
-            # Normal Aha sequence end - reset punchline
-        if result.turnName == "AhaElationSequenceComplete":
-            Character.SharedPunchline = 3
-            Character.ahaFixedPunchline = False
-
-        if result.turnName == "AhaEndGoGo":
-            Character.ahaFixedPunchline = False
-            Character.ahaFixedPunchlineValue = 20
-            Character.ahaElaDMGBoost = 1.0
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):
@@ -246,9 +215,6 @@ class Sparxie(Character):
         if self.eidolon >= 2:
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useSkl(-1))
             self.addThrill(2)
-        bl.append(Buff("BangerELASkill", StatTypes.BANGER, self.SharedPunchline , self.role, [AtkType.ALL], 2, 1, self.role,TickDown.END))
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = self.savedPunchline
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
