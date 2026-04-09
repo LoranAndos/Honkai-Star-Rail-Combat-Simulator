@@ -215,33 +215,51 @@ class Aha(Summon):
                 last_role, self.last_turnName = self.elationTeam[-1]
             tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                            [0, 0], [0, 0], 0, self.scaling, 0, "AhaYaoEndGoGo"))
-        if (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True:
+        if (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and result.charRole == Role.DPS:
             tl.append(
-                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
-        elif (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True:
+        elif (result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and result.charRole == Role.DPS:
             tl.append(
-                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
             Character.SharedPunchline = len(self.elationTeam)
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
-        elif (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True:
+        elif (result.turnName == "SilverWolf999NormalELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and result.charRole == Role.DPS:
             tl.append(
-                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaYaoGuangUlt = False
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = False
+        elif (result.turnName == "SilverWolf999NormalELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and result.charRole == Role.DPS:
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationSequenceComplete"))
+            Character.SharedPunchline = len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = True
+        elif (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and result.charRole == Role.DPS:
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
-        elif (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True:
+        elif (result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and result.charRole == Role.DPS:
             tl.append(
-                Turn(self.name, self.last_role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
             Character.SharedPunchline = len(self.elationTeam)
             Character.ahaFixedPunchline = False

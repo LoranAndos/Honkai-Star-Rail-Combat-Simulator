@@ -109,6 +109,7 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "YaoGuangUlt"))
         Character.savedPunchline = Character.SharedPunchline
+        Character.ahaYaoGuangUlt= True
         Character.SharedPunchline = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchline = True  # ADD THIS LINE
         if self.eidolon >= 4:

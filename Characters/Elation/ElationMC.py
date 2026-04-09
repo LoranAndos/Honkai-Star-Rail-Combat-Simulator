@@ -45,6 +45,7 @@ class ElationMC(Character):
     targetHasElaSkill = False
     targetElaSkillTurn = ""
     bangerBonus = 0
+    UltBangerBonus = 0
     preFiredPunchline = 0
 
     # Relic Settings
@@ -96,6 +97,7 @@ class ElationMC(Character):
         bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
+        self.UltBangerBonus += 2
         self.bangerBonus = 0
         return bl, dbl, al, dl, tl, hl
 
@@ -114,7 +116,9 @@ class ElationMC(Character):
 
         if targetHasElaSkill:
             # Grant 10 Certified Banger to target
-            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole,TickDown.START))
+            self.UltBangerBonus = min(self.UltBangerBonus, 6)
+            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10+self.UltBangerBonus, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole,TickDown.START))
+            self.UltBangerBonus = 0
 
             # Signal fixed 20 Punchline extra turn
             Character.ahaFixedPunchline = True
@@ -126,7 +130,6 @@ class ElationMC(Character):
             al.append(Advance("ElationMCUltAdvance", self.targetRole, 0.50))
         if self.eidolon >= 2:
             bl.append(Buff("ElationMCUltE2ELA", StatTypes.ELA, 0.12, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
-        Character.savedPunchline = Character.SharedPunchline
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -135,8 +138,6 @@ class ElationMC(Character):
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if result.turnName in ("ElationMCELASkillBig", "ElationMCELASkillSmall") and self.eidolon >= 1:
-            self.bangerBonus = min(self.bangerBonus + 2, 2)
         if turn.moveName == "ElationMCSkill":
             attackerBanger = self.BangerDict.get(turn.charRole, 0)
             ElationMCBanger = self.BangerDict.get(self.role, 0)
@@ -162,6 +163,8 @@ class ElationMC(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE") and self.eidolon >= 1:
+            self.bangerBonus = min(self.bangerBonus + 2, 2)
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):

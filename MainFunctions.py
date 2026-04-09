@@ -1516,7 +1516,13 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
                 if manualMode:
                     print(ult)
                 bl, dbl, al, dl, tl, hl = char.useUlt(target)
-                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,bl, dbl, al, dl, hl)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs,
+                                                                                           enemyDebuffs, advList,
+                                                                                           delayList, healingList, bl,
+                                                                                           dbl, al, dl, hl)
+                # E2-style post-ult effect: extend buffs on unit AFTER they've been merged into teamBuffs
+                if hasattr(char, 'applyGodmodeBuffExtension'):
+                    teamBuffs = char.applyGodmodeBuffExtension(teamBuffs)
                 turnList.extend(tl)
 
         # Handle any new attacks from unit ults
