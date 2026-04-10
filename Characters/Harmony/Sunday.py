@@ -6,6 +6,7 @@ from Result import *
 from Buff import *
 from Delay_Text import *
 from Lightcones.Harmony.PastAndFuture import PastAndFuture
+from Lightcones.Harmony.ButTheBattleIsntOver import ButTheBattleIsntOver
 from Relics.SacerdosRelivedOrdeal import SacerdosSunday
 from Planars.BrokenKeel import BrokenKeel
 from Turn_Text import Turn
@@ -42,14 +43,13 @@ class Sunday(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT, targetRole=Role.DPS) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else PastAndFuture(role, level=1, targetRole=targetRole)
+        self.lightcone = lc if lc else ButTheBattleIsntOver(role, level=1, targetRole=targetRole)
         self.relic1 = r1 if r1 else SacerdosSunday(role, 4, targetRole=targetRole)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
-        # Fast Sunday Build RelicStats(14, 4, 0, 4, 4, 0, 4, 4, 4, 4, 0, 6, Pwr.CD_PERCENT, Pwr.SPD, Pwr.DEF_PERCENT, Pwr.HP_PERCENT)
-        # Normal Sunday Build RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, Pwr.CD_PERCENT, Pwr.SPD, Pwr.DEF_PERCENT, Pwr.HP_PERCENT)
-        self.relicStats = subs if subs else RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, StatTypes.CD_PERCENT, StatTypes.SPD,
-                                                       StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT)
+        # Fast Sunday Build RelicStats(14, 4, 0, 4, 4, 0, 4, 4, 4, 4, 0, 6, StatTypes.CD_PERCENT, StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.HP_PERCENT)
+        # Normal Sunday Build RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, StatTypes.CD_PERCENT, StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.HP_PERCENT)
+        self.relicStats = subs if subs else RelicStats(4, 4, 0, 4, 4, 0, 4, 4, 4, 10, 0, 10, StatTypes.CD_PERCENT, StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.HP_PERCENT)
         self.eidolon = eidolon
         self.rotation = rotation if rotation else ["E"]
         self.targetRole = targetRole
@@ -87,10 +87,10 @@ class Sunday(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         e3Mul = 0.336 if self.eidolon >= 3 else 0.30
         e3Add = 0.128 if self.eidolon >= 3 else 0.12
-        if self.targetSummonRole * 0.2  >= 40:
+        if self.targetEnergyCap * 0.2  <= 40:
             EnergyBuff = 40
         else:
-            EnergyBuff = self.targetSummonRole * 0.2
+            EnergyBuff = self.targetEnergyCap * 0.222
         bl.append(Buff("SundayUltERR", StatTypes.ERR_F, EnergyBuff, self.targetRole, [AtkType.ALL]))
         bl.append(Buff("SundayBeatified", StatTypes.CD_PERCENT, self.cdStat * e3Mul + e3Add, self.targetRole, [AtkType.ALL], 3, 1,self.role, TickDown.END))
         if self.eidolon >= 2:

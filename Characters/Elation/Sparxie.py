@@ -3,6 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
@@ -52,7 +53,7 @@ class Sparxie(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else DazzledByAFloweryWorld(role, 1)
+        self.lightcone = lc if lc else MushyShroomysAdventures(role, 5)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
@@ -195,7 +196,7 @@ class Sparxie(Character):
         else:
             e5MulBig = 0.5
             e5MulSmall = 0.25
-        E6ExtraProc = min(self.Punchline, 40) if self.eidolon == 6 else 0
+        E6ExtraProc = min(Character.SharedPunchline, 40) if self.eidolon == 6 else 0
 
         if Character.ahaFixedPunchline:
             self.savedPunchline = self.SharedPunchline

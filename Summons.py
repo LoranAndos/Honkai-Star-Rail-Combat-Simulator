@@ -200,7 +200,7 @@ class Aha(Summon):
                                    role, TickDown.END))
                 else:
                     BangerReduction = 0.5
-                if turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo" #If Evanescia = E6.
+                if turnName == "AhaYaoGuangGoGo": #or "AhaEvanesciaGoGo": #If Evanescia = E6.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2

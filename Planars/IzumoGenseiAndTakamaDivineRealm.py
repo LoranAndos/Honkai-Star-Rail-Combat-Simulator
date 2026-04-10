@@ -11,8 +11,8 @@ class IzumoGenseiAndTakamaDivineRealm(Planar):
         self.sharedPath = sharedPath
 
     def equip(self):
-        bl, dbl, al, dl, = super().equip()
+        bl, dbl, al, dl, hl = super().equip()
         bl.append(Buff("IzumoATK", StatTypes.ATK_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.sharedPath:
             bl.append(Buff("IzumoCR", StatTypes.CR_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl
+        return bl, dbl, al, dl, hl

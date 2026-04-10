@@ -178,9 +178,6 @@ class ElationMC(Character):
         else:
             e5MulBig = 0.6
             e5MulSmall = 0.2
-        self.savedPunchline = Character.SharedPunchline
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
@@ -193,8 +190,6 @@ class ElationMC(Character):
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         if self.eidolon >= 4:
             dbl.append(Debuff("ElationMCELASkillVul", self.role, StatTypes.VULN, 0.10, Role.ALL, [AtkType.ALL], 2, 1, False, [0, 0], False))
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = self.savedPunchline
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

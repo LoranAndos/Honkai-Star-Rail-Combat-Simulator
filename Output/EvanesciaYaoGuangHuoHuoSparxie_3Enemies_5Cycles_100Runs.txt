@@ -1,115 +1,25 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 39970.557 | Evanescia: 18841.741 | YaoGuang: 9400.263 | HuoHuo: 19.865 | Sparxie: 11038.559
-Run    2: Team DPAV: 42325.051 | Evanescia: 21061.817 | YaoGuang: 9265.564 | HuoHuo: 20.302 | Sparxie: 11318.228
-Run    3: Team DPAV: 42053.163 | Evanescia: 20202.143 | YaoGuang: 9549.161 | HuoHuo: 20.744 | Sparxie: 11580.767
-Run    4: Team DPAV: 39185.221 | Evanescia: 18892.425 | YaoGuang: 8852.892 | HuoHuo: 19.865 | Sparxie: 10711.447
-Run    5: Team DPAV: 38859.912 | Evanescia: 18440.901 | YaoGuang: 9140.246 | HuoHuo: 20.302 | Sparxie: 10676.247
-Run    6: Team DPAV: 39504.950 | Evanescia: 18862.412 | YaoGuang: 9184.652 | HuoHuo: 19.865 | Sparxie: 10762.398
-Run    7: Team DPAV: 41913.049 | Evanescia: 20225.801 | YaoGuang: 9554.102 | HuoHuo: 20.744 | Sparxie: 11412.054
-Run    8: Team DPAV: 42522.202 | Evanescia: 20595.502 | YaoGuang: 9563.517 | HuoHuo: 20.308 | Sparxie: 11667.252
-Run    9: Team DPAV: 39365.309 | Evanescia: 18311.800 | YaoGuang: 9468.155 | HuoHuo: 20.308 | Sparxie: 10856.456
-Run   10: Team DPAV: 40497.191 | Evanescia: 19332.930 | YaoGuang: 9483.151 | HuoHuo: 20.744 | Sparxie: 11001.227
-Run   11: Team DPAV: 40036.992 | Evanescia: 19308.171 | YaoGuang: 8725.046 | HuoHuo: 20.302 | Sparxie: 11307.850
-Run   12: Team DPAV: 38292.233 | Evanescia: 18037.996 | YaoGuang: 9052.162 | HuoHuo: 20.302 | Sparxie: 10522.633
-Run   13: Team DPAV: 41250.620 | Evanescia: 19804.369 | YaoGuang: 9570.718 | HuoHuo: 20.308 | Sparxie: 11146.635
-Run   14: Team DPAV: 39937.745 | Evanescia: 19343.804 | YaoGuang: 9161.248 | HuoHuo: 20.744 | Sparxie: 10711.601
-Run   15: Team DPAV: 41668.998 | Evanescia: 20241.020 | YaoGuang: 9503.002 | HuoHuo: 19.884 | Sparxie: 11196.502
-Run   16: Team DPAV: 39118.330 | Evanescia: 18856.008 | YaoGuang: 8807.345 | HuoHuo: 19.865 | Sparxie: 10792.456
-Run   17: Team DPAV: 38542.615 | Evanescia: 18203.647 | YaoGuang: 9016.490 | HuoHuo: 20.744 | Sparxie: 10601.386
-Run   18: Team DPAV: 42572.119 | Evanescia: 20222.639 | YaoGuang: 9663.376 | HuoHuo: 20.744 | Sparxie: 11965.010
-Run   19: Team DPAV: 43263.793 | Evanescia: 20876.329 | YaoGuang: 9724.743 | HuoHuo: 19.884 | Sparxie: 11942.488
-Run   20: Team DPAV: 44090.234 | Evanescia: 20868.699 | YaoGuang: 10152.737 | HuoHuo: 19.865 | Sparxie: 12373.309
-Run   21: Team DPAV: 39183.613 | Evanescia: 19301.570 | YaoGuang: 8517.577 | HuoHuo: 20.302 | Sparxie: 10668.541
-Run   22: Team DPAV: 40895.128 | Evanescia: 19866.641 | YaoGuang: 9168.413 | HuoHuo: 19.884 | Sparxie: 11131.599
-Run   23: Team DPAV: 38997.698 | Evanescia: 18598.761 | YaoGuang: 8878.541 | HuoHuo: 20.302 | Sparxie: 10840.954
-Run   24: Team DPAV: 39918.349 | Evanescia: 19368.248 | YaoGuang: 9072.155 | HuoHuo: 19.884 | Sparxie: 10749.471
-Run   25: Team DPAV: 40230.198 | Evanescia: 19338.826 | YaoGuang: 9012.055 | HuoHuo: 19.865 | Sparxie: 11216.795
-Run   26: Team DPAV: 40560.647 | Evanescia: 19625.819 | YaoGuang: 9275.474 | HuoHuo: 20.302 | Sparxie: 10985.407
-Run   27: Team DPAV: 38858.874 | Evanescia: 18348.438 | YaoGuang: 9041.512 | HuoHuo: 19.865 | Sparxie: 10740.468
-Run   28: Team DPAV: 42056.448 | Evanescia: 20207.372 | YaoGuang: 9660.730 | HuoHuo: 20.744 | Sparxie: 11467.252
-Run   29: Team DPAV: 39496.048 | Evanescia: 19325.134 | YaoGuang: 8625.762 | HuoHuo: 19.865 | Sparxie: 10816.695
-Run   30: Team DPAV: 42122.064 | Evanescia: 20588.489 | YaoGuang: 9359.279 | HuoHuo: 20.302 | Sparxie: 11505.843
-Run   31: Team DPAV: 39044.555 | Evanescia: 18475.237 | YaoGuang: 9048.832 | HuoHuo: 20.744 | Sparxie: 10791.152
-Run   32: Team DPAV: 39936.652 | Evanescia: 19240.179 | YaoGuang: 9241.282 | HuoHuo: 20.308 | Sparxie: 10726.293
-Run   33: Team DPAV: 41173.049 | Evanescia: 19940.220 | YaoGuang: 9409.107 | HuoHuo: 20.302 | Sparxie: 11103.072
-Run   34: Team DPAV: 40215.613 | Evanescia: 19304.347 | YaoGuang: 9178.186 | HuoHuo: 19.884 | Sparxie: 11004.605
-Run   35: Team DPAV: 39416.833 | Evanescia: 19004.882 | YaoGuang: 8769.467 | HuoHuo: 19.865 | Sparxie: 10979.963
-Run   36: Team DPAV: 41838.839 | Evanescia: 19882.902 | YaoGuang: 9691.706 | HuoHuo: 20.308 | Sparxie: 11573.795
-Run   37: Team DPAV: 39176.645 | Evanescia: 19376.422 | YaoGuang: 8753.865 | HuoHuo: 19.865 | Sparxie: 10317.903
-Run   38: Team DPAV: 38544.898 | Evanescia: 18339.139 | YaoGuang: 8939.649 | HuoHuo: 20.302 | Sparxie: 10586.668
-Run   39: Team DPAV: 43113.916 | Evanescia: 20906.933 | YaoGuang: 9659.793 | HuoHuo: 20.302 | Sparxie: 11867.748
-Run   40: Team DPAV: 41097.876 | Evanescia: 20219.751 | YaoGuang: 9232.943 | HuoHuo: 19.865 | Sparxie: 10949.693
-Run   41: Team DPAV: 43530.609 | Evanescia: 21420.659 | YaoGuang: 9899.832 | HuoHuo: 20.308 | Sparxie: 11481.219
-Run   42: Team DPAV: 39765.372 | Evanescia: 19036.010 | YaoGuang: 9185.561 | HuoHuo: 19.865 | Sparxie: 10815.345
-Run   43: Team DPAV: 41595.988 | Evanescia: 20613.831 | YaoGuang: 9271.979 | HuoHuo: 20.308 | Sparxie: 11014.247
-Run   44: Team DPAV: 38974.320 | Evanescia: 18679.876 | YaoGuang: 9047.698 | HuoHuo: 19.865 | Sparxie: 10518.290
-Run   45: Team DPAV: 40183.949 | Evanescia: 19439.104 | YaoGuang: 9191.609 | HuoHuo: 20.302 | Sparxie: 10873.794
-Run   46: Team DPAV: 39145.983 | Evanescia: 18403.728 | YaoGuang: 9184.096 | HuoHuo: 19.884 | Sparxie: 10837.926
-Run   47: Team DPAV: 39108.505 | Evanescia: 18439.275 | YaoGuang: 9011.428 | HuoHuo: 20.302 | Sparxie: 10978.360
-Run   48: Team DPAV: 41950.353 | Evanescia: 20946.861 | YaoGuang: 9344.938 | HuoHuo: 19.884 | Sparxie: 10938.321
-Run   49: Team DPAV: 39296.832 | Evanescia: 19134.431 | YaoGuang: 8924.311 | HuoHuo: 20.308 | Sparxie: 10509.192
-Run   50: Team DPAV: 41814.352 | Evanescia: 20757.925 | YaoGuang: 9473.367 | HuoHuo: 19.865 | Sparxie: 10854.603
-Run   51: Team DPAV: 40538.090 | Evanescia: 19867.416 | YaoGuang: 8835.063 | HuoHuo: 20.302 | Sparxie: 11172.652
-Run   52: Team DPAV: 42416.013 | Evanescia: 20781.827 | YaoGuang: 9481.065 | HuoHuo: 20.302 | Sparxie: 11473.680
-Run   53: Team DPAV: 41524.665 | Evanescia: 20362.512 | YaoGuang: 9379.293 | HuoHuo: 19.865 | Sparxie: 11054.404
-Run   54: Team DPAV: 39235.828 | Evanescia: 19188.516 | YaoGuang: 8683.791 | HuoHuo: 20.302 | Sparxie: 10700.563
-Run   55: Team DPAV: 42644.577 | Evanescia: 20254.952 | YaoGuang: 9956.066 | HuoHuo: 20.744 | Sparxie: 11715.214
-Run   56: Team DPAV: 39413.399 | Evanescia: 18776.956 | YaoGuang: 9192.173 | HuoHuo: 19.865 | Sparxie: 10715.814
-Run   57: Team DPAV: 40131.461 | Evanescia: 19713.451 | YaoGuang: 9044.078 | HuoHuo: 20.302 | Sparxie: 10760.424
-Run   58: Team DPAV: 41972.490 | Evanescia: 19895.936 | YaoGuang: 9722.060 | HuoHuo: 20.744 | Sparxie: 11633.402
-Run   59: Team DPAV: 40971.059 | Evanescia: 19816.166 | YaoGuang: 9366.088 | HuoHuo: 20.744 | Sparxie: 11092.438
-Run   60: Team DPAV: 39389.959 | Evanescia: 18767.054 | YaoGuang: 9233.071 | HuoHuo: 19.865 | Sparxie: 10661.378
-Run   61: Team DPAV: 40424.652 | Evanescia: 19762.386 | YaoGuang: 9165.752 | HuoHuo: 19.865 | Sparxie: 10768.057
-Run   62: Team DPAV: 39246.364 | Evanescia: 19189.164 | YaoGuang: 8567.604 | HuoHuo: 20.744 | Sparxie: 10826.195
-Run   63: Team DPAV: 40023.536 | Evanescia: 19374.974 | YaoGuang: 8894.399 | HuoHuo: 20.744 | Sparxie: 11024.829
-Run   64: Team DPAV: 40052.084 | Evanescia: 18760.844 | YaoGuang: 9389.179 | HuoHuo: 20.308 | Sparxie: 11211.624
-Run   65: Team DPAV: 40039.772 | Evanescia: 19452.472 | YaoGuang: 9029.480 | HuoHuo: 19.865 | Sparxie: 10862.331
-Run   66: Team DPAV: 42218.125 | Evanescia: 20321.458 | YaoGuang: 9429.235 | HuoHuo: 19.884 | Sparxie: 11738.957
-Run   67: Team DPAV: 42460.090 | Evanescia: 20812.076 | YaoGuang: 9548.496 | HuoHuo: 19.865 | Sparxie: 11371.063
-Run   68: Team DPAV: 41049.730 | Evanescia: 19925.582 | YaoGuang: 9332.762 | HuoHuo: 20.308 | Sparxie: 11095.455
-Run   69: Team DPAV: 43293.679 | Evanescia: 21183.164 | YaoGuang: 9691.406 | HuoHuo: 20.302 | Sparxie: 11739.668
-Run   70: Team DPAV: 41311.246 | Evanescia: 20250.472 | YaoGuang: 9366.158 | HuoHuo: 20.302 | Sparxie: 11015.175
-Run   71: Team DPAV: 39485.054 | Evanescia: 18888.162 | YaoGuang: 9166.576 | HuoHuo: 19.865 | Sparxie: 10701.860
-Run   72: Team DPAV: 40866.443 | Evanescia: 19951.215 | YaoGuang: 9059.647 | HuoHuo: 19.865 | Sparxie: 11127.125
-Run   73: Team DPAV: 43691.318 | Evanescia: 21130.893 | YaoGuang: 9823.428 | HuoHuo: 20.302 | Sparxie: 12057.556
-Run   74: Team DPAV: 42277.048 | Evanescia: 20448.881 | YaoGuang: 9545.266 | HuoHuo: 20.308 | Sparxie: 11554.003
-Run   75: Team DPAV: 40994.917 | Evanescia: 19977.972 | YaoGuang: 9262.036 | HuoHuo: 19.865 | Sparxie: 11026.454
-Run   76: Team DPAV: 42713.227 | Evanescia: 20666.395 | YaoGuang: 9791.592 | HuoHuo: 20.744 | Sparxie: 11525.905
-Run   77: Team DPAV: 43013.153 | Evanescia: 20524.037 | YaoGuang: 9861.228 | HuoHuo: 20.744 | Sparxie: 11906.795
-Run   78: Team DPAV: 42908.736 | Evanescia: 20711.476 | YaoGuang: 9526.963 | HuoHuo: 19.884 | Sparxie: 11950.064
-Run   79: Team DPAV: 43210.091 | Evanescia: 20585.875 | YaoGuang: 9849.554 | HuoHuo: 20.302 | Sparxie: 12095.220
-Run   80: Team DPAV: 39272.653 | Evanescia: 18613.269 | YaoGuang: 9120.767 | HuoHuo: 19.865 | Sparxie: 10843.128
-Run   81: Team DPAV: 43460.617 | Evanescia: 20928.972 | YaoGuang: 9719.246 | HuoHuo: 20.302 | Sparxie: 12132.958
-Run   82: Team DPAV: 41835.428 | Evanescia: 20486.960 | YaoGuang: 9190.711 | HuoHuo: 20.744 | Sparxie: 11447.653
-Run   83: Team DPAV: 43511.434 | Evanescia: 21057.513 | YaoGuang: 9805.469 | HuoHuo: 20.308 | Sparxie: 11925.047
-Run   84: Team DPAV: 40151.506 | Evanescia: 18987.030 | YaoGuang: 9371.881 | HuoHuo: 20.308 | Sparxie: 11096.663
-Run   85: Team DPAV: 38492.841 | Evanescia: 18240.980 | YaoGuang: 8998.943 | HuoHuo: 20.744 | Sparxie: 10531.824
-Run   86: Team DPAV: 39781.234 | Evanescia: 18989.333 | YaoGuang: 9232.613 | HuoHuo: 20.744 | Sparxie: 10838.195
-Run   87: Team DPAV: 41539.777 | Evanescia: 20283.296 | YaoGuang: 9495.057 | HuoHuo: 19.865 | Sparxie: 11032.968
-Run   88: Team DPAV: 41211.626 | Evanescia: 20377.186 | YaoGuang: 9258.013 | HuoHuo: 19.865 | Sparxie: 10847.971
-Run   89: Team DPAV: 41563.023 | Evanescia: 20502.442 | YaoGuang: 9398.522 | HuoHuo: 20.744 | Sparxie: 10982.175
-Run   90: Team DPAV: 41951.522 | Evanescia: 20216.704 | YaoGuang: 9735.839 | HuoHuo: 20.744 | Sparxie: 11275.138
-Run   91: Team DPAV: 42607.571 | Evanescia: 20891.922 | YaoGuang: 9613.521 | HuoHuo: 20.308 | Sparxie: 11373.230
-Run   92: Team DPAV: 42552.388 | Evanescia: 20618.974 | YaoGuang: 9705.729 | HuoHuo: 20.302 | Sparxie: 11553.738
-Run   93: Team DPAV: 38824.926 | Evanescia: 18429.761 | YaoGuang: 8995.333 | HuoHuo: 20.302 | Sparxie: 10720.391
-Run   94: Team DPAV: 42598.271 | Evanescia: 20381.359 | YaoGuang: 9689.059 | HuoHuo: 19.884 | Sparxie: 11799.379
-Run   95: Team DPAV: 42045.045 | Evanescia: 20089.475 | YaoGuang: 9660.681 | HuoHuo: 20.744 | Sparxie: 11573.796
-Run   96: Team DPAV: 42570.107 | Evanescia: 20622.344 | YaoGuang: 9447.050 | HuoHuo: 20.302 | Sparxie: 11821.272
-Run   97: Team DPAV: 41463.119 | Evanescia: 20137.455 | YaoGuang: 9416.502 | HuoHuo: 20.744 | Sparxie: 11212.794
-Run   98: Team DPAV: 41341.148 | Evanescia: 20144.796 | YaoGuang: 9375.097 | HuoHuo: 19.865 | Sparxie: 11092.799
-Run   99: Team DPAV: 39604.033 | Evanescia: 19119.938 | YaoGuang: 8966.025 | HuoHuo: 19.865 | Sparxie: 10855.548
-Run  100: Team DPAV: 39141.958 | Evanescia: 19120.248 | YaoGuang: 8640.014 | HuoHuo: 19.865 | Sparxie: 10653.240
-
-================================================================================
-AVERAGES
-================================================================================
-Average Team DPAV: 40892.515
-Average Evanescia DPAV: 19742.434
-Average YaoGuang DPAV: 9299.393
-Average HuoHuo DPAV: 20.232
-Average Sparxie DPAV: 11146.179
-
-Min Team DPAV: 38292.233
-Max Team DPAV: 44090.234
+Run    1: Team DPAV: 44107.798 | Evanescia: 23502.330 | YaoGuang: 9072.771 | HuoHuo: 7.961 | Sparxie: 10819.427
+Run    2: Team DPAV: 42274.236 | Evanescia: 22459.691 | YaoGuang: 8736.561 | HuoHuo: 8.403 | Sparxie: 10397.240
+Run    3: Team DPAV: 40332.893 | Evanescia: 21286.206 | YaoGuang: 8619.578 | HuoHuo: 7.961 | Sparxie: 9713.841
+Run    4: Team DPAV: 45327.015 | Evanescia: 24960.159 | YaoGuang: 8884.539 | HuoHuo: 8.403 | Sparxie: 10771.373
+Run    5: Team DPAV: 37802.762 | Evanescia: 19693.787 | YaoGuang: 8091.124 | HuoHuo: 8.069 | Sparxie: 9363.607
+Run    6: Team DPAV: 38624.737 | Evanescia: 19512.734 | YaoGuang: 8476.612 | HuoHuo: 8.403 | Sparxie: 9921.679
+Run    7: Team DPAV: 40252.014 | Evanescia: 21122.798 | YaoGuang: 8726.351 | HuoHuo: 7.627 | Sparxie: 9699.613
+Run    8: Team DPAV: 42287.011 | Evanescia: 21965.090 | YaoGuang: 9446.617 | HuoHuo: 7.961 | Sparxie: 10164.802
+Run    9: Team DPAV: 39088.834 | Evanescia: 20734.582 | YaoGuang: 8262.699 | HuoHuo: 7.961 | Sparxie: 9381.050
+Run   10: Team DPAV: 42959.069 | Evanescia: 22823.972 | YaoGuang: 8865.928 | HuoHuo: 8.403 | Sparxie: 10558.224
+Run   11: Team DPAV: 43127.512 | Evanescia: 22378.237 | YaoGuang: 9291.167 | HuoHuo: 7.961 | Sparxie: 10813.540
+Run   12: Team DPAV: 38829.202 | Evanescia: 19883.122 | YaoGuang: 8513.072 | HuoHuo: 7.961 | Sparxie: 9725.272
+Run   13: Team DPAV: 39955.513 | Evanescia: 20897.201 | YaoGuang: 8688.730 | HuoHuo: 8.403 | Sparxie: 9655.871
+Run   14: Team DPAV: 41104.304 | Evanescia: 21562.545 | YaoGuang: 8853.595 | HuoHuo: 7.961 | Sparxie: 9977.662
+Run   15: Team DPAV: 41876.754 | Evanescia: 22045.181 | YaoGuang: 8869.301 | HuoHuo: 7.961 | Sparxie: 10251.769
+Run   16: Team DPAV: 40837.257 | Evanescia: 22054.922 | YaoGuang: 8378.355 | HuoHuo: 8.403 | Sparxie: 9690.267
+Run   17: Team DPAV: 39452.085 | Evanescia: 20433.101 | YaoGuang: 8650.137 | HuoHuo: 7.961 | Sparxie: 9658.345
+Run   18: Team DPAV: 45972.827 | Evanescia: 24818.669 | YaoGuang: 9221.187 | HuoHuo: 8.403 | Sparxie: 11268.710
+Run   19: Team DPAV: 39483.678 | Evanescia: 20641.519 | YaoGuang: 8388.769 | HuoHuo: 7.961 | Sparxie: 9735.971
+Run   20: Team DPAV: 39386.002 | Evanescia: 20763.812 | YaoGuang: 8634.925 | HuoHuo: 8.403 | Sparxie: 9320.296
+Run   21: Team DPAV: 44869.035 | Evanescia: 23973.405 | YaoGuang: 9383.688 | HuoHuo: 8.403 | Sparxie: 10798.230
+Run   22: Team DPAV: 40305.208 | Evanescia: 21054.873 | YaoGuang: 8781.842 | HuoHuo: 7.627 | Sparxie: 9765.240

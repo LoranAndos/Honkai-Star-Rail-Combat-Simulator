@@ -2,7 +2,7 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresYaoGuang
 from Lightcones.Elation.WhenSheDecidedToSee import WhenSheDecidedToSee
 from Planars.BrokenKeel import BrokenKeel
 from Planars.SprightlyVonwacq import SprightlyVonwacq
@@ -48,7 +48,7 @@ class YaoGuang(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=116) -> None:  # YAOGUANG ID: 116
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else WhenSheDecidedToSee(role, 1)
+        self.lightcone = lc if lc else MushyShroomysAdventuresYaoGuang(role, 5)
         self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
@@ -111,6 +111,7 @@ class YaoGuang(Character):
         Character.savedPunchline = Character.SharedPunchline
         Character.ahaYaoGuangUlt= True
         Character.SharedPunchline = 40 if self.eidolon >= 1 else 20
+        Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchline = True  # ADD THIS LINE
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
@@ -160,11 +161,6 @@ class YaoGuang(Character):
             E6ELASkillIncrease = 2
         else:
             E6ELASkillIncrease = 1
-
-        self.savedPunchline = Character.SharedPunchline
-
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = Character.ahaFixedPunchlineValue
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 

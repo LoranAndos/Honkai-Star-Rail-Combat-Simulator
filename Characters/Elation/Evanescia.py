@@ -6,9 +6,12 @@ from Character import Character
 from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
 from Lightcones.Elation.TomorrowTogether import TomorrowTogether
 from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
+from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
 from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -102,13 +105,22 @@ class Evanescia(Character):
         Per instance: Banger gained from this energy cannot exceed 100.
         Returns (bangerGained, energyAdded) for logging/chaining.
         """
+        # Calculate base values before ERR
         bangerGain = min(amount, 100)
-        amount = floor(amount*(1+self.ERR))
-        bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, floor(bangerGain*(1+self.ERR)),
+
+        # Apply ERR multiplier ONCE to get final amounts
+        final_banger = floor(bangerGain * (1 + self.ERR))
+        final_energy = floor(amount * (1 + self.ERR))
+
+        # Add Banger buff
+        bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, final_banger,
                        self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
-        self.masterFoxEnergy += floor(amount*(1+self.ERR))
+
+        # Add to masterFoxEnergy (using the already-multiplied value)
+        self.masterFoxEnergy += final_energy
+
         logger.debug(
-            f"{self.name} +{amount} masterFoxEnergy (total {self.masterFoxEnergy}) | +{floor(bangerGain*(1+self.ERR))} Banger from Energy")
+            f"{self.name} +{final_energy} masterFoxEnergy (total {self.masterFoxEnergy}) | +{final_banger} Banger from Energy")
         return bangerGain, amount
 
     def _addBangerEnergy(self, bangerAmount: int, bl: list, source: str = ""):
@@ -273,24 +285,23 @@ class Evanescia(Character):
         elif 5 > self.eidolon >= 3:
             e5Mul = 1.155
         else:
-            e5Mul = 1.11
-        BangerBuff = 15 if self.eidolon >= 1 else 5
-        self.savedPunchline = Character.SharedPunchline
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = Character.ahaFixedPunchlineValue  # set to 20 or 40
+            e5Mul = 1.10
+        if self.eidolon >= 1:
+            BangerBuff = 15
+        else:
+            BangerBuff = 5
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
                        [e5Mul, 0], [20, 0], 5*(1+self.ERR), Scaling.ELA, 0, "EvanesciaELASkill"))
-        bl.append(Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 10,
+        bl.append(Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 100,
                  self.role, TickDown.END))
-        if Character.ahaFixedPunchline:
-            Character.SharedPunchline = self.savedPunchline
+        self.currEnergy = self.currEnergy + BangerBuff
+        self.masterFoxEnergy += BangerBuff
 
-        # ElaSkill gives 5 ERR — sync to masterFoxEnergy
-        self._addEnergy(BangerBuff, bl, "ElaSkill")
+        self._addEnergy(5, bl, "ElaSkill")
         self._tryMasterFoxFUA(enemyID, bl, tl)
         return bl, dbl, al, dl, tl, hl
 
@@ -318,7 +329,7 @@ class Evanescia(Character):
             bl.append(
                 Buff("EvanesciaTechBanger", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1,
                      self.role, TickDown.END))
-            self._addEnergy(20, bl, "Tech")
+            self.currEnergy = self.currEnergy + 20
             self.tech = False
 
         if self.eidolon == 6:
