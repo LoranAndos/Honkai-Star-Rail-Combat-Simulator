@@ -30,8 +30,8 @@ class EverGloriousMagicalGirl(Relic):
                 self.stacks += min(int(punchline-self.OldPunchline) / 5, 10)
             self.stacks = min(self.stacks, 10)
             shredVal = self.stacks * 0.01
-            bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
-            bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 2, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 2, 1, Role.SELF, TickDown.START))
             self.OldPunchline = Character.SharedPunchline
         if self.setType == 4 and special.specialName == "SilverWolf999":
             # 1% DEF ignore per 5 Punchline, max 10 stacks = max 10%

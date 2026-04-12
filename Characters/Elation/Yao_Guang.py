@@ -69,8 +69,8 @@ class YaoGuang(Character):
         Character.SharedPunchline += 3
         bl.append(Buff("YaoGuangTraceCD",StatTypes.CD_PERCENT,0.60,self.role))
         if self.eidolon >= 1:
-            bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELAPUNCH], 1, 1,self.role, TickDown.START))
-            bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELABANGER], 1, 1,self.role, TickDown.START))
+            bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELAPUNCH], 1, 1,self.role, TickDown.PERM))
+            bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELABANGER], 1, 1,self.role, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("YaoGuangE6MerryMake", StatTypes.MERRY, 0.25,Role.ALL))
         return bl, dbl, al, dl, hl
@@ -109,7 +109,7 @@ class YaoGuang(Character):
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "YaoGuangUlt"))
         Character.savedPunchline = Character.SharedPunchline
-        Character.ahaYaoGuangUlt= True
+        Character.ahaYaoGuangUlt = True
         Character.SharedPunchline = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchline = True  # ADD THIS LINE

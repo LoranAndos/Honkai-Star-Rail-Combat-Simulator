@@ -4,6 +4,7 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Harmony.EarthlyEscapade import EarthlyEscapade
+from Lightcones.Harmony.DanceDanceDance import DanceDanceDance
 from Lightcones.Harmony.ButTheBattleIsntOver import ButTheBattleIsntOver
 from Planars.SprightlyVonwacq import SprightlyVonwacq
 from Planars.BrokenKeel import BrokenKeel

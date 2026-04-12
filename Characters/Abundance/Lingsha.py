@@ -6,11 +6,10 @@ from Delay_Text import *
 
 from Delay_Text import Advance
 from Healing import Healing
-from Lightcones import PostOp
-from Lightcones.Scent import ScentLingsha
-from Planars.Kalpagni import KalpagniLingsha
+from Lightcones.Abundance.PostOpConversation import PostOpConversation
+from Planars.BrokenKeel import BrokenKeel
 from RelicStats import RelicStats
-from Relics.Thief import Thief
+from Relics.WarriorGoddessOfSunAndThunder import WarriorGoddessOfSunAndThunder
 from Result import *
 from Result import Special
 from Turn_Text import Turn
@@ -24,9 +23,9 @@ class Lingsha(Character):
     path = Path.ABUNDANCE
     element = Element.FIRE
     scaling = Scaling.ATK
-    baseHP = 1358.3
-    baseATK = 679.14
-    baseDEF = 436.59
+    baseHP = 1358
+    baseATK = 679
+    baseDEF = 437
     baseSPD = 98
     maxEnergy = 110
     currEnergy = 55
@@ -48,10 +47,10 @@ class Lingsha(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetPrio=Priority.DEFAULT, rotation=None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else PostOp(role)
-        self.relic1 = r1 if r1 else Thief(role, 4)
+        self.lightcone = lc if lc else PostOpConversation(role)
+        self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else KalpagniLingsha(role)
+        self.planar = pl if pl else BrokenKeel(role)
         rope = StatTypes.BE_PERCENT if self.lightcone.name == "Post-Op Conversation" else StatTypes.ERR_PERCENT
         self.relicStats = subs if subs else RelicStats(12, 4, 0, 4, 4, 0, 4, 12, 4, 4, 0, 0, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, rope)
@@ -78,8 +77,12 @@ class Lingsha(Character):
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5Mul = 0.88 if self.eidolon >= 5 else 0.8
+        e3HealingMult = 0.148 if self.eidolon >= 5 else 0.14
+        e3HealingFlat = 467.5 if self.eidolon >= 5 else 420
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL], [self.element],
                        [e5Mul, 0], [10, 0], 30, self.scaling, -1, "LingshaSkill"))
+        hl.append(Healing("LingshaSkillHeal",[e3HealingMult,0],self.scaling,Role.ALL,self.role,Targeting.AOE))
+        hl.append(Healing("LingshaSkillHeal",[e3HealingFlat,0],Scaling.Other,Role.ALL,self.role,Targeting.AOE))
         al.append(Advance("LingshaADV", Role.FUYUAN, 0.2))
         return bl, dbl, al, dl, tl, hl
 
@@ -87,8 +90,12 @@ class Lingsha(Character):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e3Mul = 1.62 if self.eidolon >= 3 else 1.5
+        e3HealingMult = 0.128 if self.eidolon >= 3 else 0.12
+        e3HealingFlat = 400.5 if self.eidolon >= 3 else 360
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element], [e3Mul, 0], [20, 0], 5, self.scaling, 0, "LingshaUlt"))
         al.append(Advance("LingshaADV", Role.FUYUAN, 1.0))
+        hl.append(Healing("LingshaFuaHeal",[e3HealingMult,0],self.scaling,Role.ALL,self.role,Targeting.AOE))
+        hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0],Scaling.Other, Role.ALL, self.role, Targeting.AOE))
         befog = 0.27 if self.eidolon >= 3 else 0.25
         dbl.append(
             Debuff("LingshaBefog", self.role, StatTypes.VULN, befog, Role.ALL, [AtkType.BRK], 2, 1, False, [0, 0], False))
@@ -132,7 +139,7 @@ class Lingsha(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA], [self.element], [e3Bonus, 0], [10, 0], 0, self.scaling, 0, "LingshaFua"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element], [e3Bonus, 0], [10, 0], 0, self.scaling, 0, "LingshaFuaExtra"))
         hl.append(Healing("LingshaFuaHeal",[e3HealingMult,0],self.scaling,Role.ALL,self.role,Targeting.AOE))
-        hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0], self.scaling, Role.ALL, self.role, Targeting.AOE))
+        hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0],Scaling.Other, Role.ALL, self.role, Targeting.AOE))
         if self.eidolon == 6:
             for _ in range(4):tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],[0.5, 0], [5, 0], 0, self.scaling, 0, "LingshaE6Extras"))
         return bl, dbl, al, dl, tl, hl

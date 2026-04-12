@@ -25,13 +25,13 @@ class DazzledByAFloweryWorld(Lightcone):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
         # Track SP consumed this turn from SparxieSkill
         if turn.moveName == "SparxieSkill":
-            spConsumed = abs(min(turn.spChange-2, 0))  # spChange is negative, get absolute value
+            spConsumed = abs(min(turn.spChange-3, 0))  # spChange is negative, get absolute value
             self.spConsumedThisTurn += spConsumed
             # DEF ignore per SP consumed, stacking up to 4 times
             stacks = min(self.spConsumedThisTurn, 4)
             ShredVal = stacks * (self.level * 0.01 + 0.04)
-            bl.append(Buff("FloweryWorldSHREDPunchBuff", StatTypes.SHRED, ShredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.END))
-            bl.append(Buff("FloweryWorldSHREDBangerBuff", StatTypes.SHRED, ShredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.END))
+            bl.append(Buff("FloweryWorldSHREDPunchBuff", StatTypes.SHRED, ShredVal, self.wearerRole, [AtkType.ELAPUNCH], 2, 1, Role.SELF, TickDown.START))
+            bl.append(Buff("FloweryWorldSHREDBangerBuff", StatTypes.SHRED, ShredVal, self.wearerRole, [AtkType.ELABANGER], 2, 1, Role.SELF, TickDown.START))
             # Stream Promo: if 4+ SP consumed in same turn, +20% Elation for all allies
             if self.spConsumedThisTurn >= 4:
                 ELABuff = self.level * 0.04 + 0.16

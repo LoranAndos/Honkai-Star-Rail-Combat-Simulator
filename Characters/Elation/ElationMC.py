@@ -4,7 +4,7 @@ from Buff import *
 from Delay_Text import Advance
 from Character import Character
 from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessingsElationMC
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
 from Planars.BrokenKeel import BrokenKeel
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
@@ -56,7 +56,7 @@ class ElationMC(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=120) -> None:  # ELATIONMC ID: 120
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ElationBrimmingWithBlessingsElationMC(role, 5)
+        self.lightcone = lc if lc else MushyShroomysAdventuresEMC(role, 5)
         self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4, self.element)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
@@ -93,7 +93,7 @@ class ElationMC(Character):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e3Mul = 0.66 if self.eidolon >= 3 else 0.6
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
-                       [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkill"))
+                       [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkillNormal"))
         bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
@@ -123,6 +123,7 @@ class ElationMC(Character):
             # Signal fixed 20 Punchline extra turn
             Character.ahaFixedPunchline = True
             Character.ahaFixedPunchlineValue = 20
+            Character.EMCUlt = True
             # Trigger target's Elation Skill via their GoGo turn
             # This is handled in ownTurn when result.turnName == "ElationMCUlt"
         else:
@@ -138,8 +139,8 @@ class ElationMC(Character):
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if turn.moveName == "ElationMCSkill":
-            attackerBanger = self.BangerDict.get(turn.charRole, 0)
+        if turn.moveName == "ElationMCSkillNormal":
+            attackerBanger = self.BangerDict.get(Role.DPS, 0)
             ElationMCBanger = self.BangerDict.get(self.role, 0)
             # If attacker has higher ELA, add the difference as a temporary buff on ElationMC
             if attackerBanger > ElationMCBanger:
@@ -181,8 +182,8 @@ class ElationMC(Character):
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*8, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall*8, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulBig, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
         if self.eidolon >= 6:
             bl.append(Buff("ElationMCUltE6CD", StatTypes.CD_PERCENT, 1.00, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         Character.savedPunchline += 3

@@ -64,7 +64,7 @@ class HuoHuo(Character):
         self.planar = pl if pl else BrokenKeel(self.role)
         self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 13, 2, 2, 2, 2, 4, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["E","E", "A"])
+        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["A","E","E"])
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
@@ -113,11 +113,12 @@ class HuoHuo(Character):
         atkBuff = 0.432 if self.eidolon >= 3 else 0.4
         errMul = 0.21 if self.eidolon >= 3 else 0.2
         bl.append(
-            Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, Role.ALL, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
-        bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally1Energy * errMul, self.ally1Role, [AtkType.ALL], 1, 1, self.ally1Role,
                  TickDown.PERM))
-        if self.ally1Energy > 160:
+        if self.ally1Energy >= 160:
+            bl.append(
+                Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally1Role, [AtkType.ALL], 2, 1, self.ally1Role,
+                     TickDown.END))
             bl.append(
                 Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally1Role, [AtkType.ALL], 1, 1,
                      self.ally1Role,
@@ -125,7 +126,10 @@ class HuoHuo(Character):
         bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally2Energy * errMul, self.ally2Role, [AtkType.ALL], 1, 1, self.ally2Role,
                  TickDown.PERM))
-        if self.ally2Energy > 160:
+        if self.ally2Energy >= 160:
+            bl.append(
+                Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally2Role, [AtkType.ALL], 2, 1, self.ally2Role,
+                     TickDown.END))
             bl.append(
                 Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally2Role, [AtkType.ALL], 1, 1,
                      self.ally2Role,
@@ -133,7 +137,10 @@ class HuoHuo(Character):
         bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally3Energy * errMul, self.ally3Role, [AtkType.ALL], 1, 1, self.ally3Role,
                  TickDown.PERM))
-        if self.ally3Energy > 160:
+        if self.ally3Energy >= 160:
+            bl.append(
+                Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally3Role, [AtkType.ALL], 2, 1, self.ally3Role,
+                     TickDown.END))
             bl.append(
                 Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally3Role, [AtkType.ALL], 1, 1,
                      self.ally3Role,

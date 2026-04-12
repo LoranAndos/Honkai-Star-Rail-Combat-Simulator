@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 44821.983 | SilverWolf999: 35265.598 | YaoGuang: 4753.203 | ElationMC: 4794.528 | HuoHuo: 8.653
+Run    2: Team DPAV: 47482.713 | SilverWolf999: 37829.964 | YaoGuang: 4811.029 | ElationMC: 4833.067 | HuoHuo: 8.653
+Run    3: Team DPAV: 43761.540 | SilverWolf999: 34349.012 | YaoGuang: 4704.684 | ElationMC: 4699.190 | HuoHuo: 8.653
+Run    4: Team DPAV: 48100.221 | SilverWolf999: 38306.131 | YaoGuang: 4903.836 | ElationMC: 4881.601 | HuoHuo: 8.653
+Run    5: Team DPAV: 47990.818 | SilverWolf999: 38360.923 | YaoGuang: 4829.233 | ElationMC: 4792.009 | HuoHuo: 8.653
+Run    6: Team DPAV: 47860.404 | SilverWolf999: 38245.063 | YaoGuang: 4682.540 | ElationMC: 4924.148 | HuoHuo: 8.653
+Run    7: Team DPAV: 48313.032 | SilverWolf999: 38890.240 | YaoGuang: 4677.571 | ElationMC: 4736.568 | HuoHuo: 8.653
+Run    8: Team DPAV: 43289.716 | SilverWolf999: 33796.848 | YaoGuang: 4750.799 | ElationMC: 4733.415 | HuoHuo: 8.653
+Run    9: Team DPAV: 47544.839 | SilverWolf999: 37709.786 | YaoGuang: 4878.332 | ElationMC: 4948.068 | HuoHuo: 8.653
+Run   10: Team DPAV: 46928.041 | SilverWolf999: 37389.939 | YaoGuang: 4654.521 | ElationMC: 4874.928 | HuoHuo: 8.653
+Run   11: Team DPAV: 46373.763 | SilverWolf999: 36996.412 | YaoGuang: 4617.997 | ElationMC: 4750.700 | HuoHuo: 8.653
+Run   12: Team DPAV: 44746.590 | SilverWolf999: 35345.317 | YaoGuang: 4722.836 | ElationMC: 4669.783 | HuoHuo: 8.653
+Run   13: Team DPAV: 43068.485 | SilverWolf999: 33686.721 | YaoGuang: 4727.435 | ElationMC: 4645.676 | HuoHuo: 8.653
+Run   14: Team DPAV: 47443.587 | SilverWolf999: 38086.812 | YaoGuang: 4673.303 | ElationMC: 4674.818 | HuoHuo: 8.653
+Run   15: Team DPAV: 48428.332 | SilverWolf999: 39098.829 | YaoGuang: 4663.179 | ElationMC: 4657.670 | HuoHuo: 8.653
+Run   16: Team DPAV: 48195.979 | SilverWolf999: 38745.133 | YaoGuang: 4643.744 | ElationMC: 4798.448 | HuoHuo: 8.653
+Run   17: Team DPAV: 54206.866 | SilverWolf999: 44501.198 | YaoGuang: 4814.094 | ElationMC: 4882.556 | HuoHuo: 9.018
+Run   18: Team DPAV: 47752.204 | SilverWolf999: 38065.260 | YaoGuang: 4849.951 | ElationMC: 4828.340 | HuoHuo: 8.653
+Run   19: Team DPAV: 47209.387 | SilverWolf999: 37646.885 | YaoGuang: 4665.544 | ElationMC: 4888.304 | HuoHuo: 8.653
+Run   20: Team DPAV: 48243.100 | SilverWolf999: 38644.596 | YaoGuang: 4810.391 | ElationMC: 4779.459 | HuoHuo: 8.653
+Run   21: Team DPAV: 47148.798 | SilverWolf999: 37867.451 | YaoGuang: 4520.621 | ElationMC: 4752.073 | HuoHuo: 8.653
+Run   22: Team DPAV: 48045.103 | SilverWolf999: 38445.087 | YaoGuang: 4771.338 | ElationMC: 4820.024 | HuoHuo: 8.653
+Run   23: Team DPAV: 46103.639 | SilverWolf999: 36835.134 | YaoGuang: 4602.534 | ElationMC: 4657.318 | HuoHuo: 8.653
+Run   24: Team DPAV: 42670.963 | SilverWolf999: 33337.048 | YaoGuang: 4640.487 | ElationMC: 4684.775 | HuoHuo: 8.653
+Run   25: Team DPAV: 50789.793 | SilverWolf999: 41025.204 | YaoGuang: 4800.613 | ElationMC: 4955.322 | HuoHuo: 8.653
+Run   26: Team DPAV: 46107.280 | SilverWolf999: 36501.863 | YaoGuang: 4764.891 | ElationMC: 4831.873 | HuoHuo: 8.653
+Run   27: Team DPAV: 50617.787 | SilverWolf999: 41013.408 | YaoGuang: 4774.580 | ElationMC: 4820.780 | HuoHuo: 9.018
+Run   28: Team DPAV: 45988.550 | SilverWolf999: 36339.020 | YaoGuang: 4858.389 | ElationMC: 4782.487 | HuoHuo: 8.653
+Run   29: Team DPAV: 44326.182 | SilverWolf999: 35077.708 | YaoGuang: 4593.236 | ElationMC: 4646.585 | HuoHuo: 8.653
+Run   30: Team DPAV: 53876.781 | SilverWolf999: 44216.272 | YaoGuang: 4805.722 | ElationMC: 4845.769 | HuoHuo: 9.018
+Run   31: Team DPAV: 46064.519 | SilverWolf999: 36818.507 | YaoGuang: 4692.271 | ElationMC: 4545.089 | HuoHuo: 8.653
+Run   32: Team DPAV: 47164.676 | SilverWolf999: 37539.650 | YaoGuang: 4750.107 | ElationMC: 4866.264 | HuoHuo: 8.653
+Run   33: Team DPAV: 45303.342 | SilverWolf999: 35842.980 | YaoGuang: 4635.381 | ElationMC: 4816.328 | HuoHuo: 8.653
+Run   34: Team DPAV: 48475.141 | SilverWolf999: 38901.876 | YaoGuang: 4701.170 | ElationMC: 4863.442 | HuoHuo: 8.653
+Run   35: Team DPAV: 44381.802 | SilverWolf999: 35077.810 | YaoGuang: 4644.435 | ElationMC: 4650.904 | HuoHuo: 8.653
+Run   36: Team DPAV: 46731.513 | SilverWolf999: 37408.267 | YaoGuang: 4680.054 | ElationMC: 4634.539 | HuoHuo: 8.653
+Run   37: Team DPAV: 46694.444 | SilverWolf999: 37397.280 | YaoGuang: 4629.262 | ElationMC: 4659.248 | HuoHuo: 8.653
+Run   38: Team DPAV: 49566.611 | SilverWolf999: 40026.802 | YaoGuang: 4792.457 | ElationMC: 4738.699 | HuoHuo: 8.653
+Run   39: Team DPAV: 48134.602 | SilverWolf999: 38833.919 | YaoGuang: 4644.245 | ElationMC: 4647.785 | HuoHuo: 8.653
+Run   40: Team DPAV: 47516.603 | SilverWolf999: 38008.607 | YaoGuang: 4637.574 | ElationMC: 4861.768 | HuoHuo: 8.653
+Run   41: Team DPAV: 44255.110 | SilverWolf999: 34917.221 | YaoGuang: 4687.458 | ElationMC: 4641.777 | HuoHuo: 8.653
+Run   42: Team DPAV: 48037.133 | SilverWolf999: 38221.051 | YaoGuang: 4930.341 | ElationMC: 4877.088 | HuoHuo: 8.653
+Run   43: Team DPAV: 44859.548 | SilverWolf999: 35403.768 | YaoGuang: 4660.047 | ElationMC: 4787.079 | HuoHuo: 8.653
+Run   44: Team DPAV: 44293.024 | SilverWolf999: 35002.996 | YaoGuang: 4642.000 | ElationMC: 4639.375 | HuoHuo: 8.653
+Run   45: Team DPAV: 48592.206 | SilverWolf999: 38626.724 | YaoGuang: 4958.538 | ElationMC: 4998.291 | HuoHuo: 8.653
+Run   46: Team DPAV: 47915.000 | SilverWolf999: 38293.241 | YaoGuang: 4843.946 | ElationMC: 4769.159 | HuoHuo: 8.653
+Run   47: Team DPAV: 46862.102 | SilverWolf999: 37563.235 | YaoGuang: 4627.680 | ElationMC: 4662.533 | HuoHuo: 8.653
+Run   48: Team DPAV: 43518.228 | SilverWolf999: 34078.957 | YaoGuang: 4758.915 | ElationMC: 4671.703 | HuoHuo: 8.653
+Run   49: Team DPAV: 48531.885 | SilverWolf999: 38881.101 | YaoGuang: 4827.897 | ElationMC: 4814.232 | HuoHuo: 8.653
+Run   50: Team DPAV: 45904.213 | SilverWolf999: 36610.634 | YaoGuang: 4639.294 | ElationMC: 4645.632 | HuoHuo: 8.653
+Run   51: Team DPAV: 47027.019 | SilverWolf999: 37731.646 | YaoGuang: 4705.603 | ElationMC: 4581.116 | HuoHuo: 8.653
+Run   52: Team DPAV: 48893.046 | SilverWolf999: 39381.599 | YaoGuang: 4648.150 | ElationMC: 4854.643 | HuoHuo: 8.653
+Run   53: Team DPAV: 45905.242 | SilverWolf999: 36228.303 | YaoGuang: 4803.217 | ElationMC: 4865.068 | HuoHuo: 8.653
+Run   54: Team DPAV: 50307.521 | SilverWolf999: 40464.900 | YaoGuang: 4832.654 | ElationMC: 5001.314 | HuoHuo: 8.653
+Run   55: Team DPAV: 45377.754 | SilverWolf999: 35958.990 | YaoGuang: 4704.233 | ElationMC: 4705.512 | HuoHuo: 9.018
+Run   56: Team DPAV: 45874.309 | SilverWolf999: 36482.489 | YaoGuang: 4639.350 | ElationMC: 4743.816 | HuoHuo: 8.653
+Run   57: Team DPAV: 43545.858 | SilverWolf999: 34240.659 | YaoGuang: 4625.113 | ElationMC: 4671.433 | HuoHuo: 8.653
+Run   58: Team DPAV: 50362.337 | SilverWolf999: 40836.010 | YaoGuang: 4745.563 | ElationMC: 4772.110 | HuoHuo: 8.653
+Run   59: Team DPAV: 51291.877 | SilverWolf999: 41703.826 | YaoGuang: 4691.424 | ElationMC: 4887.973 | HuoHuo: 8.653
+Run   60: Team DPAV: 49943.540 | SilverWolf999: 40167.383 | YaoGuang: 4750.397 | ElationMC: 5017.107 | HuoHuo: 8.653
+Run   61: Team DPAV: 49410.565 | SilverWolf999: 39770.187 | YaoGuang: 4763.216 | ElationMC: 4868.509 | HuoHuo: 8.653
+Run   62: Team DPAV: 45093.866 | SilverWolf999: 35727.379 | YaoGuang: 4654.961 | ElationMC: 4702.872 | HuoHuo: 8.653
+Run   63: Team DPAV: 47329.396 | SilverWolf999: 37837.103 | YaoGuang: 4638.143 | ElationMC: 4845.497 | HuoHuo: 8.653
+Run   64: Team DPAV: 47870.587 | SilverWolf999: 38304.687 | YaoGuang: 4674.801 | ElationMC: 4882.446 | HuoHuo: 8.653
+Run   65: Team DPAV: 46756.185 | SilverWolf999: 37121.263 | YaoGuang: 4780.432 | ElationMC: 4845.836 | HuoHuo: 8.653
+Run   66: Team DPAV: 55456.807 | SilverWolf999: 44831.092 | YaoGuang: 5221.987 | ElationMC: 5394.709 | HuoHuo: 9.018
+Run   67: Team DPAV: 46578.282 | SilverWolf999: 37222.624 | YaoGuang: 4613.699 | ElationMC: 4733.305 | HuoHuo: 8.653
+Run   68: Team DPAV: 50229.321 | SilverWolf999: 40356.159 | YaoGuang: 4862.537 | ElationMC: 5001.973 | HuoHuo: 8.653
+Run   69: Team DPAV: 46965.947 | SilverWolf999: 37384.653 | YaoGuang: 4677.154 | ElationMC: 4895.486 | HuoHuo: 8.653
+Run   70: Team DPAV: 47339.382 | SilverWolf999: 37772.969 | YaoGuang: 4833.166 | ElationMC: 4724.593 | HuoHuo: 8.653
+Run   71: Team DPAV: 48726.690 | SilverWolf999: 39147.202 | YaoGuang: 4690.646 | ElationMC: 4880.189 | HuoHuo: 8.653
+Run   72: Team DPAV: 45721.101 | SilverWolf999: 36400.342 | YaoGuang: 4543.528 | ElationMC: 4768.578 | HuoHuo: 8.653
+Run   73: Team DPAV: 46620.497 | SilverWolf999: 37105.141 | YaoGuang: 4725.175 | ElationMC: 4781.527 | HuoHuo: 8.653
+Run   74: Team DPAV: 47742.894 | SilverWolf999: 37990.909 | YaoGuang: 4879.115 | ElationMC: 4864.216 | HuoHuo: 8.653
+Run   75: Team DPAV: 46533.247 | SilverWolf999: 37224.249 | YaoGuang: 4601.500 | ElationMC: 4698.844 | HuoHuo: 8.653
+Run   76: Team DPAV: 48730.871 | SilverWolf999: 38840.557 | YaoGuang: 4959.103 | ElationMC: 4922.557 | HuoHuo: 8.653
+Run   77: Team DPAV: 47562.308 | SilverWolf999: 37994.241 | YaoGuang: 4723.117 | ElationMC: 4836.296 | HuoHuo: 8.653
+Run   78: Team DPAV: 43970.590 | SilverWolf999: 34654.564 | YaoGuang: 4657.638 | ElationMC: 4649.734 | HuoHuo: 8.653
+Run   79: Team DPAV: 46518.405 | SilverWolf999: 37060.985 | YaoGuang: 4610.615 | ElationMC: 4838.151 | HuoHuo: 8.653
+Run   80: Team DPAV: 47918.075 | SilverWolf999: 38095.359 | YaoGuang: 4951.308 | ElationMC: 4862.755 | HuoHuo: 8.653
+Run   81: Team DPAV: 49860.094 | SilverWolf999: 40154.825 | YaoGuang: 4873.756 | ElationMC: 4822.859 | HuoHuo: 8.653
+Run   82: Team DPAV: 44148.644 | SilverWolf999: 34751.501 | YaoGuang: 4676.029 | ElationMC: 4712.460 | HuoHuo: 8.653
+Run   83: Team DPAV: 45758.592 | SilverWolf999: 36436.061 | YaoGuang: 4610.718 | ElationMC: 4703.160 | HuoHuo: 8.653
+Run   84: Team DPAV: 51039.532 | SilverWolf999: 41184.311 | YaoGuang: 4843.712 | ElationMC: 5002.856 | HuoHuo: 8.653
+Run   85: Team DPAV: 45657.082 | SilverWolf999: 36302.654 | YaoGuang: 4602.340 | ElationMC: 4743.434 | HuoHuo: 8.653
+Run   86: Team DPAV: 46764.058 | SilverWolf999: 37363.033 | YaoGuang: 4578.516 | ElationMC: 4813.856 | HuoHuo: 8.653
+Run   87: Team DPAV: 48880.653 | SilverWolf999: 39407.460 | YaoGuang: 4654.979 | ElationMC: 4809.561 | HuoHuo: 8.653
+Run   88: Team DPAV: 47221.518 | SilverWolf999: 37852.130 | YaoGuang: 4577.208 | ElationMC: 4783.526 | HuoHuo: 8.653
+Run   89: Team DPAV: 46677.677 | SilverWolf999: 37490.231 | YaoGuang: 4567.726 | ElationMC: 4611.067 | HuoHuo: 8.653
+Run   90: Team DPAV: 51836.866 | SilverWolf999: 42002.840 | YaoGuang: 4922.712 | ElationMC: 4902.295 | HuoHuo: 9.018
+Run   91: Team DPAV: 45332.093 | SilverWolf999: 35893.602 | YaoGuang: 4696.671 | ElationMC: 4733.167 | HuoHuo: 8.653
+Run   92: Team DPAV: 45963.544 | SilverWolf999: 36640.884 | YaoGuang: 4687.091 | ElationMC: 4626.915 | HuoHuo: 8.653
+Run   93: Team DPAV: 45946.142 | SilverWolf999: 36622.865 | YaoGuang: 4657.611 | ElationMC: 4657.012 | HuoHuo: 8.653
+Run   94: Team DPAV: 46714.307 | SilverWolf999: 37241.548 | YaoGuang: 4617.264 | ElationMC: 4846.841 | HuoHuo: 8.653
+Run   95: Team DPAV: 42528.619 | SilverWolf999: 33368.047 | YaoGuang: 4509.459 | ElationMC: 4642.460 | HuoHuo: 8.653
+Run   96: Team DPAV: 48166.915 | SilverWolf999: 38587.207 | YaoGuang: 4674.783 | ElationMC: 4896.272 | HuoHuo: 8.653
+Run   97: Team DPAV: 45561.637 | SilverWolf999: 36042.438 | YaoGuang: 4697.368 | ElationMC: 4813.177 | HuoHuo: 8.653
+Run   98: Team DPAV: 48872.807 | SilverWolf999: 39334.687 | YaoGuang: 4662.186 | ElationMC: 4867.281 | HuoHuo: 8.653
+Run   99: Team DPAV: 48188.329 | SilverWolf999: 38472.914 | YaoGuang: 4903.897 | ElationMC: 4802.865 | HuoHuo: 8.653
+Run  100: Team DPAV: 43969.299 | SilverWolf999: 34698.941 | YaoGuang: 4624.224 | ElationMC: 4637.481 | HuoHuo: 8.653
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 47209.301
+Average SilverWolf999 DPAV: 37689.591
+Average YaoGuang DPAV: 4721.955
+Average ElationMC DPAV: 4789.079
+Average HuoHuo DPAV: 8.675
+
+Min Team DPAV: 42528.619
+Max Team DPAV: 55456.807

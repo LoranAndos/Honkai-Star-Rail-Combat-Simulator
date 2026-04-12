@@ -1,6 +1,7 @@
 import logging
 
 from Lightcones.Harmony.DanceDanceDance import DanceDanceDance
+from Lightcones.Harmony.MemoriesOfThePast import MemoriesOfThePast
 from Lightcones.Harmony.IfTimeWereAFlower import IfTimeWereAFlower
 from Relics.PoetsDillWreath import PoetsDillWreath
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
@@ -39,7 +40,7 @@ class Tribbie(Character):
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else IfTimeWereAFlower(self.role)
+        self.lightcone = lc if lc else MemoriesOfThePast(self.role,5)
         self.relic1 = r1 if r1 else PoetsDillWreath(self.role,4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BoneCollectionsSereneDemesne(self.role)

@@ -3,11 +3,15 @@ import logging
 from Buff import *
 from Delay_Text import Advance
 from Character import Character
+from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
+from Lightcones.Elation.TomorrowTogether import TomorrowTogether
 from Lightcones.Elation.WelcomeToTheCosmicCity import WelcometotheCosmicCity
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSilverWolf999
+from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
 from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -60,6 +64,7 @@ class SilverWolf999(Character):
     WolfInstants = 0  # Legacy property
     lastPunchlineValue = 0  # Track Punchline changes for Hidden MMR sync
     techniqueTriggered = False  # Track if technique was triggered this wave
+    lastMmrCrContribution = 0 # Keep track of MMR CR contribution for Hidden MMR buff
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -73,7 +78,7 @@ class SilverWolf999(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
-        self.relicStats = subs if subs else RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 13, 10, StatTypes.CR_PERCENT,
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 10, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
@@ -110,7 +115,7 @@ class SilverWolf999(Character):
     def _syncPunchlineToHiddenMMR(self):
         """Sync Punchline changes to Hidden MMR."""
         punchline_diff = Character.SharedPunchline - self.lastPunchlineValue
-        if punchline_diff > 0 and Character.ahaYaoGuangUlt == False:
+        if punchline_diff > 0 and Character.ahaYaoGuangUlt == False and Character.EMCUlt == False:
             self.hiddenMMR = min(self.hiddenMMR + punchline_diff, self.hiddenMMR_MAX)
             logger.debug(f"{self.name} +{punchline_diff} Hidden MMR from Punchline (total: {self.hiddenMMR})")
         self.lastPunchlineValue = Character.SharedPunchline
@@ -123,8 +128,19 @@ class SilverWolf999(Character):
         if self.hiddenMMR <= 0:
             return
 
-        # Calculate CR boost: 0.3% per Hidden MMR point, capped at 100%
-        cr_from_mmr = min(self.hiddenMMR * 0.004, 1.0)
+        # Step 1: How much CR headroom is left (accounting for all external buffs)
+        non_mmr_cr = self.CR - self.lastMmrCrContribution
+        cr_headroom = max(1.0 - non_mmr_cr, 0)
+        cr_from_mmr = min(self.hiddenMMR * 0.004, cr_headroom)
+
+        # Step 2: CD overflow = EXACTLY the MMR that didn't go to CR
+        # (never use a separate threshold formula here — they will always drift apart)
+        mmr_for_cr = cr_from_mmr / 0.004
+        overflow_mmr = self.hiddenMMR - mmr_for_cr  # ← key fix
+        cd_from_overflow = overflow_mmr * 0.008
+
+        self.lastMmrCrContribution = cr_from_mmr
+
         if cr_from_mmr > 0:
             bl.append(Buff("SilverWolf999HiddenMMRCR", StatTypes.CR_PERCENT, cr_from_mmr, self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.END))
@@ -133,7 +149,7 @@ class SilverWolf999(Character):
         overflow_mmr = max(self.hiddenMMR - ((100 - self.CR * 100) / 0.4), 0)
         if overflow_mmr > 0:
             cd_from_mmr = overflow_mmr * 0.008
-            bl.append(Buff("SilverWolf999HiddenMMRCD", StatTypes.CD_PERCENT, cd_from_mmr, self.role,
+            bl.append(Buff("SilverWolf999HiddenMMRCD", StatTypes.CD_PERCENT, cd_from_overflow, self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.END))
 
     def _enterGodmode(self, bl: list, al: list) -> bool:
@@ -145,7 +161,7 @@ class SilverWolf999(Character):
             self.lastMMRThreshold = 0
             self.topLootBoxChance = 1.0
             self.topLootBoxTriggersRemaining = 3
-            self.hiddenMMR -= 20 if self.lightcone == "Welcome to the Cosmic City" else 40
+            self.hiddenMMR -= 20 if self.lightcone.name == "Welcome to the Cosmic City" else 40
 
             al.append(Advance("SilverWolf999GodmodeAdvance", self.role, 1.0))  # 100% advance
 
@@ -279,8 +295,12 @@ class SilverWolf999(Character):
         # Create Zone (logical marker for Top Loot Box triggers)
         bl.append(Buff("SilverWolf999Zone", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 999, 1,
                        self.role, TickDown.START))
+
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
+                 [0, 0], [0, 0], 0, self.scaling, 0, "SilverWolf999Ult"))
+
         if self.eidolon >= 1:
-            bl.append(Buff("SilverWolf999ZoneVul", StatTypes.VULN, 0.20, self.role, [AtkType.ALL], 3, 1,self.role, TickDown.END))
+            bl.append(Buff("SilverWolf999ZoneVul", StatTypes.VULN, 0.20, Role.ALL   , [AtkType.ALL], 3, 1,self.role, TickDown.END))
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(self.bestEnemy(-1), bl, al, dbl)
         tl.extend(extra_basic_turns)
         self._updateEnergyFromMMR()
@@ -297,6 +317,7 @@ class SilverWolf999(Character):
         base_mul = 2.64 / 100 if self.eidolon >= 3 else 2.40 / 100  # 220% split among 100 bounces
         e3Mul = 1.1 if self.eidolon >= 3 else 1
         e6Mul = 1.5 if self.eidolon >= 6 else 1.0
+        enemyCount = self._getEnemyCount()
 
         # DMG boost from Hidden MMR: +15% per 60 points (stackable up to 2x = +30%)
         mmr_boost_multiplier = 1.0 + (floor(min(self.hiddenMMR, 120) / 60) * 0.15)
@@ -317,7 +338,7 @@ class SilverWolf999(Character):
                 self._triggerTopLootBox(enemyID, tl, bl,is_sp_triggered=False)
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [e3Mul * e6Mul, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))
+                       [self.element], [e3Mul * e6Mul / enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))
 
         if self.Banger >= 1:
             e5Mul = 0.44 if self.eidolon >= 5 else 0.40
@@ -360,18 +381,16 @@ class SilverWolf999(Character):
             e6Mul = 1.0
         enemyCount = self._getEnemyCount()
 
-        # Top Loot Box hit: 90% split among enemies
-        # E6: Gain 40% more DMG
-        tlb_mul = e5Mul * e6Mul * (1.4 if self.eidolon >= 6 else 1.0)
+        tlb_mul = e5Mul * e6Mul
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [tlb_mul, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
+                       [self.element], [tlb_mul/enemyCount, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
 
         # Random effect
         effect = randrange(1, 4)
         if effect == 1:
             # Big Flipping Sword: 20% True DMG to highest HP enemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [e5Mul * 0.2 * enemyCount * e6Mul, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [e5Mul * 0.2 * e6Mul, 0], [0, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999BigFlippingSword"))
             logger.info(f"{self.name} Top Loot Box: Big Flipping Sword triggered")
         elif effect == 2:
@@ -462,12 +481,24 @@ class SilverWolf999(Character):
             self.hiddenMMR += self.TotalElationChar + Character.savedPunchline
 
         if result.turnName == "ElationMCUlt":
+            self.hiddenMMR += 5
             self.hiddenMMR += Character.ahaFixedPunchlineValue
 
         if result.turnName == "YaoGuangUlt":
             self.hiddenMMR += 5
+            self.hiddenMMR += Character.ahaFixedPunchlineValue
 
-        if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1:
+        if result.turnName == "AhaElationFixedEMCSequenceComplete":
+            Character.EMCUlt = False
+            self.lastPunchlineValue = Character.SharedPunchline
+
+        if self.godmodeActive == True and turn.moveName == "SparxieSkillElaExtra":
+            LootboxProcs = floor(turn.dmgSplit[0]/0.2)
+            i = 0
+            while i < LootboxProcs:
+                self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
+                i += 1
+        if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1 and turn.moveName != "SparxieSkill":
             self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
         # E2: Check for MMR threshold after ally turn damage (no AV advance)
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(turn.targetID, bl, al, dbl)
@@ -490,6 +521,8 @@ class SilverWolf999(Character):
         self.Banger = specialRes.attr6
         self.CR = specialRes.attr7
 
+        enemyCount = self._getEnemyCount()
+
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1,
                        Role.AHA, TickDown.START))
 
@@ -502,7 +535,7 @@ class SilverWolf999(Character):
                 bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, 99, self.role, [AtkType.ALL], 1, 1,
                               self.role, TickDown.START))
                 tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.ELABANGER],
-                              [self.element], [tlb_mul, 0], [0, 0], 0, Scaling.ELA, 0,
+                              [self.element], [tlb_mul/enemyCount, 0], [0, 0], 0, Scaling.ELA, 0,
                               "SilverWolf999TechniqueFunkyMunchBean"))
                 self.hiddenMMR = min(self.hiddenMMR + 3, self.hiddenMMR_MAX)
                 logger.info(f"{self.name} Technique: Funky Munch Bean triggered (+3 Punchline, 99 Banger used)")

@@ -6,12 +6,13 @@ from Character import Character
 from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
 from Lightcones.Elation.TomorrowTogether import TomorrowTogether
 from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC, MushyShroomysAdventuresSparxie
 from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
 from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
 from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -72,7 +73,7 @@ class Evanescia(Character):
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
         self.relicStats = subs if subs else RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 13, 10, StatTypes.CD_PERCENT,
-                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+                                                       StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.ATK_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.masterFoxEnergy = 0
@@ -171,7 +172,7 @@ class Evanescia(Character):
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.BSC], [self.element],
-                       [e3Mul, 0], [10, 0], 20*(1+self.ERR), self.scaling, 1, "EvanesciaBasic"))
+                       [e3Mul, 0], [10, 0], 20, self.scaling, 1, "EvanesciaBasic"))
         # Basic gives 20 ERR — sync to masterFoxEnergy
         self._addEnergy(20, bl, "Basic")
         return bl, dbl, al, dl, tl, hl
@@ -183,7 +184,7 @@ class Evanescia(Character):
         e5MulELA = 0.176 if self.eidolon >= 5 else 0.16
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.BLAST, [AtkType.SKL], [self.element],
-                       [e5MulMain, e5MulSub], [20, 10], 30*(1+self.ERR), self.scaling, -1, "EvanesciaSkill"))
+                       [e5MulMain, e5MulSub], [20, 10], 30, self.scaling, -1, "EvanesciaSkill"))
         Character.SharedPunchline += 10
         # Skill gives 30 ERR — sync to masterFoxEnergy
         self._addEnergy(30, bl, "Skill")
@@ -207,7 +208,7 @@ class Evanescia(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ULT], [self.element],
-                       [e3MulAOE, 0], [20, 0], 5*(1+self.ERR), self.scaling, 0, "EvanesciaUlt"))
+                       [e3MulAOE, 0], [20, 0], 5, self.scaling, 0, "EvanesciaUlt"))
 
         # NEW: Calculate bounce count based on enemy count
         # Base bounce is 5 (from the original single target turn below)
@@ -295,7 +296,7 @@ class Evanescia(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
-                       [e5Mul, 0], [20, 0], 5*(1+self.ERR), Scaling.ELA, 0, "EvanesciaELASkill"))
+                       [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
         bl.append(Buff("EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 100,
                  self.role, TickDown.END))
         self.currEnergy = self.currEnergy + BangerBuff

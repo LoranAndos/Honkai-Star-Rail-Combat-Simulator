@@ -43,6 +43,7 @@ class Character(metaclass=CharacterMeta):
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
+    EMCUlt = False
     ahaElaDMGBoost = 1.0
     savedPunchline = 0
     prePunchline = 0

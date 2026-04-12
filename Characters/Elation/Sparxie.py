@@ -3,7 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventures
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSparxie
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
@@ -53,11 +53,11 @@ class Sparxie(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventures(role, 5)
+        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role, 5)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 5, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
@@ -176,10 +176,15 @@ class Sparxie(Character):
 
         if self.eidolon >= 1 and result.turnName == "AhaElationSequenceComplete":
             Character.SharedPunchline += 5
+
+        if self.eidolon >= 1 and result.turnName == "AhaElationFixedSequenceComplete":
+            Character.SharedPunchline += 5
+
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
@@ -230,12 +235,12 @@ class Sparxie(Character):
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
             self.tech = False
-        bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.START))
-        bl.append(Buff("SparxiePunchtoCD", StatTypes.CD_PERCENT, min(self.prePunchline * 0.08, 0.8), Role.ALL, [AtkType.ALL],
-                 1, 1, self.role, TickDown.START))
+        bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
+        bl.append(Buff("SparxiePunchtoCD", StatTypes.CD_PERCENT, min(Character.SharedPunchline * 0.08, 0.8), Role.ALL, [AtkType.ALL],
+                 1, 1, self.role, TickDown.END))
         if self.eidolon >= 1:
-            bl.append(Buff("SparxiePunchtoPEN", StatTypes.PEN, min(self.prePunchline * 0.015, 0.15), Role.ALL, [AtkType.ALL],
-                     1, 1, self.role, TickDown.START))
+            bl.append(Buff("SparxiePunchtoPEN", StatTypes.PEN, min(Character.SharedPunchline * 0.015, 0.15), Role.ALL, [AtkType.ALL],
+                     1, 1, self.role, TickDown.END))
         return bl, dbl, al, dl, tl, hl
 
     def addThrill(self, amount: int):
