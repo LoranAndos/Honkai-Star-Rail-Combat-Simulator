@@ -140,7 +140,7 @@ class ElationMC(Character):
             return self.useElaSkill(-1)
 
         if turn.moveName == "ElationMCSkillNormal":
-            attackerBanger = self.BangerDict.get(Role.DPS, 0)
+            attackerBanger = self.BangerDict.get(self.role, 0)
             ElationMCBanger = self.BangerDict.get(self.role, 0)
             # If attacker has higher ELA, add the difference as a temporary buff on ElationMC
             if attackerBanger > ElationMCBanger:

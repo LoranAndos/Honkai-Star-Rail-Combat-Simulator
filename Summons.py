@@ -65,6 +65,7 @@ class Fuyuan(Summon):
     element = Element.FIRE
     scaling = Scaling.ATK
     currSPD = 90
+    baseSPD = 90
     currAV = 10000 / currSPD
 
     def __init__(self, ownerRole: Role, role: Role) -> None:

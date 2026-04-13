@@ -258,10 +258,12 @@ def sumBuffs(buffList: list[Buff]):
     return sum([x.getBuffVal() for x in buffList])
 
 def getCharSPD(char, buffList):
-    if char.isSummon():
+    if char.isSummon() and char.name != "Fuyuan":
         spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList))
         spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
         return char.baseSPD * (1 + spdPercent) + spdFlat  # ← use baseSPD not currSPD
+    elif char.isSummon() and char.name == "Fuyuan":
+        return char.baseSPD
     baseSPD = char.baseSPD
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
     spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList)) + char.getSPD()
