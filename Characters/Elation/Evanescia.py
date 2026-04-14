@@ -249,9 +249,10 @@ class Evanescia(Character):
 
         if self.eidolon == 6:
             if self.UltCounter % 4 == 0:
-                bl.append(Buff("EvanesciaUltExtraERR", StatTypes.ERR_F, 120, self.role, [AtkType.ALL], 1, 1, self.role,
-                               TickDown.START))
-                self._addEnergy(120, bl, "E6Ult")
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
+                               Targeting.NA, [AtkType.ALL], [self.element],
+                               [0, 0], [0, 0], 120/(1+self.ERR), self.scaling, 0, "EvanesciaUltExtraERR"))
+                self._addEnergy(120/(1+self.ERR), bl, "E6Ult")
             self.UltCounter += 1
 
         self._tryMasterFoxFUA(enemyID, bl, tl)

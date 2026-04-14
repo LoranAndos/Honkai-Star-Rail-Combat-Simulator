@@ -64,7 +64,7 @@ class HuoHuo(Character):
         self.planar = pl if pl else BrokenKeel(self.role)
         self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 13, 2, 2, 2, 2, 4, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["A","E","E"])
+        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["E","E","A"])
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
