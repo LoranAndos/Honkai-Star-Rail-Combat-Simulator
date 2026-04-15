@@ -394,7 +394,7 @@ class Evanescia(Character):
         self._addBangerEnergy(convertedBanger, bl, f"ExpiredFrom_{source}")
 
     def receiveEnergyBuff(self, energyAmount: int, source: str, bl: list):
-        """NEW: Called when Evanescia receives an energy buff from another character.
+        """ Called when Evanescia receives an energy buff from another character.
         Converts the energy into Banger (capped at 100 per instance).
         """
         bangerGain = min(energyAmount, 100)
@@ -407,7 +407,7 @@ class Evanescia(Character):
         logger.debug(f"{self.name} +{energyAmount} masterFoxEnergy from buff (total {self.masterFoxEnergy})")
 
     def receiveEnergyFromDamage(self, energyAmount: int, bl: list):
-        """NEW: Called when Evanescia receives energy from being hit.
+        """ Called when Evanescia receives energy from being hit.
         Converts the energy into Banger (capped at 100 per instance).
         """
         bangerGain = min(energyAmount, 100)

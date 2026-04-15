@@ -145,10 +145,9 @@ class SilverWolf999(Character):
             bl.append(Buff("SilverWolf999HiddenMMRCR", StatTypes.CR_PERCENT, cr_from_mmr, self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.END))
 
-        # After 100% CR, overflow MMR becomes CRIT DMG: 0.6% per point
+        # After 100% CR, overflow MMR becomes CRIT DMG: 0.8% per point
         overflow_mmr = max(self.hiddenMMR - ((100 - self.CR * 100) / 0.4), 0)
         if overflow_mmr > 0:
-            cd_from_mmr = overflow_mmr * 0.008
             bl.append(Buff("SilverWolf999HiddenMMRCD", StatTypes.CD_PERCENT, cd_from_overflow, self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.END))
 
