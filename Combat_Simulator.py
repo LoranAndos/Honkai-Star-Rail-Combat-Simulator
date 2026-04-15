@@ -49,11 +49,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = ElationMC(2, Role.SUBDPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -369,7 +368,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True   # Set to True for multiple runs, False for single run
+    multiRun = False # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -403,7 +402,7 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
@@ -425,7 +424,7 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Evanescia(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+                slot1 = Evanescia(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
                 slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
                 slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)

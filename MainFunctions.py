@@ -481,6 +481,8 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
         errMul = getMulERR(char, enemyTeam[0], buffList, [], placeHolderTurn) if not char.specialEnergy else 0
         if numAttacks != 0:
             char.addEnergy(finalEnergy[i] * errMul)
+            if char.name == "Evanescia":
+                char.masterFoxEnergy += finalEnergy[i] * errMul
     return [i / (actAttacks) for i in finalEnergy]
 
 

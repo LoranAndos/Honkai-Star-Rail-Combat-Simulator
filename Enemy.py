@@ -12,7 +12,7 @@ class Enemy:
         self.level = level
         self.enemyType = enemyType
         self.spd = spd
-        self.atk = 738
+        self.atk = 718
         self.currSPD = self.spd
         self.toughness = toughness
         self.gauge = self.toughness

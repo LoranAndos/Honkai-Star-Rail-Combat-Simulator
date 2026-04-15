@@ -194,7 +194,7 @@ class Aha(Summon):
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn, result):
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "YaoGuangUlt":
             self.IsAhaTurn = True
             ElationAmount = 0
