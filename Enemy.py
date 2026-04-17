@@ -1,12 +1,24 @@
 # actionOrder = [1,1,2] means single attack, single attack, double attack
 from Attributes import *
 
+# ── Global switch ──────────────────────────────────────────────────────────────
+# True  → enemies have fixed HP; they "die", reset, and the killer earns energy.
+# False → enemies have infinite HP (original behaviour).
+FINITE_ENEMY_HP = False
+
+# Kill-energy rewards per enemy type
+KILL_ENERGY = {
+    EnemyType.BOSS:  20,
+    EnemyType.ELITE: 10,
+    EnemyType.ADD:    5,
+}
+
 class Enemy:
     broken = False
     role = Role.ENEMY
 
     def __init__(self, enemyID: int, level: int, enemyType: EnemyType, spd: float, toughness: int, actionOrder: list,
-                 weakness: list, adjacent: list, CanDoDamage: bool):
+                 weakness: list, adjacent: list, CanDoDamage: bool, maxHP: float = 1_000_000):
         self.enemyID = enemyID
         self.name = f"Enemy {self.enemyID}"
         self.level = level
@@ -25,8 +37,9 @@ class Enemy:
         self.maxToughnessMul = 0.5 + (self.toughness / 40)
         self.priority = 0
         self.debuffDMG = 0
-        self.maxHP = 1000000
-        self.currHP = 1000000
+        self.maxHP = maxHP
+        self.currHP = maxHP
+        self.overkillDMG = 0.0   # total damage that exceeded the enemy's max HP
 
     def __str__(self) -> str:
         res = f"Enemy {self.enemyID} | LVL: {self.level} | SPD: {self.spd} | "
@@ -81,6 +94,46 @@ class Enemy:
 
     def addDebuffDMG(self, dmg: float):
         self.debuffDMG = self.debuffDMG + dmg
+
+    # ── HP / kill helpers ──────────────────────────────────────────────────────
+
+    def takeHit(self, dmg: float) -> bool:
+        """Remove dmg from currHP (only when FINITE_ENEMY_HP is on).
+        Tracks overkill. Returns True if the enemy just died."""
+        if not FINITE_ENEMY_HP:
+            return False
+        if self.currHP <= 0:
+            return False                     # already dead / waiting for respawn
+        self.currHP -= dmg
+        if self.currHP <= 0:
+            self.overkillDMG += abs(self.currHP)   # how far below 0 we went
+            self.currHP = 0
+            return True
+        return False
+
+    def isDead(self) -> bool:
+        return FINITE_ENEMY_HP and self.currHP <= 0
+
+    def respawn(self):
+        """Reset to full HP and advance AV by 100% (instant next turn)."""
+        self.currHP = self.maxHP
+        self.currAV = 0.0          # 100% AV forward = act immediately
+
+    def getDefMul(self, attackerLevel: int) -> float:
+        """DEF multiplier for incoming attacks from a unit of attackerLevel."""
+        return 1 - (self.level / (self.level + 200 + 10 * attackerLevel))
+
+    def calcDamageTo(self, targetDef: float, targetLevel: int, dmgPercent: float = 1.0) -> float:
+        """Flat outgoing damage this enemy deals to a character.
+
+        Formula mirrors the character formula:
+            baseDMG = ATK * dmgPercent
+            defMul  = 1 - (charDEF / (charDEF + 200 + 10 * enemyLevel))
+        dmgPercent defaults to 1.0 (100% ATK hit).
+        """
+        base = self.atk * dmgPercent
+        defMul = 1 - (targetDef / (targetDef + 200 + 10 * self.level))
+        return base * defMul
 
 
 class EnemyModule:

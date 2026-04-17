@@ -6,7 +6,7 @@ from wsgiref.handlers import CGIHandler
 import Character
 import Turn_Text
 from Character import *
-from Enemy import Enemy
+from Enemy import Enemy, KILL_ENERGY, FINITE_ENEMY_HP
 from Attributes import *
 from Healing import *
 from Lightcone import Lightcone
@@ -405,85 +405,128 @@ def delayAdjustment(enemyTeam: list[Enemy], delayList: list[Delay], debuffList: 
 
 
 # noinspection PyUnresolvedReferences
-def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: int, attackTypeRatio: list[float], buffList: list[Buff]):
-    aggroLst = []
-    for char in playerTeam:
-        aggro = char.aggro
-        aggroLst.append(aggro)
-    actAttacks = 1 if numAttacks == 0 else numAttacks
+def resolveEnemyTargeting(enemy: Enemy, playerTeam: list[Character]) -> tuple[str, list[int]]:
+    """Determine attack type and which player indices are hit for one enemy attack.
+
+    Returns (attackTypeName, list_of_hit_indices).
+
+    ADD:   always single target
+    ELITE: 50% single, 50% blast
+    BOSS:  50% blast,  50% aoe
+    """
+    n = len(playerTeam)
+    aggroLst = [char.aggro for char in playerTeam]
     aggroSum = sum(aggroLst)
-    AggroNumber = randrange(1,aggroSum+1, 1)
-    finalEnergy = [0]*len(playerTeam)
+
+    # Pick main target via aggro
+    roll = randrange(1, aggroSum + 1)
+    mainIdx = 0
+    cumulative = 0
+    for i, aggro in enumerate(aggroLst):
+        cumulative += aggro
+        if roll <= cumulative:
+            mainIdx = i
+            break
+
+    if enemy.enemyType == EnemyType.ADD:
+        return "single", [mainIdx]
+
+    elif enemy.enemyType == EnemyType.ELITE:
+        if randrange(1, 3) == 1:  # 50% single
+            return "single", [mainIdx]
+        else:                      # 50% blast
+            hit = [mainIdx]
+            if mainIdx > 0:
+                hit.append(mainIdx - 1)
+            if mainIdx < n - 1:
+                hit.append(mainIdx + 1)
+            return "blast", hit
+
+    else:  # BOSS
+        if randrange(1, 3) == 1:  # 50% blast
+            hit = [mainIdx]
+            if mainIdx > 0:
+                hit.append(mainIdx - 1)
+            if mainIdx < n - 1:
+                hit.append(mainIdx + 1)
+            return "blast", hit
+        else:                      # 50% aoe
+            return "aoe", list(range(n))
+
+
+# noinspection PyUnresolvedReferences
+def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: int,
+              attackTypeRatio: list[float], buffList: list[Buff]):
+    actAttacks = 1 if numAttacks == 0 else numAttacks
+    finalEnergy = [0.0] * len(playerTeam)
+
     for enemy in enemyTeam:
-        Number_Keeper = 0
-        if enemy.enemyType == EnemyType.ADD:
-            for a in range(len(playerTeam)-1):
-                if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
-                    finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Single Target hit = 10 energy
-                    Number_Keeper = Number_Keeper + aggroLst[a]
-                else:
-                    finalEnergy[a] = 0
-                Number_Keeper = Number_Keeper + aggroLst[a]
-        elif enemy.enemyType == EnemyType.ELITE:
-            AttackTypeChooser = randrange(1,3,1)
-            if AttackTypeChooser == 1:
-                for a in range(len(playerTeam)-1):
-                    if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] - 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Single Target hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    else:
-                        finalEnergy[a] = finalEnergy[a] + 0
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-            if AttackTypeChooser == 2:
-                for a in range(len(playerTeam)-1):
-                    if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and (a != 1 and a != len(playerTeam)):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == len(playerTeam):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    else:
-                        finalEnergy[a] = finalEnergy[a] + 0
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-        elif enemy.enemyType == EnemyType.BOSS:
-            AttackTypeChooser = randrange(1,3,1)
-            if AttackTypeChooser == 1:
-                for a in range(len(playerTeam)-1):
-                    if AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == 1:
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and (a != 1 and a != len(playerTeam)):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a+1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    elif AggroNumber > Number_Keeper and AggroNumber < Number_Keeper + aggroLst[a] -1 and a == len(playerTeam):
-                        finalEnergy[a] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        finalEnergy[a-1] = (finalEnergy[a] + 10)*actAttacks/len(enemyTeam) # Blast hit = 10 energy
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-                    else:
-                        finalEnergy[a] = finalEnergy[a]
-                        Number_Keeper = Number_Keeper + aggroLst[a]
-            if AttackTypeChooser == 2:
-                for a in range(len(playerTeam)):
-                    finalEnergy[a] = (finalEnergy[a] + 5)*actAttacks
-    for i in range(len(playerTeam)):
-        char = playerTeam[i]
-        placeHolderTurn = Turn(char.name, char.role, -1, Targeting.NA, [AtkType.SPECIAL], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "HitEnergyPlaceholder")
+        atkType, hitIdxs = resolveEnemyTargeting(enemy, playerTeam)
+        # Single/blast = 10 energy per hit; AOE = 5 energy per hit (mirrors original)
+        energyPerHit = 5.0 if atkType == "aoe" else 10.0
+        for idx in hitIdxs:
+            finalEnergy[idx] += energyPerHit * actAttacks / len(enemyTeam)
+
+    for i, char in enumerate(playerTeam):
+        placeHolderTurn = Turn(char.name, char.role, -1, Targeting.NA, [AtkType.SPECIAL], [char.element],
+                               [0, 0], [0, 0], 0, char.scaling, 0, "HitEnergyPlaceholder")
         errMul = getMulERR(char, enemyTeam[0], buffList, [], placeHolderTurn) if not char.specialEnergy else 0
         if numAttacks != 0:
             char.addEnergy(finalEnergy[i] * errMul)
-            if char.name == "Evanescia":
-                char.masterFoxEnergy += finalEnergy[i] * errMul
-    return [i / (actAttacks) for i in finalEnergy]
+
+    return [e / actAttacks for e in finalEnergy]
+
+
+def getCharDEF(char: Character, buffList: list[Buff]) -> float:
+    """Return character's effective DEF stat including buffs."""
+    baseDEF = char.getBaseStat(Scaling.DEF)[0] if hasattr(char, 'getBaseStat') else 0
+    defPercent = sumBuffs(findBuffs(char.role, StatTypes.DEF_PERCENT, buffList))
+    defFlat = sumBuffs(findBuffs(char.role, StatTypes.DEF, buffList))
+    return baseDEF * (1 + defPercent) + defFlat
+
+
+def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], numAttacks: int,
+                       buffList: list[Buff]) -> tuple[bool, list[str]]:
+    """Deal damage from one enemy's attacks to the targeted characters.
+
+    Uses the same targeting logic as addEnergy (resolveEnemyTargeting) so that
+    the characters who receive energy are exactly the ones who take damage.
+
+    DEF formula: defMul = 1 - charDEF / (charDEF + 200 + 10 * enemyLevel)
+
+    Returns (run_should_stop, death_messages).
+    """
+    if not enemy.CanDoDamage:
+        return False, []
+
+    death_messages = []
+    run_stop = False
+
+    for _ in range(numAttacks):
+        atkType, hitIdxs = resolveEnemyTargeting(enemy, playerTeam)
+        # AOE hits are split-damage and deal slightly less per target
+        dmgPercent = 0.5 if atkType == "aoe" else 1.0
+
+        for idx in hitIdxs:
+            char = playerTeam[idx]
+            charDEF = getCharDEF(char, buffList)
+            charLevel = char.level if hasattr(char, 'level') else 80
+            dmg = enemy.calcDamageTo(charDEF, charLevel, dmgPercent)
+            char.ChangeHpValue(-dmg)
+
+            logger.info(
+                f"    ENEMY  - {enemy.name} [{atkType}] dealt {dmg:.1f} to {char.name} "
+                f"(DEF: {charDEF:.0f}) | HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
+
+            if char.currHP <= 0:
+                msg = (f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped.")
+                logger.critical(msg)
+                death_messages.append(msg)
+                run_stop = True
+
+    # Kill check: if enemy HP hit 0 from debuff/other damage grant energy to last attacker
+    # (direct hit kills are handled in processTurnList via takeHit)
+    return run_stop, death_messages
 
 
 def checkInTeam(name: str, team: list[Character]) -> bool:
@@ -654,13 +697,28 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         #    print(f"ELA DEBUG | effectiveBase: {effectiveBase:.3f} | percentMul: {percentMultiplier:.3f} | PunchMUL: {PunchMUL:.3f} | MerryMUL: {MerryMUL:.3f} | enemyMul: {enemyMul:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f}")
 
         if currTurn.atkType[0] == AtkType.ELABANGER:
-            ElationturnDmg += expectedDMG(
+            hitDmg = expectedDMG(
                 7535.107 * (1 + effectiveBase) * percentMultiplier * BangerMUL * MerryMUL * enemyMul, charCR, charCD)
+            ElationturnDmg += hitDmg
         elif currTurn.atkType[0] == AtkType.ELAPUNCH:
-            ElationturnDmg += expectedDMG(
+            hitDmg = expectedDMG(
                 7535.107 * (1 + effectiveBase) * percentMultiplier * PunchMUL * MerryMUL * enemyMul, charCR, charCD)
+            ElationturnDmg += hitDmg
         else:
-            turnDmg += expectedDMG(effectiveBase * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+            hitDmg = expectedDMG(effectiveBase * charDMG * percentMultiplier * enemyMul, charCR, charCD)
+            turnDmg += hitDmg
+
+        # Apply damage to enemy HP and handle kill
+        if currEnemy.takeHit(hitDmg):
+            killMsg = (f"    KILL   - {char.name} killed {currEnemy.name} "
+                       f"(overkill: {currEnemy.overkillDMG:.1f})")
+            logger.warning(killMsg)
+            killEnergy = KILL_ENERGY.get(currEnemy.enemyType, 0)
+            if killEnergy > 0:
+                char.addEnergy(killEnergy)
+                logger.info(f"    ENERGY - {char.name} gained {killEnergy} energy for kill")
+            currEnemy.respawn()
+            logger.info(f"    SPAWN  - {currEnemy.name} respawned at full HP, AV set to 0")
 
         gauge = 0
         if checkValidList(currTurn.element, currEnemy.weakness):
@@ -841,16 +899,16 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character],
                           enemyTeam: list[Enemy]) -> list[Buff]:
-    """Handle energy from all sources and convert to Banger for Evanescia."""
+    """Handle energy from ERR_T and ERR_F buffs. For Evanescia, also emit a Banger buff
+    equal to the energy received (capped at 100 per instance).
+    Master Fox fires based on currEnergy crossing multiples of 240 — no separate tracker.
+    """
     errBuffs, newList = [], []
     for buff in buffList:
         if buff.buffType == StatTypes.ERR_T or buff.buffType == StatTypes.ERR_F:
             errBuffs.append(buff)
         else:
             newList.append(buff)
-
-    # Track energy added for Banger conversion
-    evanescia_energy_gained = {}  # {role: amount}
 
     for eb in errBuffs:
         char = findCharRole(playerTeam, eb.target)
@@ -861,33 +919,23 @@ def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], player
         errToAdd = eb.getBuffVal() * charERR
         char.addEnergy(errToAdd)
 
-        # Track energy for Evanescia
-        if char.name == "Evanescia":
-            evanescia_energy_gained[char.role] = evanescia_energy_gained.get(char.role, 0) + errToAdd
-
         logger.info(
             f"ERR    > {errToAdd:.3f} energy added to {char.name} from {eb.name} | {char.name} Energy: {char.currEnergy:.3f}")
 
-    # Convert Evanescia's energy gains to Banger
-    if evanescia_energy_gained:
-        evanescia = findCharName(playerTeam, "Evanescia")
-        if evanescia:
-            for role, energy_amt in evanescia_energy_gained.items():
-                # Energy → Banger conversion: add Banger buff equal to energy gained
-                banger_buff = Buff(
-                    f"EvanesciaBangerFromEnergy_{energy_amt:.0f}",
-                    StatTypes.BANGER,
-                    int(energy_amt),  # Convert to Banger
-                    evanescia.role,
-                    [AtkType.ALL],
-                    1,
-                    1,
-                    evanescia.role,
-                    TickDown.END
-                )
-                newList.append(banger_buff)
-                logger.info(
-                    f"BANGER > {energy_amt:.1f} Banger added to {evanescia.name} from energy gain | Total Banger: {int(energy_amt)}")
+        # Evanescia talent: gaining Energy also gains equal Banger (capped at 100 per instance)
+        if char.name == "Evanescia":
+            bangerGain = min(int(errToAdd), 100)
+            newList.append(Buff(
+                f"EvanesciaBangerFromEnergy_{eb.name}",
+                StatTypes.BANGER,
+                bangerGain,
+                char.role,
+                [AtkType.ALL],
+                1, 1,
+                char.role,
+                TickDown.END
+            ))
+            logger.info(f"BANGER > {bangerGain} Banger added to Evanescia from {eb.name}")
 
     return newList
 
@@ -1486,6 +1534,20 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             print(result)
         teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, [], newDebuffs, [], newDelays, [])
 
+        # For Evanescia specifically: apply her own action's errGain to currEnergy immediately
+        # so _tryMasterFoxFUA in ownTurn sees the correct post-action energy.
+        # To prevent handleEnergyFromBuffs from double-applying it, remove the matching
+        # ERR buff that handleTurn placed into teamBuffs for this turn.
+        if res.errGain > 0 and char.name == "Evanescia":
+            char.addEnergy(res.errGain)
+            # Strip the ERR buff the Turn's errGain produced for Evanescia so it isn't
+            # applied a second time by handleEnergyFromBuffs.
+            teamBuffs = [b for b in teamBuffs if not (
+                b.target == char.role and
+                b.buffType in (StatTypes.ERR_T, StatTypes.ERR_F) and
+                abs(b.getBuffVal() - res.errGain) < 0.01
+            )]
+
         for char in playerTeam + summons:
             if char.role == turn.charRole:
                 tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)
@@ -1510,6 +1572,20 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
     turnList = []
     # Check if any unit can ult
     for char in playerTeam:
+        # For Evanescia: check Master Fox BEFORE the ult consumes energy,
+        # so any pending threshold fires first.
+        if char.name == "Evanescia" and char.canUseUlt():
+            fox_bl, fox_dbl, fox_al, fox_dl, fox_tl, fox_hl = [], [], [], [], [], []
+            if char._tryMasterFoxFUA(-1, fox_bl, fox_tl):
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(
+                    playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,
+                    fox_bl, fox_dbl, fox_al, fox_dl, fox_hl)
+                turnList.extend(fox_tl)
+                teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(
+                    turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList,
+                    delayList, healingList, spTracker, dmgTracker, manualMode=manualMode)
+                teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
+
         if char.canUseUlt():
             action, target = "Y", -1
             if manualMode:

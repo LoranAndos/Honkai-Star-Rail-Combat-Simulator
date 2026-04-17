@@ -47,6 +47,7 @@ class ElationMC(Character):
     bangerBonus = 0
     UltBangerBonus = 0
     preFiredPunchline = 0
+    EvanesciaInTeam = False
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -94,7 +95,11 @@ class ElationMC(Character):
         e3Mul = 0.66 if self.eidolon >= 3 else 0.6
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
                        [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkillNormal"))
-        bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,20 + self.bangerBonus ,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
+        if self.EvanesciaInTeam:
+            BangerReduction = 0.5
+        else:
+            BangerReduction = 1.0
+        bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,(20 + self.bangerBonus)*BangerReduction,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         self.UltBangerBonus += 2
@@ -203,6 +208,7 @@ class ElationMC(Character):
         self.BangerDict = specialRes.attr6
         self.targetHasElaSkill = specialRes.attr7
         self.targetElaSkillTurn = specialRes.attr8
+        self.EvanesciaInTeam = specialRes.attr9
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
         bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         return bl, dbl, al, dl, tl, hl

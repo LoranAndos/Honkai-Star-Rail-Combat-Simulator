@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 76230.045 | SilverWolf999: 50257.872 | Sparxie: 17344.814 | YaoGuang: 8135.142 | Lingsha: 176.072
+Run    2: Team DPAV: 70726.963 | SilverWolf999: 45662.898 | Sparxie: 16545.098 | YaoGuang: 8030.148 | Lingsha: 179.588
+Run    3: Team DPAV: 77614.407 | SilverWolf999: 52548.829 | Sparxie: 16449.887 | YaoGuang: 8125.040 | Lingsha: 174.504
+Run    4: Team DPAV: 75762.381 | SilverWolf999: 49480.846 | Sparxie: 17472.341 | YaoGuang: 8346.274 | Lingsha: 171.979
+Run    5: Team DPAV: 80336.602 | SilverWolf999: 53463.977 | Sparxie: 17952.935 | YaoGuang: 8436.302 | Lingsha: 172.468
+Run    6: Team DPAV: 74878.311 | SilverWolf999: 48664.375 | Sparxie: 17423.087 | YaoGuang: 8352.798 | Lingsha: 158.483
+Run    7: Team DPAV: 70337.874 | SilverWolf999: 45053.887 | Sparxie: 16802.575 | YaoGuang: 7990.922 | Lingsha: 174.343
+Run    8: Team DPAV: 65074.155 | SilverWolf999: 40576.291 | Sparxie: 16349.640 | YaoGuang: 7681.266 | Lingsha: 157.727
+Run    9: Team DPAV: 69780.144 | SilverWolf999: 44341.472 | Sparxie: 16731.272 | YaoGuang: 8246.353 | Lingsha: 176.715
+Run   10: Team DPAV: 75133.999 | SilverWolf999: 49700.290 | Sparxie: 17101.888 | YaoGuang: 7911.675 | Lingsha: 151.030
+Run   11: Team DPAV: 73626.068 | SilverWolf999: 47925.232 | Sparxie: 17172.491 | YaoGuang: 8039.570 | Lingsha: 179.545
+Run   12: Team DPAV: 77365.075 | SilverWolf999: 50304.392 | Sparxie: 18061.834 | YaoGuang: 8561.059 | Lingsha: 158.223
+Run   13: Team DPAV: 65582.060 | SilverWolf999: 41430.599 | Sparxie: 15949.270 | YaoGuang: 7736.438 | Lingsha: 156.523
+Run   14: Team DPAV: 73668.393 | SilverWolf999: 46828.557 | Sparxie: 18111.889 | YaoGuang: 8235.340 | Lingsha: 176.460
+Run   15: Team DPAV: 65557.552 | SilverWolf999: 40700.124 | Sparxie: 16612.109 | YaoGuang: 7757.121 | Lingsha: 178.967
+Run   16: Team DPAV: 76647.452 | SilverWolf999: 50915.247 | Sparxie: 16847.342 | YaoGuang: 8440.692 | Lingsha: 175.054
+Run   17: Team DPAV: 76208.620 | SilverWolf999: 50609.635 | Sparxie: 16993.608 | YaoGuang: 8159.989 | Lingsha: 176.272
+Run   18: Team DPAV: 78098.448 | SilverWolf999: 50769.903 | Sparxie: 18279.159 | YaoGuang: 8554.395 | Lingsha: 178.845
+Run   19: Team DPAV: 75342.238 | SilverWolf999: 48196.702 | Sparxie: 18353.761 | YaoGuang: 8316.756 | Lingsha: 158.873
+Run   20: Team DPAV: 74657.776 | SilverWolf999: 48873.465 | Sparxie: 16975.052 | YaoGuang: 8371.010 | Lingsha: 176.049
+Run   21: Team DPAV: 71026.138 | SilverWolf999: 45700.652 | Sparxie: 16827.788 | YaoGuang: 8011.281 | Lingsha: 177.187
+Run   22: Team DPAV: 69118.177 | SilverWolf999: 43766.701 | Sparxie: 16956.114 | YaoGuang: 7969.793 | Lingsha: 156.453
+Run   23: Team DPAV: 73839.849 | SilverWolf999: 46935.044 | Sparxie: 18141.288 | YaoGuang: 8315.911 | Lingsha: 178.490
+Run   24: Team DPAV: 72677.297 | SilverWolf999: 46979.148 | Sparxie: 17221.221 | YaoGuang: 7988.920 | Lingsha: 178.778
+Run   25: Team DPAV: 69402.527 | SilverWolf999: 43453.504 | Sparxie: 17314.628 | YaoGuang: 8188.794 | Lingsha: 176.485
+Run   26: Team DPAV: 77110.734 | SilverWolf999: 50072.967 | Sparxie: 18234.016 | YaoGuang: 8308.326 | Lingsha: 179.279
+Run   27: Team DPAV: 77687.023 | SilverWolf999: 52086.337 | Sparxie: 17063.497 | YaoGuang: 8052.164 | Lingsha: 168.879
+Run   28: Team DPAV: 72904.842 | SilverWolf999: 47132.403 | Sparxie: 17058.471 | YaoGuang: 8250.292 | Lingsha: 171.506
+Run   29: Team DPAV: 74771.001 | SilverWolf999: 48513.028 | Sparxie: 17647.989 | YaoGuang: 8121.710 | Lingsha: 179.044
+Run   30: Team DPAV: 71439.097 | SilverWolf999: 45737.934 | Sparxie: 17234.469 | YaoGuang: 7997.112 | Lingsha: 153.436
+Run   31: Team DPAV: 66427.198 | SilverWolf999: 41713.446 | Sparxie: 16348.983 | YaoGuang: 7885.359 | Lingsha: 171.102
+Run   32: Team DPAV: 63422.143 | SilverWolf999: 39487.102 | Sparxie: 15726.154 | YaoGuang: 7720.726 | Lingsha: 178.932
+Run   33: Team DPAV: 67352.642 | SilverWolf999: 42294.294 | Sparxie: 16668.539 | YaoGuang: 7901.845 | Lingsha: 178.734
+Run   34: Team DPAV: 69355.734 | SilverWolf999: 45290.528 | Sparxie: 15776.766 | YaoGuang: 7804.684 | Lingsha: 167.610
+Run   35: Team DPAV: 74406.279 | SilverWolf999: 47677.425 | Sparxie: 18063.151 | YaoGuang: 8179.254 | Lingsha: 177.218
+Run   36: Team DPAV: 76539.563 | SilverWolf999: 49696.406 | Sparxie: 17939.902 | YaoGuang: 8482.731 | Lingsha: 151.408
+Run   37: Team DPAV: 69738.828 | SilverWolf999: 44332.748 | Sparxie: 17127.006 | YaoGuang: 7814.273 | Lingsha: 155.571
+Run   38: Team DPAV: 67043.781 | SilverWolf999: 42223.774 | Sparxie: 16681.643 | YaoGuang: 7672.191 | Lingsha: 156.944
+Run   39: Team DPAV: 79545.817 | SilverWolf999: 51947.466 | Sparxie: 18486.601 | YaoGuang: 8663.753 | Lingsha: 178.882
+Run   40: Team DPAV: 69686.314 | SilverWolf999: 44530.931 | Sparxie: 16707.769 | YaoGuang: 7960.341 | Lingsha: 178.044
+Run   41: Team DPAV: 72107.671 | SilverWolf999: 47091.152 | Sparxie: 16605.056 | YaoGuang: 7927.421 | Lingsha: 174.812
+Run   42: Team DPAV: 72742.104 | SilverWolf999: 47433.083 | Sparxie: 16734.667 | YaoGuang: 8082.356 | Lingsha: 175.852
+Run   43: Team DPAV: 71322.849 | SilverWolf999: 45017.991 | Sparxie: 17683.915 | YaoGuang: 8126.151 | Lingsha: 178.646
+Run   44: Team DPAV: 73397.712 | SilverWolf999: 46738.989 | Sparxie: 17927.387 | YaoGuang: 8236.863 | Lingsha: 178.327
+Run   45: Team DPAV: 63968.880 | SilverWolf999: 40073.991 | Sparxie: 15589.045 | YaoGuang: 7822.011 | Lingsha: 174.604
+Run   46: Team DPAV: 69002.370 | SilverWolf999: 44010.437 | Sparxie: 16544.990 | YaoGuang: 8020.336 | Lingsha: 153.957
+Run   47: Team DPAV: 75341.084 | SilverWolf999: 48864.827 | Sparxie: 17665.529 | YaoGuang: 8361.435 | Lingsha: 180.177
+Run   48: Team DPAV: 76679.934 | SilverWolf999: 49518.101 | Sparxie: 18226.746 | YaoGuang: 8452.470 | Lingsha: 174.310
+Run   49: Team DPAV: 75568.812 | SilverWolf999: 48988.374 | Sparxie: 17596.476 | YaoGuang: 8489.274 | Lingsha: 178.542
+Run   50: Team DPAV: 74036.089 | SilverWolf999: 48462.498 | Sparxie: 16713.177 | YaoGuang: 8369.425 | Lingsha: 174.843
+Run   51: Team DPAV: 73244.591 | SilverWolf999: 47294.697 | Sparxie: 17277.146 | YaoGuang: 8177.227 | Lingsha: 179.375
+Run   52: Team DPAV: 73364.412 | SilverWolf999: 47337.721 | Sparxie: 17315.501 | YaoGuang: 8218.971 | Lingsha: 176.072
+Run   53: Team DPAV: 72016.254 | SilverWolf999: 45830.878 | Sparxie: 17661.240 | YaoGuang: 8035.535 | Lingsha: 179.371
+Run   54: Team DPAV: 63476.022 | SilverWolf999: 38944.844 | Sparxie: 16305.731 | YaoGuang: 7738.392 | Lingsha: 177.825
+Run   55: Team DPAV: 69973.361 | SilverWolf999: 44011.608 | Sparxie: 17373.090 | YaoGuang: 8100.358 | Lingsha: 179.075
+Run   56: Team DPAV: 67476.650 | SilverWolf999: 41933.749 | Sparxie: 16903.006 | YaoGuang: 8149.369 | Lingsha: 174.380
+Run   57: Team DPAV: 77664.662 | SilverWolf999: 50515.216 | Sparxie: 18267.306 | YaoGuang: 8387.206 | Lingsha: 178.788
+Run   58: Team DPAV: 74665.981 | SilverWolf999: 48429.917 | Sparxie: 17675.373 | YaoGuang: 8070.139 | Lingsha: 174.406
+Run   59: Team DPAV: 60750.151 | SilverWolf999: 36982.860 | Sparxie: 15689.885 | YaoGuang: 7624.151 | Lingsha: 153.246
+Run   60: Team DPAV: 72695.244 | SilverWolf999: 46019.249 | Sparxie: 17779.495 | YaoGuang: 8425.761 | Lingsha: 170.269
+Run   61: Team DPAV: 74763.577 | SilverWolf999: 49056.959 | Sparxie: 17140.488 | YaoGuang: 8073.881 | Lingsha: 176.103
+Run   62: Team DPAV: 71395.228 | SilverWolf999: 45675.552 | Sparxie: 17332.592 | YaoGuang: 7919.575 | Lingsha: 158.278
+Run   63: Team DPAV: 80764.371 | SilverWolf999: 53141.164 | Sparxie: 18381.479 | YaoGuang: 8786.424 | Lingsha: 175.736
+Run   64: Team DPAV: 64190.231 | SilverWolf999: 39961.851 | Sparxie: 15942.706 | YaoGuang: 7837.115 | Lingsha: 179.443
+Run   65: Team DPAV: 60456.080 | SilverWolf999: 36801.650 | Sparxie: 15450.773 | YaoGuang: 7729.540 | Lingsha: 174.109
+Run   66: Team DPAV: 72243.906 | SilverWolf999: 46211.509 | Sparxie: 17351.149 | YaoGuang: 8232.079 | Lingsha: 180.053
+Run   67: Team DPAV: 66323.340 | SilverWolf999: 42252.957 | Sparxie: 15917.251 | YaoGuang: 7682.697 | Lingsha: 154.288
+Run   68: Team DPAV: 67165.938 | SilverWolf999: 41815.564 | Sparxie: 17050.768 | YaoGuang: 7812.551 | Lingsha: 177.825
+Run   69: Team DPAV: 73258.500 | SilverWolf999: 48066.199 | Sparxie: 16557.400 | YaoGuang: 8145.393 | Lingsha: 173.361
+Run   70: Team DPAV: 74194.755 | SilverWolf999: 48351.927 | Sparxie: 17287.513 | YaoGuang: 8066.551 | Lingsha: 179.534
+Run   71: Team DPAV: 73178.394 | SilverWolf999: 47335.864 | Sparxie: 17095.284 | YaoGuang: 8292.413 | Lingsha: 175.267
+Run   72: Team DPAV: 76116.374 | SilverWolf999: 49819.715 | Sparxie: 17598.001 | YaoGuang: 8202.977 | Lingsha: 179.534
+Run   73: Team DPAV: 75890.305 | SilverWolf999: 48912.625 | Sparxie: 18106.728 | YaoGuang: 8444.482 | Lingsha: 157.354
+Run   74: Team DPAV: 72499.567 | SilverWolf999: 47124.755 | Sparxie: 16952.200 | YaoGuang: 7953.009 | Lingsha: 153.456
+Run   75: Team DPAV: 72427.452 | SilverWolf999: 47547.196 | Sparxie: 16488.947 | YaoGuang: 7900.772 | Lingsha: 174.390
+Run   76: Team DPAV: 74703.684 | SilverWolf999: 48600.373 | Sparxie: 17422.024 | YaoGuang: 8234.042 | Lingsha: 174.594
+Run   77: Team DPAV: 73163.801 | SilverWolf999: 47073.314 | Sparxie: 17212.168 | YaoGuang: 8398.460 | Lingsha: 171.551
+Run   78: Team DPAV: 69347.727 | SilverWolf999: 44053.464 | Sparxie: 16775.998 | YaoGuang: 8073.467 | Lingsha: 175.682
+Run   79: Team DPAV: 71851.272 | SilverWolf999: 46263.829 | Sparxie: 16994.101 | YaoGuang: 8104.567 | Lingsha: 179.545
+Run   80: Team DPAV: 66822.679 | SilverWolf999: 42037.297 | Sparxie: 16445.655 | YaoGuang: 7849.026 | Lingsha: 174.555
+Run   81: Team DPAV: 76593.163 | SilverWolf999: 50533.452 | Sparxie: 17390.574 | YaoGuang: 8223.298 | Lingsha: 176.723
+Run   82: Team DPAV: 67770.869 | SilverWolf999: 42205.747 | Sparxie: 17162.829 | YaoGuang: 7931.288 | Lingsha: 154.858
+Run   83: Team DPAV: 70235.647 | SilverWolf999: 44720.214 | Sparxie: 17042.101 | YaoGuang: 7984.918 | Lingsha: 179.184
+Run   84: Team DPAV: 71254.320 | SilverWolf999: 46184.771 | Sparxie: 16716.338 | YaoGuang: 7928.051 | Lingsha: 156.043
+Run   85: Team DPAV: 64845.132 | SilverWolf999: 40375.328 | Sparxie: 16204.895 | YaoGuang: 7821.774 | Lingsha: 174.018
+Run   86: Team DPAV: 74398.530 | SilverWolf999: 48052.809 | Sparxie: 17712.574 | YaoGuang: 8144.372 | Lingsha: 179.545
+Run   87: Team DPAV: 70200.357 | SilverWolf999: 44871.550 | Sparxie: 16898.234 | YaoGuang: 7939.752 | Lingsha: 174.675
+Run   88: Team DPAV: 77397.070 | SilverWolf999: 51080.208 | Sparxie: 17427.761 | YaoGuang: 8440.381 | Lingsha: 179.604
+Run   89: Team DPAV: 75720.957 | SilverWolf999: 49165.491 | Sparxie: 17781.280 | YaoGuang: 8278.922 | Lingsha: 179.118
+Run   90: Team DPAV: 79735.945 | SilverWolf999: 52218.196 | Sparxie: 18363.917 | YaoGuang: 8658.485 | Lingsha: 179.201
+Run   91: Team DPAV: 74305.480 | SilverWolf999: 48441.908 | Sparxie: 17191.200 | YaoGuang: 8176.851 | Lingsha: 179.375
+Run   92: Team DPAV: 78332.301 | SilverWolf999: 52410.241 | Sparxie: 17156.595 | YaoGuang: 8273.332 | Lingsha: 175.987
+Run   93: Team DPAV: 65582.841 | SilverWolf999: 41548.191 | Sparxie: 15698.171 | YaoGuang: 7853.011 | Lingsha: 174.238
+Run   94: Team DPAV: 65465.075 | SilverWolf999: 40564.040 | Sparxie: 16558.522 | YaoGuang: 7919.251 | Lingsha: 154.146
+Run   95: Team DPAV: 67966.196 | SilverWolf999: 43459.390 | Sparxie: 16337.940 | YaoGuang: 7738.398 | Lingsha: 157.818
+Run   96: Team DPAV: 73869.342 | SilverWolf999: 47775.729 | Sparxie: 17696.469 | YaoGuang: 7925.878 | Lingsha: 155.120
+Run   97: Team DPAV: 79686.498 | SilverWolf999: 52796.351 | Sparxie: 17869.055 | YaoGuang: 8551.268 | Lingsha: 169.354
+Run   98: Team DPAV: 73941.657 | SilverWolf999: 47962.223 | Sparxie: 17414.250 | YaoGuang: 8145.998 | Lingsha: 150.071
+Run   99: Team DPAV: 77886.106 | SilverWolf999: 52450.885 | Sparxie: 16645.100 | YaoGuang: 8340.870 | Lingsha: 180.135
+Run  100: Team DPAV: 72117.228 | SilverWolf999: 47496.951 | Sparxie: 16061.928 | YaoGuang: 8086.906 | Lingsha: 170.052
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 72236.803
+Average SilverWolf999 DPAV: 46537.941
+Average Sparxie DPAV: 17111.238
+Average YaoGuang DPAV: 8116.346
+Average Lingsha DPAV: 171.525
+
+Min Team DPAV: 60456.080
+Max Team DPAV: 80764.371

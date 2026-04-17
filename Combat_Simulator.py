@@ -13,6 +13,7 @@ from Characters.Harmony.RuanMei import RuanMei
 from Characters.Elation.ElationMC import ElationMC
 from MainFunctions import *
 from Enemy import *
+from Enemy import FINITE_ENEMY_HP, KILL_ENERGY
 
 cycles = 5  # comment out this line if running the simulator from an external script
 log = True
@@ -49,7 +50,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
@@ -118,7 +119,11 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         eAction = enemyModule.actionOrder
         eWeaknesses = enemyModule.weaknesses
 
-        eTeam.append(Enemy(i, eLevel, eType, eSPD, eToughness, eAction, eWeaknesses, adjList,CanDoDamage=False))
+        # HP values per enemy type — adjust to taste
+        hpByType = {EnemyType.BOSS: 2_000_000, EnemyType.ELITE: 800_000, EnemyType.ADD: 200_000}
+        eMaxHP = hpByType.get(eType, 1_000_000)
+        eTeam.append(Enemy(i, eLevel, eType, eSPD, eToughness, eAction, eWeaknesses, adjList,
+                           CanDoDamage=True, maxHP=eMaxHP))
 
     manualPrint(manualMode,
                 "===============================================================================================================================================================")
@@ -217,6 +222,15 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                                                                                   enemyDebuffs, advList, delayList, healingList, bl,
                                                                                   dbl, al, dl, hl)
                     turnList.extend(tl)
+
+            # ── Enemy attacks deal damage to characters ──────────────────
+            run_stop, death_msgs = handleEnemyAttacks(unit, playerTeam, numAttacks, teamBuffs)
+            for msg in death_msgs:
+                logging.critical(msg)
+                manualPrint(manualMode, msg)
+            if run_stop:
+                break
+
             energyList = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,teamBuffs)
             energyMsg = "    CharEnergy -"
             for i in range(len(playerTeam)):
@@ -344,6 +358,16 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         f"DEBUFF DMG: {dmg.getDebuffDMG():.3f} | CHAR DMG: {dmg.getActionDMG():.3f} | WB DMG: {dmg.getWeaknessBreakDMG():.3f} |ELATION DMG: {dmg.getElationDMG():.3f}")
     logging.critical(
         f"SP GAINED: {spTracker.getSPGain()} | SP USED: {spTracker.getSPUsed()} | Enemy Attacks: {totalEnemyAttacks}")
+
+    # ── Overkill summary ──────────────────────────────────────────────────────
+    if FINITE_ENEMY_HP:
+        totalOverkill = sum(e.overkillDMG for e in eTeam)
+        logging.critical(f"FINITE HP MODE: ON | Total Overkill DMG: {totalOverkill:.1f}")
+        for e in eTeam:
+            logging.critical(
+                f"  {e.name} ({e.enemyType.name}) | Overkill: {e.overkillDMG:.1f} | HP: {e.currHP:.0f}/{e.maxHP:.0f}")
+    else:
+        logging.critical("FINITE HP MODE: OFF (enemies have infinite HP)")
     res = ""
     i = 0
     for char in playerTeam:
@@ -368,7 +392,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -402,8 +426,8 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
-        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Sparxie(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
@@ -424,8 +448,8 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Evanescia(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-                slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+                slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = Sparxie(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 

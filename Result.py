@@ -39,4 +39,4 @@ class Special:
         self.attr9 = attr9
 
     def __str__(self) -> str:
-        return f"{self.specialName} | Attr1: {self.attr1} | Attr2: {self.attr2} | Attr3: {self.attr3} | Attr4: {self.attr4} | Attr5: {self.attr5} | Attr6: {self.attr6}"
+        return f"{self.specialName} | Attr1: {self.attr1} | Attr2: {self.attr2} | Attr3: {self.attr3} | Attr4: {self.attr4} | Attr5: {self.attr5} | Attr6: {self.attr6} | Attr7: {self.attr7} | Attr8: {self.attr8} | Attr9: {self.attr9}"

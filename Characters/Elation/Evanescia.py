@@ -37,7 +37,8 @@ class Evanescia(Character):
     ultCost = 240
     currAV = 0
     aggro = 100
-    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0,AtkType.BRK: 0, AtkType.FUA: 0, AtkType.ELAPUNCH: 0, AtkType.ELABANGER: 0}
+    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.FUA: 0,
+              AtkType.ELAPUNCH: 0, AtkType.ELABANGER: 0}
 
     # Unique Character Properties
     hasSummon = True
@@ -47,23 +48,18 @@ class Evanescia(Character):
     Punch = 0
     Banger = 0
     tech = True
-    BangerDuration = 2
+    BangerDuration = 3
     UltCounter = 0
     ERR = 0.0
-    Counter = 0
+    Count = 0
 
     # Elation Skill Participation ID (for Banger conversion mechanics)
-    # Lower ID = higher priority for Banger conversion
-    elationParticipationID = 0  # Set this appropriately in team setup
+    elationParticipationID = 0
 
-    # Talent: Master Fox energy accumulator (separate from currEnergy / ult cost)
-    # Tracks energy accumulated toward the 240-threshold that triggers Master Fox's FUA.
-    masterFoxEnergy = 0
+    # Master Fox: fires every time currEnergy crosses a new multiple of 240.
+    # masterFoxFiredCount tracks how many times it has fired so far this battle.
     MASTER_FOX_THRESHOLD = 240
-
-    # Relic Settings
-    # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
-    # Last 4 entries are main stats: Body, Boots, Sphere, Rope
+    masterFoxFiredCount = 0
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
@@ -77,7 +73,7 @@ class Evanescia(Character):
                                                        StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
-        self.masterFoxEnergy = 0
+        self.masterFoxFiredCount = 0
         self.elationParticipationID = elationParticipationID
 
     def equip(self):
@@ -88,7 +84,7 @@ class Evanescia(Character):
         bl.append(Buff("EvenesciaTraceELA", StatTypes.ELA, 0.18, self.role))
         bl.append(Buff("EvanesciaTrace1CR", StatTypes.CR_PERCENT, 0.30, self.role))
         bl.append(Buff("EvanesciaBangerStart", StatTypes.BANGER, 240, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
-        self.masterFoxEnergy += 240
+
         if self.eidolon >= 2:
             bl.append(Buff("EvanesciaE2CD", StatTypes.CD_PERCENT, 0.36, self.role))
         if self.eidolon >= 1:
@@ -102,67 +98,67 @@ class Evanescia(Character):
     # ---------------------------------------------------------------------------
 
     def _addEnergy(self, amount: int, bl: list, source: str = ""):
-        """Add energy to masterFoxEnergy and apply the bidirectional Banger sync.
-
-        Per instance: Banger gained from this energy cannot exceed 100.
-        Returns (bangerGained, energyAdded) for logging/chaining.
+        """Emit the Banger buff that comes from Evanescia gaining energy.
+        Per-instance Banger gain from Energy is capped at 100.
+        Master Fox is driven purely by currEnergy crossing multiples of 240 —
+        there is no separate masterFoxEnergy accumulator.
         """
-        # Calculate base values before ERR
         bangerGain = min(amount, 100)
-
-        # Apply ERR multiplier ONCE to get final amounts
         final_banger = floor(bangerGain * (1 + self.ERR))
-        final_energy = floor(amount * (1 + self.ERR))
-
-        # Add Banger buff
-        bl.append(Buff(f"TalentBangerFromEnergy_{source}", StatTypes.BANGER, final_banger,
+        bl.append(Buff(f"TalentBangerFromEnergy_{source}{self.Count}", StatTypes.BANGER, final_banger,
                        self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
-
-        # Add to masterFoxEnergy (using the already-multiplied value)
-        self.masterFoxEnergy += final_energy
-
-        logger.debug(
-            f"{self.name} +{final_energy} masterFoxEnergy (total {self.masterFoxEnergy}) | +{final_banger} Banger from Energy")
+        self.Count += 1
+        logger.debug(f"{self.name} +{final_banger} Banger from Energy ({source})")
         return bangerGain, amount
 
     def _addBangerEnergy(self, bangerAmount: int, bl: list, source: str = ""):
-        """When Banger is gained, simultaneously gain equal Energy (uncapped for the energy side).
-        The per-instance cap only applies to the Banger-from-Energy direction, not Energy-from-Banger.
+        """When Banger is gained, simultaneously gain equal Energy (ERR_F = no ERR multiplier).
+        The ERR_F buff feeds into currEnergy through handleEnergyFromBuffs, which is what
+        drives the Master Fox threshold check.
         """
-        bl.append(Buff(f"TalentErrFromBanger_{source}", StatTypes.ERR_F, bangerAmount,
+        bl.append(Buff(f"TalentErrFromBanger_{source}{self.Count}", StatTypes.ERR_F, bangerAmount,
                        self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
-        # CRITICAL FIX: Actually add to masterFoxEnergy when Banger is gained
-        self.masterFoxEnergy += bangerAmount
-        logger.debug(
-            f"{self.name} +{bangerAmount} ERR from Banger sync ({source}) | masterFoxEnergy now {self.masterFoxEnergy}")
+        self.Count += 1
+        logger.debug(f"{self.name} +{bangerAmount} ERR_F from Banger sync ({source})")
 
     def _tryMasterFoxFUA(self, enemyID: int, bl: list, tl: list) -> bool:
-        """Check masterFoxEnergy threshold and emit Master Fox FUA if reached.
-        Master Fox FUA:
-          - Deals 100% ATK AOE Physical DMG (AtkType.FUA)
-          - Regenerates 10 Energy for Evanescia
-          - Also deals 25% ELAPUNCH AOE (Elation DMG)
-        Returns True if FUA fired.
+        """Fire Master Fox once for every new multiple of 240 that currEnergy has crossed.
+
+        Uses masterFoxFiredCount to know how many times it has already fired, so it
+        only fires for thresholds that haven't been consumed yet.
+
+        After useUlt spends 240 energy, currEnergy drops and masterFoxFiredCount is
+        synced down in useUlt so the next crossing fires again cleanly.
+
+        Returns True if at least one FUA fired.
         """
         E5MulFUA = 1.1 if self.eidolon >= 5 else 1.0
-        E5MulELA = 0.275 if self.eidolon >= 5 else 0.25
-        if self.masterFoxEnergy >= self.MASTER_FOX_THRESHOLD:
-            self.masterFoxEnergy -= self.MASTER_FOX_THRESHOLD
-            logger.debug(f"{self.name} Master Fox FUA triggered! masterFoxEnergy remaining: {self.masterFoxEnergy}")
+        E5MulELA = 0.276 if self.eidolon >= 5 else 0.25
+        fired = False
+
+        thresholds_crossed = int(self.currEnergy // self.MASTER_FOX_THRESHOLD)
+
+        while self.masterFoxFiredCount < thresholds_crossed:
+            self.masterFoxFiredCount += 1
+            logger.debug(
+                f"{self.name} Master Fox FUA triggered! (fire #{self.masterFoxFiredCount}, "
+                f"currEnergy: {self.currEnergy:.1f})")
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.FUA], [self.element],
-                           [E5MulFUA, 0], [10, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
+                           [E5MulFUA, 0], [10, 0], 10 * (1 + self.ERR), self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
             if self.Banger >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                                Targeting.AOE, [AtkType.ELABANGER], [self.element],
                                [E5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaMasterFoxELAPUNCH"))
 
-            # The 10 ERR from FUA feeds back into masterFoxEnergy via the Energy<->Banger sync
+            # The 10 energy from FUA regen adds Banger but does NOT call _tryMasterFoxFUA
+            # recursively — the next check happens in ownTurn after currEnergy has updated.
             self._addEnergy(10, bl, "MasterFoxFUARegen")
-            return True
-        return False
+            fired = True
+
+        return fired
 
     # ---------------------------------------------------------------------------
     # Core actions
@@ -174,8 +170,8 @@ class Evanescia(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "EvanesciaBasic"))
-        # Basic gives 20 ERR — sync to masterFoxEnergy
         self._addEnergy(20, bl, "Basic")
+        # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
@@ -187,21 +183,22 @@ class Evanescia(Character):
                        Targeting.BLAST, [AtkType.SKL], [self.element],
                        [e5MulMain, e5MulSub], [20, 10], 30, self.scaling, -1, "EvanesciaSkill"))
         Character.SharedPunchline += 10
-        # Skill gives 30 ERR — sync to masterFoxEnergy
         self._addEnergy(30, bl, "Skill")
 
-        # Talent: if Banger >= 1, Skill also deals 16% ELAPUNCH ST to the attacked target
         if self.Banger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
                            [e5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
 
-        self._tryMasterFoxFUA(enemyID, bl, tl)
+        # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
+        # Sync fired count down so the next crossing of 240 fires Master Fox again.
+        self.masterFoxFiredCount = int(self.currEnergy // self.MASTER_FOX_THRESHOLD)
+
         e3MulAOE = 1.76 if self.eidolon >= 3 else 1.6
         e3MulSingle = 1.296 if self.eidolon >= 3 else 1.2
         e5MulAOE = 0.264 if self.eidolon >= 5 else 0.24
@@ -211,63 +208,59 @@ class Evanescia(Character):
                        Targeting.AOE, [AtkType.ULT], [self.element],
                        [e3MulAOE, 0], [20, 0], 5, self.scaling, 0, "EvanesciaUlt"))
 
-        # NEW: Calculate bounce count based on enemy count
-        # Base bounce is 5 (from the original single target turn below)
-        # 3+ enemies: +1 bounce = 6 total
-        # 2 enemies: +2 bounces = 7 total
-        # 1 enemy: +4 bounces = 9 total
         enemyCount = self._getEnemyCount()
         if enemyCount >= 3:
             bounceCount = 6
         elif enemyCount == 2:
             bounceCount = 7
-        else:  # 1 enemy
+        else:
             bounceCount = 9
 
-        # Single target bounces with dynamic count
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.ULT], [self.element],
                        [e3MulSingle * bounceCount, 0], [5 * bounceCount, 0], 0, self.scaling, 0, "EvanesciaUltSingle"))
 
-        # Talent: if Banger >= 1, Ult also fires Elation hits
-        # Ult Elation DMG uses Banger >= maxEnergy (480) — clamp via savedPunchline + forced floor
         if self.Banger >= 1:
-            # AOE ELAPUNCH: 24%
-            # For Ult Elation hits the Banger used must be at least maxEnergy (480).
-            # We temporarily force SharedPunchline to max(SharedPunchline, maxEnergy) for these turns.
-
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.ELABANGER], [self.element],
                            [e5MulAOE, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_AOE"))
-
-            # ST ELAPUNCH: 25% to the random enemy target already chosen by bestEnemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
-                           [e5MulSingle*bounceCount, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
+                           [e5MulSingle * bounceCount, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
 
-        # Ult gives 5 ERR — sync to masterFoxEnergy
         self._addEnergy(5, bl, "Ult")
 
         if self.eidolon == 6:
             if self.UltCounter % 4 == 0:
-                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                               Targeting.NA, [AtkType.ALL], [self.element],
-                               [0, 0], [0, 0], 120/(1+self.ERR), self.scaling, 0, "EvanesciaUltExtraERR"))
-                self._addEnergy(120/(1+self.ERR), bl, "E6Ult")
+                self.currEnergy = self.currEnergy + 120
+                self._addEnergy(120 / (1 + self.ERR), bl, "E6Ult")
             self.UltCounter += 1
 
-        self._tryMasterFoxFUA(enemyID, bl, tl)
+        # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         if result.turnName == "EvanesciaMasterFoxFUA":
-            dbl.append(Debuff("EvanesciaMasterFoxDebuff",self.role, StatTypes.VULN,0.12,Role.ALL, [AtkType.ALL], 3, 1))
+            dbl.append(Debuff("EvanesciaMasterFoxDebuff", self.role, StatTypes.VULN, 0.12, Role.ALL, [AtkType.ALL], 3, 1))
             if self.eidolon >= 1:
-                return self.useElaSkill(-1)
+                ela_bl, ela_dbl, ela_al, ela_dl, ela_tl, ela_hl = self.useElaSkill(-1)
+                bl.extend(ela_bl); dbl.extend(ela_dbl); al.extend(ela_al)
+                dl.extend(ela_dl); tl.extend(ela_tl); hl.extend(ela_hl)
+
+        # Check Master Fox after every action that gave Evanescia energy.
+        # By the time ownTurn is called, handleEnergyFromBuffs has already updated
+        # currEnergy, so the threshold check is accurate here.
+        if result.charRole == self.role and result.turnName in (
+            "EvanesciaBasic", "EvanesciaSkill", "EvanesciaUlt",
+            "EvanesciaELASkill", "EvanesciaMasterFoxFUA",
+        ):
+            enemyID = result.enemyID if hasattr(result, 'enemyID') else -1
+            self._tryMasterFoxFUA(enemyID, bl, tl)
 
         return bl, dbl, al, dl, tl, hl
 
@@ -275,10 +268,7 @@ class Evanescia(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-        if result.turnName == "HuoHuoUlt":
-            self.masterFoxEnergy += 96
 
-        # NEW: Handle teammate Banger buffs for conversion
         self._handleTeammateBangerConversion(turn, result, bl)
 
         return bl, dbl, al, dl, tl, hl
@@ -296,18 +286,18 @@ class Evanescia(Character):
         else:
             BangerBuff = 5
 
-        #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
-
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
                        [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
-        bl.append(Buff(f"EvanesciaELASkillBanger", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL], self.BangerDuration, 100,
-                 self.role, TickDown.END))
+        bl.append(Buff(f"EvanesciaELASkillBanger{self.Count}", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL],
+                       self.BangerDuration, 100, self.role, TickDown.END))
+        self.Count += 1
+
+        # Update currEnergy directly for the instant Banger→Energy portion.
         self.currEnergy = self.currEnergy + BangerBuff
-        self.masterFoxEnergy += BangerBuff
 
         self._addEnergy(5, bl, "ElaSkill")
-        self._tryMasterFoxFUA(enemyID, bl, tl)
+        # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
@@ -322,107 +312,78 @@ class Evanescia(Character):
         E5CdBuff = 0.22 if self.eidolon >= 5 else 0.20
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
-
-        bl.append(
-            Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * E5CdBuff, self.role, [AtkType.ALL], 1, 1, self.role,
-                 TickDown.START))
+        bl.append(Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * E5CdBuff, self.role, [AtkType.ALL], 1, 1,
+                       self.role, TickDown.START))
 
         if self.tech:
-            tl.append(
-                Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1, 0], [20, 0], 0,
-                     self.scaling, 0, "EvanesciaTech"))
-            bl.append(
-                Buff("EvanesciaTechBanger", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1,
-                     self.role, TickDown.END))
+            tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1, 0], [20, 0], 0,
+                           self.scaling, 0, "EvanesciaTech"))
+            bl.append(Buff("EvanesciaTechBanger", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration,
+                           1, self.role, TickDown.END))
             self.currEnergy = self.currEnergy + 20
-            self.masterFoxEnergy += 20
             self.tech = False
 
         if self.eidolon == 6:
-            self.BangerDuration = 3
-            bl.append(
-                Buff("EvanesciaE6Merry", StatTypes.MERRY, 0.15 + min(floor(self.Banger / 100) * 0.02, 0.20), self.role,
-                     [AtkType.ALL], 1, 1, self.role, TickDown.START))
+            self.BangerDuration = 4
+            bl.append(Buff("EvanesciaE6Merry", StatTypes.MERRY,
+                           0.15 + min(floor(self.Banger / 100) * 0.02, 0.20), self.role,
+                           [AtkType.ALL], 1, 1, self.role, TickDown.START))
 
         return bl, dbl, al, dl, tl, hl
 
     # ---------------------------------------------------------------------------
-    # NEW: Helper methods for new abilities
+    # Helper methods
     # ---------------------------------------------------------------------------
 
     def _getEnemyCount(self):
-        """Get the current number of alive enemies.
-
-        Used for dynamic bounce calculation in Ultimate:
-        - 3+ enemies: 6 bounces total
-        - 2 enemies: 7 bounces total
-        - 1 enemy: 9 bounces total
-        """
         return self.get_alive_enemy_count()
 
     def _handleTeammateBangerConversion(self, turn: Turn, result: Result, bl: list):
-        """Handle Banger conversion from teammates.
-
-        When a teammate with lower Elation Skill Participation ID gains Banger,
-        Evanescia converts 50% of it into her own Banger.
-
-        This method is triggered from MainFunctions.handleBangerConversions()
-        when a teammate's Banger buff is detected.
-        """
+        """Stub — external calls from MainFunctions.handleBangerConversions() handle this."""
         pass
 
     def receiveBangerFromTeammate(self, bangerAmount: int, source: str, bl: list):
-        """Called by the simulation when a teammate with lower ID gains Banger.
-        Converts 50% of the teammate's Banger into Evanescia's own Banger.
+        """Called when a teammate with lower Elation ID gains Banger.
+        Base: converts 50% into Evanescia's own Banger.
+        E2:   converts 100% instead.
         """
-        Conversion_Amount = 1.5 if self.eidolon >= 2 else 1
-        convertedBanger = bangerAmount * Conversion_Amount
-        bl.append(Buff(f"EvanesciaBangerConvert_{source}{self.Counter}", StatTypes.BANGER, convertedBanger,
+        conversionRate = 1.0 if self.eidolon >= 2 else 0.5
+        convertedBanger = floor(bangerAmount * conversionRate)
+        bl.append(Buff(f"EvanesciaBangerConvert_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
-        self.Counter += 1
+        self.Count += 1
         logger.debug(f"{self.name} converted {convertedBanger} Banger from teammate {source}")
-
-        # Apply bidirectional sync: Banger → Energy
         self._addBangerEnergy(convertedBanger, bl, f"ConvertedFrom_{source}")
 
     def receiveBangerFromExpiration(self, bangerAmount: int, source: str, bl: list):
-        """Called by the simulation when a teammate's Banger buff expires.
-        Converts 50% of the expired Banger into Evanescia's own Banger.
+        """Called when a teammate's Banger buff expires.
+        Base: converts 50% into Evanescia's own Banger.
+        E2:   converts 100% instead.
         """
-        Conversion_Amount = 2 if self.eidolon >= 2 else 1
-        convertedBanger = bangerAmount * Conversion_Amount
-        bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Counter}", StatTypes.BANGER, convertedBanger,
+        conversionRate = 1.0 if self.eidolon >= 2 else 0.5
+        convertedBanger = floor(bangerAmount * conversionRate)
+        bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
-        self.Counter += 1
+        self.Count += 1
         logger.debug(f"{self.name} converted {convertedBanger} Banger from expired {source} buff")
-
-        # Apply bidirectional sync: Banger → Energy
         self._addBangerEnergy(convertedBanger, bl, f"ExpiredFrom_{source}")
 
     def receiveEnergyBuff(self, energyAmount: int, source: str, bl: list):
-        """ Called when Evanescia receives an energy buff from another character.
+        """Called when Evanescia receives an energy buff from another character.
         Converts the energy into Banger (capped at 100 per instance).
         """
         bangerGain = min(energyAmount, 100)
-        bl.append(Buff(f"EvanesciaBangerFromEnergyBuff_{source}{self.Counter}", StatTypes.BANGER, bangerGain,
+        bl.append(Buff(f"EvanesciaBangerFromEnergyBuff_{source}{self.Count}", StatTypes.BANGER, bangerGain,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
-        self.Counter += 1
-        logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy buff from {source}")
-
-        # Also add to masterFoxEnergy (the energy itself)
-        self.masterFoxEnergy += energyAmount
-        logger.debug(f"{self.name} +{energyAmount} masterFoxEnergy from buff (total {self.masterFoxEnergy})")
+        self.Count += 1
+        logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy buff ({source})")
 
     def receiveEnergyFromDamage(self, energyAmount: int, bl: list):
-        """ Called when Evanescia receives energy from being hit.
+        """Called when Evanescia receives energy from being hit.
         Converts the energy into Banger (capped at 100 per instance).
         """
         bangerGain = min(energyAmount, 100)
-        bl.append(Buff(f"EvanesciaBangerFromDamage{self.Counter}", StatTypes.BANGER, bangerGain,
+        bl.append(Buff(f"EvanesciaBangerFromDamage{self.Count}", StatTypes.BANGER, bangerGain,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
-        self.Counter += 1
-        logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy received from damage")
-
-        # Also add to masterFoxEnergy
-        self.masterFoxEnergy += energyAmount
-        logger.debug(f"{self.name} +{energyAmount} masterFoxEnergy from damage (total {self.masterFoxEnergy})")
+        self.Count += 1
+        logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} hit energy")

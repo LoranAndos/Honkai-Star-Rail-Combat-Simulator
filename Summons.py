@@ -176,7 +176,7 @@ class Aha(Summon):
                 BangerReduction = 1.0
 
             # Determine BangerDuration based on character
-            if turnName == "AhaYaoGuangGoGo":  # "AhaEvanesciaGoGo": #If Evanescia = E6.
+            if turnName == "AhaYaoGuangGoGo" or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                 BangerDuraction = 3
             else:
                 BangerDuraction = 2
