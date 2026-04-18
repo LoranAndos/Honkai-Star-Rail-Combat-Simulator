@@ -48,7 +48,7 @@ class Evanescia(Character):
     Punch = 0
     Banger = 0
     tech = True
-    BangerDuration = 3
+    BangerDuration = 2
     UltCounter = 0
     ERR = 0.0
     Count = 0
@@ -106,7 +106,7 @@ class Evanescia(Character):
         bangerGain = min(amount, 100)
         final_banger = floor(bangerGain * (1 + self.ERR))
         bl.append(Buff(f"TalentBangerFromEnergy_{source}{self.Count}", StatTypes.BANGER, final_banger,
-                       self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
+                       self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
         logger.debug(f"{self.name} +{final_banger} Banger from Energy ({source})")
         return bangerGain, amount
@@ -289,6 +289,11 @@ class Evanescia(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
                        [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
+        if Character.EMCUlt == True:
+            bl.append(Buff(f"BangerELASkill{self.Count}", StatTypes.BANGER,
+                           20, self.role, [AtkType.ALL], self.BangerDuration, 1,
+                           self.role, TickDown.END))
+            self.Count += 1
         bl.append(Buff(f"EvanesciaELASkillBanger{self.Count}", StatTypes.BANGER, BangerBuff, self.role, [AtkType.ALL],
                        self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
@@ -324,7 +329,7 @@ class Evanescia(Character):
             self.tech = False
 
         if self.eidolon == 6:
-            self.BangerDuration = 4
+            self.BangerDuration = 3
             bl.append(Buff("EvanesciaE6Merry", StatTypes.MERRY,
                            0.15 + min(floor(self.Banger / 100) * 0.02, 0.20), self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.START))
@@ -347,7 +352,7 @@ class Evanescia(Character):
         Base: converts 50% into Evanescia's own Banger.
         E2:   converts 100% instead.
         """
-        conversionRate = 1.0 if self.eidolon >= 2 else 0.5
+        conversionRate = 2.0 if self.eidolon >= 2 else 1.0
         convertedBanger = floor(bangerAmount * conversionRate)
         bl.append(Buff(f"EvanesciaBangerConvert_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
@@ -360,7 +365,7 @@ class Evanescia(Character):
         Base: converts 50% into Evanescia's own Banger.
         E2:   converts 100% instead.
         """
-        conversionRate = 1.0 if self.eidolon >= 2 else 0.5
+        conversionRate = 1.5 if self.eidolon >= 2 else 1.0
         convertedBanger = floor(bangerAmount * conversionRate)
         bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))

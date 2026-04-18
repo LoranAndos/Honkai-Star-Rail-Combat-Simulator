@@ -90,7 +90,7 @@ class Sunday(Character):
         if self.targetEnergyCap * 0.2  <= 40:
             EnergyBuff = 40
         else:
-            EnergyBuff = self.targetEnergyCap * 0.222
+            EnergyBuff = self.targetEnergyCap * 0.200
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 5,self.scaling, 0, "SundayUlt"))
         bl.append(Buff("SundayUltERR", StatTypes.ERR_F, EnergyBuff, self.targetRole, [AtkType.ALL]))
         bl.append(Buff("SundayBeatified", StatTypes.CD_PERCENT, self.cdStat * e3Mul + e3Add, self.targetRole, [AtkType.ALL], 3, 1,self.role, TickDown.END))

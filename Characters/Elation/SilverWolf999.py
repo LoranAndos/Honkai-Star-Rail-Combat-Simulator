@@ -382,7 +382,7 @@ class SilverWolf999(Character):
 
         tlb_mul = e5Mul * e6Mul
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [tlb_mul/enemyCount, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
+                       [self.element], [tlb_mul/enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
 
         # Random effect
         effect = randrange(1, 4)
@@ -430,7 +430,7 @@ class SilverWolf999(Character):
                 ExtraPunchMul = 1
             self.topLootBoxChance = 1.0
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
-                           [self.element], [e5Mul * ExtraPunchMul * 6, 0], [30, 0], 0, Scaling.ELA, 0,
+                           [self.element], [e5Mul * ExtraPunchMul * 6, 0], [60, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999ELASkill"))
         else:
             # Normal Elation Skill
