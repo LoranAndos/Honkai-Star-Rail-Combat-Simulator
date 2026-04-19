@@ -405,92 +405,152 @@ def delayAdjustment(enemyTeam: list[Enemy], delayList: list[Delay], debuffList: 
 
 
 # noinspection PyUnresolvedReferences
-def resolveEnemyTargeting(enemy: Enemy, playerTeam: list[Character]) -> tuple[str, list[int]]:
-    """Determine attack type and which player indices are hit for one enemy attack.
-
-    Returns (attackTypeName, list_of_hit_indices).
-
-    ADD:   always single target
-    ELITE: 50% single, 50% blast
-    BOSS:  50% blast,  50% aoe
-    """
-    n = len(playerTeam)
-    aggroLst = [char.aggro for char in playerTeam]
-    aggroSum = sum(aggroLst)
-
-    # Pick main target via aggro
-    roll = randrange(1, aggroSum + 1)
-    mainIdx = 0
-    cumulative = 0
-    for i, aggro in enumerate(aggroLst):
-        cumulative += aggro
-        if roll <= cumulative:
-            mainIdx = i
-            break
-
-    if enemy.enemyType == EnemyType.ADD:
-        return "single", [mainIdx]
-
-    elif enemy.enemyType == EnemyType.ELITE:
-        if randrange(1, 3) == 1:  # 50% single
-            return "single", [mainIdx]
-        else:                      # 50% blast
-            hit = [mainIdx]
-            if mainIdx > 0:
-                hit.append(mainIdx - 1)
-            if mainIdx < n - 1:
-                hit.append(mainIdx + 1)
-            return "blast", hit
-
-    else:  # BOSS
-        if randrange(1, 3) == 1:  # 50% blast
-            hit = [mainIdx]
-            if mainIdx > 0:
-                hit.append(mainIdx - 1)
-            if mainIdx < n - 1:
-                hit.append(mainIdx + 1)
-            return "blast", hit
-        else:                      # 50% aoe
-            return "aoe", list(range(n))
-
-
-# noinspection PyUnresolvedReferences
 def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: int,
               attackTypeRatio: list[float], buffList: list[Buff]):
+    """Compute and apply energy from enemy attacks.
+
+    Returns (energyPerAttack, hitMap) where:
+      - energyPerAttack: list[float] — energy per single attack for each character
+        (used for the log line in Combat_Simulator)
+      - hitMap: list[tuple[int, float]] — (charIdx, energyGiven) for every individual
+        hit across all enemies and all attacks. handleEnemyAttacks reuses this so that
+        damage lands on exactly the same characters that received energy.
+    """
+    aggroLst = [char.aggro for char in playerTeam]
     actAttacks = 1 if numAttacks == 0 else numAttacks
+    aggroSum = sum(aggroLst)
     finalEnergy = [0.0] * len(playerTeam)
+    # hitMap stores (charIdx, energyForThisHit) for every individual attack across
+    # all enemies so handleEnemyAttacks can mirror the exact same hits.
+    hitMap: list[tuple[int, float]] = []
 
     for enemy in enemyTeam:
-        atkType, hitIdxs = resolveEnemyTargeting(enemy, playerTeam)
-        # Single/blast = 10 energy per hit; AOE = 5 energy per hit (mirrors original)
-        energyPerHit = 5.0 if atkType == "aoe" else 10.0
-        for idx in hitIdxs:
-            finalEnergy[idx] += energyPerHit * actAttacks / len(enemyTeam)
+        AggroNumber = randrange(1, aggroSum + 1, 1)
+        Number_Keeper = 0
+        n = len(playerTeam)
 
+        # Resolve aggro target index
+        mainIdx = 0
+        cumulative = 0
+        for a, aggro in enumerate(aggroLst):
+            cumulative += aggro
+            if AggroNumber <= cumulative:
+                mainIdx = a
+                break
+
+        if enemy.enemyType == EnemyType.ADD:
+            # Always single target
+            for attack in range(actAttacks):
+                energyGiven = 10.0 / len(enemyTeam)
+                finalEnergy[mainIdx] += energyGiven
+                hitMap.append((mainIdx, energyGiven))
+
+        elif enemy.enemyType == EnemyType.ELITE:
+            AttackTypeChooser = randrange(1, 3, 1)
+            if AttackTypeChooser == 1:
+                # Single target
+                for attack in range(actAttacks):
+                    energyGiven = 10.0 / len(enemyTeam)
+                    finalEnergy[mainIdx] += energyGiven
+                    hitMap.append((mainIdx, energyGiven))
+            else:
+                # Blast — main target + adjacent
+                targets = [mainIdx]
+                if mainIdx > 0:
+                    targets.append(mainIdx - 1)
+                if mainIdx < n - 1:
+                    targets.append(mainIdx + 1)
+                for attack in range(actAttacks):
+                    for idx in targets:
+                        energyGiven = 10.0 / len(enemyTeam)
+                        finalEnergy[idx] += energyGiven
+                        hitMap.append((idx, energyGiven))
+
+        elif enemy.enemyType == EnemyType.BOSS:
+            AttackTypeChooser = randrange(1, 3, 1)
+            if AttackTypeChooser == 1:
+                # Blast — main target + adjacent
+                targets = [mainIdx]
+                if mainIdx > 0:
+                    targets.append(mainIdx - 1)
+                if mainIdx < n - 1:
+                    targets.append(mainIdx + 1)
+                for attack in range(actAttacks):
+                    for idx in targets:
+                        energyGiven = 10.0 / len(enemyTeam)
+                        finalEnergy[idx] += energyGiven
+                        hitMap.append((idx, energyGiven))
+            else:
+                # AOE — all targets, 5 energy each
+                for attack in range(actAttacks):
+                    for idx in range(n):
+                        energyGiven = 5.0 / len(enemyTeam)
+                        finalEnergy[idx] += energyGiven
+                        hitMap.append((idx, energyGiven))
+
+    bangerBuffs: list[Buff] = []
     for i, char in enumerate(playerTeam):
         placeHolderTurn = Turn(char.name, char.role, -1, Targeting.NA, [AtkType.SPECIAL], [char.element],
                                [0, 0], [0, 0], 0, char.scaling, 0, "HitEnergyPlaceholder")
         errMul = getMulERR(char, enemyTeam[0], buffList, [], placeHolderTurn) if not char.specialEnergy else 0
         if numAttacks != 0:
-            char.addEnergy(finalEnergy[i] * errMul)
+            energyAdded = finalEnergy[i] * errMul
+            char.addEnergy(energyAdded)
 
-    return [e / actAttacks for e in finalEnergy]
+            # Evanescia talent: gaining Energy simultaneously gains equal Banger
+            # (capped at 100 per instance). Hit energy goes through this path.
+            if char.name == "Evanescia" and energyAdded > 0:
+                bangerGain = min(int(energyAdded/len(enemyTeam)), 100)
+                bangerBuffs.append(Buff(
+                    f"EvanesciaBangerFromHit_{char.Count}",
+                    StatTypes.BANGER,
+                    bangerGain,
+                    char.role,
+                    [AtkType.ALL],
+                    char.BangerDuration, 100,
+                    char.role,
+                    TickDown.END
+                ))
+                char.Count += 1
+                logger.info(f"BANGER > {bangerGain} Banger added to Evanescia from hit energy ({energyAdded:.1f})")
+
+    return [e / actAttacks for e in finalEnergy], hitMap, bangerBuffs
 
 
 def getCharDEF(char: Character, buffList: list[Buff]) -> float:
-    """Return character's effective DEF stat including buffs."""
-    baseDEF = char.getBaseStat(Scaling.DEF)[0] if hasattr(char, 'getBaseStat') else 0
-    defPercent = sumBuffs(findBuffs(char.role, StatTypes.DEF_PERCENT, buffList))
-    defFlat = sumBuffs(findBuffs(char.role, StatTypes.DEF, buffList))
-    return baseDEF * (1 + defPercent) + defFlat
+    """Return character's effective DEF stat including base, relics, and all buffs.
+    Uses the same getScalingValues path as damage calculations so it is consistent."""
+    return getScalingValues(char, buffList, [AtkType.ALL], Scaling.DEF)
 
 
-def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], numAttacks: int,
+def getCharHPRatio(char: Character) -> float:
+    """Return a character's current HP ratio (0.0–1.0) for use in lightcones."""
+    return (char.currHP / char.maxHP) if char.maxHP > 0 else 1.0
+
+
+def getEnemyHPRatio(enemy: Enemy) -> float:
+    """Return an enemy's current HP ratio (0.0–1.0) for use in lightcones."""
+    return enemy.getHPRatio()
+
+
+def getCharHPPercent(char: Character) -> float:
+    """Return a character's HP as a percentage (0–100) for use in lightcones."""
+    return getCharHPRatio(char) * 100.0
+
+
+def getEnemyHPPercent(enemy: Enemy) -> float:
+    """Return an enemy's HP as a percentage (0–100) for use in lightcones."""
+    return enemy.getHPPercent()
+
+
+def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
                        buffList: list[Buff]) -> tuple[bool, list[str]]:
-    """Deal damage from one enemy's attacks to the targeted characters.
+    """Deal damage to characters based on the hitMap produced by addEnergy.
 
-    Uses the same targeting logic as addEnergy (resolveEnemyTargeting) so that
-    the characters who receive energy are exactly the ones who take damage.
+    Each entry in hitMap is (charIdx, energyGiven). Damage scales with energyGiven:
+        10 energy → 100% ATK hit
+         5 energy → 50% ATK hit
+    so blast/single hits deal full damage and AOE hits deal half.
 
     DEF formula: defMul = 1 - charDEF / (charDEF + 200 + 10 * enemyLevel)
 
@@ -502,30 +562,25 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], numAttacks: in
     death_messages = []
     run_stop = False
 
-    for _ in range(numAttacks):
-        atkType, hitIdxs = resolveEnemyTargeting(enemy, playerTeam)
-        # AOE hits are split-damage and deal slightly less per target
-        dmgPercent = 0.5 if atkType == "aoe" else 1.0
+    for charIdx, energyGiven in hitMap:
+        char = playerTeam[charIdx]
+        charDEF = getCharDEF(char, buffList)
+        charLevel = char.level if hasattr(char, 'level') else 80
+        dmg = enemy.calcDamageTo(charDEF, charLevel, energyGiven)
+        char.ChangeHpValue(-dmg)
 
-        for idx in hitIdxs:
-            char = playerTeam[idx]
-            charDEF = getCharDEF(char, buffList)
-            charLevel = char.level if hasattr(char, 'level') else 80
-            dmg = enemy.calcDamageTo(charDEF, charLevel, dmgPercent)
-            char.ChangeHpValue(-dmg)
+        atkType = "aoe" if energyGiven < 10.0 else "single/blast"
+        logger.info(
+            f"    ENEMY  - {enemy.name} [{atkType}] dealt {dmg:.1f} to {char.name} "
+            f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}) "
+            f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
 
-            logger.info(
-                f"    ENEMY  - {enemy.name} [{atkType}] dealt {dmg:.1f} to {char.name} "
-                f"(DEF: {charDEF:.0f}) | HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
+        if char.currHP <= 0:
+            msg = f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped."
+            logger.critical(msg)
+            death_messages.append(msg)
+            run_stop = True
 
-            if char.currHP <= 0:
-                msg = (f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped.")
-                logger.critical(msg)
-                death_messages.append(msg)
-                run_stop = True
-
-    # Kill check: if enemy HP hit 0 from debuff/other damage grant energy to last attacker
-    # (direct hit kills are handled in processTurnList via takeHit)
     return run_stop, death_messages
 
 
@@ -1120,7 +1175,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
         match specStr:
             case "Aventurine":
                 avenDef = getBaseValue(specChar, buffList, placeHolderTurn)
-                aggroList = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                aggroList, _, _ = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
                 bbList = [2 * aggroList[i] if i == specChar.pos else 1 * aggroList[i] for i in range(4)]
                 return Special(name=specStr, attr1=avenDef, attr2=sum(bbList), enemies=gauge)
 
@@ -1202,7 +1257,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 return Special(name=specStr, attr1=res1, attr2=res2, enemies=gauge)
 
             case "Fuxuan":
-                lst = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                lst, _, _ = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
                 return Special(name=specStr, attr1=lst, enemies=gauge)
 
             case "Gallagher":
@@ -1263,7 +1318,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 for ActualBuffs in Temporary:
                     if ActualBuffs.target == Role.SUP1:
                         RmcBuffs.append(ActualBuffs)
-                energyList = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                energyList, _, _ = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
                 cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
                 for char in playerTeam:
                     if char.specialEnergy == True:
@@ -1398,7 +1453,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Yunli":
                 yunliSlot = specChar.pos
-                lst = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
+                lst, _, _ = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
                 return Special(name=specStr, attr1=lst[yunliSlot], enemies=gauge)
 
             case _:

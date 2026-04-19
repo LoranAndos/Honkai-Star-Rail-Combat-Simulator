@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 26283.914 | Evanescia: 21915.851 | ElationMC: 2998.409 | Tribbie: 619.150 | HuoHuo: 8.966
+Run    2: Team DPAV: 25417.563 | Evanescia: 21111.022 | ElationMC: 2998.499 | Tribbie: 597.320 | HuoHuo: 8.966
+Run    3: Team DPAV: 26398.424 | Evanescia: 22028.810 | ElationMC: 2998.409 | Tribbie: 620.700 | HuoHuo: 8.966
+Run    4: Team DPAV: 25240.126 | Evanescia: 20916.975 | ElationMC: 2978.297 | Tribbie: 594.348 | HuoHuo: 8.966
+Run    5: Team DPAV: 26026.826 | Evanescia: 21605.195 | ElationMC: 3049.486 | Tribbie: 621.639 | HuoHuo: 8.966
+Run    6: Team DPAV: 25228.053 | Evanescia: 20867.318 | ElationMC: 2978.297 | Tribbie: 631.932 | HuoHuo: 8.966
+Run    7: Team DPAV: 25656.068 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 621.639 | HuoHuo: 8.966
+Run    8: Team DPAV: 25169.263 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 594.348 | HuoHuo: 8.966
+Run    9: Team DPAV: 26627.111 | Evanescia: 22279.953 | ElationMC: 2978.297 | Tribbie: 618.355 | HuoHuo: 8.966
+Run   10: Team DPAV: 24849.225 | Evanescia: 20505.168 | ElationMC: 2998.409 | Tribbie: 595.143 | HuoHuo: 8.966
+Run   11: Team DPAV: 25652.639 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 618.210 | HuoHuo: 8.966
+Run   12: Team DPAV: 26318.775 | Evanescia: 21950.711 | ElationMC: 2998.409 | Tribbie: 619.150 | HuoHuo: 8.966
+Run   13: Team DPAV: 25654.706 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 620.277 | HuoHuo: 8.966
+Run   14: Team DPAV: 24870.061 | Evanescia: 20526.593 | ElationMC: 2997.820 | Tribbie: 595.143 | HuoHuo: 8.966
+Run   15: Team DPAV: 24284.565 | Evanescia: 19938.090 | ElationMC: 2997.820 | Tribbie: 598.149 | HuoHuo: 8.966
+Run   16: Team DPAV: 25727.582 | Evanescia: 21357.617 | ElationMC: 2997.820 | Tribbie: 621.639 | HuoHuo: 8.966
+Run   17: Team DPAV: 25656.585 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 622.156 | HuoHuo: 8.966
+Run   18: Team DPAV: 25492.662 | Evanescia: 21126.582 | ElationMC: 3059.293 | Tribbie: 596.065 | HuoHuo: 8.966
+Run   19: Team DPAV: 26034.216 | Evanescia: 21639.670 | ElationMC: 3048.898 | Tribbie: 595.143 | HuoHuo: 8.966
+Run   20: Team DPAV: 26142.871 | Evanescia: 21792.635 | ElationMC: 2978.886 | Tribbie: 620.845 | HuoHuo: 8.966
+Run   21: Team DPAV: 26598.537 | Evanescia: 22252.247 | ElationMC: 2978.886 | Tribbie: 616.899 | HuoHuo: 8.966
+Run   22: Team DPAV: 26753.230 | Evanescia: 22369.356 | ElationMC: 2978.886 | Tribbie: 654.483 | HuoHuo: 8.966
+Run   23: Team DPAV: 26231.239 | Evanescia: 21862.236 | ElationMC: 2998.409 | Tribbie: 620.089 | HuoHuo: 8.966
+Run   24: Team DPAV: 25653.463 | Evanescia: 21324.875 | ElationMC: 3067.475 | Tribbie: 590.175 | HuoHuo: 8.966
+Run   25: Team DPAV: 25191.926 | Evanescia: 20867.318 | ElationMC: 2978.297 | Tribbie: 595.805 | HuoHuo: 8.966
+Run   26: Team DPAV: 26909.730 | Evanescia: 22544.651 | ElationMC: 2997.820 | Tribbie: 616.754 | HuoHuo: 8.966
+Run   27: Team DPAV: 25653.578 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 619.150 | HuoHuo: 8.966
+Run   28: Team DPAV: 26418.656 | Evanescia: 22052.990 | ElationMC: 2998.617 | Tribbie: 656.327 | HuoHuo: 8.966
+Run   29: Team DPAV: 26986.398 | Evanescia: 22586.612 | ElationMC: 3029.375 | Tribbie: 619.905 | HuoHuo: 8.966
+Run   30: Team DPAV: 26373.867 | Evanescia: 22005.991 | ElationMC: 2998.409 | Tribbie: 618.962 | HuoHuo: 8.966
+Run   31: Team DPAV: 25973.616 | Evanescia: 21625.870 | ElationMC: 2978.886 | Tribbie: 618.355 | HuoHuo: 8.966
+Run   32: Team DPAV: 26282.975 | Evanescia: 21915.851 | ElationMC: 2998.409 | Tribbie: 618.210 | HuoHuo: 8.966
+Run   33: Team DPAV: 25308.193 | Evanescia: 20985.042 | ElationMC: 2978.297 | Tribbie: 594.348 | HuoHuo: 8.966
+Run   34: Team DPAV: 26928.746 | Evanescia: 22529.383 | ElationMC: 3029.375 | Tribbie: 619.483 | HuoHuo: 8.966
+Run   35: Team DPAV: 24621.156 | Evanescia: 20297.417 | ElationMC: 2978.886 | Tribbie: 594.348 | HuoHuo: 8.966
+Run   36: Team DPAV: 25222.379 | Evanescia: 20824.849 | ElationMC: 3049.486 | Tribbie: 597.539 | HuoHuo: 8.966
+Run   37: Team DPAV: 25171.659 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 596.744 | HuoHuo: 8.966
+Run   38: Team DPAV: 26550.337 | Evanescia: 22202.591 | ElationMC: 2978.886 | Tribbie: 618.355 | HuoHuo: 8.966
+Run   39: Team DPAV: 24622.613 | Evanescia: 20297.417 | ElationMC: 2978.886 | Tribbie: 595.805 | HuoHuo: 8.966
+Run   40: Team DPAV: 26134.458 | Evanescia: 21765.620 | ElationMC: 2997.820 | Tribbie: 620.512 | HuoHuo: 8.966
+Run   41: Team DPAV: 25540.021 | Evanescia: 21165.204 | ElationMC: 3029.964 | Tribbie: 594.348 | HuoHuo: 8.966
+Run   42: Team DPAV: 24301.635 | Evanescia: 19957.062 | ElationMC: 2998.409 | Tribbie: 595.660 | HuoHuo: 8.966
+Run   43: Team DPAV: 25391.060 | Evanescia: 21064.924 | ElationMC: 2978.886 | Tribbie: 596.744 | HuoHuo: 8.966
+Run   44: Team DPAV: 26228.843 | Evanescia: 21862.236 | ElationMC: 2998.409 | Tribbie: 617.693 | HuoHuo: 8.966
+Run   45: Team DPAV: 25539.082 | Evanescia: 21165.204 | ElationMC: 3029.964 | Tribbie: 593.409 | HuoHuo: 8.966
+Run   46: Team DPAV: 25976.106 | Evanescia: 21625.870 | ElationMC: 2978.886 | Tribbie: 620.845 | HuoHuo: 8.966
+Run   47: Team DPAV: 24853.171 | Evanescia: 20505.168 | ElationMC: 2998.409 | Tribbie: 599.089 | HuoHuo: 8.966
+Run   48: Team DPAV: 24338.702 | Evanescia: 19957.062 | ElationMC: 2998.409 | Tribbie: 632.727 | HuoHuo: 8.966
+Run   49: Team DPAV: 26835.327 | Evanescia: 22468.391 | ElationMC: 2998.409 | Tribbie: 618.022 | HuoHuo: 8.966
+Run   50: Team DPAV: 25453.080 | Evanescia: 21111.022 | ElationMC: 2998.499 | Tribbie: 632.837 | HuoHuo: 8.966
+Run   51: Team DPAV: 26695.433 | Evanescia: 22325.514 | ElationMC: 3039.309 | Tribbie: 619.888 | HuoHuo: 8.966
+Run   52: Team DPAV: 26229.359 | Evanescia: 21862.236 | ElationMC: 2998.409 | Tribbie: 618.210 | HuoHuo: 8.966
+Run   53: Team DPAV: 26371.092 | Evanescia: 22069.663 | ElationMC: 3015.835 | Tribbie: 614.656 | HuoHuo: 8.966
+Run   54: Team DPAV: 24625.103 | Evanescia: 20297.417 | ElationMC: 2978.886 | Tribbie: 598.295 | HuoHuo: 8.966
+Run   55: Team DPAV: 25654.518 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 620.089 | HuoHuo: 8.966
+Run   56: Team DPAV: 26996.412 | Evanescia: 22599.633 | ElationMC: 3029.375 | Tribbie: 616.899 | HuoHuo: 8.966
+Run   57: Team DPAV: 25653.578 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 619.150 | HuoHuo: 8.966
+Run   58: Team DPAV: 24849.225 | Evanescia: 20505.168 | ElationMC: 2998.409 | Tribbie: 595.143 | HuoHuo: 8.966
+Run   59: Team DPAV: 26550.337 | Evanescia: 22202.591 | ElationMC: 2978.886 | Tribbie: 618.355 | HuoHuo: 8.966
+Run   60: Team DPAV: 26764.060 | Evanescia: 22397.712 | ElationMC: 2997.820 | Tribbie: 618.022 | HuoHuo: 8.966
+Run   61: Team DPAV: 26442.168 | Evanescia: 22094.050 | ElationMC: 3065.513 | Tribbie: 611.667 | HuoHuo: 8.966
+Run   62: Team DPAV: 25199.235 | Evanescia: 20802.644 | ElationMC: 3049.486 | Tribbie: 596.599 | HuoHuo: 8.966
+Run   63: Team DPAV: 25652.122 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 617.693 | HuoHuo: 8.966
+Run   64: Team DPAV: 25964.896 | Evanescia: 21664.472 | ElationMC: 3013.873 | Tribbie: 615.613 | HuoHuo: 8.966
+Run   65: Team DPAV: 24241.508 | Evanescia: 19894.545 | ElationMC: 2997.368 | Tribbie: 599.089 | HuoHuo: 8.966
+Run   66: Team DPAV: 26047.991 | Evanescia: 21698.343 | ElationMC: 2978.297 | Tribbie: 620.845 | HuoHuo: 8.966
+Run   67: Team DPAV: 24302.575 | Evanescia: 19957.062 | ElationMC: 2998.409 | Tribbie: 596.599 | HuoHuo: 8.966
+Run   68: Team DPAV: 24656.727 | Evanescia: 20329.041 | ElationMC: 2978.886 | Tribbie: 598.295 | HuoHuo: 8.966
+Run   69: Team DPAV: 26555.404 | Evanescia: 22209.703 | ElationMC: 2978.297 | Tribbie: 616.899 | HuoHuo: 8.966
+Run   70: Team DPAV: 25171.659 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 596.744 | HuoHuo: 8.966
+Run   71: Team DPAV: 24621.673 | Evanescia: 20297.417 | ElationMC: 2978.886 | Tribbie: 594.865 | HuoHuo: 8.966
+Run   72: Team DPAV: 26025.276 | Evanescia: 21605.195 | ElationMC: 3049.486 | Tribbie: 620.089 | HuoHuo: 8.966
+Run   73: Team DPAV: 25221.315 | Evanescia: 20895.180 | ElationMC: 2978.886 | Tribbie: 596.744 | HuoHuo: 8.966
+Run   74: Team DPAV: 24848.286 | Evanescia: 20505.168 | ElationMC: 2998.409 | Tribbie: 594.203 | HuoHuo: 8.966
+Run   75: Team DPAV: 25171.659 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 596.744 | HuoHuo: 8.966
+Run   76: Team DPAV: 25169.263 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 594.348 | HuoHuo: 8.966
+Run   77: Team DPAV: 25421.679 | Evanescia: 21127.458 | ElationMC: 2988.692 | Tribbie: 594.807 | HuoHuo: 8.966
+Run   78: Team DPAV: 26933.763 | Evanescia: 22567.415 | ElationMC: 2997.820 | Tribbie: 618.022 | HuoHuo: 8.966
+Run   79: Team DPAV: 25655.129 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 620.700 | HuoHuo: 8.966
+Run   80: Team DPAV: 25656.068 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 621.639 | HuoHuo: 8.966
+Run   81: Team DPAV: 26294.809 | Evanescia: 21926.206 | ElationMC: 2997.820 | Tribbie: 620.277 | HuoHuo: 8.966
+Run   82: Team DPAV: 25337.484 | Evanescia: 21012.289 | ElationMC: 2978.886 | Tribbie: 595.805 | HuoHuo: 8.966
+Run   83: Team DPAV: 25170.720 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 595.805 | HuoHuo: 8.966
+Run   84: Team DPAV: 26282.787 | Evanescia: 21915.851 | ElationMC: 2998.409 | Tribbie: 618.022 | HuoHuo: 8.966
+Run   85: Team DPAV: 26230.299 | Evanescia: 21862.236 | ElationMC: 2998.409 | Tribbie: 619.150 | HuoHuo: 8.966
+Run   86: Team DPAV: 26336.540 | Evanescia: 21986.965 | ElationMC: 3065.513 | Tribbie: 613.123 | HuoHuo: 8.966
+Run   87: Team DPAV: 25421.203 | Evanescia: 21127.458 | ElationMC: 2988.692 | Tribbie: 594.331 | HuoHuo: 8.966
+Run   88: Team DPAV: 26296.171 | Evanescia: 21926.206 | ElationMC: 2997.820 | Tribbie: 621.639 | HuoHuo: 8.966
+Run   89: Team DPAV: 25652.639 | Evanescia: 21285.515 | ElationMC: 2998.409 | Tribbie: 618.210 | HuoHuo: 8.966
+Run   90: Team DPAV: 24986.752 | Evanescia: 20745.133 | ElationMC: 3019.883 | Tribbie: 590.581 | HuoHuo: 8.966
+Run   91: Team DPAV: 26024.337 | Evanescia: 21605.195 | ElationMC: 3049.486 | Tribbie: 619.150 | HuoHuo: 8.966
+Run   92: Team DPAV: 25971.737 | Evanescia: 21625.870 | ElationMC: 2978.886 | Tribbie: 616.476 | HuoHuo: 8.966
+Run   93: Team DPAV: 25316.160 | Evanescia: 21026.889 | ElationMC: 2983.279 | Tribbie: 595.271 | HuoHuo: 8.966
+Run   94: Team DPAV: 26294.809 | Evanescia: 21926.206 | ElationMC: 2997.820 | Tribbie: 620.277 | HuoHuo: 8.966
+Run   95: Team DPAV: 25173.209 | Evanescia: 20845.524 | ElationMC: 2978.886 | Tribbie: 598.295 | HuoHuo: 8.966
+Run   96: Team DPAV: 26610.217 | Evanescia: 22188.658 | ElationMC: 3048.898 | Tribbie: 622.156 | HuoHuo: 8.966
+Run   97: Team DPAV: 24305.065 | Evanescia: 19957.062 | ElationMC: 2998.409 | Tribbie: 599.089 | HuoHuo: 8.966
+Run   98: Team DPAV: 24456.641 | Evanescia: 20113.430 | ElationMC: 2994.556 | Tribbie: 598.149 | HuoHuo: 8.966
+Run   99: Team DPAV: 25457.174 | Evanescia: 20933.193 | ElationMC: 3083.291 | Tribbie: 630.510 | HuoHuo: 8.966
+Run  100: Team DPAV: 24965.320 | Evanescia: 20640.124 | ElationMC: 2978.886 | Tribbie: 595.805 | HuoHuo: 8.966
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 25687.066
+Average Evanescia DPAV: 21332.406
+Average ElationMC DPAV: 3001.433
+Average Tribbie DPAV: 610.480
+Average HuoHuo DPAV: 8.966
+
+Min Team DPAV: 24241.508
+Max Team DPAV: 26996.412

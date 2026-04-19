@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 44222.709 | Evanescia: 36954.727 | YaoGuang: 6579.740 | Sunday: 0.000 | HuoHuo: 7.869
+Run    2: Team DPAV: 43166.011 | Evanescia: 35847.972 | YaoGuang: 6629.798 | Sunday: 0.000 | HuoHuo: 7.869
+Run    3: Team DPAV: 42926.073 | Evanescia: 35579.620 | YaoGuang: 6691.180 | Sunday: 0.000 | HuoHuo: 7.869
+Run    4: Team DPAV: 43648.493 | Evanescia: 36306.001 | YaoGuang: 6621.283 | Sunday: 0.000 | HuoHuo: 7.869
+Run    5: Team DPAV: 43503.158 | Evanescia: 36228.118 | YaoGuang: 6586.799 | Sunday: 0.000 | HuoHuo: 7.869
+Run    6: Team DPAV: 42462.556 | Evanescia: 35174.825 | YaoGuang: 6566.522 | Sunday: 0.000 | HuoHuo: 7.869
+Run    7: Team DPAV: 43425.412 | Evanescia: 36179.659 | YaoGuang: 6557.512 | Sunday: 0.000 | HuoHuo: 7.869
+Run    8: Team DPAV: 42791.344 | Evanescia: 35545.838 | YaoGuang: 6557.265 | Sunday: 0.000 | HuoHuo: 7.869
+Run    9: Team DPAV: 43295.373 | Evanescia: 36075.924 | YaoGuang: 6531.208 | Sunday: 0.000 | HuoHuo: 7.869
+Run   10: Team DPAV: 42882.548 | Evanescia: 35862.416 | YaoGuang: 6364.858 | Sunday: 0.000 | HuoHuo: 7.869
+Run   11: Team DPAV: 42762.621 | Evanescia: 35383.486 | YaoGuang: 6723.862 | Sunday: 0.000 | HuoHuo: 7.869
+Run   12: Team DPAV: 43260.204 | Evanescia: 36081.117 | YaoGuang: 6523.813 | Sunday: 0.000 | HuoHuo: 7.869
+Run   13: Team DPAV: 42686.383 | Evanescia: 35383.486 | YaoGuang: 6647.623 | Sunday: 0.000 | HuoHuo: 7.869
+Run   14: Team DPAV: 42434.622 | Evanescia: 35162.384 | YaoGuang: 6583.997 | Sunday: 0.000 | HuoHuo: 7.869
+Run   15: Team DPAV: 43818.133 | Evanescia: 36371.026 | YaoGuang: 6758.866 | Sunday: 0.000 | HuoHuo: 7.869
+Run   16: Team DPAV: 43371.281 | Evanescia: 36079.281 | YaoGuang: 6603.759 | Sunday: 0.000 | HuoHuo: 7.869
+Run   17: Team DPAV: 42797.767 | Evanescia: 35430.515 | YaoGuang: 6679.011 | Sunday: 0.000 | HuoHuo: 7.869
+Run   18: Team DPAV: 43576.654 | Evanescia: 36265.647 | YaoGuang: 6622.765 | Sunday: 0.000 | HuoHuo: 7.869
+Run   19: Team DPAV: 44042.672 | Evanescia: 36833.802 | YaoGuang: 6520.629 | Sunday: 0.000 | HuoHuo: 7.869
+Run   20: Team DPAV: 41856.874 | Evanescia: 34643.267 | YaoGuang: 6558.333 | Sunday: 0.000 | HuoHuo: 7.869
+Run   21: Team DPAV: 42154.157 | Evanescia: 34831.541 | YaoGuang: 6634.375 | Sunday: 0.000 | HuoHuo: 7.869
+Run   22: Team DPAV: 43136.959 | Evanescia: 35815.631 | YaoGuang: 6633.087 | Sunday: 0.000 | HuoHuo: 7.869
+Run   23: Team DPAV: 42250.558 | Evanescia: 35044.626 | YaoGuang: 6550.658 | Sunday: 0.000 | HuoHuo: 7.869
+Run   24: Team DPAV: 41974.634 | Evanescia: 34849.025 | YaoGuang: 6470.334 | Sunday: 0.000 | HuoHuo: 7.869
+Run   25: Team DPAV: 42856.309 | Evanescia: 35540.152 | YaoGuang: 6627.916 | Sunday: 0.000 | HuoHuo: 7.869
+Run   26: Team DPAV: 41785.968 | Evanescia: 34504.363 | YaoGuang: 6593.363 | Sunday: 0.000 | HuoHuo: 7.869
+Run   27: Team DPAV: 43022.614 | Evanescia: 35822.028 | YaoGuang: 6545.313 | Sunday: 0.000 | HuoHuo: 7.869
+Run   28: Team DPAV: 43038.252 | Evanescia: 35700.097 | YaoGuang: 6649.914 | Sunday: 0.000 | HuoHuo: 7.869
+Run   29: Team DPAV: 43799.427 | Evanescia: 36448.980 | YaoGuang: 6629.238 | Sunday: 0.000 | HuoHuo: 7.869
+Run   30: Team DPAV: 43081.333 | Evanescia: 35771.308 | YaoGuang: 6621.783 | Sunday: 0.000 | HuoHuo: 7.869
+Run   31: Team DPAV: 43059.474 | Evanescia: 35681.351 | YaoGuang: 6689.882 | Sunday: 0.000 | HuoHuo: 7.869
+Run   32: Team DPAV: 43094.228 | Evanescia: 35870.659 | YaoGuang: 6535.328 | Sunday: 0.000 | HuoHuo: 7.869
+Run   33: Team DPAV: 43382.659 | Evanescia: 36114.726 | YaoGuang: 6579.692 | Sunday: 0.000 | HuoHuo: 7.869
+Run   34: Team DPAV: 42605.610 | Evanescia: 35250.063 | YaoGuang: 6700.273 | Sunday: 0.000 | HuoHuo: 7.869
+Run   35: Team DPAV: 42704.174 | Evanescia: 35411.931 | YaoGuang: 6604.002 | Sunday: 0.000 | HuoHuo: 7.869
+Run   36: Team DPAV: 42705.855 | Evanescia: 35346.705 | YaoGuang: 6670.909 | Sunday: 0.000 | HuoHuo: 7.869
+Run   37: Team DPAV: 42635.299 | Evanescia: 35618.399 | YaoGuang: 6361.626 | Sunday: 0.000 | HuoHuo: 7.869
+Run   38: Team DPAV: 42705.938 | Evanescia: 35481.829 | YaoGuang: 6535.868 | Sunday: 0.000 | HuoHuo: 7.869
+Run   39: Team DPAV: 42567.620 | Evanescia: 35508.093 | YaoGuang: 6404.253 | Sunday: 0.000 | HuoHuo: 7.869
+Run   40: Team DPAV: 44037.675 | Evanescia: 36693.266 | YaoGuang: 6656.168 | Sunday: 0.000 | HuoHuo: 7.869
+Run   41: Team DPAV: 43223.887 | Evanescia: 35837.917 | YaoGuang: 6697.729 | Sunday: 0.000 | HuoHuo: 7.869
+Run   42: Team DPAV: 42345.846 | Evanescia: 35305.336 | YaoGuang: 6385.236 | Sunday: 0.000 | HuoHuo: 7.869
+Run   43: Team DPAV: 42744.950 | Evanescia: 35427.872 | YaoGuang: 6628.836 | Sunday: 0.000 | HuoHuo: 7.869
+Run   44: Team DPAV: 43256.489 | Evanescia: 35935.224 | YaoGuang: 6600.471 | Sunday: 0.000 | HuoHuo: 7.454
+Run   45: Team DPAV: 43289.666 | Evanescia: 36067.386 | YaoGuang: 6534.039 | Sunday: 0.000 | HuoHuo: 7.869
+Run   46: Team DPAV: 42548.344 | Evanescia: 35236.392 | YaoGuang: 6623.711 | Sunday: 0.000 | HuoHuo: 7.869
+Run   47: Team DPAV: 41889.339 | Evanescia: 34552.891 | YaoGuang: 6648.207 | Sunday: 0.000 | HuoHuo: 7.869
+Run   48: Team DPAV: 42103.915 | Evanescia: 34828.657 | YaoGuang: 6619.983 | Sunday: 0.000 | HuoHuo: 7.869
+Run   49: Team DPAV: 43052.029 | Evanescia: 35783.907 | YaoGuang: 6579.881 | Sunday: 0.000 | HuoHuo: 7.869
+Run   50: Team DPAV: 43014.263 | Evanescia: 35662.870 | YaoGuang: 6663.152 | Sunday: 0.000 | HuoHuo: 7.869
+Run   51: Team DPAV: 43392.202 | Evanescia: 36152.515 | YaoGuang: 6551.446 | Sunday: 0.000 | HuoHuo: 7.869
+Run   52: Team DPAV: 43174.606 | Evanescia: 35959.741 | YaoGuang: 6559.591 | Sunday: 0.000 | HuoHuo: 7.869
+Run   53: Team DPAV: 42340.574 | Evanescia: 35128.436 | YaoGuang: 6556.863 | Sunday: 0.000 | HuoHuo: 7.869
+Run   54: Team DPAV: 42560.667 | Evanescia: 35156.351 | YaoGuang: 6716.075 | Sunday: 0.000 | HuoHuo: 7.869
+Run   55: Team DPAV: 42863.854 | Evanescia: 35663.267 | YaoGuang: 6545.313 | Sunday: 0.000 | HuoHuo: 7.869
+Run   56: Team DPAV: 42471.220 | Evanescia: 35024.201 | YaoGuang: 6791.746 | Sunday: 0.000 | HuoHuo: 7.869
+Run   57: Team DPAV: 43284.878 | Evanescia: 36002.497 | YaoGuang: 6594.140 | Sunday: 0.000 | HuoHuo: 7.869
+Run   58: Team DPAV: 43421.037 | Evanescia: 36244.446 | YaoGuang: 6488.350 | Sunday: 0.000 | HuoHuo: 7.869
+Run   59: Team DPAV: 42634.787 | Evanescia: 35446.578 | YaoGuang: 6499.968 | Sunday: 0.000 | HuoHuo: 7.869
+Run   60: Team DPAV: 42602.239 | Evanescia: 35448.876 | YaoGuang: 6498.090 | Sunday: 0.000 | HuoHuo: 7.869
+Run   61: Team DPAV: 42942.530 | Evanescia: 35720.810 | YaoGuang: 6533.479 | Sunday: 0.000 | HuoHuo: 7.869
+Run   62: Team DPAV: 43268.786 | Evanescia: 35966.300 | YaoGuang: 6647.212 | Sunday: 0.000 | HuoHuo: 7.869
+Run   63: Team DPAV: 42876.279 | Evanescia: 35650.710 | YaoGuang: 6537.328 | Sunday: 0.000 | HuoHuo: 7.869
+Run   64: Team DPAV: 43253.424 | Evanescia: 35948.083 | YaoGuang: 6617.099 | Sunday: 0.000 | HuoHuo: 7.869
+Run   65: Team DPAV: 44427.757 | Evanescia: 37120.788 | YaoGuang: 6618.727 | Sunday: 0.000 | HuoHuo: 7.869
+Run   66: Team DPAV: 42803.398 | Evanescia: 35503.421 | YaoGuang: 6611.736 | Sunday: 0.000 | HuoHuo: 7.869
+Run   67: Team DPAV: 41933.678 | Evanescia: 34908.537 | YaoGuang: 6369.867 | Sunday: 0.000 | HuoHuo: 7.869
+Run   68: Team DPAV: 41851.129 | Evanescia: 34566.723 | YaoGuang: 6596.165 | Sunday: 0.000 | HuoHuo: 7.869
+Run   69: Team DPAV: 43472.392 | Evanescia: 36151.507 | YaoGuang: 6632.644 | Sunday: 0.000 | HuoHuo: 7.869
+Run   70: Team DPAV: 42857.031 | Evanescia: 35670.950 | YaoGuang: 6530.807 | Sunday: 0.000 | HuoHuo: 7.869
+Run   71: Team DPAV: 42412.266 | Evanescia: 35175.491 | YaoGuang: 6548.533 | Sunday: 0.000 | HuoHuo: 7.869
+Run   72: Team DPAV: 43314.772 | Evanescia: 36121.852 | YaoGuang: 6504.679 | Sunday: 0.000 | HuoHuo: 7.869
+Run   73: Team DPAV: 42772.684 | Evanescia: 35668.978 | YaoGuang: 6448.432 | Sunday: 0.000 | HuoHuo: 7.869
+Run   74: Team DPAV: 43378.873 | Evanescia: 36122.794 | YaoGuang: 6567.839 | Sunday: 0.000 | HuoHuo: 7.869
+Run   75: Team DPAV: 43075.736 | Evanescia: 35774.105 | YaoGuang: 6613.389 | Sunday: 0.000 | HuoHuo: 7.869
+Run   76: Team DPAV: 42936.942 | Evanescia: 35747.258 | YaoGuang: 6501.443 | Sunday: 0.000 | HuoHuo: 7.869
+Run   77: Team DPAV: 44412.642 | Evanescia: 37076.310 | YaoGuang: 6648.091 | Sunday: 0.000 | HuoHuo: 7.869
+Run   78: Team DPAV: 43591.182 | Evanescia: 36269.853 | YaoGuang: 6633.087 | Sunday: 0.000 | HuoHuo: 7.869
+Run   79: Team DPAV: 43770.450 | Evanescia: 36466.209 | YaoGuang: 6616.000 | Sunday: 0.000 | HuoHuo: 7.869
+Run   80: Team DPAV: 42301.169 | Evanescia: 35168.935 | YaoGuang: 6476.960 | Sunday: 0.000 | HuoHuo: 7.869
+Run   81: Team DPAV: 43486.951 | Evanescia: 36273.896 | YaoGuang: 6524.815 | Sunday: 0.000 | HuoHuo: 7.869
+Run   82: Team DPAV: 42824.966 | Evanescia: 35585.356 | YaoGuang: 6551.369 | Sunday: 0.000 | HuoHuo: 7.869
+Run   83: Team DPAV: 43156.028 | Evanescia: 35755.217 | YaoGuang: 6679.602 | Sunday: 0.000 | HuoHuo: 7.869
+Run   84: Team DPAV: 42724.802 | Evanescia: 35530.388 | YaoGuang: 6506.173 | Sunday: 0.000 | HuoHuo: 7.869
+Run   85: Team DPAV: 42805.334 | Evanescia: 35504.381 | YaoGuang: 6612.711 | Sunday: 0.000 | HuoHuo: 7.869
+Run   86: Team DPAV: 42776.402 | Evanescia: 35313.685 | YaoGuang: 6774.475 | Sunday: 0.000 | HuoHuo: 7.869
+Run   87: Team DPAV: 43089.216 | Evanescia: 35818.563 | YaoGuang: 6582.412 | Sunday: 0.000 | HuoHuo: 7.869
+Run   88: Team DPAV: 42383.047 | Evanescia: 35069.878 | YaoGuang: 6591.961 | Sunday: 0.000 | HuoHuo: 7.869
+Run   89: Team DPAV: 43964.196 | Evanescia: 36615.212 | YaoGuang: 6660.743 | Sunday: 0.000 | HuoHuo: 7.869
+Run   90: Team DPAV: 43175.619 | Evanescia: 36034.046 | YaoGuang: 6453.746 | Sunday: 0.000 | HuoHuo: 7.454
+Run   91: Team DPAV: 43591.182 | Evanescia: 36269.853 | YaoGuang: 6633.087 | Sunday: 0.000 | HuoHuo: 7.869
+Run   92: Team DPAV: 43486.275 | Evanescia: 36205.614 | YaoGuang: 6592.420 | Sunday: 0.000 | HuoHuo: 7.869
+Run   93: Team DPAV: 42651.934 | Evanescia: 35362.816 | YaoGuang: 6600.877 | Sunday: 0.000 | HuoHuo: 7.869
+Run   94: Team DPAV: 42917.543 | Evanescia: 35638.234 | YaoGuang: 6624.034 | Sunday: 0.000 | HuoHuo: 7.869
+Run   95: Team DPAV: 43125.689 | Evanescia: 35753.231 | YaoGuang: 6651.249 | Sunday: 0.000 | HuoHuo: 7.869
+Run   96: Team DPAV: 42240.869 | Evanescia: 34940.839 | YaoGuang: 6611.789 | Sunday: 0.000 | HuoHuo: 7.869
+Run   97: Team DPAV: 42780.125 | Evanescia: 35483.081 | YaoGuang: 6575.836 | Sunday: 0.000 | HuoHuo: 7.869
+Run   98: Team DPAV: 42833.614 | Evanescia: 35494.580 | YaoGuang: 6650.794 | Sunday: 0.000 | HuoHuo: 7.869
+Run   99: Team DPAV: 43069.261 | Evanescia: 35747.933 | YaoGuang: 6633.087 | Sunday: 0.000 | HuoHuo: 7.869
+Run  100: Team DPAV: 42636.698 | Evanescia: 35572.403 | YaoGuang: 6409.021 | Sunday: 0.000 | HuoHuo: 7.869
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 42971.173
+Average Evanescia DPAV: 35703.281
+Average YaoGuang DPAV: 6585.593
+Average Sunday DPAV: 0.000
+Average HuoHuo DPAV: 7.860
+
+Min Team DPAV: 41785.968
+Max Team DPAV: 44427.757

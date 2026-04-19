@@ -146,7 +146,7 @@ class Evanescia(Character):
 
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.FUA], [self.element],
-                           [E5MulFUA, 0], [10, 0], 10 * (1 + self.ERR), self.scaling, 0, "EvanesciaMasterFoxFUA"))
+                           [E5MulFUA, 0], [10, 0], 10, self.scaling, 0, "EvanesciaMasterFoxFUA"))
 
             if self.Banger >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
@@ -352,7 +352,7 @@ class Evanescia(Character):
         Base: converts 50% into Evanescia's own Banger.
         E2:   converts 100% instead.
         """
-        conversionRate = 2.0 if self.eidolon >= 2 else 1.0
+        conversionRate = 1.5 if self.eidolon >= 2 else 1.0
         convertedBanger = floor(bangerAmount * conversionRate)
         bl.append(Buff(f"EvanesciaBangerConvert_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
@@ -365,7 +365,7 @@ class Evanescia(Character):
         Base: converts 50% into Evanescia's own Banger.
         E2:   converts 100% instead.
         """
-        conversionRate = 1.5 if self.eidolon >= 2 else 1.0
+        conversionRate = 1.0 if self.eidolon >= 2 else 0.5
         convertedBanger = floor(bangerAmount * conversionRate)
         bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
