@@ -120,7 +120,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         eWeaknesses = enemyModule.weaknesses
 
         # HP values per enemy type — adjust to taste
-        hpByType = {EnemyType.BOSS: 10_000_000, EnemyType.ELITE: 5_000_000, EnemyType.ADD: 2_000_000}
+        hpByType = {EnemyType.BOSS: 20_000_000, EnemyType.ELITE: 12_000_000, EnemyType.ADD: 5_000_000}
         eMaxHP = hpByType.get(eType, 1_000_000)
         # hpPerEnemy = [2_000_000, 500_000, 500_000]  # one value per enemy based on enemy position
         # eMaxHP = hpPerEnemy[i] if i < len(hpPerEnemy) else 1_000_000

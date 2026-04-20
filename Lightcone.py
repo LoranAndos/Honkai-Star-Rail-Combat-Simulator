@@ -7,6 +7,7 @@ class Lightcone(Equipment):
     baseHP = 0
     baseATK = 0
     baseDEF = 0
+    wearer = None
 
     def __init__(self, wearerRole: Role, level: int):
         super().__init__(wearerRole)

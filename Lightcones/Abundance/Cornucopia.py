@@ -12,6 +12,7 @@ class Cornucopia(Lightcone):
     def __init__(self, wearerRole, level=5):
         super().__init__(wearerRole, level)
 
+
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
         BuffAmount = self.level * 0.03 + 0.09

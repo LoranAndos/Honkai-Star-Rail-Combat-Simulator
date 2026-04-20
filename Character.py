@@ -92,6 +92,7 @@ class Character(metaclass=CharacterMeta):
         return res
 
     def equip(self):  # function to add base buffs to wearer
+        self.lightcone.wearer = self
         return self.parseEquipment("EQUIP")
 
     def useSkl(self, enemyID=-1):

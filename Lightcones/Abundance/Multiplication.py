@@ -13,6 +13,7 @@ class Multiplication(Lightcone):
     def __init__(self, wearerRole, level=5):
         super().__init__(wearerRole, level)
 
+
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, hl = super().useBsc(enemyID)
         advAmount = self.level * 0.02 + 0.10

@@ -18,6 +18,7 @@ class Result:
         self.turnName = turnName
         self.enemiesHit = enemiesHit
         self.preHitStatus = preHitStatus
+        self.numKills = 0
 
     def __str__(self) -> str:
         eHit = [e.enemyID for e in self.enemiesHit]

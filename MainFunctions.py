@@ -7,6 +7,7 @@ import Character
 import Turn_Text
 from Character import *
 from Enemy import Enemy, KILL_ENERGY, FINITE_ENEMY_HP
+from HPChecks import *
 from Attributes import *
 from Healing import *
 from Lightcone import Lightcone
@@ -500,7 +501,7 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
             # Evanescia talent: gaining Energy simultaneously gains equal Banger
             # (capped at 100 per instance). Hit energy goes through this path.
             if char.name == "Evanescia" and energyAdded > 0:
-                bangerGain = min(int(energyAdded/len(enemyTeam)), 100)
+                bangerGain = min(int(energyAdded/1.5), 100)
                 bangerBuffs.append(Buff(
                     f"EvanesciaBangerFromHit_{char.Count}",
                     StatTypes.BANGER,
@@ -521,27 +522,6 @@ def getCharDEF(char: Character, buffList: list[Buff]) -> float:
     """Return character's effective DEF stat including base, relics, and all buffs.
     Uses the same getScalingValues path as damage calculations so it is consistent."""
     return getScalingValues(char, buffList, [AtkType.ALL], Scaling.DEF)
-
-
-def getCharHPRatio(char: Character) -> float:
-    """Return a character's current HP ratio (0.0–1.0) for use in lightcones."""
-    return (char.currHP / char.maxHP) if char.maxHP > 0 else 1.0
-
-
-def getEnemyHPRatio(enemy: Enemy) -> float:
-    """Return an enemy's current HP ratio (0.0–1.0) for use in lightcones."""
-    return enemy.getHPRatio()
-
-
-def getCharHPPercent(char: Character) -> float:
-    """Return a character's HP as a percentage (0–100) for use in lightcones."""
-    return getCharHPRatio(char) * 100.0
-
-
-def getEnemyHPPercent(enemy: Enemy) -> float:
-    """Return an enemy's HP as a percentage (0–100) for use in lightcones."""
-    return enemy.getHPPercent()
-
 
 def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
                        buffList: list[Buff]) -> tuple[bool, list[str]]:
@@ -575,7 +555,7 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
             f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}) "
             f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
 
-        if char.currHP <= 0:
+        if char.currHP <= 0: #Change to 1.0 if you want to kill the character instantly.
             msg = f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped."
             logger.critical(msg)
             death_messages.append(msg)
@@ -724,12 +704,13 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
     wbDmg = 0
     Total_HPGain = 0
     Total_HPLoss = 0
+    numKills = 0
     Scaling_Multiplier = 0
     OGH_Multiplier = 0
     newDebuff, newDelay = [], []
 
     def processEnemy(currTurn: Turn, currEnemy: Enemy, breakUnits: float, percentMultiplier: float, charCR=0.0, charCD=0.0) -> tuple[list[Debuff], list[Delay]]:
-        nonlocal turnDmg, wbDmg, anyBroken, ElationturnDmg
+        nonlocal turnDmg, wbDmg, anyBroken, ElationturnDmg, numKills
 
         charWBE = getMulWBE(char, currEnemy, buffList, debuffList, currTurn)
         charDMG = getMulDMG(char, currEnemy, buffList, debuffList, currTurn)
@@ -765,6 +746,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
 
         # Apply damage to enemy HP and handle kill
         if currEnemy.takeHit(hitDmg):
+            numKills += 1
             killMsg = (f"    KILL   - {char.name} killed {currEnemy.name} "
                        f"(overkill: {currEnemy.overkillDMG:.1f})")
             logger.warning(killMsg)
@@ -949,7 +931,9 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                         Total_HPLoss += abs(healAmt)
                         character.ChangeHpValue(healAmt)
 
-    return Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss,turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus), newDebuff, newDelay
+    res = Result(turn.charName, turn.charRole, turn.atkType, turn.element, anyBroken, turnDmg, ElationturnDmg, wbDmg, Total_HPGain, Total_HPLoss, turn.errGain * charERR, turn.moveName, enemiesHit, preHitStatus)
+    res.numKills = numKills
+    return res, newDebuff, newDelay
 
 
 def handleEnergyFromBuffs(buffList: list[Buff], debuffList: list[Debuff], playerTeam: list[Character],

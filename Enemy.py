@@ -46,7 +46,7 @@ class Enemy:
         self.numAttacksPerTurn = numAttacksPerTurn
         # Global damage multiplier for all outgoing attacks. Change freely per enemy.
         # e.g. enemy.dmgPercent = 0.5 makes all hits deal 50% of normal damage.
-        self.dmgPercent = 5.0
+        self.dmgPercent = 3.0
 
     def __str__(self) -> str:
         res = f"Enemy {self.enemyID} | LVL: {self.level} | SPD: {self.spd} | "

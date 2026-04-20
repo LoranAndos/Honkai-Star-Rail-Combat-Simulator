@@ -15,6 +15,7 @@ class EchoesOfTheCoffin(Lightcone):
     def __init__(self, wearerRole, level=1):
         super().__init__(wearerRole, level)
 
+
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
         atkAmount = self.level * 0.04 + 0.20
