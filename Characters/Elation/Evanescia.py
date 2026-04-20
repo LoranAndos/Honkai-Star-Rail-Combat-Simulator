@@ -288,7 +288,7 @@ class Evanescia(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELAPUNCH], [self.element],
-                       [e5Mul, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
+                       [e5Mul*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 0, "EvanesciaELASkill"))
         if Character.EMCUlt == True:
             bl.append(Buff(f"BangerELASkill{self.Count}", StatTypes.BANGER,
                            20, self.role, [AtkType.ALL], self.BangerDuration, 1,
@@ -302,7 +302,6 @@ class Evanescia(Character):
         self.currEnergy = self.currEnergy + BangerBuff
 
         self._addEnergy(5, bl, "ElaSkill")
-        # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

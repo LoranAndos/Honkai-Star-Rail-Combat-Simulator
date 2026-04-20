@@ -187,8 +187,8 @@ class ElationMC(Character):
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall*8, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulBig, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall*8*Character.ahaElaDMGBoost, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
         if self.eidolon >= 6:
             bl.append(Buff("ElationMCUltE6CD", StatTypes.CD_PERCENT, 1.00, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         Character.savedPunchline += 3

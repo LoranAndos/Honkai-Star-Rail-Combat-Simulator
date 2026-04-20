@@ -10,6 +10,7 @@ SkillList = {} # Will be used for Cerydra to know which attacks counts as skill 
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUltimate","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
                 "SilverWolf999Ult",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"}
 
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}

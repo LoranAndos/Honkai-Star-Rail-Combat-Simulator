@@ -2,6 +2,7 @@ import logging
 
 from Buff import *
 from Character import Character
+from Attributes import *
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresYaoGuang
 from Lightcones.Elation.WhenSheDecidedToSee import WhenSheDecidedToSee
 from Planars.BrokenKeel import BrokenKeel
@@ -131,7 +132,7 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
             attackerELA = self.elaDict.get(turn.charRole, 0)
             yaoGuangELA = self.elaDict.get(self.role, 0)
             # If attacker has higher ELA, add the difference as a temporary buff on YaoGuang
