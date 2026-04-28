@@ -1053,7 +1053,6 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
     for buff in buffList:
         # Only process Banger buffs that are NOT for Evanescia herself
         if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role and buff.name != "BangerStartBattle":
-            # ✅ FIX: Skip buffs already converted in a previous cycle
             if getattr(buff, 'bangerConverted', False):
                 continue
 
@@ -1072,7 +1071,6 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
                     evanescia.receiveBangerFromTeammate(int(convertedAmount), source_char.name, bl)
                     newBuffsToAdd.extend(bl)
 
-                    # ✅ FIX: Mark this buff as converted so it is never processed again
                     buff.bangerConverted = True
 
                     logger.info(

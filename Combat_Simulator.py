@@ -51,8 +51,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -217,21 +217,25 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             action = f"ACTION > [ENEMY] TotalAV: {simAV:.3f} | TurnAV: {av:.3f} | {unit.name} | {numAttacks} attacks"
             logging.critical(action)
             manualPrint(manualMode, action)
-            for i in range(numAttacks):
-                for char in playerTeam:
-                    bl, dbl, al, dl, tl, hl = char.useHit(unit.enemyID)
-                    teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs,
-                                                                                  enemyDebuffs, advList, delayList, healingList, bl,
-                                                                                  dbl, al, dl, hl)
-                    turnList.extend(tl)
 
             # ── Energy and damage from enemy attacks ──────────────────────
             # addEnergy runs first — it determines who gets hit and how much
             # energy they receive. handleEnemyAttacks reuses the exact same
             # hit map so damage goes to the same characters.
-            energyList, hitMap, bangerBuffs = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios, teamBuffs)
+            energyList, hitMap, bangerBuffs = addEnergy(playerTeam, eTeam, numAttacks, enemyModule.attackRatios,
+                                                        teamBuffs)
             if bangerBuffs:
                 teamBuffs = addBuffs(teamBuffs, bangerBuffs)
+
+            # Only call useHit for characters that were actually hit
+            hitCharIdxs = set(idx for idx, _ in hitMap)
+            for idx in hitCharIdxs:
+                char = playerTeam[idx]
+                bl, dbl, al, dl, tl, hl = char.useHit(unit.enemyID)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(
+                    playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,
+                    bl, dbl, al, dl, hl)
+                turnList.extend(tl)
             energyMsg = "    CharEnergy -"
             for i in range(len(playerTeam)):
                 energyMsg += f" {playerTeam[i].name}: Hit {energyList[i]:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
@@ -400,7 +404,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -435,8 +439,8 @@ if __name__ == "__main__":
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -457,8 +461,8 @@ if __name__ == "__main__":
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = ElationMC(2, Role.SUP2, 1, eidolon=6, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 
                 result = startSimulator(

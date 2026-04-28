@@ -6,7 +6,7 @@ from Character import Character
 from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessingsElationMC
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
 from Planars.BrokenKeel import BrokenKeel
-from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *

@@ -21,10 +21,7 @@ class MutualDemise(Lightcone):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
-
         if getCharHPRatio(self.wearer) < 0.80:
             crBuff = self.level * 0.03 + 0.09
-            bl.append(Buff("MutualDemiseCR", StatTypes.CR_PERCENT, crBuff, self.wearerRole,
-                           [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-
+            bl.append(Buff("MutualDemiseCR", StatTypes.CR_PERCENT, crBuff, self.wearerRole,[AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         return bl, dbl, al, dl, hl

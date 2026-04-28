@@ -328,7 +328,7 @@ class SilverWolf999(Character):
 
         for i in range(bounce_count):
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [base_mul_boosted, 0], [10/100, 0], 0, Scaling.ELA, 0,
+                           [self.element], [base_mul_boosted, 0], [0, 0], 0, Scaling.ELA, 0,
                            f"SilverWolf999EnhancedBounce_{i + 1}"))
 
             # Pause for Top Loot Box trigger every ~33 bounces
@@ -382,26 +382,26 @@ class SilverWolf999(Character):
 
         tlb_mul = e5Mul * e6Mul
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [tlb_mul/enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
+                       [self.element], [tlb_mul/enemyCount, 0], [10/enemyCount, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
 
         # Random effect
         effect = randrange(1, 4)
         if effect == 1:
             # Big Flipping Sword: 20% True DMG to highest HP enemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [e5Mul * 0.2 * e6Mul, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [e5Mul * 0.2 * e6Mul, 0], [10/3, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999BigFlippingSword"))
             logger.info(f"{self.name} Top Loot Box: Big Flipping Sword triggered")
         elif effect == 2:
             # Kaboom Eggsplosion: Recover 2 SP
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL],
-                           [self.element], [0, 0], [0, 0], 0, Scaling.ELA, 2,
+                           [self.element], [0, 0], [10/3, 0], 0, Scaling.ELA, 2,
                            "SilverWolf999SPRecovery"))
             logger.info(f"{self.name} Top Loot Box: Kaboom Eggsplosion triggered (+2 SP)")
         else:
             # Funky Munch Bean: Gain 3 Punchline
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL],
-                           [self.element], [0, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [0, 0], [10/3, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999FunkyMunchBean"))
             logger.info(f"{self.name} Top Loot Box: Funky Munch Bean triggered (+3 Punchline, +3 Hidden MMR)")
         self._updateEnergyFromMMR()

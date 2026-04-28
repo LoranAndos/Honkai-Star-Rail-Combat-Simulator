@@ -116,7 +116,7 @@ class Evanescia(Character):
         The ERR_F buff feeds into currEnergy through handleEnergyFromBuffs, which is what
         drives the Master Fox threshold check.
         """
-        bl.append(Buff(f"TalentErrFromBanger_{source}{self.Count}", StatTypes.ERR_F, bangerAmount,
+        bl.append(Buff(f"TalentErrFromBanger_{source}{self.Count}", StatTypes.ERR_T, bangerAmount,
                        self.role, [AtkType.ALL], 1, 100, self.role, TickDown.END))
         self.Count += 1
         logger.debug(f"{self.name} +{bangerAmount} ERR_F from Banger sync ({source})")
@@ -187,8 +187,8 @@ class Evanescia(Character):
 
         if self.Banger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
-                           [e5MulELA, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
+                           Targeting.BLAST, [AtkType.ELABANGER], [self.element],
+                           [e5MulELA, e5MulELA], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
 
         # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
         return bl, dbl, al, dl, tl, hl
