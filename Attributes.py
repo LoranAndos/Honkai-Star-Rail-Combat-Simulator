@@ -9,7 +9,7 @@ bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "F
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUltimate","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
-                "SilverWolf999Ult",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+                "SilverWolf999Ult","MortenaxBladeUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"}
 
 wbMultiplier = 3767.5533
@@ -110,6 +110,7 @@ class Role(Enum):
     NUMBY = auto()
     FUYUAN = auto()
     HENSHIN = auto()
+    INFINITEFURY = auto()
     AHA = auto()
     # Memosprite roles
     Mem = auto()

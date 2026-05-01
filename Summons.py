@@ -102,6 +102,30 @@ class DeHenshin(Summon):
             self.currAV = 10000 / 70
         return bl, dbl, al, dl, tl, hl
 
+class InfiniteFury(Summon):
+    name = "InfiniteFury"
+    element = Element.FIRE
+    scaling = Scaling.HP
+    currSPD = 1
+    currAV = 10000
+
+    def __init__(self, ownerRole: Role, role: Role) -> None:
+        super().__init__(ownerRole, role)
+
+    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+        self.currAV = 10000
+        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                       self.scaling, 0, self.name))
+        return bl, dbl, al, dl, tl, hl
+
+    def allyTurn(self, turn: Turn, result: Result) -> tuple[
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        if turn.moveName == "MortenaxBladeUlt":
+            self.currAV = 10000 / 70
+        return bl, dbl, al, dl, tl, hl
+
 
 class LightningLord(Summon):
     name = "LightningLord"

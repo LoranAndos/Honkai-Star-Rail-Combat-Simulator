@@ -674,6 +674,8 @@ def addSummons(playerTeam: list[Character]) -> list:
             summons.append(DeHenshin(char.role, Role.HENSHIN))
         elif char.name == "JingYuan":
             summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
+        elif char.name == "MortenaxBlade":
+            summons.append(InfiniteFury(char.role, Role.INFINITEFURY))
         elif char.name in charToTurnName:
             if not ahaAdded:
                 elationTeam = [(c.role, charToTurnName[c.name]) for c in
