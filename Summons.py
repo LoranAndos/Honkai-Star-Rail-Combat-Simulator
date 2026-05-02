@@ -124,6 +124,8 @@ class InfiniteFury(Summon):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if turn.moveName == "MortenaxBladeUlt":
             self.currAV = 10000 / 70
+        if turn.moveName == "MortenaxBladeUltDelay":
+            self.currAV += 0.15*(10000 / 70)
         return bl, dbl, al, dl, tl, hl
 
 

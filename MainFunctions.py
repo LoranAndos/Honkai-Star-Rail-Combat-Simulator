@@ -547,6 +547,7 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
         charDEF = getCharDEF(char, buffList)
         charLevel = char.level if hasattr(char, 'level') else 80
         dmg = enemy.calcDamageTo(charDEF, charLevel, energyGiven)
+        dmg *= getMulDMGReduction(char, buffList)  # ← add this line
         char.ChangeHpValue(-dmg)
 
         atkType = "aoe" if energyGiven < 10.0 else "single/blast"
@@ -1313,6 +1314,13 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                             HasMemosprite = True
                 return Special(name=specStr, attr1=RmcBuffs, attr2=sum(energyList)/len(playerTeam), attr3= cdStat, attr4=DpsEnergy,attr5=HasMemosprite,attr6=SpecialEnergyCharacter ,enemies=gauge)
 
+            case "MortenaxBlade":
+                NihilityCount = 0
+                for character in playerTeam:
+                    if character.path == Path.NIHILITY:
+                        NihilityCount += 1
+                return Special(name=specStr, attr1=NihilityCount, enemies=gauge)
+
             case "Moze":
                 res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
                 return Special(name=specStr, attr1=res, enemies=gauge)
@@ -1800,6 +1808,9 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res
         case StatTypes.MERRY:
             return res
+        case StatTypes.DMG_REDUCTION:
+            return res
+
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char
 def getMulBE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
@@ -1863,6 +1874,12 @@ def getMulBANGER(char, enemy, buffList, debuffList, turn):
 
 def getMulMERRY(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.MERRY, char, enemy, buffList, debuffList, turn) + 1
+
+def getMulDMGReduction(char: Character, buffList: list[Buff]) -> float:
+    reduction = getCharStat(StatTypes.DMG_REDUCTION, char, None, buffList, [],
+                            Turn(char.name, char.role, -1, Targeting.NA, [AtkType.ALL],
+                                 [char.element], [0,0], [0,0], 0, char.scaling, 0, "DMGReductionCheck"))
+    return max(0.0, 1.0 - reduction)
 
 def getMulUNI(enemy: Enemy) -> float:
     return enemy.getUniMul()
