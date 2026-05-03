@@ -23,4 +23,8 @@ class BoneCollectionsSereneDemesne(Planar):
             HPStat = special.attr4
             if HPStat >= 5000:
                 bl.append(Buff("BoneCDBuff", StatTypes.CD_PERCENT, 0.28, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+        if special.specialName == "MortenaxBlade" :
+            HPStat = special.attr2
+            if HPStat >= 5000:
+                bl.append(Buff("BoneCDBuff", StatTypes.CD_PERCENT, 0.28, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
         return bl, dbl, al, dl, hl

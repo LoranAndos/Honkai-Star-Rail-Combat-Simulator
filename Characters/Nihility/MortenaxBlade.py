@@ -2,11 +2,12 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSparxie
-from Planars.TengokuLivestream import TengokuLivestream
+from Lightcones.Nihility.ReforgedInHellfire import ReforgedInHellfire
+from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade
+from Lightcones.Nihility.GoodNightAndSleepWell import GoodNightAndSleepWell
+from Planars.BoneCollectionsSereneDemesne import BoneCollectionsSereneDemesne
 from RelicStats import RelicStats
-from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.DivineQueryingMasterSmith import DivineQueryMasterSmith
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -49,12 +50,12 @@ class MortenaxBlade(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role, 5)
-        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
+        self.lightcone = lc if lc else GoodNightAndSleepWell(role, 5)
+        self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+        self.planar = pl if pl else BoneCollectionsSereneDemesne(role)
+        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 7, 2, 2, 2, 2, 2, 12, 4, StatTypes.CR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.overflowEnergy = 0.0
         self.E2AllyUltChargeCount = 0
@@ -85,9 +86,14 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e5MulReg = 0.55 if self.eidolon >= 5 else 0.5
         e5MulEnhanced = 1.1 if self.eidolon >= 5 else 1.0
+        e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
+        e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         if self.EnhancedState:
+            dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
+            dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5MulEnhanced, 0], [10, 0], 20, self.scaling, 1, "MortenaxBladeEnhancedBasic"))
+            self.ChargeCount += 1
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                      [e5MulReg, 0], [10, 0], 20, self.scaling, 1, "MortenaxBladeBasic"))
@@ -97,6 +103,8 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5MulAoe = 0.792 if self.eidolon >= 5 else 0.72
         e5MulBounce = 0.264 if self.eidolon >= 5 else 0.24
+        e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
+        e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         if self.EnhancedState:
             if self.currHP >= 0.15*self.maxHP:
                 self.currHP -= 0.15*self.maxHP
@@ -106,11 +114,17 @@ class MortenaxBlade(Character):
                 self.ChargeCount += 1
                 self.E6ChargeReady = False
                 logger.debug(f"{self.name} E6: gained 1 Charge from HP consumption in Skill")
+            dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
+            dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL], [self.element],
                            [e5MulAoe, 0], [10, 0], 30, self.scaling, 0, "MortenaxBladeAOESkill"))
             for i in range(4):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL], [self.element],
                                [e5MulBounce, 0], [5, 0], 0, self.scaling, 0, "MortenaxBladeBounceSkill"))
+            self.ChargeCount += 1
+        if self.lightcone.name == "Reforged in Hellfire":
+            purgatoryCD = self.lightcone.level * 0.075 + 0.225
+            bl.append(Buff("MortenaxBladeCRBoost", StatTypes.CD_PERCENT, purgatoryCD, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -157,6 +171,7 @@ class MortenaxBlade(Character):
             e6DMGBoost = 2.50 if self.eidolon >= 6 else 1.00
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                            [e3EnhancedUlt*e6DMGBoost, 0], [20, 0], 5, self.scaling, 0, "MortenaxBladeEnhancedUlt"))
+            self.ChargeCount += 1
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):
@@ -164,20 +179,25 @@ class MortenaxBlade(Character):
         e5MulAoe = 0.792 if self.eidolon >= 5 else 0.72
         e5MulBounce = 0.264 if self.eidolon >= 5 else 0.24
         e2DMGBoost = 1.50 if self.eidolon >= 2 else 1.00
+        e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
+        e3Vul = 0.54 if self.eidolon >= 3 else 0.50
+        e3TalentEnergy = 27 if self.eidolon >= 3 else 25
         if self.EnhancedState:
+            dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
+            dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA], [self.element],
-                           [e5MulAoe * e2DMGBoost, 0], [10, 0], 0, self.scaling, 0, "MortenaxBladeAOEFUA"))
+                           [e5MulAoe * e2DMGBoost, 0], [10, 0], e3TalentEnergy, self.scaling, 0, "MortenaxBladeAOEFUA"))
             for i in range(4):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],
                                [e5MulBounce * e2DMGBoost, 0], [5, 0], 0, self.scaling, 0, "MortenaxBladeBounceFUA"))
             if self.eidolon >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
                          [0, 0], [0, 0], 0, self.scaling, 0, "MortenaxBladeUltDelay"))
+        self.ChargeCount += 1
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
-        e3TalentEnergy = 27 if self.eidolon >= 3 else 25
         if result.turnName == ("MortenaxBladeEnhancedBasic" or "MortenaxBladeBasic"):
             self.aggro = 10000
         elif result.turnName != ("MortenaxBladeEnhancedBasic" or "MortenaxBladeBasic") and self.EnhancedState:
@@ -206,7 +226,6 @@ class MortenaxBlade(Character):
                 bl.append(Buff("MortenaxBladeE1Pen", StatTypes.PEN, 0, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         if self.ChargeCount >= 9 and self.EnhancedState:
             self.ChargeCount -= 9
-            bl.append(Buff("MortenaxBladeTalentEnergy", StatTypes.ERR_F, e3TalentEnergy, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.START))
             return self.useFua(-1)
         # E6: reset charge trigger at end of every turn
         if self.eidolon >= 6 and self.EnhancedState:
@@ -217,13 +236,12 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
-        e3TalentEnergy = 27 if self.eidolon >= 3 else 25
 
         if self.EnhancedState and self.eidolon >= 2:
             # E2: ally Ult DMG counts as a Follow-Up ATK — give Mortenax Blade 1 Charge
             # Also: other ally FUAs give 1 Charge
             # Both effects share the same 9-trigger cap that resets each window
-            isAllyUlt = (result.turnName in UltimateList)
+            isAllyUlt = (result.turnName in UltimateList and result.turnDmg > 0)
             isAllyFUA = (AtkType.FUA in result.atkType and result.turnDmg > 0)
             if (isAllyUlt or isAllyFUA) and self.E2AllyUltChargeCount < 9:
                 self.E2AllyUltChargeCount += 1
@@ -235,7 +253,6 @@ class MortenaxBlade(Character):
             self.ChargeCount += 1
         if self.ChargeCount >= 9 and self.EnhancedState:
             self.ChargeCount -= 9
-            bl.append(Buff("MortenaxBladeTalentEnergy", StatTypes.ERR_F, e3TalentEnergy, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
             return self.useFua(-1)
         # E6: reset charge trigger at end of every turn
         if self.eidolon >= 6 and self.EnhancedState:
@@ -243,7 +260,7 @@ class MortenaxBlade(Character):
         return bl, dbl, al, dl, tl, hl
 
     def useHit(self, enemyID=-1):
-        bl, dbl, al, dl, tl = super().useHit(enemyID)
+        bl, dbl, al, dl, tl, hl = super().useHit(enemyID)
         if self.EnhancedState:
             self.ChargeCount += 1
             # E6: taking DMG also grants 1 Charge (once per turn, checked via E6ChargeReady)
@@ -251,7 +268,7 @@ class MortenaxBlade(Character):
                 self.ChargeCount += 1
                 self.E6ChargeReady = False
                 logger.debug(f"{self.name} E6: gained 1 Charge from taking DMG")
-        return bl, dbl, al, dl, tl
+        return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)

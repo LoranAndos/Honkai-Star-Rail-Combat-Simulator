@@ -43,7 +43,6 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
     for buff in buffList:
         # Only process Banger buffs that are NOT for Evanescia
         if buff.buffType == StatTypes.BANGER and buff.target != evanescia.role:
-            # ✅ FIX: Skip buffs already converted in a previous cycle
             if getattr(buff, 'bangerConverted', False):
                 continue
 
@@ -62,7 +61,6 @@ def handleBangerConversions(buffList: list[Buff], playerTeam: list[Character]) -
                     evanescia.receiveBangerFromTeammate(convertedAmount, source_char.name, bl)
                     newBuffsToAdd.extend(bl)
 
-                    # ✅ FIX: Mark this buff as converted so it is never processed again
                     buff.bangerConverted = True
 
                     logger.info(f"BANGER > {evanescia.name} converted {convertedAmount} Banger from {source_char.name}")
@@ -259,11 +257,11 @@ def sumBuffs(buffList: list[Buff]):
     return sum([x.getBuffVal() for x in buffList])
 
 def getCharSPD(char, buffList):
-    if char.isSummon() and char.name != "Fuyuan":
+    if char.isSummon() and char.name != "Fuyuan" and char.name != "InfiniteFury":
         spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList))
         spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
         return char.baseSPD * (1 + spdPercent) + spdFlat  # ← use baseSPD not currSPD
-    elif char.isSummon() and char.name == "Fuyuan":
+    elif char.isSummon() and (char.name == "Fuyuan" or char.name == "InfiniteFury"):
         return char.baseSPD
     baseSPD = char.baseSPD
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
@@ -1319,7 +1317,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 for character in playerTeam:
                     if character.path == Path.NIHILITY:
                         NihilityCount += 1
-                return Special(name=specStr, attr1=NihilityCount, enemies=gauge)
+                charHP = getCharMaxHP(specChar, specChar.lightcone, buffList)
+                return Special(name=specStr, attr1=NihilityCount, attr2=charHP, enemies=gauge)
 
             case "Moze":
                 res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
@@ -1596,6 +1595,8 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             )]
 
         for char in playerTeam + summons:
+            if hasattr(char, 'lightcone') and hasattr(char.lightcone, 'debuffList'):
+                char.lightcone.debuffList = enemyDebuffs  # inject current debuff state
             if char.role == turn.charRole:
                 tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)
             else:

@@ -146,7 +146,7 @@ class ElationMC(Character):
 
         if turn.moveName == "ElationMCSkillNormal":
             attackerBanger = self.BangerDict.get(self.role, 0)
-            ElationMCBanger = self.BangerDict.get(self.role, 0)
+            ElationMCBanger = self.BangerDict.get(self.role, 0) # Technically not correct, but Evanescia causes some trouble with this and effect is not big so will remain till I can fix it
             # If attacker has higher ELA, add the difference as a temporary buff on ElationMC
             if attackerBanger > ElationMCBanger:
                 bl.append(Buff("ElationMCTalentSkillBanger", StatTypes.BANGER, attackerBanger - ElationMCBanger,

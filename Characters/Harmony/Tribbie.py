@@ -85,9 +85,11 @@ class Tribbie(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.ULT], [self.element],
                      [e5MultUltimate], [20,0], 5, self.scaling, 0, "TribbieUltimate"))
         bl.append(Buff("TribbieUltVuln",StatTypes.VULN,e5VulnUltimate,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
+        dbl.append(Debuff("TribbieUltVulnPlaceHolderDebuff", self.role, StatTypes.VULN, 0, Role.ALL, [AtkType.ALL], 4))
         if self.eidolon >= 1:
             bl.append(Buff("TribbieTrueDmg",StatTypes.TRUEDAMAGE,0.24,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
-            # Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
+        if self.eidolon == 6:
+            return self.useFua(-1)
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -106,7 +108,7 @@ class Tribbie(Character):
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
 
-        if result.turnName in UltimateList and (result.charName in self.CharacterList) and self.eidolon >= 6:
+        if result.turnName in UltimateList and (result.charName in self.CharacterList):
             self.CharacterList.remove(result.charName)
             return self.useFua(-1)
 
@@ -115,7 +117,6 @@ class Tribbie(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
-        e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ADD], [self.element],
                      [e3AdditionalMulti * len(result.enemiesHit),0], [0, 0], 0, self.scaling, 0,
@@ -128,9 +129,6 @@ class Tribbie(Character):
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
-        if result.turnName in UltimateList and (result.charName in self.CharacterList) and self.eidolon >= 6:
-            self.CharacterList.remove(result.charName)
-            return self.useFua(-1)
         bl.append(Buff("TribbieTrace2HP",StatTypes.HP,0.09*self.TeamHp,self.role,[AtkType.ALL],1,1,self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl
 
@@ -139,7 +137,7 @@ class Tribbie(Character):
         e5TalentFua = 0.198 if self.eidolon >= 3 else 0.18
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.FUA], [self.element],
                        [e5TalentFua], [5, 0], 5, self.scaling, 0, "TribbieTalentFua"))
-        bl.append("TribbieTrace3Dmg", StatTypes.DMG_PERCENT, 0.72, self.role, [AtkType.ALL], 3, 3, self.role,TickDown.START)
+        bl.append(Buff("TribbieTrace3Dmg", StatTypes.DMG_PERCENT, 0.72, self.role, [AtkType.ALL], 3, 3, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

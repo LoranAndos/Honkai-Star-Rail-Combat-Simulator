@@ -107,6 +107,7 @@ class InfiniteFury(Summon):
     element = Element.FIRE
     scaling = Scaling.HP
     currSPD = 1
+    baseSPD = 1
     currAV = 10000
 
     def __init__(self, ownerRole: Role, role: Role) -> None:

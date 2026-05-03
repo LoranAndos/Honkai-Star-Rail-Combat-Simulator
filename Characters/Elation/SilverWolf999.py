@@ -160,7 +160,8 @@ class SilverWolf999(Character):
             self.lastMMRThreshold = 0
             self.topLootBoxChance = 1.0
             self.topLootBoxTriggersRemaining = 3
-            self.hiddenMMR -= 20 if self.lightcone.name == "Welcome to the Cosmic City" else 40
+            hiddenMMRLoss = 40 - (15+5*self.lightcone.level)
+            self.hiddenMMR -= hiddenMMRLoss if self.lightcone.name == "Welcome to the Cosmic City" else 40
 
             al.append(Advance("SilverWolf999GodmodeAdvance", self.role, 1.0))  # 100% advance
 

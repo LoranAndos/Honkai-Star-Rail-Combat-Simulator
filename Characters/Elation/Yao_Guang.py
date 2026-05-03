@@ -123,6 +123,8 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
+        bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
+
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -132,13 +134,15 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
+        bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
+
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
             attackerELA = self.elaDict.get(turn.charRole, 0)
             yaoGuangELA = self.elaDict.get(self.role, 0)
             # If attacker has higher ELA, add the difference as a temporary buff on YaoGuang
             if attackerELA > yaoGuangELA:
                 bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, attackerELA - yaoGuangELA,
-                               self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.START))
+                               self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
             if turn.spChange <= -1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(-1), Targeting.SINGLE, [AtkType.ELABANGER],
                                [self.element], [e5Mul * 2, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
