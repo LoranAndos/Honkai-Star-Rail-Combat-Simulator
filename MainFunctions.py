@@ -1156,6 +1156,11 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
     placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element], [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
     if typ == "START":
         match specStr:
+            case "Ashveil":
+                LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
+
+                return Special(name=specStr, attr1=LowestEnemyHPID, enemies=gauge)
+
             case "Aventurine":
                 avenDef = getBaseValue(specChar, buffList, placeHolderTurn)
                 aggroList, _, _ = addEnergy(playerTeam, enemyTeam, 0, atkRatio, buffList)
