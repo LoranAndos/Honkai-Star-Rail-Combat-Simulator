@@ -94,6 +94,7 @@ class MortenaxBlade(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5MulEnhanced, 0], [10, 0], 20, self.scaling, 1, "MortenaxBladeEnhancedBasic"))
             self.ChargeCount += 1
+            logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                      [e5MulReg, 0], [10, 0], 20, self.scaling, 1, "MortenaxBladeBasic"))
@@ -122,6 +123,7 @@ class MortenaxBlade(Character):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL], [self.element],
                                [e5MulBounce, 0], [5, 0], 0, self.scaling, 0, "MortenaxBladeBounceSkill"))
             self.ChargeCount += 1
+            logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
         if self.lightcone.name == "Reforged in Hellfire":
             purgatoryCD = self.lightcone.level * 0.075 + 0.225
             bl.append(Buff("MortenaxBladeCRBoost", StatTypes.CD_PERCENT, purgatoryCD, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
@@ -172,6 +174,7 @@ class MortenaxBlade(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                            [e3EnhancedUlt*e6DMGBoost, 0], [20, 0], 5, self.scaling, 0, "MortenaxBladeEnhancedUlt"))
             self.ChargeCount += 1
+            logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):
@@ -194,6 +197,7 @@ class MortenaxBlade(Character):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
                          [0, 0], [0, 0], 0, self.scaling, 0, "MortenaxBladeUltDelay"))
         self.ChargeCount += 1
+        logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -246,11 +250,13 @@ class MortenaxBlade(Character):
             if (isAllyUlt or isAllyFUA) and self.E2AllyUltChargeCount < 9:
                 self.E2AllyUltChargeCount += 1
                 self.ChargeCount += 1
+                logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.EnhancedState:
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, turn.targetID, [AtkType.ALL], 2))
             dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, turn.targetID, [AtkType.ALL], 2))
             self.ChargeCount += 1
+            logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
         if self.ChargeCount >= 9 and self.EnhancedState:
             self.ChargeCount -= 9
             return self.useFua(-1)
@@ -263,9 +269,11 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().useHit(enemyID)
         if self.EnhancedState:
             self.ChargeCount += 1
+            logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
             # E6: taking DMG also grants 1 Charge (once per turn, checked via E6ChargeReady)
             if self.eidolon >= 6 and self.E6ChargeReady:
                 self.ChargeCount += 1
+                logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
                 self.E6ChargeReady = False
                 logger.debug(f"{self.name} E6: gained 1 Charge from taking DMG")
         return bl, dbl, al, dl, tl, hl

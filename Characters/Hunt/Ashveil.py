@@ -95,6 +95,7 @@ class Ashveil(Character):
                        [e5MulBig+e5MulSmall, 0], [20, 0], 30, self.scaling, -1+1, "AshveilSkill"))
         self.Gluttony = min(self.Gluttony + 1, self.GluttonyCap)
         self.GluttonyObtained += 1
+        logger.debug(f"{self.name} has obtained 1 gluttony stack.")
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -108,9 +109,11 @@ class Ashveil(Character):
         self.UltFUA = True
         self.Charge = min(self.Charge + 3, 3)
         self.GluttonyExtraDamage = floor(self.Gluttony/4)
-        self.Gluttony = min(self.Gluttony + 2, self.GluttonyCap)
+        logger.debug(f"{self.name} has {self.Gluttony} gluttony stacks.")
         self.GluttonyObtained += 2
+        logger.debug(f"{self.name} has obtained 2 gluttony stacks.")
         self.Gluttony = max(self.Gluttony-self.GluttonyExtraDamage*4,0)
+        self.Gluttony = min(self.Gluttony + 2, self.GluttonyCap)
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):
@@ -129,6 +132,7 @@ class Ashveil(Character):
         self.UltFUA = False
         self.Gluttony = min(self.Gluttony+2,self.GluttonyCap)
         self.GluttonyObtained += 2
+        logger.debug(f"{self.name} has obtained 2 gluttony stacks.")
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -139,6 +143,7 @@ class Ashveil(Character):
         if result.turnName == "AshveilFUA" and result.numKills > 0:
             self.Gluttony = min(self.Gluttony + result.numKills, self.GluttonyCap)
             self.GluttonyObtained += result.numKills
+            logger.debug(f"{self.name} has obtained {result.numKills} gluttony stacks.")
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):

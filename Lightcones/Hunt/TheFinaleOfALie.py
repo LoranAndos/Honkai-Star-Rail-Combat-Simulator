@@ -19,7 +19,7 @@ class TheFinaleOfALie(Lightcone):
         ATKAmount = self.level * 0.1 + 0.3
         VulAmount = self.level * 0.025 + 0.175
         bl.append(Buff("FinaleCR", StatTypes.CR_PERCENT, CRAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("FinaleATK", StatTypes.CR_PERCENT, ATKAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+        bl.append(Buff("FinaleATK", StatTypes.ATK_PERCENT, ATKAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
         dbl.append(Debuff("FinaleVul", self.wearerRole, StatTypes.VULN, VulAmount, Role.ALL, [AtkType.ALL], 3,1, Targeting.AOE))
         return bl, dbl, al, dl, hl
 
@@ -29,6 +29,6 @@ class TheFinaleOfALie(Lightcone):
         VulAmount = self.level * 0.025 + 0.175
         self.FuaCount += 1
         if self.FuaCount % 4 == 0 and self.FuaCount != 0:
-            bl.append(Buff("FinaleATK", StatTypes.CR_PERCENT, ATKAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.END))
+            bl.append(Buff("FinaleATK", StatTypes.ATK_PERCENT, ATKAmount, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.END))
             dbl.append(Debuff("FinaleVul", self.wearerRole, StatTypes.VULN, VulAmount, Role.ALL, [AtkType.ALL], 3, 1,Targeting.AOE))
         return bl, dbl, al, dl, hl
