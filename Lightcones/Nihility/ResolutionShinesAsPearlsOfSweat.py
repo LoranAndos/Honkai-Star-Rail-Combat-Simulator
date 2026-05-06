@@ -18,7 +18,7 @@ class ResolutionShinesasPearlsOfSweat(Lightcone):
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, enemyID, [AtkType.ALL],
-                   1, 1, False, [0, 0], False))
+                   1, 1, Targeting.SINGLE,False, [0, 0], False))
         return bl, dbl, al, dl, hl
 
 
@@ -32,7 +32,7 @@ class ResolutionPela(ResolutionShinesasPearlsOfSweat):
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, enemyID, [AtkType.ALL],
-                   1, 1, False, [0, 0], False))
+                   1, 1, Targeting.SINGLE,False, [0, 0], False))
         return bl, dbl, al, dl, hl
 
     def useUlt(self, enemyID=-1):
@@ -40,7 +40,7 @@ class ResolutionPela(ResolutionShinesasPearlsOfSweat):
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, Role.ALL, [AtkType.ALL],
-                   1, 1, False, [0, 0], False))
+                   1, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, hl
 
 
@@ -57,5 +57,5 @@ class ResolutionMortenaxBlade(ResolutionJQ):
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, Role.ALL, [AtkType.ALL],
-                   1, 1, False, [0, 0], False))
+                   1, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, hl

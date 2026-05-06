@@ -4,7 +4,7 @@ from Attributes import *
 # ── Global switch ──────────────────────────────────────────────────────────────
 # True  → enemies have fixed HP; they "die", reset, and the killer earns energy.
 # False → enemies have infinite HP (original behaviour).
-FINITE_ENEMY_HP = False
+FINITE_ENEMY_HP = True
 
 # Kill-energy rewards per enemy type
 KILL_ENERGY = {

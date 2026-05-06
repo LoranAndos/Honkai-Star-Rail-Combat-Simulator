@@ -141,24 +141,50 @@ def parseBuffs(lst: list[Buff], playerTeam: list[Character]) -> list:
             buffList.append(Buff(buff.name, buff.buffType, buff.val, buff.target, buff.atkType, buff.turns, buff.stackLimit, target, buff.tdType, buff.reqBroken))
     return buffList
 
-def parseDebuffs(lst: list[Debuff], enemyTeam: list[Enemy]) -> list[Debuff]:
+def parseDebuffs(lst: list[Debuff], enemyTeam: list[Enemy], defaultEnemyID: int = 0) -> list[Debuff]:
+    """Parse raw debuffs into per-enemy debuff instances.
+
+    targeting=AOE        → applies to all enemies (old Role.ALL behaviour)
+    targeting=BLAST      → main target + adjacent
+    targeting=SINGLE     → main target only
+    target=-1            → uses defaultEnemyID (the best/default target)
+    target=int >= 0      → uses that specific enemy ID
+    Role.ALL as target   → treated as AOE for backwards compatibility
+    """
     debuffList = []
     for d in lst:
-        if d.target == Role.ALL: # AoE debuff, need to add 1 instance per enemy
+        # Resolve target enemy ID
+        if d.target == Role.ALL or d.targeting == Targeting.AOE:
+            # AOE: apply to all enemies
             for i in range(len(enemyTeam)):
-                newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, i, d.atkType, d.turns, d.stackLimit, d.isDot, d.dotSplit, d.isBlast)
+                newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, i, d.atkType,
+                                   d.turns, d.stackLimit, d.targeting, d.isDot, d.dotSplit, d.isBlast, d.validFor)
                 newDebuff.dotMul = d.dotSplit[0]
                 debuffList.append(newDebuff)
-        else:
-            enemy = enemyTeam[d.target]
-            newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, d.target, d.atkType, d.turns, d.stackLimit, d.isDot, d.dotSplit, d.isBlast)
-            newDebuff.dotMul = d.dotSplit[0] # main target dot
+
+        elif d.targeting == Targeting.BLAST:
+            # Blast: main target + adjacent
+            mainID = defaultEnemyID if (d.target == -1 or isinstance(d.target, Role)) else d.target
+            mainEnemy = enemyTeam[mainID]
+            newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, mainID, d.atkType,
+                               d.turns, d.stackLimit, d.targeting,d.isDot, d.dotSplit, d.isBlast, d.validFor)
+            newDebuff.dotMul = d.dotSplit[0]
             debuffList.append(newDebuff)
-            if enemy.hasAdj() and d.isBlast:
-                for adjID in enemy.adjacent:
-                    newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, adjID, d.atkType, d.turns, d.stackLimit, d.isDot, d.dotSplit, d.isBlast)
-                    newDebuff.dotMul = d.dotSplit[1] # adjacent target dot
+            if mainEnemy.hasAdj():
+                for adjID in mainEnemy.adjacent:
+                    newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, adjID, d.atkType,
+                                       d.turns, d.stackLimit, d.targeting, d.isDot, d.dotSplit, d.isBlast, d.validFor)
+                    newDebuff.dotMul = d.dotSplit[1]
                     debuffList.append(newDebuff)
+
+        else:
+            # Single target (default)
+            targetID = defaultEnemyID if (d.target == -1 or isinstance(d.target, Role)) else d.target
+            newDebuff = Debuff(d.name, d.charRole, d.debuffType, d.val, targetID, d.atkType,
+                               d.turns, d.stackLimit, d.targeting,d.isDot, d.dotSplit, d.isBlast, d.validFor)
+            newDebuff.dotMul = d.dotSplit[0]
+            debuffList.append(newDebuff)
+
     return debuffList
 
 def parseAdvance(lst: list[Advance], playerTeam: list[Character]) -> list[Advance]:
@@ -686,7 +712,7 @@ def addSummons(playerTeam: list[Character]) -> list:
 
 def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
                     buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay], healingToAdd: list[Healing]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Healing]]:
-    buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam)
+    buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam, defaultEnemyID=enemyTeam[0].enemyID if enemyTeam else 0), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam)
     buffList = addBuffs(buffList, buffs)
     debuffList = addBuffs(debuffList, debuffs)
     advList = addAdvance(advList, advs)
@@ -1486,19 +1512,19 @@ def wbDelay(ele: Element, charBE: float, enemy: Enemy) -> list[Delay]:
 def wbDebuff(ele: Element, charRole: Role, charBE: float, enemy: Enemy) -> Debuff:
     debuffName = f"{enemy.name} {ele.value}-break"
     if ele == Element.PHYSICAL:
-        return Debuff(debuffName, charRole, StatTypes.BLEED, 2 * wbMultiplier * enemy.maxToughnessMul * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, True, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.BLEED, 2 * wbMultiplier * enemy.maxToughnessMul * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE,True, [0, 0], False)
     elif ele == Element.FIRE:
-        return Debuff(debuffName, charRole, StatTypes.BURN, 1 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, True, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.BURN, 1 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE,True, [0, 0], False)
     elif ele == Element.ICE:
-        return Debuff(debuffName, charRole, StatTypes.FREEZE, 1 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 1, 1, False, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.FREEZE, 1 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 1, 1, Targeting.SINGLE,False, [0, 0], False)
     elif ele == Element.WIND:
-        return Debuff(debuffName, charRole, StatTypes.WINDSHEAR, 3 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, True, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.WINDSHEAR, 3 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE,True, [0, 0], False)
     elif ele == Element.LIGHTNING:
-        return Debuff(debuffName, charRole, StatTypes.SHOCK, 2 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, True, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.SHOCK, 2 * wbMultiplier * charBE, enemy.enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE,True, [0, 0], False)
     elif ele == Element.QUANTUM:
-        return Debuff(debuffName, charRole, StatTypes.ENTANGLE, 1.8 * wbMultiplier * enemy.maxToughnessMul * charBE, enemy.enemyID, [AtkType.ALL], 1, 1, False, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.ENTANGLE, 1.8 * wbMultiplier * enemy.maxToughnessMul * charBE, enemy.enemyID, [AtkType.ALL], 1, 1, Targeting.SINGLE,False, [0, 0], False)
     elif ele == Element.IMAGINARY:
-        return Debuff(debuffName, charRole, StatTypes.SPD_PERCENT, -0.1, enemy.enemyID, [AtkType.ALL], 1, 1, False, [0, 0], False)
+        return Debuff(debuffName, charRole, StatTypes.SPD_PERCENT, -0.1, enemy.enemyID, [AtkType.ALL], 1, 1, Targeting.SINGLE,False, [0, 0], False)
 
 def findBestEnemy(char: Character, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> Enemy:
     bestEnemy = None

@@ -51,7 +51,7 @@ class Buff:
 class Debuff:
     # noinspection PyDefaultArgument
     def __init__(self, name: str, charRole: Role, debuffType: StatTypes, val: float, target, atkType: list, turns: int,
-                 stackLimit: int = 1, isDot: bool = False, dotSplit: list[float] = [0, 0], isBlast: bool = False,
+                 stackLimit: int = 1, targeting: Targeting = Targeting.SINGLE,isDot: bool = False, dotSplit: list[float] = [0, 0], isBlast: bool = False,
                  validFor=[Role.ALL]):
         self.name = name
         self.charRole = charRole
@@ -63,6 +63,7 @@ class Debuff:
         self.turns = self.storedTurns
         self.stackLimit = stackLimit
         self.stacks = 1
+        self.targeting = targeting
         self.isDot = isDot
         self.dotSplit = dotSplit
         self.isBlast = isBlast
@@ -71,7 +72,7 @@ class Debuff:
 
     def __str__(self) -> str:
         res = f"{self.name} | From: {self.charRole.name} | {self.debuffType.value} | Stacks: {self.stacks} | Value: {self.stacks * self.val:.3f} | "
-        res += f"Remaining Turns: {self.turns} | Target: {self.target} | Affects: {[a.name for a in self.atkType]} | DOT: {self.isDot} | Blast: {self.isBlast}"
+        res += f"Remaining Turns: {self.turns} | Target: {self.target} | Targeting: {self.targeting.value} | Affects: {[a.name for a in self.atkType]} | DOT: {self.isDot} | Blast: {self.isBlast}"
         return res
 
     def reduceTurns(self) -> None:
@@ -93,3 +94,21 @@ class Debuff:
 
     def atMaxStacks(self) -> bool:
         return True if (self.stacks == self.stackLimit) else False
+
+    # Small example for debuffs
+
+    # Single target — specific enemy
+    #dbl.append(Debuff("MyDebuff", self.role, StatTypes.VULN, 0.20, enemyID, [AtkType.ALL], 2,
+    #                  targeting=Targeting.SINGLE))
+
+    # Single target — default/best enemy (sim picks)
+    #dbl.append(Debuff("MyDebuff", self.role, StatTypes.VULN, 0.20, -1, [AtkType.ALL], 2,
+    #                  targeting=Targeting.SINGLE))
+
+    # Blast — main + adjacent
+    #dbl.append(Debuff("MyDebuff", self.role, StatTypes.SHRED, 0.20, enemyID, [AtkType.ALL], 2,
+    #                  targeting=Targeting.BLAST))
+
+    # AOE — all enemies (replaces old Role.ALL)
+    #dbl.append(Debuff("MyDebuff", self.role, StatTypes.VULN, 0.20, -1, [AtkType.ALL], 2,
+    #                  targeting=Targeting.AOE))
