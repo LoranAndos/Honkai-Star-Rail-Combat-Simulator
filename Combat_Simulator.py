@@ -28,7 +28,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.FIRE]
+    weaknesses = [Element.LIGHTNING]
     actionOrder = [1, 1, 2]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -408,7 +408,7 @@ if __name__ == "__main__":
     # Enemy setup — shared between single and multi run
 
     enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 2 enemyModule
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.LIGHTNING], [1]) # 2 enemyModule
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95],
     #                          [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],

@@ -58,7 +58,7 @@ class Jiaoqiu(Character):
         bl, dbl, al, dl, hl = super().equip()
         bl.append(Buff("JQTraceEHR", StatTypes.ERR_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("JQTraceDMG", StatTypes.DMG_PERCENT, 0.144, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("JQTraceSPD", StatTypes.Spd, 5.0, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("JQTraceSPD", StatTypes.SPD, 5.0, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("JQStartERR", StatTypes.ERR_T, 15, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon >= 1:
             bl.append(Buff("JQE1DMG", StatTypes.DMG_PERCENT, 0.4, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))

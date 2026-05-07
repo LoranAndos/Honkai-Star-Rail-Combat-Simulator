@@ -12,7 +12,7 @@ class MemoriesOfThePast(Lightcone):
     baseHP = 952.6
     baseATK = 423.36
     baseDEF = 396.90
-
+    CanTrigger = True
 
     def __init__(self, wearerRole, level=5):
         super().__init__(wearerRole, level)

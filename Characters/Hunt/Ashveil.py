@@ -67,8 +67,6 @@ class Ashveil(Character):
         bl.append(Buff("AshveilTrace3CD", StatTypes.CD_PERCENT, 0.40, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
         bl.append(Buff("AshveilTrace3FUACD", StatTypes.CD_PERCENT, 0.8, Role.ALL, [AtkType.FUA], 1, 1, self.role, TickDown.PERM))
         dbl.append(Debuff("AshveilBaitShred", self.role, StatTypes.SHRED, e5DefShred, Role.ALL, [AtkType.ALL], 1000))
-        if self.eidolon >= 1:
-            dbl.append(Debuff("AshveilE1VULN", self.role, StatTypes.VULN, 0.24, Role.ALL, [AtkType.ALL], 1000))
         if self.eidolon >= 6:
             dbl.append(Debuff("AshveilE6SHRED", self.role, StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ALL], 1000))
         return bl, dbl, al, dl, hl
@@ -95,7 +93,7 @@ class Ashveil(Character):
                        [e5MulBig+e5MulSmall, 0], [20, 0], 30, self.scaling, -1+1, "AshveilSkill"))
         self.Gluttony = min(self.Gluttony + 1, self.GluttonyCap)
         self.GluttonyObtained += 1
-        logger.debug(f"{self.name} has obtained 1 gluttony stack.")
+        logger.debug(f"{self.name} has obtained 1 gluttony stack from Skill.")
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -108,21 +106,24 @@ class Ashveil(Character):
                        [e3UltMul, 0], [30, 0], 5, self.scaling, 0, "AshveilUltimate"))
         self.UltFUA = True
         self.Charge = min(self.Charge + 3, 3)
-        self.GluttonyExtraDamage = floor(self.Gluttony/4)
-        logger.debug(f"{self.name} has {self.Gluttony} gluttony stacks.")
-        self.GluttonyObtained += 2
-        logger.debug(f"{self.name} has obtained 2 gluttony stacks.")
-        self.Gluttony = max(self.Gluttony-self.GluttonyExtraDamage*4,0)
         self.Gluttony = min(self.Gluttony + 2, self.GluttonyCap)
+        self.GluttonyExtraDamage = floor(self.Gluttony/4)
+        logger.debug(f"{self.name} has {self.Gluttony} gluttony stacks before ult.")
+        self.GluttonyObtained += 2
+        logger.debug(f"{self.name} has obtained 2 gluttony stacks from Ult.")
+        self.Gluttony = max(self.Gluttony-self.GluttonyExtraDamage*4,0)
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
         e3MulExtra = 2.2 if self.eidolon >= 3 else 2.0
         e5Mul = 2.2 if self.eidolon >= 5 else 2.0
-        bl.append(Buff("AshveilFUAEnergy", StatTypes.ERR_F, 8,self.role, [AtkType.ALL], 1, 3, self.role, TickDown.START))
+        bl.append(Buff("AshveilFUAEnergy", StatTypes.ERR_F, 8, self.role, [AtkType.ALL], 1, 3, self.role, TickDown.START))
         if self.UltFUA == False:
             self.Charge = max(self.Charge-1,0)
+            bl.append(Buff("AshveilTrace2GluttonyDMG", StatTypes.DMG_PERCENT, min(0.1 * self.Gluttony, 0.1 * self.GluttonyCap), self.role, [AtkType.FUA], 1, 1, self.role, TickDown.END))
+        else:
+            bl.append(Buff("AshveilTrace2GluttonyDMG", StatTypes.DMG_PERCENT, 0.1*self.GluttonyExtraDamage*2, self.role, [AtkType.FUA], 1, 1, self.role,TickDown.END))
         tl.append(Turn(self.name, self.role, self.LowestHPEnemyID, Targeting.SINGLE, [AtkType.FUA], [self.element],
                        [e5Mul + e3MulExtra*self.GluttonyExtraDamage, 0], [5, 0], 5, self.scaling, 0, "AshveilFUA"))
         if self.eidolon >= 2:
@@ -132,7 +133,7 @@ class Ashveil(Character):
         self.UltFUA = False
         self.Gluttony = min(self.Gluttony+2,self.GluttonyCap)
         self.GluttonyObtained += 2
-        logger.debug(f"{self.name} has obtained 2 gluttony stacks.")
+        logger.debug(f"{self.name} has obtained 2 gluttony stacks from FUA.")
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -143,7 +144,7 @@ class Ashveil(Character):
         if result.turnName == "AshveilFUA" and result.numKills > 0:
             self.Gluttony = min(self.Gluttony + result.numKills, self.GluttonyCap)
             self.GluttonyObtained += result.numKills
-            logger.debug(f"{self.name} has obtained {result.numKills} gluttony stacks.")
+            logger.debug(f"{self.name} has obtained {result.numKills} gluttony stacks from kill.")
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -160,7 +161,6 @@ class Ashveil(Character):
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AshveilTech"))
             self.Charge = min(self.Charge+1,3)
             self.Tech = False
-        bl.append(Buff("AshveilTrace2GluttonyDMG", StatTypes.DMG_PERCENT, 0.1*self.Gluttony, self.role, [AtkType.FUA], 1, 1, self.role,TickDown.START))
         if self.eidolon == 6:
             bl.append(Buff("AshveilE6GluttonyDMG", StatTypes.DMG_PERCENT, 0.04 * min(self.GluttonyObtained,30), self.role, [AtkType.ALL],1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl

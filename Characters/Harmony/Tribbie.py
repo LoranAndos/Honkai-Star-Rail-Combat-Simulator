@@ -36,6 +36,7 @@ class Tribbie(Character):
     CharacterList = []
     TeamHp = 0
     UltIsActive = False
+    TriggerCount = 0
     # Relic Settings
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
@@ -101,7 +102,8 @@ class Tribbie(Character):
                            [e3AdditionalMulti*len(result.enemiesHit),0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
-            bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role))
+            bl.append(Buff(f"TribbieTrace1Energy{self.TriggerCount}", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role, [AtkType.ALL], 1, 100, self.role, TickDown.START))
+            self.TriggerCount += 1
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
@@ -123,7 +125,8 @@ class Tribbie(Character):
                      "TribbieAdditionalDamage"))
             # Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
-            bl.append(Buff("TribbieTrace1Energy", StatTypes.ERR_T, 1.5 * len(result.enemiesHit), self.role))
+            bl.append(Buff(f"TribbieTrace1Energy{self.TriggerCount}", StatTypes.ERR_T, 1.5 * len(result.enemiesHit), self.role))
+            self.TriggerCount += 1
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
