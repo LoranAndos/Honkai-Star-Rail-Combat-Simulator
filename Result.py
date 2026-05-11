@@ -19,6 +19,7 @@ class Result:
         self.enemiesHit = enemiesHit
         self.preHitStatus = preHitStatus
         self.numKills = 0
+        self.debuffsApplied: list = []  # list of Debuff objects applied this turn, set in processTurnList
 
     def __str__(self) -> str:
         eHit = [e.enemyID for e in self.enemiesHit]

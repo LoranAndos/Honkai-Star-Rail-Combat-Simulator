@@ -18,6 +18,26 @@ from Turn_Text import Turn
 from Healing import *
 from random import randrange
 from math import floor
+import logging
+
+from Buff import *
+from Delay_Text import Advance
+from Character import Character
+from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
+from Lightcones.Elation.TomorrowTogether import TomorrowTogether
+from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC, MushyShroomysAdventuresSparxie
+from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
+from Planars.PunklordeStageZero import PunklordeStageZero
+from RelicStats import RelicStats
+from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
+from Result import *
+from Turn_Text import Turn
+from Healing import *
+from random import randrange
+from math import floor
 
 logger = logging.getLogger(__name__)
 
@@ -246,7 +266,7 @@ class Evanescia(Character):
             return self.useElaSkill(-1)
 
         if result.turnName == "EvanesciaMasterFoxFUA":
-            dbl.append(Debuff("EvanesciaMasterFoxDebuff", self.role, StatTypes.VULN, 0.12, Role.ALL, [AtkType.ALL], 3, 1))
+            dbl.append(Debuff("EvanesciaMasterFoxDebuff", self.role, StatTypes.VULN, 0.12, Role.ALL, [AtkType.ALL], 3, 1, Targeting.AOE))
             if self.eidolon >= 1:
                 ela_bl, ela_dbl, ela_al, ela_dl, ela_tl, ela_hl = self.useElaSkill(-1)
                 bl.extend(ela_bl); dbl.extend(ela_dbl); al.extend(ela_al)

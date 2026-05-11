@@ -3,6 +3,8 @@ import logging
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Elation.Evanescia import Evanescia
 from Characters.Elation.Yao_Guang import YaoGuang
+from Characters.Elation.SilverWolf999 import SilverWolf999
+from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.ElationMC import ElationMC
 from Characters.Nihility.MortenaxBlade import MortenaxBlade
 from Characters.Hunt.Ashveil import Ashveil
@@ -28,7 +30,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.LIGHTNING]
+    weaknesses = [Element.FIRE]
     actionOrder = [1, 1, 2]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -47,8 +49,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = MortenaxBlade(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
@@ -401,14 +403,14 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
     # Enemy setup — shared between single and multi run
 
     enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.LIGHTNING], [1]) # 2 enemyModule
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 2 enemyModule
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95],
     #                          [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD],
@@ -435,8 +437,8 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = MortenaxBlade(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
@@ -457,8 +459,8 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = MortenaxBlade(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
 

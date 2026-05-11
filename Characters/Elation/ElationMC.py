@@ -195,7 +195,7 @@ class ElationMC(Character):
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         if self.eidolon >= 4:
-            dbl.append(Debuff("ElationMCELASkillVul", self.role, StatTypes.VULN, 0.10, Role.ALL, [AtkType.ALL], 2, 1, False, [0, 0], False))
+            dbl.append(Debuff("ElationMCELASkillVul", self.role, StatTypes.VULN, 0.10, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

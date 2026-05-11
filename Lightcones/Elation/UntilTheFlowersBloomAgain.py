@@ -35,5 +35,5 @@ class UntilTheFlowersBloomAgain(Lightcone):
     def useElaSkill(self, enemyID = -1):
         bl, dbl, al, dl, hl = super().equip()
         VulAmount = self.level * 0.0375 + 0.1125
-        dbl.append(Debuff("FlowersBloomVul", self.wearerRole, StatTypes.VULN, VulAmount, Role.ALL, [AtkType.ALL], 2, 1, False, [0, 0], False))
+        dbl.append(Debuff("FlowersBloomVul", self.wearerRole, StatTypes.VULN, VulAmount, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, hl

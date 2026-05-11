@@ -1182,6 +1182,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
     placeHolderTurn = Turn(specChar.name, specChar.role, -1, Targeting.NA, [AtkType.SPECIAL], [specChar.element], [0, 0], [0, 0], 0, specChar.scaling, 0, "PH Turn")
     if typ == "START":
         match specStr:
+            case "Acheron":
+                NihilityCount = sum(1 for c in playerTeam if c.path == Path.NIHILITY and c.role != specChar.role)
+                return Special(name=specStr, attr1=NihilityCount, enemies=gauge)
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
 
@@ -1594,6 +1597,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("        ----------End of Healing List----------")
 
         res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, healList,manualMode=manualMode)
+        res.debuffsApplied = newDebuffs  # give allyTurn visibility into what debuffs were applied
         for character in playerTeam:
             oldMaxHp = character.maxHP
             character.maxHP = getCharMaxHP(character, character.lightcone, teamBuffs)

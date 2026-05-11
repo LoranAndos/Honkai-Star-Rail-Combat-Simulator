@@ -169,7 +169,7 @@ class YaoGuang(Character):
 
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
-        dbl.append(Debuff("YaoGuangELASkillVUL", self.role, StatTypes.VULN, 0.16, Role.ALL, [AtkType.ALL], 3, 1, False, [0, 0],False))
+        dbl.append(Debuff("YaoGuangELASkillVUL", self.role, StatTypes.VULN, 0.16, Role.ALL, [AtkType.ALL], 3, 1, Targeting.AOE,False, [0, 0],False))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
                        [self.element], [e5MulBig*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 1, "YaoGuangELASkillAOE"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],

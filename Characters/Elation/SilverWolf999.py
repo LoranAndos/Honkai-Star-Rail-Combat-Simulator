@@ -477,8 +477,11 @@ class SilverWolf999(Character):
         if result.turnName == "AhaElationFixedSequenceComplete":
             self.hiddenMMR += Character.ahaFixedPunchlineValue + self.TotalElationChar
 
-        if result.turnName == "AhaElationSequenceComplete":
-            self.hiddenMMR += self.TotalElationChar + Character.savedPunchline
+        if result.turnName == "AhaElationSequenceComplete" and Character.savedPunchline >= 20 and Character.savedPunchline < 40:
+            self.hiddenMMR += self.TotalElationChar + 20
+
+        if result.turnName == "AhaElationSequenceComplete" and Character.savedPunchline >= 40:
+            self.hiddenMMR += self.TotalElationChar + 40
 
         if result.turnName == "ElationMCUlt":
             self.hiddenMMR += 5

@@ -50,12 +50,12 @@ class MortenaxBlade(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else GoodNightAndSleepWell(role, 5)
+        self.lightcone = lc if lc else ReforgedInHellfire(role, 1)
         self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BoneCollectionsSereneDemesne(role)
         self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 12, 4, StatTypes.CR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
+                                                       StatTypes.HP_PERCENT, StatTypes.HP_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.overflowEnergy = 0.0
         self.E2AllyUltChargeCount = 0
@@ -80,6 +80,9 @@ class MortenaxBlade(Character):
         bl.append(Buff("MortenaxBladeTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("MortenaxBladeTraceHP", StatTypes.HP_PERCENT, 0.10, self.role))
         bl.append(Buff("MortenaxBladeTraceDMG", StatTypes.DMG_PERCENT, 0.224, self.role))
+        if self.eidolon >= 2:
+            bl.append(Buff("MortenaxBladeE2ULTDMG", StatTypes.DMG_PERCENT, 0.75, Role.ALL, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
+            bl.append(Buff("MortenaxBladeE2FUADMG", StatTypes.DMG_PERCENT, 0.75, Role.ALL, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
@@ -107,8 +110,8 @@ class MortenaxBlade(Character):
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         if self.EnhancedState:
-            if self.currHP >= 0.15*self.maxHP:
-                self.currHP -= 0.15*self.maxHP
+            if self.currHP >= 0.10*self.maxHP:
+                self.currHP -= 0.10*self.maxHP
             else:
                 self.currHP = 1
             if self.eidolon >= 6 and self.E6ChargeReady:
@@ -145,8 +148,8 @@ class MortenaxBlade(Character):
                      [0, 0], [0, 0], 5, self.scaling, 0, "MortenaxBladeUlt"))
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
             dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
-            if self.currHP >= 0.30*self.maxHP:
-                self.currHP -= 0.30*self.maxHP
+            if self.currHP >= 0.20*self.maxHP:
+                self.currHP -= 0.20*self.maxHP
             else:
                 self.currHP = 1
             if self.eidolon >= 6 and self.E6ChargeReady:
@@ -155,11 +158,12 @@ class MortenaxBlade(Character):
                 logger.debug(f"{self.name} E6: gained 1 Charge from HP consumption in Ult")
             bl.append(Buff("MortenaxBladeCRBoost", StatTypes.CR_PERCENT, 0.20, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             bl.append(Buff("MortenaxBladeCDBoost", StatTypes.CD_PERCENT, e3CD, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+            bl.append(Buff("MortenaxBladeDMGReduction", StatTypes.DMG_REDUCTION, 0.50, self.role,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             bl.append(Buff("MortenaxBladeDMGBoost", StatTypes.DMG_PERCENT, e4DMGBoost, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.NihilityCount >= 2:
-                bl.append(Buff("MortenaxBladeULTDMG", StatTypes.DMG_PERCENT, 0.50, Role.ALL, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
+                bl.append(Buff("MortenaxBladeULTDMG", StatTypes.DMG_PERCENT, 0.75, Role.ALL, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
             else:
-                bl.append(Buff("MortenaxBladeFUADMG", StatTypes.DMG_PERCENT, 0.50, Role.ALL, [AtkType.FUA], 1, 1, Role.SELF,TickDown.PERM))
+                bl.append(Buff("MortenaxBladeDMG", StatTypes.DMG_PERCENT, 0.75, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.eidolon >= 1:
                 bl.append(Buff("MortenaxBladeE1Pen", StatTypes.PEN, 0.20, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.overflowEnergy > 0:
@@ -169,7 +173,7 @@ class MortenaxBlade(Character):
             # E2: reset ally ult charge counter when zone is deployed
             self.E2AllyUltChargeCount = 0
         else:
-            e3EnhancedUlt = 3.24 if self.eidolon >= 3 else 3.00
+            e3EnhancedUlt = 3.78 if self.eidolon >= 3 else 3.50
             e6DMGBoost = 2.50 if self.eidolon >= 6 else 1.00
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                            [e3EnhancedUlt*e6DMGBoost, 0], [20, 0], 5, self.scaling, 0, "MortenaxBladeEnhancedUlt"))
@@ -181,18 +185,21 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
         e5MulAoe = 0.792 if self.eidolon >= 5 else 0.72
         e5MulBounce = 0.264 if self.eidolon >= 5 else 0.24
-        e2DMGBoost = 1.50 if self.eidolon >= 2 else 1.00
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         e3TalentEnergy = 27 if self.eidolon >= 3 else 25
         if self.EnhancedState:
+            if self.currHP >= 0.10*self.maxHP:
+                self.currHP -= 0.10*self.maxHP
+            else:
+                self.currHP = 1
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
             dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA], [self.element],
-                           [e5MulAoe * e2DMGBoost, 0], [10, 0], e3TalentEnergy, self.scaling, 0, "MortenaxBladeAOEFUA"))
+                           [e5MulAoe, 0], [10, 0], e3TalentEnergy, self.scaling, 0, "MortenaxBladeAOEFUA"))
             for i in range(4):
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],
-                               [e5MulBounce * e2DMGBoost, 0], [5, 0], 0, self.scaling, 0, "MortenaxBladeBounceFUA"))
+                               [e5MulBounce, 0], [5, 0], 0, self.scaling, 0, "MortenaxBladeBounceFUA"))
             if self.eidolon >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
                          [0, 0], [0, 0], 0, self.scaling, 0, "MortenaxBladeUltDelay"))
@@ -221,11 +228,12 @@ class MortenaxBlade(Character):
             self.overflowEnergy = 0.0  # Clear overflow when zone is dispelled
             bl.append(Buff("MortenaxBladeCRBoost", StatTypes.CR_PERCENT, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             bl.append(Buff("MortenaxBladeCDBoost", StatTypes.CD_PERCENT, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+            bl.append(Buff("MortenaxBladeDMGReduction", StatTypes.DMG_REDUCTION, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             bl.append(Buff("MortenaxBladeDMGBoost", StatTypes.DMG_PERCENT, 0, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.NihilityCount >= 2:
                 bl.append(Buff("MortenaxBladeULTDMG", StatTypes.DMG_PERCENT, 0, Role.ALL, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
             else:
-                bl.append(Buff("MortenaxBladeFUADMG", StatTypes.DMG_PERCENT, 0, Role.ALL, [AtkType.FUA], 1, 1, Role.SELF,TickDown.PERM))
+                bl.append(Buff("MortenaxBladeDMG", StatTypes.DMG_PERCENT, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.eidolon >= 1:
                 bl.append(Buff("MortenaxBladeE1Pen", StatTypes.PEN, 0, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         if self.ChargeCount >= 9 and self.EnhancedState:
@@ -240,17 +248,6 @@ class MortenaxBlade(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
-
-        if self.EnhancedState and self.eidolon >= 2:
-            # E2: ally Ult DMG counts as a Follow-Up ATK — give Mortenax Blade 1 Charge
-            # Also: other ally FUAs give 1 Charge
-            # Both effects share the same 9-trigger cap that resets each window
-            isAllyUlt = (result.turnName in UltimateList and result.turnDmg > 0)
-            isAllyFUA = (AtkType.FUA in result.atkType and result.turnDmg > 0)
-            if (isAllyUlt or isAllyFUA) and self.E2AllyUltChargeCount < 9:
-                self.E2AllyUltChargeCount += 1
-                self.ChargeCount += 1
-                logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.EnhancedState:
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, turn.targetID, [AtkType.ALL], 2))
