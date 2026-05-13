@@ -39,6 +39,7 @@ class Ashveil(Character):
     Gluttony = 0
     GluttonyExtraDamage = 0
     GluttonyObtained = 0
+    Counter = 0
     UltFUA = False
     Tech = True
     # Relic Settings
@@ -103,7 +104,7 @@ class Ashveil(Character):
         if self.eidolon >= 4:
             bl.append(Buff("AshveilE4Atk", StatTypes.ATK_PERCENT, 0.40, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         tl.append(Turn(self.name, self.role, self.LowestHPEnemyID, Targeting.SINGLE, [AtkType.ULT], [self.element],
-                       [e3UltMul, 0], [30, 0], 5, self.scaling, 0, "AshveilUltimate"))
+                       [e3UltMul, 0], [30, 0], 5, self.scaling, 0, "AshveilUlt"))
         self.UltFUA = True
         self.Charge = min(self.Charge + 3, 3)
         self.Gluttony = min(self.Gluttony + 2, self.GluttonyCap)
@@ -118,7 +119,6 @@ class Ashveil(Character):
         bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
         e3MulExtra = 2.2 if self.eidolon >= 3 else 2.0
         e5Mul = 2.2 if self.eidolon >= 5 else 2.0
-        bl.append(Buff("AshveilFUAEnergy", StatTypes.ERR_F, 8, self.role, [AtkType.ALL], 1, 3, self.role, TickDown.START))
         if self.UltFUA == False:
             self.Charge = max(self.Charge-1,0)
             bl.append(Buff("AshveilTrace2GluttonyDMG", StatTypes.DMG_PERCENT, min(0.1 * self.Gluttony, 0.1 * self.GluttonyCap), self.role, [AtkType.FUA], 1, 1, self.role, TickDown.END))
@@ -139,7 +139,7 @@ class Ashveil(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         self._updateE1VULN(dbl)
-        if turn.moveName == "AshveilUltimate":
+        if turn.moveName == "AshveilUlt":
             return self.useFua(-1)
         if result.turnName == "AshveilFUA" and result.numKills > 0:
             self.Gluttony = min(self.Gluttony + result.numKills, self.GluttonyCap)
@@ -150,8 +150,11 @@ class Ashveil(Character):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         self._updateE1VULN(dbl)
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+            bl.append(Buff(f"AshveilTalentEnergy{self.Counter}", StatTypes.ERR_F, 8, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
+            self.Counter += 1
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.Charge > 0:
-            return self.useFua(-1)
+            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):

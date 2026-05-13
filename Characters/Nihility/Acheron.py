@@ -2,15 +2,13 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Hunt.TheFinaleOfALie import TheFinaleOfALie
-from Planars.CityOfConvergingStars import CityOfConvergingStars
+from Lightcones.Nihility.AlongThePassingShore import AlongThePassingShore
+from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
 from RelicStats import RelicStats
-from Relics.TheAshblazingGrandDuke import DukeAshveil
+from Relics.PioneerDiverOfDeadWaters import PioneerAcheron
 from Result import *
 from Turn_Text import Turn
 from Healing import *
-from math import floor
-from HPChecks import getEnemyHPRatio
 
 logger = logging.getLogger(__name__)
 
@@ -42,11 +40,11 @@ class Acheron(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else TheFinaleOfALie(role, 1)
-        self.relic1 = r1 if r1 else DukeAshveil(role, 4)
+        self.lightcone = lc if lc else AlongThePassingShore(role, 1)
+        self.relic1 = r1 if r1 else PioneerAcheron(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else CityOfConvergingStars(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 7, 2, 2, 2, 2, 2, 12, 4, StatTypes.CR_PERCENT, StatTypes.SPD,
+        self.planar = pl if pl else IzumoGenseiAndTakamaDivineRealm(role, True)
+        self.relicStats = subs if subs else RelicStats(2, 2, 7, 2, 2, 2, 2, 2, 2, 2, 12, 8, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
                                                        StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.crimsonKnot: dict[int, int] = {}
@@ -58,6 +56,12 @@ class Acheron(Character):
         bl.append(Buff("AcheronTraceCD", StatTypes.CD_PERCENT, 0.24, self.role))
         bl.append(Buff("AcheronTraceATK", StatTypes.ATK_PERCENT, 0.28, self.role))
         bl.append(Buff("AcheronTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
+        if self.eidolon >= 1:
+            bl.append(Buff("AcheronE1CR", StatTypes.CR_PERCENT, 0.18, self.role))
+        if self.eidolon >= 4:
+            dbl.append(Debuff("AcheronE4Vul", self.role, StatTypes.VULN, 0.08, Role.ALL, [AtkType.ULT], 1000))
+        if self.eidolon >= 6:
+            bl.append(Buff("AcheronE6UltPen", StatTypes.PEN, 0.20, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         return bl, dbl, al, dl, hl
 
     # ---------------------------------------------------------------------------
@@ -85,7 +89,7 @@ class Acheron(Character):
         """Add Slashed Dream points. Overflow beyond maxEnergy converts to
         Quadrivalent Ascendance stacks (capped at 3) per Trace 1."""
         newEnergy = self.currEnergy + amount
-        if newEnergy > self.maxEnergy:
+        if newEnergy > self.maxEnergy and self.ultActive == False:
             overflow = newEnergy - self.maxEnergy
             self.currEnergy = self.maxEnergy
             self.QuadrivalentStacks = min(3, self.QuadrivalentStacks + int(overflow))
@@ -115,16 +119,26 @@ class Acheron(Character):
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
-                       [e3Mul * self.NihilityBoost, 0], [10, 0], 0, self.scaling, 1, "AcheronBasic"))
+        if self.eidolon == 6:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC, AtkType.ULT], [self.element],
+                     [e3Mul * self.NihilityBoost, 0], [10, 0], 0, self.scaling, 1, "AcheronBasic", omniBreak=True))
+        else:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
+                     [e3Mul * self.NihilityBoost, 0], [10, 0], 0, self.scaling, 1, "AcheronBasic"))
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5MulMain = 1.76 if self.eidolon >= 5 else 1.6
         e5MulSide = 0.66 if self.eidolon >= 5 else 0.6
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL], [self.element],
-                       [e5MulMain * self.NihilityBoost, e5MulSide * self.NihilityBoost], [20, 10], 0, self.scaling, -1, "AcheronSkill"))
+        if self.eidolon == 6:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL, AtkType.ULT], [self.element],
+                     [e5MulMain * self.NihilityBoost, e5MulSide * self.NihilityBoost], [20, 10], 0, self.scaling, -1,
+                     "AcheronSkill", omniBreak=True))
+        else:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL], [self.element],
+                     [e5MulMain * self.NihilityBoost, e5MulSide * self.NihilityBoost], [20, 10], 0, self.scaling, -1,
+                     "AcheronSkill"))
         # Skill always applies a debuff — grant 1 Slashed Dream
         self._addSlashedDream(1)
         knotTarget = self._knotTarget()
@@ -143,8 +157,11 @@ class Acheron(Character):
 
         target = self.bestEnemy(enemyID)
 
+        e5Respen = 0.22 if self.eidolon >= 5 else 0.20
+        self.crimsonKnot = {e.enemyID: 9 for e in self.enemyStatus}
+
         # AOE RES reduction during ult
-        dbl.append(Debuff("AcheronUltRES", self.role, StatTypes.PEN, 0.20, Role.ALL, [AtkType.ALL], 1))
+        bl.append(Buff("AcheronUltPen", StatTypes.PEN, e5Respen, self.role,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
 
         # Phase 1: 3 Rainblades
         rainbladeKnotHits = 0  # count how many Rainblades hit a target with Knots (for Trace 3 DMG stack)
@@ -169,7 +186,7 @@ class Acheron(Character):
 
         # Phase 2: Stygian Resurge — AOE
         tl.append(Turn(self.name, self.role, target, Targeting.AOE, [AtkType.ULT], [self.element],
-                       [e3Resurge * self.NihilityBoost, 0], [20, 0], 0, self.scaling, 0, "AcheronStygianResurge", omniBreak=True))
+                       [e3Resurge * self.NihilityBoost, 0], [20, 0], 0, self.scaling, 0, "AcheronUlt", omniBreak=True))
 
         # Trace 3: Stygian Resurge triggers 6 additional single-target hits at 25% ATK each
         e3ResurgeBounce = 0.275 if self.eidolon >= 3 else 0.25
@@ -179,6 +196,7 @@ class Acheron(Character):
 
         # Clear all Crimson Knots after ult
         self.crimsonKnot = {e.enemyID: 0 for e in self.enemyStatus}
+        self.currEnergy = 0
         self.ultActive = False
 
         # Quadrivalent Ascendance: after ult, gain 1 Slashed Dream and 1 Knot on random enemy
@@ -193,13 +211,19 @@ class Acheron(Character):
                 if enemy.isDead():
                     self._transferKnots(enemy.enemyID)
         # Quadrivalent Ascendance: after ult ends, gain 1 Slashed Dream + 1 Knot per stack
-        if result.turnName == "AcheronStygianResurge" and self.QuadrivalentStacks > 0:
+        if result.turnName == "AcheronResurgeBounce6" and self.QuadrivalentStacks > 0:
             for _ in range(self.QuadrivalentStacks):
                 self._addSlashedDream(1)
                 knotTarget = self._knotTarget()
                 self._addKnot(knotTarget)
                 logger.debug(f"{self.name} Quadrivalent: +1 Slashed Dream, Knot on enemy {knotTarget}")
             self.QuadrivalentStacks = 0
+            bl.append(Buff("AcheronUltPen", StatTypes.PEN, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+        if self._debuffWasApplied(result) and result.turnName not in bonusDMG and result.turnName != "AcheronUlt":
+            self._addSlashedDream(1)
+            knotTarget = self._knotTarget()
+            self._addKnot(knotTarget)
+            logger.debug(f"{self.name} allyTurn debuff triggered: +1 Slashed Dream ({self.currEnergy}/{self.maxEnergy}), Knot on enemy {knotTarget}")
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -221,9 +245,18 @@ class Acheron(Character):
 
         return bl, dbl, al, dl, tl, hl
 
+    def takeTurn(self) -> str:
+        if self.eidolon >= 2:
+            self._addSlashedDream(1)
+            knotTarget = self._knotTarget()
+            self._addKnot(knotTarget)
+            logger.debug(f"{self.name} Skill: +1 Slashed Dream ({self.currEnergy}/{self.maxEnergy}), Knot on enemy {knotTarget}")
+        return super().takeTurn()
+
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
-        self.NihilityCount = specialRes.attr1
+        E2ExtraNihility = 1 if self.eidolon >= 2 else 0
+        self.NihilityCount = specialRes.attr1 + E2ExtraNihility
 
         if self.NihilityCount == 1:
             self.NihilityBoost = 1.15
@@ -233,15 +266,6 @@ class Acheron(Character):
         # Initialize Crimson Knot tracker for each enemy
         self.crimsonKnot = {e.enemyID: 0 for e in self.enemyStatus}
 
-        # Trace 1: 5 Slashed Dream already set via currEnergy = 5.
-        # Apply 5 Crimson Knot stacks to a random enemy at battle start.
-        if self.enemyStatus:
-            import random
-            knotEnemy = random.choice(list(self.enemyStatus)).enemyID
-            for _ in range(5):
-                self._addKnot(knotEnemy)
-            logger.debug(f"{self.name} Trace 1: applied 5 Crimson Knot to enemy {knotEnemy}")
-
         # Technique: AOE hit, omniBreak, then gain Quadrivalent Ascendance
         if self.Tech:
             self.Tech = False
@@ -250,5 +274,10 @@ class Acheron(Character):
             # Quadrivalent Ascendance granted by Technique (triggers after next ult)
             self.QuadrivalentStacks = min(3, self.QuadrivalentStacks + 1)
             logger.debug(f"{self.name} Technique: Quadrivalent Ascendance gained ({self.QuadrivalentStacks})")
+            import random
+            knotEnemy = random.choice(list(self.enemyStatus)).enemyID
+            for _ in range(5):
+                self._addKnot(knotEnemy)
+            logger.debug(f"{self.name} Trace 1: applied 5 Crimson Knot to enemy {knotEnemy}")
 
         return bl, dbl, al, dl, tl, hl

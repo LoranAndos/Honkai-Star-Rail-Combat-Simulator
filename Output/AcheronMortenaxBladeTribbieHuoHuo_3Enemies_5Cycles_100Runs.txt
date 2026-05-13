@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 25686.845 | Acheron: 14268.134 | MortenaxBlade: 7872.092 | Tribbie: 3179.875 | HuoHuo: 35.904
+Run    2: Team DPAV: 26991.269 | Acheron: 16028.414 | MortenaxBlade: 7594.019 | Tribbie: 3019.584 | HuoHuo: 32.143
+Run    3: Team DPAV: 25736.339 | Acheron: 14249.106 | MortenaxBlade: 8012.007 | Tribbie: 3116.538 | HuoHuo: 33.339
+Run    4: Team DPAV: 25429.063 | Acheron: 14182.291 | MortenaxBlade: 7753.311 | Tribbie: 3125.168 | HuoHuo: 34.707
+Run    5: Team DPAV: 27195.361 | Acheron: 15873.547 | MortenaxBlade: 7893.530 | Tribbie: 3093.311 | HuoHuo: 32.143
+Run    6: Team DPAV: 22751.666 | Acheron: 14189.601 | MortenaxBlade: 5587.818 | Tribbie: 2625.175 | HuoHuo: 34.707
+Run    7: Team DPAV: 21997.182 | Acheron: 12567.628 | MortenaxBlade: 6187.179 | Tribbie: 2927.355 | HuoHuo: 34.707
+Run    8: Team DPAV: 22877.204 | Acheron: 14160.419 | MortenaxBlade: 5734.625 | Tribbie: 2630.342 | HuoHuo: 34.707
+Run    9: Team DPAV: 27628.230 | Acheron: 16270.210 | MortenaxBlade: 7995.129 | Tribbie: 3017.581 | HuoHuo: 30.946
+Run   10: Team DPAV: 25151.987 | Acheron: 13927.981 | MortenaxBlade: 7988.793 | Tribbie: 2918.632 | HuoHuo: 30.775
+Run   11: Team DPAV: 26525.948 | Acheron: 16355.776 | MortenaxBlade: 6766.422 | Tribbie: 3069.155 | HuoHuo: 32.313
+Run   12: Team DPAV: 25831.007 | Acheron: 15551.309 | MortenaxBlade: 7010.366 | Tribbie: 2920.260 | HuoHuo: 34.707
+Run   13: Team DPAV: 26513.848 | Acheron: 15801.141 | MortenaxBlade: 7367.677 | Tribbie: 2993.031 | HuoHuo: 32.143
+Run   14: Team DPAV: 25833.393 | Acheron: 15712.939 | MortenaxBlade: 7005.498 | Tribbie: 2749.408 | HuoHuo: 34.707
+Run   15: Team DPAV: 27074.940 | Acheron: 15853.200 | MortenaxBlade: 7710.249 | Tribbie: 3194.922 | HuoHuo: 33.510
+Run   16: Team DPAV: 28644.822 | Acheron: 17694.399 | MortenaxBlade: 7357.413 | Tribbie: 3229.659 | HuoHuo: 34.707
+Run   17: Team DPAV: 26964.930 | Acheron: 16009.182 | MortenaxBlade: 7581.860 | Tribbie: 3021.890 | HuoHuo: 32.143
+Run   18: Team DPAV: 22875.432 | Acheron: 14160.419 | MortenaxBlade: 5732.854 | Tribbie: 2630.342 | HuoHuo: 34.707
+Run   19: Team DPAV: 32282.137 | Acheron: 21086.857 | MortenaxBlade: 7548.438 | Tribbie: 3281.941 | HuoHuo: 33.510
+Run   20: Team DPAV: 26476.527 | Acheron: 15845.783 | MortenaxBlade: 7423.058 | Tribbie: 2858.434 | HuoHuo: 32.143
+Run   21: Team DPAV: 22717.726 | Acheron: 14160.419 | MortenaxBlade: 5645.822 | Tribbie: 2559.668 | HuoHuo: 34.707
+Run   22: Team DPAV: 26443.357 | Acheron: 15874.965 | MortenaxBlade: 7240.803 | Tribbie: 2975.772 | HuoHuo: 34.707
+Run   23: Team DPAV: 26982.940 | Acheron: 16028.414 | MortenaxBlade: 7588.438 | Tribbie: 3016.837 | HuoHuo: 32.143
+Run   24: Team DPAV: 26165.184 | Acheron: 15863.047 | MortenaxBlade: 7140.878 | Tribbie: 2803.769 | HuoHuo: 32.143
+Run   25: Team DPAV: 27111.579 | Acheron: 16038.809 | MortenaxBlade: 7700.790 | Tribbie: 3022.727 | HuoHuo: 32.143
+Run   26: Team DPAV: 26938.563 | Acheron: 15833.350 | MortenaxBlade: 7665.005 | Tribbie: 3085.645 | HuoHuo: 34.707
+Run   27: Team DPAV: 22603.111 | Acheron: 14137.674 | MortenaxBlade: 5479.613 | Tribbie: 2631.260 | HuoHuo: 34.707
+Run   28: Team DPAV: 26874.265 | Acheron: 16028.414 | MortenaxBlade: 7521.203 | Tribbie: 2975.396 | HuoHuo: 32.143
+Run   29: Team DPAV: 22784.098 | Acheron: 14189.601 | MortenaxBlade: 5627.436 | Tribbie: 2617.989 | HuoHuo: 34.707
+Run   30: Team DPAV: 26353.125 | Acheron: 15539.347 | MortenaxBlade: 7590.776 | Tribbie: 2868.257 | HuoHuo: 32.143
+Run   31: Team DPAV: 26628.454 | Acheron: 15712.939 | MortenaxBlade: 7507.466 | Tribbie: 3053.304 | HuoHuo: 32.143
+Run   32: Team DPAV: 22784.098 | Acheron: 14189.601 | MortenaxBlade: 5627.436 | Tribbie: 2617.989 | HuoHuo: 34.707
+Run   33: Team DPAV: 28915.105 | Acheron: 17416.362 | MortenaxBlade: 7796.706 | Tribbie: 3350.039 | HuoHuo: 32.143
+Run   34: Team DPAV: 23177.114 | Acheron: 14160.419 | MortenaxBlade: 6030.127 | Tribbie: 2634.752 | HuoHuo: 34.707
+Run   35: Team DPAV: 26566.225 | Acheron: 15947.637 | MortenaxBlade: 7280.639 | Tribbie: 2990.624 | HuoHuo: 33.510
+Run   36: Team DPAV: 22784.098 | Acheron: 14189.601 | MortenaxBlade: 5627.436 | Tribbie: 2617.989 | HuoHuo: 34.707
+Run   37: Team DPAV: 26284.604 | Acheron: 15823.885 | MortenaxBlade: 7137.031 | Tribbie: 2971.871 | HuoHuo: 34.707
+Run   38: Team DPAV: 25716.622 | Acheron: 14415.063 | MortenaxBlade: 7642.407 | Tribbie: 3292.226 | HuoHuo: 33.339
+Run   39: Team DPAV: 25741.536 | Acheron: 15499.382 | MortenaxBlade: 7034.534 | Tribbie: 2855.621 | HuoHuo: 32.143
+Run   40: Team DPAV: 22651.009 | Acheron: 12983.324 | MortenaxBlade: 6429.999 | Tribbie: 2911.681 | HuoHuo: 34.707
+Run   41: Team DPAV: 22844.771 | Acheron: 14160.419 | MortenaxBlade: 5695.007 | Tribbie: 2637.528 | HuoHuo: 34.707
+Run   42: Team DPAV: 26943.407 | Acheron: 15873.547 | MortenaxBlade: 7640.259 | Tribbie: 3094.627 | HuoHuo: 32.143
+Run   43: Team DPAV: 25933.235 | Acheron: 15522.126 | MortenaxBlade: 7144.125 | Tribbie: 2917.731 | HuoHuo: 32.143
+Run   44: Team DPAV: 26634.615 | Acheron: 15845.783 | MortenaxBlade: 7471.674 | Tribbie: 2965.160 | HuoHuo: 32.143
+Run   45: Team DPAV: 26799.123 | Acheron: 15997.593 | MortenaxBlade: 7400.142 | Tribbie: 3063.668 | HuoHuo: 32.143
+Run   46: Team DPAV: 26566.225 | Acheron: 15947.637 | MortenaxBlade: 7280.639 | Tribbie: 2990.624 | HuoHuo: 33.510
+Run   47: Team DPAV: 25205.917 | Acheron: 13964.933 | MortenaxBlade: 7878.520 | Tribbie: 3047.262 | HuoHuo: 32.143
+Run   48: Team DPAV: 26919.608 | Acheron: 16029.640 | MortenaxBlade: 7463.982 | Tribbie: 3074.169 | HuoHuo: 34.707
+Run   49: Team DPAV: 25810.356 | Acheron: 14415.063 | MortenaxBlade: 7732.020 | Tribbie: 3296.347 | HuoHuo: 33.339
+Run   50: Team DPAV: 26898.998 | Acheron: 15886.091 | MortenaxBlade: 7589.950 | Tribbie: 3076.450 | HuoHuo: 32.143
+Run   51: Team DPAV: 25885.679 | Acheron: 15024.639 | MortenaxBlade: 7460.721 | Tribbie: 3044.378 | HuoHuo: 33.339
+Run   52: Team DPAV: 27505.335 | Acheron: 16005.358 | MortenaxBlade: 7856.682 | Tribbie: 3262.089 | HuoHuo: 33.339
+Run   53: Team DPAV: 21885.422 | Acheron: 12899.173 | MortenaxBlade: 5999.171 | Tribbie: 2661.073 | HuoHuo: 34.707
+Run   54: Team DPAV: 22630.138 | Acheron: 14160.419 | MortenaxBlade: 5513.474 | Tribbie: 2604.428 | HuoHuo: 34.707
+Run   55: Team DPAV: 27075.844 | Acheron: 16019.578 | MortenaxBlade: 7639.240 | Tribbie: 3062.462 | HuoHuo: 34.707
+Run   56: Team DPAV: 26634.615 | Acheron: 15845.783 | MortenaxBlade: 7471.674 | Tribbie: 2965.160 | HuoHuo: 32.143
+Run   57: Team DPAV: 21465.107 | Acheron: 12282.206 | MortenaxBlade: 5966.348 | Tribbie: 2859.244 | HuoHuo: 34.707
+Run   58: Team DPAV: 25722.377 | Acheron: 16166.142 | MortenaxBlade: 6447.369 | Tribbie: 2747.261 | HuoHuo: 33.510
+Run   59: Team DPAV: 22844.771 | Acheron: 14160.419 | MortenaxBlade: 5695.007 | Tribbie: 2637.528 | HuoHuo: 34.707
+Run   60: Team DPAV: 27032.490 | Acheron: 15987.979 | MortenaxBlade: 7621.528 | Tribbie: 3110.528 | HuoHuo: 32.143
+Run   61: Team DPAV: 25398.689 | Acheron: 14109.063 | MortenaxBlade: 7894.021 | Tribbie: 3038.296 | HuoHuo: 34.707
+Run   62: Team DPAV: 29093.169 | Acheron: 17733.952 | MortenaxBlade: 7571.065 | Tribbie: 3419.309 | HuoHuo: 34.707
+Run   63: Team DPAV: 28590.169 | Acheron: 17331.604 | MortenaxBlade: 7786.016 | Tribbie: 3116.437 | HuoHuo: 33.510
+Run   64: Team DPAV: 22690.041 | Acheron: 14189.601 | MortenaxBlade: 5538.633 | Tribbie: 2612.736 | HuoHuo: 34.707
+Run   65: Team DPAV: 27206.776 | Acheron: 15873.547 | MortenaxBlade: 7898.992 | Tribbie: 3099.263 | HuoHuo: 32.143
+Run   66: Team DPAV: 24422.424 | Acheron: 15903.394 | MortenaxBlade: 5461.407 | Tribbie: 2746.545 | HuoHuo: 33.510
+Run   67: Team DPAV: 28188.634 | Acheron: 17230.620 | MortenaxBlade: 7461.460 | Tribbie: 3144.737 | HuoHuo: 34.707
+Run   68: Team DPAV: 26900.114 | Acheron: 16054.084 | MortenaxBlade: 7492.293 | Tribbie: 3007.231 | HuoHuo: 32.143
+Run   69: Team DPAV: 26539.151 | Acheron: 15947.637 | MortenaxBlade: 7250.612 | Tribbie: 2993.577 | HuoHuo: 33.510
+Run   70: Team DPAV: 22877.204 | Acheron: 14160.419 | MortenaxBlade: 5734.625 | Tribbie: 2630.342 | HuoHuo: 34.707
+Run   71: Team DPAV: 25820.573 | Acheron: 14236.102 | MortenaxBlade: 8007.170 | Tribbie: 3191.982 | HuoHuo: 34.707
+Run   72: Team DPAV: 26913.997 | Acheron: 15897.534 | MortenaxBlade: 7597.910 | Tribbie: 3086.326 | HuoHuo: 32.143
+Run   73: Team DPAV: 25366.056 | Acheron: 14116.217 | MortenaxBlade: 7834.840 | Tribbie: 3098.419 | HuoHuo: 30.775
+Run   74: Team DPAV: 27267.815 | Acheron: 16009.182 | MortenaxBlade: 7877.361 | Tribbie: 3029.273 | HuoHuo: 32.143
+Run   75: Team DPAV: 23103.944 | Acheron: 14137.674 | MortenaxBlade: 6033.848 | Tribbie: 2577.859 | HuoHuo: 34.707
+Run   76: Team DPAV: 26048.718 | Acheron: 15551.309 | MortenaxBlade: 7246.349 | Tribbie: 2904.553 | HuoHuo: 32.143
+Run   77: Team DPAV: 26384.664 | Acheron: 15845.783 | MortenaxBlade: 7220.593 | Tribbie: 2969.036 | HuoHuo: 32.143
+Run   78: Team DPAV: 22866.480 | Acheron: 14137.674 | MortenaxBlade: 5738.346 | Tribbie: 2635.896 | HuoHuo: 34.707
+Run   79: Team DPAV: 23103.944 | Acheron: 14137.674 | MortenaxBlade: 6033.848 | Tribbie: 2577.859 | HuoHuo: 34.707
+Run   80: Team DPAV: 28346.002 | Acheron: 17610.418 | MortenaxBlade: 7319.609 | Tribbie: 3085.126 | HuoHuo: 33.510
+Run   81: Team DPAV: 25253.256 | Acheron: 14281.611 | MortenaxBlade: 7604.116 | Tribbie: 3048.031 | HuoHuo: 30.946
+Run   82: Team DPAV: 22613.835 | Acheron: 14160.419 | MortenaxBlade: 5475.892 | Tribbie: 2625.706 | HuoHuo: 34.707
+Run   83: Team DPAV: 23169.365 | Acheron: 14137.674 | MortenaxBlade: 6033.848 | Tribbie: 2643.279 | HuoHuo: 34.707
+Run   84: Team DPAV: 23169.365 | Acheron: 14137.674 | MortenaxBlade: 6033.848 | Tribbie: 2643.279 | HuoHuo: 34.707
+Run   85: Team DPAV: 26819.940 | Acheron: 15897.534 | MortenaxBlade: 7509.106 | Tribbie: 3081.073 | HuoHuo: 32.143
+Run   86: Team DPAV: 27616.295 | Acheron: 16246.499 | MortenaxBlade: 7987.723 | Tribbie: 3007.935 | HuoHuo: 32.313
+Run   87: Team DPAV: 25419.513 | Acheron: 14131.154 | MortenaxBlade: 7886.953 | Tribbie: 3038.424 | HuoHuo: 32.143
+Run   88: Team DPAV: 22783.146 | Acheron: 14160.419 | MortenaxBlade: 5645.822 | Tribbie: 2625.089 | HuoHuo: 34.707
+Run   89: Team DPAV: 26819.940 | Acheron: 15897.534 | MortenaxBlade: 7509.106 | Tribbie: 3081.073 | HuoHuo: 32.143
+Run   90: Team DPAV: 25108.078 | Acheron: 14131.154 | MortenaxBlade: 7829.159 | Tribbie: 2793.020 | HuoHuo: 32.143
+Run   91: Team DPAV: 26458.067 | Acheron: 15874.965 | MortenaxBlade: 7286.296 | Tribbie: 2947.553 | HuoHuo: 32.143
+Run   92: Team DPAV: 27195.962 | Acheron: 16009.182 | MortenaxBlade: 7813.024 | Tribbie: 3021.756 | HuoHuo: 32.143
+Run   93: Team DPAV: 25437.441 | Acheron: 14393.296 | MortenaxBlade: 7616.777 | Tribbie: 3065.934 | HuoHuo: 33.339
+Run   94: Team DPAV: 26913.997 | Acheron: 15897.534 | MortenaxBlade: 7597.910 | Tribbie: 3086.326 | HuoHuo: 32.143
+Run   95: Team DPAV: 22875.432 | Acheron: 14160.419 | MortenaxBlade: 5732.854 | Tribbie: 2630.342 | HuoHuo: 34.707
+Run   96: Team DPAV: 26929.963 | Acheron: 15818.188 | MortenaxBlade: 7922.195 | Tribbie: 2832.271 | HuoHuo: 34.707
+Run   97: Team DPAV: 24456.388 | Acheron: 15903.442 | MortenaxBlade: 5494.294 | Tribbie: 2698.596 | HuoHuo: 34.707
+Run   98: Team DPAV: 26566.346 | Acheron: 15801.141 | MortenaxBlade: 7419.351 | Tribbie: 2993.855 | HuoHuo: 32.143
+Run   99: Team DPAV: 26337.140 | Acheron: 15984.468 | MortenaxBlade: 7150.322 | Tribbie: 2864.631 | HuoHuo: 32.143
+Run  100: Team DPAV: 26877.395 | Acheron: 16028.414 | MortenaxBlade: 7494.798 | Tribbie: 3004.931 | HuoHuo: 32.143
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 25618.784
+Average Acheron DPAV: 15292.813
+Average MortenaxBlade DPAV: 7044.468
+Average Tribbie DPAV: 2932.716
+Average HuoHuo DPAV: 33.379
+
+Min Team DPAV: 21465.107
+Max Team DPAV: 32282.137

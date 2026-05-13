@@ -50,7 +50,7 @@ class MortenaxBlade(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ReforgedInHellfire(role, 1)
+        self.lightcone = lc if lc else GoodNightAndSleepWell(role, 5)
         self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BoneCollectionsSereneDemesne(role)
@@ -137,7 +137,7 @@ class MortenaxBlade(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         if self.EnhancedState == False:
             self.EnhancedState = True
-            self.aggro = 200
+            self.aggro = 1000
             self.maxEnergy = 160
             self.ultCost = 160
             e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
@@ -209,10 +209,15 @@ class MortenaxBlade(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
+        e3Vul = 0.54 if self.eidolon >= 3 else 0.50
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.EnhancedState:
+            dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
+            dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
         if result.turnName == ("MortenaxBladeEnhancedBasic" or "MortenaxBladeBasic"):
             self.aggro = 10000
         elif result.turnName != ("MortenaxBladeEnhancedBasic" or "MortenaxBladeBasic") and self.EnhancedState:
-            self.aggro = 200
+            self.aggro = 1000
         else:
             self.aggro = 100
         if self.eidolon >= 2:

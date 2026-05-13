@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 19105.140 | Acheron: 15069.343 | MortenaxBlade: 3836.627 | Sparkle: 0.000 | HuoHuo: 13.459
+Run    2: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run    3: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run    4: Team DPAV: 12812.351 | Acheron: 9899.943 | MortenaxBlade: 2749.211 | Sparkle: 0.000 | HuoHuo: 13.459
+Run    5: Team DPAV: 16925.609 | Acheron: 12504.170 | MortenaxBlade: 4145.913 | Sparkle: 0.000 | HuoHuo: 15.673
+Run    6: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run    7: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run    8: Team DPAV: 18763.935 | Acheron: 13227.521 | MortenaxBlade: 5306.197 | Sparkle: 0.000 | HuoHuo: 15.673
+Run    9: Team DPAV: 20241.173 | Acheron: 15900.038 | MortenaxBlade: 4110.918 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   10: Team DPAV: 19040.049 | Acheron: 15069.343 | MortenaxBlade: 3773.047 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   11: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   12: Team DPAV: 22254.979 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   13: Team DPAV: 19105.140 | Acheron: 15069.343 | MortenaxBlade: 3836.627 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   14: Team DPAV: 19253.171 | Acheron: 15069.343 | MortenaxBlade: 3984.658 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   15: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   16: Team DPAV: 19105.140 | Acheron: 15069.343 | MortenaxBlade: 3836.627 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   17: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   18: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   19: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   20: Team DPAV: 12887.877 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   21: Team DPAV: 22000.397 | Acheron: 17736.920 | MortenaxBlade: 4043.712 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   22: Team DPAV: 17942.017 | Acheron: 14521.667 | MortenaxBlade: 3192.347 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   23: Team DPAV: 22254.979 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   24: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   25: Team DPAV: 19041.560 | Acheron: 15069.343 | MortenaxBlade: 3773.047 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   26: Team DPAV: 19189.591 | Acheron: 15069.343 | MortenaxBlade: 3921.078 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   27: Team DPAV: 12813.861 | Acheron: 9899.943 | MortenaxBlade: 2749.211 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   28: Team DPAV: 12963.403 | Acheron: 9899.943 | MortenaxBlade: 2897.243 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   29: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   30: Team DPAV: 22180.964 | Acheron: 17842.759 | MortenaxBlade: 4121.186 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   31: Team DPAV: 19114.065 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   32: Team DPAV: 19356.345 | Acheron: 15172.376 | MortenaxBlade: 3969.696 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   33: Team DPAV: 19103.629 | Acheron: 15069.343 | MortenaxBlade: 3836.627 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   34: Team DPAV: 19354.835 | Acheron: 15172.376 | MortenaxBlade: 3969.696 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   35: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   36: Team DPAV: 12491.088 | Acheron: 9742.720 | MortenaxBlade: 2582.151 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   37: Team DPAV: 18851.556 | Acheron: 15730.334 | MortenaxBlade: 2882.767 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   38: Team DPAV: 19253.171 | Acheron: 15069.343 | MortenaxBlade: 3984.658 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   39: Team DPAV: 12963.403 | Acheron: 9899.943 | MortenaxBlade: 2897.243 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   40: Team DPAV: 22328.995 | Acheron: 17842.759 | MortenaxBlade: 4269.218 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   41: Team DPAV: 12496.995 | Acheron: 9742.720 | MortenaxBlade: 2588.057 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   42: Team DPAV: 12890.864 | Acheron: 9899.943 | MortenaxBlade: 2824.703 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   43: Team DPAV: 20241.173 | Acheron: 15900.038 | MortenaxBlade: 4110.918 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   44: Team DPAV: 20431.107 | Acheron: 15900.038 | MortenaxBlade: 4300.852 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   45: Team DPAV: 22000.397 | Acheron: 17736.920 | MortenaxBlade: 4043.712 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   46: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   47: Team DPAV: 12816.848 | Acheron: 9899.943 | MortenaxBlade: 2750.688 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   48: Team DPAV: 18907.916 | Acheron: 15730.334 | MortenaxBlade: 2939.127 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   49: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   50: Team DPAV: 16753.565 | Acheron: 12504.170 | MortenaxBlade: 3973.868 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   51: Team DPAV: 22074.412 | Acheron: 17736.920 | MortenaxBlade: 4117.728 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   52: Team DPAV: 22253.469 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   53: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   54: Team DPAV: 22000.397 | Acheron: 17736.920 | MortenaxBlade: 4043.712 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   55: Team DPAV: 19041.560 | Acheron: 15069.343 | MortenaxBlade: 3773.047 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   56: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   57: Team DPAV: 19253.171 | Acheron: 15069.343 | MortenaxBlade: 3984.658 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   58: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   59: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   60: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   61: Team DPAV: 12887.877 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   62: Team DPAV: 17946.447 | Acheron: 14521.667 | MortenaxBlade: 3196.777 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   63: Team DPAV: 19041.560 | Acheron: 15069.343 | MortenaxBlade: 3773.047 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   64: Team DPAV: 22000.397 | Acheron: 17736.920 | MortenaxBlade: 4043.712 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   65: Team DPAV: 19356.345 | Acheron: 15172.376 | MortenaxBlade: 3969.696 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   66: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   67: Team DPAV: 19356.345 | Acheron: 15172.376 | MortenaxBlade: 3969.696 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   68: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   69: Team DPAV: 18851.556 | Acheron: 15730.334 | MortenaxBlade: 2882.767 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   70: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   71: Team DPAV: 12812.351 | Acheron: 9899.943 | MortenaxBlade: 2749.211 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   72: Team DPAV: 19103.629 | Acheron: 15069.343 | MortenaxBlade: 3836.627 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   73: Team DPAV: 19356.345 | Acheron: 15172.376 | MortenaxBlade: 3969.696 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   74: Team DPAV: 22328.995 | Acheron: 17842.759 | MortenaxBlade: 4269.218 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   75: Team DPAV: 12886.367 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   76: Team DPAV: 22253.469 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   77: Team DPAV: 22251.959 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   78: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   79: Team DPAV: 17942.017 | Acheron: 14521.667 | MortenaxBlade: 3192.347 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   80: Team DPAV: 12815.371 | Acheron: 9899.943 | MortenaxBlade: 2749.211 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   81: Team DPAV: 22074.412 | Acheron: 17736.920 | MortenaxBlade: 4117.728 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   82: Team DPAV: 19115.575 | Acheron: 15069.343 | MortenaxBlade: 3847.062 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   83: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   84: Team DPAV: 20431.107 | Acheron: 15900.038 | MortenaxBlade: 4300.852 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   85: Team DPAV: 17622.168 | Acheron: 13158.734 | MortenaxBlade: 4233.218 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   86: Team DPAV: 20403.050 | Acheron: 15900.038 | MortenaxBlade: 4272.795 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   87: Team DPAV: 19041.560 | Acheron: 15069.343 | MortenaxBlade: 3773.047 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   88: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   89: Team DPAV: 17627.091 | Acheron: 13158.734 | MortenaxBlade: 4238.140 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   90: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   91: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   92: Team DPAV: 22254.979 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   93: Team DPAV: 19189.591 | Acheron: 15069.343 | MortenaxBlade: 3921.078 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   94: Team DPAV: 22328.995 | Acheron: 17842.759 | MortenaxBlade: 4269.218 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   95: Team DPAV: 22327.485 | Acheron: 17842.759 | MortenaxBlade: 4269.218 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   96: Team DPAV: 12889.387 | Acheron: 9899.943 | MortenaxBlade: 2823.227 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   97: Team DPAV: 19010.228 | Acheron: 13227.521 | MortenaxBlade: 5552.491 | Sparkle: 0.000 | HuoHuo: 15.673
+Run   98: Team DPAV: 22254.979 | Acheron: 17842.759 | MortenaxBlade: 4195.202 | Sparkle: 0.000 | HuoHuo: 13.459
+Run   99: Team DPAV: 19179.156 | Acheron: 15069.343 | MortenaxBlade: 3910.643 | Sparkle: 0.000 | HuoHuo: 13.459
+Run  100: Team DPAV: 17946.447 | Acheron: 14521.667 | MortenaxBlade: 3196.777 | Sparkle: 0.000 | HuoHuo: 13.459
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 17979.450
+Average Acheron DPAV: 14041.185
+Average MortenaxBlade DPAV: 3735.611
+Average Sparkle DPAV: 0.000
+Average HuoHuo DPAV: 13.880
+
+Min Team DPAV: 12491.088
+Max Team DPAV: 22328.995

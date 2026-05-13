@@ -42,10 +42,10 @@ class Tribbie(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc = None, r1 = None, r2 = None, pl = None, subs = None, eidolon = 6, targetPrio = Priority.BROKEN, rotation = None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else DanceDanceDance(self.role,5)
-        self.relic1 = r1 if r1 else PoetsDillWreath(self.role,4)
+        self.relic1 = r1 if r1 else EagleOfTwilightLine(self.role,4, Element.QUANTUM)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BoneCollectionsSereneDemesne(self.role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 12, 2, 2, 2, 2, 2, 4, 12, StatTypes.CR_PERCENT, StatTypes.HP_PERCENT,
+        self.relicStats = subs if subs else RelicStats(11, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A","A","E"]
 
@@ -73,6 +73,8 @@ class Tribbie(Character):
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e5ResPen = 0.264 if self.eidolon >= 5 else 0.24
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
+                       [0,0], [0, 0], 30, self.scaling, -1, "TribbieSkill"))
         bl.append(Buff("Numinosity",StatTypes.PEN,e5ResPen,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
         if self.eidolon >= 4:
             bl.append(Buff("TribbieE4DefShred",StatTypes.SHRED,0.18,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
@@ -84,7 +86,7 @@ class Tribbie(Character):
         e5MultUltimate = 0.33 if self.eidolon >= 5 else 0.3
         e5VulnUltimate = 0.33 if self.eidolon >= 5 else 0.3
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.ULT], [self.element],
-                     [e5MultUltimate], [20,0], 5, self.scaling, 0, "TribbieUltimate"))
+                     [e5MultUltimate], [20,0], 5, self.scaling, 0, "TribbieUlt"))
         bl.append(Buff("TribbieUltVuln",StatTypes.VULN,e5VulnUltimate,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
         dbl.append(Debuff("TribbieUltVulnPlaceHolderDebuff", self.role, StatTypes.VULN, 0, Role.ALL, [AtkType.ALL], 4))
         if self.eidolon >= 1:

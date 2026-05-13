@@ -1184,7 +1184,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
         match specStr:
             case "Acheron":
                 NihilityCount = sum(1 for c in playerTeam if c.path == Path.NIHILITY and c.role != specChar.role)
-                return Special(name=specStr, attr1=NihilityCount, enemies=gauge)
+                enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
+                return Special(name=specStr, attr1=NihilityCount, attr2=enemyDebuffs, enemies=gauge)
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
 
@@ -1597,7 +1598,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("        ----------End of Healing List----------")
 
         res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, healList,manualMode=manualMode)
-        res.debuffsApplied = newDebuffs  # give allyTurn visibility into what debuffs were applied
+        res.debuffsApplied = parseDebuffs(newDebuffs, eTeam, defaultEnemyID=eTeam[0].enemyID if eTeam else 0)
         for character in playerTeam:
             oldMaxHp = character.maxHP
             character.maxHP = getCharMaxHP(character, character.lightcone, teamBuffs)
@@ -1629,15 +1630,29 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
                 abs(b.getBuffVal() - res.errGain) < 0.01
             )]
 
+        anyDebuffEmitted = len(newDebuffs) > 0  # from handleTurn (break debuffs)
+
         for char in playerTeam + summons:
             if hasattr(char, 'lightcone') and hasattr(char.lightcone, 'debuffList'):
-                char.lightcone.debuffList = enemyDebuffs  # inject current debuff state
+                char.lightcone.debuffList = enemyDebuffs
             if char.role == turn.charRole:
                 tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)
             else:
-                tempB, tempDB, tempA, tempD , newTurns, tempH = char.allyTurn(turn, res)
-            teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,tempB, tempDB, tempA, tempD, tempH)
+                tempB, tempDB, tempA, tempD, newTurns, tempH = char.allyTurn(turn, res)
+            if len(tempDB) > 0:
+                anyDebuffEmitted = True  # this turn caused debuffs (new or refresh)
+            teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(
+                playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,
+                tempB, tempDB, tempA, tempD, tempH)
             turnList.extend(newTurns)
+
+        # Grant Acheron 1 Slashed Dream if any debuff was emitted this turn
+        acheron = next((c for c in playerTeam if c.name == "Acheron"), None)
+        if acheron and turn.moveName not in bonusDMG and anyDebuffEmitted and turn.moveName != "AcheronUlt":
+            acheron._addSlashedDream(1)
+            knotTarget = acheron._knotTarget()
+            acheron._addKnot(knotTarget)
+            logging.debug(f"Acheron +1 Slashed Dream from debuff ({acheron.currEnergy}/{acheron.maxEnergy})")
 
         # Handle Evanescia's own action energy → Banger conversion
         evanescia_banger_from_action = handleEvanesciaOwnActionBanger(res, playerTeam)

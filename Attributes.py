@@ -6,11 +6,12 @@ bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "F
             ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
             "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE","ElationMCTalentSkill","ElationMCELASkillSmall","ElationMCUltTrigger_DPS","EvanesciaMasterFoxELAPUNCH","EvanesciaSkillELAPUNCH","EvanesciaUltELAPUNCH_AOE"
             ,"EvanesciaUltELAPUNCH_ST","EvanesciaTech","SilverWolf999ELASkillExtra","SilverWolf999BigFlippingSword","EvanesciaUltSingle","MortenaxBladeBounceSkill","MortenaxBladeBounceFUA","AshveilTech",
-            } # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            "AcheronRainblade1","AcheronRainblade2","AcheronRainblade3","AcheronRainbladeKnot1","AcheronRainbladeKnot2","AcheronRainbladeKnot3","AcheronResurgeBounce1","AcheronResurgeBounce2","AcheronResurgeBounce3",
+            "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
-                "SparkleUlt","SushangUlt","TingyunUlt","TribbieUltimate","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
-                "SilverWolf999Ult","MortenaxBladeUlt","MortenaxBladeEnhancedUlt","AshveilUltimate"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+                "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
+                "SilverWolf999Ult","MortenaxBladeUlt","MortenaxBladeEnhancedUlt","AshveilUlt","AcheronUlt"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"}
 
 wbMultiplier = 3767.5533
