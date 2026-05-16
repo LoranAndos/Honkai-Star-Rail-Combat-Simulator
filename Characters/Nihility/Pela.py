@@ -3,7 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Delay_Text import *
-from Lightcones.Resolution import ResolutionPela
+from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionPela
 from Planars.Keel import Keel
 from RelicStats import RelicStats
 from Relics.Longevous import Longevous
@@ -43,8 +43,8 @@ class Pela(Character):
         self.relic1 = r1 if r1 else Longevous(role, 2)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else Messenger(role, 2, False))
         self.planar = pl if pl else Keel(role)
-        self.relicStats = subs if subs else RelicStats(14, 2, 0, 2, 4, 0, 4, 4, 10, 8, 0, 0, StatTypes.HP_PERCENT, StatTypes.SPD,
-                                                       StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(14, 2, 0, 2, 4, 0, 4, 4, 10, 8, 0, 0, StatTypes.EHR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E", "A"]
 
     def equip(self):
@@ -74,7 +74,7 @@ class Pela(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL], [self.element],[e3Mul + e6Bonus, 0], [20, 0], 30, self.scaling, -1, "PelaSkill"))  # bonus 0.4 from e6
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], e5ERR,self.scaling, 0, "PelaTalentERR"))
         if self.eidolon >= 4:
-            dbl.append(Debuff("PelaIceRes", self.role, StatTypes.ICEPEN, 0.12, self.bestEnemy(enemyID), [AtkType.ALL], 2))  # e4
+            dbl.append(Debuff("PelaIceRes", self.role, StatTypes.ICEPEN, 0.12, self.bestEnemy(enemyID), [AtkType.ALL], 2, 1, Targeting.SINGLE))  # e4
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -86,5 +86,5 @@ class Pela(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],[e5DmgMUL + e6Bonus, 0], [10, 0], 5, self.scaling, 0, "PelaUlt"))  # bonus 0.4 from e6
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], e5ERR,self.scaling, 0, "PelaTalentERR"))
-        dbl.append(Debuff("PelaUltShred", self.role, StatTypes.SHRED, e5Shred, Role.ALL, [AtkType.ALL], 2, 1, False, [0, 0], False))
+        dbl.append(Debuff("PelaUltShred", self.role, StatTypes.SHRED, e5Shred, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, tl, hl

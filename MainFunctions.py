@@ -547,8 +547,9 @@ def getCharDEF(char: Character, buffList: list[Buff]) -> float:
     Uses the same getScalingValues path as damage calculations so it is consistent."""
     return getScalingValues(char, buffList, [AtkType.ALL], Scaling.DEF)
 
+
 def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
-                       buffList: list[Buff]) -> tuple[bool, list[str]]:
+                       buffList: list[Buff]) -> tuple[bool, list[str], list[Debuff]]:
     """Deal damage to characters based on the hitMap produced by addEnergy.
 
     Each entry in hitMap is (charIdx, energyGiven). Damage scales with energyGiven:
@@ -558,20 +559,24 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
 
     DEF formula: defMul = 1 - charDEF / (charDEF + 200 + 10 * enemyLevel)
 
-    Returns (run_should_stop, death_messages).
+    Returns (run_should_stop, death_messages, hit_debuffs).
     """
     if not enemy.CanDoDamage:
-        return False, []
+        return False, [], []
 
     death_messages = []
     run_stop = False
+    hit_debuffs: list[Debuff] = []
+
+    # Track which characters were hit (to call useHit only once per character)
+    hit_characters = set()
 
     for charIdx, energyGiven in hitMap:
         char = playerTeam[charIdx]
         charDEF = getCharDEF(char, buffList)
         charLevel = char.level if hasattr(char, 'level') else 80
         dmg = enemy.calcDamageTo(charDEF, charLevel, energyGiven)
-        dmg *= getMulDMGReduction(char, buffList)  # ← add this line
+        dmg *= getMulDMGReduction(char, buffList)
         char.ChangeHpValue(-dmg)
 
         atkType = "aoe" if energyGiven < 10.0 else "single/blast"
@@ -580,13 +585,24 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
             f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}) "
             f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
 
-        if char.currHP <= 0: #Change to 1.0 if you want to kill the character instantly.
+        if char.currHP <= 0:
             msg = f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped."
             logger.critical(msg)
             death_messages.append(msg)
             run_stop = True
 
-    return run_stop, death_messages
+        # Track this character was hit
+        hit_characters.add(charIdx)
+
+    # Call useHit once per hit character and collect debuffs
+    for charIdx in hit_characters:
+        char = playerTeam[charIdx]
+        bl, dbl, al, dl, tl, hl = char.useHit(enemy.enemyID)
+        if dbl:
+            hit_debuffs.extend(dbl)
+            logger.debug(f"{char.name} useHit produced {len(dbl)} debuffs")
+
+    return run_stop, death_messages, hit_debuffs
 
 
 def checkInTeam(name: str, team: list[Character]) -> bool:

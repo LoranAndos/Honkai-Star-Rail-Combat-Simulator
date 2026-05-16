@@ -4,11 +4,10 @@ from random import gauss
 from Buff import *
 from Character import Character
 from Delay_Text import *
-from Lightcones.Spring import Spring
-from Planars.Vonwacq import Vonwacq
+from Lightcones.Nihility.BeforeTheTutorialMissionStarts import BeforeTheTutorialMissionStarts
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
-from Relics.Longevous import Longevous
-from Relics.Messenger import Messenger
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import Special
 from Turn_Text import Turn
 
@@ -45,12 +44,12 @@ class Jiaoqiu(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else Spring(role)
-        self.relic1 = r1 if r1 else Longevous(role, 2)
-        self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else Messenger(role, 2, False))
-        self.planar = pl if pl else Vonwacq(role)
-        self.relicStats = subs if subs else RelicStats(6, 4, 0, 4, 4, 0, 4, 4, 18, 4, 0, 0, StatTypes.EHR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT)
+        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role)
+        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4 )
+        self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
+        self.planar = pl if pl else SprightlyVonwacq(role)
+        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 2, 2, 2, 16, 4, 2, 2, StatTypes.EHR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E", "A", "A"]
         self.ashenRoastMul = 3.0 if self.eidolon >= 2 else 0
 
@@ -73,7 +72,7 @@ class Jiaoqiu(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],[1.0 + e3Bonus, 0], [10, 0], 20, self.scaling, 1, "JiaoqiuBasic"))
         for _ in range(2 if self.eidolon >= 1 else 1):
             dbl.append(
-                Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks,True, [self.ashenRoastMul + e5Mul, 0], False))
+                Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks,Targeting.SINGLE,True, [self.ashenRoastMul + e5Mul, 0], False))
             if self.eidolon == 6:
                 dbl.append(Debuff("JQE6AshenPen", self.role, StatTypes.PEN, 0.03, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks))
         return bl, dbl, al, dl, tl, hl
@@ -87,7 +86,7 @@ class Jiaoqiu(Character):
         e6Stacks = 9 if self.eidolon == 6 else 5
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL], [self.element],[1.5 + e3Bonus1, 0.9 + e3bonus2], [20, 10], 30, self.scaling, -1, "JiaoqiuSkill"))
         dbl.append(
-            Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks,True, [self.ashenRoastMul + e5Mul, 0], False))
+            Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks,Targeting.SINGLE,True, [self.ashenRoastMul + e5Mul, 0], False))
         if self.eidolon == 6:
             dbl.append(Debuff("JQE6AshenPen", self.role, StatTypes.PEN, 0.03, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks))
         for _ in range(2 if self.eidolon >= 1 else 1):
@@ -109,15 +108,15 @@ class Jiaoqiu(Character):
         e6Stacks = 9 if self.eidolon == 6 else 5
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                        [e5DmgMul, 0], [20, 0], 5, self.scaling, 0, "JiaoqiuUlt"))
-        dbl.append(Debuff("JQUltVuln", self.role, StatTypes.VULN, e5UltVuln, Role.ALL, [AtkType.ULT], 1000, 1, False, [0, 0], False))
+        dbl.append(Debuff("JQUltVuln", self.role, StatTypes.VULN, e5UltVuln, Role.ALL, [AtkType.ULT], 1000, 1, Targeting.SINGLE,False, [0, 0], False))
         if self.eidolon >= 4:
             dbl.append(Debuff("JQE4Debuff", self.role, StatTypes.GENERIC, 0.15, Role.ALL, [AtkType.SPECIAL], 1000))
         for _ in range(2 if self.eidolon >= 1 else 1):
-            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 2, e6Stacks, True,[self.ashenRoastMul + e5Mul, 0], False))
+            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 2, e6Stacks, Targeting.SINGLE,True,[self.ashenRoastMul + e5Mul, 0], False))
             if self.eidolon == 6:
                 dbl.append(Debuff("JQE6AshenPen", self.role, StatTypes.PEN, 0.03, self.bestEnemy(enemyID), [AtkType.ALL], 2, e6Stacks))
         for _ in range(self.maxAshenStacks):
-            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 2, e6Stacks, True,[self.ashenRoastMul + e5Mul, 0], False))
+            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 2, e6Stacks, Targeting.SINGLE,True,[self.ashenRoastMul + e5Mul, 0], False))
             if self.eidolon == 6:
                 dbl.append(Debuff("JQE6AshenPen", self.role, StatTypes.PEN, 0.03, self.bestEnemy(enemyID), [AtkType.ALL], 2,e6Stacks))
         return bl, dbl, al, dl, tl, hl
@@ -129,7 +128,7 @@ class Jiaoqiu(Character):
         e5Vuln = 0.11 if self.eidolon >= 5 else 0.10
         e6Stacks = 9 if self.eidolon == 6 else 5
         if self.offTurnCount > 0:
-            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, enemyID, [AtkType.ALL], 2, e6Stacks, True,[self.ashenRoastMul + e5Mul, 0], False))
+            dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, enemyID, [AtkType.ALL], 2, e6Stacks, Targeting.SINGLE,True,[self.ashenRoastMul + e5Mul, 0], False))
             if self.eidolon == 6:
                 dbl.append(Debuff("JQE6AshenPen", self.role, StatTypes.PEN, 0.03, enemyID, [AtkType.ALL], 2, e6Stacks))
         return bl, dbl, al, dl, tl, hl
@@ -143,5 +142,5 @@ class Jiaoqiu(Character):
         if specialRes.attr3:
             self.fieldCount = max(0, self.fieldCount - 1)  # tick down field stacks at start of turn
         if self.fieldCount == 0:  # dispel debuff once field is removed
-            dbl.append(Debuff("JQUltVuln", self.role, StatTypes.VULN, 0.0, Role.ALL, [AtkType.ULT], 1000, 1, False, [0, 0], False))
+            dbl.append(Debuff("JQUltVuln", self.role, StatTypes.VULN, 0.0, Role.ALL, [AtkType.ULT], 1000, 1, Targeting.SINGLE,False, [0, 0], False))
         return bl, dbl, al, dl, tl, hl

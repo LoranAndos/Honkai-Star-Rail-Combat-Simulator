@@ -8,9 +8,9 @@ FINITE_ENEMY_HP = True
 
 # Kill-energy rewards per enemy type
 KILL_ENERGY = {
-    EnemyType.BOSS:  15,
-    EnemyType.ELITE: 10,
-    EnemyType.ADD:    5,
+    EnemyType.BOSS:  0,
+    EnemyType.ELITE: 0,
+    EnemyType.ADD:   0,
 }
 
 class Enemy:

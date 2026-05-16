@@ -167,3 +167,6 @@ class Ashveil(Character):
         if self.eidolon == 6:
             bl.append(Buff("AshveilE6GluttonyDMG", StatTypes.DMG_PERCENT, 0.04 * min(self.GluttonyObtained,30), self.role, [AtkType.ALL],1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl
+
+    def canUseUlt(self) -> bool:
+        return super().canUseUlt() if self.Charge == 0 else False

@@ -1,12 +1,12 @@
 import logging
 
 from Characters.Abundance.HuoHuo import HuoHuo
-from Characters.Elation.Evanescia import Evanescia
-from Characters.Elation.Yao_Guang import YaoGuang
+from Characters.Nihility.Jiaoqiu import Jiaoqiu
+from Characters.Harmony.Sunday import Sunday
 from Characters.Nihility.Acheron import Acheron
-from Characters.Elation.ElationMC import ElationMC
 from Characters.Nihility.MortenaxBlade import MortenaxBlade
 from Characters.Hunt.Ashveil import Ashveil
+from Characters.Hunt.Feixiao import Feixiao
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Harmony.Tribbie import Tribbie
 from MainFunctions import *
@@ -48,8 +48,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Acheron(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
         slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
@@ -239,7 +239,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                 energyMsg += f" {playerTeam[i].name}: Hit {energyList[i]:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
             logging.warning(energyMsg)
 
-            run_stop, death_msgs = handleEnemyAttacks(unit, playerTeam, hitMap, teamBuffs)
+            run_stop, death_msgs, hit_debuffs = handleEnemyAttacks(enemy, playerTeam, hitMap, teamBuffs)
+            enemyDebuffs.extend(hit_debuffs)
             for msg in death_msgs:
                 logging.critical(msg)
                 manualPrint(manualMode, msg)
@@ -436,9 +437,9 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Acheron(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -458,11 +459,10 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Acheron(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+                slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=slot1, s2=slot2, s3=slot3, s4=slot4,
