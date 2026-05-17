@@ -43,16 +43,16 @@ class Tingyun(Character):
         self.rotation = rotation if rotation else ["E","A","A"]
 
     def equip(self):
-        buffList, debuffList, advList, delayList, healList = super().equip()
-        buffList.append(
+        bl, dbl, al, dl, hl = super().equip()
+        bl.append(
             Buff("TingyunBasicDMG", StatTypes.DMG_PERCENT, 0.4, self.role, [AtkType.BSC], 1, 1, Role.SELF, TickDown.PERM))
-        buffList.append(
+        bl.append(
             Buff("TingyunTraceATK", StatTypes.ATK_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        buffList.append(
+        bl.append(
             Buff("TingyunTraceDEF", StatTypes.DEF_PERCENT, 0.225, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        buffList.append(
+        bl.append(
             Buff("TingyunTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return buffList, debuffList, advList, delayList, healList
+        return bl, dbl, al, dl, hl
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)

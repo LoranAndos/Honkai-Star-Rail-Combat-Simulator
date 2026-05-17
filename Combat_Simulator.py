@@ -1,10 +1,14 @@
 import logging
 
 from Characters.Abundance.HuoHuo import HuoHuo
+from Characters.Abundance.Lingsha import Lingsha
+from Characters.Harmony.RuanMei import RuanMei
 from Characters.Nihility.Jiaoqiu import Jiaoqiu
 from Characters.Harmony.Sunday import Sunday
 from Characters.Nihility.Acheron import Acheron
 from Characters.Nihility.MortenaxBlade import MortenaxBlade
+from Characters.Nihility.Cipher import Cipher
+from Characters.Nihility.Pela import Pela
 from Characters.Hunt.Ashveil import Ashveil
 from Characters.Hunt.Feixiao import Feixiao
 from Characters.Harmony.Sparkle import Sparkle
@@ -48,9 +52,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
-        slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Acheron(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Cipher(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -437,10 +441,10 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = MortenaxBlade(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Lingsha(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = RuanMei(2, Role.SUP1, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+        slot4 = Sparkle(3, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
         outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
@@ -459,10 +463,10 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = MortenaxBlade(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = Lingsha(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = RuanMei(2, Role.SUP1, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+                slot4 = Sparkle(3, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=slot1, s2=slot2, s3=slot3, s4=slot4,

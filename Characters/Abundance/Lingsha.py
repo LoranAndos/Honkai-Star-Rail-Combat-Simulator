@@ -7,6 +7,7 @@ from Delay_Text import *
 from Delay_Text import Advance
 from Healing import Healing
 from Lightcones.Abundance.PostOpConversation import PostOpConversation
+from Lightcones.Abundance.WhatIsReal import WhatIsReal
 from Lightcones.Abundance.ScentAloneStaysTrue import ScentAloneStaysTrueLingsha
 from Planars.BrokenKeel import BrokenKeel
 from RelicStats import RelicStats
@@ -99,7 +100,7 @@ class Lingsha(Character):
         hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0],Scaling.Other, Role.ALL, self.role, Targeting.AOE))
         befog = 0.27 if self.eidolon >= 3 else 0.25
         dbl.append(
-            Debuff("LingshaBefog", self.role, StatTypes.VULN, befog, Role.ALL, [AtkType.BRK], 2, 1, False, [0, 0], False))
+            Debuff("LingshaBefog", self.role, StatTypes.VULN, befog, Role.ALL, [AtkType.BRK], 2, 1, Targeting.AOE,False, [0, 0], False))
         if self.eidolon >= 2:
             bl.append(Buff("LingshaE2BE", StatTypes.BE_PERCENT, 0.40, Role.ALL, turns=3, tdType=TickDown.END))
         return bl, dbl, al, dl, tl, hl
@@ -120,7 +121,7 @@ class Lingsha(Character):
             return self.useFua(-1)
         if self.eidolon >= 1:
             for enemy in result.brokenEnemy:
-                dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1))
+                dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1, Targeting.SINGLE))
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -129,7 +130,7 @@ class Lingsha(Character):
             return self.useFua(-1)
         if self.eidolon >= 1:
             for enemy in result.brokenEnemy:
-                dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1))
+                dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1, Targeting.SINGLE))
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):

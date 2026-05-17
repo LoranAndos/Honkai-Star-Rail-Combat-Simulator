@@ -28,6 +28,7 @@ class Jiaoqiu(Character):
     currEnergy = 50
     ultCost = 100
     currAV = 0
+    aggro = 100
     rotation = ["E", "A", "A"]  # Adjust accordingly
     dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0}  # Adjust accordingly
 

@@ -963,7 +963,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                     ExtraMult = 1+0.8*((character.maxHP-character.currHP)/character.maxHP)
                 else:
                     ExtraMult = 1
-                if Heal.scaling != Scaling.Other:
+                if Heal.scaling != (Scaling.Other or Scaling.MAXHP):
                     if Heal.val[0] > 0:
                         Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier * ExtraMult
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier * ExtraMult)
@@ -987,7 +987,7 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                         Total_HPLoss += abs(healAmt)
                         character.ChangeHpValue(healAmt)
             elif Heal.target == Role.ALL:
-                if Heal.scaling != Scaling.Other:
+                if Heal.scaling != (Scaling.Other or Scaling.MAXHP):
                     if Heal.val[0] > 0:
                         Total_HPGain += Heal.val[0] * Scaling_Multiplier * OGH_Multiplier
                         character.ChangeHpValue(Heal.val[0] * Scaling_Multiplier * OGH_Multiplier)
@@ -1411,7 +1411,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     if character.path == Path.NIHILITY:
                         NihilityCount += 1
                 charHP = getCharMaxHP(specChar, specChar.lightcone, buffList)
-                return Special(name=specStr, attr1=NihilityCount, attr2=charHP, enemies=gauge)
+                CharSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=NihilityCount, attr2=charHP, attr3=CharSPD, enemies=gauge)
 
             case "Moze":
                 res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
@@ -1712,6 +1713,13 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             acheron._addKnot(knotTarget)
             logging.debug(f"Acheron +1 Slashed Dream from debuff ({acheron.currEnergy}/{acheron.maxEnergy})")
 
+        # Flush Cipher's True Damage (tally payouts) into dmgTracker
+        cipher = next((c for c in playerTeam if c.name == "Cipher"), None)
+        if cipher and cipher.pendingTrueDmg > 0:
+            dmgTracker.addActionDMG(cipher.pendingTrueDmg)
+            logging.warning(f"    TRUE   - Cipher True DMG flushed to tracker: {cipher.pendingTrueDmg:.1f}")
+            cipher.pendingTrueDmg = 0.0
+
         # Handle Evanescia's own action energy → Banger conversion
         evanescia_banger_from_action = handleEvanesciaOwnActionBanger(res, playerTeam)
         if evanescia_banger_from_action:
@@ -1742,7 +1750,7 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
                     delayList, healingList, spTracker, dmgTracker, manualMode=manualMode)
                 teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
 
-        if char.canUseUlt():
+        if char.canUseUlt() and (char.name != "Cipher" or simAV < 400 or simAV >= 520):
             action, target = "Y", -1
             if manualMode:
                 action, target = manualModule(spTracker, playerTeam, summons, eTeam, simAV, char, "ULT")

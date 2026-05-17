@@ -53,11 +53,11 @@ class MortenaxBlade(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ResolutionMortenaxBlade(role, 5)
+        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role, 5)
         self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 7, 2, 10, 2, StatTypes.EHR_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 12, 2, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.overflowEnergy = 0.0

@@ -89,14 +89,14 @@ class Sushang(Character):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         Once = True
         for enemy in self.enemyteam:
-            if enemy.broken == True and result.turnName == ("SushangBasic" or "SushangSkill") and Once == True:
+            if enemy.broken and result.turnName == ("SushangBasic" or "SushangSkill") and Once == True:
                 al.append(Advance("SushangTrace1",self.role,0.15))
                 Once = False
         if result.brokenEnemy == True:
             e3Mul = 0.21 if self.eidolon >= 3 else 0.2
             e6Stacks = 2 if self.eidolon == 6 else 1
             bl.append(Buff("SushangTalent",StatTypes.SPD_PERCENT,e3Mul,self.role,turns = 2,stackLimit = e6Stacks,tdType=TickDown.END))
-        if enemy.broken == True and result.turnName == "SushangSkill":
+        if enemy.broken and result.turnName == "SushangSkill":
             e5Mul = 1.1 if self.eidolon >= 5 else 1
             tl.append(Turn(self.name,self.role,-1,Targeting.NA,[AtkType.SPECIAL],[self.element],[0,0],[0,0],0,self.scaling,1,"Sushange1SP"))
             tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL,AtkType.ADD],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
@@ -105,7 +105,7 @@ class Sushang(Character):
             e5Mul = 1.1 if self.eidolon >= 5 else 1
             if SwordStanceChance > 67:
                 tl.append(Turn(self.name,self.role,self.bestEnemy(enemyID=-1), Targeting.SINGLE,[AtkType.SKL,AtkType.ADD],[self.element],[e5Mul,0],[0,0],0,self.scaling,0,"SushangSwordStance"))
-        if enemy.broken == True and self.HasExtraSwordStance == True and result.turnName == "SushangSkill":
+        if enemy.broken and self.HasExtraSwordStance == True and result.turnName == "SushangSkill":
             tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL,AtkType.ADD], [self.element],
                      [e5Mul/2, 0], [0, 0], 0, self.scaling, 0, "SushangSwordStanceExtra"))
             tl.append( Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SKL,AtkType.ADD], [self.element],

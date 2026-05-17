@@ -27,6 +27,7 @@ class Feixiao(Character):
     currEnergy = 3
     ultCost = 6
     currAV = 0
+    aggro = 75
     dmgDct = {AtkType.BSC: 0, AtkType.FUA: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0,
               AtkType.TECH: 0}  # Adjust accordingly
     specialEnergy = True

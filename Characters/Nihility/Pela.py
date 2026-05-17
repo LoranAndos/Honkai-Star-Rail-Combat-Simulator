@@ -4,6 +4,7 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionPela
+from Lightcones.Nihility.BeforeTheTutorialMissionStarts import BeforeTheTutorialMissionStarts
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
@@ -27,6 +28,7 @@ class Pela(Character):
     currEnergy = 55
     ultCost = 110
     currAV = 0
+    aggro = 100
     dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0}  # Adjust accordingly
 
     # Unique Character Properties
@@ -38,7 +40,7 @@ class Pela(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=6, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ResolutionPela(role, 5)
+        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role, 5)
         self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)

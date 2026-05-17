@@ -4,7 +4,9 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Harmony.MemoriesOfThePast import MemoriesOfThePast
+from Lightcones.Harmony.PastSelfInMirror import PastSelfInMirror
 from Planars.SprightlyVonwacq import SprightlyVonwacq
+from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.MessengerTraversingHackerspace import MessengerTraversingHackerspace
 from Relics.ThiefOfShootingMeteor import ThiefOfShootingMeteor
@@ -42,7 +44,7 @@ class RuanMei(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetPrio=Priority.DEFAULT, rotation=None) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MemoriesOfThePast(role)
+        self.lightcone = lc if lc else MemoriesOfThePast(role,5)
         self.relic1 = r1 if r1 else ThiefOfShootingMeteor(role, 2)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else MessengerTraversingHackerspace(role, 2))
         self.planar = pl if pl else SprightlyVonwacq(role)

@@ -12,7 +12,7 @@ class AlongThePassingShore(Lightcone):
     baseATK = 635
     baseDEF = 397
 
-    def __init__(self, wearerRole, level=5):
+    def __init__(self, wearerRole, level=1):
         super().__init__(wearerRole, level)
 
     def equip(self):
