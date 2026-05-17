@@ -25,7 +25,7 @@ class BeforeTheTutorialMissionStarts(Lightcone):
     def ownTurn(self, turn, result, enemyID=-1):
         bl, dbl, al, dl, hl = super().ownTurn(turn,result)
         energyAmount = self.level * 1 + 3
-        if turn.charName == ("Jiaoqiu") and turn.moveName not in bonusDMG:
+        if turn.moveName not in bonusDMG and result.turnDmg > 0 and result.enemiesHit:
             bl.append(
                 Buff("TutorialERR", StatTypes.ERR_T, energyAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         return bl, dbl, al, dl, hl

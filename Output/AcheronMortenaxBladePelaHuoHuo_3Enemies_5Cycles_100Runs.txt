@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 29693.005 | Acheron: 24277.233 | MortenaxBlade: 4501.352 | Pela: 547.370 | HuoHuo: 24.471
+Run    2: Team DPAV: 29656.332 | Acheron: 24294.322 | MortenaxBlade: 4346.288 | Pela: 644.505 | HuoHuo: 23.408
+Run    3: Team DPAV: 25723.687 | Acheron: 21209.312 | MortenaxBlade: 3688.384 | Pela: 453.428 | HuoHuo: 24.728
+Run    4: Team DPAV: 30129.904 | Acheron: 24681.357 | MortenaxBlade: 4510.236 | Pela: 526.889 | HuoHuo: 23.408
+Run    5: Team DPAV: 26499.247 | Acheron: 21072.263 | MortenaxBlade: 4536.322 | Pela: 553.589 | HuoHuo: 23.408
+Run    6: Team DPAV: 29920.815 | Acheron: 24295.233 | MortenaxBlade: 4581.733 | Pela: 641.812 | HuoHuo: 23.408
+Run    7: Team DPAV: 30204.762 | Acheron: 24617.270 | MortenaxBlade: 4533.323 | Pela: 633.386 | HuoHuo: 23.408
+Run    8: Team DPAV: 26421.438 | Acheron: 21076.204 | MortenaxBlade: 4441.599 | Pela: 565.243 | HuoHuo: 24.728
+Run    9: Team DPAV: 30042.438 | Acheron: 24524.423 | MortenaxBlade: 4507.843 | Pela: 600.154 | HuoHuo: 23.408
+Run   10: Team DPAV: 29591.477 | Acheron: 24139.669 | MortenaxBlade: 4510.875 | Pela: 543.027 | HuoHuo: 23.408
+Run   11: Team DPAV: 30033.896 | Acheron: 24628.443 | MortenaxBlade: 4411.200 | Pela: 639.559 | HuoHuo: 23.408
+Run   12: Team DPAV: 29935.854 | Acheron: 24558.185 | MortenaxBlade: 4397.416 | Pela: 577.154 | HuoHuo: 24.471
+Run   13: Team DPAV: 29041.090 | Acheron: 23648.116 | MortenaxBlade: 4365.777 | Pela: 661.054 | HuoHuo: 27.695
+Run   14: Team DPAV: 26220.916 | Acheron: 21836.618 | MortenaxBlade: 3553.126 | Pela: 463.865 | HuoHuo: 24.728
+Run   15: Team DPAV: 25807.201 | Acheron: 21260.023 | MortenaxBlade: 3697.065 | Pela: 508.910 | HuoHuo: 23.408
+Run   16: Team DPAV: 26227.663 | Acheron: 21565.828 | MortenaxBlade: 3755.861 | Pela: 531.727 | HuoHuo: 23.408
+Run   17: Team DPAV: 29728.988 | Acheron: 24302.281 | MortenaxBlade: 4458.872 | Pela: 639.085 | HuoHuo: 24.471
+Run   18: Team DPAV: 30250.343 | Acheron: 24765.294 | MortenaxBlade: 4470.404 | Pela: 631.037 | HuoHuo: 23.408
+Run   19: Team DPAV: 28893.936 | Acheron: 23387.595 | MortenaxBlade: 4556.304 | Pela: 578.923 | HuoHuo: 26.310
+Run   20: Team DPAV: 26508.356 | Acheron: 20996.104 | MortenaxBlade: 4617.158 | Pela: 555.015 | HuoHuo: 23.408
+Run   21: Team DPAV: 27357.793 | Acheron: 22164.044 | MortenaxBlade: 4314.328 | Pela: 550.672 | HuoHuo: 24.471
+Run   22: Team DPAV: 30026.095 | Acheron: 24537.133 | MortenaxBlade: 4414.751 | Pela: 656.433 | HuoHuo: 23.408
+Run   23: Team DPAV: 29302.090 | Acheron: 23648.116 | MortenaxBlade: 4626.910 | Pela: 660.922 | HuoHuo: 27.695
+Run   24: Team DPAV: 30055.597 | Acheron: 24529.867 | MortenaxBlade: 4603.477 | Pela: 581.111 | HuoHuo: 24.471
+Run   25: Team DPAV: 25259.965 | Acheron: 20792.140 | MortenaxBlade: 3608.232 | Pela: 518.388 | HuoHuo: 23.408
+Run   26: Team DPAV: 30129.651 | Acheron: 24681.357 | MortenaxBlade: 4510.236 | Pela: 526.635 | HuoHuo: 23.408
+Run   27: Team DPAV: 30250.343 | Acheron: 24765.294 | MortenaxBlade: 4470.404 | Pela: 631.037 | HuoHuo: 23.408
+Run   28: Team DPAV: 29388.293 | Acheron: 24075.146 | MortenaxBlade: 4330.369 | Pela: 629.245 | HuoHuo: 24.471
+Run   29: Team DPAV: 26585.342 | Acheron: 21413.590 | MortenaxBlade: 4288.370 | Pela: 517.395 | HuoHuo: 23.408
+Run   30: Team DPAV: 26310.066 | Acheron: 21725.308 | MortenaxBlade: 3756.346 | Pela: 477.627 | HuoHuo: 24.728
+Run   31: Team DPAV: 29721.127 | Acheron: 24429.699 | MortenaxBlade: 4277.514 | Pela: 616.008 | HuoHuo: 23.408
+Run   32: Team DPAV: 29252.324 | Acheron: 23781.922 | MortenaxBlade: 4541.699 | Pela: 530.797 | HuoHuo: 23.408
+Run   33: Team DPAV: 29799.038 | Acheron: 24407.489 | MortenaxBlade: 4380.011 | Pela: 640.321 | HuoHuo: 23.408
+Run   34: Team DPAV: 26986.356 | Acheron: 21729.700 | MortenaxBlade: 4422.977 | Pela: 480.147 | HuoHuo: 24.471
+Run   35: Team DPAV: 29909.683 | Acheron: 24519.694 | MortenaxBlade: 4376.515 | Pela: 642.256 | HuoHuo: 23.408
+Run   36: Team DPAV: 30129.170 | Acheron: 24671.353 | MortenaxBlade: 4475.311 | Pela: 579.407 | HuoHuo: 24.471
+Run   37: Team DPAV: 30011.800 | Acheron: 24406.700 | MortenaxBlade: 4572.242 | Pela: 630.821 | HuoHuo: 23.408
+Run   38: Team DPAV: 25858.937 | Acheron: 21175.206 | MortenaxBlade: 3795.236 | Pela: 572.138 | HuoHuo: 24.471
+Run   39: Team DPAV: 25144.525 | Acheron: 20842.973 | MortenaxBlade: 3509.876 | Pela: 490.458 | HuoHuo: 24.728
+Run   40: Team DPAV: 25756.212 | Acheron: 20721.991 | MortenaxBlade: 4170.088 | Pela: 522.928 | HuoHuo: 23.408
+Run   41: Team DPAV: 29799.038 | Acheron: 24407.489 | MortenaxBlade: 4380.011 | Pela: 640.321 | HuoHuo: 23.408
+Run   42: Team DPAV: 25115.729 | Acheron: 20830.326 | MortenaxBlade: 3432.284 | Pela: 551.900 | HuoHuo: 24.728
+Run   43: Team DPAV: 30001.208 | Acheron: 24561.229 | MortenaxBlade: 4451.107 | Pela: 608.269 | HuoHuo: 23.408
+Run   44: Team DPAV: 25839.942 | Acheron: 21161.978 | MortenaxBlade: 3778.742 | Pela: 559.143 | HuoHuo: 23.408
+Run   45: Team DPAV: 26744.304 | Acheron: 21322.258 | MortenaxBlade: 4503.902 | Pela: 587.850 | HuoHuo: 26.016
+Run   46: Team DPAV: 30099.783 | Acheron: 24462.766 | MortenaxBlade: 4606.453 | Pela: 628.528 | HuoHuo: 23.408
+Run   47: Team DPAV: 25008.699 | Acheron: 20628.402 | MortenaxBlade: 3535.308 | Pela: 545.091 | HuoHuo: 23.408
+Run   48: Team DPAV: 25368.060 | Acheron: 20857.119 | MortenaxBlade: 3615.828 | Pela: 529.126 | HuoHuo: 23.408
+Run   49: Team DPAV: 29492.089 | Acheron: 24189.398 | MortenaxBlade: 4375.979 | Pela: 551.403 | HuoHuo: 24.471
+Run   50: Team DPAV: 25882.588 | Acheron: 21151.084 | MortenaxBlade: 3801.072 | Pela: 586.066 | HuoHuo: 27.695
+Run   51: Team DPAV: 26969.859 | Acheron: 21651.180 | MortenaxBlade: 4432.939 | Pela: 556.990 | HuoHuo: 24.471
+Run   52: Team DPAV: 26714.577 | Acheron: 21234.422 | MortenaxBlade: 4563.945 | Pela: 585.914 | HuoHuo: 26.016
+Run   53: Team DPAV: 27284.289 | Acheron: 21929.363 | MortenaxBlade: 4440.351 | Pela: 537.322 | HuoHuo: 23.408
+Run   54: Team DPAV: 26478.093 | Acheron: 21129.748 | MortenaxBlade: 4429.154 | Pela: 591.902 | HuoHuo: 26.016
+Run   55: Team DPAV: 25011.718 | Acheron: 20716.990 | MortenaxBlade: 3447.485 | Pela: 547.344 | HuoHuo: 23.408
+Run   56: Team DPAV: 26646.954 | Acheron: 21551.351 | MortenaxBlade: 4207.500 | Pela: 562.358 | HuoHuo: 24.471
+Run   57: Team DPAV: 29591.477 | Acheron: 24139.669 | MortenaxBlade: 4510.875 | Pela: 543.027 | HuoHuo: 23.408
+Run   58: Team DPAV: 29333.079 | Acheron: 23850.416 | MortenaxBlade: 4429.339 | Pela: 705.381 | HuoHuo: 26.016
+Run   59: Team DPAV: 26160.465 | Acheron: 21524.163 | MortenaxBlade: 3802.716 | Pela: 482.801 | HuoHuo: 24.728
+Run   60: Team DPAV: 29211.360 | Acheron: 23851.001 | MortenaxBlade: 4475.436 | Pela: 562.809 | HuoHuo: 24.471
+Run   61: Team DPAV: 30154.229 | Acheron: 24701.782 | MortenaxBlade: 4480.541 | Pela: 643.157 | HuoHuo: 24.471
+Run   62: Team DPAV: 29317.914 | Acheron: 23846.637 | MortenaxBlade: 4491.803 | Pela: 637.952 | HuoHuo: 23.408
+Run   63: Team DPAV: 25047.167 | Acheron: 20501.877 | MortenaxBlade: 3636.969 | Pela: 578.026 | HuoHuo: 26.016
+Run   64: Team DPAV: 25904.297 | Acheron: 21298.895 | MortenaxBlade: 3699.424 | Pela: 538.671 | HuoHuo: 24.728
+Run   65: Team DPAV: 29487.208 | Acheron: 24119.593 | MortenaxBlade: 4457.147 | Pela: 566.736 | HuoHuo: 25.937
+Run   66: Team DPAV: 25486.608 | Acheron: 20752.171 | MortenaxBlade: 3834.494 | Pela: 575.323 | HuoHuo: 24.471
+Run   67: Team DPAV: 27013.620 | Acheron: 21710.200 | MortenaxBlade: 4482.686 | Pela: 479.336 | HuoHuo: 24.728
+Run   68: Team DPAV: 29166.111 | Acheron: 23760.321 | MortenaxBlade: 4394.494 | Pela: 648.184 | HuoHuo: 27.695
+Run   69: Team DPAV: 26647.588 | Acheron: 21430.368 | MortenaxBlade: 4347.665 | Pela: 498.441 | HuoHuo: 26.310
+Run   70: Team DPAV: 29725.709 | Acheron: 24330.069 | MortenaxBlade: 4404.624 | Pela: 611.538 | HuoHuo: 23.408
+Run   71: Team DPAV: 30306.146 | Acheron: 24715.691 | MortenaxBlade: 4539.972 | Pela: 629.700 | HuoHuo: 23.408
+Run   72: Team DPAV: 29182.192 | Acheron: 23738.690 | MortenaxBlade: 4468.364 | Pela: 653.023 | HuoHuo: 24.471
+Run   73: Team DPAV: 29641.225 | Acheron: 24106.620 | MortenaxBlade: 4566.635 | Pela: 545.280 | HuoHuo: 23.408
+Run   74: Team DPAV: 30590.146 | Acheron: 24782.355 | MortenaxBlade: 4683.847 | Pela: 672.342 | HuoHuo: 23.408
+Run   75: Team DPAV: 29270.780 | Acheron: 23851.001 | MortenaxBlade: 4448.785 | Pela: 648.880 | HuoHuo: 24.471
+Run   76: Team DPAV: 28618.333 | Acheron: 23157.637 | MortenaxBlade: 4426.986 | Pela: 666.467 | HuoHuo: 27.695
+Run   77: Team DPAV: 26489.837 | Acheron: 21852.078 | MortenaxBlade: 3816.900 | Pela: 482.466 | HuoHuo: 24.728
+Run   78: Team DPAV: 27034.185 | Acheron: 21884.942 | MortenaxBlade: 4328.384 | Pela: 482.466 | HuoHuo: 24.728
+Run   79: Team DPAV: 29747.542 | Acheron: 24313.711 | MortenaxBlade: 4554.999 | Pela: 554.213 | HuoHuo: 24.471
+Run   80: Team DPAV: 26725.973 | Acheron: 21354.681 | MortenaxBlade: 4541.088 | Pela: 501.236 | HuoHuo: 27.695
+Run   81: Team DPAV: 26014.889 | Acheron: 21241.766 | MortenaxBlade: 3843.933 | Pela: 559.202 | HuoHuo: 26.310
+Run   82: Team DPAV: 29639.767 | Acheron: 24018.714 | MortenaxBlade: 4608.118 | Pela: 649.823 | HuoHuo: 27.695
+Run   83: Team DPAV: 26825.175 | Acheron: 21588.294 | MortenaxBlade: 4363.901 | Pela: 548.361 | HuoHuo: 24.471
+Run   84: Team DPAV: 26377.652 | Acheron: 21246.339 | MortenaxBlade: 4307.754 | Pela: 498.721 | HuoHuo: 27.695
+Run   85: Team DPAV: 25875.762 | Acheron: 21418.039 | MortenaxBlade: 3639.232 | Pela: 475.968 | HuoHuo: 24.728
+Run   86: Team DPAV: 26585.342 | Acheron: 21413.590 | MortenaxBlade: 4288.370 | Pela: 517.395 | HuoHuo: 23.408
+Run   87: Team DPAV: 26663.098 | Acheron: 21924.312 | MortenaxBlade: 3828.831 | Pela: 539.644 | HuoHuo: 24.728
+Run   88: Team DPAV: 30180.191 | Acheron: 24765.294 | MortenaxBlade: 4470.404 | Pela: 560.885 | HuoHuo: 23.408
+Run   89: Team DPAV: 26432.539 | Acheron: 21260.023 | MortenaxBlade: 4322.402 | Pela: 508.910 | HuoHuo: 23.408
+Run   90: Team DPAV: 29947.940 | Acheron: 24424.653 | MortenaxBlade: 4649.261 | Pela: 549.407 | HuoHuo: 24.471
+Run   91: Team DPAV: 29880.032 | Acheron: 24416.989 | MortenaxBlade: 4511.913 | Pela: 553.224 | HuoHuo: 23.408
+Run   92: Team DPAV: 29762.494 | Acheron: 24095.417 | MortenaxBlade: 4641.802 | Pela: 670.277 | HuoHuo: 25.937
+Run   93: Team DPAV: 30009.574 | Acheron: 24406.700 | MortenaxBlade: 4572.242 | Pela: 628.595 | HuoHuo: 23.408
+Run   94: Team DPAV: 25965.711 | Acheron: 21161.978 | MortenaxBlade: 3900.004 | Pela: 563.649 | HuoHuo: 23.408
+Run   95: Team DPAV: 26912.585 | Acheron: 21697.770 | MortenaxBlade: 4398.511 | Pela: 477.910 | HuoHuo: 24.728
+Run   96: Team DPAV: 29591.477 | Acheron: 24139.669 | MortenaxBlade: 4510.875 | Pela: 543.027 | HuoHuo: 23.408
+Run   97: Team DPAV: 26006.269 | Acheron: 21569.742 | MortenaxBlade: 3580.354 | Pela: 513.650 | HuoHuo: 24.728
+Run   98: Team DPAV: 29721.046 | Acheron: 24315.447 | MortenaxBlade: 4423.812 | Pela: 581.694 | HuoHuo: 24.471
+Run   99: Team DPAV: 25225.767 | Acheron: 20703.552 | MortenaxBlade: 3664.876 | Pela: 516.135 | HuoHuo: 23.408
+Run  100: Team DPAV: 29918.951 | Acheron: 24407.544 | MortenaxBlade: 4562.154 | Pela: 547.216 | HuoHuo: 23.408
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 28076.121
+Average Acheron DPAV: 22877.300
+Average MortenaxBlade DPAV: 4268.010
+Average Pela DPAV: 570.312
+Average HuoHuo DPAV: 24.440
+
+Min Team DPAV: 25008.699
+Max Team DPAV: 30590.146

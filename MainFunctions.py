@@ -542,6 +542,25 @@ def addEnergy(playerTeam: list[Character], enemyTeam: list[Enemy], numAttacks: i
     return [e / actAttacks for e in finalEnergy], hitMap, bangerBuffs
 
 
+def processEnemyHits(playerTeam: list[Character], hitMap: list[tuple[int, float]], enemyID: int) -> list[Debuff]:
+    """Call useHit() on characters that were hit and collect debuffs."""
+    hit_debuffs: list[Debuff] = []
+    hit_characters = set()
+
+    # Collect unique characters that were hit
+    for charIdx, _ in hitMap:
+        hit_characters.add(charIdx)
+
+    # Call useHit once per hit character
+    for charIdx in hit_characters:
+        char = playerTeam[charIdx]
+        bl, dbl, al, dl, tl, hl = char.useHit(enemyID)
+        if dbl:
+            hit_debuffs.extend(dbl)
+            logger.debug(f"{char.name} useHit produced {len(dbl)} debuffs from enemy {enemyID}")
+
+    return hit_debuffs
+
 def getCharDEF(char: Character, buffList: list[Buff]) -> float:
     """Return character's effective DEF stat including base, relics, and all buffs.
     Uses the same getScalingValues path as damage calculations so it is consistent."""
@@ -549,7 +568,7 @@ def getCharDEF(char: Character, buffList: list[Buff]) -> float:
 
 
 def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
-                       buffList: list[Buff]) -> tuple[bool, list[str], list[Debuff]]:
+                       buffList: list[Buff], enemyDebuffs: list[Debuff] = None) -> tuple[bool, list[str], list[Debuff]]:
     """Deal damage to characters based on the hitMap produced by addEnergy.
 
     Each entry in hitMap is (charIdx, energyGiven). Damage scales with energyGiven:
@@ -564,6 +583,9 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
     if not enemy.CanDoDamage:
         return False, [], []
 
+    if enemyDebuffs is None:
+        enemyDebuffs = []
+
     death_messages = []
     run_stop = False
     hit_debuffs: list[Debuff] = []
@@ -571,18 +593,34 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
     # Track which characters were hit (to call useHit only once per character)
     hit_characters = set()
 
+    # Compute enemy ATK multiplier from ATK_REDUCTION debuffs on this enemy
+    atkReduction = sum(
+        d.val * d.stacks for d in enemyDebuffs
+        if d.debuffType == StatTypes.ATK_REDUCTION and d.target == enemy.enemyID
+    )
+    atkMul = max(0.0, 1.0 - atkReduction)
+
+    # Compute enemy outgoing DMG multiplier from ENEMY_DMG_REDUCTION debuffs on this enemy
+    dmgReduction = sum(
+        d.val * d.stacks for d in enemyDebuffs
+        if d.debuffType == StatTypes.ENEMY_DMG_REDUCTION and d.target == enemy.enemyID
+    )
+    enemyDmgMul = max(0.0, 1.0 - dmgReduction)
+
     for charIdx, energyGiven in hitMap:
         char = playerTeam[charIdx]
         charDEF = getCharDEF(char, buffList)
         charLevel = char.level if hasattr(char, 'level') else 80
         dmg = enemy.calcDamageTo(charDEF, charLevel, energyGiven)
+        dmg *= atkMul          # apply enemy ATK reduction
+        dmg *= enemyDmgMul     # apply enemy DMG reduction
         dmg *= getMulDMGReduction(char, buffList)
         char.ChangeHpValue(-dmg)
 
         atkType = "aoe" if energyGiven < 10.0 else "single/blast"
         logger.info(
             f"    ENEMY  - {enemy.name} [{atkType}] dealt {dmg:.1f} to {char.name} "
-            f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}) "
+            f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}, atkMul: {atkMul:.2f}, dmgMul: {enemyDmgMul:.2f}) "
             f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
 
         if char.currHP <= 0:
@@ -1217,6 +1255,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 cd = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
                 cd = cd - findBuffName(buffList, "BronyaUltCD").getBuffVal() if "BronyaUltATK" in getBuffNames(buffList) else cd
                 return Special(name=specStr, attr1=cd, enemies=gauge)
+
+            case "Cipher":
+                CharSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=CharSPD, enemies=gauge)
 
             case "DrRatio":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]

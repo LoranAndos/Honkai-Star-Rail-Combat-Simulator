@@ -44,7 +44,7 @@ class Jiaoqiu(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role)
+        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role,5)
         self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4 )
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)
@@ -55,7 +55,7 @@ class Jiaoqiu(Character):
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
-        bl.append(Buff("JQTraceEHR", StatTypes.ERR_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("JQTraceEHR", StatTypes.EHR_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("JQTraceDMG", StatTypes.DMG_PERCENT, 0.144, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("JQTraceSPD", StatTypes.SPD, 5.0, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("JQStartERR", StatTypes.ERR_T, 15, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
@@ -110,7 +110,7 @@ class Jiaoqiu(Character):
                        [e5DmgMul, 0], [20, 0], 5, self.scaling, 0, "JiaoqiuUlt"))
         dbl.append(Debuff("JQUltVuln", self.role, StatTypes.VULN, e5UltVuln, Role.ALL, [AtkType.ULT], 1000, 1, Targeting.SINGLE,False, [0, 0], False))
         if self.eidolon >= 4:
-            dbl.append(Debuff("JQE4Debuff", self.role, StatTypes.GENERIC, 0.15, Role.ALL, [AtkType.SPECIAL], 1000))
+            dbl.append(Debuff("JQE4Debuff", self.role, StatTypes.ATK_REDUCTION, 0.15, Role.ALL, [AtkType.SPECIAL], 1000))
         for _ in range(2 if self.eidolon >= 1 else 1):
             dbl.append(Debuff("AshenRoasted", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 2, e6Stacks, Targeting.SINGLE,True,[self.ashenRoastMul + e5Mul, 0], False))
             if self.eidolon == 6:

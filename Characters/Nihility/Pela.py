@@ -4,11 +4,10 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionPela
-from Planars.Keel import Keel
+from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
-from Relics.Longevous import Longevous
-from Relics.Messenger import Messenger
-from Result import Special
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
+from Result import Result
 from Turn_Text import Turn
 
 logger = logging.getLogger(__name__)
@@ -40,10 +39,10 @@ class Pela(Character):
                  eidolon=6, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else ResolutionPela(role, 5)
-        self.relic1 = r1 if r1 else Longevous(role, 2)
-        self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else Messenger(role, 2, False))
-        self.planar = pl if pl else Keel(role)
-        self.relicStats = subs if subs else RelicStats(14, 2, 0, 2, 4, 0, 4, 4, 10, 8, 0, 0, StatTypes.EHR_PERCENT, StatTypes.SPD,
+        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
+        self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
+        self.planar = pl if pl else LushakaTheSunkenSeas(role)
+        self.relicStats = subs if subs else RelicStats(15, 2, 2, 2, 2, 3, 2, 2, 4, 2, 2, 2, StatTypes.EHR_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E", "A"]
 
@@ -87,4 +86,16 @@ class Pela(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],[e5DmgMUL + e6Bonus, 0], [10, 0], 5, self.scaling, 0, "PelaUlt"))  # bonus 0.4 from e6
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], e5ERR,self.scaling, 0, "PelaTalentERR"))
         dbl.append(Debuff("PelaUltShred", self.role, StatTypes.SHRED, e5Shred, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
+        return bl, dbl, al, dl, tl, hl
+
+    def ownTurn(self, turn: Turn, result: Result):
+        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        if result.numKills > 0 and self.eidolon >= 1:
+            bl.append(Buff("PelaE1Energy", StatTypes.ERR_T, 5*result.numKills, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
+        return bl, dbl, al, dl, tl, hl
+
+    def allyTurn(self, turn: Turn, result: Result):
+        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        if result.numKills > 0 and self.eidolon >= 1:
+            bl.append(Buff("PelaE1Energy", StatTypes.ERR_T, 5*result.numKills, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
         return bl, dbl, al, dl, tl, hl

@@ -71,6 +71,9 @@ class StatTypes(Enum):
 
     TRUEDAMAGE = "TRUEDAMAGE"
 
+    ATK_REDUCTION = "ATK_REDUCTION"       # reduces enemy ATK stat (debuff on enemy)
+    ENEMY_DMG_REDUCTION = "ENEMY_DMG_REDUCTION"  # reduces outgoing damage dealt by enemy (debuff on enemy)
+
     GENERIC = "Generic" # generic debuff that weakens the enemy, does not buff the characters damage
 
 class Element(Enum):

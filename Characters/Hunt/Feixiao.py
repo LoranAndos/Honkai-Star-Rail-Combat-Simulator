@@ -126,7 +126,7 @@ class Feixiao(Character):
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
-        if turn.targeting != Targeting.NA and turn.moveName not in bonusDMG:
+        if turn.targeting != Targeting.NA and turn.moveName not in bonusDMG and result.turnDmg > 0:
             if self.fuaTrigger:
                 self.fuaTrigger = False
                 bl, dbl, al, dl, tl, hl = self.useFua(result.enemiesHit[0].enemyID)

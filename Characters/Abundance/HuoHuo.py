@@ -29,6 +29,7 @@ class HuoHuo(Character):
     dmgDct = {AtkType.BSC: 0, AtkType.BRK: 0}  # Adjust accordingly
 
     # Unique Character Properties
+    Tech = True
     foundEnergy = False
     ally1Energy = 0
     ally2Energy = 0
@@ -186,6 +187,7 @@ class HuoHuo(Character):
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
+        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
         if not self.foundEnergy:
             self.foundEnergy = True
             self.ally1Energy = specialRes.attr1[0]
@@ -206,4 +208,6 @@ class HuoHuo(Character):
             self.ally4MaxHP = specialRes.attr7[0]
             self.ally4HPRole = specialRes.attr7[1]
             self.ally4CurrentHP = specialRes.attr7[2]
-        return super().handleSpecialStart(specialRes)
+        if self.Tech:
+            dbl.append(Debuff("HuohuoTechniqueDebuff", self.role, StatTypes.ATK_REDUCTION, 0.25, Role.ALL, [AtkType.SPECIAL], 2))
+        return bl, dbl, al, dl, tl, hl

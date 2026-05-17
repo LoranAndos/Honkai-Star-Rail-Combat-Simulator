@@ -239,7 +239,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                 energyMsg += f" {playerTeam[i].name}: Hit {energyList[i]:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
             logging.warning(energyMsg)
 
-            run_stop, death_msgs, hit_debuffs = handleEnemyAttacks(enemy, playerTeam, hitMap, teamBuffs)
+            run_stop, death_msgs, hit_debuffs = handleEnemyAttacks(enemy, playerTeam, hitMap, teamBuffs, enemyDebuffs)
             enemyDebuffs.extend(hit_debuffs)
             for msg in death_msgs:
                 logging.critical(msg)
@@ -460,7 +460,7 @@ if __name__ == "__main__":
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Ashveil(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+                slot2 = MortenaxBlade(1, Role.SUBDPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
