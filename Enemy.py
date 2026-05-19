@@ -149,7 +149,6 @@ class Enemy:
     def respawn(self):
         """Reset to full HP and advance AV by 100% (instant next turn)."""
         self.currHP = self.maxHP
-        self.currAV = 0.0          # 100% AV forward = act immediately
 
     def getDefMul(self, attackerLevel: int) -> float:
         """DEF multiplier for incoming attacks from a unit of attackerLevel."""

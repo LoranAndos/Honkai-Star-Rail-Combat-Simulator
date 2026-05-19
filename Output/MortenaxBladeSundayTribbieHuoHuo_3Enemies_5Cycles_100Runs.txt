@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 34805.827 | MortenaxBlade: 32430.982 | Sunday: 0.000 | Tribbie: 2249.705 | HuoHuo: 31.500
+Run    2: Team DPAV: 35309.615 | MortenaxBlade: 32857.742 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run    3: Team DPAV: 31377.804 | MortenaxBlade: 29127.028 | Sunday: 0.000 | Tribbie: 2125.636 | HuoHuo: 31.500
+Run    4: Team DPAV: 33833.748 | MortenaxBlade: 31646.097 | Sunday: 0.000 | Tribbie: 2052.912 | HuoHuo: 32.586
+Run    5: Team DPAV: 35251.942 | MortenaxBlade: 32857.742 | Sunday: 0.000 | Tribbie: 2269.061 | HuoHuo: 31.500
+Run    6: Team DPAV: 35309.615 | MortenaxBlade: 32857.742 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run    7: Team DPAV: 35185.518 | MortenaxBlade: 32791.317 | Sunday: 0.000 | Tribbie: 2269.061 | HuoHuo: 31.500
+Run    8: Team DPAV: 34349.952 | MortenaxBlade: 32155.949 | Sunday: 0.000 | Tribbie: 2050.751 | HuoHuo: 32.586
+Run    9: Team DPAV: 34771.891 | MortenaxBlade: 32401.471 | Sunday: 0.000 | Tribbie: 2245.279 | HuoHuo: 31.500
+Run   10: Team DPAV: 34762.143 | MortenaxBlade: 32361.044 | Sunday: 0.000 | Tribbie: 2258.933 | HuoHuo: 31.500
+Run   11: Team DPAV: 35366.833 | MortenaxBlade: 32971.157 | Sunday: 0.000 | Tribbie: 2270.536 | HuoHuo: 31.500
+Run   12: Team DPAV: 32584.352 | MortenaxBlade: 30240.285 | Sunday: 0.000 | Tribbie: 2201.901 | HuoHuo: 31.500
+Run   13: Team DPAV: 35226.961 | MortenaxBlade: 32784.291 | Sunday: 0.000 | Tribbie: 2317.529 | HuoHuo: 31.500
+Run   14: Team DPAV: 31212.249 | MortenaxBlade: 28955.093 | Sunday: 0.000 | Tribbie: 2140.528 | HuoHuo: 31.500
+Run   15: Team DPAV: 33777.347 | MortenaxBlade: 31423.320 | Sunday: 0.000 | Tribbie: 2221.460 | HuoHuo: 30.414
+Run   16: Team DPAV: 35358.081 | MortenaxBlade: 32904.733 | Sunday: 0.000 | Tribbie: 2328.208 | HuoHuo: 31.500
+Run   17: Team DPAV: 35243.609 | MortenaxBlade: 32797.989 | Sunday: 0.000 | Tribbie: 2320.480 | HuoHuo: 31.500
+Run   18: Team DPAV: 32193.296 | MortenaxBlade: 29917.222 | Sunday: 0.000 | Tribbie: 2134.995 | HuoHuo: 30.414
+Run   19: Team DPAV: 34793.969 | MortenaxBlade: 32446.391 | Sunday: 0.000 | Tribbie: 2205.413 | HuoHuo: 31.500
+Run   20: Team DPAV: 33327.856 | MortenaxBlade: 30996.957 | Sunday: 0.000 | Tribbie: 2187.646 | HuoHuo: 32.586
+Run   21: Team DPAV: 32971.374 | MortenaxBlade: 30695.019 | Sunday: 0.000 | Tribbie: 2151.215 | HuoHuo: 31.500
+Run   22: Team DPAV: 35243.190 | MortenaxBlade: 32791.317 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run   23: Team DPAV: 33802.422 | MortenaxBlade: 31384.942 | Sunday: 0.000 | Tribbie: 2283.827 | HuoHuo: 31.500
+Run   24: Team DPAV: 32430.490 | MortenaxBlade: 30149.395 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   25: Team DPAV: 34012.065 | MortenaxBlade: 31666.417 | Sunday: 0.000 | Tribbie: 2229.021 | HuoHuo: 31.500
+Run   26: Team DPAV: 33012.372 | MortenaxBlade: 30733.559 | Sunday: 0.000 | Tribbie: 2153.674 | HuoHuo: 31.500
+Run   27: Team DPAV: 31631.693 | MortenaxBlade: 29335.075 | Sunday: 0.000 | Tribbie: 2171.478 | HuoHuo: 31.500
+Run   28: Team DPAV: 34349.952 | MortenaxBlade: 32155.949 | Sunday: 0.000 | Tribbie: 2050.751 | HuoHuo: 32.586
+Run   29: Team DPAV: 34890.334 | MortenaxBlade: 32540.714 | Sunday: 0.000 | Tribbie: 2215.968 | HuoHuo: 31.500
+Run   30: Team DPAV: 33018.604 | MortenaxBlade: 30861.158 | Sunday: 0.000 | Tribbie: 2023.794 | HuoHuo: 31.500
+Run   31: Team DPAV: 33198.301 | MortenaxBlade: 31004.298 | Sunday: 0.000 | Tribbie: 2050.751 | HuoHuo: 32.586
+Run   32: Team DPAV: 34035.713 | MortenaxBlade: 31674.005 | Sunday: 0.000 | Tribbie: 2236.568 | HuoHuo: 31.500
+Run   33: Team DPAV: 32271.176 | MortenaxBlade: 29989.903 | Sunday: 0.000 | Tribbie: 2156.132 | HuoHuo: 31.500
+Run   34: Team DPAV: 35251.942 | MortenaxBlade: 32857.742 | Sunday: 0.000 | Tribbie: 2269.061 | HuoHuo: 31.500
+Run   35: Team DPAV: 33327.815 | MortenaxBlade: 30930.533 | Sunday: 0.000 | Tribbie: 2254.031 | HuoHuo: 32.586
+Run   36: Team DPAV: 35290.078 | MortenaxBlade: 32847.408 | Sunday: 0.000 | Tribbie: 2317.529 | HuoHuo: 31.500
+Run   37: Team DPAV: 33452.533 | MortenaxBlade: 31261.480 | Sunday: 0.000 | Tribbie: 2047.801 | HuoHuo: 32.586
+Run   38: Team DPAV: 33743.838 | MortenaxBlade: 31401.158 | Sunday: 0.000 | Tribbie: 2207.941 | HuoHuo: 32.586
+Run   39: Team DPAV: 31318.024 | MortenaxBlade: 29207.116 | Sunday: 0.000 | Tribbie: 1984.682 | HuoHuo: 32.586
+Run   40: Team DPAV: 31377.804 | MortenaxBlade: 29127.028 | Sunday: 0.000 | Tribbie: 2125.636 | HuoHuo: 31.500
+Run   41: Team DPAV: 34901.533 | MortenaxBlade: 32470.491 | Sunday: 0.000 | Tribbie: 2305.902 | HuoHuo: 31.500
+Run   42: Team DPAV: 33261.431 | MortenaxBlade: 30930.533 | Sunday: 0.000 | Tribbie: 2187.646 | HuoHuo: 32.586
+Run   43: Team DPAV: 31007.765 | MortenaxBlade: 28679.550 | Sunday: 0.000 | Tribbie: 2210.502 | HuoHuo: 32.586
+Run   44: Team DPAV: 34805.827 | MortenaxBlade: 32430.982 | Sunday: 0.000 | Tribbie: 2249.705 | HuoHuo: 31.500
+Run   45: Team DPAV: 34920.932 | MortenaxBlade: 32514.175 | Sunday: 0.000 | Tribbie: 2264.591 | HuoHuo: 31.500
+Run   46: Team DPAV: 34805.827 | MortenaxBlade: 32430.982 | Sunday: 0.000 | Tribbie: 2249.705 | HuoHuo: 31.500
+Run   47: Team DPAV: 32430.490 | MortenaxBlade: 30149.395 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   48: Team DPAV: 32496.914 | MortenaxBlade: 30215.820 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   49: Team DPAV: 35226.961 | MortenaxBlade: 32784.291 | Sunday: 0.000 | Tribbie: 2317.529 | HuoHuo: 31.500
+Run   50: Team DPAV: 31292.462 | MortenaxBlade: 29002.027 | Sunday: 0.000 | Tribbie: 2173.807 | HuoHuo: 31.500
+Run   51: Team DPAV: 35358.081 | MortenaxBlade: 32904.733 | Sunday: 0.000 | Tribbie: 2328.208 | HuoHuo: 31.500
+Run   52: Team DPAV: 33818.106 | MortenaxBlade: 31474.240 | Sunday: 0.000 | Tribbie: 2218.726 | HuoHuo: 31.500
+Run   53: Team DPAV: 35103.416 | MortenaxBlade: 32709.215 | Sunday: 0.000 | Tribbie: 2269.061 | HuoHuo: 31.500
+Run   54: Team DPAV: 31812.745 | MortenaxBlade: 29570.223 | Sunday: 0.000 | Tribbie: 2117.382 | HuoHuo: 31.500
+Run   55: Team DPAV: 35293.386 | MortenaxBlade: 32850.716 | Sunday: 0.000 | Tribbie: 2317.529 | HuoHuo: 31.500
+Run   56: Team DPAV: 31382.763 | MortenaxBlade: 29124.250 | Sunday: 0.000 | Tribbie: 2133.373 | HuoHuo: 31.500
+Run   57: Team DPAV: 33406.046 | MortenaxBlade: 31070.722 | Sunday: 0.000 | Tribbie: 2192.072 | HuoHuo: 32.586
+Run   58: Team DPAV: 34971.823 | MortenaxBlade: 32626.194 | Sunday: 0.000 | Tribbie: 2203.463 | HuoHuo: 31.500
+Run   59: Team DPAV: 30311.211 | MortenaxBlade: 28068.051 | Sunday: 0.000 | Tribbie: 2127.618 | HuoHuo: 30.414
+Run   60: Team DPAV: 31361.747 | MortenaxBlade: 29084.265 | Sunday: 0.000 | Tribbie: 2152.341 | HuoHuo: 31.500
+Run   61: Team DPAV: 35110.895 | MortenaxBlade: 32709.215 | Sunday: 0.000 | Tribbie: 2275.453 | HuoHuo: 32.586
+Run   62: Team DPAV: 35169.289 | MortenaxBlade: 32784.291 | Sunday: 0.000 | Tribbie: 2259.857 | HuoHuo: 31.500
+Run   63: Team DPAV: 35232.405 | MortenaxBlade: 32847.408 | Sunday: 0.000 | Tribbie: 2259.857 | HuoHuo: 31.500
+Run   64: Team DPAV: 34250.663 | MortenaxBlade: 31888.955 | Sunday: 0.000 | Tribbie: 2236.568 | HuoHuo: 31.500
+Run   65: Team DPAV: 33544.709 | MortenaxBlade: 31352.633 | Sunday: 0.000 | Tribbie: 2057.338 | HuoHuo: 32.586
+Run   66: Team DPAV: 34635.188 | MortenaxBlade: 32202.548 | Sunday: 0.000 | Tribbie: 2291.561 | HuoHuo: 30.414
+Run   67: Team DPAV: 32616.745 | MortenaxBlade: 30452.183 | Sunday: 0.000 | Tribbie: 2021.311 | HuoHuo: 32.586
+Run   68: Team DPAV: 35244.650 | MortenaxBlade: 32842.085 | Sunday: 0.000 | Tribbie: 2259.313 | HuoHuo: 32.586
+Run   69: Team DPAV: 35182.884 | MortenaxBlade: 32642.791 | Sunday: 0.000 | Tribbie: 2413.867 | HuoHuo: 32.586
+Run   70: Team DPAV: 35232.405 | MortenaxBlade: 32847.408 | Sunday: 0.000 | Tribbie: 2259.857 | HuoHuo: 31.500
+Run   71: Team DPAV: 35036.992 | MortenaxBlade: 32642.791 | Sunday: 0.000 | Tribbie: 2269.061 | HuoHuo: 31.500
+Run   72: Team DPAV: 31709.206 | MortenaxBlade: 29435.792 | Sunday: 0.000 | Tribbie: 2148.273 | HuoHuo: 31.500
+Run   73: Team DPAV: 33485.680 | MortenaxBlade: 31321.118 | Sunday: 0.000 | Tribbie: 2021.311 | HuoHuo: 32.586
+Run   74: Team DPAV: 32429.291 | MortenaxBlade: 30148.903 | Sunday: 0.000 | Tribbie: 2155.248 | HuoHuo: 31.500
+Run   75: Team DPAV: 35259.421 | MortenaxBlade: 32857.742 | Sunday: 0.000 | Tribbie: 2275.453 | HuoHuo: 32.586
+Run   76: Team DPAV: 32496.914 | MortenaxBlade: 30215.820 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   77: Team DPAV: 32856.880 | MortenaxBlade: 30453.081 | Sunday: 0.000 | Tribbie: 2271.233 | HuoHuo: 30.414
+Run   78: Team DPAV: 32734.846 | MortenaxBlade: 30342.334 | Sunday: 0.000 | Tribbie: 2258.860 | HuoHuo: 31.500
+Run   79: Team DPAV: 34544.522 | MortenaxBlade: 32044.439 | Sunday: 0.000 | Tribbie: 2356.831 | HuoHuo: 32.586
+Run   80: Team DPAV: 35185.937 | MortenaxBlade: 32797.989 | Sunday: 0.000 | Tribbie: 2262.808 | HuoHuo: 31.500
+Run   81: Team DPAV: 35243.609 | MortenaxBlade: 32797.989 | Sunday: 0.000 | Tribbie: 2320.480 | HuoHuo: 31.500
+Run   82: Team DPAV: 30801.034 | MortenaxBlade: 28520.568 | Sunday: 0.000 | Tribbie: 2155.326 | HuoHuo: 31.500
+Run   83: Team DPAV: 32703.485 | MortenaxBlade: 30538.923 | Sunday: 0.000 | Tribbie: 2021.311 | HuoHuo: 32.586
+Run   84: Team DPAV: 32540.694 | MortenaxBlade: 30259.600 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   85: Team DPAV: 31444.229 | MortenaxBlade: 29193.452 | Sunday: 0.000 | Tribbie: 2125.636 | HuoHuo: 31.500
+Run   86: Team DPAV: 35232.405 | MortenaxBlade: 32847.408 | Sunday: 0.000 | Tribbie: 2259.857 | HuoHuo: 31.500
+Run   87: Team DPAV: 34635.188 | MortenaxBlade: 32202.548 | Sunday: 0.000 | Tribbie: 2291.561 | HuoHuo: 30.414
+Run   88: Team DPAV: 34172.379 | MortenaxBlade: 31814.169 | Sunday: 0.000 | Tribbie: 2214.958 | HuoHuo: 32.586
+Run   89: Team DPAV: 31667.419 | MortenaxBlade: 29487.208 | Sunday: 0.000 | Tribbie: 2056.158 | HuoHuo: 30.414
+Run   90: Team DPAV: 33087.192 | MortenaxBlade: 30897.614 | Sunday: 0.000 | Tribbie: 2046.326 | HuoHuo: 32.586
+Run   91: Team DPAV: 32517.927 | MortenaxBlade: 30173.860 | Sunday: 0.000 | Tribbie: 2201.901 | HuoHuo: 31.500
+Run   92: Team DPAV: 30734.650 | MortenaxBlade: 28520.568 | Sunday: 0.000 | Tribbie: 2088.941 | HuoHuo: 31.500
+Run   93: Team DPAV: 35243.190 | MortenaxBlade: 32791.317 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run   94: Team DPAV: 33279.109 | MortenaxBlade: 30998.014 | Sunday: 0.000 | Tribbie: 2138.929 | HuoHuo: 31.500
+Run   95: Team DPAV: 29462.419 | MortenaxBlade: 27248.044 | Sunday: 0.000 | Tribbie: 2097.747 | HuoHuo: 31.500
+Run   96: Team DPAV: 32543.376 | MortenaxBlade: 30161.005 | Sunday: 0.000 | Tribbie: 2239.119 | HuoHuo: 32.586
+Run   97: Team DPAV: 35094.664 | MortenaxBlade: 32642.791 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run   98: Team DPAV: 34144.058 | MortenaxBlade: 31774.238 | Sunday: 0.000 | Tribbie: 2226.569 | HuoHuo: 32.586
+Run   99: Team DPAV: 35094.664 | MortenaxBlade: 32642.791 | Sunday: 0.000 | Tribbie: 2326.733 | HuoHuo: 31.500
+Run  100: Team DPAV: 33198.301 | MortenaxBlade: 31004.298 | Sunday: 0.000 | Tribbie: 2050.751 | HuoHuo: 32.586
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 33654.413
+Average MortenaxBlade DPAV: 31319.756
+Average Sunday DPAV: 0.000
+Average Tribbie DPAV: 2203.437
+Average HuoHuo DPAV: 31.706
+
+Min Team DPAV: 29462.419
+Max Team DPAV: 35366.833

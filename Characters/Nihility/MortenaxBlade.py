@@ -6,11 +6,14 @@ from Lightcones.Nihility.ReforgedInHellfire import ReforgedInHellfire
 from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade
 from Lightcones.Nihility.BeforeTheTutorialMissionStarts import BeforeTheTutorialMissionStarts
 from Lightcones.Nihility.GoodNightAndSleepWell import GoodNightAndSleepWell
+from Lightcones.Nihility.BoundlessChoreo import BoundlessChoreo
+from Lightcones.Nihility.HolidayThermaeEscapade import HolidayThermaeEscapade
 from Planars.BoneCollectionsSereneDemesne import BoneCollectionsSereneDemesne
 from Planars.DuranDynastyOfRunningWolves import DuranDynastyOfRunningWolves
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.DivineQueryingMasterSmith import DivineQueryMasterSmith
+from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -49,16 +52,24 @@ class MortenaxBlade(Character):
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
+    # For with Sparkle
+    # self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.HP_PERCENT,StatTypes.DMG_PERCENT, StatTypes.HP_PERCENT)
+    # For with Sunday
+    # self.relicStats = subs if subs else RelicStats(13, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 2, StatTypes.CR_PERCENT, StatTypes.HP_PERCENT,StatTypes.DMG_PERCENT, StatTypes.HP_PERCENT)
+    # For with no Sunday or Sparkle
+    # self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 12, 2, StatTypes.CR_PERCENT, StatTypes.SPD,StatTypes.DMG_PERCENT, StatTypes.HP_PERCENT)
+
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role, 5)
+        self.lightcone = lc if lc else ReforgedInHellfire(role, 1)
         self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else LushakaTheSunkenSeas(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 12, 2, StatTypes.CR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
+        self.planar = pl if pl else DuranDynastyOfRunningWolves(role)
+        self.relicStats = subs if subs else RelicStats(13, 2, 2, 2, 2, 2, 2, 2, 2, 2, 9, 2, StatTypes.CR_PERCENT,
+                                                       StatTypes.HP_PERCENT, StatTypes.DMG_PERCENT,
+                                                       StatTypes.HP_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.overflowEnergy = 0.0
         self.E2AllyUltChargeCount = 0
@@ -175,7 +186,7 @@ class MortenaxBlade(Character):
             self.E2AllyUltChargeCount = 0
         else:
             e3EnhancedUlt = 3.78 if self.eidolon >= 3 else 3.50
-            e6DMGBoost = 2.50 if self.eidolon >= 6 else 1.00
+            e6DMGBoost = 1.50 if self.eidolon >= 6 else 1.00
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                            [e3EnhancedUlt*e6DMGBoost, 0], [20, 0], 5, self.scaling, 0, "MortenaxBladeEnhancedUlt"))
             self.ChargeCount += 1

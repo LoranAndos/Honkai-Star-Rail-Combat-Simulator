@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 143023.791 | Sparxie: 131979.493 | YaoGuang: 10950.401 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    2: Team DPAV: 150960.818 | Sparxie: 139419.373 | YaoGuang: 11447.548 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    3: Team DPAV: 154836.469 | Sparxie: 142852.330 | YaoGuang: 11890.243 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    4: Team DPAV: 143433.401 | Sparxie: 132407.069 | YaoGuang: 10932.435 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    5: Team DPAV: 150110.261 | Sparxie: 138698.772 | YaoGuang: 11317.593 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    6: Team DPAV: 148302.451 | Sparxie: 136857.843 | YaoGuang: 11350.712 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    7: Team DPAV: 147860.094 | Sparxie: 136425.650 | YaoGuang: 11340.547 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    8: Team DPAV: 151639.601 | Sparxie: 139987.206 | YaoGuang: 11558.498 | Sparkle: 0.000 | HuoHuo: 11.073
+Run    9: Team DPAV: 144208.918 | Sparxie: 132964.115 | YaoGuang: 11150.906 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   10: Team DPAV: 145221.951 | Sparxie: 133921.687 | YaoGuang: 11206.367 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   11: Team DPAV: 151039.920 | Sparxie: 139336.196 | YaoGuang: 11609.827 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   12: Team DPAV: 150960.604 | Sparxie: 139489.927 | YaoGuang: 11376.781 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   13: Team DPAV: 143926.662 | Sparxie: 132576.559 | YaoGuang: 11256.205 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   14: Team DPAV: 140552.649 | Sparxie: 129615.648 | YaoGuang: 10843.104 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   15: Team DPAV: 145419.019 | Sparxie: 134440.197 | YaoGuang: 10884.926 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   16: Team DPAV: 141091.144 | Sparxie: 130294.822 | YaoGuang: 10702.426 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   17: Team DPAV: 137884.214 | Sparxie: 126933.063 | YaoGuang: 10857.255 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   18: Team DPAV: 150322.934 | Sparxie: 138575.140 | YaoGuang: 11653.897 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   19: Team DPAV: 153347.864 | Sparxie: 141705.984 | YaoGuang: 11547.984 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   20: Team DPAV: 154491.942 | Sparxie: 142663.164 | YaoGuang: 11734.881 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   21: Team DPAV: 162120.059 | Sparxie: 150121.045 | YaoGuang: 11905.116 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   22: Team DPAV: 149628.039 | Sparxie: 138242.652 | YaoGuang: 11291.490 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   23: Team DPAV: 139861.802 | Sparxie: 128576.086 | YaoGuang: 11191.819 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   24: Team DPAV: 145249.446 | Sparxie: 134018.032 | YaoGuang: 11137.516 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   25: Team DPAV: 148754.554 | Sparxie: 137235.751 | YaoGuang: 11424.907 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   26: Team DPAV: 145722.426 | Sparxie: 134272.031 | YaoGuang: 11356.498 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   27: Team DPAV: 142782.903 | Sparxie: 132180.638 | YaoGuang: 10508.369 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   28: Team DPAV: 158906.758 | Sparxie: 146962.216 | YaoGuang: 11850.646 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   29: Team DPAV: 150906.442 | Sparxie: 139300.473 | YaoGuang: 11512.072 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   30: Team DPAV: 147749.502 | Sparxie: 136301.255 | YaoGuang: 11354.350 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   31: Team DPAV: 139955.142 | Sparxie: 129529.441 | YaoGuang: 10331.805 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   32: Team DPAV: 137709.144 | Sparxie: 126958.540 | YaoGuang: 10656.707 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   33: Team DPAV: 144543.225 | Sparxie: 133282.408 | YaoGuang: 11166.920 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   34: Team DPAV: 142457.617 | Sparxie: 131764.030 | YaoGuang: 10599.690 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   35: Team DPAV: 151232.596 | Sparxie: 139303.728 | YaoGuang: 11834.971 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   36: Team DPAV: 146183.272 | Sparxie: 134919.945 | YaoGuang: 11169.430 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   37: Team DPAV: 151533.480 | Sparxie: 139948.583 | YaoGuang: 11491.000 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   38: Team DPAV: 144027.407 | Sparxie: 132821.085 | YaoGuang: 11112.426 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   39: Team DPAV: 152414.471 | Sparxie: 140727.107 | YaoGuang: 11593.467 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   40: Team DPAV: 144064.431 | Sparxie: 132887.517 | YaoGuang: 11083.017 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   41: Team DPAV: 153529.583 | Sparxie: 141527.782 | YaoGuang: 11907.904 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   42: Team DPAV: 144910.996 | Sparxie: 133674.907 | YaoGuang: 11142.192 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   43: Team DPAV: 138335.226 | Sparxie: 127493.738 | YaoGuang: 10747.591 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   44: Team DPAV: 154499.988 | Sparxie: 142792.336 | YaoGuang: 11613.755 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   45: Team DPAV: 148385.687 | Sparxie: 136948.448 | YaoGuang: 11343.342 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   46: Team DPAV: 139054.188 | Sparxie: 128127.529 | YaoGuang: 10832.763 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   47: Team DPAV: 150525.623 | Sparxie: 139065.065 | YaoGuang: 11366.662 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   48: Team DPAV: 152461.389 | Sparxie: 140856.129 | YaoGuang: 11511.363 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   49: Team DPAV: 157210.992 | Sparxie: 145347.783 | YaoGuang: 11769.313 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   50: Team DPAV: 147709.690 | Sparxie: 136344.301 | YaoGuang: 11271.492 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   51: Team DPAV: 152972.953 | Sparxie: 141527.403 | YaoGuang: 11351.653 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   52: Team DPAV: 154132.945 | Sparxie: 142257.283 | YaoGuang: 11781.766 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   53: Team DPAV: 143044.688 | Sparxie: 131973.679 | YaoGuang: 10977.112 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   54: Team DPAV: 155308.614 | Sparxie: 143555.201 | YaoGuang: 11659.516 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   55: Team DPAV: 147093.077 | Sparxie: 135642.440 | YaoGuang: 11356.741 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   56: Team DPAV: 143494.710 | Sparxie: 132406.408 | YaoGuang: 10994.405 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   57: Team DPAV: 143548.920 | Sparxie: 132262.376 | YaoGuang: 11192.647 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   58: Team DPAV: 159257.113 | Sparxie: 147351.087 | YaoGuang: 11812.129 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   59: Team DPAV: 145279.839 | Sparxie: 134194.976 | YaoGuang: 10990.967 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   60: Team DPAV: 138064.494 | Sparxie: 127694.122 | YaoGuang: 10276.475 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   61: Team DPAV: 145651.976 | Sparxie: 134294.503 | YaoGuang: 11263.576 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   62: Team DPAV: 153558.737 | Sparxie: 141855.427 | YaoGuang: 11609.413 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   63: Team DPAV: 147873.361 | Sparxie: 136974.968 | YaoGuang: 10804.497 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   64: Team DPAV: 143996.251 | Sparxie: 132795.480 | YaoGuang: 11106.874 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   65: Team DPAV: 154894.508 | Sparxie: 143114.942 | YaoGuang: 11685.669 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   66: Team DPAV: 152859.268 | Sparxie: 141306.503 | YaoGuang: 11458.868 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   67: Team DPAV: 152302.821 | Sparxie: 140952.649 | YaoGuang: 11256.275 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   68: Team DPAV: 146043.534 | Sparxie: 134662.020 | YaoGuang: 11287.617 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   69: Team DPAV: 138062.251 | Sparxie: 127030.690 | YaoGuang: 10937.664 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   70: Team DPAV: 132565.485 | Sparxie: 121824.102 | YaoGuang: 10648.307 | Sparkle: 0.000 | HuoHuo: 10.253
+Run   71: Team DPAV: 147545.354 | Sparxie: 136108.910 | YaoGuang: 11342.548 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   72: Team DPAV: 139603.119 | Sparxie: 128680.212 | YaoGuang: 10829.010 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   73: Team DPAV: 139820.415 | Sparxie: 128783.501 | YaoGuang: 10943.017 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   74: Team DPAV: 147928.876 | Sparxie: 136365.197 | YaoGuang: 11469.782 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   75: Team DPAV: 149147.255 | Sparxie: 137722.564 | YaoGuang: 11330.794 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   76: Team DPAV: 141058.134 | Sparxie: 130444.532 | YaoGuang: 10519.704 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   77: Team DPAV: 151260.052 | Sparxie: 139762.759 | YaoGuang: 11403.397 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   78: Team DPAV: 145558.255 | Sparxie: 134348.496 | YaoGuang: 11115.863 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   79: Team DPAV: 140357.903 | Sparxie: 129323.917 | YaoGuang: 10940.089 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   80: Team DPAV: 155990.632 | Sparxie: 144324.279 | YaoGuang: 11572.457 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   81: Team DPAV: 150785.640 | Sparxie: 139488.908 | YaoGuang: 11202.836 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   82: Team DPAV: 147238.006 | Sparxie: 135993.226 | YaoGuang: 11150.883 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   83: Team DPAV: 148178.866 | Sparxie: 136594.256 | YaoGuang: 11490.713 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   84: Team DPAV: 144503.621 | Sparxie: 133053.758 | YaoGuang: 11355.966 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   85: Team DPAV: 147352.542 | Sparxie: 135907.134 | YaoGuang: 11351.511 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   86: Team DPAV: 153714.367 | Sparxie: 142023.313 | YaoGuang: 11597.158 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   87: Team DPAV: 143072.996 | Sparxie: 131606.564 | YaoGuang: 11372.536 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   88: Team DPAV: 145858.990 | Sparxie: 134557.823 | YaoGuang: 11207.270 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   89: Team DPAV: 150126.069 | Sparxie: 138625.921 | YaoGuang: 11406.252 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   90: Team DPAV: 149661.028 | Sparxie: 138281.206 | YaoGuang: 11285.925 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   91: Team DPAV: 138882.456 | Sparxie: 128093.032 | YaoGuang: 10695.527 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   92: Team DPAV: 150874.141 | Sparxie: 139333.980 | YaoGuang: 11446.264 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   93: Team DPAV: 147723.560 | Sparxie: 136198.752 | YaoGuang: 11430.911 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   94: Team DPAV: 137809.323 | Sparxie: 127190.759 | YaoGuang: 10524.667 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   95: Team DPAV: 149007.669 | Sparxie: 137687.164 | YaoGuang: 11226.609 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   96: Team DPAV: 136924.719 | Sparxie: 126008.571 | YaoGuang: 10822.251 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   97: Team DPAV: 136590.323 | Sparxie: 126255.481 | YaoGuang: 10240.946 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   98: Team DPAV: 147494.505 | Sparxie: 135827.394 | YaoGuang: 11573.214 | Sparkle: 0.000 | HuoHuo: 11.073
+Run   99: Team DPAV: 144651.124 | Sparxie: 133435.804 | YaoGuang: 11121.423 | Sparkle: 0.000 | HuoHuo: 11.073
+Run  100: Team DPAV: 146603.765 | Sparxie: 135314.135 | YaoGuang: 11195.733 | Sparkle: 0.000 | HuoHuo: 11.073
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 147063.900
+Average Sparxie DPAV: 135736.926
+Average YaoGuang DPAV: 11233.086
+Average Sparkle DPAV: 0.000
+Average HuoHuo DPAV: 11.065
+
+Min Team DPAV: 132565.485
+Max Team DPAV: 162120.059

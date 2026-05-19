@@ -30,5 +30,5 @@ class HolidayThermaeEscapade(Lightcone):
         else:
             vulnAmount = 0.16
         if result.turnDmg > 0 and result.charRole != bonusDMG:
-            dbl.append(Debuff("HolidayThermaeVULN", self.wearerRole, StatTypes.VULN, vulnAmount, turn.targetID, [AtkType.ALL], 2, 1, False, [0, 0], False))
+            dbl.append(Debuff("HolidayThermaeVULN", self.wearerRole, StatTypes.VULN, vulnAmount, turn.targetID, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
         return dl, dbl, al, dl, hl
