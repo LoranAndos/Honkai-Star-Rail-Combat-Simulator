@@ -48,6 +48,7 @@ class Numby(Summon):
     element = Element.FIRE
     scaling = Scaling.ATK
     currSPD = 80
+    baseSPD = 80
     currAV = 10000 / currSPD
 
     def __init__(self, ownerRole: Role, role: Role) -> None:

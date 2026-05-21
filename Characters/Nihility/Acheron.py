@@ -3,6 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Nihility.AlongThePassingShore import AlongThePassingShore
+from Lightcones.Nihility.BoundlessChoreo import BoundlessChoreo
 from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
 from RelicStats import RelicStats
 from Relics.PioneerDiverOfDeadWaters import PioneerAcheron
@@ -219,11 +220,6 @@ class Acheron(Character):
                 logger.debug(f"{self.name} Quadrivalent: +1 Slashed Dream, Knot on enemy {knotTarget}")
             self.QuadrivalentStacks = 0
             bl.append(Buff("AcheronUltPen", StatTypes.PEN, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-        if self._debuffWasApplied(result) and result.turnName not in bonusDMG and result.turnName != "AcheronUlt":
-            self._addSlashedDream(1)
-            knotTarget = self._knotTarget()
-            self._addKnot(knotTarget)
-            logger.debug(f"{self.name} allyTurn debuff triggered: +1 Slashed Dream ({self.currEnergy}/{self.maxEnergy}), Knot on enemy {knotTarget}")
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -234,14 +230,6 @@ class Acheron(Character):
             for enemy in result.enemiesHit:
                 if enemy.isDead():
                     self._transferKnots(enemy.enemyID)
-
-        # Slashed Dream: gain 1 stack if the ability applied any debuff,
-        # but only once per ability use (debuffsApplied already deduplicates at the Result level)
-        if self._debuffWasApplied(result):
-            self._addSlashedDream(1)
-            knotTarget = self._knotTarget()
-            self._addKnot(knotTarget)
-            logger.debug(f"{self.name} allyTurn debuff triggered: +1 Slashed Dream ({self.currEnergy}/{self.maxEnergy}), Knot on enemy {knotTarget}")
 
         return bl, dbl, al, dl, tl, hl
 

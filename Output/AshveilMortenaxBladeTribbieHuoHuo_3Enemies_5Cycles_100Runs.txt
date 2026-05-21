@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 46251.100 | Ashveil: 27373.589 | MortenaxBlade: 12576.514 | Tribbie: 6089.855 | HuoHuo: 51.241
-Run    2: Team DPAV: 47700.806 | Ashveil: 28624.863 | MortenaxBlade: 12676.102 | Tribbie: 6128.192 | HuoHuo: 48.904
-Run    3: Team DPAV: 46315.753 | Ashveil: 27451.276 | MortenaxBlade: 12616.351 | Tribbie: 6036.984 | HuoHuo: 51.241
-Run    4: Team DPAV: 48041.919 | Ashveil: 28520.445 | MortenaxBlade: 13005.904 | Tribbie: 6273.331 | HuoHuo: 48.904
-Run    5: Team DPAV: 50965.022 | Ashveil: 31151.623 | MortenaxBlade: 12991.948 | Tribbie: 6549.801 | HuoHuo: 48.904
-Run    6: Team DPAV: 47525.272 | Ashveil: 28555.600 | MortenaxBlade: 12658.730 | Tribbie: 6068.703 | HuoHuo: 48.904
-Run    7: Team DPAV: 49395.379 | Ashveil: 28981.752 | MortenaxBlade: 13748.418 | Tribbie: 6427.437 | HuoHuo: 44.436
-Run    8: Team DPAV: 48584.688 | Ashveil: 29746.086 | MortenaxBlade: 12371.677 | Tribbie: 6233.176 | HuoHuo: 44.436
-Run    9: Team DPAV: 51725.217 | Ashveil: 31762.335 | MortenaxBlade: 13076.232 | Tribbie: 6585.590 | HuoHuo: 48.904
-Run   10: Team DPAV: 43472.050 | Ashveil: 25789.362 | MortenaxBlade: 11997.211 | Tribbie: 5445.575 | HuoHuo: 46.567
-Run   11: Team DPAV: 48263.835 | Ashveil: 28751.812 | MortenaxBlade: 12944.826 | Tribbie: 6293.210 | HuoHuo: 51.241
-Run   12: Team DPAV: 45545.747 | Ashveil: 27297.588 | MortenaxBlade: 11957.452 | Tribbie: 6048.468 | HuoHuo: 48.904
-Run   13: Team DPAV: 46540.293 | Ashveil: 27663.069 | MortenaxBlade: 12405.887 | Tribbie: 6204.155 | HuoHuo: 44.436
-Run   14: Team DPAV: 48908.662 | Ashveil: 28042.668 | MortenaxBlade: 14270.984 | Tribbie: 6379.844 | HuoHuo: 51.241
-Run   15: Team DPAV: 47940.553 | Ashveil: 28689.248 | MortenaxBlade: 12686.666 | Tribbie: 6322.400 | HuoHuo: 48.904
-Run   16: Team DPAV: 47397.985 | Ashveil: 28249.597 | MortenaxBlade: 12804.924 | Tribbie: 6132.322 | HuoHuo: 51.241
-Run   17: Team DPAV: 52854.337 | Ashveil: 31566.679 | MortenaxBlade: 14328.253 | Tribbie: 6687.756 | HuoHuo: 48.904
-Run   18: Team DPAV: 51393.878 | Ashveil: 30456.963 | MortenaxBlade: 14036.398 | Tribbie: 6628.868 | HuoHuo: 48.904
-Run   19: Team DPAV: 46218.180 | Ashveil: 28330.446 | MortenaxBlade: 11602.704 | Tribbie: 6011.044 | HuoHuo: 51.241
-Run   20: Team DPAV: 47291.141 | Ashveil: 28327.385 | MortenaxBlade: 12472.336 | Tribbie: 6219.770 | HuoHuo: 48.904
-Run   21: Team DPAV: 45982.046 | Ashveil: 27075.537 | MortenaxBlade: 12583.491 | Tribbie: 6110.189 | HuoHuo: 48.904
-Run   22: Team DPAV: 47183.016 | Ashveil: 28225.311 | MortenaxBlade: 12447.892 | Tribbie: 6238.164 | HuoHuo: 48.904
-Run   23: Team DPAV: 47541.075 | Ashveil: 28680.311 | MortenaxBlade: 12372.514 | Tribbie: 6243.674 | HuoHuo: 51.241
-Run   24: Team DPAV: 50537.579 | Ashveil: 30867.751 | MortenaxBlade: 12989.643 | Tribbie: 6435.609 | HuoHuo: 51.241
-Run   25: Team DPAV: 50210.278 | Ashveil: 30860.363 | MortenaxBlade: 12695.928 | Tribbie: 6382.337 | HuoHuo: 48.904
-Run   26: Team DPAV: 47254.216 | Ashveil: 28704.879 | MortenaxBlade: 12372.514 | Tribbie: 5932.248 | HuoHuo: 51.241
-Run   27: Team DPAV: 51483.882 | Ashveil: 30854.252 | MortenaxBlade: 13888.313 | Tribbie: 6473.691 | HuoHuo: 48.904
-Run   28: Team DPAV: 47562.338 | Ashveil: 28738.026 | MortenaxBlade: 12352.041 | Tribbie: 6198.285 | HuoHuo: 51.241
-Run   29: Team DPAV: 51339.778 | Ashveil: 30765.564 | MortenaxBlade: 13660.722 | Tribbie: 6643.529 | HuoHuo: 51.241
-Run   30: Team DPAV: 48650.672 | Ashveil: 28020.765 | MortenaxBlade: 13976.106 | Tribbie: 6413.248 | HuoHuo: 51.241
-Run   31: Team DPAV: 49467.028 | Ashveil: 30042.295 | MortenaxBlade: 12605.507 | Tribbie: 6545.240 | HuoHuo: 51.241
-Run   32: Team DPAV: 45830.103 | Ashveil: 27827.303 | MortenaxBlade: 11668.361 | Tribbie: 6089.863 | HuoHuo: 51.241
-Run   33: Team DPAV: 46735.452 | Ashveil: 28245.030 | MortenaxBlade: 12133.720 | Tribbie: 6181.775 | HuoHuo: 44.436
-Run   34: Team DPAV: 49863.180 | Ashveil: 30658.173 | MortenaxBlade: 12407.915 | Tribbie: 6525.442 | HuoHuo: 48.904
-Run   35: Team DPAV: 52779.617 | Ashveil: 32415.189 | MortenaxBlade: 13379.884 | Tribbie: 6710.558 | HuoHuo: 51.241
-Run   36: Team DPAV: 47616.272 | Ashveil: 28623.315 | MortenaxBlade: 12633.155 | Tribbie: 6115.227 | HuoHuo: 51.241
-Run   37: Team DPAV: 47544.973 | Ashveil: 28874.417 | MortenaxBlade: 12372.227 | Tribbie: 6058.426 | HuoHuo: 46.567
-Run   38: Team DPAV: 52336.323 | Ashveil: 32216.532 | MortenaxBlade: 13345.988 | Tribbie: 6531.563 | HuoHuo: 48.904
-Run   39: Team DPAV: 46826.369 | Ashveil: 28164.000 | MortenaxBlade: 12373.437 | Tribbie: 6046.692 | HuoHuo: 48.904
-Run   40: Team DPAV: 51283.827 | Ashveil: 31282.954 | MortenaxBlade: 13074.738 | Tribbie: 6683.896 | HuoHuo: 48.904
-Run   41: Team DPAV: 47561.600 | Ashveil: 28138.100 | MortenaxBlade: 12896.341 | Tribbie: 6284.919 | HuoHuo: 48.904
-Run   42: Team DPAV: 45034.274 | Ashveil: 27962.601 | MortenaxBlade: 11010.619 | Tribbie: 5818.815 | HuoHuo: 48.904
-Run   43: Team DPAV: 47515.832 | Ashveil: 28643.198 | MortenaxBlade: 12483.863 | Tribbie: 6117.120 | HuoHuo: 48.904
-Run   44: Team DPAV: 48251.330 | Ashveil: 28751.812 | MortenaxBlade: 12935.775 | Tribbie: 6289.757 | HuoHuo: 51.241
-Run   45: Team DPAV: 52622.206 | Ashveil: 31445.513 | MortenaxBlade: 14344.634 | Tribbie: 6564.432 | HuoHuo: 48.904
-Run   46: Team DPAV: 50754.638 | Ashveil: 31055.063 | MortenaxBlade: 12938.034 | Tribbie: 6489.892 | HuoHuo: 48.904
-Run   47: Team DPAV: 50926.590 | Ashveil: 31344.211 | MortenaxBlade: 12719.365 | Tribbie: 6589.028 | HuoHuo: 51.241
-Run   48: Team DPAV: 46107.084 | Ashveil: 28105.353 | MortenaxBlade: 11656.834 | Tribbie: 6102.658 | HuoHuo: 48.904
-Run   49: Team DPAV: 51403.307 | Ashveil: 30743.388 | MortenaxBlade: 13784.156 | Tribbie: 6633.523 | HuoHuo: 48.904
-Run   50: Team DPAV: 49200.885 | Ashveil: 28739.859 | MortenaxBlade: 13895.832 | Tribbie: 6320.619 | HuoHuo: 51.241
-Run   51: Team DPAV: 54071.623 | Ashveil: 32380.049 | MortenaxBlade: 14461.801 | Tribbie: 6987.534 | HuoHuo: 48.904
-Run   52: Team DPAV: 48343.241 | Ashveil: 28860.365 | MortenaxBlade: 13001.240 | Tribbie: 6239.396 | HuoHuo: 48.904
-Run   53: Team DPAV: 46495.441 | Ashveil: 28105.353 | MortenaxBlade: 12004.271 | Tribbie: 6143.578 | HuoHuo: 48.904
-Run   54: Team DPAV: 47703.907 | Ashveil: 27776.157 | MortenaxBlade: 13469.576 | Tribbie: 6247.032 | HuoHuo: 51.241
-Run   55: Team DPAV: 45705.428 | Ashveil: 28026.967 | MortenaxBlade: 11339.952 | Tribbie: 6096.269 | HuoHuo: 48.904
-Run   56: Team DPAV: 51863.815 | Ashveil: 32278.451 | MortenaxBlade: 12736.067 | Tribbie: 6607.058 | HuoHuo: 48.904
-Run   57: Team DPAV: 47457.149 | Ashveil: 28256.563 | MortenaxBlade: 12973.161 | Tribbie: 5987.522 | HuoHuo: 46.567
-Run   58: Team DPAV: 51299.665 | Ashveil: 31510.617 | MortenaxBlade: 13043.221 | Tribbie: 6503.588 | HuoHuo: 48.904
-Run   59: Team DPAV: 45911.016 | Ashveil: 27382.064 | MortenaxBlade: 12276.491 | Tribbie: 6041.319 | HuoHuo: 51.241
-Run   60: Team DPAV: 49015.221 | Ashveil: 28652.360 | MortenaxBlade: 13842.684 | Tribbie: 6334.422 | HuoHuo: 51.241
-Run   61: Team DPAV: 46224.004 | Ashveil: 27617.584 | MortenaxBlade: 12096.103 | Tribbie: 6268.077 | HuoHuo: 48.904
-Run   62: Team DPAV: 45684.550 | Ashveil: 27170.206 | MortenaxBlade: 12277.966 | Tribbie: 6032.041 | HuoHuo: 44.436
-Run   63: Team DPAV: 48152.517 | Ashveil: 28358.809 | MortenaxBlade: 13345.454 | Tribbie: 6208.352 | HuoHuo: 46.567
-Run   64: Team DPAV: 44563.875 | Ashveil: 27086.762 | MortenaxBlade: 11402.560 | Tribbie: 5834.651 | HuoHuo: 46.567
-Run   65: Team DPAV: 45218.288 | Ashveil: 27021.563 | MortenaxBlade: 11989.346 | Tribbie: 5994.550 | HuoHuo: 48.904
-Run   66: Team DPAV: 50320.968 | Ashveil: 30573.597 | MortenaxBlade: 12908.966 | Tribbie: 6593.829 | HuoHuo: 51.241
-Run   67: Team DPAV: 50750.041 | Ashveil: 31066.897 | MortenaxBlade: 12790.976 | Tribbie: 6618.181 | HuoHuo: 51.241
-Run   68: Team DPAV: 48090.782 | Ashveil: 28690.387 | MortenaxBlade: 12919.514 | Tribbie: 6238.642 | HuoHuo: 48.904
-Run   69: Team DPAV: 52349.807 | Ashveil: 31108.639 | MortenaxBlade: 14289.584 | Tribbie: 6677.597 | HuoHuo: 51.241
-Run   70: Team DPAV: 45933.877 | Ashveil: 28015.977 | MortenaxBlade: 11656.691 | Tribbie: 6018.969 | HuoHuo: 48.904
-Run   71: Team DPAV: 43522.576 | Ashveil: 26718.338 | MortenaxBlade: 11036.749 | Tribbie: 5525.250 | HuoHuo: 48.904
-Run   72: Team DPAV: 46716.085 | Ashveil: 27915.793 | MortenaxBlade: 12463.057 | Tribbie: 6122.070 | HuoHuo: 51.241
-Run   73: Team DPAV: 44996.524 | Ashveil: 26507.536 | MortenaxBlade: 12272.025 | Tribbie: 5987.238 | HuoHuo: 44.436
-Run   74: Team DPAV: 48293.513 | Ashveil: 28270.231 | MortenaxBlade: 13557.742 | Tribbie: 6223.301 | HuoHuo: 48.904
-Run   75: Team DPAV: 48777.779 | Ashveil: 28622.140 | MortenaxBlade: 13626.357 | Tribbie: 6287.043 | HuoHuo: 48.904
-Run   76: Team DPAV: 48497.564 | Ashveil: 29062.135 | MortenaxBlade: 12747.743 | Tribbie: 6413.700 | HuoHuo: 51.241
-Run   77: Team DPAV: 46724.117 | Ashveil: 27788.899 | MortenaxBlade: 12523.493 | Tribbie: 6173.509 | HuoHuo: 48.904
-Run   78: Team DPAV: 48345.108 | Ashveil: 27988.294 | MortenaxBlade: 13825.873 | Tribbie: 6288.702 | HuoHuo: 48.904
-Run   79: Team DPAV: 46328.276 | Ashveil: 27408.435 | MortenaxBlade: 12614.126 | Tribbie: 6094.573 | HuoHuo: 51.241
-Run   80: Team DPAV: 52861.060 | Ashveil: 31638.322 | MortenaxBlade: 14283.913 | Tribbie: 6696.586 | HuoHuo: 48.904
-Run   81: Team DPAV: 45948.855 | Ashveil: 26987.387 | MortenaxBlade: 12625.307 | Tribbie: 6120.996 | HuoHuo: 51.241
-Run   82: Team DPAV: 45276.144 | Ashveil: 27189.693 | MortenaxBlade: 11891.833 | Tribbie: 5990.281 | HuoHuo: 44.436
-Run   83: Team DPAV: 50360.812 | Ashveil: 31100.558 | MortenaxBlade: 12587.131 | Tribbie: 6401.475 | HuoHuo: 48.904
-Run   84: Team DPAV: 46355.730 | Ashveil: 27870.391 | MortenaxBlade: 12084.053 | Tribbie: 6163.514 | HuoHuo: 44.436
-Run   85: Team DPAV: 44193.768 | Ashveil: 26761.525 | MortenaxBlade: 11288.895 | Tribbie: 5898.772 | HuoHuo: 51.241
-Run   86: Team DPAV: 48282.065 | Ashveil: 28726.780 | MortenaxBlade: 12992.267 | Tribbie: 6318.442 | HuoHuo: 51.241
-Run   87: Team DPAV: 52394.734 | Ashveil: 32393.372 | MortenaxBlade: 13067.678 | Tribbie: 6691.445 | HuoHuo: 48.904
-Run   88: Team DPAV: 46234.201 | Ashveil: 27788.853 | MortenaxBlade: 12160.268 | Tribbie: 6040.505 | HuoHuo: 51.241
-Run   89: Team DPAV: 47366.804 | Ashveil: 28802.238 | MortenaxBlade: 12381.422 | Tribbie: 5938.568 | HuoHuo: 51.241
-Run   90: Team DPAV: 47070.636 | Ashveil: 27780.431 | MortenaxBlade: 12686.403 | Tribbie: 6361.562 | HuoHuo: 48.904
-Run   91: Team DPAV: 46136.084 | Ashveil: 27581.760 | MortenaxBlade: 12177.828 | Tribbie: 6168.135 | HuoHuo: 44.436
-Run   92: Team DPAV: 48157.581 | Ashveil: 28564.469 | MortenaxBlade: 13023.538 | Tribbie: 6354.408 | HuoHuo: 51.241
-Run   93: Team DPAV: 50835.763 | Ashveil: 31497.330 | MortenaxBlade: 12745.262 | Tribbie: 6350.931 | HuoHuo: 48.904
-Run   94: Team DPAV: 47926.505 | Ashveil: 28666.563 | MortenaxBlade: 12684.042 | Tribbie: 6301.914 | HuoHuo: 51.241
-Run   95: Team DPAV: 51244.265 | Ashveil: 31729.763 | MortenaxBlade: 12729.782 | Tribbie: 6569.554 | HuoHuo: 51.241
-Run   96: Team DPAV: 46636.674 | Ashveil: 27728.771 | MortenaxBlade: 12364.097 | Tribbie: 6301.567 | HuoHuo: 48.904
-Run   97: Team DPAV: 47032.178 | Ashveil: 28063.616 | MortenaxBlade: 12581.489 | Tribbie: 6142.498 | HuoHuo: 51.241
-Run   98: Team DPAV: 48469.256 | Ashveil: 28144.618 | MortenaxBlade: 13713.765 | Tribbie: 6402.068 | HuoHuo: 48.904
-Run   99: Team DPAV: 47960.042 | Ashveil: 28751.812 | MortenaxBlade: 12658.873 | Tribbie: 6275.371 | HuoHuo: 51.241
-Run  100: Team DPAV: 48323.521 | Ashveil: 29430.850 | MortenaxBlade: 12477.761 | Tribbie: 6140.924 | HuoHuo: 51.241
+Run    1: Team DPAV: 54350.828 | Ashveil: 30260.953 | MortenaxBlade: 18133.844 | Tribbie: 5666.142 | HuoHuo: 110.515
+Run    2: Team DPAV: 54621.736 | Ashveil: 30203.215 | MortenaxBlade: 18277.819 | Tribbie: 5850.812 | HuoHuo: 110.515
+Run    3: Team DPAV: 56497.046 | Ashveil: 31018.430 | MortenaxBlade: 19186.161 | Tribbie: 6002.565 | HuoHuo: 110.515
+Run    4: Team DPAV: 53306.121 | Ashveil: 31063.157 | MortenaxBlade: 16287.428 | Tribbie: 5697.587 | HuoHuo: 110.515
+Run    5: Team DPAV: 56637.890 | Ashveil: 31074.075 | MortenaxBlade: 19303.353 | Tribbie: 6002.514 | HuoHuo: 110.515
+Run    6: Team DPAV: 54526.982 | Ashveil: 30177.032 | MortenaxBlade: 18109.213 | Tribbie: 5950.848 | HuoHuo: 110.515
+Run    7: Team DPAV: 52282.173 | Ashveil: 29634.781 | MortenaxBlade: 16772.261 | Tribbie: 5617.183 | HuoHuo: 110.515
+Run    8: Team DPAV: 53510.360 | Ashveil: 29780.884 | MortenaxBlade: 17677.432 | Tribbie: 5767.777 | HuoHuo: 104.894
+Run    9: Team DPAV: 56429.572 | Ashveil: 31018.430 | MortenaxBlade: 19123.013 | Tribbie: 5998.239 | HuoHuo: 110.515
+Run   10: Team DPAV: 52727.949 | Ashveil: 31013.835 | MortenaxBlade: 15927.488 | Tribbie: 5528.678 | HuoHuo: 110.515
+Run   11: Team DPAV: 53083.834 | Ashveil: 30833.585 | MortenaxBlade: 16279.456 | Tribbie: 5686.525 | HuoHuo: 104.894
+Run   12: Team DPAV: 53588.793 | Ashveil: 29381.969 | MortenaxBlade: 18128.270 | Tribbie: 5788.665 | HuoHuo: 110.515
+Run   13: Team DPAV: 52473.676 | Ashveil: 30453.253 | MortenaxBlade: 16257.260 | Tribbie: 5473.274 | HuoHuo: 110.515
+Run   14: Team DPAV: 52240.874 | Ashveil: 30264.695 | MortenaxBlade: 16236.542 | Tribbie: 5481.689 | HuoHuo: 110.515
+Run   15: Team DPAV: 59961.821 | Ashveil: 34628.488 | MortenaxBlade: 18904.558 | Tribbie: 6176.449 | HuoHuo: 104.894
+Run   16: Team DPAV: 54466.079 | Ashveil: 30326.424 | MortenaxBlade: 18209.890 | Tribbie: 5671.817 | HuoHuo: 110.515
+Run   17: Team DPAV: 55391.798 | Ashveil: 30656.656 | MortenaxBlade: 18685.500 | Tribbie: 5791.694 | HuoHuo: 110.515
+Run   18: Team DPAV: 52565.541 | Ashveil: 30059.156 | MortenaxBlade: 16668.434 | Tribbie: 5580.004 | HuoHuo: 110.515
+Run   19: Team DPAV: 52536.955 | Ashveil: 30332.772 | MortenaxBlade: 16287.909 | Tribbie: 5658.326 | HuoHuo: 110.515
+Run   20: Team DPAV: 51488.215 | Ashveil: 29767.367 | MortenaxBlade: 15819.440 | Tribbie: 5643.460 | HuoHuo: 110.515
+Run   21: Team DPAV: 54129.804 | Ashveil: 30822.212 | MortenaxBlade: 17078.161 | Tribbie: 5939.541 | HuoHuo: 110.515
+Run   22: Team DPAV: 54122.089 | Ashveil: 30881.397 | MortenaxBlade: 17174.176 | Tribbie: 5776.626 | HuoHuo: 110.515
+Run   23: Team DPAV: 59094.209 | Ashveil: 34425.358 | MortenaxBlade: 18349.011 | Tribbie: 6061.891 | HuoHuo: 110.515
+Run   24: Team DPAV: 53902.679 | Ashveil: 30254.636 | MortenaxBlade: 17702.002 | Tribbie: 5656.151 | HuoHuo: 110.515
+Run   25: Team DPAV: 57661.380 | Ashveil: 33076.178 | MortenaxBlade: 18189.936 | Tribbie: 6105.377 | HuoHuo: 110.515
+Run   26: Team DPAV: 53096.923 | Ashveil: 30848.853 | MortenaxBlade: 16298.701 | Tribbie: 5659.480 | HuoHuo: 110.515
+Run   27: Team DPAV: 58743.623 | Ashveil: 33603.948 | MortenaxBlade: 18743.346 | Tribbie: 6138.381 | HuoHuo: 110.515
+Run   28: Team DPAV: 55065.941 | Ashveil: 30142.031 | MortenaxBlade: 18640.963 | Tribbie: 5993.058 | HuoHuo: 110.515
+Run   29: Team DPAV: 54523.254 | Ashveil: 30230.778 | MortenaxBlade: 18159.137 | Tribbie: 5843.450 | HuoHuo: 110.515
+Run   30: Team DPAV: 51694.878 | Ashveil: 30279.526 | MortenaxBlade: 15704.180 | Tribbie: 5421.283 | HuoHuo: 110.515
+Run   31: Team DPAV: 50624.669 | Ashveil: 29084.704 | MortenaxBlade: 15824.714 | Tribbie: 5457.302 | HuoHuo: 110.515
+Run   32: Team DPAV: 53695.963 | Ashveil: 30888.239 | MortenaxBlade: 16790.976 | Tribbie: 5726.858 | HuoHuo: 110.515
+Run   33: Team DPAV: 56192.315 | Ashveil: 30702.469 | MortenaxBlade: 19204.925 | Tribbie: 5995.031 | HuoHuo: 110.515
+Run   34: Team DPAV: 53355.508 | Ashveil: 31028.056 | MortenaxBlade: 16496.355 | Tribbie: 5573.149 | HuoHuo: 110.515
+Run   35: Team DPAV: 59663.763 | Ashveil: 34433.806 | MortenaxBlade: 18756.854 | Tribbie: 6215.155 | HuoHuo: 110.515
+Run   36: Team DPAV: 54422.127 | Ashveil: 30809.922 | MortenaxBlade: 17706.906 | Tribbie: 5615.410 | HuoHuo: 110.515
+Run   37: Team DPAV: 52498.804 | Ashveil: 30304.697 | MortenaxBlade: 16385.096 | Tribbie: 5551.064 | HuoHuo: 110.515
+Run   38: Team DPAV: 54976.857 | Ashveil: 30255.552 | MortenaxBlade: 18554.727 | Tribbie: 5876.689 | HuoHuo: 110.515
+Run   39: Team DPAV: 53401.396 | Ashveil: 31111.838 | MortenaxBlade: 16340.349 | Tribbie: 5691.262 | HuoHuo: 110.515
+Run   40: Team DPAV: 59979.351 | Ashveil: 34653.964 | MortenaxBlade: 18904.558 | Tribbie: 6168.502 | HuoHuo: 104.894
+Run   41: Team DPAV: 56175.350 | Ashveil: 33189.408 | MortenaxBlade: 16836.696 | Tribbie: 5891.298 | HuoHuo: 110.515
+Run   42: Team DPAV: 53178.605 | Ashveil: 30807.600 | MortenaxBlade: 16400.831 | Tribbie: 5680.285 | HuoHuo: 110.515
+Run   43: Team DPAV: 58573.178 | Ashveil: 33931.692 | MortenaxBlade: 18350.997 | Tribbie: 6038.162 | HuoHuo: 104.894
+Run   44: Team DPAV: 55456.778 | Ashveil: 30172.206 | MortenaxBlade: 19061.845 | Tribbie: 5932.838 | HuoHuo: 110.515
+Run   45: Team DPAV: 54911.711 | Ashveil: 30714.443 | MortenaxBlade: 18079.479 | Tribbie: 5827.899 | HuoHuo: 110.515
+Run   46: Team DPAV: 52775.176 | Ashveil: 30457.980 | MortenaxBlade: 16287.909 | Tribbie: 5771.339 | HuoHuo: 110.515
+Run   47: Team DPAV: 55141.185 | Ashveil: 30260.611 | MortenaxBlade: 18655.283 | Tribbie: 5999.285 | HuoHuo: 110.515
+Run   48: Team DPAV: 51852.166 | Ashveil: 30152.155 | MortenaxBlade: 15914.130 | Tribbie: 5527.934 | HuoHuo: 110.515
+Run   49: Team DPAV: 59024.564 | Ashveil: 33896.428 | MortenaxBlade: 18762.111 | Tribbie: 6108.078 | HuoHuo: 110.515
+Run   50: Team DPAV: 52588.883 | Ashveil: 30517.249 | MortenaxBlade: 16287.909 | Tribbie: 5493.835 | HuoHuo: 110.515
+Run   51: Team DPAV: 54986.669 | Ashveil: 30978.299 | MortenaxBlade: 17868.087 | Tribbie: 5887.956 | HuoHuo: 104.894
+Run   52: Team DPAV: 52342.032 | Ashveil: 30194.274 | MortenaxBlade: 16328.087 | Tribbie: 5529.782 | HuoHuo: 110.515
+Run   53: Team DPAV: 54422.127 | Ashveil: 30809.922 | MortenaxBlade: 17706.906 | Tribbie: 5615.410 | HuoHuo: 110.515
+Run   54: Team DPAV: 55268.478 | Ashveil: 30883.893 | MortenaxBlade: 18363.984 | Tribbie: 5730.712 | HuoHuo: 110.515
+Run   55: Team DPAV: 54493.802 | Ashveil: 30225.265 | MortenaxBlade: 18136.242 | Tribbie: 5842.405 | HuoHuo: 110.515
+Run   56: Team DPAV: 52732.071 | Ashveil: 30704.411 | MortenaxBlade: 16243.421 | Tribbie: 5494.349 | HuoHuo: 110.515
+Run   57: Team DPAV: 57973.193 | Ashveil: 33009.036 | MortenaxBlade: 18589.645 | Tribbie: 6116.564 | HuoHuo: 110.515
+Run   58: Team DPAV: 53136.998 | Ashveil: 30260.953 | MortenaxBlade: 16742.705 | Tribbie: 5843.450 | HuoHuo: 110.515
+Run   59: Team DPAV: 59007.932 | Ashveil: 33512.674 | MortenaxBlade: 19094.929 | Tribbie: 6110.439 | HuoHuo: 110.515
+Run   60: Team DPAV: 54422.127 | Ashveil: 30809.922 | MortenaxBlade: 17706.906 | Tribbie: 5615.410 | HuoHuo: 110.515
+Run   61: Team DPAV: 53747.831 | Ashveil: 29936.837 | MortenaxBlade: 17695.694 | Tribbie: 5825.411 | HuoHuo: 110.515
+Run   62: Team DPAV: 57221.430 | Ashveil: 32927.535 | MortenaxBlade: 18220.682 | Tribbie: 5815.266 | HuoHuo: 110.515
+Run   63: Team DPAV: 53090.872 | Ashveil: 31010.473 | MortenaxBlade: 16326.991 | Tribbie: 5495.460 | HuoHuo: 110.515
+Run   64: Team DPAV: 51909.253 | Ashveil: 29651.350 | MortenaxBlade: 16393.992 | Tribbie: 5542.080 | HuoHuo: 110.515
+Run   65: Team DPAV: 53445.646 | Ashveil: 31088.945 | MortenaxBlade: 16493.789 | Tribbie: 5573.022 | HuoHuo: 110.515
+Run   66: Team DPAV: 53366.300 | Ashveil: 30079.831 | MortenaxBlade: 17294.669 | Tribbie: 5707.532 | HuoHuo: 104.894
+Run   67: Team DPAV: 53325.588 | Ashveil: 30300.861 | MortenaxBlade: 17204.420 | Tribbie: 5530.418 | HuoHuo: 110.515
+Run   68: Team DPAV: 52759.709 | Ashveil: 30157.523 | MortenaxBlade: 16455.319 | Tribbie: 5856.977 | HuoHuo: 110.515
+Run   69: Team DPAV: 57839.641 | Ashveil: 33272.150 | MortenaxBlade: 18272.401 | Tribbie: 6037.142 | HuoHuo: 110.515
+Run   70: Team DPAV: 50624.669 | Ashveil: 29084.704 | MortenaxBlade: 15824.714 | Tribbie: 5457.302 | HuoHuo: 110.515
+Run   71: Team DPAV: 53286.907 | Ashveil: 30969.711 | MortenaxBlade: 16287.909 | Tribbie: 5771.339 | HuoHuo: 110.515
+Run   72: Team DPAV: 55916.573 | Ashveil: 33405.440 | MortenaxBlade: 16406.216 | Tribbie: 5846.969 | HuoHuo: 110.515
+Run   73: Team DPAV: 52908.181 | Ashveil: 30570.968 | MortenaxBlade: 16369.954 | Tribbie: 5709.312 | HuoHuo: 110.515
+Run   74: Team DPAV: 56247.338 | Ashveil: 30753.000 | MortenaxBlade: 19204.925 | Tribbie: 5999.523 | HuoHuo: 110.515
+Run   75: Team DPAV: 54474.345 | Ashveil: 30261.381 | MortenaxBlade: 18083.781 | Tribbie: 5839.293 | HuoHuo: 110.515
+Run   76: Team DPAV: 51844.683 | Ashveil: 30416.831 | MortenaxBlade: 15729.423 | Tribbie: 5440.480 | HuoHuo: 110.515
+Run   77: Team DPAV: 53106.823 | Ashveil: 30230.778 | MortenaxBlade: 16742.705 | Tribbie: 5843.450 | HuoHuo: 110.515
+Run   78: Team DPAV: 54422.127 | Ashveil: 30809.922 | MortenaxBlade: 17706.906 | Tribbie: 5615.410 | HuoHuo: 110.515
+Run   79: Team DPAV: 52609.582 | Ashveil: 30368.639 | MortenaxBlade: 16276.928 | Tribbie: 5706.067 | HuoHuo: 110.515
+Run   80: Team DPAV: 52310.685 | Ashveil: 29963.264 | MortenaxBlade: 16359.162 | Tribbie: 5730.311 | HuoHuo: 110.515
+Run   81: Team DPAV: 55940.665 | Ashveil: 33388.449 | MortenaxBlade: 16449.611 | Tribbie: 5844.657 | HuoHuo: 110.515
+Run   82: Team DPAV: 59663.763 | Ashveil: 34433.806 | MortenaxBlade: 18756.854 | Tribbie: 6215.155 | HuoHuo: 110.515
+Run   83: Team DPAV: 52630.687 | Ashveil: 30203.566 | MortenaxBlade: 16353.727 | Tribbie: 5783.504 | HuoHuo: 110.515
+Run   84: Team DPAV: 54474.345 | Ashveil: 30261.381 | MortenaxBlade: 18083.781 | Tribbie: 5839.293 | HuoHuo: 110.515
+Run   85: Team DPAV: 51143.655 | Ashveil: 29819.114 | MortenaxBlade: 15671.577 | Tribbie: 5363.075 | HuoHuo: 110.515
+Run   86: Team DPAV: 54226.197 | Ashveil: 30086.542 | MortenaxBlade: 18209.890 | Tribbie: 5671.817 | HuoHuo: 110.515
+Run   87: Team DPAV: 51470.069 | Ashveil: 29405.626 | MortenaxBlade: 16270.476 | Tribbie: 5472.135 | HuoHuo: 110.515
+Run   88: Team DPAV: 51848.727 | Ashveil: 29676.961 | MortenaxBlade: 16250.381 | Tribbie: 5663.437 | HuoHuo: 110.515
+Run   89: Team DPAV: 55055.151 | Ashveil: 30504.146 | MortenaxBlade: 18346.939 | Tribbie: 5919.798 | HuoHuo: 104.894
+Run   90: Team DPAV: 52509.318 | Ashveil: 29997.300 | MortenaxBlade: 16722.234 | Tribbie: 5531.836 | HuoHuo: 110.515
+Run   91: Team DPAV: 52387.982 | Ashveil: 29899.245 | MortenaxBlade: 16652.256 | Tribbie: 5578.534 | HuoHuo: 110.515
+Run   92: Team DPAV: 52596.954 | Ashveil: 30105.121 | MortenaxBlade: 16747.445 | Tribbie: 5460.120 | HuoHuo: 104.894
+Run   93: Team DPAV: 53435.010 | Ashveil: 31112.228 | MortenaxBlade: 16364.038 | Tribbie: 5700.796 | HuoHuo: 110.515
+Run   94: Team DPAV: 53929.595 | Ashveil: 29835.200 | MortenaxBlade: 18109.045 | Tribbie: 5663.519 | HuoHuo: 110.515
+Run   95: Team DPAV: 55638.353 | Ashveil: 30714.443 | MortenaxBlade: 18640.963 | Tribbie: 5993.058 | HuoHuo: 110.515
+Run   96: Team DPAV: 52582.177 | Ashveil: 30340.890 | MortenaxBlade: 16283.646 | Tribbie: 5699.694 | HuoHuo: 110.515
+Run   97: Team DPAV: 54958.933 | Ashveil: 30142.031 | MortenaxBlade: 18640.963 | Tribbie: 5886.049 | HuoHuo: 110.515
+Run   98: Team DPAV: 51869.011 | Ashveil: 30442.842 | MortenaxBlade: 15736.009 | Tribbie: 5400.271 | HuoHuo: 110.515
+Run   99: Team DPAV: 53361.789 | Ashveil: 31063.157 | MortenaxBlade: 16339.888 | Tribbie: 5700.796 | HuoHuo: 110.515
+Run  100: Team DPAV: 58745.300 | Ashveil: 33630.874 | MortenaxBlade: 18732.555 | Tribbie: 6123.923 | HuoHuo: 110.515
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 48261.610
-Average Ashveil DPAV: 28988.237
-Average MortenaxBlade DPAV: 12759.275
-Average Tribbie DPAV: 6269.544
-Average HuoHuo DPAV: 49.296
+Average Team DPAV: 54349.227
+Average Ashveil DPAV: 30955.988
+Average MortenaxBlade DPAV: 17354.113
+Average Tribbie DPAV: 5764.116
+Average HuoHuo DPAV: 110.009
 
-Min Team DPAV: 43472.050
-Max Team DPAV: 54071.623
+Min Team DPAV: 50624.669
+Max Team DPAV: 59979.351

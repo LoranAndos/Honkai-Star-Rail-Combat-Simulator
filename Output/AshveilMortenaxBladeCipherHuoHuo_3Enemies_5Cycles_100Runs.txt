@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 38680.580 | Ashveil: 20664.442 | MortenaxBlade: 11349.615 | Cipher: 6405.507 | HuoHuo: 27.591
+Run    2: Team DPAV: 36130.281 | Ashveil: 19229.052 | MortenaxBlade: 10139.197 | Cipher: 6501.016 | HuoHuo: 27.591
+Run    3: Team DPAV: 33300.061 | Ashveil: 19021.877 | MortenaxBlade: 8082.123 | Cipher: 5910.140 | HuoHuo: 27.591
+Run    4: Team DPAV: 36909.040 | Ashveil: 19636.434 | MortenaxBlade: 10307.383 | Cipher: 6704.206 | HuoHuo: 27.591
+Run    5: Team DPAV: 36130.281 | Ashveil: 19229.052 | MortenaxBlade: 10139.197 | Cipher: 6501.016 | HuoHuo: 27.591
+Run    6: Team DPAV: 38759.452 | Ashveil: 20179.524 | MortenaxBlade: 11421.072 | Cipher: 6872.935 | HuoHuo: 27.591
+Run    7: Team DPAV: 35456.632 | Ashveil: 20105.835 | MortenaxBlade: 8716.378 | Cipher: 6373.402 | HuoHuo: 27.591
+Run    8: Team DPAV: 32449.747 | Ashveil: 17638.900 | MortenaxBlade: 8465.159 | Cipher: 6109.576 | HuoHuo: 27.591
+Run    9: Team DPAV: 33585.474 | Ashveil: 17009.577 | MortenaxBlade: 9988.872 | Cipher: 6326.009 | HuoHuo: 27.591
+Run   10: Team DPAV: 37071.107 | Ashveil: 19966.912 | MortenaxBlade: 10195.869 | Cipher: 6726.357 | HuoHuo: 23.255
+Run   11: Team DPAV: 37368.505 | Ashveil: 19985.572 | MortenaxBlade: 10227.481 | Cipher: 6894.435 | HuoHuo: 27.591
+Run   12: Team DPAV: 37660.683 | Ashveil: 20092.900 | MortenaxBlade: 10433.528 | Cipher: 6876.646 | HuoHuo: 27.591
+Run   13: Team DPAV: 37031.614 | Ashveil: 20435.915 | MortenaxBlade: 9878.622 | Cipher: 6456.061 | HuoHuo: 27.591
+Run   14: Team DPAV: 38729.096 | Ashveil: 20562.135 | MortenaxBlade: 11481.887 | Cipher: 6424.058 | HuoHuo: 27.591
+Run   15: Team DPAV: 38838.168 | Ashveil: 20753.267 | MortenaxBlade: 11391.236 | Cipher: 6432.649 | HuoHuo: 27.591
+Run   16: Team DPAV: 33704.660 | Ashveil: 17323.199 | MortenaxBlade: 9777.546 | Cipher: 6342.899 | HuoHuo: 27.591
+Run   17: Team DPAV: 35886.832 | Ashveil: 20437.043 | MortenaxBlade: 8737.521 | Cipher: 6451.251 | HuoHuo: 27.591
+Run   18: Team DPAV: 39015.226 | Ashveil: 20810.435 | MortenaxBlade: 11481.887 | Cipher: 6461.887 | HuoHuo: 27.591
+Run   19: Team DPAV: 38365.690 | Ashveil: 20202.095 | MortenaxBlade: 11417.319 | Cipher: 6485.260 | HuoHuo: 27.591
+Run   20: Team DPAV: 32045.314 | Ashveil: 17428.419 | MortenaxBlade: 8447.607 | Cipher: 5933.176 | HuoHuo: 27.591
+Run   21: Team DPAV: 37202.964 | Ashveil: 19918.692 | MortenaxBlade: 10233.964 | Cipher: 6789.292 | HuoHuo: 27.591
+Run   22: Team DPAV: 36307.339 | Ashveil: 19286.221 | MortenaxBlade: 10229.848 | Cipher: 6530.254 | HuoHuo: 27.591
+Run   23: Team DPAV: 33727.183 | Ashveil: 19410.016 | MortenaxBlade: 7992.542 | Cipher: 6088.512 | HuoHuo: 27.591
+Run   24: Team DPAV: 32708.678 | Ashveil: 17476.851 | MortenaxBlade: 8803.585 | Cipher: 6167.226 | HuoHuo: 27.591
+Run   25: Team DPAV: 36130.281 | Ashveil: 19229.052 | MortenaxBlade: 10139.197 | Cipher: 6501.016 | HuoHuo: 27.591
+Run   26: Team DPAV: 36034.321 | Ashveil: 19140.227 | MortenaxBlade: 10155.480 | Cipher: 6477.598 | HuoHuo: 27.591
+Run   27: Team DPAV: 36307.339 | Ashveil: 19286.221 | MortenaxBlade: 10229.848 | Cipher: 6530.254 | HuoHuo: 27.591
+Run   28: Team DPAV: 38680.580 | Ashveil: 20664.442 | MortenaxBlade: 11349.615 | Cipher: 6405.507 | HuoHuo: 27.591
+Run   29: Team DPAV: 32708.678 | Ashveil: 17476.851 | MortenaxBlade: 8803.585 | Cipher: 6167.226 | HuoHuo: 27.591
+Run   30: Team DPAV: 34537.896 | Ashveil: 18414.926 | MortenaxBlade: 9753.875 | Cipher: 6083.174 | HuoHuo: 27.591
+Run   31: Team DPAV: 35425.260 | Ashveil: 19158.697 | MortenaxBlade: 10033.899 | Cipher: 6000.888 | HuoHuo: 23.255
+Run   32: Team DPAV: 33640.177 | Ashveil: 17138.235 | MortenaxBlade: 9974.017 | Cipher: 6291.813 | HuoHuo: 27.591
+Run   33: Team DPAV: 35488.466 | Ashveil: 19316.019 | MortenaxBlade: 9986.910 | Cipher: 5953.760 | HuoHuo: 23.255
+Run   34: Team DPAV: 37038.958 | Ashveil: 19816.776 | MortenaxBlade: 10195.180 | Cipher: 6765.986 | HuoHuo: 27.591
+Run   35: Team DPAV: 34136.045 | Ashveil: 19728.161 | MortenaxBlade: 7931.885 | Cipher: 6190.078 | HuoHuo: 27.591
+Run   36: Team DPAV: 34812.609 | Ashveil: 18893.340 | MortenaxBlade: 9555.816 | Cipher: 6127.652 | HuoHuo: 27.279
+Run   37: Team DPAV: 38838.168 | Ashveil: 20753.267 | MortenaxBlade: 11391.236 | Cipher: 6432.649 | HuoHuo: 27.591
+Run   38: Team DPAV: 34192.094 | Ashveil: 17470.115 | MortenaxBlade: 10043.199 | Cipher: 6417.764 | HuoHuo: 27.591
+Run   39: Team DPAV: 36263.070 | Ashveil: 19446.792 | MortenaxBlade: 10098.443 | Cipher: 6481.723 | HuoHuo: 27.591
+Run   40: Team DPAV: 36605.486 | Ashveil: 19952.674 | MortenaxBlade: 9760.323 | Cipher: 6631.473 | HuoHuo: 27.591
+Run   41: Team DPAV: 39041.366 | Ashveil: 20836.576 | MortenaxBlade: 11481.887 | Cipher: 6461.887 | HuoHuo: 27.591
+Run   42: Team DPAV: 33445.845 | Ashveil: 17189.945 | MortenaxBlade: 9712.291 | Cipher: 6307.496 | HuoHuo: 27.591
+Run   43: Team DPAV: 37865.538 | Ashveil: 20270.873 | MortenaxBlade: 10497.212 | Cipher: 6864.748 | HuoHuo: 27.591
+Run   44: Team DPAV: 32808.419 | Ashveil: 18626.978 | MortenaxBlade: 7912.032 | Cipher: 5983.489 | HuoHuo: 27.591
+Run   45: Team DPAV: 32857.956 | Ashveil: 18540.209 | MortenaxBlade: 8080.184 | Cipher: 5951.643 | HuoHuo: 27.591
+Run   46: Team DPAV: 38838.168 | Ashveil: 20753.267 | MortenaxBlade: 11391.236 | Cipher: 6432.649 | HuoHuo: 27.591
+Run   47: Team DPAV: 36232.058 | Ashveil: 19479.544 | MortenaxBlade: 10127.369 | Cipher: 6389.033 | HuoHuo: 27.591
+Run   48: Team DPAV: 34833.508 | Ashveil: 19900.949 | MortenaxBlade: 8470.838 | Cipher: 6175.800 | HuoHuo: 27.591
+Run   49: Team DPAV: 35303.841 | Ashveil: 18863.264 | MortenaxBlade: 10005.132 | Cipher: 6203.669 | HuoHuo: 23.255
+Run   50: Team DPAV: 36393.576 | Ashveil: 19887.663 | MortenaxBlade: 9608.547 | Cipher: 6636.350 | HuoHuo: 27.591
+Run   51: Team DPAV: 38028.540 | Ashveil: 21110.640 | MortenaxBlade: 10430.213 | Cipher: 6251.574 | HuoHuo: 27.591
+Run   52: Team DPAV: 33786.202 | Ashveil: 17099.473 | MortenaxBlade: 10102.524 | Cipher: 6298.285 | HuoHuo: 27.591
+Run   53: Team DPAV: 38237.294 | Ashveil: 19819.301 | MortenaxBlade: 11405.069 | Cipher: 6751.908 | HuoHuo: 27.591
+Run   54: Team DPAV: 38838.168 | Ashveil: 20753.267 | MortenaxBlade: 11391.236 | Cipher: 6432.649 | HuoHuo: 27.591
+Run   55: Team DPAV: 34795.293 | Ashveil: 19844.399 | MortenaxBlade: 8494.137 | Cipher: 6170.836 | HuoHuo: 27.591
+Run   56: Team DPAV: 35206.763 | Ashveil: 18608.996 | MortenaxBlade: 10049.048 | Cipher: 6337.667 | HuoHuo: 27.435
+Run   57: Team DPAV: 31891.111 | Ashveil: 17095.660 | MortenaxBlade: 8561.577 | Cipher: 5997.761 | HuoHuo: 27.591
+Run   58: Team DPAV: 36126.224 | Ashveil: 19634.210 | MortenaxBlade: 9745.269 | Cipher: 6485.729 | HuoHuo: 27.591
+Run   59: Team DPAV: 34175.296 | Ashveil: 19782.223 | MortenaxBlade: 8249.739 | Cipher: 5907.221 | HuoHuo: 27.591
+Run   60: Team DPAV: 33871.604 | Ashveil: 17257.877 | MortenaxBlade: 9988.872 | Cipher: 6363.839 | HuoHuo: 27.591
+Run   61: Team DPAV: 36130.281 | Ashveil: 19229.052 | MortenaxBlade: 10139.197 | Cipher: 6501.016 | HuoHuo: 27.591
+Run   62: Team DPAV: 35620.730 | Ashveil: 19039.724 | MortenaxBlade: 10361.632 | Cipher: 5983.262 | HuoHuo: 27.591
+Run   63: Team DPAV: 34002.893 | Ashveil: 17493.852 | MortenaxBlade: 9891.938 | Cipher: 6356.086 | HuoHuo: 27.591
+Run   64: Team DPAV: 32878.579 | Ashveil: 17534.019 | MortenaxBlade: 8946.998 | Cipher: 6161.448 | HuoHuo: 27.591
+Run   65: Team DPAV: 36130.281 | Ashveil: 19229.052 | MortenaxBlade: 10139.197 | Cipher: 6501.016 | HuoHuo: 27.591
+Run   66: Team DPAV: 33793.344 | Ashveil: 19615.034 | MortenaxBlade: 8001.786 | Cipher: 5965.316 | HuoHuo: 27.591
+Run   67: Team DPAV: 33773.664 | Ashveil: 17412.024 | MortenaxBlade: 9744.112 | Cipher: 6356.512 | HuoHuo: 27.591
+Run   68: Team DPAV: 32575.838 | Ashveil: 17513.119 | MortenaxBlade: 8728.015 | Cipher: 6073.688 | HuoHuo: 27.591
+Run   69: Team DPAV: 34516.889 | Ashveil: 17495.771 | MortenaxBlade: 10229.848 | Cipher: 6530.254 | HuoHuo: 27.591
+Run   70: Team DPAV: 32398.780 | Ashveil: 17455.950 | MortenaxBlade: 8637.364 | Cipher: 6044.450 | HuoHuo: 27.591
+Run   71: Team DPAV: 31891.111 | Ashveil: 17095.660 | MortenaxBlade: 8561.577 | Cipher: 5997.761 | HuoHuo: 27.591
+Run   72: Team DPAV: 35797.326 | Ashveil: 19274.940 | MortenaxBlade: 9767.422 | Cipher: 6518.852 | HuoHuo: 27.591
+Run   73: Team DPAV: 38137.048 | Ashveil: 19643.738 | MortenaxBlade: 11560.107 | Cipher: 6672.187 | HuoHuo: 27.591
+Run   74: Team DPAV: 33408.417 | Ashveil: 16952.408 | MortenaxBlade: 9898.221 | Cipher: 6296.771 | HuoHuo: 27.591
+Run   75: Team DPAV: 37191.823 | Ashveil: 20209.058 | MortenaxBlade: 10108.888 | Cipher: 6642.101 | HuoHuo: 23.255
+Run   76: Team DPAV: 36455.675 | Ashveil: 20002.448 | MortenaxBlade: 9700.203 | Cipher: 6492.007 | HuoHuo: 27.591
+Run   77: Team DPAV: 36263.026 | Ashveil: 19696.531 | MortenaxBlade: 9681.098 | Cipher: 6624.380 | HuoHuo: 27.591
+Run   78: Team DPAV: 36798.406 | Ashveil: 20055.818 | MortenaxBlade: 9794.739 | Cipher: 6711.736 | HuoHuo: 27.591
+Run   79: Team DPAV: 37912.703 | Ashveil: 21041.708 | MortenaxBlade: 10344.704 | Cipher: 6265.274 | HuoHuo: 27.591
+Run   80: Team DPAV: 38023.146 | Ashveil: 19784.110 | MortenaxBlade: 11310.831 | Cipher: 6667.189 | HuoHuo: 27.591
+Run   81: Team DPAV: 33871.604 | Ashveil: 17257.877 | MortenaxBlade: 9988.872 | Cipher: 6363.839 | HuoHuo: 27.591
+Run   82: Team DPAV: 35365.762 | Ashveil: 19230.587 | MortenaxBlade: 9602.181 | Cipher: 6271.978 | HuoHuo: 27.591
+Run   83: Team DPAV: 38822.560 | Ashveil: 20639.689 | MortenaxBlade: 11521.308 | Cipher: 6400.547 | HuoHuo: 27.591
+Run   84: Team DPAV: 35646.214 | Ashveil: 20400.854 | MortenaxBlade: 8542.422 | Cipher: 6441.920 | HuoHuo: 27.591
+Run   85: Team DPAV: 36034.321 | Ashveil: 19140.227 | MortenaxBlade: 10155.480 | Cipher: 6477.598 | HuoHuo: 27.591
+Run   86: Team DPAV: 38749.574 | Ashveil: 20741.876 | MortenaxBlade: 11327.951 | Cipher: 6418.731 | HuoHuo: 27.591
+Run   87: Team DPAV: 38838.168 | Ashveil: 20753.267 | MortenaxBlade: 11391.236 | Cipher: 6432.649 | HuoHuo: 27.591
+Run   88: Team DPAV: 35881.275 | Ashveil: 18890.547 | MortenaxBlade: 10270.577 | Cipher: 6459.134 | HuoHuo: 27.591
+Run   89: Team DPAV: 39015.226 | Ashveil: 20810.435 | MortenaxBlade: 11481.887 | Cipher: 6461.887 | HuoHuo: 27.591
+Run   90: Team DPAV: 35530.740 | Ashveil: 19323.652 | MortenaxBlade: 9580.909 | Cipher: 6390.066 | HuoHuo: 27.591
+Run   91: Team DPAV: 36726.137 | Ashveil: 19549.226 | MortenaxBlade: 10296.906 | Cipher: 6618.989 | HuoHuo: 27.591
+Run   92: Team DPAV: 37914.004 | Ashveil: 20224.723 | MortenaxBlade: 10517.834 | Cipher: 6913.837 | HuoHuo: 27.591
+Run   93: Team DPAV: 32486.283 | Ashveil: 17566.406 | MortenaxBlade: 8554.614 | Cipher: 6104.247 | HuoHuo: 27.591
+Run   94: Team DPAV: 39016.498 | Ashveil: 20288.803 | MortenaxBlade: 11519.353 | Cipher: 6972.229 | HuoHuo: 27.591
+Run   95: Team DPAV: 31600.960 | Ashveil: 17169.835 | MortenaxBlade: 8325.159 | Cipher: 5869.854 | HuoHuo: 27.591
+Run   96: Team DPAV: 33412.766 | Ashveil: 18998.351 | MortenaxBlade: 8041.370 | Cipher: 6087.125 | HuoHuo: 27.591
+Run   97: Team DPAV: 32848.872 | Ashveil: 17513.119 | MortenaxBlade: 8930.974 | Cipher: 6143.764 | HuoHuo: 27.591
+Run   98: Team DPAV: 35451.667 | Ashveil: 19857.839 | MortenaxBlade: 9280.677 | Cipher: 6052.134 | HuoHuo: 27.591
+Run   99: Team DPAV: 34477.902 | Ashveil: 19660.342 | MortenaxBlade: 8441.087 | Cipher: 6090.553 | HuoHuo: 27.591
+Run  100: Team DPAV: 32708.678 | Ashveil: 17476.851 | MortenaxBlade: 8803.585 | Cipher: 6167.226 | HuoHuo: 27.591
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 35685.800
+Average Ashveil DPAV: 19193.140
+Average MortenaxBlade DPAV: 9865.686
+Average Cipher DPAV: 6371.262
+Average HuoHuo DPAV: 27.370
+
+Min Team DPAV: 31600.960
+Max Team DPAV: 39041.366

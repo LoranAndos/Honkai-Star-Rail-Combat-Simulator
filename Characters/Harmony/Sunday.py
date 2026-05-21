@@ -28,6 +28,7 @@ class Sunday(Character):
     currEnergy = 65 + 25  # Bonus 25 from major trace 2
     ultCost = 130
     currAV = 0
+    aggro = 100
     dmgDct = {AtkType.BSC: 0, AtkType.BRK: 0}  # Adjust accordingly
 
     # Unique Character Properties

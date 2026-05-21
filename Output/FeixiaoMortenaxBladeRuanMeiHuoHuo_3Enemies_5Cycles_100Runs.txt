@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 13604.668 | Feixiao: 6514.596 | MortenaxBlade: 6219.351 | RuanMei: 693.638 | HuoHuo: 80.959
+Run    2: Team DPAV: 13990.061 | Feixiao: 6392.014 | MortenaxBlade: 6745.943 | RuanMei: 675.020 | HuoHuo: 80.959
+Run    3: Team DPAV: 13545.690 | Feixiao: 6463.006 | MortenaxBlade: 6230.580 | RuanMei: 675.020 | HuoHuo: 80.959
+Run    4: Team DPAV: 14199.282 | Feixiao: 6510.525 | MortenaxBlade: 6818.036 | RuanMei: 693.638 | HuoHuo: 80.959
+Run    5: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run    6: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run    7: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run    8: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run    9: Team DPAV: 14099.907 | Feixiao: 6443.604 | MortenaxBlade: 6782.922 | RuanMei: 693.638 | HuoHuo: 83.619
+Run   10: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   11: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   12: Team DPAV: 13457.715 | Feixiao: 6495.521 | MortenaxBlade: 6091.472 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   13: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   14: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   15: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   16: Team DPAV: 13808.615 | Feixiao: 6443.931 | MortenaxBlade: 6496.292 | RuanMei: 671.071 | HuoHuo: 80.959
+Run   17: Team DPAV: 12507.488 | Feixiao: 6331.040 | MortenaxBlade: 5326.039 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   18: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   19: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   20: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   21: Team DPAV: 13922.609 | Feixiao: 6654.445 | MortenaxBlade: 6392.384 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   22: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   23: Team DPAV: 13753.119 | Feixiao: 6654.445 | MortenaxBlade: 6222.894 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   24: Team DPAV: 13753.119 | Feixiao: 6654.445 | MortenaxBlade: 6222.894 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   25: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   26: Team DPAV: 13922.609 | Feixiao: 6654.445 | MortenaxBlade: 6392.384 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   27: Team DPAV: 13790.098 | Feixiao: 6654.445 | MortenaxBlade: 6259.872 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   28: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   29: Team DPAV: 13990.061 | Feixiao: 6392.014 | MortenaxBlade: 6745.943 | RuanMei: 675.020 | HuoHuo: 80.959
+Run   30: Team DPAV: 13737.981 | Feixiao: 6392.014 | MortenaxBlade: 6477.575 | RuanMei: 671.071 | HuoHuo: 80.959
+Run   31: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   32: Team DPAV: 14060.269 | Feixiao: 6443.604 | MortenaxBlade: 6745.943 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   33: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   34: Team DPAV: 14119.234 | Feixiao: 6443.604 | MortenaxBlade: 6799.849 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   35: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   36: Team DPAV: 13545.690 | Feixiao: 6463.006 | MortenaxBlade: 6230.580 | RuanMei: 675.020 | HuoHuo: 80.959
+Run   37: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   38: Team DPAV: 14119.234 | Feixiao: 6443.604 | MortenaxBlade: 6799.849 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   39: Team DPAV: 12474.918 | Feixiao: 6440.046 | MortenaxBlade: 5159.091 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   40: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   41: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   42: Team DPAV: 13106.685 | Feixiao: 6477.292 | MortenaxBlade: 5778.984 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   43: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   44: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   45: Team DPAV: 13389.112 | Feixiao: 6440.046 | MortenaxBlade: 6073.285 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   46: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   47: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   48: Team DPAV: 13484.795 | Feixiao: 6730.001 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 83.406
+Run   49: Team DPAV: 13604.668 | Feixiao: 6514.596 | MortenaxBlade: 6219.351 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   50: Team DPAV: 12415.953 | Feixiao: 6440.046 | MortenaxBlade: 5105.185 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   51: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   52: Team DPAV: 14119.234 | Feixiao: 6443.604 | MortenaxBlade: 6799.849 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   53: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   54: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   55: Team DPAV: 12780.363 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 81.120
+Run   56: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   57: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   58: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   59: Team DPAV: 13922.609 | Feixiao: 6654.445 | MortenaxBlade: 6392.384 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   60: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   61: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   62: Team DPAV: 13443.027 | Feixiao: 6629.929 | MortenaxBlade: 5927.784 | RuanMei: 690.493 | HuoHuo: 78.460
+Run   63: Team DPAV: 14444.854 | Feixiao: 6670.767 | MortenaxBlade: 6898.306 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   64: Team DPAV: 13753.119 | Feixiao: 6654.445 | MortenaxBlade: 6222.894 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   65: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   66: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   67: Team DPAV: 12886.816 | Feixiao: 6500.763 | MortenaxBlade: 5596.254 | RuanMei: 587.631 | HuoHuo: 80.746
+Run   68: Team DPAV: 14129.075 | Feixiao: 6458.935 | MortenaxBlade: 6818.036 | RuanMei: 675.020 | HuoHuo: 80.959
+Run   69: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   70: Team DPAV: 13615.898 | Feixiao: 6514.596 | MortenaxBlade: 6230.580 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   71: Team DPAV: 13413.872 | Feixiao: 6443.931 | MortenaxBlade: 6117.837 | RuanMei: 675.020 | HuoHuo: 80.959
+Run   72: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   73: Team DPAV: 13922.609 | Feixiao: 6654.445 | MortenaxBlade: 6392.384 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   74: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   75: Team DPAV: 14060.269 | Feixiao: 6443.604 | MortenaxBlade: 6745.943 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   76: Team DPAV: 13389.112 | Feixiao: 6440.046 | MortenaxBlade: 6073.285 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   77: Team DPAV: 13975.941 | Feixiao: 6706.350 | MortenaxBlade: 6393.810 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   78: Team DPAV: 13604.668 | Feixiao: 6514.596 | MortenaxBlade: 6219.351 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   79: Team DPAV: 13676.922 | Feixiao: 6655.763 | MortenaxBlade: 6145.378 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   80: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   81: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   82: Team DPAV: 13429.373 | Feixiao: 6730.001 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 83.406
+Run   83: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   84: Team DPAV: 14060.269 | Feixiao: 6443.604 | MortenaxBlade: 6745.943 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   85: Team DPAV: 14199.282 | Feixiao: 6510.525 | MortenaxBlade: 6818.036 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   86: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   87: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   88: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   89: Team DPAV: 13753.119 | Feixiao: 6654.445 | MortenaxBlade: 6222.894 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   90: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   91: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   92: Team DPAV: 12777.703 | Feixiao: 6331.040 | MortenaxBlade: 5596.254 | RuanMei: 675.825 | HuoHuo: 78.460
+Run   93: Team DPAV: 13676.922 | Feixiao: 6655.763 | MortenaxBlade: 6145.378 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   94: Team DPAV: 13768.907 | Feixiao: 6506.684 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 83.619
+Run   95: Team DPAV: 13254.703 | Feixiao: 6560.278 | MortenaxBlade: 5825.398 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   96: Team DPAV: 12345.745 | Feixiao: 6388.456 | MortenaxBlade: 5105.185 | RuanMei: 675.020 | HuoHuo: 80.959
+Run   97: Team DPAV: 13310.125 | Feixiao: 6560.278 | MortenaxBlade: 5875.761 | RuanMei: 694.443 | HuoHuo: 78.460
+Run   98: Team DPAV: 13774.158 | Feixiao: 6514.596 | MortenaxBlade: 6388.841 | RuanMei: 693.638 | HuoHuo: 80.959
+Run   99: Team DPAV: 14102.819 | Feixiao: 6443.604 | MortenaxBlade: 6782.922 | RuanMei: 693.638 | HuoHuo: 86.530
+Run  100: Team DPAV: 12480.489 | Feixiao: 6440.046 | MortenaxBlade: 5159.091 | RuanMei: 693.638 | HuoHuo: 86.530
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 13433.700
+Average Feixiao DPAV: 6511.492
+Average MortenaxBlade DPAV: 6054.757
+Average RuanMei DPAV: 688.572
+Average HuoHuo DPAV: 80.022
+
+Min Team DPAV: 12345.745
+Max Team DPAV: 14444.854

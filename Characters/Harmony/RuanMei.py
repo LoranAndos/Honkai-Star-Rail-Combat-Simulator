@@ -32,6 +32,7 @@ class RuanMei(Character):
     currEnergy = 65
     ultCost = 130
     currAV = 0
+    aggro = 100
     dmgDct = {AtkType.BSC: 0, AtkType.BRK: 0, AtkType.SBK: 0}  # Adjust accordingly
 
     # Unique Character Properties

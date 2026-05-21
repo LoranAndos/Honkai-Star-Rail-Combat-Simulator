@@ -5,12 +5,10 @@ from Character import Character
 from Attributes import *
 from Lightcones.Nihility.ReforgedInHellfire import ReforgedInHellfire
 from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade
-from Lightcones.Nihility.GoodNightAndSleepWell import GoodNightAndSleepWell
-from Planars.BoneCollectionsSereneDemesne import BoneCollectionsSereneDemesne
-from Planars.DuranDynastyOfRunningWolves import DuranDynastyOfRunningWolves
+from Lightcones.Nihility.LiesDanceOnTheBreeze import LiesDanceOnTheBreeze
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
-from Relics.DivineQueryingMasterSmith import DivineQueryMasterSmith
+from Relics.PioneerDiverOfDeadWaters import PioneerCipher
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -53,7 +51,7 @@ class Cipher(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else ResolutionMortenaxBlade(role, 5)
-        self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
+        self.relic1 = r1 if r1 else PioneerCipher(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)
         self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 4, 2, 10, 2, StatTypes.EHR_PERCENT, StatTypes.SPD,

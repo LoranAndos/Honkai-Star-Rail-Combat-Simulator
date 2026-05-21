@@ -3,6 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Hunt.TheFinaleOfALie import TheFinaleOfALie
+from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
 from Planars.CityOfConvergingStars import CityOfConvergingStars
 from RelicStats import RelicStats
 from Relics.TheAshblazingGrandDuke import DukeAshveil
@@ -45,15 +46,17 @@ class Ashveil(Character):
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
+    # With Sparkle:
+    # self.relicStats = subs if subs else RelicStats(2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else TheFinaleOfALie(role, 1)
+        self.lightcone = lc if lc else CruisingInTheStellarSea(role, 5)
         self.relic1 = r1 if r1 else DukeAshveil(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else CityOfConvergingStars(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 7, 2, 2, 2, 2, 2, 12, 4, StatTypes.CR_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.GluttonyCap = 18 if self.eidolon >= 2 else 12

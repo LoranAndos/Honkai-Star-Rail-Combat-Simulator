@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run    2: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run    3: Team DPAV: 20751.568 | Feixiao: 8717.722 | MortenaxBlade: 4333.471 | Ashveil: 7518.815 | HuoHuo: 55.121
+Run    4: Team DPAV: 20838.310 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7286.763 | HuoHuo: 54.971
+Run    5: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run    6: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run    7: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run    8: Team DPAV: 21333.056 | Feixiao: 8852.914 | MortenaxBlade: 4532.030 | Ashveil: 7766.702 | HuoHuo: 54.971
+Run    9: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run   10: Team DPAV: 20149.523 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7159.389 | HuoHuo: 55.121
+Run   11: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   12: Team DPAV: 21335.771 | Feixiao: 8873.358 | MortenaxBlade: 4383.297 | Ashveil: 7897.706 | HuoHuo: 54.971
+Run   13: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   14: Team DPAV: 20388.335 | Feixiao: 8717.722 | MortenaxBlade: 4333.471 | Ashveil: 7155.582 | HuoHuo: 55.121
+Run   15: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   16: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   17: Team DPAV: 21056.123 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7639.618 | HuoHuo: 55.121
+Run   18: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   19: Team DPAV: 17971.841 | Feixiao: 7798.939 | MortenaxBlade: 3434.461 | Ashveil: 6557.031 | HuoHuo: 54.971
+Run   20: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   21: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   22: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   23: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run   24: Team DPAV: 20276.404 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7286.270 | HuoHuo: 55.121
+Run   25: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   26: Team DPAV: 20983.631 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7447.018 | HuoHuo: 55.121
+Run   27: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   28: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   29: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run   30: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   31: Team DPAV: 21056.123 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7639.618 | HuoHuo: 55.121
+Run   32: Team DPAV: 21326.370 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7789.757 | HuoHuo: 55.121
+Run   33: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   34: Team DPAV: 20707.394 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7155.847 | HuoHuo: 54.971
+Run   35: Team DPAV: 21355.075 | Feixiao: 8873.358 | MortenaxBlade: 4402.601 | Ashveil: 7897.706 | HuoHuo: 54.971
+Run   36: Team DPAV: 21326.370 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7789.757 | HuoHuo: 55.121
+Run   37: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   38: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   39: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   40: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   41: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   42: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   43: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   44: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   45: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   46: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   47: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   48: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   49: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run   50: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   51: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   52: Team DPAV: 20601.741 | Feixiao: 8912.035 | MortenaxBlade: 4252.648 | Ashveil: 7255.498 | HuoHuo: 55.121
+Run   53: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   54: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   55: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   56: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   57: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   58: Team DPAV: 21275.044 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7738.431 | HuoHuo: 55.121
+Run   59: Team DPAV: 20716.690 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7165.143 | HuoHuo: 54.971
+Run   60: Team DPAV: 20076.093 | Feixiao: 8717.722 | MortenaxBlade: 3900.481 | Ashveil: 7276.330 | HuoHuo: 55.121
+Run   61: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   62: Team DPAV: 21326.370 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7789.757 | HuoHuo: 55.121
+Run   63: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   64: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   65: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   66: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   67: Team DPAV: 21023.780 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7487.317 | HuoHuo: 54.971
+Run   68: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   69: Team DPAV: 20983.631 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7447.018 | HuoHuo: 55.121
+Run   70: Team DPAV: 20418.608 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7428.624 | HuoHuo: 54.971
+Run   71: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   72: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   73: Team DPAV: 21326.370 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7789.757 | HuoHuo: 55.121
+Run   74: Team DPAV: 20953.675 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7399.234 | HuoHuo: 55.121
+Run   75: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   76: Team DPAV: 21239.776 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7703.163 | HuoHuo: 55.121
+Run   77: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   78: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   79: Team DPAV: 21196.046 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7644.499 | HuoHuo: 54.971
+Run   80: Team DPAV: 20418.608 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7428.624 | HuoHuo: 54.971
+Run   81: Team DPAV: 20870.610 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7454.105 | HuoHuo: 55.121
+Run   82: Team DPAV: 21056.123 | Feixiao: 8717.722 | MortenaxBlade: 4517.223 | Ashveil: 7639.618 | HuoHuo: 55.121
+Run   83: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   84: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   85: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   86: Team DPAV: 21195.171 | Feixiao: 8679.045 | MortenaxBlade: 4511.468 | Ashveil: 7823.248 | HuoHuo: 54.971
+Run   87: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   88: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   89: Team DPAV: 21196.046 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7644.499 | HuoHuo: 54.971
+Run   90: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   91: Team DPAV: 20535.410 | Feixiao: 8912.035 | MortenaxBlade: 4252.648 | Ashveil: 7189.168 | HuoHuo: 55.121
+Run   92: Team DPAV: 20418.608 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7428.624 | HuoHuo: 54.971
+Run   93: Team DPAV: 20505.770 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7515.787 | HuoHuo: 54.971
+Run   94: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   95: Team DPAV: 21033.197 | Feixiao: 8855.658 | MortenaxBlade: 4517.223 | Ashveil: 7478.756 | HuoHuo: 55.121
+Run   96: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+Run   97: Team DPAV: 20418.608 | Feixiao: 8717.722 | MortenaxBlade: 4090.852 | Ashveil: 7428.624 | HuoHuo: 54.971
+Run   98: Team DPAV: 21141.199 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7604.586 | HuoHuo: 55.121
+Run   99: Team DPAV: 20838.310 | Feixiao: 8852.914 | MortenaxBlade: 4517.223 | Ashveil: 7286.763 | HuoHuo: 54.971
+Run  100: Team DPAV: 21074.869 | Feixiao: 8912.035 | MortenaxBlade: 4443.018 | Ashveil: 7538.255 | HuoHuo: 55.121
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 20959.900
+Average Feixiao DPAV: 8838.319
+Average MortenaxBlade DPAV: 4421.918
+Average Ashveil DPAV: 7518.129
+Average HuoHuo DPAV: 55.095
+
+Min Team DPAV: 17971.841
+Max Team DPAV: 21355.075

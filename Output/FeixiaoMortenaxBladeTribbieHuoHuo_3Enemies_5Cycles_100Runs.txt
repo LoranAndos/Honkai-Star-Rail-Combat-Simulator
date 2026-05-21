@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 20206.159 | Feixiao: 9358.424 | MortenaxBlade: 7920.406 | Tribbie: 2729.167 | HuoHuo: 70.471
+Run    2: Team DPAV: 21051.785 | Feixiao: 10232.961 | MortenaxBlade: 7694.291 | Tribbie: 2902.060 | HuoHuo: 69.244
+Run    3: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run    4: Team DPAV: 18428.152 | Feixiao: 8609.441 | MortenaxBlade: 7116.230 | Tribbie: 2529.875 | HuoHuo: 70.453
+Run    5: Team DPAV: 21188.764 | Feixiao: 10144.994 | MortenaxBlade: 7961.422 | Tribbie: 2797.257 | HuoHuo: 131.862
+Run    6: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run    7: Team DPAV: 20210.865 | Feixiao: 9561.386 | MortenaxBlade: 7719.541 | Tribbie: 2761.958 | HuoHuo: 65.828
+Run    8: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run    9: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   10: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   11: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   12: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   13: Team DPAV: 20559.659 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2795.532 | HuoHuo: 70.453
+Run   14: Team DPAV: 20016.175 | Feixiao: 9459.859 | MortenaxBlade: 7648.817 | Tribbie: 2685.026 | HuoHuo: 69.244
+Run   15: Team DPAV: 20478.769 | Feixiao: 9561.049 | MortenaxBlade: 7954.796 | Tribbie: 2765.990 | HuoHuo: 69.244
+Run   16: Team DPAV: 20480.296 | Feixiao: 9541.071 | MortenaxBlade: 7979.184 | Tribbie: 2787.436 | HuoHuo: 70.453
+Run   17: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   18: Team DPAV: 18784.278 | Feixiao: 8891.795 | MortenaxBlade: 6991.140 | Tribbie: 2701.936 | HuoHuo: 71.717
+Run   19: Team DPAV: 19333.117 | Feixiao: 9415.464 | MortenaxBlade: 7080.494 | Tribbie: 2663.308 | HuoHuo: 71.698
+Run   20: Team DPAV: 19305.945 | Feixiao: 9372.157 | MortenaxBlade: 7103.189 | Tribbie: 2656.748 | HuoHuo: 71.698
+Run   21: Team DPAV: 19801.394 | Feixiao: 9207.972 | MortenaxBlade: 7686.813 | Tribbie: 2676.010 | HuoHuo: 128.446
+Run   22: Team DPAV: 20487.607 | Feixiao: 9578.649 | MortenaxBlade: 7943.448 | Tribbie: 2768.575 | HuoHuo: 69.244
+Run   23: Team DPAV: 20344.188 | Feixiao: 9511.235 | MortenaxBlade: 7909.806 | Tribbie: 2749.296 | HuoHuo: 71.698
+Run   24: Team DPAV: 19339.586 | Feixiao: 9449.404 | MortenaxBlade: 7047.797 | Tribbie: 2644.224 | HuoHuo: 70.471
+Run   25: Team DPAV: 20950.715 | Feixiao: 9809.292 | MortenaxBlade: 8176.329 | Tribbie: 2793.716 | HuoHuo: 69.225
+Run   26: Team DPAV: 20251.478 | Feixiao: 9372.157 | MortenaxBlade: 7966.143 | Tribbie: 2739.327 | HuoHuo: 71.698
+Run   27: Team DPAV: 20661.338 | Feixiao: 9751.267 | MortenaxBlade: 7929.809 | Tribbie: 2807.657 | HuoHuo: 70.453
+Run   28: Team DPAV: 20558.629 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2794.501 | HuoHuo: 70.453
+Run   29: Team DPAV: 20702.090 | Feixiao: 9776.333 | MortenaxBlade: 7979.184 | Tribbie: 2773.968 | HuoHuo: 70.453
+Run   30: Team DPAV: 20487.607 | Feixiao: 9578.649 | MortenaxBlade: 7943.448 | Tribbie: 2768.575 | HuoHuo: 69.244
+Run   31: Team DPAV: 20702.265 | Feixiao: 9783.655 | MortenaxBlade: 7988.356 | Tribbie: 2758.877 | HuoHuo: 69.225
+Run   32: Team DPAV: 19994.243 | Feixiao: 9395.352 | MortenaxBlade: 7720.139 | Tribbie: 2708.298 | HuoHuo: 68.301
+Run   33: Team DPAV: 18297.487 | Feixiao: 8480.261 | MortenaxBlade: 7046.851 | Tribbie: 2596.524 | HuoHuo: 71.698
+Run   34: Team DPAV: 18016.912 | Feixiao: 8425.515 | MortenaxBlade: 6926.563 | Tribbie: 2495.626 | HuoHuo: 67.055
+Run   35: Team DPAV: 20245.207 | Feixiao: 9355.910 | MortenaxBlade: 7941.521 | Tribbie: 2750.860 | HuoHuo: 69.225
+Run   36: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   37: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   38: Team DPAV: 20443.336 | Feixiao: 9554.303 | MortenaxBlade: 7919.807 | Tribbie: 2769.836 | HuoHuo: 71.698
+Run   39: Team DPAV: 20559.659 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2795.532 | HuoHuo: 70.453
+Run   40: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   41: Team DPAV: 20950.715 | Feixiao: 9809.292 | MortenaxBlade: 8176.329 | Tribbie: 2793.716 | HuoHuo: 69.225
+Run   42: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   43: Team DPAV: 20467.624 | Feixiao: 9549.687 | MortenaxBlade: 7944.196 | Tribbie: 2776.826 | HuoHuo: 69.225
+Run   44: Team DPAV: 20232.151 | Feixiao: 9449.404 | MortenaxBlade: 7862.124 | Tribbie: 2722.461 | HuoHuo: 70.471
+Run   45: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   46: Team DPAV: 20950.715 | Feixiao: 9809.292 | MortenaxBlade: 8176.329 | Tribbie: 2793.716 | HuoHuo: 69.225
+Run   47: Team DPAV: 20166.134 | Feixiao: 9276.385 | MortenaxBlade: 7966.143 | Tribbie: 2749.755 | HuoHuo: 71.698
+Run   48: Team DPAV: 19867.586 | Feixiao: 9207.972 | MortenaxBlade: 7721.801 | Tribbie: 2703.816 | HuoHuo: 131.844
+Run   49: Team DPAV: 18800.375 | Feixiao: 8930.228 | MortenaxBlade: 6967.499 | Tribbie: 2703.240 | HuoHuo: 71.717
+Run   50: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   51: Team DPAV: 20127.211 | Feixiao: 9262.652 | MortenaxBlade: 7930.407 | Tribbie: 2735.990 | HuoHuo: 70.471
+Run   52: Team DPAV: 20471.339 | Feixiao: 9549.687 | MortenaxBlade: 7944.196 | Tribbie: 2780.540 | HuoHuo: 69.225
+Run   53: Team DPAV: 20271.226 | Feixiao: 9306.037 | MortenaxBlade: 7965.912 | Tribbie: 2737.269 | HuoHuo: 134.317
+Run   54: Team DPAV: 20605.174 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2841.046 | HuoHuo: 70.453
+Run   55: Team DPAV: 19538.949 | Feixiao: 9565.207 | MortenaxBlade: 7108.352 | Tribbie: 2642.899 | HuoHuo: 69.262
+Run   56: Team DPAV: 20285.188 | Feixiao: 9628.019 | MortenaxBlade: 7765.877 | Tribbie: 2722.084 | HuoHuo: 67.055
+Run   57: Team DPAV: 20145.411 | Feixiao: 9365.335 | MortenaxBlade: 7862.124 | Tribbie: 2721.036 | HuoHuo: 69.225
+Run   58: Team DPAV: 20045.770 | Feixiao: 9283.680 | MortenaxBlade: 7908.460 | Tribbie: 2656.695 | HuoHuo: 69.244
+Run   59: Team DPAV: 20131.775 | Feixiao: 9327.143 | MortenaxBlade: 7884.819 | Tribbie: 2721.651 | HuoHuo: 70.471
+Run   60: Team DPAV: 20950.715 | Feixiao: 9809.292 | MortenaxBlade: 8176.329 | Tribbie: 2793.716 | HuoHuo: 69.225
+Run   61: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   62: Team DPAV: 20182.193 | Feixiao: 9366.363 | MortenaxBlade: 7943.448 | Tribbie: 2675.447 | HuoHuo: 69.244
+Run   63: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   64: Team DPAV: 20533.772 | Feixiao: 9518.449 | MortenaxBlade: 8042.546 | Tribbie: 2775.842 | HuoHuo: 69.244
+Run   65: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   66: Team DPAV: 20605.174 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2841.046 | HuoHuo: 70.453
+Run   67: Team DPAV: 21167.808 | Feixiao: 10083.554 | MortenaxBlade: 8013.743 | Tribbie: 2785.420 | HuoHuo: 131.862
+Run   68: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   69: Team DPAV: 19819.623 | Feixiao: 9207.972 | MortenaxBlade: 7698.161 | Tribbie: 2682.891 | HuoHuo: 128.446
+Run   70: Team DPAV: 20702.090 | Feixiao: 9776.333 | MortenaxBlade: 7979.184 | Tribbie: 2773.968 | HuoHuo: 70.453
+Run   71: Team DPAV: 18442.741 | Feixiao: 8618.873 | MortenaxBlade: 7056.255 | Tribbie: 2596.234 | HuoHuo: 69.225
+Run   72: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   73: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   74: Team DPAV: 20580.915 | Feixiao: 9614.221 | MortenaxBlade: 7998.885 | Tribbie: 2770.874 | HuoHuo: 69.244
+Run   75: Team DPAV: 20661.338 | Feixiao: 9751.267 | MortenaxBlade: 7929.809 | Tribbie: 2807.657 | HuoHuo: 70.453
+Run   76: Team DPAV: 20268.077 | Feixiao: 9427.167 | MortenaxBlade: 7909.806 | Tribbie: 2758.499 | HuoHuo: 70.453
+Run   77: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   78: Team DPAV: 20556.225 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2792.097 | HuoHuo: 70.453
+Run   79: Team DPAV: 20232.151 | Feixiao: 9449.404 | MortenaxBlade: 7862.124 | Tribbie: 2722.461 | HuoHuo: 70.471
+Run   80: Team DPAV: 20145.411 | Feixiao: 9365.335 | MortenaxBlade: 7862.124 | Tribbie: 2721.036 | HuoHuo: 69.225
+Run   81: Team DPAV: 20476.862 | Feixiao: 9541.071 | MortenaxBlade: 7979.184 | Tribbie: 2784.001 | HuoHuo: 70.453
+Run   82: Team DPAV: 20460.655 | Feixiao: 9495.230 | MortenaxBlade: 8033.526 | Tribbie: 2758.029 | HuoHuo: 71.717
+Run   83: Team DPAV: 20932.848 | Feixiao: 9762.971 | MortenaxBlade: 8199.969 | Tribbie: 2798.529 | HuoHuo: 69.225
+Run   84: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   85: Team DPAV: 20491.039 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2776.769 | HuoHuo: 69.244
+Run   86: Team DPAV: 19111.424 | Feixiao: 9111.739 | MortenaxBlade: 7146.680 | Tribbie: 2653.597 | HuoHuo: 71.717
+Run   87: Team DPAV: 20345.839 | Feixiao: 9439.108 | MortenaxBlade: 7971.752 | Tribbie: 2712.506 | HuoHuo: 69.244
+Run   88: Team DPAV: 20559.659 | Feixiao: 9612.338 | MortenaxBlade: 7979.184 | Tribbie: 2795.532 | HuoHuo: 70.453
+Run   89: Team DPAV: 20303.546 | Feixiao: 9245.893 | MortenaxBlade: 7991.016 | Tribbie: 2768.794 | HuoHuo: 195.689
+Run   90: Team DPAV: 19820.430 | Feixiao: 9302.198 | MortenaxBlade: 7637.469 | Tribbie: 2659.516 | HuoHuo: 68.017
+Run   91: Team DPAV: 20303.429 | Feixiao: 9357.052 | MortenaxBlade: 7973.399 | Tribbie: 2799.108 | HuoHuo: 71.717
+Run   92: Team DPAV: 20577.670 | Feixiao: 9614.221 | MortenaxBlade: 7998.885 | Tribbie: 2767.629 | HuoHuo: 69.244
+Run   93: Team DPAV: 19885.815 | Feixiao: 9207.972 | MortenaxBlade: 7733.149 | Tribbie: 2710.697 | HuoHuo: 131.844
+Run   94: Team DPAV: 20370.301 | Feixiao: 9511.235 | MortenaxBlade: 7933.446 | Tribbie: 2751.768 | HuoHuo: 71.698
+Run   95: Team DPAV: 20132.573 | Feixiao: 9353.632 | MortenaxBlade: 7862.124 | Tribbie: 2718.655 | HuoHuo: 70.471
+Run   96: Team DPAV: 20646.102 | Feixiao: 9708.110 | MortenaxBlade: 7979.184 | Tribbie: 2786.202 | HuoHuo: 70.453
+Run   97: Team DPAV: 20190.536 | Feixiao: 9374.706 | MortenaxBlade: 7943.448 | Tribbie: 2675.447 | HuoHuo: 69.244
+Run   98: Team DPAV: 20487.793 | Feixiao: 9518.449 | MortenaxBlade: 7998.885 | Tribbie: 2773.524 | HuoHuo: 69.244
+Run   99: Team DPAV: 20064.437 | Feixiao: 9181.498 | MortenaxBlade: 7975.843 | Tribbie: 2707.688 | HuoHuo: 71.717
+Run  100: Team DPAV: 20051.853 | Feixiao: 9409.382 | MortenaxBlade: 7730.889 | Tribbie: 2718.064 | HuoHuo: 65.828
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 20261.089
+Average Feixiao DPAV: 9473.014
+Average MortenaxBlade DPAV: 7847.715
+Average Tribbie DPAV: 2747.233
+Average HuoHuo DPAV: 75.396
+
+Min Team DPAV: 18016.912
+Max Team DPAV: 21188.764

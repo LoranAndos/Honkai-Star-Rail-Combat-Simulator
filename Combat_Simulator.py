@@ -1,5 +1,6 @@
 import logging
 
+import Enemy
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
 from Characters.Harmony.RuanMei import RuanMei
@@ -11,10 +12,10 @@ from Characters.Nihility.Cipher import Cipher
 from Characters.Nihility.Pela import Pela
 from Characters.Hunt.Ashveil import Ashveil
 from Characters.Hunt.Feixiao import Feixiao
+from Characters.Hunt.Topaz import Topaz
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Harmony.Tribbie import Tribbie
-from Characters.Elation.Sparxie import Sparxie
-from Characters.Elation.Yao_Guang import YaoGuang
+from Characters.Harmony.Robin import Robin
 from MainFunctions import *
 from Enemy import *
 from Enemy import FINITE_ENEMY_HP, KILL_ENERGY
@@ -29,13 +30,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                    outputLog: bool = False, enemyModule=None, manualMode=False) -> str:
     # =============== SETTINGS ===============
     # Enemy Settings
-    numEnemies = 3
-    enemyLevel = [95, 95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE] # make sure that the number of entries in this list is the same as "numEnemies"
-    enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
-    toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
+    numEnemies = 2
+    enemyLevel = [95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS] # make sure that the number of entries in this list is the same as "numEnemies"
+    enemySPD = [130, 158.4]  # make sure that the number of entries in this list is the same as "numEnemies"
+    toughness = [100, 160]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.FIRE]
+    weaknesses = [Element.WIND]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -54,10 +55,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Sparxie(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = Lingsha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -240,6 +241,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                     playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,
                     bl, dbl, al, dl, hl)
                 turnList.extend(tl)
+                if dbl:
+                    acheron = next((c for c in playerTeam if c.name == "Acheron"), None)
+                    if acheron:
+                        acheron._addSlashedDream(1)
+                        knotTarget = acheron._knotTarget()
+                        acheron._addKnot(knotTarget)
+                        logging.debug(f"ACHERON > +1 Slashed Dream from useHit debuffs ({acheron.currEnergy}/{acheron.maxEnergy})")
             energyMsg = "    CharEnergy -"
             for i in range(len(playerTeam)):
                 energyMsg += f" {playerTeam[i].name}: Hit {energyList[i]:.3f} Total: {playerTeam[i].currEnergy:.3f} |"
@@ -275,6 +283,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
                                                                           advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
+            if dbl:
+                acheron = next((c for c in playerTeam if c.name == "Acheron"), None)
+                if acheron:
+                    acheron._addSlashedDream(1)
+                    knotTarget = acheron._knotTarget()
+                    acheron._addKnot(knotTarget)
+                    logging.debug(f"ACHERON > +1 Slashed Dream from action debuffs ({acheron.currEnergy}/{acheron.maxEnergy})")
         elif unit.isChar() and unit.isSummon():
             action = f"ACTION > [SUMMON] TotalAV: {simAV:.3f} | TurnAV: {av:.3f} | {unit.name}"
             logging.critical(action)  # Summon logic
@@ -284,11 +299,30 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                                                                           advList, delayList, healingList, bl, dbl, al, dl, hl)
             turnList.extend(tl)
 
-        # Handle any pending attacks:
-        teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList  = processTurnList(turnList, playerTeam, summons, eTeam,
-                                                                                teamBuffs, enemyDebuffs, advList,
-                                                                                delayList, healingList, spTracker, dmg,
-                                                                                manualMode=manualMode)
+        # Handle any pending attacks, yielding to summons if they become ready mid-sequence
+        while turnList:
+            teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(turnList, playerTeam, summons, eTeam,
+                                                                                    teamBuffs, enemyDebuffs, advList,
+                                                                                    delayList, healingList, spTracker, dmg,
+                                                                                    manualMode=manualMode)
+            if turnList:
+                # A summon hit 0 AV mid-sequence — let it act before continuing
+                allUnits = sortUnits(allUnits)
+                setPriority(allUnits)
+                readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0]
+                for summon in readySummons:
+                    summonAction = f"ACTION > [SUMMON] TotalAV: {simAV:.3f} | TurnAV: 0.000 | {summon.name}"
+                    logging.critical(summonAction)
+                    manualPrint(manualMode, summonAction)
+                    bl, dbl, al, dl, tl, hl = summon.takeTurn()
+                    teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
+                                                                                  advList, delayList, healingList, bl, dbl, al, dl, hl)
+                    turnList.extend(tl)
+                    resetUnitAV(summon, teamBuffs, enemyDebuffs)
+                    avLog = f"AV     > {summon.name} AV reset to {summon.currAV:.3f} | {summon.currSPD:.3f} SPD"
+                    logging.warning(avLog)
+                if not readySummons:
+                    break  # should not happen, but guard against infinite loop
 
         # Handle any errGain from unit turns
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -415,10 +449,9 @@ if __name__ == "__main__":
 
     # Enemy setup — shared between single and multi run
 
-    enemyModule = EnemyModule(3, [95, 95, 95],
-                              [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE],
-                              [1])  # 5 enemyModule
+    enemyModule = EnemyModule(2, [95, 95],
+                              [EnemyType.ELITE, EnemyType.BOSS],
+                              [130, 158.4], [100, 160], atkRatio, [Element.WIND], [1])
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
     #enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 3 enemyModule
@@ -444,9 +477,9 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Sparxie(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -466,9 +499,9 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Sparxie(0, Role.DPS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,

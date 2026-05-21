@@ -5,6 +5,7 @@ from Buff import *
 from Character import Character
 from Delay_Text import *
 from Lightcones.Nihility.BeforeTheTutorialMissionStarts import BeforeTheTutorialMissionStarts
+from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionJQ
 from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine

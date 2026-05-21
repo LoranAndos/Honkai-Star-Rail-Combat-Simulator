@@ -283,11 +283,11 @@ def sumBuffs(buffList: list[Buff]):
     return sum([x.getBuffVal() for x in buffList])
 
 def getCharSPD(char, buffList):
-    if char.isSummon() and char.name != "Fuyuan" and char.name != "InfiniteFury":
+    if char.isSummon() and char.name != "Fuyuan" and char.name != "InfiniteFury" and char.name != "Numby":
         spdFlat = sumBuffs(findBuffs(char.role, StatTypes.SPD, buffList))
         spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
         return char.baseSPD * (1 + spdPercent) + spdFlat  # ← use baseSPD not currSPD
-    elif char.isSummon() and (char.name == "Fuyuan" or char.name == "InfiniteFury"):
+    elif char.isSummon() and (char.name == "Fuyuan" or char.name == "InfiniteFury" or char.name == "Numby"):
         return char.baseSPD
     baseSPD = char.baseSPD
     spdPercent = sumBuffs(findBuffs(char.role, StatTypes.SPD_PERCENT, buffList))
@@ -1258,7 +1258,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Cipher":
                 CharSPD = getCharSPD(specChar, buffList)
-                return Special(name=specStr, attr1=CharSPD, enemies=gauge)
+                enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
+                return Special(name=specStr, attr1=CharSPD, attr2=enemyDebuffs, enemies=gauge)
 
             case "DrRatio":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
@@ -1503,7 +1504,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "Topaz":
                 fireWeak = hasWeakness(Element.FIRE, enemyTeam)
                 canUlt = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
-                return Special(name=specStr, attr1=fireWeak, attr2=canUlt, enemies=gauge)
+                LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID if inTeam(playerTeam, "Ashveil") else -1
+                return Special(name=specStr, attr1=fireWeak, attr2=canUlt, attr3=LowestEnemyHPID, enemies=gauge)
 
             case "Tribbie":
                 CharacterList = []
@@ -1704,6 +1706,17 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
                 playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,
                 tempB, tempDB, tempA, tempD, tempH)
             turnList.extend(newTurns)
+
+        # Apply advances immediately after all ownTurn/allyTurn callbacks so summons
+        # like Numby can act between hits rather than receiving all advances at end of turn
+        if advList:
+            avAdjustment(playerTeam + summons, advList)
+            advList = []
+            # If any summon is now ready to act (AV <= 0), stop processing and return
+            # control to the main AV loop so the summon can be scheduled immediately
+            if any(s.currAV <= 0 for s in summons):
+                turnList = turnList[1:]
+                break
 
         # Grant Acheron 1 Slashed Dream if any debuff was emitted this turn
         acheron = next((c for c in playerTeam if c.name == "Acheron"), None)

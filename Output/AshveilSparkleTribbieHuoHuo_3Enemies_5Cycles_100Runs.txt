@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 26270.816 | Ashveil: 23599.311 | Sparkle: 0.000 | Tribbie: 2516.136 | HuoHuo: 19.167
-Run    2: Team DPAV: 24989.608 | Ashveil: 22393.076 | Sparkle: 0.000 | Tribbie: 2460.741 | HuoHuo: 19.238
-Run    3: Team DPAV: 25497.111 | Ashveil: 22854.540 | Sparkle: 0.000 | Tribbie: 2506.781 | HuoHuo: 19.238
-Run    4: Team DPAV: 26626.938 | Ashveil: 23972.784 | Sparkle: 0.000 | Tribbie: 2518.364 | HuoHuo: 19.238
-Run    5: Team DPAV: 25694.018 | Ashveil: 23151.120 | Sparkle: 0.000 | Tribbie: 2426.759 | HuoHuo: 19.238
-Run    6: Team DPAV: 26255.011 | Ashveil: 23610.784 | Sparkle: 0.000 | Tribbie: 2508.437 | HuoHuo: 19.238
-Run    7: Team DPAV: 25638.930 | Ashveil: 22986.102 | Sparkle: 0.000 | Tribbie: 2516.895 | HuoHuo: 19.382
-Run    8: Team DPAV: 25571.571 | Ashveil: 22766.927 | Sparkle: 0.000 | Tribbie: 2629.624 | HuoHuo: 19.167
-Run    9: Team DPAV: 22071.334 | Ashveil: 19759.567 | Sparkle: 0.000 | Tribbie: 2175.833 | HuoHuo: 19.382
-Run   10: Team DPAV: 26115.051 | Ashveil: 23458.388 | Sparkle: 0.000 | Tribbie: 2520.730 | HuoHuo: 19.382
-Run   11: Team DPAV: 25774.170 | Ashveil: 23159.421 | Sparkle: 0.000 | Tribbie: 2498.610 | HuoHuo: 19.238
-Run   12: Team DPAV: 26360.295 | Ashveil: 23593.219 | Sparkle: 0.000 | Tribbie: 2631.287 | HuoHuo: 19.238
-Run   13: Team DPAV: 21880.808 | Ashveil: 19668.422 | Sparkle: 0.000 | Tribbie: 2096.103 | HuoHuo: 19.382
-Run   14: Team DPAV: 26377.862 | Ashveil: 23616.344 | Sparkle: 0.000 | Tribbie: 2606.514 | HuoHuo: 19.238
-Run   15: Team DPAV: 22722.521 | Ashveil: 20287.488 | Sparkle: 0.000 | Tribbie: 2318.894 | HuoHuo: 19.238
-Run   16: Team DPAV: 21867.102 | Ashveil: 19405.889 | Sparkle: 0.000 | Tribbie: 2325.279 | HuoHuo: 19.382
-Run   17: Team DPAV: 25281.897 | Ashveil: 22717.993 | Sparkle: 0.000 | Tribbie: 2408.464 | HuoHuo: 19.238
-Run   18: Team DPAV: 23064.854 | Ashveil: 20602.373 | Sparkle: 0.000 | Tribbie: 2326.692 | HuoHuo: 19.238
-Run   19: Team DPAV: 26464.730 | Ashveil: 23699.858 | Sparkle: 0.000 | Tribbie: 2609.868 | HuoHuo: 19.238
-Run   20: Team DPAV: 25532.188 | Ashveil: 22886.821 | Sparkle: 0.000 | Tribbie: 2509.433 | HuoHuo: 19.382
-Run   21: Team DPAV: 25418.288 | Ashveil: 22800.479 | Sparkle: 0.000 | Tribbie: 2481.876 | HuoHuo: 19.382
-Run   22: Team DPAV: 25631.887 | Ashveil: 22980.685 | Sparkle: 0.000 | Tribbie: 2495.833 | HuoHuo: 19.167
-Run   23: Team DPAV: 25400.471 | Ashveil: 22694.002 | Sparkle: 0.000 | Tribbie: 2551.029 | HuoHuo: 19.238
-Run   24: Team DPAV: 25030.953 | Ashveil: 22477.578 | Sparkle: 0.000 | Tribbie: 2417.585 | HuoHuo: 19.238
-Run   25: Team DPAV: 22645.508 | Ashveil: 20227.289 | Sparkle: 0.000 | Tribbie: 2301.936 | HuoHuo: 19.382
-Run   26: Team DPAV: 22406.959 | Ashveil: 19931.917 | Sparkle: 0.000 | Tribbie: 2319.673 | HuoHuo: 19.167
-Run   27: Team DPAV: 21592.349 | Ashveil: 19387.523 | Sparkle: 0.000 | Tribbie: 2088.543 | HuoHuo: 19.382
-Run   28: Team DPAV: 24168.492 | Ashveil: 21626.557 | Sparkle: 0.000 | Tribbie: 2406.216 | HuoHuo: 19.167
-Run   29: Team DPAV: 24530.262 | Ashveil: 21917.426 | Sparkle: 0.000 | Tribbie: 2476.903 | HuoHuo: 19.382
-Run   30: Team DPAV: 24833.709 | Ashveil: 22191.054 | Sparkle: 0.000 | Tribbie: 2506.722 | HuoHuo: 19.382
-Run   31: Team DPAV: 26054.261 | Ashveil: 23432.250 | Sparkle: 0.000 | Tribbie: 2505.871 | HuoHuo: 19.238
-Run   32: Team DPAV: 25518.144 | Ashveil: 22880.714 | Sparkle: 0.000 | Tribbie: 2501.497 | HuoHuo: 19.382
-Run   33: Team DPAV: 25228.708 | Ashveil: 22721.528 | Sparkle: 0.000 | Tribbie: 2391.040 | HuoHuo: 19.238
-Run   34: Team DPAV: 25359.963 | Ashveil: 22799.340 | Sparkle: 0.000 | Tribbie: 2405.183 | HuoHuo: 19.238
-Run   35: Team DPAV: 25844.003 | Ashveil: 23170.101 | Sparkle: 0.000 | Tribbie: 2518.319 | HuoHuo: 19.382
-Run   36: Team DPAV: 25520.224 | Ashveil: 22870.594 | Sparkle: 0.000 | Tribbie: 2513.697 | HuoHuo: 19.382
-Run   37: Team DPAV: 25507.643 | Ashveil: 22890.064 | Sparkle: 0.000 | Tribbie: 2481.790 | HuoHuo: 19.238
-Run   38: Team DPAV: 25117.744 | Ashveil: 22521.384 | Sparkle: 0.000 | Tribbie: 2480.220 | HuoHuo: 19.238
-Run   39: Team DPAV: 25422.487 | Ashveil: 22759.947 | Sparkle: 0.000 | Tribbie: 2506.956 | HuoHuo: 19.382
-Run   40: Team DPAV: 25411.231 | Ashveil: 22805.155 | Sparkle: 0.000 | Tribbie: 2489.937 | HuoHuo: 19.238
-Run   41: Team DPAV: 25929.519 | Ashveil: 23299.596 | Sparkle: 0.000 | Tribbie: 2494.133 | HuoHuo: 19.238
-Run   42: Team DPAV: 25453.441 | Ashveil: 22875.817 | Sparkle: 0.000 | Tribbie: 2441.690 | HuoHuo: 19.382
-Run   43: Team DPAV: 22750.519 | Ashveil: 20288.137 | Sparkle: 0.000 | Tribbie: 2326.663 | HuoHuo: 19.167
-Run   44: Team DPAV: 25554.440 | Ashveil: 22905.521 | Sparkle: 0.000 | Tribbie: 2512.986 | HuoHuo: 19.382
-Run   45: Team DPAV: 26292.026 | Ashveil: 23591.599 | Sparkle: 0.000 | Tribbie: 2525.408 | HuoHuo: 19.167
-Run   46: Team DPAV: 25482.755 | Ashveil: 22835.252 | Sparkle: 0.000 | Tribbie: 2511.570 | HuoHuo: 19.382
-Run   47: Team DPAV: 25850.732 | Ashveil: 23199.833 | Sparkle: 0.000 | Tribbie: 2514.965 | HuoHuo: 19.382
-Run   48: Team DPAV: 25851.162 | Ashveil: 23199.833 | Sparkle: 0.000 | Tribbie: 2515.395 | HuoHuo: 19.382
-Run   49: Team DPAV: 26492.018 | Ashveil: 23744.379 | Sparkle: 0.000 | Tribbie: 2592.199 | HuoHuo: 19.238
-Run   50: Team DPAV: 24613.954 | Ashveil: 22084.602 | Sparkle: 0.000 | Tribbie: 2393.632 | HuoHuo: 19.167
-Run   51: Team DPAV: 22129.740 | Ashveil: 19932.562 | Sparkle: 0.000 | Tribbie: 2080.895 | HuoHuo: 19.382
-Run   52: Team DPAV: 26555.380 | Ashveil: 23903.636 | Sparkle: 0.000 | Tribbie: 2515.955 | HuoHuo: 19.238
-Run   53: Team DPAV: 22290.767 | Ashveil: 19862.587 | Sparkle: 0.000 | Tribbie: 2311.897 | HuoHuo: 19.382
-Run   54: Team DPAV: 25970.527 | Ashveil: 23395.500 | Sparkle: 0.000 | Tribbie: 2439.238 | HuoHuo: 19.238
-Run   55: Team DPAV: 25599.483 | Ashveil: 22876.304 | Sparkle: 0.000 | Tribbie: 2587.246 | HuoHuo: 19.382
-Run   56: Team DPAV: 25090.193 | Ashveil: 22496.401 | Sparkle: 0.000 | Tribbie: 2477.653 | HuoHuo: 19.238
-Run   57: Team DPAV: 25462.242 | Ashveil: 22815.535 | Sparkle: 0.000 | Tribbie: 2491.267 | HuoHuo: 19.238
-Run   58: Team DPAV: 24892.667 | Ashveil: 22268.072 | Sparkle: 0.000 | Tribbie: 2488.662 | HuoHuo: 19.382
-Run   59: Team DPAV: 26208.751 | Ashveil: 23562.827 | Sparkle: 0.000 | Tribbie: 2510.135 | HuoHuo: 19.238
-Run   60: Team DPAV: 25174.080 | Ashveil: 22540.561 | Sparkle: 0.000 | Tribbie: 2497.586 | HuoHuo: 19.382
-Run   61: Team DPAV: 22803.085 | Ashveil: 20341.758 | Sparkle: 0.000 | Tribbie: 2305.957 | HuoHuo: 19.167
-Run   62: Team DPAV: 25736.665 | Ashveil: 23089.282 | Sparkle: 0.000 | Tribbie: 2511.594 | HuoHuo: 19.238
-Run   63: Team DPAV: 24908.586 | Ashveil: 22285.157 | Sparkle: 0.000 | Tribbie: 2487.710 | HuoHuo: 19.167
-Run   64: Team DPAV: 25548.645 | Ashveil: 22903.560 | Sparkle: 0.000 | Tribbie: 2509.151 | HuoHuo: 19.382
-Run   65: Team DPAV: 25560.912 | Ashveil: 22891.126 | Sparkle: 0.000 | Tribbie: 2514.202 | HuoHuo: 19.382
-Run   66: Team DPAV: 25330.234 | Ashveil: 22726.355 | Sparkle: 0.000 | Tribbie: 2487.739 | HuoHuo: 19.238
-Run   67: Team DPAV: 24707.060 | Ashveil: 22149.190 | Sparkle: 0.000 | Tribbie: 2421.937 | HuoHuo: 19.382
-Run   68: Team DPAV: 24857.200 | Ashveil: 22208.921 | Sparkle: 0.000 | Tribbie: 2492.909 | HuoHuo: 19.167
-Run   69: Team DPAV: 25840.387 | Ashveil: 23182.310 | Sparkle: 0.000 | Tribbie: 2522.144 | HuoHuo: 19.382
-Run   70: Team DPAV: 24863.277 | Ashveil: 22250.727 | Sparkle: 0.000 | Tribbie: 2496.411 | HuoHuo: 19.238
-Run   71: Team DPAV: 25526.890 | Ashveil: 22877.971 | Sparkle: 0.000 | Tribbie: 2512.986 | HuoHuo: 19.382
-Run   72: Team DPAV: 22140.329 | Ashveil: 19830.700 | Sparkle: 0.000 | Tribbie: 2173.696 | HuoHuo: 19.382
-Run   73: Team DPAV: 26568.925 | Ashveil: 23914.772 | Sparkle: 0.000 | Tribbie: 2518.364 | HuoHuo: 19.238
-Run   74: Team DPAV: 25747.402 | Ashveil: 23093.141 | Sparkle: 0.000 | Tribbie: 2498.820 | HuoHuo: 19.238
-Run   75: Team DPAV: 25673.918 | Ashveil: 22929.994 | Sparkle: 0.000 | Tribbie: 2588.554 | HuoHuo: 19.167
-Run   76: Team DPAV: 25344.059 | Ashveil: 22701.446 | Sparkle: 0.000 | Tribbie: 2487.173 | HuoHuo: 19.238
-Run   77: Team DPAV: 22634.792 | Ashveil: 20112.696 | Sparkle: 0.000 | Tribbie: 2386.235 | HuoHuo: 19.309
-Run   78: Team DPAV: 26168.532 | Ashveil: 23512.111 | Sparkle: 0.000 | Tribbie: 2520.488 | HuoHuo: 19.382
-Run   79: Team DPAV: 25268.666 | Ashveil: 22485.843 | Sparkle: 0.000 | Tribbie: 2627.454 | HuoHuo: 19.167
-Run   80: Team DPAV: 24864.791 | Ashveil: 22263.255 | Sparkle: 0.000 | Tribbie: 2485.253 | HuoHuo: 19.382
-Run   81: Team DPAV: 25713.384 | Ashveil: 23037.802 | Sparkle: 0.000 | Tribbie: 2500.561 | HuoHuo: 19.167
-Run   82: Team DPAV: 24782.753 | Ashveil: 22151.335 | Sparkle: 0.000 | Tribbie: 2495.485 | HuoHuo: 19.382
-Run   83: Team DPAV: 24294.815 | Ashveil: 21850.677 | Sparkle: 0.000 | Tribbie: 2327.855 | HuoHuo: 19.382
-Run   84: Team DPAV: 24932.016 | Ashveil: 22359.834 | Sparkle: 0.000 | Tribbie: 2416.742 | HuoHuo: 19.238
-Run   85: Team DPAV: 26147.780 | Ashveil: 23345.607 | Sparkle: 0.000 | Tribbie: 2627.153 | HuoHuo: 19.167
-Run   86: Team DPAV: 25467.685 | Ashveil: 22881.324 | Sparkle: 0.000 | Tribbie: 2450.428 | HuoHuo: 19.382
-Run   87: Team DPAV: 25167.004 | Ashveil: 22526.757 | Sparkle: 0.000 | Tribbie: 2504.313 | HuoHuo: 19.382
-Run   88: Team DPAV: 25083.217 | Ashveil: 22436.589 | Sparkle: 0.000 | Tribbie: 2491.259 | HuoHuo: 19.167
-Run   89: Team DPAV: 24622.675 | Ashveil: 22041.064 | Sparkle: 0.000 | Tribbie: 2465.328 | HuoHuo: 19.382
-Run   90: Team DPAV: 22169.259 | Ashveil: 19695.166 | Sparkle: 0.000 | Tribbie: 2319.161 | HuoHuo: 19.167
-Run   91: Team DPAV: 24162.940 | Ashveil: 21525.784 | Sparkle: 0.000 | Tribbie: 2481.786 | HuoHuo: 19.167
-Run   92: Team DPAV: 22435.468 | Ashveil: 20095.070 | Sparkle: 0.000 | Tribbie: 2224.116 | HuoHuo: 19.382
-Run   93: Team DPAV: 22663.113 | Ashveil: 20120.523 | Sparkle: 0.000 | Tribbie: 2387.150 | HuoHuo: 19.238
-Run   94: Team DPAV: 22619.024 | Ashveil: 20086.418 | Sparkle: 0.000 | Tribbie: 2396.672 | HuoHuo: 19.382
-Run   95: Team DPAV: 21870.743 | Ashveil: 19659.950 | Sparkle: 0.000 | Tribbie: 2074.860 | HuoHuo: 19.382
-Run   96: Team DPAV: 25036.974 | Ashveil: 22494.242 | Sparkle: 0.000 | Tribbie: 2406.799 | HuoHuo: 19.382
-Run   97: Team DPAV: 25499.947 | Ashveil: 22867.846 | Sparkle: 0.000 | Tribbie: 2496.382 | HuoHuo: 19.167
-Run   98: Team DPAV: 22597.185 | Ashveil: 20140.533 | Sparkle: 0.000 | Tribbie: 2301.211 | HuoHuo: 19.238
-Run   99: Team DPAV: 26568.925 | Ashveil: 23914.772 | Sparkle: 0.000 | Tribbie: 2518.364 | HuoHuo: 19.238
-Run  100: Team DPAV: 25558.130 | Ashveil: 22951.526 | Sparkle: 0.000 | Tribbie: 2490.536 | HuoHuo: 19.167
+Run    1: Team DPAV: 19959.494 | Ashveil: 18049.599 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run    2: Team DPAV: 19677.188 | Ashveil: 17736.830 | Sparkle: 0.000 | Tribbie: 1820.543 | HuoHuo: 0.000
+Run    3: Team DPAV: 20216.082 | Ashveil: 18153.119 | Sparkle: 0.000 | Tribbie: 1962.362 | HuoHuo: 0.000
+Run    4: Team DPAV: 21228.996 | Ashveil: 19102.673 | Sparkle: 0.000 | Tribbie: 2025.721 | HuoHuo: 0.000
+Run    5: Team DPAV: 23163.310 | Ashveil: 21023.766 | Sparkle: 0.000 | Tribbie: 2058.592 | HuoHuo: 0.000
+Run    6: Team DPAV: 20795.064 | Ashveil: 18808.481 | Sparkle: 0.000 | Tribbie: 1885.981 | HuoHuo: 0.000
+Run    7: Team DPAV: 18838.251 | Ashveil: 17010.460 | Sparkle: 0.000 | Tribbie: 1727.190 | HuoHuo: 0.000
+Run    8: Team DPAV: 19730.963 | Ashveil: 17825.781 | Sparkle: 0.000 | Tribbie: 1804.580 | HuoHuo: 0.000
+Run    9: Team DPAV: 19251.975 | Ashveil: 17389.113 | Sparkle: 0.000 | Tribbie: 1742.609 | HuoHuo: 0.000
+Run   10: Team DPAV: 19581.275 | Ashveil: 17745.689 | Sparkle: 0.000 | Tribbie: 1734.984 | HuoHuo: 0.000
+Run   11: Team DPAV: 20418.948 | Ashveil: 18354.444 | Sparkle: 0.000 | Tribbie: 1963.902 | HuoHuo: 0.000
+Run   12: Team DPAV: 20012.394 | Ashveil: 18096.245 | Sparkle: 0.000 | Tribbie: 1815.547 | HuoHuo: 0.000
+Run   13: Team DPAV: 21035.122 | Ashveil: 18970.353 | Sparkle: 0.000 | Tribbie: 1964.604 | HuoHuo: 0.000
+Run   14: Team DPAV: 20219.067 | Ashveil: 18302.500 | Sparkle: 0.000 | Tribbie: 1815.965 | HuoHuo: 0.000
+Run   15: Team DPAV: 18688.718 | Ashveil: 16813.369 | Sparkle: 0.000 | Tribbie: 1775.184 | HuoHuo: 0.000
+Run   16: Team DPAV: 18838.251 | Ashveil: 17010.460 | Sparkle: 0.000 | Tribbie: 1727.190 | HuoHuo: 0.000
+Run   17: Team DPAV: 19268.838 | Ashveil: 17405.593 | Sparkle: 0.000 | Tribbie: 1742.992 | HuoHuo: 0.000
+Run   18: Team DPAV: 19624.156 | Ashveil: 17692.653 | Sparkle: 0.000 | Tribbie: 1811.251 | HuoHuo: 0.000
+Run   19: Team DPAV: 20850.928 | Ashveil: 18745.583 | Sparkle: 0.000 | Tribbie: 1965.443 | HuoHuo: 0.000
+Run   20: Team DPAV: 20130.788 | Ashveil: 18243.162 | Sparkle: 0.000 | Tribbie: 1806.674 | HuoHuo: 0.000
+Run   21: Team DPAV: 19546.472 | Ashveil: 17647.812 | Sparkle: 0.000 | Tribbie: 1798.495 | HuoHuo: 0.000
+Run   22: Team DPAV: 20977.869 | Ashveil: 18855.876 | Sparkle: 0.000 | Tribbie: 2021.391 | HuoHuo: 0.000
+Run   23: Team DPAV: 20416.739 | Ashveil: 18434.915 | Sparkle: 0.000 | Tribbie: 1881.223 | HuoHuo: 0.000
+Run   24: Team DPAV: 19638.464 | Ashveil: 17701.996 | Sparkle: 0.000 | Tribbie: 1816.216 | HuoHuo: 0.000
+Run   25: Team DPAV: 20680.476 | Ashveil: 18743.019 | Sparkle: 0.000 | Tribbie: 1817.642 | HuoHuo: 0.000
+Run   26: Team DPAV: 20282.714 | Ashveil: 18339.574 | Sparkle: 0.000 | Tribbie: 1822.888 | HuoHuo: 0.000
+Run   27: Team DPAV: 20078.908 | Ashveil: 18096.245 | Sparkle: 0.000 | Tribbie: 1882.062 | HuoHuo: 0.000
+Run   28: Team DPAV: 19137.301 | Ashveil: 17301.715 | Sparkle: 0.000 | Tribbie: 1734.984 | HuoHuo: 0.000
+Run   29: Team DPAV: 20390.194 | Ashveil: 18472.505 | Sparkle: 0.000 | Tribbie: 1817.087 | HuoHuo: 0.000
+Run   30: Team DPAV: 20388.217 | Ashveil: 18472.505 | Sparkle: 0.000 | Tribbie: 1815.547 | HuoHuo: 0.000
+Run   31: Team DPAV: 20065.593 | Ashveil: 18091.258 | Sparkle: 0.000 | Tribbie: 1874.170 | HuoHuo: 0.000
+Run   32: Team DPAV: 19589.505 | Ashveil: 17661.669 | Sparkle: 0.000 | Tribbie: 1807.583 | HuoHuo: 0.000
+Run   33: Team DPAV: 19959.494 | Ashveil: 18049.599 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   34: Team DPAV: 21188.179 | Ashveil: 19124.112 | Sparkle: 0.000 | Tribbie: 1963.902 | HuoHuo: 0.000
+Run   35: Team DPAV: 20897.419 | Ashveil: 18753.611 | Sparkle: 0.000 | Tribbie: 2023.556 | HuoHuo: 0.000
+Run   36: Team DPAV: 19255.012 | Ashveil: 17345.117 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   37: Team DPAV: 20439.780 | Ashveil: 18353.686 | Sparkle: 0.000 | Tribbie: 2005.143 | HuoHuo: 0.000
+Run   38: Team DPAV: 21461.964 | Ashveil: 19321.520 | Sparkle: 0.000 | Tribbie: 2020.191 | HuoHuo: 0.000
+Run   39: Team DPAV: 19358.640 | Ashveil: 17471.373 | Sparkle: 0.000 | Tribbie: 1787.102 | HuoHuo: 0.000
+Run   40: Team DPAV: 19681.399 | Ashveil: 17763.709 | Sparkle: 0.000 | Tribbie: 1817.087 | HuoHuo: 0.000
+Run   41: Team DPAV: 20228.702 | Ashveil: 18314.718 | Sparkle: 0.000 | Tribbie: 1813.382 | HuoHuo: 0.000
+Run   42: Team DPAV: 19874.183 | Ashveil: 17964.288 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   43: Team DPAV: 20036.253 | Ashveil: 18053.589 | Sparkle: 0.000 | Tribbie: 1882.062 | HuoHuo: 0.000
+Run   44: Team DPAV: 19749.327 | Ashveil: 17692.617 | Sparkle: 0.000 | Tribbie: 1956.108 | HuoHuo: 0.000
+Run   45: Team DPAV: 19120.426 | Ashveil: 17222.951 | Sparkle: 0.000 | Tribbie: 1797.309 | HuoHuo: 0.000
+Run   46: Team DPAV: 20217.235 | Ashveil: 18278.471 | Sparkle: 0.000 | Tribbie: 1818.948 | HuoHuo: 0.000
+Run   47: Team DPAV: 20035.803 | Ashveil: 18193.546 | Sparkle: 0.000 | Tribbie: 1741.656 | HuoHuo: 0.000
+Run   48: Team DPAV: 19874.183 | Ashveil: 17964.288 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   49: Team DPAV: 20607.240 | Ashveil: 18672.350 | Sparkle: 0.000 | Tribbie: 1814.638 | HuoHuo: 0.000
+Run   50: Team DPAV: 19447.532 | Ashveil: 17615.267 | Sparkle: 0.000 | Tribbie: 1731.664 | HuoHuo: 0.000
+Run   51: Team DPAV: 19915.076 | Ashveil: 17999.848 | Sparkle: 0.000 | Tribbie: 1815.063 | HuoHuo: 0.000
+Run   52: Team DPAV: 22652.543 | Ashveil: 20495.407 | Sparkle: 0.000 | Tribbie: 2037.321 | HuoHuo: 0.000
+Run   53: Team DPAV: 20289.957 | Ashveil: 18348.358 | Sparkle: 0.000 | Tribbie: 1821.347 | HuoHuo: 0.000
+Run   54: Team DPAV: 19992.385 | Ashveil: 18013.864 | Sparkle: 0.000 | Tribbie: 1878.356 | HuoHuo: 0.000
+Run   55: Team DPAV: 20545.683 | Ashveil: 18483.156 | Sparkle: 0.000 | Tribbie: 1962.362 | HuoHuo: 0.000
+Run   56: Team DPAV: 20598.549 | Ashveil: 18542.365 | Sparkle: 0.000 | Tribbie: 1975.233 | HuoHuo: 0.000
+Run   57: Team DPAV: 20223.404 | Ashveil: 18063.025 | Sparkle: 0.000 | Tribbie: 2020.475 | HuoHuo: 0.000
+Run   58: Team DPAV: 19589.505 | Ashveil: 17661.669 | Sparkle: 0.000 | Tribbie: 1807.583 | HuoHuo: 0.000
+Run   59: Team DPAV: 19836.669 | Ashveil: 17738.514 | Sparkle: 0.000 | Tribbie: 1958.253 | HuoHuo: 0.000
+Run   60: Team DPAV: 19614.444 | Ashveil: 17706.089 | Sparkle: 0.000 | Tribbie: 1807.753 | HuoHuo: 0.000
+Run   61: Team DPAV: 20625.643 | Ashveil: 18639.899 | Sparkle: 0.000 | Tribbie: 1885.142 | HuoHuo: 0.000
+Run   62: Team DPAV: 20079.927 | Ashveil: 18100.314 | Sparkle: 0.000 | Tribbie: 1879.448 | HuoHuo: 0.000
+Run   63: Team DPAV: 18711.737 | Ashveil: 16793.236 | Sparkle: 0.000 | Tribbie: 1798.248 | HuoHuo: 0.000
+Run   64: Team DPAV: 23918.212 | Ashveil: 21684.648 | Sparkle: 0.000 | Tribbie: 2113.312 | HuoHuo: 0.000
+Run   65: Team DPAV: 19255.012 | Ashveil: 17345.117 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   66: Team DPAV: 20091.751 | Ashveil: 18110.363 | Sparkle: 0.000 | Tribbie: 1881.223 | HuoHuo: 0.000
+Run   67: Team DPAV: 21103.602 | Ashveil: 19055.663 | Sparkle: 0.000 | Tribbie: 1947.773 | HuoHuo: 0.000
+Run   68: Team DPAV: 19809.357 | Ashveil: 17839.987 | Sparkle: 0.000 | Tribbie: 1869.205 | HuoHuo: 0.000
+Run   69: Team DPAV: 19937.136 | Ashveil: 17965.601 | Sparkle: 0.000 | Tribbie: 1871.370 | HuoHuo: 0.000
+Run   70: Team DPAV: 20621.397 | Ashveil: 18550.543 | Sparkle: 0.000 | Tribbie: 1970.689 | HuoHuo: 0.000
+Run   71: Team DPAV: 19669.232 | Ashveil: 17702.158 | Sparkle: 0.000 | Tribbie: 1866.473 | HuoHuo: 0.000
+Run   72: Team DPAV: 20721.349 | Ashveil: 18675.221 | Sparkle: 0.000 | Tribbie: 1945.963 | HuoHuo: 0.000
+Run   73: Team DPAV: 19971.770 | Ashveil: 18085.731 | Sparkle: 0.000 | Tribbie: 1805.525 | HuoHuo: 0.000
+Run   74: Team DPAV: 20079.295 | Ashveil: 18112.845 | Sparkle: 0.000 | Tribbie: 1865.848 | HuoHuo: 0.000
+Run   75: Team DPAV: 21155.829 | Ashveil: 19070.571 | Sparkle: 0.000 | Tribbie: 1965.443 | HuoHuo: 0.000
+Run   76: Team DPAV: 19477.069 | Ashveil: 17503.709 | Sparkle: 0.000 | Tribbie: 1873.195 | HuoHuo: 0.000
+Run   77: Team DPAV: 19260.951 | Ashveil: 17345.721 | Sparkle: 0.000 | Tribbie: 1795.414 | HuoHuo: 0.000
+Run   78: Team DPAV: 19139.106 | Ashveil: 17311.314 | Sparkle: 0.000 | Tribbie: 1727.190 | HuoHuo: 0.000
+Run   79: Team DPAV: 20622.954 | Ashveil: 18707.725 | Sparkle: 0.000 | Tribbie: 1815.063 | HuoHuo: 0.000
+Run   80: Team DPAV: 20037.246 | Ashveil: 18070.609 | Sparkle: 0.000 | Tribbie: 1866.473 | HuoHuo: 0.000
+Run   81: Team DPAV: 20930.711 | Ashveil: 18802.351 | Sparkle: 0.000 | Tribbie: 2008.545 | HuoHuo: 0.000
+Run   82: Team DPAV: 20611.214 | Ashveil: 18491.463 | Sparkle: 0.000 | Tribbie: 2019.149 | HuoHuo: 0.000
+Run   83: Team DPAV: 19947.858 | Ashveil: 17987.226 | Sparkle: 0.000 | Tribbie: 1880.117 | HuoHuo: 0.000
+Run   84: Team DPAV: 20761.308 | Ashveil: 18759.696 | Sparkle: 0.000 | Tribbie: 1881.360 | HuoHuo: 0.000
+Run   85: Team DPAV: 19337.712 | Ashveil: 17372.178 | Sparkle: 0.000 | Tribbie: 1864.932 | HuoHuo: 0.000
+Run   86: Team DPAV: 20910.677 | Ashveil: 18975.787 | Sparkle: 0.000 | Tribbie: 1814.638 | HuoHuo: 0.000
+Run   87: Team DPAV: 19896.411 | Ashveil: 18006.336 | Sparkle: 0.000 | Tribbie: 1809.124 | HuoHuo: 0.000
+Run   88: Team DPAV: 20189.932 | Ashveil: 18125.428 | Sparkle: 0.000 | Tribbie: 1963.902 | HuoHuo: 0.000
+Run   89: Team DPAV: 20786.962 | Ashveil: 18722.894 | Sparkle: 0.000 | Tribbie: 1963.902 | HuoHuo: 0.000
+Run   90: Team DPAV: 20004.868 | Ashveil: 18066.974 | Sparkle: 0.000 | Tribbie: 1817.642 | HuoHuo: 0.000
+Run   91: Team DPAV: 19519.104 | Ashveil: 17544.235 | Sparkle: 0.000 | Tribbie: 1874.267 | HuoHuo: 0.000
+Run   92: Team DPAV: 19137.921 | Ashveil: 17239.526 | Sparkle: 0.000 | Tribbie: 1797.793 | HuoHuo: 0.000
+Run   93: Team DPAV: 20787.398 | Ashveil: 18722.894 | Sparkle: 0.000 | Tribbie: 1963.902 | HuoHuo: 0.000
+Run   94: Team DPAV: 19029.204 | Ashveil: 17127.103 | Sparkle: 0.000 | Tribbie: 1801.499 | HuoHuo: 0.000
+Run   95: Team DPAV: 19614.007 | Ashveil: 17706.089 | Sparkle: 0.000 | Tribbie: 1807.753 | HuoHuo: 0.000
+Run   96: Team DPAV: 19873.746 | Ashveil: 17964.288 | Sparkle: 0.000 | Tribbie: 1809.293 | HuoHuo: 0.000
+Run   97: Team DPAV: 20045.441 | Ashveil: 18082.992 | Sparkle: 0.000 | Tribbie: 1862.283 | HuoHuo: 0.000
+Run   98: Team DPAV: 20594.638 | Ashveil: 18678.072 | Sparkle: 0.000 | Tribbie: 1815.965 | HuoHuo: 0.000
+Run   99: Team DPAV: 20035.803 | Ashveil: 18193.546 | Sparkle: 0.000 | Tribbie: 1741.656 | HuoHuo: 0.000
+Run  100: Team DPAV: 19671.714 | Ashveil: 17748.072 | Sparkle: 0.000 | Tribbie: 1784.176 | HuoHuo: 0.000
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 24878.319
-Average Ashveil DPAV: 22288.877
+Average Team DPAV: 20133.885
+Average Ashveil DPAV: 18164.942
 Average Sparkle DPAV: 0.000
-Average Tribbie DPAV: 2451.064
-Average HuoHuo DPAV: 19.285
+Average Tribbie DPAV: 1863.778
+Average HuoHuo DPAV: 0.000
 
-Min Team DPAV: 21592.349
-Max Team DPAV: 26626.938
+Min Team DPAV: 18688.718
+Max Team DPAV: 23918.212
