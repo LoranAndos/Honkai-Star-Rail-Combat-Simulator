@@ -30,11 +30,11 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                    outputLog: bool = False, enemyModule=None, manualMode=False) -> str:
     # =============== SETTINGS ===============
     # Enemy Settings
-    numEnemies = 2
-    enemyLevel = [95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS] # make sure that the number of entries in this list is the same as "numEnemies"
-    enemySPD = [130, 158.4]  # make sure that the number of entries in this list is the same as "numEnemies"
-    toughness = [100, 160]  # make sure that the number of entries in this list is the same as "numEnemies"
+    numEnemies = 3
+    enemyLevel = [95, 95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE] # make sure that the number of entries in this list is the same as "numEnemies"
+    enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
+    toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
     weaknesses = [Element.WIND]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
@@ -56,9 +56,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
         slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = Lingsha(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -449,9 +449,9 @@ if __name__ == "__main__":
 
     # Enemy setup — shared between single and multi run
 
-    enemyModule = EnemyModule(2, [95, 95],
-                              [EnemyType.ELITE, EnemyType.BOSS],
-                              [130, 158.4], [100, 160], atkRatio, [Element.WIND], [1])
+    enemyModule = EnemyModule(3, [95, 95, 95],
+                              [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.WIND], [1])
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
     #enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 3 enemyModule
@@ -478,7 +478,7 @@ if __name__ == "__main__":
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
         slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
         slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
@@ -500,7 +500,7 @@ if __name__ == "__main__":
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
                 slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(

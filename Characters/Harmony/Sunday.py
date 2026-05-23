@@ -20,9 +20,9 @@ class Sunday(Character):
     path = Path.HARMONY
     element = Element.IMAGINARY
     scaling = Scaling.ATK
-    baseHP = 1241.9
-    baseATK = 737.35
-    baseDEF = 533.61
+    baseHP = 1242
+    baseATK = 640
+    baseDEF = 534
     baseSPD = 96
     maxEnergy = 130
     currEnergy = 65 + 25  # Bonus 25 from major trace 2
@@ -78,12 +78,12 @@ class Sunday(Character):
         e5CR = 0.22 if self.eidolon >= 5 else 0.20
         e6Stacks = 3 if self.eidolon >= 6 else 1
         if self.Tech:
-            bl.append(Buff("SundaySklTechDMG", StatTypes.DMG_PERCENT, 0.50, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            bl.append(Buff("SundaySklTechDMG", StatTypes.DMG_PERCENT, 0.50, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
         self.Tech = False
-        bl.append(Buff("SundaySklDMG", StatTypes.DMG_PERCENT, e5DMG, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
-        bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, e5CR, self.targetRole, [AtkType.ALL], 2, e6Stacks, self.role, TickDown.END))
+        bl.append(Buff("SundaySklDMG", StatTypes.DMG_PERCENT, e5DMG, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
+        bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, e5CR, self.targetRole, [AtkType.ALL], 2, e6Stacks, self.targetRole, TickDown.END))
         if self.eidolon >= 1:
-            bl.append(Buff("SundayE1Shred", StatTypes.SHRED, 0.16, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            bl.append(Buff("SundayE1Shred", StatTypes.SHRED, 0.16, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,self.scaling, sp, "SundaySkill"))
         al.append(Advance("SundayTargetADV", self.targetRole, 1.0))
         al.append(Advance("SundayTargetADV", self.targetRole, 0.1))  # Forces character to act before their summon
@@ -105,14 +105,14 @@ class Sunday(Character):
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 5,self.scaling, SPAmount, "SundayUlt"))
         self.firstUlt = False
         if self.Tech:
-            bl.append(Buff("SundaySklTechDMG", StatTypes.DMG_PERCENT, 0.50, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            bl.append(Buff("SundaySklTechDMG", StatTypes.DMG_PERCENT, 0.50, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.START))
         self.Tech = False
         bl.append(Buff("SundayUltERR", StatTypes.ERR_F, EnergyBuff, self.targetRole, [AtkType.ALL]))
-        bl.append(Buff("SundayBeatified", StatTypes.CD_PERCENT, self.cdStat * e3Mul + e3Add, self.targetRole, [AtkType.ALL], 3, 1,self.role, TickDown.END))
+        bl.append(Buff("SundayBeatified", StatTypes.CD_PERCENT, self.cdStat * e3Mul + e3Add, self.targetRole, [AtkType.ALL], 3, 1,self.role, TickDown.START))
         if self.eidolon >= 2:
-            bl.append(Buff("SundayE2SPD", StatTypes.DMG_PERCENT, 0.30, self.targetRole, [AtkType.ALL], 3, 1, self.role, TickDown.END))
+            bl.append(Buff("SundayE2SPD", StatTypes.DMG_PERCENT, 0.30, self.targetRole, [AtkType.ALL], 3, 1, self.role, TickDown.START))
         if self.eidolon == 6:
-            bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, 0.22, self.targetRole, [AtkType.ALL], 2, 3, self.role,TickDown.END))
+            bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, 0.22, self.targetRole, [AtkType.ALL], 2, 3, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes):
