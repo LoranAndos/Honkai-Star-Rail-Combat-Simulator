@@ -1,0 +1,187 @@
+Enemy Team:
+Enemy 0 | LVL: 95 | SPD: 130 | Weakness: ['LIGHTNING'] | Toughness: 100
+Enemy 1 | LVL: 95 | SPD: 158.4 | Weakness: ['LIGHTNING'] | Toughness: 160
+Enemy 2 | LVL: 95 | SPD: 130 | Weakness: ['LIGHTNING'] | Toughness: 100
+
+Player Team:
+Ashveil E0 | LIGHTNING-HUNT | DPS | POS:0
+Cruising in the Stellar Sea S5
+The Ashblazing Grand Duke (4-pc)
+City of Converging Stars
+
+Sparxie E0 | FIRE-ELATION | SUP1 | POS:1
+Dazzled by a Flowery World S1
+Ever-Glorious Magical Girl (4-pc)
+Tengoku@Livestream
+
+Tribbie E0 | QUANTUM-HARMONY | SUP2 | POS:2
+Dance! Dance! Dance! S5
+Eagle of Twilight Line (4-pc)
+Lushaka, the Sunken Seas
+
+HuoHuo E0 | WIND-ABUNDANCE | SUS | POS:3
+Post-Op Conversation S5
+Warrior Goddess of Sun and Thunder (4-pc)
+Broken Keel
+
+    PUNCH  > SharedPunchline: 0.0 -> 1.0
+
+Initial AV Adjustments
+
+Initial Enemy Delays
+
+==========COMBAT SIMULATION STARTED==========
+
+<<< NEW TURN >>>
+-   Enemy 1 AV: 0.000 ENERGY: 0.000 MaxHP: 5000000.000 CurrHp 5000000.000
+-   HuoHuo AV: 1.547 ENERGY: 70.000 MaxHP: 6139.808 CurrHp 6139.808
+-   Tribbie AV: 5.206 ENERGY: 60.000 MaxHP: 4157.523 CurrHp 4157.523
+-   Ashveil AV: 10.598 ENERGY: 75.000 MaxHP: 2729.320 CurrHp 2729.320
+-   Enemy 0 AV: 13.792 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 2000000.000
+-   Enemy 2 AV: 13.792 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 2000000.000
+-   Sparxie AV: 26.474 ENERGY: 80.000 MaxHP: 3051.570 CurrHp 3051.570
+-   Aha AV: 34.601 ENERGY: 0.000 MaxHP: 0.000 CurrHp 0.000
+
+Combat context set: 3 enemies, 4 players
+Registered Sparxie (ID: 144)
+Combat context initialized: 3 enemies, Elation team size: 1
+    TURN   - AshveilTech | Ashveil | DPS | NA attack | ['LNG'] | ['TECH'] | Scaling: ATK | TargetID: -1 | DMG/BREAK Splits: [1.0, 0]/[0, 0] | Energy Gained: 0
+
+        ----------Char Buffs----------
+        CruisingBaseCR | CR% | Stacks: 1 | Value: 0.160 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTraceCD | CD% | Stacks: 1 | Value: 0.373 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTraceATK | ATK% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTraceDMG | DMG% | Stacks: 1 | Value: 0.144 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTrace3CD | CD% | Stacks: 1 | Value: 0.400 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        LushakaATK(SUP2) | ATK% | Stacks: 1 | Value: 0.120 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        Numinosity | PEN | Stacks: 1 | Value: 0.240 | Remaining Turns: 3 | TickDown: SUP2, START | Target: DPS | Affects: ['ALL']
+        KeelCD(SUS) | CD% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        SparxiePunchtoCD | CD% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: SUP1, END | Target: DPS | Affects: ['ALL']
+        ----------End of Buff List----------
+
+        ----------Enemy Debuffs----------
+        ----------End of Debuff List----------
+        ----------Healing List----------
+        ----------End of Healing List----------
+    GAUGE  - Enemy 0 toughness reduced by 0.000
+    RESULT - AshveilTech | Ashveil | DPS | DMG: 7028.169 | ELADMG: 0.000 | Enemies Hit: [0] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 0.000 | Amount HP Healed: 0.000 | Amount HP Lost: 0.000 | Ashveil Energy: 75/150
+    TURN   - SparxieTech | Sparxie | SUP1 | NA attack | ['FIR'] | ['TECH'] | Scaling: ATK | TargetID: -1 | DMG/BREAK Splits: [0.5, 0]/[10, 0] | Energy Gained: 0
+
+        ----------Char Buffs----------
+        AshveilTrace3CD | CD% | Stacks: 1 | Value: 0.400 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: SUP1 | Affects: ['ALL']
+        FloweryWorldCD | CD% | Stacks: 1 | Value: 0.480 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        MagicalGirlCD | CD% | Stacks: 1 | Value: 0.160 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        TengokuCD | CD% | Stacks: 1 | Value: 0.160 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        BangerStartBattle | BANGER | Stacks: 1 | Value: 20.000 | Remaining Turns: 2 | TickDown: SUP1, END | Target: SUP1 | Affects: ['ALL']
+        SparxieTraceCR | CR% | Stacks: 1 | Value: 0.120 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        SparxieTraceCD | CD% | Stacks: 1 | Value: 0.133 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        SparxieTraceELA | Elation | Stacks: 1 | Value: 0.280 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        Numinosity | PEN | Stacks: 1 | Value: 0.240 | Remaining Turns: 3 | TickDown: SUP2, START | Target: SUP1 | Affects: ['ALL']
+        KeelCD(SUS) | CD% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: SUP1, PERM | Target: SUP1 | Affects: ['ALL']
+        SparxieATKtoELA | Elation | Stacks: 1 | Value: 0.750 | Remaining Turns: 1 | TickDown: SUP1, END | Target: SUP1 | Affects: ['ALL']
+        SparxiePunchtoCD | CD% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: SUP1, END | Target: SUP1 | Affects: ['ALL']
+        ----------End of Buff List----------
+
+        ----------Enemy Debuffs----------
+        ----------End of Debuff List----------
+        ----------Healing List----------
+        ----------End of Healing List----------
+    GAUGE  - Enemy 0 toughness reduced by 0.000
+    RESULT - SparxieTech | Sparxie | SUP1 | DMG: 3010.615 | ELADMG: 0.000 | Enemies Hit: [0] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 0.000 | Amount HP Healed: 0.000 | Amount HP Lost: 0.000 | Sparxie Energy: 80/160
+ERR    > 30.000 energy added to Tribbie from TribbieTechniqueBuff | Tribbie Energy: 90.000
+ERR    > 40.632 energy added to HuoHuo from HHTraceERR | HuoHuo Energy: 110.632
+ACTION > [ENEMY] TotalAV: 63.131 | TurnAV: 63.131 | Enemy 1 | 1 attacks
+    CharEnergy - Ashveil: Hit 1.667 Total: 76.667 | Sparxie: Hit 5.000 Total: 85.000 | Tribbie: Hit 5.000 Total: 96.222 | HuoHuo: Hit 1.667 Total: 112.889 |
+    ENEMY  - Enemy 2 [aoe] dealt 166.6 to Tribbie (energy: 3.3, DEF: 2567, atkMul: 0.75, dmgMul: 1.00) | HP: 3991/4158
+    ENEMY  - Enemy 2 [aoe] dealt 96.0 to Ashveil (energy: 1.7, DEF: 2076, atkMul: 0.75, dmgMul: 1.00) | HP: 2633/2729
+    ENEMY  - Enemy 2 [aoe] dealt 78.4 to Sparxie (energy: 1.7, DEF: 2800, atkMul: 0.75, dmgMul: 1.00) | HP: 2973/3052
+    ENEMY  - Enemy 2 [aoe] dealt 83.3 to Tribbie (energy: 1.7, DEF: 2567, atkMul: 0.75, dmgMul: 1.00) | HP: 3908/4158
+    ENEMY  - Enemy 2 [aoe] dealt 87.0 to HuoHuo (energy: 1.7, DEF: 2410, atkMul: 0.75, dmgMul: 1.00) | HP: 6053/6140
+    ENEMY  - Enemy 2 [aoe] dealt 156.8 to Sparxie (energy: 3.3, DEF: 2800, atkMul: 0.75, dmgMul: 1.00) | HP: 2816/3052
+AV     > Enemy 1 AV reset to 63.131 | 158.400 SPD
+
+<<< NEW TURN >>>
+-   HuoHuo AV: 0.000 ENERGY: 112.889 MaxHP: 6139.808 CurrHp 6052.830
+-   Tribbie AV: 3.660 ENERGY: 96.222 MaxHP: 4157.523 CurrHp 3907.617
+-   Ashveil AV: 9.051 ENERGY: 76.667 MaxHP: 2729.320 CurrHp 2633.351
+-   Enemy 0 AV: 12.245 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 1989961.216
+-   Enemy 2 AV: 12.245 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 2000000.000
+-   Sparxie AV: 24.928 ENERGY: 85.000 MaxHP: 3051.570 CurrHp 2816.391
+-   Aha AV: 33.055 ENERGY: 0.000 MaxHP: 0.000 CurrHp 0.000
+-   Enemy 1 AV: 61.585 ENERGY: 0.000 MaxHP: 5000000.000 CurrHp 5000000.000
+
+Combat context set: 3 enemies, 4 players
+Registered Sparxie (ID: 144)
+Combat context initialized: 3 enemies, Elation team size: 1
+ACTION > [CHAR] TotalAV: 64.678 | TurnAV: 1.547 | HuoHuo | A-move
+    TURN   - HuoHuoBasic | HuoHuo | SUS | ST attack | ['WIN'] | ['BSC'] | Scaling: HP | TargetID: 1 | DMG/BREAK Splits: [0.5, 0]/[10, 0] | Energy Gained: 20
+
+        ----------Char Buffs----------
+        AshveilTrace3CD | CD% | Stacks: 1 | Value: 0.400 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: SUS | Affects: ['ALL']
+        Numinosity | PEN | Stacks: 1 | Value: 0.240 | Remaining Turns: 3 | TickDown: SUP2, START | Target: SUS | Affects: ['ALL']
+        PostOpERR | ERR% | Stacks: 1 | Value: 0.160 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        WarriorGoddessSPD | SPD% | Stacks: 1 | Value: 0.060 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        KeelEFFRES | ERS% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        KeelCD(SUS) | CD% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        HHTraceHP | HP% | Stacks: 1 | Value: 0.280 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        HHTraceERS | ERS% | Stacks: 1 | Value: 0.180 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        HHTraceSPD | SPD | Stacks: 1 | Value: 5.000 | Remaining Turns: 1 | TickDown: SUS, PERM | Target: SUS | Affects: ['ALL']
+        SparxiePunchtoCD | CD% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: SUP1, END | Target: SUS | Affects: ['ALL']
+        ----------End of Buff List----------
+
+        ----------Enemy Debuffs----------
+        AshveilBaitShred | From: DPS | SHRED | Stacks: 1 | Value: 0.400 | Remaining Turns: 999 | Target: 1 | Targeting: ST | Affects: ['ALL'] | DOT: False | Blast: False
+        HuohuoTechniqueDebuff | From: SUS | ATK_REDUCTION | Stacks: 1 | Value: 0.250 | Remaining Turns: 2 | Target: 1 | Targeting: ST | Affects: ['SPECIAL'] | DOT: False | Blast: False
+        ----------End of Debuff List----------
+        ----------Healing List----------
+        ----------End of Healing List----------
+    GAUGE  - Enemy 1 toughness reduced by 0.000
+    RESULT - HuoHuoBasic | HuoHuo | SUS | DMG: 1920.642 | ELADMG: 0.000 | Enemies Hit: [1] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 27.088 | Amount HP Healed: 0.000 | Amount HP Lost: 0.000 | HuoHuo Energy: 140/140
+Ashveil has obtained 2 gluttony stacks from FUA.
+    TURN   - AshveilFUA | Ashveil | DPS | ST attack | ['LNG'] | ['FUA'] | Scaling: ATK | TargetID: 0 | DMG/BREAK Splits: [2.0, 0]/[5, 0] | Energy Gained: 5
+
+        ----------Char Buffs----------
+        CruisingBaseCR | CR% | Stacks: 1 | Value: 0.160 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        DukeDMG | DMG% | Stacks: 1 | Value: 0.200 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['FUA']
+        AshveilTraceCD | CD% | Stacks: 1 | Value: 0.373 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTraceATK | ATK% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTraceDMG | DMG% | Stacks: 1 | Value: 0.144 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTrace2DMG | DMG% | Stacks: 1 | Value: 0.800 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['FUA']
+        AshveilTrace3CD | CD% | Stacks: 1 | Value: 0.400 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        AshveilTrace3FUACD | CD% | Stacks: 1 | Value: 0.800 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['FUA']
+        LushakaATK(SUP2) | ATK% | Stacks: 1 | Value: 0.120 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        Numinosity | PEN | Stacks: 1 | Value: 0.240 | Remaining Turns: 3 | TickDown: SUP2, START | Target: DPS | Affects: ['ALL']
+        KeelCD(SUS) | CD% | Stacks: 1 | Value: 0.100 | Remaining Turns: 1 | TickDown: DPS, PERM | Target: DPS | Affects: ['ALL']
+        SparxiePunchtoCD | CD% | Stacks: 1 | Value: 0.080 | Remaining Turns: 1 | TickDown: SUP1, END | Target: DPS | Affects: ['ALL']
+        AshveilTalentEnergy0 | ERR_F | Stacks: 1 | Value: 8.000 | Remaining Turns: 1 | TickDown: DPS, END | Target: DPS | Affects: ['ALL']
+        DukeATK | ATK% | Stacks: 1 | Value: 0.480 | Remaining Turns: 3 | TickDown: DPS, END | Target: DPS | Affects: ['ALL']
+        ConvergingStarsATK | ATK% | Stacks: 1 | Value: 0.240 | Remaining Turns: 2 | TickDown: DPS, END | Target: DPS | Affects: ['ALL']
+        AshveilTrace2GluttonyDMG | DMG% | Stacks: 1 | Value: 0.000 | Remaining Turns: 1 | TickDown: DPS, END | Target: DPS | Affects: ['FUA']
+        ----------End of Buff List----------
+
+        ----------Enemy Debuffs----------
+        AshveilBaitShred | From: DPS | SHRED | Stacks: 1 | Value: 0.400 | Remaining Turns: 1000 | Target: 0 | Targeting: ST | Affects: ['ALL'] | DOT: False | Blast: False
+        HuohuoTechniqueDebuff | From: SUS | ATK_REDUCTION | Stacks: 1 | Value: 0.250 | Remaining Turns: 2 | Target: 0 | Targeting: ST | Affects: ['SPECIAL'] | DOT: False | Blast: False
+        ----------End of Debuff List----------
+        ----------Healing List----------
+        ----------End of Healing List----------
+    GAUGE  - Enemy 0 toughness reduced by 5.000
+    RESULT - AshveilFUA | Ashveil | DPS | DMG: 42344.134 | ELADMG: 0.000 | Enemies Hit: [0] | Enemies Broken: [] | WB DMG: 0.000 | Energy: 5.000 | Amount HP Healed: 0.000 | Amount HP Lost: 0.000 | Ashveil Energy: 82/150
+ERR    > 8.000 energy added to Ashveil from AshveilTalentEnergy0 | Ashveil Energy: 89.667
+ERR    > 1.867 energy added to Tribbie from TribbieTrace1Energy0 | Tribbie Energy: 98.089
+ERR    > 1.867 energy added to Tribbie from TribbieTrace1Energy1 | Tribbie Energy: 99.955
+AV     > HuoHuo AV reset to 64.678 | 154.612 SPD
+
+<<< NEW TURN >>>
+-   Tribbie AV: 0.000 ENERGY: 99.955 MaxHP: 4157.523 CurrHp 3907.617
+-   Ashveil AV: 5.391 ENERGY: 89.667 MaxHP: 2729.320 CurrHp 2633.351
+-   Enemy 0 AV: 8.585 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 1947617.081
+-   Enemy 2 AV: 8.585 ENERGY: 0.000 MaxHP: 2000000.000 CurrHp 2000000.000
+-   Sparxie AV: 21.268 ENERGY: 85.000 MaxHP: 3051.570 CurrHp 2816.391
+-   Aha AV: 29.395 ENERGY: 0.000 MaxHP: 0.000 CurrHp 0.000
+-   Enemy 1 AV: 57.925 ENERGY: 0.000 MaxHP: 5000000.000 CurrHp 4998079.358
+-   HuoHuo AV: 61.018 ENERGY: 139.977 MaxHP: 6139.808 CurrHp 6052.830
+
+Combat context set: 3 enemies, 4 players
+Registered Sparxie (ID: 144)
+Combat context initialized: 3 enemies, Elation team size: 1

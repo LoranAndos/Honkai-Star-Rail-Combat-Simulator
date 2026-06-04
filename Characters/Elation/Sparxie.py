@@ -233,7 +233,7 @@ class Sparxie(Character):
         self.Banger = specialRes.attr6
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
         if self.tech:
-            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
+            tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
             self.tech = False
         bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
         bl.append(Buff("SparxiePunchtoCD", StatTypes.CD_PERCENT, min(Character.SharedPunchline * 0.08, 0.8), Role.ALL, [AtkType.ALL],

@@ -1240,6 +1240,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 NihilityCount = sum(1 for c in playerTeam if c.path == Path.NIHILITY and c.role != specChar.role)
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
                 return Special(name=specStr, attr1=NihilityCount, attr2=enemyDebuffs, enemies=gauge)
+
+            case "Archer":
+                SPAmount = spTracker.getCurrenSP()
+                return Special(name=specStr, attr1=SPAmount, enemies=gauge)
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
 
@@ -1647,6 +1651,11 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         spTracker.addSP(turn.spChange if turn.spChange > 0 else 0)
         spTracker.redSP(turn.spChange if turn.spChange < 0 else 0)
 
+        # E2: MortenaxBlade makes all ally ults also count as FUA
+        mortenax = next((c for c in playerTeam if c.name == "MortenaxBlade"), None)
+        if mortenax and mortenax.eidolon >= 2 and AtkType.ULT in turn.atkType and AtkType.FUA not in turn.atkType:
+            turn.atkType.append(AtkType.FUA)
+
         logging.warning(f"    TURN   - {turn}")
         logging.debug("\n        ----------Char Buffs----------")
         [logging.debug(f"        {buff}") for buff in teamBuffs if (buff.target == turn.charRole and checkValidList(turn.atkType, buff.atkType))]
@@ -1657,6 +1666,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("        ----------Healing List----------")
         [logging.debug(f"        {heal}") for heal in healList]
         logging.debug("        ----------End of Healing List----------")
+
 
         res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, healList,manualMode=manualMode)
         res.debuffsApplied = parseDebuffs(newDebuffs, eTeam, defaultEnemyID=eTeam[0].enemyID if eTeam else 0)

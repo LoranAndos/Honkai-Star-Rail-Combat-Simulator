@@ -3,6 +3,7 @@ import logging
 import Enemy
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
+from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Harmony.RuanMei import RuanMei
 from Characters.Nihility.Jiaoqiu import Jiaoqiu
 from Characters.Harmony.Sunday import Sunday
@@ -12,7 +13,7 @@ from Characters.Nihility.Cipher import Cipher
 from Characters.Nihility.Pela import Pela
 from Characters.Hunt.Ashveil import Ashveil
 from Characters.Hunt.Feixiao import Feixiao
-from Characters.Hunt.Topaz import Topaz
+from Characters.Hunt.Archer import Archer
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Harmony.Tribbie import Tribbie
 from Characters.Harmony.Robin import Robin
@@ -36,7 +37,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.WIND]
+    weaknesses = [Element.LIGHTNING]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -55,9 +56,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-        slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -100,10 +101,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             maxSP += 3
         elif findCharName(playerTeam, "SparkleOld").eidolon < 4:
             maxSP += 2
-    if inTeam(playerTeam, "Sparxie"):
-        sparxie = findCharName(playerTeam, "Sparxie")
-        if sparxie.lightcone.name == "Dazzled by a Flowery World":
+    for LightconeCharacter in playerTeam:
+        if LightconeCharacter.lightcone.name == "Dazzled by a Flowery World":
             maxSP += min(ElationCount, 3)
+    if inTeam(playerTeam, "Archer"):
+        maxSP += 2
+    if inTeam(playerTeam, "RinTohsaka"):
+        maxSP += 2
     spTracker = SpTracker(startingSP, maxSP)
 
     # Summons
@@ -451,7 +455,7 @@ if __name__ == "__main__":
 
     enemyModule = EnemyModule(3, [95, 95, 95],
                               [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.WIND], [1])
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.LIGHTNING], [1])
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
     #enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 3 enemyModule
@@ -477,9 +481,9 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-        slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -499,9 +503,9 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Feixiao(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-                slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,

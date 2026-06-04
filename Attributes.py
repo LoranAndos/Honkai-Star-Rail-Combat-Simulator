@@ -7,12 +7,12 @@ bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "F
             "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE","ElationMCTalentSkill","ElationMCELASkillSmall","ElationMCUltTrigger_DPS","EvanesciaMasterFoxELAPUNCH","EvanesciaSkillELAPUNCH","EvanesciaUltELAPUNCH_AOE"
             ,"EvanesciaUltELAPUNCH_ST","EvanesciaTech","SilverWolf999ELASkillExtra","SilverWolf999BigFlippingSword","EvanesciaUltSingle","MortenaxBladeBounceSkill","MortenaxBladeBounceFUA","AshveilTech",
             "AcheronRainblade1","AcheronRainblade2","AcheronRainblade3","AcheronRainbladeKnot1","AcheronRainbladeKnot2","AcheronRainbladeKnot3","AcheronResurgeBounce1","AcheronResurgeBounce2","AcheronResurgeBounce3",
-            "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6","AcheronTech","CipherUltST","CipherTech","CipherE4Add",} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6","AcheronTech","CipherUltST","CipherTech","CipherE4Add","ArcherTech",} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
                 "SilverWolf999Ult","MortenaxBladeUlt","MortenaxBladeEnhancedUlt","AshveilUlt","AcheronUlt","FeixiaoUltFinal",
-                "CipherUltAOE",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+                "CipherUltAOE","ArcherUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"}
 
 wbMultiplier = 3767.5533

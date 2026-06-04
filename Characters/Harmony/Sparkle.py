@@ -129,7 +129,7 @@ class Sparkle(Character):
             spConsumed = abs(min(turn.spChange, 0))
             for _ in range(spConsumed):
                 bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, spConsumed+10, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
-        if turn.moveName == "SparxieSkill":
+        if turn.moveName == "SparxieSkill" or "ArcherSkill":
             self.SkillSP = 0
         if self.overflowSP > 0:
             spToRestore = min(self.overflowSP, self.maxSP - self.currentSP)
