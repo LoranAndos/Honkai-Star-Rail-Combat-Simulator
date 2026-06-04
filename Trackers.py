@@ -18,6 +18,9 @@ class SpTracker:
     def getCurrenSP(self):
         return self.diSP # ← already capped at maxSP
 
+    def getMaxSP(self):
+        return self.maxSP
+
     def addSP(self, num):
         self.spGain += num
         self.diSP = min(self.diSP + num, self.maxSP)

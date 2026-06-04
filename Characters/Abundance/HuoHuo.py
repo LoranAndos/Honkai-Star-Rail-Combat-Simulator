@@ -121,9 +121,9 @@ class HuoHuo(Character):
                 Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally1Role, [AtkType.ALL], 2, 1, self.ally1Role,
                      TickDown.END))
             bl.append(
-                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally1Role, [AtkType.ALL], 1, 1,
+                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally1Role, [AtkType.ALL], 2, 1,
                      self.ally1Role,
-                     TickDown.PERM))
+                     TickDown.END))
         bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally2Energy * errMul, self.ally2Role, [AtkType.ALL], 1, 1, self.ally2Role,
                  TickDown.PERM))
@@ -132,9 +132,9 @@ class HuoHuo(Character):
                 Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally2Role, [AtkType.ALL], 2, 1, self.ally2Role,
                      TickDown.END))
             bl.append(
-                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally2Role, [AtkType.ALL], 1, 1,
+                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally2Role, [AtkType.ALL], 2, 1,
                      self.ally2Role,
-                     TickDown.PERM))
+                     TickDown.END))
         bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally3Energy * errMul, self.ally3Role, [AtkType.ALL], 1, 1, self.ally3Role,
                  TickDown.PERM))
@@ -143,9 +143,9 @@ class HuoHuo(Character):
                 Buff("HuoHuoUltATK", StatTypes.ATK_PERCENT, atkBuff, self.ally3Role, [AtkType.ALL], 2, 1, self.ally3Role,
                      TickDown.END))
             bl.append(
-                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally3Role, [AtkType.ALL], 1, 1,
+                Buff("HuoHuoUltExtraATK", StatTypes.ATK_PERCENT, 0.24, self.ally3Role, [AtkType.ALL], 2, 1,
                      self.ally3Role,
-                     TickDown.PERM))
+                     TickDown.END))
         tl.append(
             Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ULT], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "HuoHuoUlt"))
@@ -210,4 +210,5 @@ class HuoHuo(Character):
             self.ally4CurrentHP = specialRes.attr7[2]
         if self.Tech:
             dbl.append(Debuff("HuohuoTechniqueDebuff", self.role, StatTypes.ATK_REDUCTION, 0.25, Role.ALL, [AtkType.SPECIAL], 2))
+            self.Tech = False
         return bl, dbl, al, dl, tl, hl

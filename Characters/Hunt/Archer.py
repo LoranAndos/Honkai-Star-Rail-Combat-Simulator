@@ -6,7 +6,7 @@ from Lightcones.Hunt.TheFinaleOfALie import TheFinaleOfALie
 from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
 from Planars.CityOfConvergingStars import CityOfConvergingStars
 from RelicStats import RelicStats
-from Relics.TheAshblazingGrandDuke import DukeAshveil
+from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -51,11 +51,11 @@ class Archer(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else CruisingInTheStellarSea(role, 5)
-        self.relic1 = r1 if r1 else DukeAshveil(role, 4)
+        self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else CityOfConvergingStars(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
+                                                       StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
@@ -73,13 +73,6 @@ class Archer(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "ArcherBasic"))
         return bl, dbl, al, dl, tl, hl
-
-    def takeTurn(self):
-        # While in Circuit Connection, keep returning "E" so the AV loop calls
-        # useSkl again each turn rather than advancing to the next rotation entry.
-        if self.circuitActive:
-            return "E"
-        return super().takeTurn()
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
@@ -106,7 +99,7 @@ class Archer(Character):
         # Check exit conditions AFTER emitting the hit so the final hit uses the
         # correct (accumulated) stkMul before state is cleared.
         spAfterThis = self.SPAmount - 2
-        shouldExit = (self.circuitSklCount >= 5) or (spAfterThis < 1)
+        shouldExit = (self.circuitSklCount >= 5) or (spAfterThis < 2)
         if shouldExit:
             self.circuitActive = False
             self.circuitDMGStacks = 0

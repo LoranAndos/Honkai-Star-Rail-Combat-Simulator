@@ -31,5 +31,6 @@ class Turn:
         res += f"{self.targeting.value} attack | {[e.value for e in self.element]} | {[a.name for a in self.atkType]} | "
         res += f"Scaling: {self.scaling.name} | TargetID: {self.targetID} | "
         res += f"DMG/BREAK Splits: {self.dmgSplit}/{self.brkSplit} | "
-        res += f"Energy Gained: {self.errGain}"
+        res += f"Energy Gained: {self.errGain} | "
+        res += f"SP Change: {self.spChange}"
         return res

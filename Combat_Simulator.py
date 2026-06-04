@@ -37,7 +37,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.LIGHTNING]
+    weaknesses = [Element.QUANTUM]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -294,6 +294,61 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                     knotTarget = acheron._knotTarget()
                     acheron._addKnot(knotTarget)
                     logging.debug(f"ACHERON > +1 Slashed Dream from action debuffs ({acheron.currEnergy}/{acheron.maxEnergy})")
+
+            # ── Circuit Connection: chain skill uses within the same logical turn ──
+            # After each skill use, if the unit is still in circuitActive state,
+            # run handleUlts (so any ready ults can fire between uses), process
+            # pending turns, then call useSkl again. tickBuffs END and resetUnitAV
+            # are intentionally deferred to after the full circuit completes so
+            # buff durations are not consumed per-use.
+            while getattr(unit, 'circuitActive', False):
+                # Process pending turns from the previous skill use first
+                while turnList:
+                    teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(
+                        turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList,
+                        delayList, healingList, spTracker, dmg, manualMode=manualMode)
+                    if turnList:
+                        allUnits = sortUnits(allUnits)
+                        setPriority(allUnits)
+                        readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0]
+                        for summon in readySummons:
+                            bl, dbl, al, dl, tl, hl = summon.takeTurn()
+                            teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(
+                                playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, bl, dbl, al, dl, hl)
+                            turnList.extend(tl)
+                            resetUnitAV(summon, teamBuffs, enemyDebuffs)
+                        if not readySummons:
+                            break
+
+                # Energy and SP from the previous skill use
+                teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
+                teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
+
+                # Allow any ready ults to fire between circuit skill uses
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleUlts(
+                    playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList,
+                    healingList, spTracker, dmg, manualMode=manualMode, simAV=simAV)
+
+                # Refresh SPAmount on the unit so it sees any SP gained this cycle
+                unit.SPAmount = spTracker.getCurrenSP()
+
+                if not unit.circuitActive:
+                    break  # exit condition was already triggered inside useSkl
+
+                # Execute the next circuit skill use
+                circuitAction = f"ACTION > [CIRCUIT] TotalAV: {simAV:.3f} | {unit.name} | circuit skill use {unit.circuitSklCount + 1}"
+                logging.critical(circuitAction)
+                manualPrint(manualMode, circuitAction)
+                bl, dbl, al, dl, tl, hl = unit.useSkl(target)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(
+                    playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, bl, dbl, al, dl, hl)
+                turnList.extend(tl)
+                if dbl:
+                    acheron = next((c for c in playerTeam if c.name == "Acheron"), None)
+                    if acheron:
+                        acheron._addSlashedDream(1)
+                        knotTarget = acheron._knotTarget()
+                        acheron._addKnot(knotTarget)
         elif unit.isChar() and unit.isSummon():
             action = f"ACTION > [SUMMON] TotalAV: {simAV:.3f} | TurnAV: {av:.3f} | {unit.name}"
             logging.critical(action)  # Summon logic
@@ -455,7 +510,7 @@ if __name__ == "__main__":
 
     enemyModule = EnemyModule(3, [95, 95, 95],
                               [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.LIGHTNING], [1])
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.QUANTUM], [1])
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
     #enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 3 enemyModule

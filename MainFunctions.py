@@ -1681,7 +1681,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         dmgTracker.addHPGain(res.HPGain)
         dmgTracker.addHPLoss(res.HPLoss)
         char = findCharRole(playerTeam, res.charRole)
-        result = f"RESULT - {res} | {char.name} Energy: {min(char.maxEnergy, char.currEnergy + res.errGain):.0f}/{char.maxEnergy}"
+        result = f"RESULT - {res} | {char.name} Energy: {min(char.maxEnergy, char.currEnergy + res.errGain):.0f}/{char.maxEnergy} | SP: {spTracker.getDisp()} | MaxSP: {spTracker.getMaxSP()})"
         logging.warning(f"    {result}")
         if manualMode:
             print(result)
@@ -1850,7 +1850,7 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
 def manualModule(spTracker: SpTracker, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], simAV: float, unit, actionType) -> tuple[str, int]:
     unit.takeTurn()
     print("===============================================================================================================================================================")
-    print(f"INFO   > CURRENT AV: {simAV:.3f} | SP: {spTracker.getDisp()}\n")
+    print(f"INFO   > CURRENT AV: {simAV:.3f} | SP: {spTracker.getDisp()} | MaxSP: {spTracker.getMaxSP()}\n)")
     res1 = "TEAMAV > "
     res2 = "ENERGY > "
     for char in [p for p in (playerTeam + summons)]:
