@@ -57,7 +57,7 @@ class BaptismFeixiao(BaptismOfPureThought):
 
     def specialStart(self, special: Special):
         if special.specialName == "Feixiao" or special.specialName == "FeixiaoTech":
-            self.targetDebuffs = min(3.0, special.attr3)
+            self.targetDebuffs = min(3.0, special.attr3[0])
         return super().specialStart(special)
 
 
@@ -67,5 +67,5 @@ class BaptismRatio(BaptismOfPureThought):
 
     def specialStart(self, special: Special):
         if special.specialName == "Ratio":
-            self.targetDebuffs = min(3.0, special.attr1)
+            self.targetDebuffs = min(3.0, special.attr1[0])
         return super().specialStart(special)
