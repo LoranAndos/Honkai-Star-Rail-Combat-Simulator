@@ -1243,7 +1243,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Archer":
                 SPAmount = spTracker.getCurrenSP()
-                return Special(name=specStr, attr1=SPAmount, enemies=gauge)
+                isOwnTurn = unit.name == "Archer"
+                return Special(name=specStr, attr1=SPAmount, attr2=isOwnTurn, enemies=gauge)
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
 
@@ -1449,7 +1450,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     cdStat -= findBuffName(buffList, "EarthlyTeamCD").getBuffVal()
                 currentSP = spTracker.getCurrenSP()
                 maxSP = spTracker.maxSP
-                return Special(name=specStr, attr1=cdStat, attr2=currentSP, attr3=maxSP, enemies=gauge)
+                return Special(name=specStr, attr1=cdStat, attr2=currentSP, attr3=maxSP, attr4=spTracker, enemies=gauge)
 
             case "Sparxie":
                 SpdList = []

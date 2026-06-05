@@ -41,6 +41,7 @@ class Sparkle(Character):
     currentSP = 0
     maxSP = 5
     SkillSP = -1
+    spTracker = None  # reference set in handleSpecialStart for live SP access
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -107,14 +108,18 @@ class Sparkle(Character):
         return bl, dbl, al, dl, tl, hl
 
     def ownTurn(self, turn: Turn, result: Result):
+        preRefreshSP = self.currentSP  # still the pre-ult value before _refreshSP updates it
+        self._refreshSP()
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         if result.turnName == "SparkleUlt":
-            # Calculate overflow: if current SP + 6 > maxSP, record overflow up to 10
-            overflow = max(0, self.currentSP + 6 - self.maxSP)
+            # Use preRefreshSP (before ult spChange was applied) to correctly compute overflow
+            e4SP = 7 if self.eidolon >= 4 else 6
+            overflow = max(0, preRefreshSP + e4SP - self.maxSP)
             self.overflowSP = min(overflow, 10)
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
+        self._refreshSP()
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         e5VUL = 0.044 if self.eidolon >= 5 else 0.04
         if turn.spChange <= -1:
@@ -129,9 +134,9 @@ class Sparkle(Character):
             spConsumed = abs(min(turn.spChange, 0))
             for _ in range(spConsumed):
                 bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, spConsumed+10, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
-        if turn.moveName == "SparxieSkill" or "ArcherSkill":
+        if turn.moveName == "SparxieSkill" or turn.moveName == "ArcherSkill":
             self.SkillSP = 0
-        if self.overflowSP > 0:
+        if self.overflowSP > 0 and turn.moveName != "ArcherSkill" and turn.moveName != "ArcherUlt" and turn.moveName not in bonusDMG:
             spToRestore = min(self.overflowSP, self.maxSP - self.currentSP)
             if spToRestore > 0:
                 tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SPECIAL],
@@ -139,6 +144,12 @@ class Sparkle(Character):
                                spToRestore, "SparkleOverflowSP"))
                 self.overflowSP -= spToRestore
         return bl, dbl, al, dl, tl, hl
+
+    def _refreshSP(self):
+        """Sync currentSP and maxSP from the live spTracker if available."""
+        if self.spTracker is not None:
+            self.currentSP = self.spTracker.getCurrenSP()
+            self.maxSP = self.spTracker.maxSP
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
@@ -149,6 +160,9 @@ class Sparkle(Character):
             bl.append(Buff("SparkleTechERR", StatTypes.ERR_T, 20, self.role,
                            [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         self.cdStat = specialRes.attr1
-        self.currentSP = specialRes.attr2  # current SP from spTracker
-        self.maxSP = specialRes.attr3  # max SP from spTracker
+        self.currentSP = specialRes.attr2
+        self.maxSP = specialRes.attr3
+        # Store the spTracker reference on first receipt so we can refresh SP live
+        if self.spTracker is None and specialRes.attr4 is not None:
+            self.spTracker = specialRes.attr4
         return bl, dbl, al, dl, tl, hl

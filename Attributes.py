@@ -3,7 +3,7 @@ from enum import Enum, auto
 bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
             "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
             "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
+            ,"SushangSwordStance","HuoHuoAllyERR","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
             "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE","ElationMCTalentSkill","ElationMCELASkillSmall","ElationMCUltTrigger_DPS","EvanesciaMasterFoxELAPUNCH","EvanesciaSkillELAPUNCH","EvanesciaUltELAPUNCH_AOE"
             ,"EvanesciaUltELAPUNCH_ST","EvanesciaTech","SilverWolf999ELASkillExtra","SilverWolf999BigFlippingSword","EvanesciaUltSingle","MortenaxBladeBounceSkill","MortenaxBladeBounceFUA","AshveilTech",
             "AcheronRainblade1","AcheronRainblade2","AcheronRainblade3","AcheronRainbladeKnot1","AcheronRainbladeKnot2","AcheronRainbladeKnot3","AcheronResurgeBounce1","AcheronResurgeBounce2","AcheronResurgeBounce3",
