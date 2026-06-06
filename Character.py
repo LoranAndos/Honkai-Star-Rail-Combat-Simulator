@@ -62,6 +62,7 @@ class Character(metaclass=CharacterMeta):
     fuas = 0
     Adds = 0
     ElationSkills = 0
+    JointAttacks = 0
     MemoAttack = 0
     turn = 0
     lightcone = None
@@ -118,6 +119,10 @@ class Character(metaclass=CharacterMeta):
     def useElaSkill(self, enemyID=-1):
         self.ElationSkills = self.ElationSkills + 1
         return *self.parseEquipment(AtkType.ELAPUNCH, enemyID=enemyID), []
+
+    def useJointAttack(self, enemyID=-1):
+        self.JointAttacks = self.JointAttacks + 1
+        return *self.parseEquipment(AtkType.FUA, enemyID=enemyID), []
 
     def useMemo(self, enemyID=-1):
         self.MemoAttack = self.MemoAttack + 1

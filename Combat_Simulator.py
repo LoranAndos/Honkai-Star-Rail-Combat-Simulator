@@ -489,7 +489,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     for char in playerTeam:
         res, charDMG = char.getTotalDMG()
         logging.critical(
-            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | ElationSkills: {char.ElationSkills} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
+            f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | ElationSkills: {char.ElationSkills} | JointAttacks: {char.JointAttacks} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
         logging.critical(res)
 
     return f"DPAV: {dmg.getTotalDMG() / avLimit:.3f} | SP Used: {spTracker.getSPUsed()}, SP Gain: {spTracker.getSPGain()}"

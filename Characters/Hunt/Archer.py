@@ -121,6 +121,7 @@ class Archer(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ULT], [self.element],
                        [e5Mul, 0], [30, 0], 5, self.scaling, 0, "ArcherUlt"))
         self.FUACharge = min(self.FUACharge+2,4)
+        logger.info(f"Archer Obtained 2 FUA Charge")
         return bl, dbl, al, dl, tl, hl
 
     def useFua(self, enemyID=-1):

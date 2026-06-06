@@ -1245,6 +1245,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 SPAmount = spTracker.getCurrenSP()
                 isOwnTurn = unit.name == "Archer"
                 return Special(name=specStr, attr1=SPAmount, attr2=isOwnTurn, enemies=gauge)
+
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
 
@@ -1427,6 +1428,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "Rappa":
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
                 return Special(name=specStr, attr1=atkStat, enemies=gauge, attr2=inTeam(playerTeam, "RuanMei"))
+
+            case "RinTohsaka":
+                SPAmount = spTracker.getCurrenSP()
+                return Special(name=specStr, attr1=SPAmount, enemies=gauge)
 
             case "Robin":
                 atk = getBaseValue(specChar, buffList, placeHolderTurn)
