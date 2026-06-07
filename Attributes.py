@@ -71,6 +71,7 @@ class StatTypes(Enum):
     BLEED = "BLEED"
 
     TRUEDAMAGE = "TRUEDAMAGE"
+    INDEPENDENTDAMAGEMULTIPLIER = "IDM"
 
     ATK_REDUCTION = "ATK_REDUCTION"       # reduces enemy ATK stat (debuff on enemy)
     ENEMY_DMG_REDUCTION = "ENEMY_DMG_REDUCTION"  # reduces outgoing damage dealt by enemy (debuff on enemy)

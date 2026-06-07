@@ -32,7 +32,7 @@ class Sparkle(Character):
     ultCost = 110
     currAV = 0
     aggro = 100
-    dmgDct = {AtkType.BSC: 0, AtkType.FUA: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0}  # Adjust accordingly
+    dmgDct = {AtkType.BSC: 0, AtkType.BRK: 0}  # Adjust accordingly
 
     # Unique Character Properties
     cdStat = 0

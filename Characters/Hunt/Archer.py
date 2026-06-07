@@ -2,9 +2,8 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Hunt.TheFinaleOfALie import TheFinaleOfALie
-from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
-from Planars.RutilantArena import RutilantArena
+from Lightcones.Hunt.TheHellWhereIdealsBurn import TheHellWhereIdealsBurn
+from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Result import *
@@ -35,6 +34,9 @@ class Archer(Character):
     FUACharge = 1
     SPAmount = 0
     Tech = True
+    RinTohsakaInTeam = False
+    RinTurnHappened = True
+    RinEidolon = 0
     E6SP = False
 
     # Circuit Connection state
@@ -51,11 +53,11 @@ class Archer(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else CruisingInTheStellarSea(role, 5)
+        self.lightcone = lc if lc else TheHellWhereIdealsBurn(role, 1)
         self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
+        self.planar = pl if pl else TengokuLivestream(role)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 13, 10, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
@@ -103,6 +105,10 @@ class Archer(Character):
         # Check exit conditions AFTER emitting the hit so the final hit uses the
         # correct (accumulated) stkMul before state is cleared.
         spAfterThis = self.SPAmount - 2
+        if spAfterThis <= 3 and self.RinTohsakaInTeam and self.RinTurnHappened:
+            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+            self.RinTurnHappened = False
+            spAfterThis += 4
         shouldExit = (self.circuitSklCount >= 5) or (spAfterThis < abs(SpUsage))
         if shouldExit:
             self.circuitActive = False
@@ -132,6 +138,13 @@ class Archer(Character):
         self.FUACharge -= 1
         return bl, dbl, al, dl, tl, hl
 
+    def useJointAttack(self, enemyID=-1):
+        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        e3RinMult = 3.3 if self.RinEidolon >= 3 else 3.0
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
+                       [self.element], [e3RinMult, 0], [0, 0], 0, self.scaling, 0, "ArcherJointAttack"))
+        return bl, dbl, al, dl, tl, hl
+
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
         # If all enemies are defeated mid-circuit, cancel the remaining uses.
@@ -140,7 +153,7 @@ class Archer(Character):
             self.circuitDMGStacks = 0
             self.circuitSklCount = 0
             logger.info(f"CIRCUIT > {self.name} exited Circuit Connection (all enemies defeated)")
-        if self.SPAmount >= 4 and turn.spChange >= 1:
+        if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
         return bl, dbl, al, dl, tl, hl
 
@@ -148,14 +161,21 @@ class Archer(Character):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.FUACharge > 0:
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
-        if self.SPAmount >= 4 and turn.spChange >= 1:
+        if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
+        if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and turn.moveName != ("RinTohsakaJointAttack" or "RinTohsakaUltSide"):
+            self.RinTurnHappened = True
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
         self.SPAmount = specialRes.attr1
         isOwnTurn = specialRes.attr2
+        self.RinTohsakaInTeam = specialRes.attr3
+        self.RinEidolon = specialRes.attr4
+        if self.RinTohsakaInTeam:
+            bl.append(Buff("RinTohsakaAllyTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
+            bl.append(Buff("RinTohsakaAllyTrace1Shred", StatTypes.SHRED, 0.20, self.role))
         if self.Tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [2.0, 0], [0, 0], 0, self.scaling, 0, "ArcherTech"))
             self.FUACharge = min(self.FUACharge + 1, 4)

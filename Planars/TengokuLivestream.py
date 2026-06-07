@@ -18,11 +18,24 @@ class TengokuLivestream(Planar):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
-        # Track SP consumed this turn from SparxieSkill
-        if turn.moveName == "SparxieSkill" :
+        if turn.moveName == "SparxieSkill":
             spConsumed = abs(min(turn.spChange-2, 0))  # spChange is negative, get absolute value
             self.spConsumedThisTurn += spConsumed
             if self.spConsumedThisTurn >= 3:
-                bl.append(Buff("TengokuSPCD", StatTypes.CD_PERCENT, 0.32, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
-            self.spConsumedThisTurn = 0  # reset after skill resolves
+                bl.append(Buff("TengokuSPSparxieCD", StatTypes.CD_PERCENT, 0.32, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+            self.spConsumedThisTurn = 0
+        elif turn.moveName == "ArcherSkill":
+            spConsumed = abs(min(turn.spChange-2, 0))  # spChange is negative, get absolute value
+            self.spConsumedThisTurn += spConsumed
+            if self.spConsumedThisTurn >= 3:
+                bl.append(Buff("TengokuSPArcherCD", StatTypes.CD_PERCENT, 0.32, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+        elif turn.moveName == "RinTohsakaSkillSingle":
+            spConsumed = abs(min(turn.spChange, 0))  # spChange is negative, get absolute value
+            self.spConsumedThisTurn += spConsumed
+            if self.spConsumedThisTurn >= 3:
+                bl.append(Buff("TengokuSPRinCD", StatTypes.CD_PERCENT, 0.32, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+            self.spConsumedThisTurn = 0
         return bl, dbl, al, dl, hl
+
+    def takeTurn(self) -> str:
+        self.spConsumedThisTurn = 0

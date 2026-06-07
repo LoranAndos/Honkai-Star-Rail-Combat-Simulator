@@ -1244,7 +1244,12 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "Archer":
                 SPAmount = spTracker.getCurrenSP()
                 isOwnTurn = unit.name == "Archer"
-                return Special(name=specStr, attr1=SPAmount, attr2=isOwnTurn, enemies=gauge)
+                RinTohsakaInTeam = inTeam(playerTeam, "RinTohsaka")
+                if RinTohsakaInTeam:
+                    RinEidolon = findCharName(playerTeam, "RinTohsaka").eidolon
+                else:
+                    RinEidolon = 0
+                return Special(name=specStr, attr1=SPAmount, attr2=isOwnTurn, attr3=RinTohsakaInTeam, attr4=RinEidolon, enemies=gauge)
 
             case "Ashveil":
                 LowestEnemyHPID = min(enemyTeam, key=lambda e: e.currHP).enemyID
@@ -1431,7 +1436,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "RinTohsaka":
                 SPAmount = spTracker.getCurrenSP()
-                return Special(name=specStr, attr1=SPAmount, enemies=gauge)
+                ArcherInTeam = inTeam(playerTeam, "Archer")
+                return Special(name=specStr, attr1=SPAmount, attr2=ArcherInTeam, enemies=gauge)
 
             case "Robin":
                 atk = getBaseValue(specChar, buffList, placeHolderTurn)
@@ -1956,6 +1962,8 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res
         case StatTypes.DMG_REDUCTION:
             return res
+        case StatTypes.INDEPENDENTDAMAGEMULTIPLIER:
+            return res
 
 
 # Use these functions to directly get the multiplier against the specified enemy for the specified char
@@ -2027,6 +2035,9 @@ def getMulDMGReduction(char: Character, buffList: list[Buff]) -> float:
                                  [char.element], [0,0], [0,0], 0, char.scaling, 0, "DMGReductionCheck"))
     return max(0.0, 1.0 - reduction)
 
+def getMulIDM(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
+    return getCharStat(StatTypes.INDEPENDENTDAMAGEMULTIPLIER, char, enemy, buffList, debuffList, turn) + 1
+
 def getMulUNI(enemy: Enemy) -> float:
     return enemy.getUniMul()
 
@@ -2035,5 +2046,6 @@ def getMulENEMY(char: Character, enemy: Enemy, buffList: list[Buff], debuffList:
     vulnMul = getMulVULN(char, enemy, buffList, debuffList, turn)
     penMul = getMulPEN(char, enemy, buffList, debuffList, turn)
     TrueDamageMul = getTRUEDAMAGE(char, enemy, buffList, debuffList, turn)
+    IDMMul = getMulIDM(char, enemy, buffList, debuffList, turn)
     uniMul = getMulUNI(enemy)
-    return shredMul * vulnMul * penMul * TrueDamageMul * uniMul
+    return shredMul * vulnMul * penMul * TrueDamageMul * IDMMul * uniMul

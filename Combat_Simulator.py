@@ -5,15 +5,9 @@ from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
 from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Harmony.RuanMei import RuanMei
-from Characters.Nihility.Jiaoqiu import Jiaoqiu
 from Characters.Harmony.Sunday import Sunday
-from Characters.Nihility.Acheron import Acheron
-from Characters.Nihility.MortenaxBlade import MortenaxBlade
-from Characters.Nihility.Cipher import Cipher
-from Characters.Nihility.Pela import Pela
-from Characters.Hunt.Ashveil import Ashveil
-from Characters.Hunt.Feixiao import Feixiao
 from Characters.Hunt.Archer import Archer
+from Characters.Erudition.RinTohsaka import RinTohsaka
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Harmony.Tribbie import Tribbie
 from Characters.Harmony.Robin import Robin
@@ -58,7 +52,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -502,7 +496,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -538,7 +532,7 @@ if __name__ == "__main__":
         # next instance of characters matters for the result.
         slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -560,7 +554,7 @@ if __name__ == "__main__":
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
