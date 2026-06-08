@@ -540,7 +540,7 @@ class SilverWolf999(Character):
                 tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.ELABANGER],
                               [self.element], [tlb_mul/enemyCount, 0], [0, 0], 0, Scaling.ELA, 0,
                               "SilverWolf999TechniqueFunkyMunchBean"))
-                self.hiddenMMR = min(self.hiddenMMR + 3, self.hiddenMMR_MAX)
+                Character.SharedPunchline += 3
                 logger.info(f"{self.name} Technique: Funky Munch Bean triggered (+3 Punchline, 99 Banger used)")
 
             self.tech = False

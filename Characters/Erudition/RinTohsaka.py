@@ -54,10 +54,10 @@ class RinTohsaka(Character):
         self.lightcone = lc if lc else EternalCalculus(role, 5)
         self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
+        self.planar = pl if pl else RutilantArena(role)
         self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 2, StatTypes.CR_PERCENT, StatTypes.SPD_PERCENT,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
-        self.rotation = rotation if rotation else ["E"]
+        self.rotation = rotation if rotation else ["E","A","A"]
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
@@ -145,7 +145,7 @@ class RinTohsaka(Character):
         e5CD = 1.10 if self.eidolon >= 5 else 1.00
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange) * self.SkillGemMultiplier
-            bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+            bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange) * self.SkillGemMultiplier} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
             self.SkillGemMultiplier = 1
             if self.eidolon >= 4:
@@ -157,7 +157,7 @@ class RinTohsaka(Character):
         e5CD = 1.10 if self.eidolon >= 5 else 1.00
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange)
-            bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+            bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange)} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
             if self.eidolon >= 4:
                 bl.append(Buff("E4RinSpd", StatTypes.SPD_PERCENT, 0.10, turn.charRole, [AtkType.ALL], 3, 1, turn.charRole, TickDown.END))
@@ -179,4 +179,4 @@ class RinTohsaka(Character):
         if self.SPAmount >= 7 or self.GemEnergy >= 15:
             self.EnhancedSkill = True
             logger.info(f"Rin can use Enhanced Skill")
-        return "E" if self.EnhancedSkill else "A"
+        return super().takeTurn()

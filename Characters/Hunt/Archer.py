@@ -42,7 +42,6 @@ class Archer(Character):
     # Circuit Connection state
     circuitActive = False      # Whether "Circuit Connection" state is currently active
     circuitSklCount = 0        # Number of skills used within the current Circuit Connection (max 5)
-    circuitDMGStacks = 0       # Stacked DMG bonus from repeated skill use in circuit (max 2, +100% each)
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -82,26 +81,24 @@ class Archer(Character):
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
         e3Mul = 3.96 if self.eidolon >= 3 else 3.6
+        e3DmgBoost = 1.08 if self.eidolon >= 3 else 1.00
         e6DmgBoostLimit = 3 if self.eidolon == 6 else 2
 
         if not self.circuitActive:
             # ── First skill use: enter Circuit Connection ──────────────────────
             self.circuitActive = True
             self.circuitSklCount = 1
-            self.circuitDMGStacks = 0
             logger.info(f"CIRCUIT > {self.name} entered Circuit Connection (use 1/5)")
         else:
             # ── Subsequent use inside Circuit Connection ───────────────────────
             self.circuitSklCount += 1
-            self.circuitDMGStacks = min(self.circuitDMGStacks + 1, e6DmgBoostLimit)
-            logger.info(f"CIRCUIT > {self.name} Circuit skill use {self.circuitSklCount}/5, DMG stacks: {self.circuitDMGStacks}")
+            bl.append(Buff("SkillDmg", StatTypes.DMG_PERCENT, e3DmgBoost, self.role, [AtkType.SKL], 1, e6DmgBoostLimit, Role.SELF, TickDown.START))
+            logger.info(f"CIRCUIT > {self.name} Circuit skill use {self.circuitSklCount}/5")
 
         # Emit the damage hit for this use, scaled by current stacks.
-        # circuitDMGStacks is 0 on use-1, 1 on use-2, 2 on uses 3-5.
-        stkMul = 1.0 + self.circuitDMGStacks * 1.0
         SpUsage = 0 if self.circuitSklCount == 3 and self.eidolon >= 1 else -2
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL],
-                       [self.element], [e3Mul * stkMul, 0], [20, 0], 30, self.scaling, SpUsage, "ArcherSkill"))
+                       [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, SpUsage, "ArcherSkill"))
         # Check exit conditions AFTER emitting the hit so the final hit uses the
         # correct (accumulated) stkMul before state is cleared.
         spAfterThis = self.SPAmount - 2

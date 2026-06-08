@@ -532,7 +532,7 @@ if __name__ == "__main__":
         # next instance of characters matters for the result.
         slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -554,7 +554,7 @@ if __name__ == "__main__":
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
