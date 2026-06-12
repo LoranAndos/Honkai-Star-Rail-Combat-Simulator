@@ -3,7 +3,6 @@ import logging
 from Buff import *
 from Character import Character
 from Attributes import *
-from Lightcones.Nihility.ReforgedInHellfire import ReforgedInHellfire
 from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade
 from Lightcones.Nihility.LiesDanceOnTheBreeze import LiesDanceOnTheBreeze
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas

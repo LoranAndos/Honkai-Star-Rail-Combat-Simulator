@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 223420.044 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 19736.645
+Run    2: Team DPAV: 227235.709 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run    3: Team DPAV: 219408.551 | Archer: 173346.835 | Sparkle: 0.000 | RinTohsaka: 26107.682 | Cipher: 19722.776
+Run    4: Team DPAV: 227104.180 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28905.954
+Run    5: Team DPAV: 218032.297 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 19742.275
+Run    6: Team DPAV: 229115.482 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28919.822
+Run    7: Team DPAV: 229149.583 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28953.924
+Run    8: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run    9: Team DPAV: 229147.805 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28952.146
+Run   10: Team DPAV: 227774.406 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 27578.747
+Run   11: Team DPAV: 227153.450 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28940.056
+Run   12: Team DPAV: 225786.509 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 27573.115
+Run   13: Team DPAV: 227209.843 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28919.822
+Run   14: Team DPAV: 225764.618 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 27578.747
+Run   15: Team DPAV: 232613.348 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 28929.948
+Run   16: Team DPAV: 229149.583 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28953.924
+Run   17: Team DPAV: 227153.450 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28940.056
+Run   18: Team DPAV: 227774.406 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 27578.747
+Run   19: Team DPAV: 227774.406 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 27578.747
+Run   20: Team DPAV: 233355.847 | Archer: 179021.350 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   21: Team DPAV: 227148.655 | Archer: 172833.605 | Sparkle: 0.000 | RinTohsaka: 25151.973 | Cipher: 28931.819
+Run   22: Team DPAV: 225770.036 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 27556.642
+Run   23: Team DPAV: 232598.180 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27152.759 | Cipher: 28929.948
+Run   24: Team DPAV: 217960.146 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 19746.752
+Run   25: Team DPAV: 229147.805 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28952.146
+Run   26: Team DPAV: 225778.272 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 27564.878
+Run   27: Team DPAV: 227139.796 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28953.924
+Run   28: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   29: Team DPAV: 227138.282 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28940.056
+Run   30: Team DPAV: 227235.709 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run   31: Team DPAV: 227209.843 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28919.822
+Run   32: Team DPAV: 227104.180 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28905.954
+Run   33: Team DPAV: 223404.877 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27152.759 | Cipher: 19736.645
+Run   34: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   35: Team DPAV: 227153.450 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28940.056
+Run   36: Team DPAV: 225786.509 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 27573.115
+Run   37: Team DPAV: 227209.843 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28919.822
+Run   38: Team DPAV: 225778.272 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 27564.878
+Run   39: Team DPAV: 229115.482 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28919.822
+Run   40: Team DPAV: 227130.046 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28931.819
+Run   41: Team DPAV: 227138.282 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28940.056
+Run   42: Team DPAV: 227105.694 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28919.822
+Run   43: Team DPAV: 229115.482 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28919.822
+Run   44: Team DPAV: 227243.945 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28953.924
+Run   45: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   46: Team DPAV: 232505.613 | Archer: 176202.618 | Sparkle: 0.000 | RinTohsaka: 27141.789 | Cipher: 28929.948
+Run   47: Team DPAV: 227119.348 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28905.954
+Run   48: Team DPAV: 227138.018 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28952.146
+Run   49: Team DPAV: 223386.532 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27152.759 | Cipher: 19718.300
+Run   50: Team DPAV: 223420.044 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 19736.645
+Run   51: Team DPAV: 223625.400 | Archer: 176494.047 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 19732.168
+Run   52: Team DPAV: 232609.510 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 28926.111
+Run   53: Team DPAV: 227131.560 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28945.688
+Run   54: Team DPAV: 227235.709 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run   55: Team DPAV: 224989.208 | Archer: 171748.095 | Sparkle: 0.000 | RinTohsaka: 24057.897 | Cipher: 28951.959
+Run   56: Team DPAV: 231246.407 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 27563.007
+Run   57: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   58: Team DPAV: 232746.552 | Archer: 176417.420 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 28929.948
+Run   59: Team DPAV: 232702.065 | Archer: 176360.843 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 28942.038
+Run   60: Team DPAV: 223420.044 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 19736.645
+Run   61: Team DPAV: 224979.100 | Archer: 171748.095 | Sparkle: 0.000 | RinTohsaka: 24057.897 | Cipher: 28941.850
+Run   62: Team DPAV: 230191.785 | Archer: 175267.855 | Sparkle: 0.000 | RinTohsaka: 25736.877 | Cipher: 28955.796
+Run   63: Team DPAV: 227138.018 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28952.146
+Run   64: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   65: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   66: Team DPAV: 227782.642 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 27586.983
+Run   67: Team DPAV: 231450.209 | Archer: 177079.986 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run   68: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   69: Team DPAV: 233362.306 | Archer: 179021.350 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28952.146
+Run   70: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   71: Team DPAV: 227748.540 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 27552.881
+Run   72: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   73: Team DPAV: 227138.282 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28940.056
+Run   74: Team DPAV: 227153.450 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28940.056
+Run   75: Team DPAV: 227149.612 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28936.218
+Run   76: Team DPAV: 227131.560 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28945.688
+Run   77: Team DPAV: 227131.560 | Archer: 172777.954 | Sparkle: 0.000 | RinTohsaka: 25176.661 | Cipher: 28945.688
+Run   78: Team DPAV: 227104.180 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28905.954
+Run   79: Team DPAV: 229125.590 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28929.931
+Run   80: Team DPAV: 229145.746 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28950.087
+Run   81: Team DPAV: 227145.213 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   82: Team DPAV: 227235.709 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run   83: Team DPAV: 227130.046 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28931.819
+Run   84: Team DPAV: 234634.278 | Archer: 178365.379 | Sparkle: 0.000 | RinTohsaka: 27093.824 | Cipher: 28943.817
+Run   85: Team DPAV: 226998.002 | Archer: 172690.422 | Sparkle: 0.000 | RinTohsaka: 25146.392 | Cipher: 28929.931
+Run   86: Team DPAV: 227153.450 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28940.056
+Run   87: Team DPAV: 227104.180 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28905.954
+Run   88: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+Run   89: Team DPAV: 223420.044 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 19736.645
+Run   90: Team DPAV: 231359.714 | Archer: 177003.359 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28931.819
+Run   91: Team DPAV: 227235.709 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 28945.688
+Run   92: Team DPAV: 223114.715 | Archer: 169851.478 | Sparkle: 0.000 | RinTohsaka: 24117.866 | Cipher: 28914.113
+Run   93: Team DPAV: 218050.642 | Archer: 172865.486 | Sparkle: 0.000 | RinTohsaka: 25193.278 | Cipher: 19760.620
+Run   94: Team DPAV: 227136.504 | Archer: 172788.858 | Sparkle: 0.000 | RinTohsaka: 25178.110 | Cipher: 28938.277
+Run   95: Team DPAV: 219946.359 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 19750.699
+Run   96: Team DPAV: 234630.440 | Archer: 178365.379 | Sparkle: 0.000 | RinTohsaka: 27093.824 | Cipher: 28939.979
+Run   97: Team DPAV: 234652.623 | Archer: 178365.379 | Sparkle: 0.000 | RinTohsaka: 27093.824 | Cipher: 28962.162
+Run   98: Team DPAV: 232611.570 | Archer: 176284.215 | Sparkle: 0.000 | RinTohsaka: 27167.927 | Cipher: 28928.170
+Run   99: Team DPAV: 234652.623 | Archer: 178365.379 | Sparkle: 0.000 | RinTohsaka: 27093.824 | Cipher: 28962.162
+Run  100: Team DPAV: 229141.347 | Archer: 174806.849 | Sparkle: 0.000 | RinTohsaka: 25157.552 | Cipher: 28945.688
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 227614.722
+Average Archer DPAV: 174180.468
+Average Sparkle DPAV: 0.000
+Average RinTohsaka DPAV: 25533.597
+Average Cipher DPAV: 27669.400
+
+Min Team DPAV: 217960.146
+Max Team DPAV: 234652.623

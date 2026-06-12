@@ -49,6 +49,7 @@ class Tribbie(Character):
         self.relicStats = subs if subs else RelicStats(11, 2, 2, 2, 4, 2, 2, 2, 2, 2, 4, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A","A","E"]
+        self.E2AddMultiplier = 1.2 if self.eidolon >= 2 else 1.0
 
     def equip(self):  # function to add base buffs to wearer
         bl, dbl, al, dl, hl = super().equip()
@@ -110,7 +111,7 @@ class Tribbie(Character):
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
-                           [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
+                           [e3AdditionalMulti*(len(result.enemiesHit)+1)*self.E2AddMultiplier,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
 
         if result.turnName in UltimateList and (result.charName in self.CharacterList):
@@ -133,7 +134,7 @@ class Tribbie(Character):
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
-                           [e3AdditionalMulti*(len(result.enemiesHit)+1)*1.2,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
+                           [e3AdditionalMulti*(len(result.enemiesHit)+1)*self.E2AddMultiplier,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
         bl.append(Buff("TribbieTrace2HP",StatTypes.HP,0.09*self.TeamHp,self.role,[AtkType.ALL],1,1,self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl

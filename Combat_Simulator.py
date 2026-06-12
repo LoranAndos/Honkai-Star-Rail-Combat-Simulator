@@ -3,6 +3,7 @@ import logging
 import Enemy
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
+from Characters.Destruction.Saber import Saber
 from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Harmony.RuanMei import RuanMei
 from Characters.Harmony.Sunday import Sunday
@@ -11,6 +12,7 @@ from Characters.Erudition.RinTohsaka import RinTohsaka
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Harmony.Tribbie import Tribbie
 from Characters.Harmony.Robin import Robin
+from Characters.Nihility.Cipher import Cipher
 from MainFunctions import *
 from Enemy import *
 from Enemy import FINITE_ENEMY_HP, KILL_ENERGY
@@ -31,7 +33,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     enemySPD = [130, 158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
     toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.QUANTUM]
+    weaknesses = [Element.WIND]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
     enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness,
                                                               attackRatio, weaknesses, actionOrder)
@@ -50,9 +52,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = RinTohsaka(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -496,7 +498,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True   # Set to True for multiple runs, False for single run
+    multiRun = False   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -504,7 +506,7 @@ if __name__ == "__main__":
 
     enemyModule = EnemyModule(3, [95, 95, 95],
                               [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.QUANTUM], [1])
+                              [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.WIND], [1])
 
     #enemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.PHYSICAL], [1]) # 5 enemyModule
     #enemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.FIRE], [1]) # 3 enemyModule
@@ -530,7 +532,7 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
@@ -552,7 +554,7 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = Sparkle(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = Tribbie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)

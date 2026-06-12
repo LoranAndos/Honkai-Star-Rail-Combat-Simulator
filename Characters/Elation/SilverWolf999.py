@@ -122,7 +122,7 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
 
     def _applyHiddenMMRBuff(self, bl: list):
-        """Apply Hidden MMR buffs: 0.3% CRIT Rate per point, then 0.6% CRIT DMG after 100% CR."""
+        """Apply Hidden MMR buffs: 0.4% CRIT Rate per point, then 0.8% CRIT DMG after 100% CR."""
         self._syncPunchlineToHiddenMMR()
 
         if self.hiddenMMR <= 0:
