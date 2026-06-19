@@ -82,7 +82,7 @@ class Saber(Character):
         if self.eidolon >= 1:
             bl.append(Buff("SaberE1DMG", StatTypes.DMG_PERCENT, 0.60, self.role, [AtkType.ULT]))
         if self.eidolon >= 4:
-            bl.append(Buff("SaberE4Pen", StatTypes.PEN, 0.08, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+            bl.append(Buff("SaberE4Pen", StatTypes.WINPEN, 0.08, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("SaberE6Pen", StatTypes.WINPEN, 0.20, self.role, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl
@@ -165,7 +165,7 @@ class Saber(Character):
             logger.debug(f"{self.name} transferred {self.overflowEnergy:.1f} overflow energy on Ult entry")
             self.overflowEnergy = 0.0
         if self.eidolon >= 4:
-            bl.append(Buff("SaberE4ExtraPen", StatTypes.PEN, 0.04, self.role, [AtkType.ALL], 1, 3, Role.SELF, TickDown.PERM))
+            bl.append(Buff("SaberE4ExtraPen", StatTypes.WINPEN, 0.04, self.role, [AtkType.ALL], 1, 3, Role.SELF, TickDown.PERM))
         if self.eidolon == 6:
             if self.UltCounter % 3 == 0:
                 self.currEnergy = self.currEnergy + 300

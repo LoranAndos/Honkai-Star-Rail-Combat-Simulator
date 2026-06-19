@@ -58,6 +58,7 @@ class RinTohsaka(Character):
         self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 2, StatTypes.CR_PERCENT, StatTypes.SPD_PERCENT,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E","A","A"]
+        self.E4StackLimit = 2 if self.eidolon >= 4 else 1
 
     def equip(self):
         bl, dbl, al, dl, hl = super().equip()
@@ -65,10 +66,10 @@ class RinTohsaka(Character):
         bl.append(Buff("RinTohsakaTraceATK", StatTypes.ATK_PERCENT, 0.18, self.role))
         bl.append(Buff("RinTohsakaTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
         bl.append(Buff("RinTohsakaTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
-        bl.append(Buff("RinTohsakaTrace1Shred", StatTypes.SHRED, 0.20, self.role))
+        bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.PEN, 0.10, self.role))
         if self.eidolon >= 2:
             bl.append(Buff("E2DMG", StatTypes.DMG_PERCENT, 0.30, self.role, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
-            bl.append(Buff("E2IDM", StatTypes.INDEPENDENTDAMAGEMULTIPLIER, 0.10, Role.ALL, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
+            bl.append(Buff("E2IDM", StatTypes.INDEPENDENTDAMAGEMULTIPLIER, 0.30, Role.ALL, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("RinTohsakaE6Pen", StatTypes.PEN, 0.20, self.role))
         return bl, dbl, al, dl, hl
@@ -82,8 +83,8 @@ class RinTohsaka(Character):
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        e3Mul = 0.99 if self.eidolon >= 3 else 0.90
-        e3MulNormal = 1.98 if self.eidolon >= 3 else 1.80
+        e3Mul = 0.88 if self.eidolon >= 3 else 0.80
+        e3MulNormal = 1.76 if self.eidolon >= 3 else 1.60
         if self.EnhancedSkill and not self.HasShadowGem:
             ExtraHits = min(self.GemEnergy//3,33)
             logger.info(f"Amount of extraHits from EnhancedSkill = {ExtraHits} from {self.GemEnergy} Gem Energy")
@@ -127,7 +128,7 @@ class RinTohsaka(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                        [e5Side, 0], [20, 0], 5, self.scaling, 1, "RinTohsakaUltSide"))
         dbl.append(Debuff("RinTohsakaUltVuln", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 3,1,Targeting.AOE))
-        self.GemEnergy += 30 if self.eidolon == 6 else 12
+        self.GemEnergy += 36 if self.eidolon == 6 else 12
         logger.info(f"Rin has obtained 12 Gem Energy from Ultimate and now has {self.GemEnergy} Gem Energy")
         if self.eidolon >= 6:
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useSkl(-1))
@@ -142,25 +143,21 @@ class RinTohsaka(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
-        e5CD = 1.10 if self.eidolon >= 5 else 1.00
+        e5CD = 0.77 if self.eidolon >= 5 else 0.70
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange) * self.SkillGemMultiplier
-            bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
+            bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, self.E4StackLimit, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange) * self.SkillGemMultiplier} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
             self.SkillGemMultiplier = 1
-            if self.eidolon >= 4:
-                bl.append(Buff("E4RinSpd", StatTypes.SPD_PERCENT, 0.10, turn.charRole, [AtkType.ALL], 3, 1, turn.charRole, TickDown.END))
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
-        e5CD = 1.10 if self.eidolon >= 5 else 1.00
+        e5CD = 0.77 if self.eidolon >= 5 else 0.70
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange)
-            bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
+            bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, self.E4StackLimit, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange)} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
-            if self.eidolon >= 4:
-                bl.append(Buff("E4RinSpd", StatTypes.SPD_PERCENT, 0.10, turn.charRole, [AtkType.ALL], 3, 1, turn.charRole, TickDown.END))
         if turn.moveName == "ArcherJointAttack":
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
         return bl, dbl, al, dl, tl, hl

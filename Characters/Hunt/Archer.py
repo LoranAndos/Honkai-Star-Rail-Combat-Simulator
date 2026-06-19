@@ -172,7 +172,7 @@ class Archer(Character):
         self.RinEidolon = specialRes.attr4
         if self.RinTohsakaInTeam:
             bl.append(Buff("RinTohsakaAllyTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
-            bl.append(Buff("RinTohsakaAllyTrace1Shred", StatTypes.SHRED, 0.20, self.role))
+            bl.append(Buff("RinTohsakaAllyTrace1PEN", StatTypes.PEN, 0.10, self.role))
         if self.Tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [2.0, 0], [0, 0], 0, self.scaling, 0, "ArcherTech"))
             self.FUACharge = min(self.FUACharge + 1, 4)
