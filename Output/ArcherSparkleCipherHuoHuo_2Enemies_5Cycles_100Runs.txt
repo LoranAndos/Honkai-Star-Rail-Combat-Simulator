@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run    2: Team DPAV: 22185.276 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4585.550 | HuoHuo: 0.000
+Run    3: Team DPAV: 19454.442 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4058.299 | HuoHuo: 0.000
+Run    4: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run    5: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run    6: Team DPAV: 22318.666 | Archer: 17619.517 | Sparkle: 0.000 | Cipher: 4611.941 | HuoHuo: 0.000
+Run    7: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run    8: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run    9: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   10: Team DPAV: 23130.884 | Archer: 18274.531 | Sparkle: 0.000 | Cipher: 4769.144 | HuoHuo: 0.000
+Run   11: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   12: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   13: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   14: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   15: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   16: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   17: Team DPAV: 21621.163 | Archer: 17055.605 | Sparkle: 0.000 | Cipher: 4478.350 | HuoHuo: 0.000
+Run   18: Team DPAV: 20049.462 | Archer: 15822.795 | Sparkle: 0.000 | Cipher: 4139.458 | HuoHuo: 0.000
+Run   19: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   20: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   21: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   22: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   23: Team DPAV: 22185.987 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4586.261 | HuoHuo: 0.000
+Run   24: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   25: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   26: Team DPAV: 22365.433 | Archer: 17657.232 | Sparkle: 0.000 | Cipher: 4620.992 | HuoHuo: 0.000
+Run   27: Team DPAV: 22187.898 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4588.171 | HuoHuo: 0.000
+Run   28: Team DPAV: 20980.103 | Archer: 16539.792 | Sparkle: 0.000 | Cipher: 4353.102 | HuoHuo: 0.000
+Run   29: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   30: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   31: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   32: Team DPAV: 20141.347 | Archer: 15862.316 | Sparkle: 0.000 | Cipher: 4191.822 | HuoHuo: 0.000
+Run   33: Team DPAV: 22366.470 | Archer: 17657.232 | Sparkle: 0.000 | Cipher: 4622.029 | HuoHuo: 0.000
+Run   34: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   35: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   36: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   37: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   38: Team DPAV: 23130.173 | Archer: 18274.531 | Sparkle: 0.000 | Cipher: 4768.433 | HuoHuo: 0.000
+Run   39: Team DPAV: 22255.843 | Archer: 17568.853 | Sparkle: 0.000 | Cipher: 4599.781 | HuoHuo: 0.000
+Run   40: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   41: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   42: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   43: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   44: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   45: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   46: Team DPAV: 22365.433 | Archer: 17657.232 | Sparkle: 0.000 | Cipher: 4620.992 | HuoHuo: 0.000
+Run   47: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   48: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   49: Team DPAV: 21532.590 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.337 | HuoHuo: 0.000
+Run   50: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   51: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   52: Team DPAV: 22365.433 | Archer: 17657.232 | Sparkle: 0.000 | Cipher: 4620.992 | HuoHuo: 0.000
+Run   53: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   54: Team DPAV: 19454.442 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4058.299 | HuoHuo: 0.000
+Run   55: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   56: Team DPAV: 21581.178 | Archer: 17023.932 | Sparkle: 0.000 | Cipher: 4470.037 | HuoHuo: 0.000
+Run   57: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   58: Team DPAV: 19454.442 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4058.299 | HuoHuo: 0.000
+Run   59: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   60: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   61: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   62: Team DPAV: 23130.173 | Archer: 18274.531 | Sparkle: 0.000 | Cipher: 4768.433 | HuoHuo: 0.000
+Run   63: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   64: Team DPAV: 21697.869 | Archer: 17148.548 | Sparkle: 0.000 | Cipher: 4462.112 | HuoHuo: 0.000
+Run   65: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   66: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   67: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   68: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   69: Team DPAV: 19454.442 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4058.299 | HuoHuo: 0.000
+Run   70: Team DPAV: 22185.276 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4585.550 | HuoHuo: 0.000
+Run   71: Team DPAV: 20934.372 | Archer: 16502.077 | Sparkle: 0.000 | Cipher: 4345.087 | HuoHuo: 0.000
+Run   72: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   73: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+Run   74: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   75: Team DPAV: 22113.033 | Archer: 17452.847 | Sparkle: 0.000 | Cipher: 4572.977 | HuoHuo: 0.000
+Run   76: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   77: Team DPAV: 22867.524 | Archer: 18061.308 | Sparkle: 0.000 | Cipher: 4719.007 | HuoHuo: 0.000
+Run   78: Team DPAV: 23139.245 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4772.303 | HuoHuo: 0.000
+Run   79: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   80: Team DPAV: 19455.153 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4059.010 | HuoHuo: 0.000
+Run   81: Team DPAV: 21535.049 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4463.796 | HuoHuo: 0.000
+Run   82: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   83: Team DPAV: 21534.337 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4463.085 | HuoHuo: 0.000
+Run   84: Team DPAV: 22185.276 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4585.550 | HuoHuo: 0.000
+Run   85: Team DPAV: 22185.987 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4586.261 | HuoHuo: 0.000
+Run   86: Team DPAV: 23352.252 | Archer: 18453.627 | Sparkle: 0.000 | Cipher: 4811.416 | HuoHuo: 0.000
+Run   87: Team DPAV: 22255.843 | Archer: 17568.853 | Sparkle: 0.000 | Cipher: 4599.781 | HuoHuo: 0.000
+Run   88: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   89: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   90: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   91: Team DPAV: 22185.276 | Archer: 17512.517 | Sparkle: 0.000 | Cipher: 4585.550 | HuoHuo: 0.000
+Run   92: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   93: Team DPAV: 22365.433 | Archer: 17657.232 | Sparkle: 0.000 | Cipher: 4620.992 | HuoHuo: 0.000
+Run   94: Team DPAV: 23137.335 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4770.393 | HuoHuo: 0.000
+Run   95: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   96: Team DPAV: 21532.427 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4461.175 | HuoHuo: 0.000
+Run   97: Team DPAV: 21621.163 | Archer: 17055.605 | Sparkle: 0.000 | Cipher: 4478.350 | HuoHuo: 0.000
+Run   98: Team DPAV: 21531.716 | Archer: 16984.043 | Sparkle: 0.000 | Cipher: 4460.464 | HuoHuo: 0.000
+Run   99: Team DPAV: 19454.442 | Archer: 15308.934 | Sparkle: 0.000 | Cipher: 4058.299 | HuoHuo: 0.000
+Run  100: Team DPAV: 23136.623 | Archer: 18279.733 | Sparkle: 0.000 | Cipher: 4769.681 | HuoHuo: 0.000
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 21847.642
+Average Archer DPAV: 17239.705 Percentage: 78.909%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average Cipher DPAV: 4520.728 Percentage: 20.692%
+Average HuoHuo DPAV: 0.000 Percentage: 0.000%
+
+Min Team DPAV: 19454.442
+Max Team DPAV: 23352.252

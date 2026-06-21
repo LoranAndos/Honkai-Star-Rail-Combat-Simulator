@@ -127,13 +127,10 @@ class Sparkle(Character):
             if self.eidolon >= 2:
                     bl.append(Buff("SparkleE2SHRED", StatTypes.SHRED, 0.10, Role.ALL,[AtkType.ALL], 2, 3, Role.SELF, TickDown.END))
         if turn.spChange <= -1 and turn.charRole == self.targetRole:
+            bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, 1, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
+        if turn.spChange <= -1 and turn.charRole == self.targetRole and turn.charName == "Sparxie":
             spConsumed = abs(min(turn.spChange, 0))
-            for _ in range(spConsumed):
-                bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, spConsumed, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
-        elif turn.spChange <= -1 and turn.charRole == self.targetRole and turn.charName == "Sparxie":
-            spConsumed = abs(min(turn.spChange, 0))
-            for _ in range(spConsumed):
-                bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, spConsumed+10, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
+            bl.append(Buff("SparkleTalentERR", StatTypes.ERR_T, spConsumed+10, self.role,[AtkType.ALL], 1, 100, Role.SELF, TickDown.START))
         if turn.moveName == "SparxieSkill" or turn.moveName == "ArcherSkill":
             self.SkillSP = 0
         if self.overflowSP > 0 and turn.moveName != "ArcherSkill" and turn.moveName != "ArcherUlt" and turn.moveName not in bonusDMG:

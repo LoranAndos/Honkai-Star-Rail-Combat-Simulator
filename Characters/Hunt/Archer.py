@@ -160,7 +160,7 @@ class Archer(Character):
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
         if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
-        if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and turn.moveName != ("RinTohsakaJointAttack" or "RinTohsakaUltSide"):
+        if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and (turn.moveName == "RinTohsakaBasic" or turn.moveName == "RinTohsakaSkill" or turn.moveName == "RinTohsakaSkillSingle") :
             self.RinTurnHappened = True
         return bl, dbl, al, dl, tl, hl
 
