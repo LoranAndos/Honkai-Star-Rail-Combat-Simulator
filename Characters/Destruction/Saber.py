@@ -43,6 +43,8 @@ class Saber(Character):
     CoreResonanceOld = 0
     UltCounter = 0
     Mana_Burst = True
+    JointAttackMultiplier = 1.0
+    GilgameshEidolon = 0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -154,9 +156,10 @@ class Saber(Character):
         e3MulBig = 3.08 if self.eidolon >= 3 else 2.8
         e3MulSmall = 1.21 if self.eidolon >= 3 else 1.1
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
-                       [e3MulBig, 0], [40, 0], 0, self.scaling, 0, "SaberUltBig"))
+                       [e3MulBig*self.JointAttackMultiplier, 0], [40, 0], 0, self.scaling, 0, "SaberUltBig"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ULT], [self.element],
-                       [e3MulSmall*10, 0], [20, 0], 5, self.scaling, 0, "SaberUltSmall"))
+                       [e3MulSmall*10*self.JointAttackMultiplier, 0], [20, 0], 5, self.scaling, 0, "SaberUltSmall"))
+        self.JointAttackMultiplier = 1.0
         self.CoreResonance += 3
         logger.debug(f"{self.name} got 3 Core Resonance from Talent")
         self.EnhancedBasic = True
@@ -172,6 +175,14 @@ class Saber(Character):
             self.UltCounter += 1
         return bl, dbl, al, dl, tl, hl
 
+    def useJointAttack(self, enemyID=-1):
+        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        e3SaberMult = 4.4 if self.GilgameshEidolon>= 3 else 4.0
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
+                       [self.element], [e3SaberMult, 0], [0, 0], 120, self.scaling, 0, "SaberJointAttack"))
+        self.JointAttackMultiplier = 2.0
+        return bl, dbl, al, dl, tl, hl
+
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         DmgBuff = 0.66 if self.eidolon >= 5 else 0.60
@@ -179,10 +190,13 @@ class Saber(Character):
             bl.append(Buff("TalentDMG", StatTypes.DMG_PERCENT, DmgBuff, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
             self.CoreResonance += 3
             logger.debug(f"{self.name} got 3 Core Resonance from Talent")
+        if turn.moveName == "GilgameshJointAttack":
+            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        self.GilgameshEidolon = specialRes.attr1
         if self.Tech:
             self.Tech = False
             bl.append(Buff("TalentATK", StatTypes.ATK_REDUCTION, 0.35, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))

@@ -1353,6 +1353,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 canUlt = False if unit.name == "Gallagher" else True
                 return Special(name=specStr, attr1=beStat, attr2=canUlt, enemies=gauge)
 
+            case "Gilgamesh":
+                SaberInTeam = inTeam(playerTeam, "Saber")
+                return Special(name=specStr, attr1=SaberInTeam, enemies=gauge)
+
             case "HarmonyMC":
                 hmcBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=hmcBE, enemies=gauge)
@@ -1448,6 +1452,14 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "RuanMei":
                 be = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=be, enemies=gauge)
+
+            case "Saber":
+                GilgameshInTeam = inTeam(playerTeam, "Gilgamesh")
+                if GilgameshInTeam:
+                    GilgameshEidolon = findCharName(playerTeam, "Gilgamesh").eidolon
+                else:
+                    GilgameshEidolon = 0
+                return Special(name=specStr, attr1=GilgameshEidolon, enemies=gauge)
 
             case "SparkleOld":
                 cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
