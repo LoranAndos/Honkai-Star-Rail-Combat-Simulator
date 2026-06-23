@@ -179,7 +179,6 @@ class Sparxie(Character):
 
         if self.eidolon >= 1 and result.turnName == "AhaElationFixedSequenceComplete":
             Character.SharedPunchline += 5
-
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):

@@ -4,10 +4,10 @@ from Buff import *
 from Character import Character
 from Lightcones.Erudition.FlickeringStars import FlickeringStars
 from Lightcones.Erudition.EternalCalculus import EternalCalculus
-from Planars.RutilantArena import RutilantArena
+from Planars.CosmicLifeSciencesInstitute import CosmicLifeSciencesInstitute
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
-from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
+from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Result import *
 from Turn_Text import Turn
 from Delay_Text import Advance
@@ -56,16 +56,14 @@ class Saber(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else EternalCalculus(role, 5)
-        self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
+        self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 2, StatTypes.CR_PERCENT, StatTypes.SPD_PERCENT,
+        self.planar = pl if pl else CosmicLifeSciencesInstitute(role)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 7, 2, 2, 2, 2, 7, 13, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
     def addEnergy(self, amount: float):
-        """Outside enhanced state: energy above maxEnergy spills into overflowEnergy (cap 80).
-        Inside enhanced state: normal cap at maxEnergy, no overflow accumulation."""
         EnergyLimit = 200 if self.eidolon == 6 else 120
         space = self.maxEnergy - self.currEnergy
         if amount > space:
@@ -100,7 +98,7 @@ class Saber(Character):
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "SaberBasic"))
         else:
             self.CoreResonance += 2
-            logger.debug(f"{self.name} got 2 Core Resonance from Enhanced basic")
+            logger.debug(f"{self.name} got 2 Core Resonance from Enhanced basic, Current Count: {self.CoreResonance}")
             if enemyCount == 2:
                 ExtraMultiplier = e3MulEnhancedSmall
             elif enemyCount == 1:
@@ -113,7 +111,7 @@ class Saber(Character):
             self.EnhancedBasic = False
         if self.eidolon >= 1:
             self.CoreResonance += 1
-            logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1")
+            logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1, Current Count: {self.CoreResonance}")
         return bl, dbl, al, dl, tl, hl
 
     def useSkl(self, enemyID=-1):
@@ -123,31 +121,22 @@ class Saber(Character):
         e2ExtraMultiplier = 0.07 if self.eidolon >= 2 else 0
         if self.currEnergy + 8 * self.CoreResonance >= self.ultCost:
             CoreExtraMultiplier = (0.154+e2ExtraMultiplier) * self.CoreResonance if self.eidolon >= 5 else (0.14+e2ExtraMultiplier) * self.CoreResonance
+            ExtraMultiplierCount = self.CoreResonance
             logger.debug(f"{self.name} used {self.CoreResonance} Core Resonance for Skill")
             self.CoreResonance = 0
-            if self.Mana_Burst:
-                self.Mana_Burst = False
-                SpChange = 0
-                HasUsedManaBurst = True
-            else:
-                SpChange = -1
-                HasUsedManaBurst = False
         else:
             CoreExtraMultiplier = 0
-            SpChange = -1
-            HasUsedManaBurst = False
+            ExtraMultiplierCount = 0
             self.CoreResonance += 3
-            logger.debug(f"{self.name} got 3 Core Resonance from Skill")
+            logger.debug(f"{self.name} got 3 Core Resonance from Skill, Current Count: {self.CoreResonance}")
         bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT, 0.50, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL], [self.element],
-                       [e5MulBig+CoreExtraMultiplier, e5MulSmall+CoreExtraMultiplier], [20, 10], 30, self.scaling, SpChange, "SaberSkill"))
+                       [e5MulBig+CoreExtraMultiplier, e5MulSmall+CoreExtraMultiplier], [20, 10], 30, self.scaling, -1, "SaberSkill"))
         if CoreExtraMultiplier != 0:
-            bl.append(Buff("SkillEnergy", StatTypes.ERR_F, 8*CoreExtraMultiplier, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-            if HasUsedManaBurst:
-                al.append(Advance("Trace1Advance", self.role, 1.00))
+            bl.append(Buff("SkillEnergy", StatTypes.ERR_F, 8*ExtraMultiplierCount, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         if self.eidolon >= 1:
             self.CoreResonance += 1
-            logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1")
+            logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1, Current Count: {self.CoreResonance}")
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
@@ -161,7 +150,7 @@ class Saber(Character):
                        [e3MulSmall*10*self.JointAttackMultiplier, 0], [20, 0], 5, self.scaling, 0, "SaberUltSmall"))
         self.JointAttackMultiplier = 1.0
         self.CoreResonance += 3
-        logger.debug(f"{self.name} got 3 Core Resonance from Talent")
+        logger.debug(f"{self.name} got 3 Core Resonance from Talent, Current Count: {self.CoreResonance}")
         self.EnhancedBasic = True
         if self.overflowEnergy > 0:
             self.currEnergy = min(self.maxEnergy, self.currEnergy + self.overflowEnergy)
@@ -177,10 +166,10 @@ class Saber(Character):
 
     def useJointAttack(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
-        e3SaberMult = 4.4 if self.GilgameshEidolon>= 3 else 4.0
+        e3SaberMult = 4.4 if self.GilgameshEidolon >= 5 else 4.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3SaberMult, 0], [0, 0], 120, self.scaling, 0, "SaberJointAttack"))
-        self.JointAttackMultiplier = 2.0
+        self.JointAttackMultiplier = 2.16 if self.GilgameshEidolon >= 5 else 2.00
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
@@ -189,9 +178,13 @@ class Saber(Character):
         if turn.moveName in UltimateList:
             bl.append(Buff("TalentDMG", StatTypes.DMG_PERCENT, DmgBuff, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
             self.CoreResonance += 3
-            logger.debug(f"{self.name} got 3 Core Resonance from Talent")
+            logger.debug(f"{self.name} got 3 Core Resonance from Talent, Current Count: {self.CoreResonance}")
         if turn.moveName == "GilgameshJointAttack":
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+        if self.Mana_Burst and self.currEnergy + 8 * self.CoreResonance >= self.ultCost:
+            al.append(Advance("Trace1Advance", self.role, 1.00))
+            bl.append(Buff("Trace1SP", StatTypes.SKLPT, 1, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+            self.Mana_Burst = False
         return bl, dbl, al, dl, tl, hl
 
     def handleSpecialStart(self, specialRes: Special):
@@ -201,7 +194,7 @@ class Saber(Character):
             self.Tech = False
             bl.append(Buff("TalentATK", StatTypes.ATK_REDUCTION, 0.35, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
             self.CoreResonance += 2
-            logger.debug(f"{self.name} got 2 Core Resonance from Technique")
+            logger.debug(f"{self.name} got 2 Core Resonance from Technique, Current Count: {self.CoreResonance}")
         CoreResonance_diff = self.CoreResonance - self.CoreResonanceOld
         if CoreResonance_diff > 0:
             self.CoreResonanceTally = min(self.CoreResonanceTally + CoreResonance_diff, 8)

@@ -119,6 +119,9 @@ def manualPrint(prnt, msg: any):
 def getBuffNames(lst: list) -> list:
     return [entry.name for entry in lst]
 
+def getDebuffNames(lst: list) -> list:
+    return [entry.name for entry in lst]
+
 def parseBuffs(lst: list[Buff], playerTeam: list[Character]) -> list:
     buffList = []
     for buff in lst:
@@ -1355,7 +1358,11 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Gilgamesh":
                 SaberInTeam = inTeam(playerTeam, "Saber")
-                return Special(name=specStr, attr1=SaberInTeam, enemies=gauge)
+                lst = []
+                for char in [char for char in playerTeam if char.name != "Gilgamesh"]:
+                    lst.append([0 if char.specialEnergy else char.maxEnergy, char.role])
+                CharEnergy = specChar.maxEnergy
+                return Special(name=specStr, attr1=SaberInTeam, attr2=lst[0], attr3=lst[1], attr4=lst[2], attr5=CharEnergy, enemies=gauge)
 
             case "HarmonyMC":
                 hmcBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList, placeHolderTurn)
@@ -1459,7 +1466,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     GilgameshEidolon = findCharName(playerTeam, "Gilgamesh").eidolon
                 else:
                     GilgameshEidolon = 0
-                return Special(name=specStr, attr1=GilgameshEidolon, enemies=gauge)
+                CharEnergy = specChar.maxEnergy
+                return Special(name=specStr, attr1=GilgameshEidolon, attr2=CharEnergy, enemies=gauge)
 
             case "SparkleOld":
                 cdStat = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
