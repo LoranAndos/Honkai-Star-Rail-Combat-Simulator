@@ -66,7 +66,7 @@ class RinTohsaka(Character):
         bl.append(Buff("RinTohsakaTraceATK", StatTypes.ATK_PERCENT, 0.18, self.role))
         bl.append(Buff("RinTohsakaTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
         bl.append(Buff("RinTohsakaTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
-        bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.PEN, 0.10, self.role))
+        bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.PEN, 0.15, self.role))
         if self.eidolon >= 2:
             bl.append(Buff("E2DMG", StatTypes.DMG_PERCENT, 0.30, self.role, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
             bl.append(Buff("E2IDM", StatTypes.INDEPENDENTDAMAGEMULTIPLIER, 0.30, Role.ALL, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
@@ -83,8 +83,8 @@ class RinTohsaka(Character):
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        e3Mul = 0.88 if self.eidolon >= 3 else 0.80
-        e3MulNormal = 1.76 if self.eidolon >= 3 else 1.60
+        e3Mul = 0.99 if self.eidolon >= 3 else 0.90
+        e3MulNormal = 1.98 if self.eidolon >= 3 else 1.80
         if self.EnhancedSkill and not self.HasShadowGem:
             ExtraHits = min(self.GemEnergy//3,33)
             logger.info(f"Amount of extraHits from EnhancedSkill = {ExtraHits} from {self.GemEnergy} Gem Energy")

@@ -2,8 +2,7 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Erudition.FlickeringStars import FlickeringStars
-from Lightcones.Erudition.EternalCalculus import EternalCalculus
+from Lightcones.Destruction.AThanklessCoronation import AThanklessCoronation
 from Planars.CosmicLifeSciencesInstitute import CosmicLifeSciencesInstitute
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
@@ -55,7 +54,7 @@ class Saber(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else EternalCalculus(role, 5)
+        self.lightcone = lc if lc else AThanklessCoronation(role, 1)
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else CosmicLifeSciencesInstitute(role)

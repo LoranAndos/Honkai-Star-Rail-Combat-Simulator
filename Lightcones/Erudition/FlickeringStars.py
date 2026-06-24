@@ -23,7 +23,7 @@ class FlickeringStars(Lightcone):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().ownTurn(turn, result)
         TeamShred = self.level * 0.04 + 0.16
-        SKLDmgAount = self.level * 0.10 + 0.50
+        SKLDmgAount = self.level * 0.12 + 0.60
         if turn.moveName == "ArcherSkill" or (turn.moveName == "RinTohsakaSkillSingle" and turn.spChange <= -4):
             bl.append(Buff("FlickeringStarsTeamShred", StatTypes.SHRED, TeamShred, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
             bl.append(Buff("FlickeringStarsDMG", StatTypes.DMG_PERCENT, SKLDmgAount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
@@ -32,7 +32,7 @@ class FlickeringStars(Lightcone):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl = super().allyTurn(turn, result)
         TeamShred = self.level * 0.04 + 0.16
-        SKLDmgAount = self.level * 0.10 + 0.50
+        SKLDmgAount = self.level * 0.12 + 0.60
         if turn.moveName == "ArcherSkill" or (turn.moveName == "RinTohsakaSkillSingle" and turn.spChange <= -4):
             bl.append(Buff("FlickeringStarsTeamShred", StatTypes.SHRED, TeamShred, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
             bl.append(Buff("FlickeringStarsDMG", StatTypes.DMG_PERCENT, SKLDmgAount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
