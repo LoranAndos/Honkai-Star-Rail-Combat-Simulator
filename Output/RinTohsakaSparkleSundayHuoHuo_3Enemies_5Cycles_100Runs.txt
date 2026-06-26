@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 26305.265 | RinTohsaka: 26282.020 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run    2: Team DPAV: 27210.876 | RinTohsaka: 27188.451 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.425
+Run    3: Team DPAV: 26485.026 | RinTohsaka: 26461.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run    4: Team DPAV: 26512.145 | RinTohsaka: 26488.900 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run    5: Team DPAV: 27368.101 | RinTohsaka: 27344.856 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run    6: Team DPAV: 27094.882 | RinTohsaka: 27071.803 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.080
+Run    7: Team DPAV: 26760.090 | RinTohsaka: 26736.789 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run    8: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run    9: Team DPAV: 25052.092 | RinTohsaka: 25028.847 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   10: Team DPAV: 28291.026 | RinTohsaka: 28267.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   11: Team DPAV: 27386.428 | RinTohsaka: 27363.183 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   12: Team DPAV: 25101.545 | RinTohsaka: 25078.300 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   13: Team DPAV: 25786.328 | RinTohsaka: 25763.083 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   14: Team DPAV: 25123.205 | RinTohsaka: 25099.960 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   15: Team DPAV: 26737.382 | RinTohsaka: 26714.957 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.425
+Run   16: Team DPAV: 27368.101 | RinTohsaka: 27344.856 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   17: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   18: Team DPAV: 28265.625 | RinTohsaka: 28242.380 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   19: Team DPAV: 24932.197 | RinTohsaka: 24909.773 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.425
+Run   20: Team DPAV: 25967.120 | RinTohsaka: 25943.875 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   21: Team DPAV: 25823.032 | RinTohsaka: 25799.730 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   22: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   23: Team DPAV: 26121.626 | RinTohsaka: 26099.201 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.425
+Run   24: Team DPAV: 26457.881 | RinTohsaka: 26434.636 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   25: Team DPAV: 28235.410 | RinTohsaka: 28212.108 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   26: Team DPAV: 25870.433 | RinTohsaka: 25847.131 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   27: Team DPAV: 27373.332 | RinTohsaka: 27350.087 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   28: Team DPAV: 26427.752 | RinTohsaka: 26404.450 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   29: Team DPAV: 26666.018 | RinTohsaka: 26642.716 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   30: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   31: Team DPAV: 27368.101 | RinTohsaka: 27344.856 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   32: Team DPAV: 26419.385 | RinTohsaka: 26396.140 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   33: Team DPAV: 26485.026 | RinTohsaka: 26461.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   34: Team DPAV: 28265.625 | RinTohsaka: 28242.380 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   35: Team DPAV: 25772.912 | RinTohsaka: 25749.610 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   36: Team DPAV: 26419.385 | RinTohsaka: 26396.140 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   37: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   38: Team DPAV: 26485.026 | RinTohsaka: 26461.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   39: Team DPAV: 27368.101 | RinTohsaka: 27344.856 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   40: Team DPAV: 26698.281 | RinTohsaka: 26675.036 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   41: Team DPAV: 26608.332 | RinTohsaka: 26585.087 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   42: Team DPAV: 27373.332 | RinTohsaka: 27350.087 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   43: Team DPAV: 25642.825 | RinTohsaka: 25619.524 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   44: Team DPAV: 28353.944 | RinTohsaka: 28330.699 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   45: Team DPAV: 25934.071 | RinTohsaka: 25910.411 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.661
+Run   46: Team DPAV: 26240.775 | RinTohsaka: 26217.530 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   47: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   48: Team DPAV: 27214.042 | RinTohsaka: 27190.962 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.080
+Run   49: Team DPAV: 26849.439 | RinTohsaka: 26826.194 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   50: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   51: Team DPAV: 28235.410 | RinTohsaka: 28212.108 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   52: Team DPAV: 26115.298 | RinTohsaka: 26092.053 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   53: Team DPAV: 26419.385 | RinTohsaka: 26396.140 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   54: Team DPAV: 25483.277 | RinTohsaka: 25459.975 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   55: Team DPAV: 25052.092 | RinTohsaka: 25028.847 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   56: Team DPAV: 26698.899 | RinTohsaka: 26675.598 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   57: Team DPAV: 27454.922 | RinTohsaka: 27432.036 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.886
+Run   58: Team DPAV: 29177.055 | RinTohsaka: 29153.810 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   59: Team DPAV: 27828.121 | RinTohsaka: 27804.819 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   60: Team DPAV: 28235.410 | RinTohsaka: 28212.108 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   61: Team DPAV: 27385.992 | RinTohsaka: 27362.747 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   62: Team DPAV: 28615.362 | RinTohsaka: 28592.117 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   63: Team DPAV: 28169.053 | RinTohsaka: 28145.751 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   64: Team DPAV: 27949.083 | RinTohsaka: 27925.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   65: Team DPAV: 28408.457 | RinTohsaka: 28385.212 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   66: Team DPAV: 27368.101 | RinTohsaka: 27344.856 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   67: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   68: Team DPAV: 27397.244 | RinTohsaka: 27374.409 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.835
+Run   69: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   70: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   71: Team DPAV: 24963.800 | RinTohsaka: 24940.555 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   72: Team DPAV: 28353.944 | RinTohsaka: 28330.699 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   73: Team DPAV: 28169.053 | RinTohsaka: 28145.751 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   74: Team DPAV: 25052.092 | RinTohsaka: 25028.847 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   75: Team DPAV: 26485.026 | RinTohsaka: 26461.781 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   76: Team DPAV: 25052.092 | RinTohsaka: 25028.847 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   77: Team DPAV: 26873.265 | RinTohsaka: 26850.379 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.886
+Run   78: Team DPAV: 26419.385 | RinTohsaka: 26396.140 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   79: Team DPAV: 28353.944 | RinTohsaka: 28330.699 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   80: Team DPAV: 25642.768 | RinTohsaka: 25619.524 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   81: Team DPAV: 29055.523 | RinTohsaka: 29032.222 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   82: Team DPAV: 28235.410 | RinTohsaka: 28212.108 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   83: Team DPAV: 28265.625 | RinTohsaka: 28242.380 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   84: Team DPAV: 26410.938 | RinTohsaka: 26387.693 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   85: Team DPAV: 27412.981 | RinTohsaka: 27389.736 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   86: Team DPAV: 26432.989 | RinTohsaka: 26409.744 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   87: Team DPAV: 27639.153 | RinTohsaka: 27615.908 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   88: Team DPAV: 26419.385 | RinTohsaka: 26396.140 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   89: Team DPAV: 27465.019 | RinTohsaka: 27441.774 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   90: Team DPAV: 26512.145 | RinTohsaka: 26488.900 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   91: Team DPAV: 26405.464 | RinTohsaka: 26383.039 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.425
+Run   92: Team DPAV: 27755.795 | RinTohsaka: 27732.551 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   93: Team DPAV: 26567.771 | RinTohsaka: 26544.526 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   94: Team DPAV: 28367.874 | RinTohsaka: 28344.629 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   95: Team DPAV: 28235.410 | RinTohsaka: 28212.108 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+Run   96: Team DPAV: 27269.277 | RinTohsaka: 27246.250 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.026
+Run   97: Team DPAV: 26562.081 | RinTohsaka: 26538.836 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   98: Team DPAV: 26132.355 | RinTohsaka: 26109.110 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.245
+Run   99: Team DPAV: 27452.660 | RinTohsaka: 27429.825 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 22.835
+Run  100: Team DPAV: 28416.470 | RinTohsaka: 28393.169 | Sparkle: 0.000 | Sunday: 0.000 | HuoHuo: 23.302
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 26888.140
+Average RinTohsaka DPAV: 26864.941 Percentage: 99.914%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average Sunday DPAV: 0.000 Percentage: 0.000%
+Average HuoHuo DPAV: 23.199 Percentage: 0.086%
+
+Min Team DPAV: 24932.197
+Max Team DPAV: 29177.055

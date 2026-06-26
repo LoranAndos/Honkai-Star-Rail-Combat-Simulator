@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 27194.173 | RinTohsaka: 23521.653 | Sparkle: 0.000 | MortenaxBlade: 3225.638 | Lingsha: 446.883
+Run    2: Team DPAV: 29024.961 | RinTohsaka: 24995.324 | Sparkle: 0.000 | MortenaxBlade: 3439.105 | Lingsha: 590.531
+Run    3: Team DPAV: 25009.210 | RinTohsaka: 21032.497 | Sparkle: 0.000 | MortenaxBlade: 3389.308 | Lingsha: 587.404
+Run    4: Team DPAV: 29021.842 | RinTohsaka: 24995.324 | Sparkle: 0.000 | MortenaxBlade: 3439.105 | Lingsha: 587.412
+Run    5: Team DPAV: 25141.886 | RinTohsaka: 21569.813 | Sparkle: 0.000 | MortenaxBlade: 3066.411 | Lingsha: 505.663
+Run    6: Team DPAV: 25033.011 | RinTohsaka: 21206.448 | Sparkle: 0.000 | MortenaxBlade: 3246.016 | Lingsha: 580.547
+Run    7: Team DPAV: 25583.785 | RinTohsaka: 21636.966 | Sparkle: 0.000 | MortenaxBlade: 3309.355 | Lingsha: 637.465
+Run    8: Team DPAV: 24825.166 | RinTohsaka: 20809.845 | Sparkle: 0.000 | MortenaxBlade: 3414.708 | Lingsha: 600.613
+Run    9: Team DPAV: 25321.994 | RinTohsaka: 21338.625 | Sparkle: 0.000 | MortenaxBlade: 3407.685 | Lingsha: 575.684
+Run   10: Team DPAV: 24822.118 | RinTohsaka: 20926.228 | Sparkle: 0.000 | MortenaxBlade: 3302.778 | Lingsha: 593.112
+Run   11: Team DPAV: 25892.428 | RinTohsaka: 21785.274 | Sparkle: 0.000 | MortenaxBlade: 3524.315 | Lingsha: 582.838
+Run   12: Team DPAV: 29397.895 | RinTohsaka: 25360.905 | Sparkle: 0.000 | MortenaxBlade: 3438.461 | Lingsha: 598.528
+Run   13: Team DPAV: 25085.952 | RinTohsaka: 21191.681 | Sparkle: 0.000 | MortenaxBlade: 3306.867 | Lingsha: 587.404
+Run   14: Team DPAV: 28565.074 | RinTohsaka: 24571.117 | Sparkle: 0.000 | MortenaxBlade: 3422.418 | Lingsha: 571.539
+Run   15: Team DPAV: 25400.368 | RinTohsaka: 21349.722 | Sparkle: 0.000 | MortenaxBlade: 3441.878 | Lingsha: 608.768
+Run   16: Team DPAV: 28482.604 | RinTohsaka: 24348.277 | Sparkle: 0.000 | MortenaxBlade: 3604.437 | Lingsha: 529.889
+Run   17: Team DPAV: 24847.006 | RinTohsaka: 21036.381 | Sparkle: 0.000 | MortenaxBlade: 3237.128 | Lingsha: 573.498
+Run   18: Team DPAV: 28097.755 | RinTohsaka: 24171.226 | Sparkle: 0.000 | MortenaxBlade: 3423.942 | Lingsha: 502.587
+Run   19: Team DPAV: 24713.299 | RinTohsaka: 20816.754 | Sparkle: 0.000 | MortenaxBlade: 3399.146 | Lingsha: 497.399
+Run   20: Team DPAV: 28815.583 | RinTohsaka: 24790.977 | Sparkle: 0.000 | MortenaxBlade: 3436.949 | Lingsha: 587.657
+Run   21: Team DPAV: 25457.576 | RinTohsaka: 21442.907 | Sparkle: 0.000 | MortenaxBlade: 3501.144 | Lingsha: 513.525
+Run   22: Team DPAV: 26257.807 | RinTohsaka: 22192.769 | Sparkle: 0.000 | MortenaxBlade: 3534.773 | Lingsha: 530.265
+Run   23: Team DPAV: 25321.994 | RinTohsaka: 21338.625 | Sparkle: 0.000 | MortenaxBlade: 3407.685 | Lingsha: 575.684
+Run   24: Team DPAV: 25085.952 | RinTohsaka: 21191.681 | Sparkle: 0.000 | MortenaxBlade: 3306.867 | Lingsha: 587.404
+Run   25: Team DPAV: 24574.403 | RinTohsaka: 20663.563 | Sparkle: 0.000 | MortenaxBlade: 3321.065 | Lingsha: 589.774
+Run   26: Team DPAV: 25016.386 | RinTohsaka: 21009.254 | Sparkle: 0.000 | MortenaxBlade: 3448.369 | Lingsha: 558.763
+Run   27: Team DPAV: 28947.075 | RinTohsaka: 24973.734 | Sparkle: 0.000 | MortenaxBlade: 3477.789 | Lingsha: 495.552
+Run   28: Team DPAV: 26128.402 | RinTohsaka: 22040.805 | Sparkle: 0.000 | MortenaxBlade: 3503.516 | Lingsha: 584.081
+Run   29: Team DPAV: 24787.828 | RinTohsaka: 20893.366 | Sparkle: 0.000 | MortenaxBlade: 3395.821 | Lingsha: 498.641
+Run   30: Team DPAV: 27435.997 | RinTohsaka: 23392.273 | Sparkle: 0.000 | MortenaxBlade: 3469.282 | Lingsha: 574.442
+Run   31: Team DPAV: 25026.464 | RinTohsaka: 21206.448 | Sparkle: 0.000 | MortenaxBlade: 3246.016 | Lingsha: 573.999
+Run   32: Team DPAV: 24879.868 | RinTohsaka: 20969.029 | Sparkle: 0.000 | MortenaxBlade: 3321.065 | Lingsha: 589.774
+Run   33: Team DPAV: 28352.403 | RinTohsaka: 24434.131 | Sparkle: 0.000 | MortenaxBlade: 3416.951 | Lingsha: 501.321
+Run   34: Team DPAV: 26912.548 | RinTohsaka: 23061.567 | Sparkle: 0.000 | MortenaxBlade: 3277.483 | Lingsha: 573.498
+Run   35: Team DPAV: 26111.896 | RinTohsaka: 22155.847 | Sparkle: 0.000 | MortenaxBlade: 3356.858 | Lingsha: 599.191
+Run   36: Team DPAV: 27068.095 | RinTohsaka: 23346.392 | Sparkle: 0.000 | MortenaxBlade: 3202.540 | Lingsha: 519.163
+Run   37: Team DPAV: 27255.698 | RinTohsaka: 23453.289 | Sparkle: 0.000 | MortenaxBlade: 3284.912 | Lingsha: 517.497
+Run   38: Team DPAV: 26583.297 | RinTohsaka: 22938.930 | Sparkle: 0.000 | MortenaxBlade: 3177.109 | Lingsha: 467.259
+Run   39: Team DPAV: 30565.557 | RinTohsaka: 26485.481 | Sparkle: 0.000 | MortenaxBlade: 3472.405 | Lingsha: 607.671
+Run   40: Team DPAV: 26137.454 | RinTohsaka: 22505.702 | Sparkle: 0.000 | MortenaxBlade: 3176.298 | Lingsha: 455.454
+Run   41: Team DPAV: 29204.880 | RinTohsaka: 25160.082 | Sparkle: 0.000 | MortenaxBlade: 3448.738 | Lingsha: 596.060
+Run   42: Team DPAV: 30504.400 | RinTohsaka: 26430.812 | Sparkle: 0.000 | MortenaxBlade: 3467.083 | Lingsha: 606.505
+Run   43: Team DPAV: 24447.421 | RinTohsaka: 20952.448 | Sparkle: 0.000 | MortenaxBlade: 2951.953 | Lingsha: 543.021
+Run   44: Team DPAV: 24713.299 | RinTohsaka: 20816.754 | Sparkle: 0.000 | MortenaxBlade: 3399.146 | Lingsha: 497.399
+Run   45: Team DPAV: 25141.886 | RinTohsaka: 21569.813 | Sparkle: 0.000 | MortenaxBlade: 3066.411 | Lingsha: 505.663
+Run   46: Team DPAV: 25785.579 | RinTohsaka: 21783.342 | Sparkle: 0.000 | MortenaxBlade: 3367.297 | Lingsha: 634.940
+Run   47: Team DPAV: 30702.791 | RinTohsaka: 26440.112 | Sparkle: 0.000 | MortenaxBlade: 3655.781 | Lingsha: 606.899
+Run   48: Team DPAV: 25001.348 | RinTohsaka: 21032.497 | Sparkle: 0.000 | MortenaxBlade: 3387.621 | Lingsha: 581.230
+Run   49: Team DPAV: 29101.918 | RinTohsaka: 24954.841 | Sparkle: 0.000 | MortenaxBlade: 3549.579 | Lingsha: 597.498
+Run   50: Team DPAV: 28769.015 | RinTohsaka: 24693.812 | Sparkle: 0.000 | MortenaxBlade: 3498.244 | Lingsha: 576.959
+Run   51: Team DPAV: 28555.464 | RinTohsaka: 24571.117 | Sparkle: 0.000 | MortenaxBlade: 3422.418 | Lingsha: 561.929
+Run   52: Team DPAV: 26093.928 | RinTohsaka: 23059.179 | Sparkle: 0.000 | MortenaxBlade: 2497.732 | Lingsha: 537.016
+Run   53: Team DPAV: 27642.811 | RinTohsaka: 23618.126 | Sparkle: 0.000 | MortenaxBlade: 3446.167 | Lingsha: 578.517
+Run   54: Team DPAV: 28091.956 | RinTohsaka: 23925.673 | Sparkle: 0.000 | MortenaxBlade: 3578.878 | Lingsha: 587.404
+Run   55: Team DPAV: 29457.243 | RinTohsaka: 25399.147 | Sparkle: 0.000 | MortenaxBlade: 3460.965 | Lingsha: 597.131
+Run   56: Team DPAV: 28462.900 | RinTohsaka: 24399.332 | Sparkle: 0.000 | MortenaxBlade: 3516.767 | Lingsha: 546.802
+Run   57: Team DPAV: 28540.642 | RinTohsaka: 24538.380 | Sparkle: 0.000 | MortenaxBlade: 3510.956 | Lingsha: 491.306
+Run   58: Team DPAV: 29433.269 | RinTohsaka: 25552.416 | Sparkle: 0.000 | MortenaxBlade: 3351.089 | Lingsha: 529.765
+Run   59: Team DPAV: 25785.579 | RinTohsaka: 21783.342 | Sparkle: 0.000 | MortenaxBlade: 3367.297 | Lingsha: 634.940
+Run   60: Team DPAV: 28414.042 | RinTohsaka: 24346.019 | Sparkle: 0.000 | MortenaxBlade: 3478.956 | Lingsha: 589.067
+Run   61: Team DPAV: 25039.750 | RinTohsaka: 21036.381 | Sparkle: 0.000 | MortenaxBlade: 3428.927 | Lingsha: 574.442
+Run   62: Team DPAV: 29541.856 | RinTohsaka: 25517.252 | Sparkle: 0.000 | MortenaxBlade: 3435.247 | Lingsha: 589.358
+Run   63: Team DPAV: 25722.463 | RinTohsaka: 22382.550 | Sparkle: 0.000 | MortenaxBlade: 2887.095 | Lingsha: 452.818
+Run   64: Team DPAV: 24502.116 | RinTohsaka: 20633.926 | Sparkle: 0.000 | MortenaxBlade: 3402.630 | Lingsha: 465.561
+Run   65: Team DPAV: 25050.899 | RinTohsaka: 21079.184 | Sparkle: 0.000 | MortenaxBlade: 3429.110 | Lingsha: 542.604
+Run   66: Team DPAV: 25858.052 | RinTohsaka: 22125.620 | Sparkle: 0.000 | MortenaxBlade: 3219.878 | Lingsha: 512.553
+Run   67: Team DPAV: 30442.222 | RinTohsaka: 26511.774 | Sparkle: 0.000 | MortenaxBlade: 3333.692 | Lingsha: 596.756
+Run   68: Team DPAV: 25356.056 | RinTohsaka: 21349.722 | Sparkle: 0.000 | MortenaxBlade: 3484.470 | Lingsha: 521.864
+Run   69: Team DPAV: 27350.161 | RinTohsaka: 23245.724 | Sparkle: 0.000 | MortenaxBlade: 3554.050 | Lingsha: 550.387
+Run   70: Team DPAV: 24378.629 | RinTohsaka: 20706.946 | Sparkle: 0.000 | MortenaxBlade: 3206.123 | Lingsha: 465.561
+Run   71: Team DPAV: 27991.792 | RinTohsaka: 24478.801 | Sparkle: 0.000 | MortenaxBlade: 2991.765 | Lingsha: 521.226
+Run   72: Team DPAV: 24879.868 | RinTohsaka: 20969.029 | Sparkle: 0.000 | MortenaxBlade: 3321.065 | Lingsha: 589.774
+Run   73: Team DPAV: 24369.348 | RinTohsaka: 20783.001 | Sparkle: 0.000 | MortenaxBlade: 3119.088 | Lingsha: 467.259
+Run   74: Team DPAV: 29490.882 | RinTohsaka: 25442.488 | Sparkle: 0.000 | MortenaxBlade: 3447.199 | Lingsha: 601.195
+Run   75: Team DPAV: 27942.695 | RinTohsaka: 24320.110 | Sparkle: 0.000 | MortenaxBlade: 3151.488 | Lingsha: 471.098
+Run   76: Team DPAV: 24748.663 | RinTohsaka: 20767.044 | Sparkle: 0.000 | MortenaxBlade: 3388.491 | Lingsha: 593.127
+Run   77: Team DPAV: 24713.299 | RinTohsaka: 20816.754 | Sparkle: 0.000 | MortenaxBlade: 3399.146 | Lingsha: 497.399
+Run   78: Team DPAV: 24732.962 | RinTohsaka: 20969.029 | Sparkle: 0.000 | MortenaxBlade: 3170.279 | Lingsha: 593.654
+Run   79: Team DPAV: 25656.569 | RinTohsaka: 21785.274 | Sparkle: 0.000 | MortenaxBlade: 3289.782 | Lingsha: 581.514
+Run   80: Team DPAV: 27865.750 | RinTohsaka: 24282.491 | Sparkle: 0.000 | MortenaxBlade: 3115.082 | Lingsha: 468.177
+Run   81: Team DPAV: 25321.994 | RinTohsaka: 21338.625 | Sparkle: 0.000 | MortenaxBlade: 3407.685 | Lingsha: 575.684
+Run   82: Team DPAV: 25085.952 | RinTohsaka: 21191.681 | Sparkle: 0.000 | MortenaxBlade: 3306.867 | Lingsha: 587.404
+Run   83: Team DPAV: 28566.668 | RinTohsaka: 24489.465 | Sparkle: 0.000 | MortenaxBlade: 3496.088 | Lingsha: 581.116
+Run   84: Team DPAV: 27980.033 | RinTohsaka: 23992.858 | Sparkle: 0.000 | MortenaxBlade: 3349.711 | Lingsha: 637.465
+Run   85: Team DPAV: 25551.491 | RinTohsaka: 22125.620 | Sparkle: 0.000 | MortenaxBlade: 2918.403 | Lingsha: 507.469
+Run   86: Team DPAV: 28450.685 | RinTohsaka: 24422.961 | Sparkle: 0.000 | MortenaxBlade: 3436.949 | Lingsha: 590.775
+Run   87: Team DPAV: 24879.868 | RinTohsaka: 20969.029 | Sparkle: 0.000 | MortenaxBlade: 3321.065 | Lingsha: 589.774
+Run   88: Team DPAV: 25873.426 | RinTohsaka: 21716.557 | Sparkle: 0.000 | MortenaxBlade: 3506.965 | Lingsha: 649.904
+Run   89: Team DPAV: 26558.856 | RinTohsaka: 22424.874 | Sparkle: 0.000 | MortenaxBlade: 3538.854 | Lingsha: 595.128
+Run   90: Team DPAV: 24795.468 | RinTohsaka: 20889.437 | Sparkle: 0.000 | MortenaxBlade: 3316.257 | Lingsha: 589.774
+Run   91: Team DPAV: 29101.918 | RinTohsaka: 24954.841 | Sparkle: 0.000 | MortenaxBlade: 3549.579 | Lingsha: 597.498
+Run   92: Team DPAV: 29541.856 | RinTohsaka: 25517.252 | Sparkle: 0.000 | MortenaxBlade: 3435.247 | Lingsha: 589.358
+Run   93: Team DPAV: 24879.868 | RinTohsaka: 20969.029 | Sparkle: 0.000 | MortenaxBlade: 3321.065 | Lingsha: 589.774
+Run   94: Team DPAV: 26985.024 | RinTohsaka: 23337.518 | Sparkle: 0.000 | MortenaxBlade: 3177.109 | Lingsha: 470.397
+Run   95: Team DPAV: 24797.332 | RinTohsaka: 20809.845 | Sparkle: 0.000 | MortenaxBlade: 3405.092 | Lingsha: 582.396
+Run   96: Team DPAV: 24795.468 | RinTohsaka: 20889.437 | Sparkle: 0.000 | MortenaxBlade: 3316.257 | Lingsha: 589.774
+Run   97: Team DPAV: 25659.472 | RinTohsaka: 21703.750 | Sparkle: 0.000 | MortenaxBlade: 3318.894 | Lingsha: 636.828
+Run   98: Team DPAV: 26161.234 | RinTohsaka: 22705.833 | Sparkle: 0.000 | MortenaxBlade: 3011.601 | Lingsha: 443.800
+Run   99: Team DPAV: 25033.011 | RinTohsaka: 21206.448 | Sparkle: 0.000 | MortenaxBlade: 3246.016 | Lingsha: 580.547
+Run  100: Team DPAV: 24679.490 | RinTohsaka: 20926.228 | Sparkle: 0.000 | MortenaxBlade: 3155.390 | Lingsha: 597.872
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 26623.663
+Average RinTohsaka DPAV: 22719.625 Percentage: 85.336%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average MortenaxBlade DPAV: 3345.064 Percentage: 12.564%
+Average Lingsha DPAV: 558.975 Percentage: 2.100%
+
+Min Team DPAV: 24369.348
+Max Team DPAV: 30702.791

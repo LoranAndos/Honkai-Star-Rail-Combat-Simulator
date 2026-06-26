@@ -4,10 +4,13 @@ from Buff import *
 from Character import Character
 from Lightcones.Erudition.FlickeringStars import FlickeringStars
 from Lightcones.Erudition.EternalCalculus import EternalCalculus
+from Lightcones.Erudition.TheSeriousnessOfBreakfast import TheSeriousnessOfBreakfast
+from Lightcones.Erudition.TodayIsAnotherPeacefulDay import TodayIsAnotherPeacefulDay
 from Planars.RutilantArena import RutilantArena
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
+from Relics.ScholarLostInErudition import ScholarLostInErudition
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -51,13 +54,13 @@ class RinTohsaka(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else EternalCalculus(role, 5)
+        self.lightcone = lc if lc else FlickeringStars(role, 1)
         self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 2, StatTypes.CR_PERCENT, StatTypes.SPD_PERCENT,
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
-        self.rotation = rotation if rotation else ["E","A","A"]
+        self.rotation = rotation if rotation else ["E"]
         self.E4StackLimit = 2 if self.eidolon >= 4 else 1
 
     def equip(self):
@@ -67,6 +70,7 @@ class RinTohsaka(Character):
         bl.append(Buff("RinTohsakaTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
         bl.append(Buff("RinTohsakaTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
         bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.PEN, 0.15, self.role))
+        bl.append(Buff("EnhancedSkillSPD", StatTypes.SPD_PERCENT, 0.20, self.role, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
         if self.eidolon >= 2:
             bl.append(Buff("E2DMG", StatTypes.DMG_PERCENT, 0.30, self.role, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
             bl.append(Buff("E2IDM", StatTypes.INDEPENDENTDAMAGEMULTIPLIER, 0.30, Role.ALL, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
@@ -130,7 +134,10 @@ class RinTohsaka(Character):
         dbl.append(Debuff("RinTohsakaUltVuln", self.role, StatTypes.VULN, e5Vuln, Role.ALL, [AtkType.ALL], 3,1,Targeting.AOE))
         self.GemEnergy += 36 if self.eidolon == 6 else 12
         logger.info(f"Rin has obtained 12 Gem Energy from Ultimate and now has {self.GemEnergy} Gem Energy")
-        if self.eidolon >= 6:
+        if self.eidolon == 6:
+            if self.SPAmount >= 7 or self.GemEnergy >= 15:
+                self.EnhancedSkill = True
+                logger.info(f"Rin can use Enhanced Skill")
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useSkl(-1))
         return bl, dbl, al, dl, tl, hl
 
@@ -156,7 +163,7 @@ class RinTohsaka(Character):
         e5CD = 0.77 if self.eidolon >= 5 else 0.70
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange)
-            bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, self.E4StackLimit, turn.charRole, TickDown.END))
+            bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange)} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
         if turn.moveName == "ArcherJointAttack":
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))

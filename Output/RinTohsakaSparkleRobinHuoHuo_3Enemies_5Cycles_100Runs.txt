@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 23557.704 | RinTohsaka: 23225.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run    2: Team DPAV: 23660.743 | RinTohsaka: 23293.418 | Sparkle: 0.000 | Robin: 327.942 | HuoHuo: 39.383
+Run    3: Team DPAV: 23684.253 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run    4: Team DPAV: 22724.727 | RinTohsaka: 22447.573 | Sparkle: 0.000 | Robin: 244.817 | HuoHuo: 32.337
+Run    5: Team DPAV: 22685.823 | RinTohsaka: 22321.013 | Sparkle: 0.000 | Robin: 325.427 | HuoHuo: 39.383
+Run    6: Team DPAV: 23207.515 | RinTohsaka: 22875.188 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run    7: Team DPAV: 22904.958 | RinTohsaka: 22586.261 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run    8: Team DPAV: 22786.994 | RinTohsaka: 22474.587 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 32.337
+Run    9: Team DPAV: 22933.848 | RinTohsaka: 22615.151 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   10: Team DPAV: 21619.705 | RinTohsaka: 21287.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   11: Team DPAV: 23223.313 | RinTohsaka: 22910.907 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 32.337
+Run   12: Team DPAV: 21028.218 | RinTohsaka: 20707.733 | Sparkle: 0.000 | Robin: 282.382 | HuoHuo: 38.103
+Run   13: Team DPAV: 23654.088 | RinTohsaka: 23321.761 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   14: Team DPAV: 23065.357 | RinTohsaka: 22733.030 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   15: Team DPAV: 21619.705 | RinTohsaka: 21287.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   16: Team DPAV: 23535.212 | RinTohsaka: 23202.885 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   17: Team DPAV: 24783.198 | RinTohsaka: 24400.291 | Sparkle: 0.000 | Robin: 343.525 | HuoHuo: 39.383
+Run   18: Team DPAV: 23646.312 | RinTohsaka: 23313.985 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   19: Team DPAV: 23367.884 | RinTohsaka: 23034.802 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   20: Team DPAV: 22035.036 | RinTohsaka: 21670.227 | Sparkle: 0.000 | Robin: 325.427 | HuoHuo: 39.383
+Run   21: Team DPAV: 23524.035 | RinTohsaka: 23191.708 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   22: Team DPAV: 23265.097 | RinTohsaka: 22932.770 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   23: Team DPAV: 23684.253 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   24: Team DPAV: 23152.600 | RinTohsaka: 22762.643 | Sparkle: 0.000 | Robin: 350.575 | HuoHuo: 39.383
+Run   25: Team DPAV: 23450.077 | RinTohsaka: 23096.127 | Sparkle: 0.000 | Robin: 315.322 | HuoHuo: 38.628
+Run   26: Team DPAV: 22731.686 | RinTohsaka: 22409.463 | Sparkle: 0.000 | Robin: 283.595 | HuoHuo: 38.628
+Run   27: Team DPAV: 23683.498 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   28: Team DPAV: 23623.819 | RinTohsaka: 23291.492 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   29: Team DPAV: 24226.582 | RinTohsaka: 23837.379 | Sparkle: 0.000 | Robin: 350.575 | HuoHuo: 38.628
+Run   30: Team DPAV: 23998.093 | RinTohsaka: 23630.768 | Sparkle: 0.000 | Robin: 327.942 | HuoHuo: 39.383
+Run   31: Team DPAV: 23515.475 | RinTohsaka: 23183.148 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   32: Team DPAV: 22470.290 | RinTohsaka: 22119.110 | Sparkle: 0.000 | Robin: 311.797 | HuoHuo: 39.383
+Run   33: Team DPAV: 22967.208 | RinTohsaka: 22648.511 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   34: Team DPAV: 23337.714 | RinTohsaka: 23005.387 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   35: Team DPAV: 22317.456 | RinTohsaka: 22005.050 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 32.337
+Run   36: Team DPAV: 22973.499 | RinTohsaka: 22641.172 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   37: Team DPAV: 22009.567 | RinTohsaka: 21677.240 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   38: Team DPAV: 23282.552 | RinTohsaka: 22949.470 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   39: Team DPAV: 22419.947 | RinTohsaka: 22142.793 | Sparkle: 0.000 | Robin: 244.817 | HuoHuo: 32.337
+Run   40: Team DPAV: 23646.312 | RinTohsaka: 23313.985 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   41: Team DPAV: 22570.084 | RinTohsaka: 22254.152 | Sparkle: 0.000 | Robin: 283.595 | HuoHuo: 32.337
+Run   42: Team DPAV: 23088.361 | RinTohsaka: 22768.909 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 39.383
+Run   43: Team DPAV: 23326.314 | RinTohsaka: 23006.862 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 39.383
+Run   44: Team DPAV: 23315.195 | RinTohsaka: 22982.868 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   45: Team DPAV: 23515.475 | RinTohsaka: 23183.148 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   46: Team DPAV: 23426.321 | RinTohsaka: 23093.994 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   47: Team DPAV: 23684.253 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   48: Team DPAV: 23058.159 | RinTohsaka: 22725.832 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   49: Team DPAV: 23528.966 | RinTohsaka: 23177.786 | Sparkle: 0.000 | Robin: 311.797 | HuoHuo: 39.383
+Run   50: Team DPAV: 22973.499 | RinTohsaka: 22641.172 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   51: Team DPAV: 24290.661 | RinTohsaka: 23958.334 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   52: Team DPAV: 22214.521 | RinTohsaka: 21882.194 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   53: Team DPAV: 23683.498 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   54: Team DPAV: 23265.097 | RinTohsaka: 22932.770 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   55: Team DPAV: 22741.790 | RinTohsaka: 22409.463 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   56: Team DPAV: 23684.253 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   57: Team DPAV: 23036.209 | RinTohsaka: 22671.399 | Sparkle: 0.000 | Robin: 325.427 | HuoHuo: 39.383
+Run   58: Team DPAV: 23426.321 | RinTohsaka: 23093.994 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   59: Team DPAV: 24095.668 | RinTohsaka: 23763.341 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   60: Team DPAV: 23557.919 | RinTohsaka: 23225.894 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.326
+Run   61: Team DPAV: 23910.351 | RinTohsaka: 23543.027 | Sparkle: 0.000 | Robin: 327.942 | HuoHuo: 39.383
+Run   62: Team DPAV: 23058.159 | RinTohsaka: 22725.832 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   63: Team DPAV: 23235.185 | RinTohsaka: 22902.858 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   64: Team DPAV: 23265.097 | RinTohsaka: 22932.770 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   65: Team DPAV: 23205.775 | RinTohsaka: 22873.448 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   66: Team DPAV: 22758.440 | RinTohsaka: 22436.218 | Sparkle: 0.000 | Robin: 283.595 | HuoHuo: 38.628
+Run   67: Team DPAV: 22933.848 | RinTohsaka: 22615.151 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   68: Team DPAV: 22275.048 | RinTohsaka: 21997.895 | Sparkle: 0.000 | Robin: 244.817 | HuoHuo: 32.337
+Run   69: Team DPAV: 23365.982 | RinTohsaka: 23047.285 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   70: Team DPAV: 23426.321 | RinTohsaka: 23093.994 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   71: Team DPAV: 23623.819 | RinTohsaka: 23291.492 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   72: Team DPAV: 23970.138 | RinTohsaka: 23585.786 | Sparkle: 0.000 | Robin: 345.875 | HuoHuo: 38.477
+Run   73: Team DPAV: 23337.714 | RinTohsaka: 23005.387 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   74: Team DPAV: 23879.239 | RinTohsaka: 23546.912 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   75: Team DPAV: 23315.195 | RinTohsaka: 22982.868 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   76: Team DPAV: 23557.704 | RinTohsaka: 23225.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   77: Team DPAV: 22907.827 | RinTohsaka: 22589.130 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   78: Team DPAV: 23235.185 | RinTohsaka: 22902.858 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   79: Team DPAV: 23326.314 | RinTohsaka: 23006.862 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 39.383
+Run   80: Team DPAV: 22679.466 | RinTohsaka: 22347.139 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   81: Team DPAV: 22521.254 | RinTohsaka: 22188.927 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   82: Team DPAV: 23684.253 | RinTohsaka: 23351.171 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 39.383
+Run   83: Team DPAV: 23205.775 | RinTohsaka: 22873.448 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   84: Team DPAV: 23058.159 | RinTohsaka: 22725.832 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   85: Team DPAV: 23486.066 | RinTohsaka: 23153.738 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   86: Team DPAV: 22967.692 | RinTohsaka: 22663.747 | Sparkle: 0.000 | Robin: 271.609 | HuoHuo: 32.337
+Run   87: Team DPAV: 23557.704 | RinTohsaka: 23225.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   88: Team DPAV: 23535.212 | RinTohsaka: 23202.885 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   89: Team DPAV: 23189.501 | RinTohsaka: 22867.278 | Sparkle: 0.000 | Robin: 283.595 | HuoHuo: 38.628
+Run   90: Team DPAV: 23623.819 | RinTohsaka: 23291.492 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   91: Team DPAV: 22239.570 | RinTohsaka: 21958.891 | Sparkle: 0.000 | Robin: 248.342 | HuoHuo: 32.337
+Run   92: Team DPAV: 23205.775 | RinTohsaka: 22873.448 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   93: Team DPAV: 23557.704 | RinTohsaka: 23225.377 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   94: Team DPAV: 23380.471 | RinTohsaka: 23061.774 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   95: Team DPAV: 23646.312 | RinTohsaka: 23313.985 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run   96: Team DPAV: 22507.154 | RinTohsaka: 22186.669 | Sparkle: 0.000 | Robin: 282.382 | HuoHuo: 38.103
+Run   97: Team DPAV: 23277.375 | RinTohsaka: 22958.678 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+Run   98: Team DPAV: 23193.507 | RinTohsaka: 22871.284 | Sparkle: 0.000 | Robin: 283.595 | HuoHuo: 38.628
+Run   99: Team DPAV: 23207.667 | RinTohsaka: 22875.340 | Sparkle: 0.000 | Robin: 293.699 | HuoHuo: 38.628
+Run  100: Team DPAV: 23563.481 | RinTohsaka: 23244.784 | Sparkle: 0.000 | Robin: 280.070 | HuoHuo: 38.628
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 23203.622
+Average RinTohsaka DPAV: 22871.927 Percentage: 98.571%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average Robin DPAV: 293.497 Percentage: 1.265%
+Average HuoHuo DPAV: 38.197 Percentage: 0.165%
+
+Min Team DPAV: 21028.218
+Max Team DPAV: 24783.198

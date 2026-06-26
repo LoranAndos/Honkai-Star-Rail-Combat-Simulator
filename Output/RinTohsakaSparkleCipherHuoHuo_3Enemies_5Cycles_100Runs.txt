@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 23575.646 | RinTohsaka: 18785.130 | Sparkle: 0.000 | Cipher: 4756.695 | HuoHuo: 27.455
+Run    2: Team DPAV: 24690.128 | RinTohsaka: 19936.405 | Sparkle: 0.000 | Cipher: 4719.902 | HuoHuo: 27.455
+Run    3: Team DPAV: 23463.318 | RinTohsaka: 18693.829 | Sparkle: 0.000 | Cipher: 4735.174 | HuoHuo: 27.949
+Run    4: Team DPAV: 27333.566 | RinTohsaka: 21821.124 | Sparkle: 0.000 | Cipher: 5476.551 | HuoHuo: 29.525
+Run    5: Team DPAV: 22975.620 | RinTohsaka: 18295.565 | Sparkle: 0.000 | Cipher: 4646.235 | HuoHuo: 27.455
+Run    6: Team DPAV: 25788.795 | RinTohsaka: 20581.364 | Sparkle: 0.000 | Cipher: 5173.162 | HuoHuo: 27.903
+Run    7: Team DPAV: 24417.862 | RinTohsaka: 19473.668 | Sparkle: 0.000 | Cipher: 4909.827 | HuoHuo: 28.002
+Run    8: Team DPAV: 24603.049 | RinTohsaka: 19869.159 | Sparkle: 0.000 | Cipher: 4700.069 | HuoHuo: 27.455
+Run    9: Team DPAV: 25365.622 | RinTohsaka: 20272.483 | Sparkle: 0.000 | Cipher: 5058.772 | HuoHuo: 28.002
+Run   10: Team DPAV: 24115.557 | RinTohsaka: 19471.320 | Sparkle: 0.000 | Cipher: 4610.415 | HuoHuo: 27.455
+Run   11: Team DPAV: 25587.505 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5102.374 | HuoHuo: 28.002
+Run   12: Team DPAV: 24010.421 | RinTohsaka: 19135.994 | Sparkle: 0.000 | Cipher: 4840.607 | HuoHuo: 27.455
+Run   13: Team DPAV: 25264.460 | RinTohsaka: 20193.882 | Sparkle: 0.000 | Cipher: 5036.429 | HuoHuo: 27.783
+Run   14: Team DPAV: 22910.595 | RinTohsaka: 18244.806 | Sparkle: 0.000 | Cipher: 4631.969 | HuoHuo: 27.455
+Run   15: Team DPAV: 25202.242 | RinTohsaka: 20140.795 | Sparkle: 0.000 | Cipher: 5027.626 | HuoHuo: 27.455
+Run   16: Team DPAV: 24741.258 | RinTohsaka: 19980.209 | Sparkle: 0.000 | Cipher: 4726.682 | HuoHuo: 28.002
+Run   17: Team DPAV: 26405.555 | RinTohsaka: 21109.929 | Sparkle: 0.000 | Cipher: 5261.259 | HuoHuo: 28.002
+Run   18: Team DPAV: 25232.846 | RinTohsaka: 20161.433 | Sparkle: 0.000 | Cipher: 5037.592 | HuoHuo: 27.455
+Run   19: Team DPAV: 24361.035 | RinTohsaka: 19646.092 | Sparkle: 0.000 | Cipher: 4681.123 | HuoHuo: 27.455
+Run   20: Team DPAV: 26404.355 | RinTohsaka: 21109.929 | Sparkle: 0.000 | Cipher: 5260.059 | HuoHuo: 28.002
+Run   21: Team DPAV: 25990.421 | RinTohsaka: 20750.054 | Sparkle: 0.000 | Cipher: 5206.098 | HuoHuo: 27.903
+Run   22: Team DPAV: 25355.248 | RinTohsaka: 20250.524 | Sparkle: 0.000 | Cipher: 5070.357 | HuoHuo: 28.002
+Run   23: Team DPAV: 25231.646 | RinTohsaka: 20161.433 | Sparkle: 0.000 | Cipher: 5036.392 | HuoHuo: 27.455
+Run   24: Team DPAV: 24364.428 | RinTohsaka: 19653.944 | Sparkle: 0.000 | Cipher: 4676.663 | HuoHuo: 27.455
+Run   25: Team DPAV: 24984.355 | RinTohsaka: 19961.518 | Sparkle: 0.000 | Cipher: 4989.017 | HuoHuo: 27.455
+Run   26: Team DPAV: 25258.785 | RinTohsaka: 20181.075 | Sparkle: 0.000 | Cipher: 5043.888 | HuoHuo: 27.455
+Run   27: Team DPAV: 26054.971 | RinTohsaka: 20789.124 | Sparkle: 0.000 | Cipher: 5230.619 | HuoHuo: 28.863
+Run   28: Team DPAV: 26183.673 | RinTohsaka: 20931.648 | Sparkle: 0.000 | Cipher: 5217.657 | HuoHuo: 28.002
+Run   29: Team DPAV: 25633.305 | RinTohsaka: 20492.041 | Sparkle: 0.000 | Cipher: 5106.897 | HuoHuo: 28.002
+Run   30: Team DPAV: 22803.697 | RinTohsaka: 18162.577 | Sparkle: 0.000 | Cipher: 4607.299 | HuoHuo: 27.455
+Run   31: Team DPAV: 25232.846 | RinTohsaka: 20161.433 | Sparkle: 0.000 | Cipher: 5037.592 | HuoHuo: 27.455
+Run   32: Team DPAV: 25586.305 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5101.173 | HuoHuo: 28.002
+Run   33: Team DPAV: 23383.505 | RinTohsaka: 18626.490 | Sparkle: 0.000 | Cipher: 4723.194 | HuoHuo: 27.455
+Run   34: Team DPAV: 25270.713 | RinTohsaka: 20195.256 | Sparkle: 0.000 | Cipher: 5041.636 | HuoHuo: 27.455
+Run   35: Team DPAV: 26374.630 | RinTohsaka: 21063.942 | Sparkle: 0.000 | Cipher: 5276.321 | HuoHuo: 28.002
+Run   36: Team DPAV: 24634.873 | RinTohsaka: 19888.801 | Sparkle: 0.000 | Cipher: 4712.251 | HuoHuo: 27.455
+Run   37: Team DPAV: 25012.125 | RinTohsaka: 19982.156 | Sparkle: 0.000 | Cipher: 4996.148 | HuoHuo: 27.455
+Run   38: Team DPAV: 26371.796 | RinTohsaka: 21063.942 | Sparkle: 0.000 | Cipher: 5273.486 | HuoHuo: 28.002
+Run   39: Team DPAV: 25263.738 | RinTohsaka: 20187.403 | Sparkle: 0.000 | Cipher: 5042.514 | HuoHuo: 27.455
+Run   40: Team DPAV: 26075.635 | RinTohsaka: 20840.240 | Sparkle: 0.000 | Cipher: 5201.573 | HuoHuo: 27.455
+Run   41: Team DPAV: 25030.313 | RinTohsaka: 20002.795 | Sparkle: 0.000 | Cipher: 4993.697 | HuoHuo: 27.455
+Run   42: Team DPAV: 25257.584 | RinTohsaka: 20181.075 | Sparkle: 0.000 | Cipher: 5042.688 | HuoHuo: 27.455
+Run   43: Team DPAV: 26153.132 | RinTohsaka: 20890.655 | Sparkle: 0.000 | Cipher: 5228.109 | HuoHuo: 28.002
+Run   44: Team DPAV: 25960.210 | RinTohsaka: 20726.963 | Sparkle: 0.000 | Cipher: 5198.512 | HuoHuo: 28.369
+Run   45: Team DPAV: 25463.621 | RinTohsaka: 20320.114 | Sparkle: 0.000 | Cipher: 5108.773 | HuoHuo: 28.369
+Run   46: Team DPAV: 27537.847 | RinTohsaka: 21999.469 | Sparkle: 0.000 | Cipher: 5504.010 | HuoHuo: 28.002
+Run   47: Team DPAV: 26300.089 | RinTohsaka: 21003.315 | Sparkle: 0.000 | Cipher: 5262.407 | HuoHuo: 28.002
+Run   48: Team DPAV: 25264.460 | RinTohsaka: 20193.882 | Sparkle: 0.000 | Cipher: 5036.429 | HuoHuo: 27.783
+Run   49: Team DPAV: 26405.555 | RinTohsaka: 21109.929 | Sparkle: 0.000 | Cipher: 5261.259 | HuoHuo: 28.002
+Run   50: Team DPAV: 25439.204 | RinTohsaka: 20305.248 | Sparkle: 0.000 | Cipher: 5099.589 | HuoHuo: 28.002
+Run   51: Team DPAV: 24895.874 | RinTohsaka: 19891.832 | Sparkle: 0.000 | Cipher: 4969.893 | HuoHuo: 27.783
+Run   52: Team DPAV: 24638.766 | RinTohsaka: 19657.994 | Sparkle: 0.000 | Cipher: 4946.405 | HuoHuo: 28.002
+Run   53: Team DPAV: 25047.634 | RinTohsaka: 20014.155 | Sparkle: 0.000 | Cipher: 4999.878 | HuoHuo: 27.237
+Run   54: Team DPAV: 22959.126 | RinTohsaka: 18285.323 | Sparkle: 0.000 | Cipher: 4639.982 | HuoHuo: 27.455
+Run   55: Team DPAV: 25232.807 | RinTohsaka: 20160.437 | Sparkle: 0.000 | Cipher: 5038.549 | HuoHuo: 27.455
+Run   56: Team DPAV: 25609.290 | RinTohsaka: 20471.402 | Sparkle: 0.000 | Cipher: 5103.520 | HuoHuo: 28.002
+Run   57: Team DPAV: 23106.376 | RinTohsaka: 18399.132 | Sparkle: 0.000 | Cipher: 4673.423 | HuoHuo: 27.455
+Run   58: Team DPAV: 27220.535 | RinTohsaka: 21744.386 | Sparkle: 0.000 | Cipher: 5441.782 | HuoHuo: 28.002
+Run   59: Team DPAV: 25581.678 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5096.546 | HuoHuo: 28.002
+Run   60: Team DPAV: 25365.622 | RinTohsaka: 20272.483 | Sparkle: 0.000 | Cipher: 5058.772 | HuoHuo: 28.002
+Run   61: Team DPAV: 24741.258 | RinTohsaka: 19980.209 | Sparkle: 0.000 | Cipher: 4726.682 | HuoHuo: 28.002
+Run   62: Team DPAV: 25587.505 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5102.374 | HuoHuo: 28.002
+Run   63: Team DPAV: 25245.936 | RinTohsaka: 20174.618 | Sparkle: 0.000 | Cipher: 5037.498 | HuoHuo: 27.455
+Run   64: Team DPAV: 25606.455 | RinTohsaka: 20471.402 | Sparkle: 0.000 | Cipher: 5100.685 | HuoHuo: 28.002
+Run   65: Team DPAV: 23735.955 | RinTohsaka: 18913.386 | Sparkle: 0.000 | Cipher: 4788.254 | HuoHuo: 27.949
+Run   66: Team DPAV: 22563.594 | RinTohsaka: 17967.674 | Sparkle: 0.000 | Cipher: 4562.099 | HuoHuo: 27.455
+Run   67: Team DPAV: 24996.919 | RinTohsaka: 19973.874 | Sparkle: 0.000 | Cipher: 4989.443 | HuoHuo: 27.237
+Run   68: Team DPAV: 25359.795 | RinTohsaka: 20272.483 | Sparkle: 0.000 | Cipher: 5052.944 | HuoHuo: 28.002
+Run   69: Team DPAV: 25291.309 | RinTohsaka: 20214.520 | Sparkle: 0.000 | Cipher: 5042.641 | HuoHuo: 27.783
+Run   70: Team DPAV: 24889.020 | RinTohsaka: 19882.916 | Sparkle: 0.000 | Cipher: 4972.501 | HuoHuo: 27.237
+Run   71: Team DPAV: 25612.282 | RinTohsaka: 20471.402 | Sparkle: 0.000 | Cipher: 5106.512 | HuoHuo: 28.002
+Run   72: Team DPAV: 25586.305 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5101.173 | HuoHuo: 28.002
+Run   73: Team DPAV: 26424.505 | RinTohsaka: 21130.567 | Sparkle: 0.000 | Cipher: 5259.570 | HuoHuo: 28.002
+Run   74: Team DPAV: 25282.475 | RinTohsaka: 20207.784 | Sparkle: 0.000 | Cipher: 5040.870 | HuoHuo: 27.455
+Run   75: Team DPAV: 26331.233 | RinTohsaka: 21026.501 | Sparkle: 0.000 | Cipher: 5270.364 | HuoHuo: 28.002
+Run   76: Team DPAV: 25050.485 | RinTohsaka: 20013.139 | Sparkle: 0.000 | Cipher: 5003.525 | HuoHuo: 27.455
+Run   77: Team DPAV: 22686.541 | RinTohsaka: 18061.401 | Sparkle: 0.000 | Cipher: 4591.538 | HuoHuo: 27.237
+Run   78: Team DPAV: 25043.396 | RinTohsaka: 19991.854 | Sparkle: 0.000 | Cipher: 5017.721 | HuoHuo: 27.455
+Run   79: Team DPAV: 25328.753 | RinTohsaka: 20227.337 | Sparkle: 0.000 | Cipher: 5067.048 | HuoHuo: 28.002
+Run   80: Team DPAV: 25359.795 | RinTohsaka: 20272.483 | Sparkle: 0.000 | Cipher: 5052.944 | HuoHuo: 28.002
+Run   81: Team DPAV: 25135.292 | RinTohsaka: 20076.482 | Sparkle: 0.000 | Cipher: 5024.442 | HuoHuo: 28.002
+Run   82: Team DPAV: 25263.738 | RinTohsaka: 20187.403 | Sparkle: 0.000 | Cipher: 5042.514 | HuoHuo: 27.455
+Run   83: Team DPAV: 25658.355 | RinTohsaka: 20498.520 | Sparkle: 0.000 | Cipher: 5125.467 | HuoHuo: 28.002
+Run   84: Team DPAV: 25364.422 | RinTohsaka: 20272.483 | Sparkle: 0.000 | Cipher: 5057.571 | HuoHuo: 28.002
+Run   85: Team DPAV: 25612.282 | RinTohsaka: 20471.402 | Sparkle: 0.000 | Cipher: 5106.512 | HuoHuo: 28.002
+Run   86: Team DPAV: 25288.515 | RinTohsaka: 20208.042 | Sparkle: 0.000 | Cipher: 5046.652 | HuoHuo: 27.455
+Run   87: Team DPAV: 22983.141 | RinTohsaka: 18305.962 | Sparkle: 0.000 | Cipher: 4643.359 | HuoHuo: 27.455
+Run   88: Team DPAV: 24983.291 | RinTohsaka: 20179.128 | Sparkle: 0.000 | Cipher: 4769.796 | HuoHuo: 28.002
+Run   89: Team DPAV: 25581.678 | RinTohsaka: 20450.764 | Sparkle: 0.000 | Cipher: 5096.546 | HuoHuo: 28.002
+Run   90: Team DPAV: 26153.132 | RinTohsaka: 20890.655 | Sparkle: 0.000 | Cipher: 5228.109 | HuoHuo: 28.002
+Run   91: Team DPAV: 24949.060 | RinTohsaka: 19926.673 | Sparkle: 0.000 | Cipher: 4988.238 | HuoHuo: 27.783
+Run   92: Team DPAV: 27431.127 | RinTohsaka: 21908.693 | Sparkle: 0.000 | Cipher: 5488.067 | HuoHuo: 28.002
+Run   93: Team DPAV: 26208.524 | RinTohsaka: 20957.361 | Sparkle: 0.000 | Cipher: 5216.796 | HuoHuo: 28.002
+Run   94: Team DPAV: 26605.572 | RinTohsaka: 21254.237 | Sparkle: 0.000 | Cipher: 5316.967 | HuoHuo: 28.002
+Run   95: Team DPAV: 22995.770 | RinTohsaka: 18316.203 | Sparkle: 0.000 | Cipher: 4645.746 | HuoHuo: 27.455
+Run   96: Team DPAV: 25606.455 | RinTohsaka: 20471.402 | Sparkle: 0.000 | Cipher: 5100.685 | HuoHuo: 28.002
+Run   97: Team DPAV: 22757.740 | RinTohsaka: 18121.300 | Sparkle: 0.000 | Cipher: 4602.619 | HuoHuo: 27.455
+Run   98: Team DPAV: 25119.565 | RinTohsaka: 20055.757 | Sparkle: 0.000 | Cipher: 5029.440 | HuoHuo: 28.002
+Run   99: Team DPAV: 25337.853 | RinTohsaka: 20251.845 | Sparkle: 0.000 | Cipher: 5051.641 | HuoHuo: 28.002
+Run  100: Team DPAV: 25308.413 | RinTohsaka: 20227.426 | Sparkle: 0.000 | Cipher: 5047.166 | HuoHuo: 27.455
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 25150.533
+Average RinTohsaka DPAV: 20104.364 Percentage: 79.936%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average Cipher DPAV: 5012.022 Percentage: 19.928%
+Average HuoHuo DPAV: 27.781 Percentage: 0.110%
+
+Min Team DPAV: 22563.594
+Max Team DPAV: 27537.847

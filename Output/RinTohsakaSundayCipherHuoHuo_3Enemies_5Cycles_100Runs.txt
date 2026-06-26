@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 16216.825 | RinTohsaka: 12901.430 | Sunday: 0.000 | Cipher: 3285.893 | HuoHuo: 24.376
+Run    2: Team DPAV: 15877.615 | RinTohsaka: 12660.637 | Sunday: 0.000 | Cipher: 3188.468 | HuoHuo: 23.385
+Run    3: Team DPAV: 16013.723 | RinTohsaka: 12741.592 | Sunday: 0.000 | Cipher: 3243.095 | HuoHuo: 23.910
+Run    4: Team DPAV: 16703.638 | RinTohsaka: 13339.297 | Sunday: 0.000 | Cipher: 3335.831 | HuoHuo: 23.385
+Run    5: Team DPAV: 16009.528 | RinTohsaka: 12738.769 | Sunday: 0.000 | Cipher: 3241.257 | HuoHuo: 24.376
+Run    6: Team DPAV: 16942.086 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3406.729 | HuoHuo: 23.471
+Run    7: Team DPAV: 16364.426 | RinTohsaka: 13060.033 | Sunday: 0.000 | Cipher: 3275.883 | HuoHuo: 23.385
+Run    8: Team DPAV: 16076.855 | RinTohsaka: 12789.125 | Sunday: 0.000 | Cipher: 3258.694 | HuoHuo: 23.910
+Run    9: Team DPAV: 16285.309 | RinTohsaka: 12998.643 | Sunday: 0.000 | Cipher: 3258.155 | HuoHuo: 23.385
+Run   10: Team DPAV: 16423.536 | RinTohsaka: 13113.768 | Sunday: 0.000 | Cipher: 3281.257 | HuoHuo: 23.385
+Run   11: Team DPAV: 16070.325 | RinTohsaka: 12818.548 | Sunday: 0.000 | Cipher: 3223.267 | HuoHuo: 23.385
+Run   12: Team DPAV: 16165.524 | RinTohsaka: 12868.737 | Sunday: 0.000 | Cipher: 3267.286 | HuoHuo: 24.376
+Run   13: Team DPAV: 16683.786 | RinTohsaka: 13287.407 | Sunday: 0.000 | Cipher: 3366.877 | HuoHuo: 24.376
+Run   14: Team DPAV: 16141.070 | RinTohsaka: 12882.619 | Sunday: 0.000 | Cipher: 3229.941 | HuoHuo: 23.385
+Run   15: Team DPAV: 16090.437 | RinTohsaka: 12835.467 | Sunday: 0.000 | Cipher: 3226.459 | HuoHuo: 23.385
+Run   16: Team DPAV: 16042.004 | RinTohsaka: 12793.545 | Sunday: 0.000 | Cipher: 3219.948 | HuoHuo: 23.385
+Run   17: Team DPAV: 16603.072 | RinTohsaka: 13219.200 | Sunday: 0.000 | Cipher: 3354.370 | HuoHuo: 24.376
+Run   18: Team DPAV: 15841.443 | RinTohsaka: 12629.736 | Sunday: 0.000 | Cipher: 3183.196 | HuoHuo: 23.385
+Run   19: Team DPAV: 16349.707 | RinTohsaka: 13050.201 | Sunday: 0.000 | Cipher: 3270.995 | HuoHuo: 23.385
+Run   20: Team DPAV: 16860.570 | RinTohsaka: 13471.929 | Sunday: 0.000 | Cipher: 3360.131 | HuoHuo: 23.385
+Run   21: Team DPAV: 16192.384 | RinTohsaka: 12917.101 | Sunday: 0.000 | Cipher: 3246.772 | HuoHuo: 23.385
+Run   22: Team DPAV: 16740.875 | RinTohsaka: 13341.565 | Sunday: 0.000 | Cipher: 3370.714 | HuoHuo: 23.471
+Run   23: Team DPAV: 16680.475 | RinTohsaka: 13295.830 | Sunday: 0.000 | Cipher: 3356.048 | HuoHuo: 23.471
+Run   24: Team DPAV: 16204.602 | RinTohsaka: 12929.683 | Sunday: 0.000 | Cipher: 3246.408 | HuoHuo: 23.385
+Run   25: Team DPAV: 16142.437 | RinTohsaka: 12852.143 | Sunday: 0.000 | Cipher: 3260.792 | HuoHuo: 24.376
+Run   26: Team DPAV: 17329.104 | RinTohsaka: 13826.609 | Sunday: 0.000 | Cipher: 3473.899 | HuoHuo: 23.471
+Run   27: Team DPAV: 16940.943 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.586 | HuoHuo: 23.471
+Run   28: Team DPAV: 16739.643 | RinTohsaka: 13341.565 | Sunday: 0.000 | Cipher: 3369.482 | HuoHuo: 23.471
+Run   29: Team DPAV: 16169.530 | RinTohsaka: 12903.671 | Sunday: 0.000 | Cipher: 3237.348 | HuoHuo: 23.385
+Run   30: Team DPAV: 16217.212 | RinTohsaka: 12901.430 | Sunday: 0.000 | Cipher: 3286.280 | HuoHuo: 24.376
+Run   31: Team DPAV: 14594.560 | RinTohsaka: 11587.098 | Sunday: 0.000 | Cipher: 2978.865 | HuoHuo: 23.471
+Run   32: Team DPAV: 16852.424 | RinTohsaka: 13433.727 | Sunday: 0.000 | Cipher: 3390.100 | HuoHuo: 23.471
+Run   33: Team DPAV: 16780.398 | RinTohsaka: 13405.655 | Sunday: 0.000 | Cipher: 3346.233 | HuoHuo: 23.385
+Run   34: Team DPAV: 15965.789 | RinTohsaka: 12700.161 | Sunday: 0.000 | Cipher: 3236.592 | HuoHuo: 23.910
+Run   35: Team DPAV: 16485.386 | RinTohsaka: 13124.034 | Sunday: 0.000 | Cipher: 3331.850 | HuoHuo: 24.376
+Run   36: Team DPAV: 16378.273 | RinTohsaka: 13046.837 | Sunday: 0.000 | Cipher: 3301.934 | HuoHuo: 24.376
+Run   37: Team DPAV: 16003.871 | RinTohsaka: 12764.293 | Sunday: 0.000 | Cipher: 3211.067 | HuoHuo: 23.385
+Run   38: Team DPAV: 16208.763 | RinTohsaka: 12934.983 | Sunday: 0.000 | Cipher: 3245.269 | HuoHuo: 23.385
+Run   39: Team DPAV: 16875.586 | RinTohsaka: 13485.954 | Sunday: 0.000 | Cipher: 3361.122 | HuoHuo: 23.385
+Run   40: Team DPAV: 16575.549 | RinTohsaka: 13197.067 | Sunday: 0.000 | Cipher: 3348.980 | HuoHuo: 24.376
+Run   41: Team DPAV: 16543.878 | RinTohsaka: 13213.291 | Sunday: 0.000 | Cipher: 3302.076 | HuoHuo: 23.385
+Run   42: Team DPAV: 16070.325 | RinTohsaka: 12818.548 | Sunday: 0.000 | Cipher: 3223.267 | HuoHuo: 23.385
+Run   43: Team DPAV: 16941.250 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.893 | HuoHuo: 23.471
+Run   44: Team DPAV: 16998.996 | RinTohsaka: 13552.968 | Sunday: 0.000 | Cipher: 3417.431 | HuoHuo: 23.471
+Run   45: Team DPAV: 16940.432 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.075 | HuoHuo: 23.471
+Run   46: Team DPAV: 16141.294 | RinTohsaka: 12852.143 | Sunday: 0.000 | Cipher: 3259.650 | HuoHuo: 24.376
+Run   47: Team DPAV: 16939.199 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3403.842 | HuoHuo: 23.471
+Run   48: Team DPAV: 16363.493 | RinTohsaka: 13059.430 | Sunday: 0.000 | Cipher: 3275.553 | HuoHuo: 23.385
+Run   49: Team DPAV: 16469.021 | RinTohsaka: 13116.572 | Sunday: 0.000 | Cipher: 3324.347 | HuoHuo: 22.977
+Run   50: Team DPAV: 16379.598 | RinTohsaka: 13072.675 | Sunday: 0.000 | Cipher: 3278.413 | HuoHuo: 23.385
+Run   51: Team DPAV: 16215.468 | RinTohsaka: 12901.430 | Sunday: 0.000 | Cipher: 3284.536 | HuoHuo: 24.376
+Run   52: Team DPAV: 16363.602 | RinTohsaka: 13024.072 | Sunday: 0.000 | Cipher: 3310.028 | HuoHuo: 24.376
+Run   53: Team DPAV: 16569.820 | RinTohsaka: 13191.694 | Sunday: 0.000 | Cipher: 3348.624 | HuoHuo: 24.376
+Run   54: Team DPAV: 16404.013 | RinTohsaka: 13065.452 | Sunday: 0.000 | Cipher: 3309.964 | HuoHuo: 23.471
+Run   55: Team DPAV: 16218.355 | RinTohsaka: 12901.430 | Sunday: 0.000 | Cipher: 3287.423 | HuoHuo: 24.376
+Run   56: Team DPAV: 16502.180 | RinTohsaka: 13137.096 | Sunday: 0.000 | Cipher: 3335.582 | HuoHuo: 24.376
+Run   57: Team DPAV: 16494.062 | RinTohsaka: 13138.485 | Sunday: 0.000 | Cipher: 3326.980 | HuoHuo: 23.471
+Run   58: Team DPAV: 16493.675 | RinTohsaka: 13138.485 | Sunday: 0.000 | Cipher: 3326.593 | HuoHuo: 23.471
+Run   59: Team DPAV: 16218.355 | RinTohsaka: 12901.430 | Sunday: 0.000 | Cipher: 3287.423 | HuoHuo: 24.376
+Run   60: Team DPAV: 16350.770 | RinTohsaka: 13052.244 | Sunday: 0.000 | Cipher: 3270.015 | HuoHuo: 23.385
+Run   61: Team DPAV: 16380.016 | RinTohsaka: 13046.837 | Sunday: 0.000 | Cipher: 3303.678 | HuoHuo: 24.376
+Run   62: Team DPAV: 16436.106 | RinTohsaka: 13120.961 | Sunday: 0.000 | Cipher: 3286.634 | HuoHuo: 23.385
+Run   63: Team DPAV: 16362.979 | RinTohsaka: 13062.895 | Sunday: 0.000 | Cipher: 3271.573 | HuoHuo: 23.385
+Run   64: Team DPAV: 16859.481 | RinTohsaka: 13472.709 | Sunday: 0.000 | Cipher: 3358.262 | HuoHuo: 23.385
+Run   65: Team DPAV: 16221.734 | RinTohsaka: 12908.743 | Sunday: 0.000 | Cipher: 3283.489 | HuoHuo: 24.376
+Run   66: Team DPAV: 16536.438 | RinTohsaka: 13168.165 | Sunday: 0.000 | Cipher: 3338.771 | HuoHuo: 24.376
+Run   67: Team DPAV: 16486.032 | RinTohsaka: 13124.034 | Sunday: 0.000 | Cipher: 3332.496 | HuoHuo: 24.376
+Run   68: Team DPAV: 16849.537 | RinTohsaka: 13433.727 | Sunday: 0.000 | Cipher: 3387.213 | HuoHuo: 23.471
+Run   69: Team DPAV: 16056.808 | RinTohsaka: 12773.194 | Sunday: 0.000 | Cipher: 3254.578 | HuoHuo: 23.910
+Run   70: Team DPAV: 16241.633 | RinTohsaka: 12925.491 | Sunday: 0.000 | Cipher: 3287.105 | HuoHuo: 23.910
+Run   71: Team DPAV: 16589.312 | RinTohsaka: 13212.379 | Sunday: 0.000 | Cipher: 3347.432 | HuoHuo: 24.376
+Run   72: Team DPAV: 16624.203 | RinTohsaka: 13241.198 | Sunday: 0.000 | Cipher: 3353.503 | HuoHuo: 24.376
+Run   73: Team DPAV: 16221.346 | RinTohsaka: 12908.743 | Sunday: 0.000 | Cipher: 3283.102 | HuoHuo: 24.376
+Run   74: Team DPAV: 16588.241 | RinTohsaka: 13208.361 | Sunday: 0.000 | Cipher: 3350.379 | HuoHuo: 24.376
+Run   75: Team DPAV: 15841.443 | RinTohsaka: 12629.736 | Sunday: 0.000 | Cipher: 3183.196 | HuoHuo: 23.385
+Run   76: Team DPAV: 17065.648 | RinTohsaka: 13608.717 | Sunday: 0.000 | Cipher: 3428.828 | HuoHuo: 22.977
+Run   77: Team DPAV: 16940.432 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.075 | HuoHuo: 23.471
+Run   78: Team DPAV: 16530.176 | RinTohsaka: 13197.385 | Sunday: 0.000 | Cipher: 3304.281 | HuoHuo: 23.385
+Run   79: Team DPAV: 16388.460 | RinTohsaka: 13043.871 | Sunday: 0.000 | Cipher: 3315.088 | HuoHuo: 24.376
+Run   80: Team DPAV: 17129.548 | RinTohsaka: 13661.413 | Sunday: 0.000 | Cipher: 3439.538 | HuoHuo: 23.471
+Run   81: Team DPAV: 16057.195 | RinTohsaka: 12773.194 | Sunday: 0.000 | Cipher: 3254.965 | HuoHuo: 23.910
+Run   82: Team DPAV: 16493.675 | RinTohsaka: 13138.485 | Sunday: 0.000 | Cipher: 3326.593 | HuoHuo: 23.471
+Run   83: Team DPAV: 16940.432 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.075 | HuoHuo: 23.471
+Run   84: Team DPAV: 16360.922 | RinTohsaka: 13019.721 | Sunday: 0.000 | Cipher: 3311.699 | HuoHuo: 24.376
+Run   85: Team DPAV: 16822.236 | RinTohsaka: 13438.819 | Sunday: 0.000 | Cipher: 3354.906 | HuoHuo: 23.385
+Run   86: Team DPAV: 16128.305 | RinTohsaka: 12828.397 | Sunday: 0.000 | Cipher: 3270.406 | HuoHuo: 24.376
+Run   87: Team DPAV: 16014.466 | RinTohsaka: 12769.593 | Sunday: 0.000 | Cipher: 3216.363 | HuoHuo: 23.385
+Run   88: Team DPAV: 16399.117 | RinTohsaka: 13093.317 | Sunday: 0.000 | Cipher: 3277.290 | HuoHuo: 23.385
+Run   89: Team DPAV: 16699.538 | RinTohsaka: 13339.497 | Sunday: 0.000 | Cipher: 3331.531 | HuoHuo: 23.385
+Run   90: Team DPAV: 16008.692 | RinTohsaka: 12738.769 | Sunday: 0.000 | Cipher: 3240.421 | HuoHuo: 24.376
+Run   91: Team DPAV: 16190.211 | RinTohsaka: 12916.989 | Sunday: 0.000 | Cipher: 3244.712 | HuoHuo: 23.385
+Run   92: Team DPAV: 16940.943 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.586 | HuoHuo: 23.471
+Run   93: Team DPAV: 16770.397 | RinTohsaka: 13398.896 | Sunday: 0.000 | Cipher: 3342.991 | HuoHuo: 23.385
+Run   94: Team DPAV: 16383.605 | RinTohsaka: 13038.817 | Sunday: 0.000 | Cipher: 3315.287 | HuoHuo: 24.376
+Run   95: Team DPAV: 16371.651 | RinTohsaka: 13028.422 | Sunday: 0.000 | Cipher: 3313.727 | HuoHuo: 24.376
+Run   96: Team DPAV: 16107.227 | RinTohsaka: 12851.862 | Sunday: 0.000 | Cipher: 3226.855 | HuoHuo: 23.385
+Run   97: Team DPAV: 17129.548 | RinTohsaka: 13661.413 | Sunday: 0.000 | Cipher: 3439.538 | HuoHuo: 23.471
+Run   98: Team DPAV: 16364.770 | RinTohsaka: 13062.895 | Sunday: 0.000 | Cipher: 3273.365 | HuoHuo: 23.385
+Run   99: Team DPAV: 17107.709 | RinTohsaka: 13679.244 | Sunday: 0.000 | Cipher: 3399.954 | HuoHuo: 23.385
+Run  100: Team DPAV: 16940.943 | RinTohsaka: 13506.760 | Sunday: 0.000 | Cipher: 3405.586 | HuoHuo: 23.471
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 16440.382
+Average RinTohsaka DPAV: 13104.153 Percentage: 79.707%
+Average Sunday DPAV: 0.000 Percentage: 0.000%
+Average Cipher DPAV: 3307.369 Percentage: 20.117%
+Average HuoHuo DPAV: 23.735 Percentage: 0.144%
+
+Min Team DPAV: 14594.560
+Max Team DPAV: 17329.104

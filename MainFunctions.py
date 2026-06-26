@@ -1448,7 +1448,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "RinTohsaka":
                 SPAmount = spTracker.getCurrenSP()
                 ArcherInTeam = inTeam(playerTeam, "Archer")
-                return Special(name=specStr, attr1=SPAmount, attr2=ArcherInTeam, enemies=gauge)
+                CharEnergy = specChar.maxEnergy
+                return Special(name=specStr, attr1=SPAmount, attr2=ArcherInTeam, attr3=CharEnergy, enemies=gauge)
 
             case "Robin":
                 atk = getBaseValue(specChar, buffList, placeHolderTurn)
