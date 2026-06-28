@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 18510.074 | Gilgamesh: 11210.695 | Ashveil: 6103.022 | Robin: 567.033 | Lingsha: 264.140
+Run    2: Team DPAV: 20147.269 | Gilgamesh: 12193.122 | Ashveil: 6653.019 | Robin: 669.361 | Lingsha: 254.468
+Run    3: Team DPAV: 18661.083 | Gilgamesh: 11251.224 | Ashveil: 6198.106 | Robin: 586.609 | Lingsha: 264.140
+Run    4: Team DPAV: 18591.861 | Gilgamesh: 11293.423 | Ashveil: 6144.605 | Robin: 567.033 | Lingsha: 225.795
+Run    5: Team DPAV: 19512.262 | Gilgamesh: 11908.468 | Ashveil: 6371.474 | Robin: 612.779 | Lingsha: 256.447
+Run    6: Team DPAV: 17640.069 | Gilgamesh: 11044.650 | Ashveil: 5685.900 | Robin: 315.989 | Lingsha: 230.436
+Run    7: Team DPAV: 17804.871 | Gilgamesh: 11026.640 | Ashveil: 5874.167 | Robin: 311.639 | Lingsha: 229.331
+Run    8: Team DPAV: 18506.010 | Gilgamesh: 11270.870 | Ashveil: 6017.056 | Robin: 590.959 | Lingsha: 264.030
+Run    9: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   10: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   11: Team DPAV: 16465.225 | Gilgamesh: 10499.638 | Ashveil: 5092.153 | Robin: 292.064 | Lingsha: 228.514
+Run   12: Team DPAV: 16255.472 | Gilgamesh: 10462.434 | Ashveil: 4920.485 | Robin: 292.064 | Lingsha: 227.633
+Run   13: Team DPAV: 17845.335 | Gilgamesh: 11109.715 | Ashveil: 5801.265 | Robin: 329.040 | Lingsha: 229.896
+Run   14: Team DPAV: 19148.549 | Gilgamesh: 11908.468 | Ashveil: 6027.337 | Robin: 593.203 | Lingsha: 256.447
+Run   15: Team DPAV: 18533.768 | Gilgamesh: 11235.331 | Ashveil: 6144.605 | Robin: 567.033 | Lingsha: 225.795
+Run   16: Team DPAV: 17856.483 | Gilgamesh: 10989.651 | Ashveil: 5968.622 | Robin: 315.989 | Lingsha: 229.364
+Run   17: Team DPAV: 18625.149 | Gilgamesh: 11196.885 | Ashveil: 6267.992 | Robin: 571.383 | Lingsha: 225.795
+Run   18: Team DPAV: 17564.921 | Gilgamesh: 11087.874 | Ashveil: 5594.779 | Robin: 287.713 | Lingsha: 229.371
+Run   19: Team DPAV: 19788.155 | Gilgamesh: 11908.468 | Ashveil: 6615.295 | Robin: 636.705 | Lingsha: 256.447
+Run   20: Team DPAV: 17695.879 | Gilgamesh: 11047.744 | Ashveil: 5754.276 | Robin: 311.639 | Lingsha: 229.364
+Run   21: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   22: Team DPAV: 20336.548 | Gilgamesh: 12170.076 | Ashveil: 6868.593 | Robin: 678.062 | Lingsha: 252.756
+Run   23: Team DPAV: 16247.196 | Gilgamesh: 10499.638 | Ashveil: 4895.048 | Robin: 270.313 | Lingsha: 229.341
+Run   24: Team DPAV: 21044.559 | Gilgamesh: 12753.040 | Ashveil: 6911.018 | Robin: 751.952 | Lingsha: 255.430
+Run   25: Team DPAV: 18532.840 | Gilgamesh: 11252.894 | Ashveil: 6137.159 | Robin: 551.808 | Lingsha: 225.795
+Run   26: Team DPAV: 17760.166 | Gilgamesh: 11109.715 | Ashveil: 5738.262 | Robin: 307.289 | Lingsha: 229.481
+Run   27: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   28: Team DPAV: 17640.069 | Gilgamesh: 11044.650 | Ashveil: 5685.900 | Robin: 315.989 | Lingsha: 230.436
+Run   29: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   30: Team DPAV: 16177.664 | Gilgamesh: 10469.038 | Ashveil: 4873.827 | Robin: 252.912 | Lingsha: 229.030
+Run   31: Team DPAV: 18443.946 | Gilgamesh: 11252.894 | Ashveil: 6052.615 | Robin: 547.458 | Lingsha: 225.795
+Run   32: Team DPAV: 17538.488 | Gilgamesh: 10920.818 | Ashveil: 5729.902 | Robin: 294.239 | Lingsha: 230.436
+Run   33: Team DPAV: 17426.099 | Gilgamesh: 11139.209 | Ashveil: 5499.332 | Robin: 218.119 | Lingsha: 214.492
+Run   34: Team DPAV: 16247.851 | Gilgamesh: 10499.638 | Ashveil: 4895.048 | Robin: 270.313 | Lingsha: 229.995
+Run   35: Team DPAV: 18199.895 | Gilgamesh: 11164.691 | Ashveil: 5915.930 | Robin: 530.057 | Lingsha: 226.123
+Run   36: Team DPAV: 17421.635 | Gilgamesh: 11139.209 | Ashveil: 5494.153 | Robin: 218.119 | Lingsha: 215.208
+Run   37: Team DPAV: 16839.418 | Gilgamesh: 10499.638 | Ashveil: 5487.270 | Robin: 270.313 | Lingsha: 229.341
+Run   38: Team DPAV: 19258.713 | Gilgamesh: 11796.362 | Ashveil: 6283.938 | Robin: 599.659 | Lingsha: 225.896
+Run   39: Team DPAV: 18443.381 | Gilgamesh: 11252.894 | Ashveil: 6052.615 | Robin: 547.458 | Lingsha: 225.230
+Run   40: Team DPAV: 18534.940 | Gilgamesh: 11313.145 | Ashveil: 6019.370 | Robin: 571.383 | Lingsha: 265.857
+Run   41: Team DPAV: 16410.860 | Gilgamesh: 10547.306 | Ashveil: 4985.043 | Robin: 298.589 | Lingsha: 229.155
+Run   42: Team DPAV: 18014.476 | Gilgamesh: 11044.650 | Ashveil: 6039.011 | Robin: 337.740 | Lingsha: 229.981
+Run   43: Team DPAV: 18718.611 | Gilgamesh: 11309.317 | Ashveil: 6198.106 | Robin: 586.609 | Lingsha: 263.576
+Run   44: Team DPAV: 18366.369 | Gilgamesh: 11162.608 | Ashveil: 6082.835 | Robin: 530.057 | Lingsha: 225.685
+Run   45: Team DPAV: 17783.009 | Gilgamesh: 11047.744 | Ashveil: 5837.620 | Robin: 315.989 | Lingsha: 228.799
+Run   46: Team DPAV: 20991.741 | Gilgamesh: 12753.040 | Ashveil: 6877.776 | Robin: 732.377 | Lingsha: 255.430
+Run   47: Team DPAV: 17347.740 | Gilgamesh: 11059.297 | Ashveil: 5421.800 | Robin: 276.838 | Lingsha: 228.800
+Run   48: Team DPAV: 17653.738 | Gilgamesh: 10953.012 | Ashveil: 5791.098 | Robin: 315.989 | Lingsha: 230.546
+Run   49: Team DPAV: 16368.237 | Gilgamesh: 10499.638 | Ashveil: 5017.349 | Robin: 270.313 | Lingsha: 228.080
+Run   50: Team DPAV: 18560.047 | Gilgamesh: 11349.506 | Ashveil: 6057.315 | Robin: 553.983 | Lingsha: 225.912
+Run   51: Team DPAV: 18591.296 | Gilgamesh: 11293.423 | Ashveil: 6144.605 | Robin: 567.033 | Lingsha: 225.230
+Run   52: Team DPAV: 20572.999 | Gilgamesh: 12228.127 | Ashveil: 7004.953 | Robin: 712.801 | Lingsha: 256.088
+Run   53: Team DPAV: 18002.556 | Gilgamesh: 11181.776 | Ashveil: 5826.659 | Robin: 398.642 | Lingsha: 232.385
+Run   54: Team DPAV: 18443.946 | Gilgamesh: 11252.894 | Ashveil: 6052.615 | Robin: 547.458 | Lingsha: 225.795
+Run   55: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   56: Team DPAV: 19574.968 | Gilgamesh: 11908.468 | Ashveil: 6423.858 | Robin: 614.954 | Lingsha: 256.447
+Run   57: Team DPAV: 18423.757 | Gilgamesh: 11311.060 | Ashveil: 5955.207 | Robin: 556.158 | Lingsha: 225.912
+Run   58: Team DPAV: 17640.069 | Gilgamesh: 11044.650 | Ashveil: 5685.900 | Robin: 315.989 | Lingsha: 230.436
+Run   59: Team DPAV: 18483.450 | Gilgamesh: 11296.811 | Ashveil: 6065.161 | Robin: 530.057 | Lingsha: 226.237
+Run   60: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   61: Team DPAV: 19285.612 | Gilgamesh: 11908.468 | Ashveil: 6166.576 | Robin: 591.028 | Lingsha: 256.447
+Run   62: Team DPAV: 17760.166 | Gilgamesh: 11109.715 | Ashveil: 5738.262 | Robin: 307.289 | Lingsha: 229.481
+Run   63: Team DPAV: 18599.441 | Gilgamesh: 11270.870 | Ashveil: 6130.518 | Robin: 571.383 | Lingsha: 263.576
+Run   64: Team DPAV: 18014.476 | Gilgamesh: 11044.650 | Ashveil: 6039.011 | Robin: 337.740 | Lingsha: 229.981
+Run   65: Team DPAV: 18718.611 | Gilgamesh: 11309.317 | Ashveil: 6198.106 | Robin: 586.609 | Lingsha: 263.576
+Run   66: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   67: Team DPAV: 16313.872 | Gilgamesh: 10547.306 | Ashveil: 4910.239 | Robin: 276.838 | Lingsha: 228.722
+Run   68: Team DPAV: 18425.538 | Gilgamesh: 11222.342 | Ashveil: 6082.835 | Robin: 530.057 | Lingsha: 225.120
+Run   69: Team DPAV: 17529.642 | Gilgamesh: 11014.098 | Ashveil: 5628.341 | Robin: 294.239 | Lingsha: 229.871
+Run   70: Team DPAV: 18810.556 | Gilgamesh: 11270.870 | Ashveil: 6321.493 | Robin: 590.959 | Lingsha: 264.140
+Run   71: Team DPAV: 18273.136 | Gilgamesh: 11311.060 | Ashveil: 5824.161 | Robin: 536.582 | Lingsha: 225.912
+Run   72: Team DPAV: 17564.921 | Gilgamesh: 11087.874 | Ashveil: 5594.779 | Robin: 287.713 | Lingsha: 229.371
+Run   73: Team DPAV: 18014.476 | Gilgamesh: 11044.650 | Ashveil: 6039.011 | Robin: 337.740 | Lingsha: 229.981
+Run   74: Team DPAV: 17544.177 | Gilgamesh: 10989.651 | Ashveil: 5719.393 | Robin: 252.912 | Lingsha: 229.364
+Run   75: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   76: Team DPAV: 18385.853 | Gilgamesh: 11194.802 | Ashveil: 6052.615 | Robin: 547.458 | Lingsha: 225.795
+Run   77: Team DPAV: 17650.239 | Gilgamesh: 11044.650 | Ashveil: 5695.655 | Robin: 315.989 | Lingsha: 230.851
+Run   78: Team DPAV: 18014.476 | Gilgamesh: 11044.650 | Ashveil: 6039.011 | Robin: 337.740 | Lingsha: 229.981
+Run   79: Team DPAV: 17772.991 | Gilgamesh: 11083.096 | Ashveil: 5787.271 | Robin: 311.639 | Lingsha: 229.981
+Run   80: Team DPAV: 18462.381 | Gilgamesh: 11252.894 | Ashveil: 6088.561 | Robin: 530.057 | Lingsha: 225.685
+Run   81: Team DPAV: 18535.504 | Gilgamesh: 11233.651 | Ashveil: 6142.061 | Robin: 573.559 | Lingsha: 225.230
+Run   82: Team DPAV: 17826.881 | Gilgamesh: 11047.744 | Ashveil: 5885.278 | Robin: 311.639 | Lingsha: 229.364
+Run   83: Team DPAV: 18683.241 | Gilgamesh: 11254.977 | Ashveil: 6267.992 | Robin: 571.383 | Lingsha: 225.795
+Run   84: Team DPAV: 18719.829 | Gilgamesh: 11408.156 | Ashveil: 6231.665 | Robin: 475.688 | Lingsha: 249.374
+Run   85: Team DPAV: 17564.921 | Gilgamesh: 11087.874 | Ashveil: 5594.779 | Robin: 287.713 | Lingsha: 229.371
+Run   86: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   87: Team DPAV: 17779.266 | Gilgamesh: 11044.650 | Ashveil: 5825.552 | Robin: 315.989 | Lingsha: 229.981
+Run   88: Team DPAV: 17760.166 | Gilgamesh: 11109.715 | Ashveil: 5738.262 | Robin: 307.289 | Lingsha: 229.481
+Run   89: Team DPAV: 18591.861 | Gilgamesh: 11293.423 | Ashveil: 6144.605 | Robin: 567.033 | Lingsha: 225.795
+Run   90: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   91: Team DPAV: 19788.155 | Gilgamesh: 11908.468 | Ashveil: 6615.295 | Robin: 636.705 | Lingsha: 256.447
+Run   92: Team DPAV: 17538.488 | Gilgamesh: 10920.818 | Ashveil: 5729.902 | Robin: 294.239 | Lingsha: 230.436
+Run   93: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   94: Team DPAV: 18625.149 | Gilgamesh: 11196.885 | Ashveil: 6267.992 | Robin: 571.383 | Lingsha: 225.795
+Run   95: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+Run   96: Team DPAV: 17845.335 | Gilgamesh: 11109.715 | Ashveil: 5801.265 | Robin: 329.040 | Lingsha: 229.896
+Run   97: Team DPAV: 18331.217 | Gilgamesh: 11252.894 | Ashveil: 5955.222 | Robin: 532.232 | Lingsha: 225.685
+Run   98: Team DPAV: 17640.069 | Gilgamesh: 11044.650 | Ashveil: 5685.900 | Robin: 315.989 | Lingsha: 230.436
+Run   99: Team DPAV: 18535.964 | Gilgamesh: 11252.894 | Ashveil: 6140.393 | Robin: 551.808 | Lingsha: 225.685
+Run  100: Team DPAV: 18271.362 | Gilgamesh: 11224.424 | Ashveil: 5909.091 | Robin: 549.633 | Lingsha: 225.120
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 18174.389
+Average Gilgamesh DPAV: 11213.267 Percentage: 61.698%
+Average Ashveil DPAV: 5916.326 Percentage: 32.553%
+Average Robin DPAV: 447.876 Percentage: 2.464%
+Average Lingsha DPAV: 233.851 Percentage: 1.287%
+
+Min Team DPAV: 16177.664
+Max Team DPAV: 21044.559

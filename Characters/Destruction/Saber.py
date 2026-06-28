@@ -165,7 +165,7 @@ class Saber(Character):
 
     def useJointAttack(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
-        e3SaberMult = 4.4 if self.GilgameshEidolon >= 5 else 4.0
+        e3SaberMult = 6.6 if self.GilgameshEidolon >= 5 else 6.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3SaberMult, 0], [0, 0], 120, self.scaling, 0, "SaberJointAttack"))
         self.JointAttackMultiplier = 2.16 if self.GilgameshEidolon >= 5 else 2.00

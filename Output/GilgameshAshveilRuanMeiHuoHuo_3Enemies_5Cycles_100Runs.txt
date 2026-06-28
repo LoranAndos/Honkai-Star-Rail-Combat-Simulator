@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 31211.114 | Gilgamesh: 23065.869 | Ashveil: 6896.867 | RuanMei: 710.464 | HuoHuo: 0.000
+Run    2: Team DPAV: 31868.114 | Gilgamesh: 23034.047 | Ashveil: 7523.464 | RuanMei: 778.818 | HuoHuo: 0.000
+Run    3: Team DPAV: 29805.196 | Gilgamesh: 21110.837 | Ashveil: 7482.464 | RuanMei: 694.834 | HuoHuo: 0.000
+Run    4: Team DPAV: 31550.002 | Gilgamesh: 23218.275 | Ashveil: 7101.548 | RuanMei: 710.464 | HuoHuo: 0.000
+Run    5: Team DPAV: 31769.775 | Gilgamesh: 23540.835 | Ashveil: 7058.417 | RuanMei: 661.050 | HuoHuo: 0.000
+Run    6: Team DPAV: 31633.638 | Gilgamesh: 22830.484 | Ashveil: 7598.417 | RuanMei: 689.324 | HuoHuo: 0.000
+Run    7: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run    8: Team DPAV: 31555.877 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run    9: Team DPAV: 32218.936 | Gilgamesh: 23222.394 | Ashveil: 7745.993 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   10: Team DPAV: 31770.520 | Gilgamesh: 23090.197 | Ashveil: 7450.145 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   11: Team DPAV: 32173.825 | Gilgamesh: 23192.605 | Ashveil: 7732.841 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   12: Team DPAV: 30973.790 | Gilgamesh: 22798.802 | Ashveil: 6983.775 | RuanMei: 671.498 | HuoHuo: 0.000
+Run   13: Team DPAV: 32347.317 | Gilgamesh: 23212.591 | Ashveil: 7823.554 | RuanMei: 785.328 | HuoHuo: 0.000
+Run   14: Team DPAV: 32218.936 | Gilgamesh: 23222.394 | Ashveil: 7745.993 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   15: Team DPAV: 33308.520 | Gilgamesh: 22787.391 | Ashveil: 9190.671 | RuanMei: 786.413 | HuoHuo: 0.000
+Run   16: Team DPAV: 31445.192 | Gilgamesh: 23065.869 | Ashveil: 7130.944 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   17: Team DPAV: 31814.765 | Gilgamesh: 23187.500 | Ashveil: 7385.016 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   18: Team DPAV: 31567.947 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   19: Team DPAV: 31733.401 | Gilgamesh: 23512.760 | Ashveil: 7058.417 | RuanMei: 658.880 | HuoHuo: 0.000
+Run   20: Team DPAV: 31439.062 | Gilgamesh: 23065.869 | Ashveil: 7130.944 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   21: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   22: Team DPAV: 29914.356 | Gilgamesh: 22008.250 | Ashveil: 6714.893 | RuanMei: 671.498 | HuoHuo: 0.000
+Run   23: Team DPAV: 31607.880 | Gilgamesh: 23170.511 | Ashveil: 7152.296 | RuanMei: 765.358 | HuoHuo: 0.000
+Run   24: Team DPAV: 31113.163 | Gilgamesh: 22795.442 | Ashveil: 7093.672 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   25: Team DPAV: 32205.074 | Gilgamesh: 23213.612 | Ashveil: 7743.377 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   26: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   27: Team DPAV: 30729.718 | Gilgamesh: 22802.549 | Ashveil: 6735.957 | RuanMei: 671.498 | HuoHuo: 0.000
+Run   28: Team DPAV: 30787.778 | Gilgamesh: 22728.760 | Ashveil: 6852.176 | RuanMei: 687.128 | HuoHuo: 0.000
+Run   29: Team DPAV: 31831.721 | Gilgamesh: 22823.421 | Ashveil: 7785.363 | RuanMei: 689.324 | HuoHuo: 0.000
+Run   30: Team DPAV: 31583.889 | Gilgamesh: 23280.728 | Ashveil: 7118.187 | RuanMei: 671.389 | HuoHuo: 0.000
+Run   31: Team DPAV: 32173.825 | Gilgamesh: 23192.605 | Ashveil: 7732.841 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   32: Team DPAV: 34249.098 | Gilgamesh: 23638.313 | Ashveil: 9304.999 | RuanMei: 784.243 | HuoHuo: 0.000
+Run   33: Team DPAV: 31499.982 | Gilgamesh: 23091.685 | Ashveil: 7160.212 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   34: Team DPAV: 29791.842 | Gilgamesh: 21110.837 | Ashveil: 7466.029 | RuanMei: 693.622 | HuoHuo: 0.000
+Run   35: Team DPAV: 31262.403 | Gilgamesh: 23091.685 | Ashveil: 6922.633 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   36: Team DPAV: 31567.947 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   37: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   38: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   39: Team DPAV: 31778.512 | Gilgamesh: 23090.197 | Ashveil: 7439.936 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   40: Team DPAV: 31261.064 | Gilgamesh: 23093.944 | Ashveil: 6918.741 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   41: Team DPAV: 30898.435 | Gilgamesh: 22793.183 | Ashveil: 6863.296 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   42: Team DPAV: 31249.521 | Gilgamesh: 22791.695 | Ashveil: 7233.777 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   43: Team DPAV: 32160.077 | Gilgamesh: 23522.135 | Ashveil: 7317.385 | RuanMei: 788.583 | HuoHuo: 0.000
+Run   44: Team DPAV: 32168.633 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   45: Team DPAV: 32757.045 | Gilgamesh: 23592.469 | Ashveil: 7846.719 | RuanMei: 784.243 | HuoHuo: 0.000
+Run   46: Team DPAV: 30787.778 | Gilgamesh: 22728.760 | Ashveil: 6852.176 | RuanMei: 687.128 | HuoHuo: 0.000
+Run   47: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   48: Team DPAV: 32168.633 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   49: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   50: Team DPAV: 31254.934 | Gilgamesh: 23093.944 | Ashveil: 6918.741 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   51: Team DPAV: 31445.192 | Gilgamesh: 23065.869 | Ashveil: 7130.944 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   52: Team DPAV: 31261.064 | Gilgamesh: 23093.944 | Ashveil: 6918.741 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   53: Team DPAV: 31831.721 | Gilgamesh: 22823.421 | Ashveil: 7785.363 | RuanMei: 689.324 | HuoHuo: 0.000
+Run   54: Team DPAV: 32218.936 | Gilgamesh: 23222.394 | Ashveil: 7745.993 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   55: Team DPAV: 31731.463 | Gilgamesh: 23235.744 | Ashveil: 7319.338 | RuanMei: 671.389 | HuoHuo: 0.000
+Run   56: Team DPAV: 31439.062 | Gilgamesh: 23065.869 | Ashveil: 7130.944 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   57: Team DPAV: 32133.706 | Gilgamesh: 23235.744 | Ashveil: 7692.006 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   58: Team DPAV: 31483.831 | Gilgamesh: 22791.695 | Ashveil: 7468.087 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   59: Team DPAV: 30967.881 | Gilgamesh: 22725.013 | Ashveil: 7036.026 | RuanMei: 687.128 | HuoHuo: 0.000
+Run   60: Team DPAV: 31211.114 | Gilgamesh: 23065.869 | Ashveil: 6896.867 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   61: Team DPAV: 31809.630 | Gilgamesh: 23084.140 | Ashveil: 7408.757 | RuanMei: 778.818 | HuoHuo: 0.000
+Run   62: Team DPAV: 31731.463 | Gilgamesh: 23235.744 | Ashveil: 7319.338 | RuanMei: 671.389 | HuoHuo: 0.000
+Run   63: Team DPAV: 31477.390 | Gilgamesh: 23093.944 | Ashveil: 7159.397 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   64: Team DPAV: 31604.322 | Gilgamesh: 23118.271 | Ashveil: 7235.502 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   65: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   66: Team DPAV: 31254.934 | Gilgamesh: 23093.944 | Ashveil: 6918.741 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   67: Team DPAV: 31428.021 | Gilgamesh: 23207.842 | Ashveil: 6953.786 | RuanMei: 764.878 | HuoHuo: 0.000
+Run   68: Team DPAV: 31653.691 | Gilgamesh: 23207.842 | Ashveil: 7179.456 | RuanMei: 764.878 | HuoHuo: 0.000
+Run   69: Team DPAV: 32168.633 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   70: Team DPAV: 31211.114 | Gilgamesh: 23065.869 | Ashveil: 6896.867 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   71: Team DPAV: 32485.154 | Gilgamesh: 23222.394 | Ashveil: 8012.211 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   72: Team DPAV: 31604.322 | Gilgamesh: 23118.271 | Ashveil: 7235.502 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   73: Team DPAV: 32218.936 | Gilgamesh: 23222.394 | Ashveil: 7745.993 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   74: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   75: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   76: Team DPAV: 31262.403 | Gilgamesh: 23091.685 | Ashveil: 6922.633 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   77: Team DPAV: 31532.394 | Gilgamesh: 23226.768 | Ashveil: 7081.577 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   78: Team DPAV: 31739.874 | Gilgamesh: 23034.047 | Ashveil: 7475.248 | RuanMei: 692.664 | HuoHuo: 0.000
+Run   79: Team DPAV: 31778.512 | Gilgamesh: 23090.197 | Ashveil: 7439.936 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   80: Team DPAV: 32218.936 | Gilgamesh: 23222.394 | Ashveil: 7745.993 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   81: Team DPAV: 31245.868 | Gilgamesh: 23093.944 | Ashveil: 6927.875 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   82: Team DPAV: 32133.706 | Gilgamesh: 23235.744 | Ashveil: 7692.006 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   83: Team DPAV: 30787.778 | Gilgamesh: 22728.760 | Ashveil: 6852.176 | RuanMei: 687.128 | HuoHuo: 0.000
+Run   84: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   85: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   86: Team DPAV: 32780.269 | Gilgamesh: 23626.258 | Ashveil: 7823.554 | RuanMei: 786.413 | HuoHuo: 0.000
+Run   87: Team DPAV: 31499.982 | Gilgamesh: 23091.685 | Ashveil: 7160.212 | RuanMei: 712.634 | HuoHuo: 0.000
+Run   88: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   89: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   90: Team DPAV: 29241.584 | Gilgamesh: 21110.820 | Ashveil: 6939.187 | RuanMei: 677.992 | HuoHuo: 0.000
+Run   91: Team DPAV: 32117.178 | Gilgamesh: 23180.290 | Ashveil: 7616.331 | RuanMei: 788.583 | HuoHuo: 0.000
+Run   92: Team DPAV: 31261.064 | Gilgamesh: 23093.944 | Ashveil: 6918.741 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   93: Team DPAV: 31825.592 | Gilgamesh: 22823.421 | Ashveil: 7785.363 | RuanMei: 689.324 | HuoHuo: 0.000
+Run   94: Team DPAV: 31574.077 | Gilgamesh: 23090.197 | Ashveil: 7235.502 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   95: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   96: Team DPAV: 31211.114 | Gilgamesh: 23065.869 | Ashveil: 6896.867 | RuanMei: 710.464 | HuoHuo: 0.000
+Run   97: Team DPAV: 29480.855 | Gilgamesh: 21121.487 | Ashveil: 7189.118 | RuanMei: 671.389 | HuoHuo: 0.000
+Run   98: Team DPAV: 32174.763 | Gilgamesh: 23188.605 | Ashveil: 7762.003 | RuanMei: 694.834 | HuoHuo: 0.000
+Run   99: Team DPAV: 31410.015 | Gilgamesh: 23091.685 | Ashveil: 7009.328 | RuanMei: 783.158 | HuoHuo: 0.000
+Run  100: Team DPAV: 31913.855 | Gilgamesh: 23128.329 | Ashveil: 7538.193 | RuanMei: 713.719 | HuoHuo: 0.000
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 31637.880
+Average Gilgamesh DPAV: 23022.208 Percentage: 72.768%
+Average Ashveil DPAV: 7376.781 Percentage: 23.316%
+Average RuanMei DPAV: 711.144 Percentage: 2.248%
+Average HuoHuo DPAV: 0.000 Percentage: 0.000%
+
+Min Team DPAV: 29241.584
+Max Team DPAV: 34249.098

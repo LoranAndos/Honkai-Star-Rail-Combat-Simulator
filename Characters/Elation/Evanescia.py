@@ -235,18 +235,27 @@ class Evanescia(Character):
             bounceCount = 7
         else:
             bounceCount = 9
-
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
+        n = 0
+        while n != bounceCount:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.ULT], [self.element],
-                       [e3MulSingle * bounceCount, 0], [5 * bounceCount, 0], 0, self.scaling, 0, "EvanesciaUltSingle"))
+                       [e3MulSingle, 0], [5, 0], 0, self.scaling, 0, "EvanesciaUltSingle"))
+            n += 1
+
 
         if self.Banger >= 1:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.ELABANGER], [self.element],
                            [e5MulAOE, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_AOE"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
+            n = 0
+            while n != bounceCount:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                            Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
-                           [e5MulSingle * bounceCount, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
+                           [e5MulSingle, 0], [0, 0], 0, Scaling.ELA, 0, "EvanesciaUltELAPUNCH_ST"))
+                n += 1
+            # Mind you this change is at most a 0.1% difference like going from 51960 to 51930 which is basically in the range I have results in due to rng so wow this ended up mattering so much,
+            # but sure if you guys really want this I'll implement it despite the non-existent difference which I already knew from having played this game and having made sheets before.
+            # The only place where it matters is with break teams due to difference in damage with before and after breaking and for regular teams it's a barely existent thing.
 
         self._addEnergy(5, bl, "Ult")
 

@@ -8,6 +8,7 @@ from Lightcones.Erudition.TheSeriousnessOfBreakfast import TheSeriousnessOfBreak
 from Lightcones.Erudition.TodayIsAnotherPeacefulDay import TodayIsAnotherPeacefulDay
 from Planars.RutilantArena import RutilantArena
 from Planars.TengokuLivestream import TengokuLivestream
+from Planars.PenaconyLandOfTheDreams import PenaconyLandOfTheDreams
 from RelicStats import RelicStats
 from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Relics.ScholarLostInErudition import ScholarLostInErudition
@@ -54,13 +55,13 @@ class RinTohsaka(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else FlickeringStars(role, 1)
+        self.lightcone = lc if lc else EternalCalculus(role, 5)
         self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else RutilantArena(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
+        self.relicStats = subs if subs else RelicStats(8, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 6, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
-        self.rotation = rotation if rotation else ["E"]
+        self.rotation = rotation if rotation else ["E","A","A"]
         self.E4StackLimit = 2 if self.eidolon >= 4 else 1
 
     def equip(self):
@@ -69,7 +70,7 @@ class RinTohsaka(Character):
         bl.append(Buff("RinTohsakaTraceATK", StatTypes.ATK_PERCENT, 0.18, self.role))
         bl.append(Buff("RinTohsakaTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
         bl.append(Buff("RinTohsakaTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
-        bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.PEN, 0.15, self.role))
+        bl.append(Buff("RinTohsakaTrace1PEN", StatTypes.QUAPEN, 0.15, self.role))
         bl.append(Buff("EnhancedSkillSPD", StatTypes.SPD_PERCENT, 0.20, self.role, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
         if self.eidolon >= 2:
             bl.append(Buff("E2DMG", StatTypes.DMG_PERCENT, 0.30, self.role, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))

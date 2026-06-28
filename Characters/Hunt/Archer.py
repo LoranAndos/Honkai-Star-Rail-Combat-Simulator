@@ -3,6 +3,7 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Hunt.TheHellWhereIdealsBurn import TheHellWhereIdealsBurn
+from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
 from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
@@ -160,7 +161,7 @@ class Archer(Character):
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
         if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
-        if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and (turn.moveName == "RinTohsakaBasic" or turn.moveName == "RinTohsakaSkill" or turn.moveName == "RinTohsakaSkillSingle") :
+        if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and (turn.moveName == "RinTohsakaBasic" or turn.moveName == "RinTohsakaSkill" or turn.moveName == "RinTohsakaSkillAOE") :
             self.RinTurnHappened = True
         return bl, dbl, al, dl, tl, hl
 
@@ -172,7 +173,7 @@ class Archer(Character):
         self.RinEidolon = specialRes.attr4
         if self.RinTohsakaInTeam:
             bl.append(Buff("RinTohsakaAllyTrace1ATK", StatTypes.ATK_PERCENT, 1.50, self.role))
-            bl.append(Buff("RinTohsakaAllyTrace1PEN", StatTypes.PEN, 0.15, self.role))
+            bl.append(Buff("RinTohsakaAllyTrace1PEN", StatTypes.QUAPEN, 0.15, self.role))
         if self.Tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [2.0, 0], [0, 0], 0, self.scaling, 0, "ArcherTech"))
             self.FUACharge = min(self.FUACharge + 1, 4)

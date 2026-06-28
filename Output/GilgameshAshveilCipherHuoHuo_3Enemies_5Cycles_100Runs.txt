@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 33607.259 | Gilgamesh: 20817.081 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run    2: Team DPAV: 32207.191 | Gilgamesh: 19882.908 | Ashveil: 6780.920 | Cipher: 4986.348 | HuoHuo: 0.000
+Run    3: Team DPAV: 33382.152 | Gilgamesh: 20700.342 | Ashveil: 7307.726 | Cipher: 4817.070 | HuoHuo: 0.000
+Run    4: Team DPAV: 33485.271 | Gilgamesh: 20695.093 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run    5: Team DPAV: 33195.828 | Gilgamesh: 20471.139 | Ashveil: 7321.329 | Cipher: 4850.149 | HuoHuo: 0.000
+Run    6: Team DPAV: 34369.579 | Gilgamesh: 20207.304 | Ashveil: 7439.442 | Cipher: 6169.621 | HuoHuo: 0.000
+Run    7: Team DPAV: 33244.632 | Gilgamesh: 19989.363 | Ashveil: 6985.108 | Cipher: 5701.735 | HuoHuo: 0.000
+Run    8: Team DPAV: 33195.828 | Gilgamesh: 20471.139 | Ashveil: 7321.329 | Cipher: 4850.149 | HuoHuo: 0.000
+Run    9: Team DPAV: 32858.765 | Gilgamesh: 20722.614 | Ashveil: 6822.117 | Cipher: 4762.216 | HuoHuo: 0.000
+Run   10: Team DPAV: 34355.512 | Gilgamesh: 20130.214 | Ashveil: 7522.571 | Cipher: 6129.109 | HuoHuo: 0.000
+Run   11: Team DPAV: 33627.230 | Gilgamesh: 19989.363 | Ashveil: 7245.216 | Cipher: 5824.225 | HuoHuo: 0.000
+Run   12: Team DPAV: 33585.604 | Gilgamesh: 19453.082 | Ashveil: 7546.963 | Cipher: 6032.348 | HuoHuo: 0.000
+Run   13: Team DPAV: 33055.229 | Gilgamesh: 20879.866 | Ashveil: 6860.888 | Cipher: 4795.862 | HuoHuo: 0.000
+Run   14: Team DPAV: 32976.845 | Gilgamesh: 19981.644 | Ashveil: 7452.028 | Cipher: 5006.565 | HuoHuo: 0.000
+Run   15: Team DPAV: 34355.512 | Gilgamesh: 20130.214 | Ashveil: 7522.571 | Cipher: 6129.109 | HuoHuo: 0.000
+Run   16: Team DPAV: 32528.753 | Gilgamesh: 20485.821 | Ashveil: 6800.625 | Cipher: 4673.881 | HuoHuo: 0.000
+Run   17: Team DPAV: 32528.753 | Gilgamesh: 20485.821 | Ashveil: 6800.625 | Cipher: 4673.881 | HuoHuo: 0.000
+Run   18: Team DPAV: 33753.343 | Gilgamesh: 20170.824 | Ashveil: 7016.770 | Cipher: 5997.324 | HuoHuo: 0.000
+Run   19: Team DPAV: 33937.782 | Gilgamesh: 20180.880 | Ashveil: 7159.597 | Cipher: 6012.277 | HuoHuo: 0.000
+Run   20: Team DPAV: 32443.989 | Gilgamesh: 20328.963 | Ashveil: 6804.414 | Cipher: 4774.002 | HuoHuo: 0.000
+Run   21: Team DPAV: 33785.775 | Gilgamesh: 20665.606 | Ashveil: 7602.026 | Cipher: 4955.935 | HuoHuo: 0.000
+Run   22: Team DPAV: 33753.343 | Gilgamesh: 20170.824 | Ashveil: 7016.770 | Cipher: 5997.324 | HuoHuo: 0.000
+Run   23: Team DPAV: 33907.332 | Gilgamesh: 20711.228 | Ashveil: 7680.486 | Cipher: 4958.603 | HuoHuo: 0.000
+Run   24: Team DPAV: 33997.749 | Gilgamesh: 20753.553 | Ashveil: 7679.799 | Cipher: 5014.988 | HuoHuo: 0.000
+Run   25: Team DPAV: 32950.963 | Gilgamesh: 19505.874 | Ashveil: 7016.102 | Cipher: 5864.366 | HuoHuo: 0.000
+Run   26: Team DPAV: 33223.052 | Gilgamesh: 20751.934 | Ashveil: 7105.241 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   27: Team DPAV: 32199.870 | Gilgamesh: 18801.021 | Ashveil: 7040.347 | Cipher: 5790.077 | HuoHuo: 0.000
+Run   28: Team DPAV: 32982.178 | Gilgamesh: 19734.749 | Ashveil: 6861.360 | Cipher: 5817.644 | HuoHuo: 0.000
+Run   29: Team DPAV: 32156.990 | Gilgamesh: 19312.640 | Ashveil: 6730.354 | Cipher: 5545.571 | HuoHuo: 0.000
+Run   30: Team DPAV: 34309.735 | Gilgamesh: 20156.141 | Ashveil: 7439.442 | Cipher: 6160.939 | HuoHuo: 0.000
+Run   31: Team DPAV: 33609.067 | Gilgamesh: 19471.843 | Ashveil: 7546.963 | Cipher: 6037.050 | HuoHuo: 0.000
+Run   32: Team DPAV: 33519.402 | Gilgamesh: 19497.509 | Ashveil: 7564.740 | Cipher: 5894.946 | HuoHuo: 0.000
+Run   33: Team DPAV: 33813.187 | Gilgamesh: 20221.987 | Ashveil: 7016.770 | Cipher: 6006.006 | HuoHuo: 0.000
+Run   34: Team DPAV: 34050.374 | Gilgamesh: 20623.396 | Ashveil: 6870.914 | Cipher: 5999.049 | HuoHuo: 0.000
+Run   35: Team DPAV: 32420.702 | Gilgamesh: 19031.689 | Ashveil: 7040.582 | Cipher: 5780.005 | HuoHuo: 0.000
+Run   36: Team DPAV: 33493.337 | Gilgamesh: 19815.987 | Ashveil: 7167.792 | Cipher: 5952.543 | HuoHuo: 0.000
+Run   37: Team DPAV: 34558.667 | Gilgamesh: 20229.910 | Ashveil: 7593.416 | Cipher: 6173.133 | HuoHuo: 0.000
+Run   38: Team DPAV: 32962.417 | Gilgamesh: 20552.827 | Ashveil: 7082.071 | Cipher: 4794.574 | HuoHuo: 0.000
+Run   39: Team DPAV: 33937.782 | Gilgamesh: 20180.880 | Ashveil: 7159.597 | Cipher: 6012.277 | HuoHuo: 0.000
+Run   40: Team DPAV: 33753.343 | Gilgamesh: 20170.824 | Ashveil: 7016.770 | Cipher: 5997.324 | HuoHuo: 0.000
+Run   41: Team DPAV: 34614.337 | Gilgamesh: 20244.560 | Ashveil: 7680.583 | Cipher: 6115.577 | HuoHuo: 0.000
+Run   42: Team DPAV: 33288.199 | Gilgamesh: 20817.081 | Ashveil: 7105.241 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   43: Team DPAV: 33493.337 | Gilgamesh: 19815.987 | Ashveil: 7167.792 | Cipher: 5952.543 | HuoHuo: 0.000
+Run   44: Team DPAV: 33606.152 | Gilgamesh: 19471.310 | Ashveil: 7546.963 | Cipher: 6034.668 | HuoHuo: 0.000
+Run   45: Team DPAV: 34369.579 | Gilgamesh: 20207.304 | Ashveil: 7439.442 | Cipher: 6169.621 | HuoHuo: 0.000
+Run   46: Team DPAV: 33907.880 | Gilgamesh: 20156.141 | Ashveil: 7144.500 | Cipher: 6054.027 | HuoHuo: 0.000
+Run   47: Team DPAV: 33607.259 | Gilgamesh: 20817.081 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   48: Team DPAV: 33967.725 | Gilgamesh: 20207.304 | Ashveil: 7144.500 | Cipher: 6062.708 | HuoHuo: 0.000
+Run   49: Team DPAV: 33932.205 | Gilgamesh: 19974.681 | Ashveil: 7526.310 | Cipher: 5878.003 | HuoHuo: 0.000
+Run   50: Team DPAV: 33347.611 | Gilgamesh: 20829.524 | Ashveil: 7100.587 | Cipher: 4864.289 | HuoHuo: 0.000
+Run   51: Team DPAV: 34536.318 | Gilgamesh: 20182.213 | Ashveil: 7620.898 | Cipher: 6170.999 | HuoHuo: 0.000
+Run   52: Team DPAV: 32858.765 | Gilgamesh: 20722.614 | Ashveil: 6822.117 | Cipher: 4762.216 | HuoHuo: 0.000
+Run   53: Team DPAV: 33357.508 | Gilgamesh: 20170.824 | Ashveil: 6740.499 | Cipher: 5877.759 | HuoHuo: 0.000
+Run   54: Team DPAV: 33366.093 | Gilgamesh: 19421.730 | Ashveil: 7383.797 | Cipher: 6011.157 | HuoHuo: 0.000
+Run   55: Team DPAV: 32984.262 | Gilgamesh: 20677.870 | Ashveil: 6942.646 | Cipher: 4828.531 | HuoHuo: 0.000
+Run   56: Team DPAV: 34030.677 | Gilgamesh: 20323.388 | Ashveil: 7288.358 | Cipher: 5854.314 | HuoHuo: 0.000
+Run   57: Team DPAV: 33607.259 | Gilgamesh: 20817.081 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   58: Team DPAV: 33013.781 | Gilgamesh: 19689.622 | Ashveil: 6974.454 | Cipher: 5785.088 | HuoHuo: 0.000
+Run   59: Team DPAV: 32869.302 | Gilgamesh: 19553.289 | Ashveil: 7105.968 | Cipher: 5641.620 | HuoHuo: 0.000
+Run   60: Team DPAV: 33485.271 | Gilgamesh: 20695.093 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   61: Team DPAV: 33993.905 | Gilgamesh: 20335.514 | Ashveil: 7145.566 | Cipher: 5964.805 | HuoHuo: 0.000
+Run   62: Team DPAV: 33839.740 | Gilgamesh: 20840.891 | Ashveil: 7491.472 | Cipher: 4972.162 | HuoHuo: 0.000
+Run   63: Team DPAV: 32733.622 | Gilgamesh: 19312.865 | Ashveil: 6997.411 | Cipher: 5858.724 | HuoHuo: 0.000
+Run   64: Team DPAV: 33093.543 | Gilgamesh: 19546.915 | Ashveil: 7268.209 | Cipher: 5684.395 | HuoHuo: 0.000
+Run   65: Team DPAV: 33244.632 | Gilgamesh: 19989.363 | Ashveil: 6985.108 | Cipher: 5701.735 | HuoHuo: 0.000
+Run   66: Team DPAV: 34355.512 | Gilgamesh: 20130.214 | Ashveil: 7522.571 | Cipher: 6129.109 | HuoHuo: 0.000
+Run   67: Team DPAV: 32324.690 | Gilgamesh: 20513.776 | Ashveil: 6528.051 | Cipher: 4729.652 | HuoHuo: 0.000
+Run   68: Team DPAV: 31935.601 | Gilgamesh: 20722.614 | Ashveil: 5880.739 | Cipher: 4780.430 | HuoHuo: 0.000
+Run   69: Team DPAV: 34155.893 | Gilgamesh: 20519.809 | Ashveil: 7109.854 | Cipher: 5969.215 | HuoHuo: 0.000
+Run   70: Team DPAV: 34369.579 | Gilgamesh: 20207.304 | Ashveil: 7439.442 | Cipher: 6169.621 | HuoHuo: 0.000
+Run   71: Team DPAV: 33907.880 | Gilgamesh: 20156.141 | Ashveil: 7144.500 | Cipher: 6054.027 | HuoHuo: 0.000
+Run   72: Team DPAV: 33997.749 | Gilgamesh: 20753.553 | Ashveil: 7679.799 | Cipher: 5014.988 | HuoHuo: 0.000
+Run   73: Team DPAV: 33055.229 | Gilgamesh: 20879.866 | Ashveil: 6860.888 | Cipher: 4795.862 | HuoHuo: 0.000
+Run   74: Team DPAV: 33277.172 | Gilgamesh: 20036.134 | Ashveil: 7652.224 | Cipher: 5035.603 | HuoHuo: 0.000
+Run   75: Team DPAV: 32825.699 | Gilgamesh: 20530.998 | Ashveil: 7009.707 | Cipher: 4731.783 | HuoHuo: 0.000
+Run   76: Team DPAV: 32974.058 | Gilgamesh: 20451.703 | Ashveil: 7166.309 | Cipher: 4795.227 | HuoHuo: 0.000
+Run   77: Team DPAV: 32518.619 | Gilgamesh: 19637.586 | Ashveil: 7436.602 | Cipher: 4891.219 | HuoHuo: 0.000
+Run   78: Team DPAV: 32528.753 | Gilgamesh: 20485.821 | Ashveil: 6800.625 | Cipher: 4673.881 | HuoHuo: 0.000
+Run   79: Team DPAV: 33485.271 | Gilgamesh: 20695.093 | Ashveil: 7424.301 | Cipher: 4830.662 | HuoHuo: 0.000
+Run   80: Team DPAV: 33451.163 | Gilgamesh: 20202.763 | Ashveil: 6881.971 | Cipher: 5772.404 | HuoHuo: 0.000
+Run   81: Team DPAV: 33244.632 | Gilgamesh: 19989.363 | Ashveil: 6985.108 | Cipher: 5701.735 | HuoHuo: 0.000
+Run   82: Team DPAV: 33244.632 | Gilgamesh: 19989.363 | Ashveil: 6985.108 | Cipher: 5701.735 | HuoHuo: 0.000
+Run   83: Team DPAV: 33967.725 | Gilgamesh: 20207.304 | Ashveil: 7144.500 | Cipher: 6062.708 | HuoHuo: 0.000
+Run   84: Team DPAV: 34528.922 | Gilgamesh: 20263.615 | Ashveil: 7659.896 | Cipher: 6043.204 | HuoHuo: 0.000
+Run   85: Team DPAV: 31080.131 | Gilgamesh: 19695.027 | Ashveil: 6070.970 | Cipher: 4764.726 | HuoHuo: 0.000
+Run   86: Team DPAV: 33244.632 | Gilgamesh: 19989.363 | Ashveil: 6985.108 | Cipher: 5701.735 | HuoHuo: 0.000
+Run   87: Team DPAV: 33997.749 | Gilgamesh: 20753.553 | Ashveil: 7679.799 | Cipher: 5014.988 | HuoHuo: 0.000
+Run   88: Team DPAV: 34552.021 | Gilgamesh: 20128.546 | Ashveil: 7661.207 | Cipher: 6192.454 | HuoHuo: 0.000
+Run   89: Team DPAV: 34614.337 | Gilgamesh: 20244.560 | Ashveil: 7680.583 | Cipher: 6115.577 | HuoHuo: 0.000
+Run   90: Team DPAV: 32528.753 | Gilgamesh: 20485.821 | Ashveil: 6800.625 | Cipher: 4673.881 | HuoHuo: 0.000
+Run   91: Team DPAV: 32520.728 | Gilgamesh: 19935.646 | Ashveil: 7268.209 | Cipher: 4722.849 | HuoHuo: 0.000
+Run   92: Team DPAV: 33839.740 | Gilgamesh: 20840.891 | Ashveil: 7491.472 | Cipher: 4972.162 | HuoHuo: 0.000
+Run   93: Team DPAV: 32947.688 | Gilgamesh: 20652.987 | Ashveil: 7009.707 | Cipher: 4731.783 | HuoHuo: 0.000
+Run   94: Team DPAV: 32528.753 | Gilgamesh: 20485.821 | Ashveil: 6800.625 | Cipher: 4673.881 | HuoHuo: 0.000
+Run   95: Team DPAV: 33437.858 | Gilgamesh: 19785.912 | Ashveil: 7137.630 | Cipher: 5945.890 | HuoHuo: 0.000
+Run   96: Team DPAV: 34032.483 | Gilgamesh: 20076.649 | Ashveil: 7408.637 | Cipher: 5984.989 | HuoHuo: 0.000
+Run   97: Team DPAV: 34355.512 | Gilgamesh: 20130.214 | Ashveil: 7522.571 | Cipher: 6129.109 | HuoHuo: 0.000
+Run   98: Team DPAV: 33005.299 | Gilgamesh: 19961.289 | Ashveil: 7639.780 | Cipher: 4867.621 | HuoHuo: 0.000
+Run   99: Team DPAV: 33223.052 | Gilgamesh: 20751.934 | Ashveil: 7105.241 | Cipher: 4830.662 | HuoHuo: 0.000
+Run  100: Team DPAV: 33417.352 | Gilgamesh: 20221.987 | Ashveil: 6740.499 | Cipher: 5886.441 | HuoHuo: 0.000
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 33427.042
+Average Gilgamesh DPAV: 20218.676 Percentage: 60.486%
+Average Ashveil DPAV: 7190.006 Percentage: 21.510%
+Average Cipher DPAV: 5460.896 Percentage: 16.337%
+Average HuoHuo DPAV: 0.000 Percentage: 0.000%
+
+Min Team DPAV: 31080.131
+Max Team DPAV: 34614.337

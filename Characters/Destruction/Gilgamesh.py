@@ -133,7 +133,7 @@ class Gilgamesh(Character):
 
     def useJointAttack(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
-        e3Mult = 3.3 if self.eidolon>= 3 else 3.0
+        e3Mult = 4.4 if self.eidolon>= 3 else 4.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3Mult, 0], [20, 0], 10, self.scaling, 0, "GilgameshJointAttack"))
         self.Interest += 3

@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 50857.185 | Gilgamesh: 31268.164 | Ashveil: 12039.262 | MortenaxBlade: 7058.713 | HuoHuo: 44.940
+Run    2: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run    3: Team DPAV: 49380.749 | Gilgamesh: 31143.974 | Ashveil: 11258.694 | MortenaxBlade: 6538.814 | HuoHuo: 45.060
+Run    4: Team DPAV: 49374.852 | Gilgamesh: 30196.248 | Ashveil: 11554.342 | MortenaxBlade: 7149.973 | HuoHuo: 44.076
+Run    5: Team DPAV: 49334.047 | Gilgamesh: 30253.894 | Ashveil: 11320.044 | MortenaxBlade: 7289.715 | HuoHuo: 44.940
+Run    6: Team DPAV: 49440.536 | Gilgamesh: 30290.086 | Ashveil: 11426.036 | MortenaxBlade: 7274.553 | HuoHuo: 45.060
+Run    7: Team DPAV: 49116.732 | Gilgamesh: 30204.650 | Ashveil: 11252.093 | MortenaxBlade: 7220.722 | HuoHuo: 45.060
+Run    8: Team DPAV: 48921.348 | Gilgamesh: 29451.854 | Ashveil: 12415.786 | MortenaxBlade: 6557.902 | HuoHuo: 44.940
+Run    9: Team DPAV: 49703.044 | Gilgamesh: 31137.534 | Ashveil: 11588.842 | MortenaxBlade: 6500.530 | HuoHuo: 45.924
+Run   10: Team DPAV: 51104.798 | Gilgamesh: 31190.447 | Ashveil: 11828.065 | MortenaxBlade: 7647.020 | HuoHuo: 45.060
+Run   11: Team DPAV: 46100.097 | Gilgamesh: 28934.184 | Ashveil: 10714.455 | MortenaxBlade: 5950.234 | HuoHuo: 45.060
+Run   12: Team DPAV: 49231.380 | Gilgamesh: 30202.007 | Ashveil: 11268.973 | MortenaxBlade: 7300.480 | HuoHuo: 45.060
+Run   13: Team DPAV: 49303.120 | Gilgamesh: 30256.281 | Ashveil: 11406.211 | MortenaxBlade: 7201.362 | HuoHuo: 45.060
+Run   14: Team DPAV: 50571.584 | Gilgamesh: 31189.421 | Ashveil: 11871.344 | MortenaxBlade: 7040.425 | HuoHuo: 44.940
+Run   15: Team DPAV: 49703.044 | Gilgamesh: 31137.534 | Ashveil: 11588.842 | MortenaxBlade: 6500.530 | HuoHuo: 45.924
+Run   16: Team DPAV: 48622.460 | Gilgamesh: 29960.373 | Ashveil: 11621.859 | MortenaxBlade: 6569.714 | HuoHuo: 45.060
+Run   17: Team DPAV: 50650.800 | Gilgamesh: 31218.253 | Ashveil: 11355.600 | MortenaxBlade: 7596.376 | HuoHuo: 45.060
+Run   18: Team DPAV: 50490.153 | Gilgamesh: 30233.115 | Ashveil: 12324.890 | MortenaxBlade: 7462.618 | HuoHuo: 44.076
+Run   19: Team DPAV: 48636.769 | Gilgamesh: 28521.217 | Ashveil: 12303.612 | MortenaxBlade: 7320.893 | HuoHuo: 44.940
+Run   20: Team DPAV: 48967.136 | Gilgamesh: 30205.315 | Ashveil: 11075.264 | MortenaxBlade: 7226.759 | HuoHuo: 44.940
+Run   21: Team DPAV: 50801.119 | Gilgamesh: 31137.045 | Ashveil: 11627.004 | MortenaxBlade: 7577.272 | HuoHuo: 44.940
+Run   22: Team DPAV: 49258.178 | Gilgamesh: 30253.894 | Ashveil: 11251.168 | MortenaxBlade: 7282.722 | HuoHuo: 44.940
+Run   23: Team DPAV: 49642.698 | Gilgamesh: 31218.743 | Ashveil: 11425.451 | MortenaxBlade: 6517.933 | HuoHuo: 45.060
+Run   24: Team DPAV: 50995.716 | Gilgamesh: 31198.201 | Ashveil: 11788.540 | MortenaxBlade: 7544.622 | HuoHuo: 44.196
+Run   25: Team DPAV: 51104.798 | Gilgamesh: 31190.447 | Ashveil: 11828.065 | MortenaxBlade: 7647.020 | HuoHuo: 45.060
+Run   26: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   27: Team DPAV: 49639.821 | Gilgamesh: 30290.086 | Ashveil: 11618.328 | MortenaxBlade: 7281.546 | HuoHuo: 45.060
+Run   28: Team DPAV: 49292.217 | Gilgamesh: 30256.281 | Ashveil: 11415.737 | MortenaxBlade: 7180.933 | HuoHuo: 45.060
+Run   29: Team DPAV: 50803.552 | Gilgamesh: 30336.662 | Ashveil: 12401.761 | MortenaxBlade: 7594.615 | HuoHuo: 45.060
+Run   30: Team DPAV: 49769.159 | Gilgamesh: 31245.084 | Ashveil: 11493.516 | MortenaxBlade: 6554.421 | HuoHuo: 45.924
+Run   31: Team DPAV: 49231.380 | Gilgamesh: 30202.007 | Ashveil: 11268.973 | MortenaxBlade: 7300.480 | HuoHuo: 45.060
+Run   32: Team DPAV: 49231.380 | Gilgamesh: 30202.007 | Ashveil: 11268.973 | MortenaxBlade: 7300.480 | HuoHuo: 45.060
+Run   33: Team DPAV: 50391.289 | Gilgamesh: 30394.284 | Ashveil: 12258.967 | MortenaxBlade: 7272.942 | HuoHuo: 44.940
+Run   34: Team DPAV: 50801.119 | Gilgamesh: 31137.045 | Ashveil: 11627.004 | MortenaxBlade: 7577.272 | HuoHuo: 44.940
+Run   35: Team DPAV: 50059.078 | Gilgamesh: 30242.037 | Ashveil: 11790.920 | MortenaxBlade: 7535.939 | HuoHuo: 44.076
+Run   36: Team DPAV: 51023.291 | Gilgamesh: 31293.772 | Ashveil: 11674.694 | MortenaxBlade: 7589.728 | HuoHuo: 44.940
+Run   37: Team DPAV: 49258.178 | Gilgamesh: 30253.894 | Ashveil: 11251.168 | MortenaxBlade: 7282.722 | HuoHuo: 44.940
+Run   38: Team DPAV: 50175.060 | Gilgamesh: 31004.413 | Ashveil: 11458.188 | MortenaxBlade: 7227.575 | HuoHuo: 44.076
+Run   39: Team DPAV: 50599.806 | Gilgamesh: 30309.551 | Ashveil: 12319.614 | MortenaxBlade: 7520.779 | HuoHuo: 45.060
+Run   40: Team DPAV: 49334.047 | Gilgamesh: 30253.894 | Ashveil: 11320.044 | MortenaxBlade: 7289.715 | HuoHuo: 44.940
+Run   41: Team DPAV: 50644.810 | Gilgamesh: 30300.470 | Ashveil: 12323.168 | MortenaxBlade: 7530.126 | HuoHuo: 44.940
+Run   42: Team DPAV: 49936.125 | Gilgamesh: 31282.921 | Ashveil: 11716.123 | MortenaxBlade: 6477.282 | HuoHuo: 44.940
+Run   43: Team DPAV: 50801.119 | Gilgamesh: 31137.045 | Ashveil: 11627.004 | MortenaxBlade: 7577.272 | HuoHuo: 44.940
+Run   44: Team DPAV: 50885.621 | Gilgamesh: 31293.772 | Ashveil: 11537.025 | MortenaxBlade: 7589.728 | HuoHuo: 44.940
+Run   45: Team DPAV: 49703.044 | Gilgamesh: 31137.534 | Ashveil: 11588.842 | MortenaxBlade: 6500.530 | HuoHuo: 45.924
+Run   46: Team DPAV: 50966.584 | Gilgamesh: 30550.162 | Ashveil: 12327.065 | MortenaxBlade: 7614.082 | HuoHuo: 45.060
+Run   47: Team DPAV: 50490.153 | Gilgamesh: 30233.115 | Ashveil: 12324.890 | MortenaxBlade: 7462.618 | HuoHuo: 44.076
+Run   48: Team DPAV: 50817.949 | Gilgamesh: 31224.868 | Ashveil: 11520.562 | MortenaxBlade: 7633.253 | HuoHuo: 45.060
+Run   49: Team DPAV: 50425.864 | Gilgamesh: 30249.518 | Ashveil: 12452.702 | MortenaxBlade: 7238.759 | HuoHuo: 44.076
+Run   50: Team DPAV: 47864.671 | Gilgamesh: 29370.692 | Ashveil: 10948.001 | MortenaxBlade: 7070.704 | HuoHuo: 45.060
+Run   51: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   52: Team DPAV: 50599.806 | Gilgamesh: 30309.551 | Ashveil: 12319.614 | MortenaxBlade: 7520.779 | HuoHuo: 45.060
+Run   53: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   54: Team DPAV: 49639.821 | Gilgamesh: 30290.086 | Ashveil: 11618.328 | MortenaxBlade: 7281.546 | HuoHuo: 45.060
+Run   55: Team DPAV: 49638.008 | Gilgamesh: 30069.069 | Ashveil: 12019.180 | MortenaxBlade: 7058.713 | HuoHuo: 44.940
+Run   56: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   57: Team DPAV: 48994.391 | Gilgamesh: 28422.826 | Ashveil: 12497.834 | MortenaxBlade: 7577.925 | HuoHuo: 44.940
+Run   58: Team DPAV: 49116.732 | Gilgamesh: 30204.650 | Ashveil: 11252.093 | MortenaxBlade: 7220.722 | HuoHuo: 45.060
+Run   59: Team DPAV: 50520.394 | Gilgamesh: 30351.800 | Ashveil: 12116.155 | MortenaxBlade: 7577.165 | HuoHuo: 45.060
+Run   60: Team DPAV: 48888.385 | Gilgamesh: 30236.896 | Ashveil: 10934.025 | MortenaxBlade: 7242.190 | HuoHuo: 45.060
+Run   61: Team DPAV: 48766.473 | Gilgamesh: 30377.074 | Ashveil: 10742.467 | MortenaxBlade: 7161.184 | HuoHuo: 44.940
+Run   62: Team DPAV: 49566.584 | Gilgamesh: 30341.717 | Ashveil: 11484.136 | MortenaxBlade: 7290.870 | HuoHuo: 45.060
+Run   63: Team DPAV: 49639.821 | Gilgamesh: 30290.086 | Ashveil: 11618.328 | MortenaxBlade: 7281.546 | HuoHuo: 45.060
+Run   64: Team DPAV: 51214.768 | Gilgamesh: 31492.134 | Ashveil: 11701.864 | MortenaxBlade: 7555.673 | HuoHuo: 44.940
+Run   65: Team DPAV: 50007.883 | Gilgamesh: 31277.244 | Ashveil: 11711.063 | MortenaxBlade: 6569.714 | HuoHuo: 45.060
+Run   66: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   67: Team DPAV: 48129.031 | Gilgamesh: 30094.197 | Ashveil: 10404.755 | MortenaxBlade: 7155.789 | HuoHuo: 44.076
+Run   68: Team DPAV: 49116.732 | Gilgamesh: 30204.650 | Ashveil: 11252.093 | MortenaxBlade: 7220.722 | HuoHuo: 45.060
+Run   69: Team DPAV: 48893.602 | Gilgamesh: 29417.900 | Ashveil: 12402.765 | MortenaxBlade: 6577.130 | HuoHuo: 44.940
+Run   70: Team DPAV: 50400.787 | Gilgamesh: 30342.653 | Ashveil: 12313.103 | MortenaxBlade: 7279.935 | HuoHuo: 44.940
+Run   71: Team DPAV: 50817.949 | Gilgamesh: 31224.868 | Ashveil: 11520.562 | MortenaxBlade: 7633.253 | HuoHuo: 45.060
+Run   72: Team DPAV: 49608.701 | Gilgamesh: 30285.105 | Ashveil: 11402.313 | MortenaxBlade: 7436.398 | HuoHuo: 44.076
+Run   73: Team DPAV: 46912.465 | Gilgamesh: 27406.662 | Ashveil: 11880.365 | MortenaxBlade: 7151.148 | HuoHuo: 44.076
+Run   74: Team DPAV: 50599.806 | Gilgamesh: 30309.551 | Ashveil: 12319.614 | MortenaxBlade: 7520.779 | HuoHuo: 45.060
+Run   75: Team DPAV: 48673.264 | Gilgamesh: 31175.263 | Ashveil: 10730.589 | MortenaxBlade: 6307.613 | HuoHuo: 44.940
+Run   76: Team DPAV: 50612.287 | Gilgamesh: 30241.586 | Ashveil: 12340.021 | MortenaxBlade: 7550.228 | HuoHuo: 44.940
+Run   77: Team DPAV: 50382.074 | Gilgamesh: 30170.404 | Ashveil: 12225.083 | MortenaxBlade: 7511.434 | HuoHuo: 44.940
+Run   78: Team DPAV: 50569.215 | Gilgamesh: 30257.920 | Ashveil: 12356.457 | MortenaxBlade: 7504.977 | HuoHuo: 45.060
+Run   79: Team DPAV: 48497.181 | Gilgamesh: 30276.417 | Ashveil: 11179.570 | MortenaxBlade: 6586.572 | HuoHuo: 45.060
+Run   80: Team DPAV: 47641.228 | Gilgamesh: 27487.299 | Ashveil: 12376.862 | MortenaxBlade: 7281.260 | HuoHuo: 44.940
+Run   81: Team DPAV: 50391.289 | Gilgamesh: 30394.284 | Ashveil: 12258.967 | MortenaxBlade: 7272.942 | HuoHuo: 44.940
+Run   82: Team DPAV: 49116.732 | Gilgamesh: 30204.650 | Ashveil: 11252.093 | MortenaxBlade: 7220.722 | HuoHuo: 45.060
+Run   83: Team DPAV: 51292.962 | Gilgamesh: 31361.260 | Ashveil: 11730.484 | MortenaxBlade: 7761.952 | HuoHuo: 45.060
+Run   84: Team DPAV: 49580.450 | Gilgamesh: 30136.212 | Ashveil: 11470.689 | MortenaxBlade: 7518.928 | HuoHuo: 45.060
+Run   85: Team DPAV: 48838.908 | Gilgamesh: 30162.231 | Ashveil: 11030.797 | MortenaxBlade: 7171.591 | HuoHuo: 44.076
+Run   86: Team DPAV: 49258.178 | Gilgamesh: 30253.894 | Ashveil: 11251.168 | MortenaxBlade: 7282.722 | HuoHuo: 44.940
+Run   87: Team DPAV: 50400.787 | Gilgamesh: 30342.653 | Ashveil: 12313.103 | MortenaxBlade: 7279.935 | HuoHuo: 44.940
+Run   88: Team DPAV: 50771.166 | Gilgamesh: 31225.358 | Ashveil: 11512.062 | MortenaxBlade: 7594.480 | HuoHuo: 45.060
+Run   89: Team DPAV: 49088.388 | Gilgamesh: 30930.076 | Ashveil: 11218.724 | MortenaxBlade: 6480.653 | HuoHuo: 44.076
+Run   90: Team DPAV: 50351.189 | Gilgamesh: 30343.977 | Ashveil: 12164.705 | MortenaxBlade: 7346.700 | HuoHuo: 44.940
+Run   91: Team DPAV: 50835.511 | Gilgamesh: 31174.773 | Ashveil: 11605.042 | MortenaxBlade: 7595.897 | HuoHuo: 44.940
+Run   92: Team DPAV: 50599.806 | Gilgamesh: 30309.551 | Ashveil: 12319.614 | MortenaxBlade: 7520.779 | HuoHuo: 45.060
+Run   93: Team DPAV: 50022.712 | Gilgamesh: 30185.668 | Ashveil: 11898.761 | MortenaxBlade: 7463.129 | HuoHuo: 44.940
+Run   94: Team DPAV: 50835.511 | Gilgamesh: 31174.773 | Ashveil: 11605.042 | MortenaxBlade: 7595.897 | HuoHuo: 44.940
+Run   95: Team DPAV: 49163.350 | Gilgamesh: 28588.900 | Ashveil: 12535.207 | MortenaxBlade: 7539.002 | HuoHuo: 44.076
+Run   96: Team DPAV: 50179.275 | Gilgamesh: 30968.221 | Ashveil: 11449.818 | MortenaxBlade: 7275.368 | HuoHuo: 45.060
+Run   97: Team DPAV: 50426.848 | Gilgamesh: 30249.518 | Ashveil: 12452.702 | MortenaxBlade: 7238.759 | HuoHuo: 45.060
+Run   98: Team DPAV: 49116.732 | Gilgamesh: 30204.650 | Ashveil: 11252.093 | MortenaxBlade: 7220.722 | HuoHuo: 45.060
+Run   99: Team DPAV: 50599.806 | Gilgamesh: 30309.551 | Ashveil: 12319.614 | MortenaxBlade: 7520.779 | HuoHuo: 45.060
+Run  100: Team DPAV: 50862.427 | Gilgamesh: 31174.773 | Ashveil: 11631.959 | MortenaxBlade: 7595.897 | HuoHuo: 44.940
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 49860.524
+Average Gilgamesh DPAV: 30399.941 Percentage: 60.970%
+Average Ashveil DPAV: 11737.983 Percentage: 23.542%
+Average MortenaxBlade DPAV: 7257.624 Percentage: 14.556%
+Average HuoHuo DPAV: 44.926 Percentage: 0.090%
+
+Min Team DPAV: 46100.097
+Max Team DPAV: 51292.962

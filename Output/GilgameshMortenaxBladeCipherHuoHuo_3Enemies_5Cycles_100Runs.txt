@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 44906.909 | Gilgamesh: 30965.522 | MortenaxBlade: 5204.012 | Cipher: 8305.077 | HuoHuo: 0.000
+Run    2: Team DPAV: 43027.889 | Gilgamesh: 29888.451 | MortenaxBlade: 4513.569 | Cipher: 8193.572 | HuoHuo: 0.000
+Run    3: Team DPAV: 43553.858 | Gilgamesh: 29773.601 | MortenaxBlade: 5201.492 | Cipher: 8117.240 | HuoHuo: 0.000
+Run    4: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run    5: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run    6: Team DPAV: 45299.024 | Gilgamesh: 31978.319 | MortenaxBlade: 4491.683 | Cipher: 8379.271 | HuoHuo: 0.000
+Run    7: Team DPAV: 44197.253 | Gilgamesh: 31084.338 | MortenaxBlade: 4460.492 | Cipher: 8220.126 | HuoHuo: 0.000
+Run    8: Team DPAV: 42871.885 | Gilgamesh: 29824.749 | MortenaxBlade: 4610.885 | Cipher: 8007.002 | HuoHuo: 0.000
+Run    9: Team DPAV: 42678.223 | Gilgamesh: 28953.540 | MortenaxBlade: 5310.932 | Cipher: 7985.817 | HuoHuo: 0.000
+Run   10: Team DPAV: 39017.601 | Gilgamesh: 26216.656 | MortenaxBlade: 5134.590 | Cipher: 7216.604 | HuoHuo: 0.000
+Run   11: Team DPAV: 44169.848 | Gilgamesh: 30782.432 | MortenaxBlade: 4578.406 | Cipher: 8359.259 | HuoHuo: 0.000
+Run   12: Team DPAV: 43719.857 | Gilgamesh: 29824.749 | MortenaxBlade: 5325.468 | Cipher: 8140.391 | HuoHuo: 0.000
+Run   13: Team DPAV: 42599.577 | Gilgamesh: 28879.450 | MortenaxBlade: 5318.295 | Cipher: 7973.898 | HuoHuo: 0.000
+Run   14: Team DPAV: 42754.739 | Gilgamesh: 29668.544 | MortenaxBlade: 4524.158 | Cipher: 8150.241 | HuoHuo: 0.000
+Run   15: Team DPAV: 41561.021 | Gilgamesh: 28122.522 | MortenaxBlade: 5257.989 | Cipher: 7718.984 | HuoHuo: 0.000
+Run   16: Team DPAV: 43184.478 | Gilgamesh: 29852.845 | MortenaxBlade: 4633.546 | Cipher: 8286.292 | HuoHuo: 0.000
+Run   17: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   18: Team DPAV: 44495.740 | Gilgamesh: 30441.009 | MortenaxBlade: 5325.468 | Cipher: 8317.466 | HuoHuo: 0.000
+Run   19: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   20: Team DPAV: 42867.388 | Gilgamesh: 29774.581 | MortenaxBlade: 4532.358 | Cipher: 8128.151 | HuoHuo: 0.000
+Run   21: Team DPAV: 43719.857 | Gilgamesh: 29824.749 | MortenaxBlade: 5325.468 | Cipher: 8140.391 | HuoHuo: 0.000
+Run   22: Team DPAV: 42390.298 | Gilgamesh: 29345.780 | MortenaxBlade: 4549.669 | Cipher: 8045.098 | HuoHuo: 0.000
+Run   23: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run   24: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   25: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   26: Team DPAV: 43579.223 | Gilgamesh: 29773.601 | MortenaxBlade: 5222.866 | Cipher: 8121.230 | HuoHuo: 0.000
+Run   27: Team DPAV: 43855.577 | Gilgamesh: 29939.119 | MortenaxBlade: 5325.468 | Cipher: 8161.740 | HuoHuo: 0.000
+Run   28: Team DPAV: 43583.591 | Gilgamesh: 29773.601 | MortenaxBlade: 5226.548 | Cipher: 8121.917 | HuoHuo: 0.000
+Run   29: Team DPAV: 42232.083 | Gilgamesh: 28792.235 | MortenaxBlade: 5194.650 | Cipher: 7812.900 | HuoHuo: 0.000
+Run   30: Team DPAV: 42179.378 | Gilgamesh: 28751.954 | MortenaxBlade: 5190.969 | Cipher: 7804.157 | HuoHuo: 0.000
+Run   31: Team DPAV: 43027.889 | Gilgamesh: 29888.451 | MortenaxBlade: 4513.569 | Cipher: 8193.572 | HuoHuo: 0.000
+Run   32: Team DPAV: 43298.018 | Gilgamesh: 30219.111 | MortenaxBlade: 4417.782 | Cipher: 8249.329 | HuoHuo: 0.000
+Run   33: Team DPAV: 43080.594 | Gilgamesh: 29928.731 | MortenaxBlade: 4517.250 | Cipher: 8202.315 | HuoHuo: 0.000
+Run   34: Team DPAV: 42804.212 | Gilgamesh: 29758.658 | MortenaxBlade: 4477.231 | Cipher: 8156.527 | HuoHuo: 0.000
+Run   35: Team DPAV: 43061.066 | Gilgamesh: 29928.731 | MortenaxBlade: 4504.171 | Cipher: 8195.866 | HuoHuo: 0.000
+Run   36: Team DPAV: 44209.770 | Gilgamesh: 31124.618 | MortenaxBlade: 4430.528 | Cipher: 8222.327 | HuoHuo: 0.000
+Run   37: Team DPAV: 42232.083 | Gilgamesh: 28792.235 | MortenaxBlade: 5194.650 | Cipher: 7812.900 | HuoHuo: 0.000
+Run   38: Team DPAV: 42424.399 | Gilgamesh: 29345.780 | MortenaxBlade: 4578.406 | Cipher: 8050.463 | HuoHuo: 0.000
+Run   39: Team DPAV: 44488.594 | Gilgamesh: 30441.009 | MortenaxBlade: 5325.468 | Cipher: 8310.321 | HuoHuo: 0.000
+Run   40: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   41: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   42: Team DPAV: 44854.204 | Gilgamesh: 30925.241 | MortenaxBlade: 5200.331 | Cipher: 8296.334 | HuoHuo: 0.000
+Run   43: Team DPAV: 42735.297 | Gilgamesh: 28993.820 | MortenaxBlade: 5318.295 | Cipher: 7995.247 | HuoHuo: 0.000
+Run   44: Team DPAV: 43719.857 | Gilgamesh: 29824.749 | MortenaxBlade: 5325.468 | Cipher: 8140.391 | HuoHuo: 0.000
+Run   45: Team DPAV: 43549.490 | Gilgamesh: 29773.601 | MortenaxBlade: 5197.810 | Cipher: 8116.553 | HuoHuo: 0.000
+Run   46: Team DPAV: 42760.984 | Gilgamesh: 29773.601 | MortenaxBlade: 4533.339 | Cipher: 7992.518 | HuoHuo: 0.000
+Run   47: Team DPAV: 44197.253 | Gilgamesh: 31084.338 | MortenaxBlade: 4460.492 | Cipher: 8220.126 | HuoHuo: 0.000
+Run   48: Team DPAV: 43546.815 | Gilgamesh: 29773.601 | MortenaxBlade: 5195.556 | Cipher: 8116.132 | HuoHuo: 0.000
+Run   49: Team DPAV: 44421.035 | Gilgamesh: 30441.009 | MortenaxBlade: 5268.665 | Cipher: 8299.565 | HuoHuo: 0.000
+Run   50: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   51: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run   52: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   53: Team DPAV: 45304.014 | Gilgamesh: 31147.335 | MortenaxBlade: 5318.295 | Cipher: 8406.087 | HuoHuo: 0.000
+Run   54: Team DPAV: 44249.958 | Gilgamesh: 31124.618 | MortenaxBlade: 4464.173 | Cipher: 8228.869 | HuoHuo: 0.000
+Run   55: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run   56: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   57: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   58: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run   59: Team DPAV: 43719.857 | Gilgamesh: 29824.749 | MortenaxBlade: 5325.468 | Cipher: 8140.391 | HuoHuo: 0.000
+Run   60: Team DPAV: 44906.909 | Gilgamesh: 30965.522 | MortenaxBlade: 5204.012 | Cipher: 8305.077 | HuoHuo: 0.000
+Run   61: Team DPAV: 42735.297 | Gilgamesh: 28993.820 | MortenaxBlade: 5318.295 | Cipher: 7995.247 | HuoHuo: 0.000
+Run   62: Team DPAV: 44197.253 | Gilgamesh: 31084.338 | MortenaxBlade: 4460.492 | Cipher: 8220.126 | HuoHuo: 0.000
+Run   63: Team DPAV: 45111.221 | Gilgamesh: 30992.684 | MortenaxBlade: 5310.932 | Cipher: 8375.307 | HuoHuo: 0.000
+Run   64: Team DPAV: 44854.204 | Gilgamesh: 30925.241 | MortenaxBlade: 5200.331 | Cipher: 8296.334 | HuoHuo: 0.000
+Run   65: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   66: Team DPAV: 44527.467 | Gilgamesh: 31197.134 | MortenaxBlade: 4564.331 | Cipher: 8304.476 | HuoHuo: 0.000
+Run   67: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   68: Team DPAV: 44209.770 | Gilgamesh: 31124.618 | MortenaxBlade: 4430.528 | Cipher: 8222.327 | HuoHuo: 0.000
+Run   69: Team DPAV: 40151.216 | Gilgamesh: 27547.831 | MortenaxBlade: 4522.027 | Cipher: 7631.607 | HuoHuo: 0.000
+Run   70: Team DPAV: 44488.594 | Gilgamesh: 30441.009 | MortenaxBlade: 5325.468 | Cipher: 8310.321 | HuoHuo: 0.000
+Run   71: Team DPAV: 43579.223 | Gilgamesh: 29773.601 | MortenaxBlade: 5222.866 | Cipher: 8121.230 | HuoHuo: 0.000
+Run   72: Team DPAV: 43719.857 | Gilgamesh: 29824.749 | MortenaxBlade: 5325.468 | Cipher: 8140.391 | HuoHuo: 0.000
+Run   73: Team DPAV: 42804.212 | Gilgamesh: 29758.658 | MortenaxBlade: 4477.231 | Cipher: 8156.527 | HuoHuo: 0.000
+Run   74: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   75: Team DPAV: 42542.504 | Gilgamesh: 28839.169 | MortenaxBlade: 5310.932 | Cipher: 7964.468 | HuoHuo: 0.000
+Run   76: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   77: Team DPAV: 45308.929 | Gilgamesh: 31197.134 | MortenaxBlade: 5222.866 | Cipher: 8427.403 | HuoHuo: 0.000
+Run   78: Team DPAV: 42324.202 | Gilgamesh: 29305.499 | MortenaxBlade: 4540.369 | Cipher: 8028.584 | HuoHuo: 0.000
+Run   79: Team DPAV: 43481.221 | Gilgamesh: 30508.358 | MortenaxBlade: 4464.173 | Cipher: 8058.939 | HuoHuo: 0.000
+Run   80: Team DPAV: 45308.929 | Gilgamesh: 31197.134 | MortenaxBlade: 5222.866 | Cipher: 8427.403 | HuoHuo: 0.000
+Run   81: Team DPAV: 43080.594 | Gilgamesh: 29928.731 | MortenaxBlade: 4517.250 | Cipher: 8202.315 | HuoHuo: 0.000
+Run   82: Team DPAV: 43910.994 | Gilgamesh: 30589.927 | MortenaxBlade: 4753.502 | Cipher: 8147.042 | HuoHuo: 0.000
+Run   83: Team DPAV: 43798.503 | Gilgamesh: 29898.839 | MortenaxBlade: 5318.106 | Cipher: 8152.309 | HuoHuo: 0.000
+Run   84: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   85: Team DPAV: 42599.577 | Gilgamesh: 28879.450 | MortenaxBlade: 5318.295 | Cipher: 7973.898 | HuoHuo: 0.000
+Run   86: Team DPAV: 42599.577 | Gilgamesh: 28879.450 | MortenaxBlade: 5318.295 | Cipher: 7973.898 | HuoHuo: 0.000
+Run   87: Team DPAV: 42804.212 | Gilgamesh: 29758.658 | MortenaxBlade: 4477.231 | Cipher: 8156.527 | HuoHuo: 0.000
+Run   88: Team DPAV: 44249.958 | Gilgamesh: 31124.618 | MortenaxBlade: 4464.173 | Cipher: 8228.869 | HuoHuo: 0.000
+Run   89: Team DPAV: 43553.858 | Gilgamesh: 29773.601 | MortenaxBlade: 5201.492 | Cipher: 8117.240 | HuoHuo: 0.000
+Run   90: Team DPAV: 44197.253 | Gilgamesh: 31084.338 | MortenaxBlade: 4460.492 | Cipher: 8220.126 | HuoHuo: 0.000
+Run   91: Team DPAV: 43549.490 | Gilgamesh: 29773.601 | MortenaxBlade: 5197.810 | Cipher: 8116.553 | HuoHuo: 0.000
+Run   92: Team DPAV: 42735.297 | Gilgamesh: 28993.820 | MortenaxBlade: 5318.295 | Cipher: 7995.247 | HuoHuo: 0.000
+Run   93: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   94: Team DPAV: 42793.393 | Gilgamesh: 29773.601 | MortenaxBlade: 4560.650 | Cipher: 7997.616 | HuoHuo: 0.000
+Run   95: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+Run   96: Team DPAV: 44051.638 | Gilgamesh: 30918.269 | MortenaxBlade: 4516.739 | Cipher: 8184.332 | HuoHuo: 0.000
+Run   97: Team DPAV: 45681.408 | Gilgamesh: 31442.741 | MortenaxBlade: 5355.312 | Cipher: 8474.607 | HuoHuo: 0.000
+Run   98: Team DPAV: 45681.408 | Gilgamesh: 31442.741 | MortenaxBlade: 5355.312 | Cipher: 8474.607 | HuoHuo: 0.000
+Run   99: Team DPAV: 42599.577 | Gilgamesh: 28879.450 | MortenaxBlade: 5318.295 | Cipher: 7973.898 | HuoHuo: 0.000
+Run  100: Team DPAV: 45168.294 | Gilgamesh: 31032.964 | MortenaxBlade: 5318.295 | Cipher: 8384.737 | HuoHuo: 0.000
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 43767.220
+Average Gilgamesh DPAV: 30126.646 Percentage: 68.834%
+Average MortenaxBlade DPAV: 5031.437 Percentage: 11.496%
+Average Cipher DPAV: 8174.844 Percentage: 18.678%
+Average HuoHuo DPAV: 0.000 Percentage: 0.000%
+
+Min Team DPAV: 39017.601
+Max Team DPAV: 45681.408
