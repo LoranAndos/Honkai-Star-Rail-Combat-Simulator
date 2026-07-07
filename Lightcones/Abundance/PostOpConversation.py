@@ -14,9 +14,9 @@ class PostOpConversation(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         errBuff = self.level * 0.02 + 0.06
         bl.append(Buff("PostOpERR", StatTypes.ERR_PERCENT, errBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         oghBuff = self.level * 0.03 + 0.09
         bl.append(Buff("PostOpOGH", StatTypes.OGH_PERCENT, oghBuff, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

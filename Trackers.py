@@ -16,7 +16,7 @@ class SpTracker:
         return self.spUsed
 
     def getCurrenSP(self):
-        return self.diSP # ← already capped at maxSP
+        return self.diSP
 
     def getMaxSP(self):
         return self.maxSP
@@ -38,6 +38,8 @@ class DmgTracker:
         self.weaknessBreakDMG = 0
         self.actionHPGain = 0
         self.actionHPLoss = 0
+        self.shieldGranted = 0
+        self.shieldAbsorbed = 0
 
     def addDebuffDMG(self, dmg: float):
         self.debuffDMG += dmg
@@ -56,6 +58,12 @@ class DmgTracker:
 
     def addHPLoss(self, Damage: float):
         self.actionHPLoss += Damage
+
+    def addShieldGranted(self, amount: float):
+        self.shieldGranted += amount
+
+    def addShieldAbsorbed(self, amount: float):
+        self.shieldAbsorbed += amount
 
     def getDebuffDMG(self):
         return self.debuffDMG
@@ -77,3 +85,9 @@ class DmgTracker:
 
     def getTotalHPLoss(self):
         return self.actionHPLoss
+
+    def getShieldGranted(self):
+        return self.shieldGranted
+
+    def getShieldAbsorbed(self):
+        return self.shieldAbsorbed

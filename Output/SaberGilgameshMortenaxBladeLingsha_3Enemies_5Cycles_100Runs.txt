@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 38720.485 | Saber: 19259.121 | Gilgamesh: 15216.972 | MortenaxBlade: 3672.786 | Lingsha: 320.900
+Run    2: Team DPAV: 37670.407 | Saber: 18526.880 | Gilgamesh: 14826.800 | MortenaxBlade: 3763.605 | Lingsha: 302.417
+Run    3: Team DPAV: 37670.407 | Saber: 18526.880 | Gilgamesh: 14826.800 | MortenaxBlade: 3763.605 | Lingsha: 302.417
+Run    4: Team DPAV: 41386.857 | Saber: 20334.478 | Gilgamesh: 16811.462 | MortenaxBlade: 3648.552 | Lingsha: 341.659
+Run    5: Team DPAV: 38834.454 | Saber: 18930.653 | Gilgamesh: 15732.919 | MortenaxBlade: 3617.438 | Lingsha: 305.099
+Run    6: Team DPAV: 39515.718 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3813.481 | Lingsha: 307.104
+Run    7: Team DPAV: 39677.154 | Saber: 19424.229 | Gilgamesh: 15906.655 | MortenaxBlade: 3777.993 | Lingsha: 319.932
+Run    8: Team DPAV: 38281.859 | Saber: 18764.346 | Gilgamesh: 15239.817 | MortenaxBlade: 3724.574 | Lingsha: 302.417
+Run    9: Team DPAV: 38919.867 | Saber: 18959.936 | Gilgamesh: 15755.351 | MortenaxBlade: 3649.991 | Lingsha: 306.244
+Run   10: Team DPAV: 37369.128 | Saber: 17851.419 | Gilgamesh: 15063.444 | MortenaxBlade: 3878.051 | Lingsha: 327.870
+Run   11: Team DPAV: 37670.407 | Saber: 18526.880 | Gilgamesh: 14826.800 | MortenaxBlade: 3763.605 | Lingsha: 302.417
+Run   12: Team DPAV: 37615.957 | Saber: 19245.351 | Gilgamesh: 14826.800 | MortenaxBlade: 2990.684 | Lingsha: 302.417
+Run   13: Team DPAV: 39836.400 | Saber: 19245.338 | Gilgamesh: 16240.384 | MortenaxBlade: 3797.892 | Lingsha: 304.440
+Run   14: Team DPAV: 36779.822 | Saber: 18051.773 | Gilgamesh: 15029.465 | MortenaxBlade: 3112.659 | Lingsha: 337.580
+Run   15: Team DPAV: 41268.518 | Saber: 20368.235 | Gilgamesh: 16559.742 | MortenaxBlade: 3764.401 | Lingsha: 325.434
+Run   16: Team DPAV: 37943.576 | Saber: 18526.880 | Gilgamesh: 15099.969 | MortenaxBlade: 3763.605 | Lingsha: 302.417
+Run   17: Team DPAV: 41311.054 | Saber: 20410.771 | Gilgamesh: 16559.742 | MortenaxBlade: 3764.401 | Lingsha: 325.434
+Run   18: Team DPAV: 37802.182 | Saber: 18583.512 | Gilgamesh: 14863.925 | MortenaxBlade: 3782.962 | Lingsha: 323.438
+Run   19: Team DPAV: 38979.786 | Saber: 19259.121 | Gilgamesh: 15308.817 | MortenaxBlade: 3786.833 | Lingsha: 374.310
+Run   20: Team DPAV: 39932.182 | Saber: 19698.779 | Gilgamesh: 15942.325 | MortenaxBlade: 3737.634 | Lingsha: 305.099
+Run   21: Team DPAV: 38509.776 | Saber: 19136.772 | Gilgamesh: 15223.477 | MortenaxBlade: 3592.531 | Lingsha: 308.651
+Run   22: Team DPAV: 37638.419 | Saber: 17851.419 | Gilgamesh: 15324.145 | MortenaxBlade: 3876.929 | Lingsha: 337.580
+Run   23: Team DPAV: 39264.594 | Saber: 19424.229 | Gilgamesh: 16240.384 | MortenaxBlade: 3031.704 | Lingsha: 319.932
+Run   24: Team DPAV: 38988.253 | Saber: 18997.816 | Gilgamesh: 15712.029 | MortenaxBlade: 3724.964 | Lingsha: 305.099
+Run   25: Team DPAV: 39677.154 | Saber: 19424.229 | Gilgamesh: 15906.655 | MortenaxBlade: 3777.993 | Lingsha: 319.932
+Run   26: Team DPAV: 36931.529 | Saber: 16955.928 | Gilgamesh: 15579.643 | MortenaxBlade: 3843.172 | Lingsha: 304.440
+Run   27: Team DPAV: 41612.137 | Saber: 20928.286 | Gilgamesh: 16032.403 | MortenaxBlade: 4026.282 | Lingsha: 376.821
+Run   28: Team DPAV: 39496.670 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3797.096 | Lingsha: 304.440
+Run   29: Team DPAV: 37152.301 | Saber: 18131.714 | Gilgamesh: 15579.643 | MortenaxBlade: 2872.667 | Lingsha: 319.932
+Run   30: Team DPAV: 39157.288 | Saber: 18930.653 | Gilgamesh: 15814.537 | MortenaxBlade: 3801.683 | Lingsha: 362.070
+Run   31: Team DPAV: 37615.957 | Saber: 19245.351 | Gilgamesh: 14826.800 | MortenaxBlade: 2990.684 | Lingsha: 302.417
+Run   32: Team DPAV: 37961.037 | Saber: 18131.714 | Gilgamesh: 15593.993 | MortenaxBlade: 3682.544 | Lingsha: 304.440
+Run   33: Team DPAV: 37369.128 | Saber: 17851.419 | Gilgamesh: 15063.444 | MortenaxBlade: 3878.051 | Lingsha: 327.870
+Run   34: Team DPAV: 39257.550 | Saber: 18989.220 | Gilgamesh: 15786.717 | MortenaxBlade: 3858.122 | Lingsha: 372.786
+Run   35: Team DPAV: 41686.730 | Saber: 19986.834 | Gilgamesh: 17171.400 | MortenaxBlade: 3895.785 | Lingsha: 382.006
+Run   36: Team DPAV: 36669.728 | Saber: 17791.761 | Gilgamesh: 14611.448 | MortenaxBlade: 3717.980 | Lingsha: 300.194
+Run   37: Team DPAV: 42230.291 | Saber: 21128.640 | Gilgamesh: 16430.629 | MortenaxBlade: 4045.856 | Lingsha: 376.821
+Run   38: Team DPAV: 36889.977 | Saber: 18298.443 | Gilgamesh: 14822.311 | MortenaxBlade: 3234.645 | Lingsha: 286.232
+Run   39: Team DPAV: 43940.877 | Saber: 22212.839 | Gilgamesh: 17235.347 | MortenaxBlade: 3848.160 | Lingsha: 393.825
+Run   40: Team DPAV: 40619.074 | Saber: 20510.826 | Gilgamesh: 15770.585 | MortenaxBlade: 3694.867 | Lingsha: 392.090
+Run   41: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   42: Team DPAV: 37152.301 | Saber: 18131.714 | Gilgamesh: 15579.643 | MortenaxBlade: 2872.667 | Lingsha: 319.932
+Run   43: Team DPAV: 39762.199 | Saber: 19899.133 | Gilgamesh: 16279.985 | MortenaxBlade: 3028.492 | Lingsha: 306.244
+Run   44: Team DPAV: 41730.718 | Saber: 20928.286 | Gilgamesh: 16113.159 | MortenaxBlade: 4061.445 | Lingsha: 379.484
+Run   45: Team DPAV: 37802.182 | Saber: 18583.512 | Gilgamesh: 14863.925 | MortenaxBlade: 3782.962 | Lingsha: 323.438
+Run   46: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   47: Team DPAV: 42130.758 | Saber: 21128.640 | Gilgamesh: 16349.873 | MortenaxBlade: 4027.078 | Lingsha: 376.821
+Run   48: Team DPAV: 38720.485 | Saber: 19259.121 | Gilgamesh: 15216.972 | MortenaxBlade: 3672.786 | Lingsha: 320.900
+Run   49: Team DPAV: 40216.232 | Saber: 19736.027 | Gilgamesh: 16068.284 | MortenaxBlade: 3788.429 | Lingsha: 372.786
+Run   50: Team DPAV: 37152.301 | Saber: 18131.714 | Gilgamesh: 15579.643 | MortenaxBlade: 2872.667 | Lingsha: 319.932
+Run   51: Team DPAV: 38273.523 | Saber: 18734.289 | Gilgamesh: 15462.772 | MortenaxBlade: 3509.884 | Lingsha: 318.232
+Run   52: Team DPAV: 42921.056 | Saber: 21286.505 | Gilgamesh: 17238.062 | MortenaxBlade: 3753.378 | Lingsha: 392.406
+Run   53: Team DPAV: 38873.572 | Saber: 18942.150 | Gilgamesh: 15737.478 | MortenaxBlade: 3639.355 | Lingsha: 306.244
+Run   54: Team DPAV: 39932.182 | Saber: 19698.779 | Gilgamesh: 15942.325 | MortenaxBlade: 3737.634 | Lingsha: 305.099
+Run   55: Team DPAV: 37646.631 | Saber: 18571.266 | Gilgamesh: 15398.625 | MortenaxBlade: 3090.814 | Lingsha: 337.580
+Run   56: Team DPAV: 40270.928 | Saber: 20611.286 | Gilgamesh: 15360.624 | MortenaxBlade: 3744.595 | Lingsha: 306.078
+Run   57: Team DPAV: 38979.786 | Saber: 19259.121 | Gilgamesh: 15308.817 | MortenaxBlade: 3786.833 | Lingsha: 374.310
+Run   58: Team DPAV: 39496.670 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3797.096 | Lingsha: 304.440
+Run   59: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   60: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   61: Team DPAV: 37265.979 | Saber: 17760.504 | Gilgamesh: 15056.749 | MortenaxBlade: 3872.511 | Lingsha: 327.870
+Run   62: Team DPAV: 37271.071 | Saber: 17851.419 | Gilgamesh: 14965.387 | MortenaxBlade: 3878.051 | Lingsha: 327.870
+Run   63: Team DPAV: 41612.137 | Saber: 20928.286 | Gilgamesh: 16032.403 | MortenaxBlade: 4026.282 | Lingsha: 376.821
+Run   64: Team DPAV: 38919.867 | Saber: 18959.936 | Gilgamesh: 15755.351 | MortenaxBlade: 3649.991 | Lingsha: 306.244
+Run   65: Team DPAV: 39677.154 | Saber: 19424.229 | Gilgamesh: 15906.655 | MortenaxBlade: 3777.993 | Lingsha: 319.932
+Run   66: Team DPAV: 36850.410 | Saber: 17784.575 | Gilgamesh: 14826.134 | MortenaxBlade: 3696.180 | Lingsha: 295.176
+Run   67: Team DPAV: 40015.291 | Saber: 19424.229 | Gilgamesh: 16240.384 | MortenaxBlade: 3797.892 | Lingsha: 304.440
+Run   68: Team DPAV: 36440.308 | Saber: 17784.575 | Gilgamesh: 14600.277 | MortenaxBlade: 3511.935 | Lingsha: 295.176
+Run   69: Team DPAV: 38700.324 | Saber: 19259.121 | Gilgamesh: 15216.972 | MortenaxBlade: 3656.402 | Lingsha: 317.123
+Run   70: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   71: Team DPAV: 39948.230 | Saber: 19736.027 | Gilgamesh: 15967.737 | MortenaxBlade: 3674.383 | Lingsha: 319.377
+Run   72: Team DPAV: 38979.786 | Saber: 19259.121 | Gilgamesh: 15308.817 | MortenaxBlade: 3786.833 | Lingsha: 374.310
+Run   73: Team DPAV: 38700.324 | Saber: 19259.121 | Gilgamesh: 15216.972 | MortenaxBlade: 3656.402 | Lingsha: 317.123
+Run   74: Team DPAV: 39496.670 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3797.096 | Lingsha: 304.440
+Run   75: Team DPAV: 37384.547 | Saber: 18060.666 | Gilgamesh: 15119.381 | MortenaxBlade: 3625.200 | Lingsha: 328.596
+Run   76: Team DPAV: 38604.126 | Saber: 18604.676 | Gilgamesh: 15416.866 | MortenaxBlade: 3989.975 | Lingsha: 344.263
+Run   77: Team DPAV: 42302.949 | Saber: 21038.464 | Gilgamesh: 17012.792 | MortenaxBlade: 3661.991 | Lingsha: 338.996
+Run   78: Team DPAV: 40966.096 | Saber: 20510.826 | Gilgamesh: 15802.992 | MortenaxBlade: 4006.661 | Lingsha: 394.910
+Run   79: Team DPAV: 40966.096 | Saber: 20510.826 | Gilgamesh: 15802.992 | MortenaxBlade: 4006.661 | Lingsha: 394.910
+Run   80: Team DPAV: 41431.792 | Saber: 20495.061 | Gilgamesh: 16465.086 | MortenaxBlade: 3893.996 | Lingsha: 326.944
+Run   81: Team DPAV: 38850.764 | Saber: 18930.653 | Gilgamesh: 15749.229 | MortenaxBlade: 3617.438 | Lingsha: 305.099
+Run   82: Team DPAV: 40966.096 | Saber: 20510.826 | Gilgamesh: 15802.992 | MortenaxBlade: 4006.661 | Lingsha: 394.910
+Run   83: Team DPAV: 39968.391 | Saber: 19736.027 | Gilgamesh: 15967.737 | MortenaxBlade: 3690.768 | Lingsha: 323.153
+Run   84: Team DPAV: 40774.563 | Saber: 20329.353 | Gilgamesh: 15808.368 | MortenaxBlade: 4011.569 | Lingsha: 374.568
+Run   85: Team DPAV: 40373.071 | Saber: 20491.015 | Gilgamesh: 15284.839 | MortenaxBlade: 3972.201 | Lingsha: 374.310
+Run   86: Team DPAV: 39496.670 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3797.096 | Lingsha: 304.440
+Run   87: Team DPAV: 40373.071 | Saber: 20491.015 | Gilgamesh: 15284.839 | MortenaxBlade: 3972.201 | Lingsha: 374.310
+Run   88: Team DPAV: 37615.957 | Saber: 19245.351 | Gilgamesh: 14826.800 | MortenaxBlade: 2990.684 | Lingsha: 302.417
+Run   89: Team DPAV: 39496.670 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3797.096 | Lingsha: 304.440
+Run   90: Team DPAV: 39002.654 | Saber: 19259.121 | Gilgamesh: 15308.817 | MortenaxBlade: 3805.610 | Lingsha: 378.400
+Run   91: Team DPAV: 38745.973 | Saber: 19223.875 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run   92: Team DPAV: 40004.640 | Saber: 19698.779 | Gilgamesh: 15942.325 | MortenaxBlade: 3754.018 | Lingsha: 361.172
+Run   93: Team DPAV: 36779.822 | Saber: 18051.773 | Gilgamesh: 15029.465 | MortenaxBlade: 3112.659 | Lingsha: 337.580
+Run   94: Team DPAV: 38921.385 | Saber: 18910.767 | Gilgamesh: 15689.769 | MortenaxBlade: 3750.766 | Lingsha: 319.377
+Run   95: Team DPAV: 40666.518 | Saber: 20225.529 | Gilgamesh: 16059.320 | MortenaxBlade: 3801.050 | Lingsha: 332.275
+Run   96: Team DPAV: 38834.454 | Saber: 18930.653 | Gilgamesh: 15732.919 | MortenaxBlade: 3617.438 | Lingsha: 305.099
+Run   97: Team DPAV: 37152.301 | Saber: 18131.714 | Gilgamesh: 15579.643 | MortenaxBlade: 2872.667 | Lingsha: 319.932
+Run   98: Team DPAV: 40813.779 | Saber: 20406.725 | Gilgamesh: 15821.321 | MortenaxBlade: 3956.627 | Lingsha: 378.400
+Run   99: Team DPAV: 38567.082 | Saber: 19044.984 | Gilgamesh: 15922.913 | MortenaxBlade: 3030.908 | Lingsha: 319.932
+Run  100: Team DPAV: 38732.962 | Saber: 18168.623 | Gilgamesh: 15728.952 | MortenaxBlade: 4184.434 | Lingsha: 400.248
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 39163.161
+Average Saber DPAV: 19272.253 Percentage: 49.210%
+Average Gilgamesh DPAV: 15671.931 Percentage: 40.017%
+Average MortenaxBlade DPAV: 3638.264 Percentage: 9.290%
+Average Lingsha DPAV: 331.447 Percentage: 0.846%
+
+Min Team DPAV: 36440.308
+Max Team DPAV: 43940.877

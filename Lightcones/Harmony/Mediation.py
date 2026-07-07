@@ -13,7 +13,7 @@ class Mediation(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 2 + 10
         bl.append(Buff("MediationSPD", StatTypes.SPD, BuffAmount, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF,TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

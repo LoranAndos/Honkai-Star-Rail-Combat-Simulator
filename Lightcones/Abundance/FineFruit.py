@@ -15,7 +15,7 @@ class FineFruit(Lightcone):
 
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = floor(self.level * 1.5 + 4.5)
         bl.append(Buff("FineFruitERR_T", StatTypes.ERR_T, BuffAmount, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

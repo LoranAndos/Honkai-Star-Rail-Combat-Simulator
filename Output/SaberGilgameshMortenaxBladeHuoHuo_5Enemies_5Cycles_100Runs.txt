@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 62820.539 | Saber: 32563.714 | Gilgamesh: 25163.563 | MortenaxBlade: 4506.924 | HuoHuo: 41.093
+Run    2: Team DPAV: 64794.711 | Saber: 33315.970 | Gilgamesh: 26221.691 | MortenaxBlade: 4650.922 | HuoHuo: 41.771
+Run    3: Team DPAV: 64265.258 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4355.772 | HuoHuo: 41.771
+Run    4: Team DPAV: 63267.345 | Saber: 33248.216 | Gilgamesh: 24936.372 | MortenaxBlade: 4477.602 | HuoHuo: 40.798
+Run    5: Team DPAV: 65529.993 | Saber: 33207.480 | Gilgamesh: 27418.678 | MortenaxBlade: 4297.708 | HuoHuo: 41.771
+Run    6: Team DPAV: 65655.513 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4297.953 | HuoHuo: 41.771
+Run    7: Team DPAV: 68153.703 | Saber: 37748.741 | Gilgamesh: 25040.258 | MortenaxBlade: 4721.033 | HuoHuo: 41.093
+Run    8: Team DPAV: 64265.012 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run    9: Team DPAV: 65320.786 | Saber: 32940.455 | Gilgamesh: 27418.678 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run   10: Team DPAV: 66364.721 | Saber: 36258.007 | Gilgamesh: 24768.747 | MortenaxBlade: 4713.406 | HuoHuo: 41.093
+Run   11: Team DPAV: 65648.839 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   12: Team DPAV: 65527.700 | Saber: 35173.170 | Gilgamesh: 25213.661 | MortenaxBlade: 4535.420 | HuoHuo: 41.093
+Run   13: Team DPAV: 68632.864 | Saber: 36554.558 | Gilgamesh: 26702.533 | MortenaxBlade: 4732.102 | HuoHuo: 41.093
+Run   14: Team DPAV: 65660.208 | Saber: 33344.124 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   15: Team DPAV: 62919.028 | Saber: 31276.732 | Gilgamesh: 26049.155 | MortenaxBlade: 4987.692 | HuoHuo: 41.093
+Run   16: Team DPAV: 64272.529 | Saber: 33264.798 | Gilgamesh: 25734.421 | MortenaxBlade: 4688.920 | HuoHuo: 41.093
+Run   17: Team DPAV: 63844.326 | Saber: 31962.711 | Gilgamesh: 26724.886 | MortenaxBlade: 4551.279 | HuoHuo: 41.093
+Run   18: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   19: Team DPAV: 65648.839 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   20: Team DPAV: 65312.495 | Saber: 33122.942 | Gilgamesh: 27106.797 | MortenaxBlade: 4477.602 | HuoHuo: 40.798
+Run   21: Team DPAV: 64462.739 | Saber: 33332.755 | Gilgamesh: 26237.630 | MortenaxBlade: 4286.227 | HuoHuo: 41.771
+Run   22: Team DPAV: 65523.564 | Saber: 33207.480 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   23: Team DPAV: 64467.791 | Saber: 33332.755 | Gilgamesh: 26237.630 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   24: Team DPAV: 65446.306 | Saber: 33065.729 | Gilgamesh: 27418.678 | MortenaxBlade: 4355.772 | HuoHuo: 41.771
+Run   25: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   26: Team DPAV: 65976.089 | Saber: 33324.677 | Gilgamesh: 27402.739 | MortenaxBlade: 4645.466 | HuoHuo: 40.798
+Run   27: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   28: Team DPAV: 63117.012 | Saber: 32127.504 | Gilgamesh: 25896.246 | MortenaxBlade: 4506.924 | HuoHuo: 41.093
+Run   29: Team DPAV: 66568.843 | Saber: 35350.549 | Gilgamesh: 25681.482 | MortenaxBlade: 4893.141 | HuoHuo: 41.093
+Run   30: Team DPAV: 68733.343 | Saber: 37358.427 | Gilgamesh: 25991.736 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   31: Team DPAV: 64361.152 | Saber: 33258.125 | Gilgamesh: 25768.316 | MortenaxBlade: 4710.151 | HuoHuo: 41.093
+Run   32: Team DPAV: 68514.142 | Saber: 37748.741 | Gilgamesh: 25397.969 | MortenaxBlade: 4723.761 | HuoHuo: 41.093
+Run   33: Team DPAV: 65523.087 | Saber: 33140.028 | Gilgamesh: 27418.678 | MortenaxBlade: 4358.255 | HuoHuo: 41.771
+Run   34: Team DPAV: 67305.685 | Saber: 36368.592 | Gilgamesh: 25603.806 | MortenaxBlade: 4708.726 | HuoHuo: 41.093
+Run   35: Team DPAV: 67605.105 | Saber: 35506.124 | Gilgamesh: 26738.424 | MortenaxBlade: 4716.886 | HuoHuo: 41.093
+Run   36: Team DPAV: 65446.060 | Saber: 33065.729 | Gilgamesh: 27418.678 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run   37: Team DPAV: 63945.920 | Saber: 33482.698 | Gilgamesh: 25300.694 | MortenaxBlade: 4537.968 | HuoHuo: 41.093
+Run   38: Team DPAV: 63658.270 | Saber: 33441.422 | Gilgamesh: 25129.668 | MortenaxBlade: 4500.842 | HuoHuo: 41.093
+Run   39: Team DPAV: 61989.516 | Saber: 31848.206 | Gilgamesh: 25161.748 | MortenaxBlade: 4374.113 | HuoHuo: 41.093
+Run   40: Team DPAV: 68153.703 | Saber: 37748.741 | Gilgamesh: 25040.258 | MortenaxBlade: 4721.033 | HuoHuo: 41.093
+Run   41: Team DPAV: 64364.145 | Saber: 33332.755 | Gilgamesh: 26124.827 | MortenaxBlade: 4300.436 | HuoHuo: 41.771
+Run   42: Team DPAV: 65648.839 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   43: Team DPAV: 62820.539 | Saber: 32563.714 | Gilgamesh: 25163.563 | MortenaxBlade: 4506.924 | HuoHuo: 41.093
+Run   44: Team DPAV: 66807.695 | Saber: 35622.832 | Gilgamesh: 26102.785 | MortenaxBlade: 4477.602 | HuoHuo: 40.120
+Run   45: Team DPAV: 65511.718 | Saber: 33128.658 | Gilgamesh: 27418.678 | MortenaxBlade: 4358.255 | HuoHuo: 41.771
+Run   46: Team DPAV: 66953.673 | Saber: 35506.124 | Gilgamesh: 26082.846 | MortenaxBlade: 4721.033 | HuoHuo: 41.093
+Run   47: Team DPAV: 65660.208 | Saber: 33344.124 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   48: Team DPAV: 64474.465 | Saber: 33332.755 | Gilgamesh: 26237.630 | MortenaxBlade: 4297.953 | HuoHuo: 41.771
+Run   49: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   50: Team DPAV: 66959.469 | Saber: 35506.124 | Gilgamesh: 26086.024 | MortenaxBlade: 4723.650 | HuoHuo: 41.093
+Run   51: Team DPAV: 65446.551 | Saber: 33065.729 | Gilgamesh: 27418.678 | MortenaxBlade: 4356.017 | HuoHuo: 41.771
+Run   52: Team DPAV: 64474.465 | Saber: 33332.755 | Gilgamesh: 26237.630 | MortenaxBlade: 4297.953 | HuoHuo: 41.771
+Run   53: Team DPAV: 65660.208 | Saber: 33344.124 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   54: Team DPAV: 62825.995 | Saber: 32563.714 | Gilgamesh: 25163.563 | MortenaxBlade: 4512.380 | HuoHuo: 41.093
+Run   55: Team DPAV: 63699.008 | Saber: 33366.659 | Gilgamesh: 25214.679 | MortenaxBlade: 4512.220 | HuoHuo: 41.093
+Run   56: Team DPAV: 65648.839 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   57: Team DPAV: 68514.142 | Saber: 37748.741 | Gilgamesh: 25397.969 | MortenaxBlade: 4723.761 | HuoHuo: 41.093
+Run   58: Team DPAV: 64230.139 | Saber: 33313.019 | Gilgamesh: 25621.619 | MortenaxBlade: 4690.052 | HuoHuo: 41.093
+Run   59: Team DPAV: 68944.645 | Saber: 37358.427 | Gilgamesh: 25383.088 | MortenaxBlade: 5559.459 | HuoHuo: 41.093
+Run   60: Team DPAV: 63608.687 | Saber: 33441.422 | Gilgamesh: 25080.085 | MortenaxBlade: 4500.842 | HuoHuo: 41.093
+Run   61: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   62: Team DPAV: 65511.718 | Saber: 33128.658 | Gilgamesh: 27418.678 | MortenaxBlade: 4358.255 | HuoHuo: 41.771
+Run   63: Team DPAV: 65975.759 | Saber: 33315.970 | Gilgamesh: 27402.739 | MortenaxBlade: 4650.922 | HuoHuo: 41.771
+Run   64: Team DPAV: 64867.101 | Saber: 33537.592 | Gilgamesh: 26218.199 | MortenaxBlade: 4505.860 | HuoHuo: 41.093
+Run   65: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run   66: Team DPAV: 63699.008 | Saber: 33366.659 | Gilgamesh: 25214.679 | MortenaxBlade: 4512.220 | HuoHuo: 41.093
+Run   67: Team DPAV: 65320.786 | Saber: 32940.455 | Gilgamesh: 27418.678 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run   68: Team DPAV: 64166.675 | Saber: 33312.655 | Gilgamesh: 25720.645 | MortenaxBlade: 4527.248 | HuoHuo: 41.771
+Run   69: Team DPAV: 62825.995 | Saber: 32563.714 | Gilgamesh: 25163.563 | MortenaxBlade: 4512.380 | HuoHuo: 41.093
+Run   70: Team DPAV: 64265.012 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run   71: Team DPAV: 68384.178 | Saber: 37748.741 | Gilgamesh: 25268.006 | MortenaxBlade: 4723.761 | HuoHuo: 41.093
+Run   72: Team DPAV: 65260.046 | Saber: 34419.967 | Gilgamesh: 25557.136 | MortenaxBlade: 4696.604 | HuoHuo: 41.093
+Run   73: Team DPAV: 64152.210 | Saber: 33065.729 | Gilgamesh: 26124.827 | MortenaxBlade: 4355.526 | HuoHuo: 41.771
+Run   74: Team DPAV: 62698.982 | Saber: 32563.714 | Gilgamesh: 25033.822 | MortenaxBlade: 4515.108 | HuoHuo: 41.093
+Run   75: Team DPAV: 65655.268 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4297.708 | HuoHuo: 41.771
+Run   76: Team DPAV: 62833.453 | Saber: 31470.175 | Gilgamesh: 26201.094 | MortenaxBlade: 4556.735 | HuoHuo: 41.093
+Run   77: Team DPAV: 66568.843 | Saber: 35350.549 | Gilgamesh: 25681.482 | MortenaxBlade: 4893.141 | HuoHuo: 41.093
+Run   78: Team DPAV: 66242.848 | Saber: 35327.681 | Gilgamesh: 25733.993 | MortenaxBlade: 4537.503 | HuoHuo: 41.093
+Run   79: Team DPAV: 63650.866 | Saber: 33441.422 | Gilgamesh: 25129.668 | MortenaxBlade: 4495.386 | HuoHuo: 41.093
+Run   80: Team DPAV: 65648.839 | Saber: 33332.755 | Gilgamesh: 27418.678 | MortenaxBlade: 4292.252 | HuoHuo: 40.798
+Run   81: Team DPAV: 64476.948 | Saber: 33332.755 | Gilgamesh: 26237.630 | MortenaxBlade: 4300.436 | HuoHuo: 41.771
+Run   82: Team DPAV: 62392.339 | Saber: 31870.584 | Gilgamesh: 25625.026 | MortenaxBlade: 4292.252 | HuoHuo: 40.120
+Run   83: Team DPAV: 64265.503 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4356.017 | HuoHuo: 41.771
+Run   84: Team DPAV: 64710.406 | Saber: 33179.951 | Gilgamesh: 25887.712 | MortenaxBlade: 5018.183 | HuoHuo: 41.093
+Run   85: Team DPAV: 68910.551 | Saber: 37358.427 | Gilgamesh: 25348.994 | MortenaxBlade: 5559.459 | HuoHuo: 41.093
+Run   86: Team DPAV: 64794.956 | Saber: 33315.970 | Gilgamesh: 26221.691 | MortenaxBlade: 4651.168 | HuoHuo: 41.771
+Run   87: Team DPAV: 62779.140 | Saber: 32563.714 | Gilgamesh: 25113.980 | MortenaxBlade: 4515.108 | HuoHuo: 41.093
+Run   88: Team DPAV: 68615.038 | Saber: 35441.524 | Gilgamesh: 27358.850 | MortenaxBlade: 5170.992 | HuoHuo: 41.093
+Run   89: Team DPAV: 63789.671 | Saber: 32563.714 | Gilgamesh: 26132.695 | MortenaxBlade: 4506.924 | HuoHuo: 41.093
+Run   90: Team DPAV: 64265.503 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4356.017 | HuoHuo: 41.771
+Run   91: Team DPAV: 63658.270 | Saber: 33441.422 | Gilgamesh: 25129.668 | MortenaxBlade: 4500.842 | HuoHuo: 41.093
+Run   92: Team DPAV: 63741.508 | Saber: 32878.759 | Gilgamesh: 25916.276 | MortenaxBlade: 4341.317 | HuoHuo: 40.798
+Run   93: Team DPAV: 64330.670 | Saber: 33128.658 | Gilgamesh: 26237.630 | MortenaxBlade: 4358.255 | HuoHuo: 41.771
+Run   94: Team DPAV: 64265.503 | Saber: 33065.729 | Gilgamesh: 26237.630 | MortenaxBlade: 4356.017 | HuoHuo: 41.771
+Run   95: Team DPAV: 65802.460 | Saber: 34413.294 | Gilgamesh: 26049.932 | MortenaxBlade: 4714.673 | HuoHuo: 41.093
+Run   96: Team DPAV: 66172.318 | Saber: 35463.186 | Gilgamesh: 25516.232 | MortenaxBlade: 4549.229 | HuoHuo: 41.093
+Run   97: Team DPAV: 64330.670 | Saber: 33128.658 | Gilgamesh: 26237.630 | MortenaxBlade: 4358.255 | HuoHuo: 41.771
+Run   98: Team DPAV: 63494.184 | Saber: 33184.344 | Gilgamesh: 25319.676 | MortenaxBlade: 4384.715 | HuoHuo: 41.093
+Run   99: Team DPAV: 67747.272 | Saber: 37358.427 | Gilgamesh: 25005.665 | MortenaxBlade: 4739.509 | HuoHuo: 41.093
+Run  100: Team DPAV: 62973.002 | Saber: 31585.763 | Gilgamesh: 26222.327 | MortenaxBlade: 4559.463 | HuoHuo: 41.093
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 65306.833
+Average Saber DPAV: 34061.986 Percentage: 52.157%
+Average Gilgamesh DPAV: 26089.915 Percentage: 39.950%
+Average MortenaxBlade DPAV: 4541.760 Percentage: 6.954%
+Average HuoHuo DPAV: 41.229 Percentage: 0.063%
+
+Min Team DPAV: 61989.516
+Max Team DPAV: 68944.645

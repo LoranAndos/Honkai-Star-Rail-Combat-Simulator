@@ -10,7 +10,7 @@ class DukeTopaz(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("DukeDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         if self.setType == 4:
@@ -20,7 +20,7 @@ class DukeTopaz(Relic):
                            TickDown.PERM))
             bl.append(Buff("DukeUltATK", StatTypes.ATK_PERCENT, 0.312, self.wearerRole, [AtkType.TOPAZULT], 1, 1, Role.SELF,
                            TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class DukeFeixiao(Relic):
@@ -30,7 +30,7 @@ class DukeFeixiao(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("DukeDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         if self.setType == 4:
@@ -38,7 +38,7 @@ class DukeFeixiao(Relic):
                            TickDown.PERM))
             bl.append(Buff("DukeUltATK", StatTypes.ATK_PERCENT, 0.3543, self.wearerRole, [AtkType.DUKEULT], 1, 1, Role.SELF,
                            TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class DukeMoze(Relic):
@@ -48,7 +48,7 @@ class DukeMoze(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hlv = super().equip()
         bl.append(
             Buff("DukeDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         if self.setType == 4:
@@ -56,7 +56,7 @@ class DukeMoze(Relic):
                            TickDown.PERM))
             bl.append(Buff("DukeUltATK", StatTypes.ATK_PERCENT, 0.06, self.wearerRole, [AtkType.DUKEULT], 1, 1, Role.SELF,
                            TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class DukeJY(Relic):
@@ -66,21 +66,21 @@ class DukeJY(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("DukeDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         if self.setType == 4:
             bl.append(
                 Buff("DukeFuaATK", StatTypes.ATK_PERCENT, 0.312, self.wearerRole, [AtkType.FUA], 1, 1))  # lightning lord
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn, result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if turn.moveName == "LightningLordFUA" and self.setType == 4:
             bl.append(
                 Buff("DukeATK", StatTypes.ATK_PERCENT, 0.48, self.wearerRole, [AtkType.BSC, AtkType.SKL, AtkType.ULT], 3, 1,
                      tdType=TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 class DukeAshveil(Relic):
     name = "The Ashblazing Grand Duke"
@@ -89,13 +89,13 @@ class DukeAshveil(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("DukeDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useFua(enemyID)
         if self.setType == 4:
             bl.append(Buff("DukeATK", StatTypes.ATK_PERCENT, 0.48, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

@@ -13,9 +13,9 @@ class SeeYouAtTheEnd(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 0.04 + 0.20
         bl.append(Buff("SeeYouAtTheEndCD", StatTypes.CD_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("SeeYouAtTheEnd_SKLDMG", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("SeeYouAtTheEnd_FUADMG", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.FUA], 1, 1, Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

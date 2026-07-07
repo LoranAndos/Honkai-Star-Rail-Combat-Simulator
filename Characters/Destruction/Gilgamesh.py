@@ -3,10 +3,14 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Destruction.IAmAsYouBehold import IAmAsYouBehold
+from Lightcones.Destruction.OnTheFallOfAnAeon import OnTheFallOfAnAeon
+from Lightcones.Destruction.ATrailOfBygoneBlood import ATrailOfBygoneBlood
+from Lightcones.Destruction.ASecretVow import ASecretVow
 from Planars.CosmicLifeSciencesInstitute import CosmicLifeSciencesInstitute
-from Planars.TengokuLivestream import TengokuLivestream
+from Planars.InertSalsotto import InertSalsotto
 from RelicStats import RelicStats
 from Relics.ScholarLostInErudition import ScholarLostInErudition
+from Relics.AsNavigatorIseeSeesIt import AsNavigatorIseeSeesIt
 from Result import *
 from Turn_Text import Turn
 from Delay_Text import Advance
@@ -57,16 +61,16 @@ class Gilgamesh(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else IAmAsYouBehold(role, 1)
+        self.lightcone = lc if lc else OnTheFallOfAnAeon(role, 5)
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else CosmicLifeSciencesInstitute(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
+        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 3, 2, 2, 2, 2, 11, 10, StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("GilgameshTraceATK", StatTypes.ATK, 0.18, self.role))
         bl.append(Buff("GilgameshTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("GilgameshTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
@@ -78,44 +82,46 @@ class Gilgamesh(Character):
             bl.append(Buff("GilgameshE4ERR", StatTypes.ERR_PERCENT, 0.20, self.role))
         if self.eidolon >= 6:
             bl.append(Buff("GilgameshE6PEN", StatTypes.PEN, 0.20, Role.ALL))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "GilgameshBasic"))
         self.JointCounter += 1
         logger.debug(f"Gilgamesh JointCounter increased by one, current count: {self.JointCounter}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Shred = 0.33 if self.eidolon >= 3 else 0.30
         e3MulMain = 3.08 if self.eidolon >= 3 else 2.80
         e3MulSide = 1.54 if self.eidolon >= 3 else 1.40
-        e1Role = Role.ALL if self.eidolon >= 1 else self.role
-        e2MainExtraDamage = 2.0 if self.eidolon >= 2 else 1.0
-        e2SideExtraDamage = 1.5 if self.eidolon >= 2 else 1.0
-        bl.append(Buff("GilgameshSKLShred", StatTypes.SHRED, e3Shred, e1Role, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+        e2MainExtraDamage = 1.0 if self.eidolon >= 2 else 0.0
+        e2SideExtraDamage = 0.50 if self.eidolon >= 2 else 0.0
+        if self.eidolon >= 1:
+            bl.append(Buff("GilgameshSKLShred", StatTypes.SHRED, e3Shred, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+        else:
+            bl.append(Buff("GilgameshSKLShred", StatTypes.SHRED, e3Shred, self.role, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
         if self.eidolon >= 1:
             bl.append(Buff("GilgameshE1ATK", StatTypes.ATK_PERCENT, 0.60, self.role, [AtkType.ALL], 3, 1, Role.SELF,TickDown.END))
-            bl.append(Buff("GilgameshE1ERR", StatTypes.ERR_F, 40, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
+            self.currEnergy = min(self.currEnergy+40,self.maxEnergy)
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.SKL], [self.element],
-                       [e3MulMain*e2MainExtraDamage, e3MulSide*e2SideExtraDamage], [20, 10], 30, self.scaling, 0, "GilgameshSkill"))
+                       [e3MulMain+e2MainExtraDamage, e3MulSide+e2SideExtraDamage], [20, 10], 30, self.scaling, 0, "GilgameshSkill"))
         self.Interest = 0
         self.JointCounter += 1
         logger.debug(f"Gilgamesh JointCounter increased by one, current count: {self.JointCounter}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e5MulAll = 4.40 if self.eidolon >= 5 else 4.00
         e5MulExtra = 1.10 if self.eidolon >= 5 else 1.0
         e6ExtraDamage = 0.80 if self.eidolon == 6 else 0.00
         if self.eidolon == 6:
-            bl.append(Buff("GilgameshE6UltCD", StatTypes.CD_PERCENT, 1.00*self.GoldenRule, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+            bl.append(Buff("GilgameshE6UltCD", StatTypes.CD_PERCENT, 1.00*min(self.GoldenRule,3), self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             self.GoldenRule = 0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
                        [e5MulAll, 0], [40, 0], 0, self.scaling, 0, "GilgameshUltAll"))
@@ -129,29 +135,29 @@ class Gilgamesh(Character):
         self.GoldenRule += 1
         self.JointCounter += 1
         logger.debug(f"Gilgamesh JointCounter increased by one, current count: {self.JointCounter}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useJointAttack(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useJointAttack(enemyID)
         e3Mult = 4.4 if self.eidolon>= 3 else 4.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3Mult, 0], [20, 0], 10, self.scaling, 0, "GilgameshJointAttack"))
         self.Interest += 3
         logger.debug(f"Gilgamesh Obtained 3 Interest from Joint Attack, Current count: {self.Interest}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         if self.Interest >= 10 and not self.InterestPiqued:
             self.InterestPiqued = True
         bl.append(Buff("GilgameshInterestSPD", StatTypes.SPD_PERCENT, 0.1*self.Interest, self.role, [AtkType.ALL], 1, 1, self.ally2Role, TickDown.PERM))
         if self.JointCounter >= 8 and self.SaberInTeam:
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useJointAttack(-1))
             self.JointCounter = 0
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e5Dmg = 0.44 if self.eidolon >= 5 else 0.40
         if turn.moveName in UltimateList:
             bl.append(Buff("GilgameshUltDmg", StatTypes.DMG_PERCENT, e5Dmg, self.role, [AtkType.ULT], 3, 1, Role.SELF, TickDown.END))
@@ -186,14 +192,14 @@ class Gilgamesh(Character):
             self.JointCounter += 1
             logger.debug(f"Gilgamesh JointCounter increased by one, current count: {self.JointCounter}")
         if self.JointCounter >= 8 and self.SaberInTeam:
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useJointAttack(-1))
             self.JointCounter = 0
         if self.eidolon == 6 and result.turnName == "GilgameshUltSingle":
             bl.append(Buff("GilgameshE6UltCD", StatTypes.CD_PERCENT, 0, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.SaberInTeam = specialRes.attr1
         self.ally1Energy = specialRes.attr2[0]
         self.ally1Role = specialRes.attr2[1]
@@ -216,7 +222,7 @@ class Gilgamesh(Character):
         self.InterestOld = self.Interest
         bl.append(Buff("Trace2CDExtra", StatTypes.CD_PERCENT, 0.25 * self.InterestTally, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("GilgameshInterestSPD", StatTypes.SPD_PERCENT, 0.1*self.Interest, self.role, [AtkType.ALL], 1, 1, self.ally2Role, TickDown.PERM))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         return "E" if self.InterestPiqued else "A"

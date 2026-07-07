@@ -10,6 +10,7 @@ from Enemy import Enemy, KILL_ENERGY, FINITE_ENEMY_HP
 from HPChecks import *
 from Attributes import *
 from Healing import *
+from Shields import *
 from Lightcone import Lightcone
 from Memosprite import Memosprite
 from Summons import *
@@ -312,7 +313,7 @@ def initCharCurrentHP_MaxHp(playerTeam: list[Character], buffList: list[Buff]):
         char.maxHP = getCharMaxHP(char, char.lightcone, buffList)
         char.currHP = getCharMaxHP(char, char.lightcone, buffList)
 
-def parseHealing(lst: list[Healing], playerTeam: list[Character]) -> list:
+def parseHealing(lst: list[Healing], playerTeam: list[Character], buffList: list[Buff] = None) -> list[Healing]:
     HealingList = []
     HpList = []
     for character in playerTeam:
@@ -357,6 +358,146 @@ def addHealing(currList: list[Healing], newList: list[Healing]) -> list[Healing]
     for Heal in newList:
         currList.append(Heal)
     return currList
+
+def parseShield(lst: list[Shield], playerTeam: list[Character]) -> list[Shield]:
+    """Expand raw Shield entries (one per applier action) into one resolved
+    Shield instance per affected character, mirroring parseHealing's pattern
+    for AOE/BLAST/SINGLE/Role targeting. BLAST targeting for shields always
+    behaves like AOE (no "lowest HP" selection makes sense for a shield)."""
+    ShieldList = []
+    for shield in lst:
+        if shield.target == Role.ALL:
+            for char in playerTeam:
+                ShieldList.append(Shield(shield.name, shield.val, shield.scaling, char.role, shield.applier,
+                                         shield.targeting, shield.capMultiplier, shield.isDefining,
+                                         shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+        else:
+            for char in playerTeam:
+                if char.role == shield.target:
+                    ShieldList.append(Shield(shield.name, shield.val, shield.scaling, shield.target, shield.applier,
+                                             shield.targeting, shield.capMultiplier, shield.isDefining,
+                                             shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+    return ShieldList
+
+def addShield(currList: list[Shield], newList: list[Shield]) -> list[Shield]:
+    for shield in newList:
+        currList.append(shield)
+    return currList
+
+def getShieldGrantedAmount(character: Character, shieldEntry: Shield, buffList: list[Buff], turn: Turn) -> float:
+    """Compute how much shield HP a single Shield entry grants, mirroring the
+    Heal.val[0] * Scaling_Multiplier * OGH_Multiplier logic used for Healing."""
+    if shieldEntry.scaling == Scaling.Other:
+        return shieldEntry.val
+    elif shieldEntry.scaling == Scaling.MAXHP:
+        return shieldEntry.val * character.maxHP
+    else:
+        scalingMul = getBaseValue(character, buffList, turn)
+        return shieldEntry.val * scalingMul
+
+def applyShields(shieldEntries: list[Shield], playerTeam: list[Character], buffList: list[Buff], turn: Turn = None,
+                 dmgTracker: DmgTracker = None) -> list[Shield]:
+    """Apply each resolved Shield entry to its target character's persistent
+    shield list (character.shields), creating a new Shield or topping up an
+    existing same-named one. The granted amount scales off the APPLIER's
+    stats/buffs (matching how Healing computes Scaling_Multiplier), not the
+    target's. The `turn` parameter is optional/ignored for scaling purposes;
+    a fresh placeholder Turn matching each shield entry's own .scaling and
+    .atkType is built internally so ATK%/HP%/DEF% lookups resolve correctly
+    even when multiple shield entries with different scalings are applied
+    in the same batch. Returns the updated combined list of all characters'
+    active shields (for logging/inspection convenience)."""
+    for shieldEntry in shieldEntries:
+        target = next((c for c in playerTeam if c.role == shieldEntry.target), None)
+        applierChar = next((c for c in playerTeam if c.role == shieldEntry.applier), None)
+        if target is None or applierChar is None or shieldEntry.val == 0:
+            continue
+        if not hasattr(target, 'shields') or target.shields is None:
+            target.shields = []
+
+        shieldTurn = Turn("", shieldEntry.applier, -1, Targeting.NA, shieldEntry.atkType, [Element.PHYSICAL],
+                          [0, 0], [0, 0], 0, shieldEntry.scaling, 0, "ShieldPlaceholder")
+        grantedAmount = getShieldGrantedAmount(applierChar, shieldEntry, buffList, shieldTurn)
+        if grantedAmount <= 0:
+            continue
+
+        existing = next((s for s in target.shields if s.name == shieldEntry.name), None)
+        if existing is None:
+            newShield = Shield(shieldEntry.name, shieldEntry.val, shieldEntry.scaling, shieldEntry.target,
+                               shieldEntry.applier, shieldEntry.targeting, shieldEntry.capMultiplier,
+                               shieldEntry.isDefining, shieldEntry.turns, shieldEntry.tickDown, shieldEntry.tdType,
+                               shieldEntry.atkType)
+            newShield.applyAmount(grantedAmount)
+            target.shields.append(newShield)
+            logger.info(f"    SHIELD - {target.name} gained shield '{shieldEntry.name}': "
+                       f"{newShield.currentAmount:.1f} (cap: {newShield.capValue})")
+        else:
+            # Refresh duration/tdType/tickDown to the latest application (like a buff refresh)
+            existing.turns = shieldEntry.turns
+            existing.tickDown = shieldEntry.tickDown
+            existing.tdType = shieldEntry.tdType
+            # isDefining sources recalc the cap; non-defining sources just add, respecting current cap
+            existing.isDefining = shieldEntry.isDefining
+            if shieldEntry.isDefining:
+                existing.capMultiplier = shieldEntry.capMultiplier
+            existing.applyAmount(grantedAmount)
+            logger.info(f"    SHIELD - {target.name} topped up shield '{shieldEntry.name}': "
+                       f"{existing.currentAmount:.1f} (cap: {existing.capValue})")
+        if dmgTracker is not None and hasattr(dmgTracker, 'addShieldGranted'):
+            dmgTracker.addShieldGranted(grantedAmount)
+    return [s for c in playerTeam for s in (c.shields if hasattr(c, 'shields') and c.shields else [])]
+
+def tickShields(char: Character, tdType: str) -> None:
+    """Tick down all shields on every relevant character whose tickDown role
+    matches char.role for the given tdType ('START' or 'END'), mirroring
+    tickBuffs. Expired shields (turns <= 0 after reduction, or PERM never
+    expires on its own) are removed. Shields with currentAmount <= 0 are
+    also removed regardless of tdType."""
+    cmp = TickDown.START if tdType == "START" else TickDown.END
+    playerTeam = Character._current_player_team or []
+    for character in playerTeam:
+        if not hasattr(character, 'shields') or not character.shields:
+            continue
+        survivors = []
+        for shield in character.shields:
+            if shield.currentAmount <= 0:
+                logging.info(f"        Shield {shield.name} on {character.name} depleted")
+                continue
+            if shield.tdType == cmp and shield.tickDown == char.role:
+                if shield.turns <= 1:
+                    logging.info(f"        Shield {shield.name} on {character.name} expired")
+                    continue
+                shield.reduceTurns()
+            survivors.append(shield)
+        character.shields = survivors
+
+def absorbShieldDamage(character: Character, dmg: float, dmgTracker: DmgTracker = None) -> float:
+    """Drain dmg from character's active shields, largest currentAmount first.
+    Returns the leftover damage that should be applied to the character's HP."""
+    if not hasattr(character, 'shields') or not character.shields or dmg <= 0:
+        return dmg
+    remaining = dmg
+    # Largest currentAmount first
+    character.shields.sort(key=lambda s: s.currentAmount, reverse=True)
+    for shield in character.shields:
+        if remaining <= 0:
+            break
+        before = shield.currentAmount
+        remaining = shield.absorb(remaining)
+        absorbedThisShield = before - shield.currentAmount
+        if absorbedThisShield > 0 and dmgTracker is not None and hasattr(dmgTracker, 'addShieldAbsorbed'):
+            dmgTracker.addShieldAbsorbed(absorbedThisShield)
+            logger.info(f"    SHIELD - {character.name}'s shield '{shield.name}' absorbed "
+                       f"{absorbedThisShield:.1f} dmg (remaining: {shield.currentAmount:.1f})")
+    # Remove any shields that were fully depleted by this hit
+    character.shields = [s for s in character.shields if s.currentAmount > 0]
+    return remaining
+
+def getCharShieldHP(character: Character) -> float:
+    """Total current shield HP across all active shields on a character."""
+    if not hasattr(character, 'shields') or not character.shields:
+        return 0.0
+    return sum(s.currentAmount for s in character.shields)
 
 def getEnemySPD(enemy: Enemy, debuffList: list[Debuff]) -> float:
     baseSPD = enemy.spd
@@ -557,7 +698,7 @@ def processEnemyHits(playerTeam: list[Character], hitMap: list[tuple[int, float]
     # Call useHit once per hit character
     for charIdx in hit_characters:
         char = playerTeam[charIdx]
-        bl, dbl, al, dl, tl, hl = char.useHit(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = char.useHit(enemyID)
         if dbl:
             hit_debuffs.extend(dbl)
             logger.debug(f"{char.name} useHit produced {len(dbl)} debuffs from enemy {enemyID}")
@@ -571,7 +712,7 @@ def getCharDEF(char: Character, buffList: list[Buff]) -> float:
 
 
 def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
-                       buffList: list[Buff], enemyDebuffs: list[Debuff] = None) -> tuple[bool, list[str], list[Debuff]]:
+                       buffList: list[Buff], enemyDebuffs: list[Debuff] = None, dmgTracker: DmgTracker = None) -> tuple[bool, list[str], list[Debuff]]:
     """Deal damage to characters based on the hitMap produced by addEnergy.
 
     Each entry in hitMap is (charIdx, energyGiven). Damage scales with energyGiven:
@@ -618,13 +759,18 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
         dmg *= atkMul          # apply enemy ATK reduction
         dmg *= enemyDmgMul     # apply enemy DMG reduction
         dmg *= getMulDMGReduction(char, buffList)
-        char.ChangeHpValue(-dmg)
+
+        # ── Shield absorption: drain active shields (largest first) before HP ──
+        dmgAfterShield = absorbShieldDamage(char, dmg, dmgTracker)
+        char.ChangeHpValue(-dmgAfterShield)
 
         atkType = "aoe" if energyGiven < 10.0 else "single/blast"
+        shieldAbsorbedThisHit = dmg - dmgAfterShield
         logger.info(
             f"    ENEMY  - {enemy.name} [{atkType}] dealt {dmg:.1f} to {char.name} "
             f"(energy: {energyGiven:.1f}, DEF: {charDEF:.0f}, atkMul: {atkMul:.2f}, dmgMul: {enemyDmgMul:.2f}) "
-            f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f}")
+            f"| Shield Absorbed: {shieldAbsorbedThisHit:.1f} | HP Lost: {dmgAfterShield:.1f} "
+            f"| HP: {max(0.0, char.currHP):.0f}/{char.maxHP:.0f} | Shield HP: {char.getTotalShieldHP():.0f}")
 
         if char.currHP <= 0:
             msg = f"CHARACTER DEATH - {char.name} was killed by {enemy.name}! Run stopped."
@@ -638,7 +784,7 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
     # Call useHit once per hit character and collect debuffs
     for charIdx in hit_characters:
         char = playerTeam[charIdx]
-        bl, dbl, al, dl, tl, hl = char.useHit(enemy.enemyID)
+        bl, dbl, al, dl, tl, hl, sl = char.useHit(enemy.enemyID)
         if dbl:
             hit_debuffs.extend(dbl)
             logger.debug(f"{char.name} useHit produced {len(dbl)} debuffs")
@@ -767,16 +913,22 @@ def addSummons(playerTeam: list[Character]) -> list:
                 ahaAdded = True
     return summons
 
-def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing],
-                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay], healingToAdd: list[Healing]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Healing]]:
-    buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam, defaultEnemyID=enemyTeam[0].enemyID if enemyTeam else 0), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam)
+def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing], shieldList: list[Shield],
+                    buffToAdd: list[Buff], DebuffToAdd: list[Debuff], advToAdd: list[Advance], delayToAdd: list[Delay], healingToAdd: list[Healing], shieldToAdd: list[Shield]) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Healing], list[Shield]]:
+    buffs, debuffs, advs, delays, heals = parseBuffs(buffToAdd, playerTeam), parseDebuffs(DebuffToAdd, enemyTeam, defaultEnemyID=enemyTeam[0].enemyID if enemyTeam else 0), parseAdvance(advToAdd, playerTeam), parseDelay(delayToAdd, enemyTeam), parseHealing(healingToAdd, playerTeam, buffList)
     buffList = addBuffs(buffList, buffs)
     debuffList = addBuffs(debuffList, debuffs)
     advList = addAdvance(advList, advs)
     delayList = addDelay(delayList, delays)
     healingList = addHealing(healingList, heals)
 
-    return buffList, debuffList, advList, delayList, healingList
+    if shieldToAdd:
+        resolvedShields = parseShield(shieldToAdd, playerTeam)
+        applyShields(resolvedShields, playerTeam, buffList)
+
+    shieldList = [s for c in playerTeam for s in (c.shields if hasattr(c, 'shields') and c.shields else [])]
+
+    return buffList, debuffList, advList, delayList, healingList, shieldList
 
 def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], healingList: list[Healing], manualMode = False) -> tuple[Result, list[Debuff], list[Delay]]:
     char = findCharRole(playerTeam, turn.charRole)
@@ -1676,7 +1828,7 @@ def getScalingValues(char: Character, buffList: list[Buff], atkType: list[AtkTyp
             flat += buff.getBuffVal()
     return base * (1 + mul) + flat
 
-def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, spTracker, dmgTracker: DmgTracker, manualMode=False):
+def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList, spTracker, dmgTracker: DmgTracker, manualMode=False):
 
     while turnList:
         turn = turnList[0]
@@ -1718,7 +1870,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.warning(f"    {result}")
         if manualMode:
             print(result)
-        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, [], newDebuffs, [], newDelays, [])
+        teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList, [], newDebuffs,[], newDelays,[],[])
 
         # For Evanescia specifically: apply her own action's errGain to currEnergy immediately
         # so _tryMasterFoxFUA in ownTurn sees the correct post-action energy.
@@ -1740,14 +1892,14 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             if hasattr(char, 'lightcone') and hasattr(char.lightcone, 'debuffList'):
                 char.lightcone.debuffList = enemyDebuffs
             if char.role == turn.charRole:
-                tempB, tempDB, tempA, tempD, newTurns, tempH = char.ownTurn(turn, res)
+                tempB, tempDB, tempA, tempD, newTurns, tempH, tempS = char.ownTurn(turn, res)
             else:
-                tempB, tempDB, tempA, tempD, newTurns, tempH = char.allyTurn(turn, res)
+                tempB, tempDB, tempA, tempD, newTurns, tempH, tempS = char.allyTurn(turn, res)
             if len(tempDB) > 0:
                 anyDebuffEmitted = True  # this turn caused debuffs (new or refresh)
-            teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(
-                playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,
-                tempB, tempDB, tempA, tempD, tempH)
+            teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList = handleAdditions(
+                playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList,
+                tempB, tempDB, tempA, tempD, tempH, tempS)
             turnList.extend(newTurns)
 
         # Apply advances immediately after all ownTurn/allyTurn callbacks so summons
@@ -1785,9 +1937,9 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
 
         turnList = turnList[1:]
 
-    return teamBuffs, enemyDebuffs, advList, delayList, turnList, healList
+    return teamBuffs, enemyDebuffs, advList, delayList, turnList, healList, shieldList
 
-def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,spTracker, dmgTracker, manualMode = False, simAV = 0):
+def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList, spTracker, dmgTracker, manualMode = False, simAV = 0):
 
     turnList = []
     # Check if any unit can ult
@@ -1795,15 +1947,15 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
         # For Evanescia: check Master Fox BEFORE the ult consumes energy,
         # so any pending threshold fires first.
         if char.name == "Evanescia" and char.canUseUlt():
-            fox_bl, fox_dbl, fox_al, fox_dl, fox_tl, fox_hl = [], [], [], [], [], []
+            fox_bl, fox_dbl, fox_al, fox_dl, fox_tl, fox_hl, fox_sl = [], [], [], [], [], [], []
             if char._tryMasterFoxFUA(-1, fox_bl, fox_tl):
-                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(
-                    playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,
-                    fox_bl, fox_dbl, fox_al, fox_dl, fox_hl)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList = handleAdditions(
+                    playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList,
+                    fox_bl, fox_dbl, fox_al, fox_dl, fox_hl, fox_sl)
                 turnList.extend(fox_tl)
-                teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(
+                teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList, shieldList = processTurnList(
                     turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList,
-                    delayList, healingList, spTracker, dmgTracker, manualMode=manualMode)
+                    delayList, healingList, shieldList, spTracker, dmgTracker, manualMode=manualMode)
                 teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
 
         if char.canUseUlt() and (char.name != "Cipher" or simAV < 400 or simAV >= 520):
@@ -1815,18 +1967,18 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
                 logging.critical(ult)
                 if manualMode:
                     print(ult)
-                bl, dbl, al, dl, tl, hl = char.useUlt(target)
-                teamBuffs, enemyDebuffs, advList, delayList, healingList = handleAdditions(playerTeam, eTeam, teamBuffs,
+                bl, dbl, al, dl, tl, hl, sl = char.useUlt(target)
+                teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs,
                                                                                            enemyDebuffs, advList,
-                                                                                           delayList, healingList, bl,
-                                                                                           dbl, al, dl, hl)
+                                                                                           delayList, healingList, shieldList, bl,
+                                                                                           dbl, al, dl, hl, sl)
                 # E2-style post-ult effect: extend buffs on unit AFTER they've been merged into teamBuffs
                 if hasattr(char, 'applyGodmodeBuffExtension'):
                     teamBuffs = char.applyGodmodeBuffExtension(teamBuffs)
                 turnList.extend(tl)
 
         # Handle any new attacks from unit ults
-        teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList,spTracker, dmgTracker, manualMode=manualMode)
+        teamBuffs, enemyDebuffs, advList, delayList, turnList, healingList, shieldList = processTurnList(turnList, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList, spTracker, dmgTracker, manualMode=manualMode)
 
         # Handle any errGain from unit ults
         teamBuffs = handleEnergyFromBuffs(teamBuffs, enemyDebuffs, playerTeam, eTeam)
@@ -1834,10 +1986,10 @@ def handleUlts(playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, del
         # Add/Minus any SP changes from special effects
         teamBuffs = handleSPFromBuffs(teamBuffs, spTracker)
 
-    return teamBuffs, enemyDebuffs, advList, delayList, healingList
+    return teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList
 
 
-def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList,
+def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList,
                          checkType, spTracker, dmgTracker, manualMode=False):
     turnList = []
 
@@ -1851,18 +2003,18 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
         specRes = handleSpec(spec, unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuffs, spTracker, checkType,
                              manualMode=manualMode)
         if checkType == "START":
-            bl, dbl, al, dl, tl, hl = char.handleSpecialStart(specRes)
+            bl, dbl, al, dl, tl, hl, sl = char.handleSpecialStart(specRes)
         else:
-            bl, dbl, al, dl, tl, hl = char.handleSpecialEnd(specRes)
-        teamBuffs, enemyDebuffs, advList, delayList, healList = handleAdditions(playerTeam, eTeam, teamBuffs,
+            bl, dbl, al, dl, tl, hl, sl = char.handleSpecialEnd(specRes)
+        teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs,
                                                                                 enemyDebuffs, advList, delayList,
-                                                                                healList, bl, dbl, al, dl, hl)
+                                                                                healList, shieldList, bl, dbl, al, dl, hl, sl)
         turnList.extend(tl)
 
     # Handle any attacks from special attacks
-    teamBuffs, enemyDebuffs, advList, delayList, turnList, healList = processTurnList(turnList, playerTeam, summons,
+    teamBuffs, enemyDebuffs, advList, delayList, turnList, healList, shieldList = processTurnList(turnList, playerTeam, summons,
                                                                                       eTeam, teamBuffs, enemyDebuffs,
-                                                                                      advList, delayList, healList,
+                                                                                      advList, delayList, healList, shieldList,
                                                                                       spTracker, dmgTracker,
                                                                                       manualMode=manualMode)
 
@@ -1878,7 +2030,7 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
     # Process Banger conversions for Elation characters
     teamBuffs = handleBangerConversions(teamBuffs, playerTeam)
 
-    return teamBuffs, enemyDebuffs, advList, delayList, healList
+    return teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList
 
 def manualModule(spTracker: SpTracker, playerTeam: list[Character], summons: list[Summon], enemyTeam: list[Enemy], simAV: float, unit, actionType) -> tuple[str, int]:
     unit.takeTurn()

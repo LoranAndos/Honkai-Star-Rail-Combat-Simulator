@@ -11,8 +11,8 @@ class PenaconyLandOfTheDreams(Planar):
         self.sameEle = sameEleTeammates
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("PenaconyERR", StatTypes.ERR_PERCENT, 0.05, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         for role in self.sameEle:
             bl.append(Buff("PenaconyDMG", StatTypes.DMG_PERCENT, 0.1, role, [AtkType.ALL], 1, 1, role, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

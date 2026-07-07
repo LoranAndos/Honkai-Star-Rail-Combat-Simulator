@@ -14,19 +14,19 @@ class WarmthShortensColdNights(Lightcone):
 
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         hpAmount = self.level * 0.04 + 0.12
         bl.append(Buff("WarmthShortensHP", StatTypes.HP_PERCENT, hpAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useBsc(enemyID)
         HealAmount = self.level * 0.005 + 0.015
         hl.append(Healing("WarmthShortensHeal_BSC", [HealAmount,0], Scaling.MAXHP, Role.ALL, self.wearerRole, Targeting.AOE))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         HealAmount = self.level * 0.005 + 0.015
         hl.append(Healing("WarmthShortensHeal_BSC", [HealAmount,0], Scaling.MAXHP, Role.ALL, self.wearerRole, Targeting.AOE))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

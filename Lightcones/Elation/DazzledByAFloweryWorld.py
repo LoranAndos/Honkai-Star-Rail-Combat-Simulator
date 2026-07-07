@@ -16,13 +16,13 @@ class DazzledByAFloweryWorld(Lightcone):
         self.spConsumedThisTurn = 0
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         CDBuff = self.level * 0.08 + 0.40
         bl.append(Buff("FloweryWorldCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         # Track SP consumed this turn from SparxieSkill
         if turn.moveName == "SparxieSkill":
             spConsumed = abs(min(turn.spChange-3, 0))  # spChange is negative, get absolute value
@@ -37,4 +37,4 @@ class DazzledByAFloweryWorld(Lightcone):
                 ELABuff = self.level * 0.04 + 0.16
                 bl.append(Buff("FloweryWorldELABuff", StatTypes.ELA, ELABuff, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
             self.spConsumedThisTurn = 0  # reset after skill resolves
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

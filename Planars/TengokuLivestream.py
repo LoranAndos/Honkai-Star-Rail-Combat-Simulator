@@ -12,12 +12,12 @@ class TengokuLivestream(Planar):
         self.spConsumedThisTurn = 0
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("TengokuCD", StatTypes.CD_PERCENT, 0.16, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if turn.moveName == "SparxieSkill":
             spConsumed = abs(min(turn.spChange-2, 0))  # spChange is negative, get absolute value
             self.spConsumedThisTurn += spConsumed
@@ -35,7 +35,7 @@ class TengokuLivestream(Planar):
             if self.spConsumedThisTurn >= 3:
                 bl.append(Buff("TengokuSPRinCD", StatTypes.CD_PERCENT, 0.32, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
             self.spConsumedThisTurn = 0
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def takeTurn(self) -> str:
         self.spConsumedThisTurn = 0

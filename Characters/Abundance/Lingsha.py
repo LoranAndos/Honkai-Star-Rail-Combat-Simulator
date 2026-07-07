@@ -59,7 +59,7 @@ class Lingsha(Character):
         self.rotation = rotation if rotation else ["E", "A", "A"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("LingshaTraceBE", StatTypes.BE_PERCENT, 0.373, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("LingshaTraceATK", StatTypes.ATK_PERCENT, 0.1, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("LingshaTraceHP", StatTypes.HP_PERCENT, 0.18, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
@@ -67,17 +67,17 @@ class Lingsha(Character):
             bl.append(Buff("LingshaE1WBE", StatTypes.WB_EFF, 0.5, self.role))
         if self.eidolon == 6:
             bl.append(Buff("LingshaE6Pen", StatTypes.PEN, 0.20, Role.ALL))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e5Mul = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5Mul, 0], [10, 0], 30, self.scaling, 1, "LingshaBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5Mul = 0.88 if self.eidolon >= 5 else 0.8
         e3HealingMult = 0.148 if self.eidolon >= 5 else 0.14
         e3HealingFlat = 467.5 if self.eidolon >= 5 else 420
@@ -86,10 +86,10 @@ class Lingsha(Character):
         hl.append(Healing("LingshaSkillHeal",[e3HealingMult,0],self.scaling,Role.ALL,self.role,Targeting.AOE))
         hl.append(Healing("LingshaSkillHeal",[e3HealingFlat,0],Scaling.Other,Role.ALL,self.role,Targeting.AOE))
         al.append(Advance("LingshaADV", Role.FUYUAN, 0.2))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e3Mul = 1.62 if self.eidolon >= 3 else 1.5
         e3HealingMult = 0.128 if self.eidolon >= 3 else 0.12
@@ -103,10 +103,10 @@ class Lingsha(Character):
             Debuff("LingshaBefog", self.role, StatTypes.VULN, befog, Role.ALL, [AtkType.BRK], 2, 1, Targeting.AOE,False, [0, 0], False))
         if self.eidolon >= 2:
             bl.append(Buff("LingshaE2BE", StatTypes.BE_PERCENT, 0.40, Role.ALL, turns=3, tdType=TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         if self.count == 0 and result.turnName != "FuyuanGoGo" and result.turnName != "LingshaAutoheal":
             self.count = 3
             self.fuas = self.fuas + 1
@@ -122,19 +122,19 @@ class Lingsha(Character):
         if self.eidolon >= 1:
             for enemy in result.brokenEnemy:
                 dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1, Targeting.SINGLE))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if turn.moveName == "FuyuanGoGo":
             return self.useFua(-1)
         if self.eidolon >= 1:
             for enemy in result.brokenEnemy:
                 dbl.append(Debuff("LingshaE1Shred", self.role, StatTypes.SHRED, 0.2, enemy.enemyID, [AtkType.ALL], 1000, 1, Targeting.SINGLE))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useFua(enemyID)
         e3Bonus = 0.825 if self.eidolon >= 3 else 0.75
         e3HealingMult = 0.128 if self.eidolon >= 3 else 0.12
         e3HealingFlat = 400.5 if self.eidolon >= 3 else 360
@@ -144,21 +144,21 @@ class Lingsha(Character):
         hl.append(Healing("LingshaFuaHeal", [e3HealingFlat, 0],Scaling.Other, Role.ALL, self.role, Targeting.AOE))
         if self.eidolon == 6:
             for _ in range(4):tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],[0.5, 0], [5, 0], 0, self.scaling, 0, "LingshaE6Extras"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         self.count = self.count - 1
         return super().takeTurn()
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.canUlt = specialRes.attr1
         self.beStat = specialRes.attr3
         atkBuff = min(0.5, self.beStat * 0.25)
         ohbBuff = min(0.2, self.beStat * 0.10)
         bl.append(Buff("LingshaBEtoATK", StatTypes.ATK_PERCENT, atkBuff, self.role))
         bl.append(Buff("LingshaBEtoOHB",StatTypes.OGH_PERCENT, ohbBuff, self.role))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def canUseUlt(self) -> bool:
         return super().canUseUlt() if self.canUlt else False

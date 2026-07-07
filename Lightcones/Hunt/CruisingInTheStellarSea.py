@@ -19,17 +19,17 @@ class CruisingInTheStellarSea(Lightcone):
         self.uptime = uptime
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         baseCR = self.level * 0.02 + 0.06
         bl.append(Buff("CruisingBaseCR", StatTypes.CR_PERCENT, baseCR, self.wearerRole,
                        [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
 
         if result.charRole != self.wearerRole:
-            return bl, dbl, al, dl, hl
+            return bl, dbl, al, dl, hl, sl
 
         # Extra CR if an attacked enemy is at or below 50% HP
         extraCR = self.level * 0.02 + 0.06
@@ -43,4 +43,4 @@ class CruisingInTheStellarSea(Lightcone):
             bl.append(Buff("CruisingKillATK", StatTypes.ATK_PERCENT, atkBuff, self.wearerRole,
                            [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
 
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

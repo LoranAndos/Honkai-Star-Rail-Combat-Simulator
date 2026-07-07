@@ -22,7 +22,7 @@ class ElationBrimmingWithBlessings(Lightcone):
 class ElationBrimmingWithBlessingsElationMC(ElationBrimmingWithBlessings):
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         elaAmount = self.level * 0.03 + 0.09
         bl.append(Buff("ElationBrimmingELA_ULT", StatTypes.ELA, elaAmount, self.targetRole, [AtkType.ALL], 2, 1, self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

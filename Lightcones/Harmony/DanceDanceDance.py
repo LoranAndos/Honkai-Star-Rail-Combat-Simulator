@@ -13,7 +13,7 @@ class DanceDanceDance(Lightcone):
         super().__init__(wearerRole, level)
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         adv = self.level * 0.02 + 0.14
         al.append(Advance(f"Dance3{self.wearerRole}", Role.ALL, adv))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

@@ -17,13 +17,13 @@ class GoodNightAndSleepWell(Lightcone):
         self.debuffList = []  # injected from MainFunctions before processTurnList runs
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
-        return bl, dbl, al, dl, hl
+        bl, dbl, al, dl, hl, sl = super().equip()
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if not result.enemiesHit:
-            return bl, dbl, al, dl, hl
+            return bl, dbl, al, dl, hl, sl
 
         # Count debuffs on the primary target (first enemy hit)
         targetEnemy = result.enemiesHit[0]
@@ -34,4 +34,4 @@ class GoodNightAndSleepWell(Lightcone):
             dmgBuff = (self.level * 0.03 + 0.09) * stacks
             bl.append(Buff("GoodNightDMG", StatTypes.DMG_PERCENT, dmgBuff, self.wearerRole,[AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
 
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

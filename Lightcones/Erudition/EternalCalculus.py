@@ -16,17 +16,17 @@ class EternalCalculus(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         AtkBuff = self.level * 0.01 + 0.07
         bl.append(Buff("CalculusATK", StatTypes.ATK_PERCENT, AtkBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         AmountHit = len(result.enemiesHit)
         AtkBuff = self.level * 0.01 + 0.03
         SpdBuff = self.level * 0.02 + 0.06
         bl.append(Buff("CalculusHitATK", StatTypes.ATK_PERCENT, AtkBuff*AmountHit, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if AmountHit >= 3:
             bl.append(Buff("CalculusHitSpd", StatTypes.SPD_PERCENT, SpdBuff, self.wearerRole, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

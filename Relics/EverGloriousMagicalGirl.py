@@ -13,16 +13,16 @@ class EverGloriousMagicalGirl(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("MagicalGirlCD",StatTypes.CD_PERCENT,0.16,self.wearerRole,[AtkType.ALL],1,1,Role.SELF,TickDown.PERM))
         if self.setType == 4:
             bl.append(Buff("MagicalGirlShredBanger",StatTypes.SHRED,0.1,self.wearerRole,[AtkType.ELABANGER],1,1,Role.SELF,TickDown.PERM))
             bl.append(Buff("MagicalGirlShredPunch",StatTypes.SHRED,0.1,self.wearerRole,[AtkType.ELAPUNCH],1,1,Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if self.setType == 4 and special.specialName == "Sparxie":
             # 1% DEF ignore per 5 Punchline, max 10 stacks = max 10%
             punchline = Character.SharedPunchline
@@ -53,4 +53,4 @@ class EverGloriousMagicalGirl(Relic):
             bl.append(Buff("MagicalGirlShredPunchlineBanger", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELABANGER], 1, 1, Role.SELF, TickDown.START))
             bl.append(Buff("MagicalGirlShredPunchlinePunch", StatTypes.SHRED, shredVal, self.wearerRole, [AtkType.ELAPUNCH], 1, 1, Role.SELF, TickDown.START))
             self.OldPunchline = Character.SharedPunchline
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

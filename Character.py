@@ -70,6 +70,7 @@ class Character(metaclass=CharacterMeta):
     relic2 = None
     planar = None
     enemyStatus = []
+    shields = []  # active Shield instances currently absorbing damage for this character
 
     # Unique Character Properties
 
@@ -84,6 +85,7 @@ class Character(metaclass=CharacterMeta):
         self.defaultTarget = defaultTarget
         self.eidolon = min(6, eidolon)
         self.targetPrio = targetPrio
+        self.shields = []  # per-instance list of active Shield objects
 
     def __str__(self) -> str:
         res = f"{self.name} E{self.eidolon} | {self.element.name}-{self.path.name} | {self.role.name} | POS:{self.pos}\n"
@@ -98,101 +100,115 @@ class Character(metaclass=CharacterMeta):
 
     def useSkl(self, enemyID=-1):
         self.skills = self.skills + 1
-        return *self.parseEquipment(AtkType.SKL, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.SKL, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useBsc(self, enemyID=-1):
         self.basics = self.basics + 1
-        return *self.parseEquipment(AtkType.BSC, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.BSC, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useUlt(self, enemyID=-1):
         self.ults = self.ults + 1
-        return *self.parseEquipment(AtkType.ULT, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.ULT, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useFua(self, enemyID=-1):
         self.fuas = self.fuas + 1
-        return *self.parseEquipment(AtkType.FUA, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.FUA, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useAdd(self, enemyID=-1):
         self.Adds = self.Adds + 1
-        return *self.parseEquipment(AtkType.ADD, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.ADD, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useElaSkill(self, enemyID=-1):
         self.ElationSkills = self.ElationSkills + 1
-        return *self.parseEquipment(AtkType.ELAPUNCH, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.ELAPUNCH, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useJointAttack(self, enemyID=-1):
         self.JointAttacks = self.JointAttacks + 1
-        return *self.parseEquipment(AtkType.FUA, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.FUA, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useMemo(self, enemyID=-1):
         self.MemoAttack = self.MemoAttack + 1
-        return *self.parseEquipment(AtkType.MEMO, enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment(AtkType.MEMO, enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def useHit(self, enemyID=-1):
-        return *self.parseEquipment("HIT", enemyID=enemyID), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment("HIT", enemyID=enemyID)
+        return bl, dbl, al, dl, [], hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
         if result.atkType[0] in self.dmgDct:
             self.dmgDct[result.atkType[0]] = self.dmgDct[result.atkType[0]] + result.turnDmg + result.ElationturnDMG
         self.dmgDct[AtkType.BRK] = self.dmgDct[AtkType.BRK] + result.wbDmg
         self.currEnergy = min(self.maxEnergy, self.currEnergy + result.errGain)
-        return *self.parseEquipment("OWN", turn=turn, result=result), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment("OWN", turn=turn, result=result)
+        return bl, dbl, al, dl, [], hl, sl
 
     def special(self):
         return self.name
 
     def handleSpecialStart(self, specialRes: Special):
         self.enemyStatus = specialRes.enemies
-        return *self.parseEquipment("SPECIALS", special=specialRes), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment("SPECIALS", special=specialRes)
+        return bl, dbl, al, dl, [], hl, sl
 
     def handleSpecialEnd(self, specialRes: Special):
-        return *self.parseEquipment("SPECIALE", special=specialRes), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment("SPECIALE", special=specialRes)
+        return bl, dbl, al, dl, [], hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        return *self.parseEquipment("ALLY", turn=turn, result=result), []
+        bl, dbl, al, dl, hl, sl = self.parseEquipment("ALLY", turn=turn, result=result)
+        return bl, dbl, al, dl, [], hl, sl
 
     def parseEquipment(self, actionType, turn=None, result=None, special=None, enemyID=-1):
-        buffList, debuffList, advList, delayList, healingList = [], [], [], [], []
+        buffList, debuffList, advList, delayList, healingList, shieldList = [], [], [], [], [], []
         equipmentList = [self.lightcone, self.relic1, self.planar]
         if self.relic2:
             equipmentList.append(self.relic2)
 
         for equipment in equipmentList:
             if actionType == AtkType.BSC:
-                buffs, debuffs, advs, delays, heals = equipment.useBsc(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useBsc(enemyID)
             elif actionType == AtkType.SKL:
-                buffs, debuffs, advs, delays, heals = equipment.useSkl(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useSkl(enemyID)
             elif actionType == AtkType.ULT:
-                buffs, debuffs, advs, delays, heals = equipment.useUlt(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useUlt(enemyID)
             elif actionType == AtkType.FUA:
-                buffs, debuffs, advs, delays, heals = equipment.useFua(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useFua(enemyID)
             elif actionType == AtkType.ADD:
-                buffs, debuffs, advs, delays, heals = equipment.useAdd(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useAdd(enemyID)
             elif actionType == AtkType.ELAPUNCH:
-                buffs, debuffs, advs, delays, heals = equipment.useElaSkill(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useElaSkill(enemyID)
             elif actionType == AtkType.MEMO:
-                buffs, debuffs, advs, delays, heals = equipment.useMemo(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useMemo(enemyID)
             elif actionType == "EQUIP":
-                buffs, debuffs, advs, delays, heals = equipment.equip()
+                buffs, debuffs, advs, delays, heals, shields = equipment.equip()
             elif actionType == "HIT":
-                buffs, debuffs, advs, delays, heals = equipment.useHit(enemyID)
+                buffs, debuffs, advs, delays, heals, shields = equipment.useHit(enemyID)
             elif actionType == "SPECIALS":
-                buffs, debuffs, advs, delays, heals = equipment.specialStart(special)
+                buffs, debuffs, advs, delays, heals, shields = equipment.specialStart(special)
             elif actionType == "SPECIALE":
-                buffs, debuffs, advs, delays, heals = equipment.specialEnd(special)
+                buffs, debuffs, advs, delays, heals, shields = equipment.specialEnd(special)
             elif actionType == "OWN":
-                buffs, debuffs, advs, delays, heals = equipment.ownTurn(turn, result)
+                buffs, debuffs, advs, delays, heals, shields = equipment.ownTurn(turn, result)
             elif actionType == "ALLY":
-                buffs, debuffs, advs, delays, heals = equipment.allyTurn(turn, result)
+                buffs, debuffs, advs, delays, heals, shields = equipment.allyTurn(turn, result)
             else:
-                buffs, debuffs, advs, delays, heals = [], [], [], [], []
+                buffs, debuffs, advs, delays, heals, shields = [], [], [], [], [], []
 
             buffList.extend(buffs)
             debuffList.extend(debuffs)
             advList.extend(advs)
             delayList.extend(delays)
             healingList.extend(heals)
-        return buffList, debuffList, advList, delayList, healingList
+            shieldList.extend(shields)
+        return buffList, debuffList, advList, delayList, healingList, shieldList
 
     def addEnergy(self, amount: float):
         self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
@@ -215,6 +231,12 @@ class Character(metaclass=CharacterMeta):
             return 3
         alive = len([e for e in Character._current_enemy_team if hasattr(e, 'currHP') and e.currHP > 0])
         return max(1, alive)
+
+    def getTotalShieldHP(self) -> float:
+        """Sum of currentAmount across all active shields on this character."""
+        if not hasattr(self, 'shields') or not self.shields:
+            return 0.0
+        return sum(s.currentAmount for s in self.shields)
 
     def getRelicScalingStats(self) -> tuple[float, float]:
         return self.relicStats.getScalingValue(self.scaling)
@@ -284,15 +306,16 @@ class Character(metaclass=CharacterMeta):
         return False
 
     @staticmethod
-    def extendLists(bl: list, dbl: list, al: list, dl: list, tl: list, hl: list, nbl: list, ndbl: list, nal: list, ndl: list,
-                    ntl: list, nhl: list):
+    def extendLists(bl: list, dbl: list, al: list, dl: list, tl: list, hl: list, sl: list, nbl: list, ndbl: list, nal: list, ndl: list,
+                    ntl: list, nhl: list, nsl: list):
         bl.extend(nbl)
         dbl.extend(ndbl)
         al.extend(nal)
         dl.extend(ndl)
         tl.extend(ntl)
         hl.extend(nhl)
-        return bl, dbl, al, dl, tl, hl
+        sl.extend(nsl)
+        return bl, dbl, al, dl, tl, hl, sl
 
     @classmethod
     def set_combat_context(cls, enemy_team, player_team):
@@ -319,5 +342,3 @@ class Character(metaclass=CharacterMeta):
         old = Character._SharedPunchline_value
         Character._SharedPunchline_value = value
         logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f}")
-
-

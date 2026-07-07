@@ -50,7 +50,7 @@ class Robin(Character):
         self.rotation = rotation if rotation else ["E", "A", "A"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("RobinCD", StatTypes.CD_PERCENT, 0.23 if self.eidolon >= 5 else 0.2, Role.ALL, [AtkType.ALL], 1, 1,
                  Role.SELF, TickDown.PERM))
@@ -60,30 +60,30 @@ class Robin(Character):
             Buff("RobinTraceHP", StatTypes.HP_PERCENT, 0.18, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("RobinTraceSPD", StatTypes.SPD, 5, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         al.append(Advance("RobinStartADV", self.role, 0.25))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e2ERR = 3 if self.eidolon >= 2 else 2
         e5Mul = 1.1 if self.eidolon >= 5 else 1
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5Mul, 0], [10, 0], 20 + e2ERR, self.scaling, 1, "RobinBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl= super().useSkl(enemyID)
         e3Dmg = 0.55 if self.eidolon >= 3 else 0.5
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 35,
                        self.scaling, -1, "RobinSkill"))
         bl.append(Buff("RobinSklDMG", StatTypes.DMG_PERCENT, e3Dmg, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
         self.currEnergy = self.currEnergy - self.ultCost
         self.canBeAdv = False
         self.currAV = 10000 / 90
         self.moonlessMidnight = 8
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         bl.append(Buff("RobinFuaCD", StatTypes.CD_PERCENT, 0.25, Role.ALL, [AtkType.FUA], 1, 1, self.role, TickDown.START))
         if self.eidolon >= 1:
             bl.append(Buff("RobinE1Pen", StatTypes.PEN, 0.24, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.START))
@@ -94,10 +94,10 @@ class Robin(Character):
             Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ULT], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "RobinUlt"))
         al.append(Advance("RobinUltADV", Role.ALL, 1.0))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e2ERR = 3 if self.eidolon >= 2 else 2
         e3Mul = 1.296 if self.eidolon >= 3 else 1.2
         if (turn.moveName not in bonusDMG) and (turn.targeting != Targeting.NA):
@@ -115,7 +115,7 @@ class Robin(Character):
                     tl.append(
                         Turn(self.name, self.role, result.enemiesHit[0].enemyID, Targeting.SPECIAL, [AtkType.SPECIAL],
                              [self.element], [e3Mul, 0], [0, 0], e2ERR, self.scaling, 0, "RobinConcertoDMG"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def reduceAV(self, reduceValue: float):
         if self.canBeAdv:
@@ -127,7 +127,7 @@ class Robin(Character):
 
     def handleSpecialStart(self, specialRes: Special):
         self.atkStat = specialRes.attr1
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         e3Mul = 0.24332 if self.eidolon >= 3 else 0.228
         e3Flat = 230 if self.eidolon >= 3 else 200
         if self.techErr:
@@ -141,7 +141,7 @@ class Robin(Character):
             if self.eidolon >= 4:
                 bl.append(Buff("RobinE4ERS", StatTypes.ERS_PERCENT, 0.5, Role.ALL, turns=1, tickDown=self.role,
                                tdType=TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialEnd(self, specialRes: Special):
         self.canUlt = specialRes.attr1

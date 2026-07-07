@@ -14,9 +14,9 @@ class TodayIsAnotherPeacefulDay(Lightcone):
         super().__init__(wearerRole, level)
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         DmgBuff = 0.0005 * self.level + 0.0015
         if special.specialName == "RinTohsaka":
             EnergyStat = special.attr3
             bl.append(Buff("PeacefulDayDMG", StatTypes.DMG_PERCENT, min(EnergyStat,160)*DmgBuff, self.wearerRole,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

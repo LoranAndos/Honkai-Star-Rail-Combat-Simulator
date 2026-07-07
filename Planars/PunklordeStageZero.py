@@ -15,12 +15,12 @@ class PunklordeStageZero(Planar):
         self.spConsumedThisTurn = 0
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("PunklordeELA", StatTypes.ELA, 0.08, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if special.specialName == "Evanescia" :
             self.ELAStat = special.attr3
             if  self.ELAStat >= 0.40:
@@ -33,10 +33,10 @@ class PunklordeStageZero(Planar):
                 bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.ELAStat >= 0.80:
                 bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if turn.charName == "Evanescia" :
             self.ELAStat = self.ELAStat
             if  self.ELAStat >= 0.40:
@@ -49,4 +49,4 @@ class PunklordeStageZero(Planar):
                 bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.ELAStat >= 0.80:
                 bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

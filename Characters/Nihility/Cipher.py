@@ -121,25 +121,25 @@ class Cipher(Character):
             logger.debug(f"    TALLY  - {self.name} +{gain:.1f} tally (non-patron {nonPatronDmg:.1f}) → total {self.tally:.1f}")
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("CipherTraceSPD", StatTypes.SPD, 14, self.role))
         bl.append(Buff("CipherTraceEHR", StatTypes.EHR_PERCENT, 0.10, self.role))
         bl.append(Buff("CipherTraceDMG", StatTypes.DMG_PERCENT, 0.144, self.role))
         bl.append(Buff("Talent3CD", StatTypes.CD_PERCENT, 1.00, self.role, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
         dbl.append(Debuff("CipherTrace3Vuln", self.role, StatTypes.VULN, 0.40, Role.ALL, [AtkType.ALL], 1000,1,Targeting.AOE))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "CipherBasic"))
         if self.eidolon >= 2:
             dbl.append(Debuff("CipherE2Vuln", self.role, StatTypes.VULN, 0.30, enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5MulMain = 2.2 if self.eidolon >= 5 else 2.0
         e5MulSide = 1.1 if self.eidolon >= 5 else 1.0
         # Skill primary target becomes the Patron
@@ -151,10 +151,10 @@ class Cipher(Character):
                        [e5MulMain, e5MulSide], [20, 10], 30, self.scaling, -1, "CipherSkill"))
         if self.eidolon >= 2:
             dbl.append(Debuff("CipherE2Vuln", self.role, StatTypes.VULN, 0.30, enemyID, [AtkType.ALL], 2, 1, Targeting.BLAST))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
 
         # Ult primary target becomes the Patron
@@ -176,10 +176,10 @@ class Cipher(Character):
                        [e3MulBLAST, e3MulBLAST], [20, 20], 0, self.scaling, 0, "CipherUltAOE"))
         if self.eidolon >= 2:
             dbl.append(Debuff("CipherE2Vuln", self.role, StatTypes.VULN, 0.30, enemyID, [AtkType.ALL], 2, 1, Targeting.BLAST))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useFua(enemyID)
         e5Mul = 1.65 if self.eidolon >= 5 else 1.5
         tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.FUA],
                        [self.element], [e5Mul + self.E6TalentIncrease, 0], [20, 0], 5, self.scaling, 0, "CipherTalentFUA"))
@@ -187,10 +187,10 @@ class Cipher(Character):
             bl.append(Buff("CipherE1Attack", StatTypes.ATK_PERCENT, 0.80, self.role, [AtkType.ALL], 2, 1, Role.SELF,TickDown.END))
         if self.eidolon >= 2:
             dbl.append(Debuff("CipherE2Vuln", self.role, StatTypes.VULN, 0.30, enemyID, [AtkType.ALL], 2, 1, Targeting.SINGLE))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
 
         if result.turnDmg > 0 and self.patronEnemyID != -1 and turn.moveName not in ("CipherUltST", "CipherUltAOE"):
             patronDmg, nonPatronDmg = self._splitTally(turn, result)
@@ -237,13 +237,13 @@ class Cipher(Character):
                 tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.ADD],
                                [self.element], [0.50, 0], [0, 0], 0, self.scaling, 0, "CipherE4Add"))
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
 
         if self.patronEnemyID == -1:
-            return bl, dbl, al, dl, tl, hl
+            return bl, dbl, al, dl, tl, hl, sl
 
         # FUA only triggers when the Patron is hit
         hitPatron = any(e.enemyID == self.patronEnemyID for e in result.enemiesHit)
@@ -255,7 +255,7 @@ class Cipher(Character):
         # FUA: trigger once per Cipher turn when an ally (not Cipher) attacks the Patron
         if hitPatron and not self.fuaUsedThisTurn and turn.charRole != self.role and turn.moveName not in bonusDMG and result.turnDmg > 0:
             self.fuaUsedThisTurn = True
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
             logger.debug(f"    FUA    - {self.name} Talent FUA triggered on enemy {self.patronEnemyID}")
 
         if hitPatron and result.turnDmg > 0 and self.eidolon >= 4 and turn.moveName not in bonusDMG:
@@ -263,18 +263,18 @@ class Cipher(Character):
             if patron:
                 tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.ADD],
                                [self.element], [0.50, 0], [0, 0], 0, self.scaling, 0, "CipherE4Add"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useHit(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useHit(enemyID)
-        return bl, dbl, al, dl, tl, hl
+        bl, dbl, al, dl, tl, hl, sl = super().useHit(enemyID)
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         self.fuaUsedThisTurn = False
         return super().takeTurn()
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.SpdStat = specialRes.attr1
 
         # Talent: if no Patron on battlefield, assign the enemy with the highest max HP
@@ -294,4 +294,4 @@ class Cipher(Character):
             self.Tech = False
             tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.TECH],
                            [self.element], [1.0, 0], [0 , 0], 0, self.scaling, 0, "CipherTech"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

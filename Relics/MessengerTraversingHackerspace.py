@@ -11,12 +11,12 @@ class MessengerTraversingHackerspace(Relic):
         self.allyUlt = allyUlt
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("MessengerSPD", StatTypes.SPD_PERCENT, 0.06, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         if self.allyUlt:
             bl.append(Buff("MessengerUltSPD", StatTypes.SPD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

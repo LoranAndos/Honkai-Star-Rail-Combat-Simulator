@@ -16,8 +16,8 @@ class Pioneering(Lightcone):
         super().__init__(wearerRole, level)
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         HealAmount = self.level * 0.02 + 0.10
         if result.brokenEnemy != []:
             hl.append(Healing("PioneerHeal",[HealAmount,0],Scaling.HP,self.wearerRole,self.wearerRole,Targeting.SINGLE))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

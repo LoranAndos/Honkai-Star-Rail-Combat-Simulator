@@ -12,7 +12,7 @@ class GeniusOfBrilliantStars(Relic):
         self.quaWeak = quaWeak
 
     def equip(self):
-        bl, dbl, al, dl, hl= super().equip()
+        bl, dbl, al, dl, hl, sl= super().equip()
         if self.wearerEle == Element.QUANTUM:
             bl.append(Buff("GeniusDMG", StatTypes.DMG_PERCENT, 0.10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                            TickDown.PERM))
@@ -22,4 +22,4 @@ class GeniusOfBrilliantStars(Relic):
                 shred = 0.2
             bl.append(
                 Buff("GeniusSHRED", StatTypes.SHRED, shred, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

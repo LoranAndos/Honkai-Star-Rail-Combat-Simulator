@@ -13,13 +13,13 @@ class MemorysCurtainNeverFalls(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         spdAmount = self.level * 0.015 + 0.045
         bl.append(Buff("MemorysCurtainSPD", StatTypes.SPD_PERCENT, spdAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         BuffAmount = self.level * 0.02 + 0.06
         bl.append(Buff("MemorysCurtainDB_SKL", StatTypes.DMG_PERCENT, BuffAmount, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

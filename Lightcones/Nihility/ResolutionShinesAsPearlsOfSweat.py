@@ -14,12 +14,12 @@ class ResolutionShinesasPearlsOfSweat(Lightcone):
         super().__init__(wearerRole, level)
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useBsc(enemyID)
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, enemyID, [AtkType.ALL],
                    1, 1, Targeting.SINGLE,False, [0, 0], False))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class ResolutionPela(ResolutionShinesasPearlsOfSweat):
@@ -28,20 +28,20 @@ class ResolutionPela(ResolutionShinesasPearlsOfSweat):
         super().__init__(wearerRole, level)
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, enemyID, [AtkType.ALL],
                    1, 1, Targeting.SINGLE,False, [0, 0], False))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, Role.ALL, [AtkType.ALL],
                    1, 1, Targeting.AOE,False, [0, 0], False))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class ResolutionJQ(ResolutionPela):
@@ -53,9 +53,9 @@ class ResolutionMortenaxBlade(ResolutionJQ):
         super().__init__(wearerRole, level)
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         shredBuff = self.level * 0.01 + 0.11
         dbl.append(
             Debuff(f"ResoShred({self.wearerRole.name})", self.wearerRole, StatTypes.SHRED, shredBuff, Role.ALL, [AtkType.ALL],
                    1, 1, Targeting.AOE,False, [0, 0], False))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

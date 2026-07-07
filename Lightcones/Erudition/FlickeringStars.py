@@ -15,25 +15,25 @@ class FlickeringStars(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         CRAmount = self.level * 0.03 + 0.15
         bl.append(Buff("FlickeringStarsCR", StatTypes.CR_PERCENT, CRAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         TeamShred = self.level * 0.04 + 0.16
         SKLDmgAount = self.level * 0.12 + 0.60
         if turn.moveName == "ArcherSkill" or (turn.moveName == "RinTohsakaSkillSingle" and turn.spChange <= -4):
             bl.append(Buff("FlickeringStarsTeamShred", StatTypes.SHRED, TeamShred, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
             bl.append(Buff("FlickeringStarsDMG", StatTypes.DMG_PERCENT, SKLDmgAount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().allyTurn(turn, result)
         TeamShred = self.level * 0.04 + 0.16
         SKLDmgAount = self.level * 0.12 + 0.60
         if turn.moveName == "ArcherSkill" or (turn.moveName == "RinTohsakaSkillSingle" and turn.spChange <= -4):
             bl.append(Buff("FlickeringStarsTeamShred", StatTypes.SHRED, TeamShred, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
             bl.append(Buff("FlickeringStarsDMG", StatTypes.DMG_PERCENT, SKLDmgAount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

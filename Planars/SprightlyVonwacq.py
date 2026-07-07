@@ -11,7 +11,7 @@ class SprightlyVonwacq(Planar):
         super().__init__(wearerRole)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("VonwacqERR", StatTypes.ERR_PERCENT, 0.05, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         al.append(Advance("VonwacqADV", self.wearerRole, 0.4))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

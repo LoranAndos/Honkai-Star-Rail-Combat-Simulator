@@ -13,12 +13,12 @@ class BoneCollectionsSereneDemesne(Planar):
         super().__init__(wearerRole)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("BoneHPBuff", StatTypes.HP_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if special.specialName == "Tribbie" :
             HPStat = special.attr4
             if HPStat >= 5000:
@@ -27,4 +27,4 @@ class BoneCollectionsSereneDemesne(Planar):
             HPStat = special.attr2
             if HPStat >= 5000:
                 bl.append(Buff("BoneCDBuff", StatTypes.CD_PERCENT, 0.28, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

@@ -13,7 +13,7 @@ class InPursuitOfTheWind(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dl, al, dl, hl = super().equip()
+        bl, dl, al, dl, hl, sl = super().equip()
         beAmount = self.level * 0.2 + 0.14
         bl.append(Buff("InPursuitBE", StatTypes.BRK_DMG, beAmount, self.wearerRole, [AtkType.BRK], 1, 1, Role.ALL, TickDown.PERM))
-        return bl, dl, al, dl, hl
+        return bl, dl, al, dl, hl, sl

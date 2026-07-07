@@ -13,13 +13,13 @@ class TodaysGoodLuck(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 0.02 + 0.10
         bl.append(Buff("TodaysGoodLuckCR", StatTypes.CR_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useElaSkill(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useElaSkill(enemyID)
+        bl, dbl, al, dl, hl, sl= super().useElaSkill(enemyID)
         BuffAmount = self.level * 0.02 + 0.10
         bl.append(Buff("TodaysGoodLuckELA", StatTypes.ELA, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 2, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

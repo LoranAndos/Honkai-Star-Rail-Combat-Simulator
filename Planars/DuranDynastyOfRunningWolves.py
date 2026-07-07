@@ -14,7 +14,7 @@ class DuranDynastyOfRunningWolves(Planar):
         super().__init__(wearerRole)
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().allyTurn(turn, result)
         if AtkType.FUA in turn.atkType and turn.moveName not in bonusDMG:
             self.procs = self.procs + 1
             bl.append(
@@ -23,10 +23,10 @@ class DuranDynastyOfRunningWolves(Planar):
                 self.appliedCDBuff = True
                 bl.append(Buff("DuranCD", StatTypes.CD_PERCENT, 0.25, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                                TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if AtkType.FUA in result.atkType and result.turnName not in bonusDMG:
             self.procs = self.procs + 1
             bl.append(
@@ -35,4 +35,4 @@ class DuranDynastyOfRunningWolves(Planar):
                 self.appliedCDBuff = True
                 bl.append(Buff("DuranCD", StatTypes.CD_PERCENT, 0.25, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                                TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

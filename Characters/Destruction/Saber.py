@@ -58,7 +58,7 @@ class Saber(Character):
         self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else CosmicLifeSciencesInstitute(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 7, 2, 2, 2, 2, 7, 13, StatTypes.CR_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 7, 2, 2, 2, 2, 7, 13  , StatTypes.CR_PERCENT, StatTypes.SPD,
                                                        StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
@@ -73,7 +73,7 @@ class Saber(Character):
             self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("SaberTraceHP", StatTypes.HP_PERCENT, 0.10, self.role))
         bl.append(Buff("SaberTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("SaberTraceDMG", StatTypes.DMG_PERCENT, 0.224, self.role))
@@ -84,10 +84,10 @@ class Saber(Character):
             bl.append(Buff("SaberE4Pen", StatTypes.WINPEN, 0.08, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("SaberE6Pen", StatTypes.WINPEN, 0.20, self.role, [AtkType.ULT], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         e3MulEnhancedSmall = 1.65 if self.eidolon >= 3 else 1.5
         e3MulEnhancedBig = 2.42 if self.eidolon >= 3 else 2.2
@@ -111,10 +111,10 @@ class Saber(Character):
         if self.eidolon >= 1:
             self.CoreResonance += 1
             logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1, Current Count: {self.CoreResonance}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5MulBig = 1.65 if self.eidolon >= 5 else 1.5
         e5MulSmall = 0.825 if self.eidolon >= 5 else 0.75
         e2ExtraMultiplier = 0.07 if self.eidolon >= 2 else 0
@@ -136,10 +136,10 @@ class Saber(Character):
         if self.eidolon >= 1:
             self.CoreResonance += 1
             logger.debug(f"{self.name} got 1 Core Resonance from Eidolon 1, Current Count: {self.CoreResonance}")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e3MulBig = 3.08 if self.eidolon >= 3 else 2.8
         e3MulSmall = 1.21 if self.eidolon >= 3 else 1.1
@@ -161,33 +161,33 @@ class Saber(Character):
             if self.UltCounter % 3 == 0:
                 self.currEnergy = self.currEnergy + 300
             self.UltCounter += 1
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useJointAttack(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useJointAttack(enemyID)
         e3SaberMult = 6.6 if self.GilgameshEidolon >= 5 else 6.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3SaberMult, 0], [0, 0], 120, self.scaling, 0, "SaberJointAttack"))
         self.JointAttackMultiplier = 2.16 if self.GilgameshEidolon >= 5 else 2.00
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         DmgBuff = 0.66 if self.eidolon >= 5 else 0.60
         if turn.moveName in UltimateList:
             bl.append(Buff("TalentDMG", StatTypes.DMG_PERCENT, DmgBuff, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
             self.CoreResonance += 3
             logger.debug(f"{self.name} got 3 Core Resonance from Talent, Current Count: {self.CoreResonance}")
         if turn.moveName == "GilgameshJointAttack":
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useJointAttack(-1))
         if self.Mana_Burst and self.currEnergy + 8 * self.CoreResonance >= self.ultCost:
             al.append(Advance("Trace1Advance", self.role, 1.00))
             bl.append(Buff("Trace1SP", StatTypes.SKLPT, 1, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.END))
             self.Mana_Burst = False
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.GilgameshEidolon = specialRes.attr1
         if self.Tech:
             self.Tech = False
@@ -201,8 +201,8 @@ class Saber(Character):
         self.CoreResonanceOld = self.CoreResonance
         bl.append(Buff("Trace3CDExtra", StatTypes.CD_PERCENT, 0.04*self.CoreResonanceTally, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon >= 2:
-            bl.append(Buff("Trace3CDExtra", StatTypes.SHRED, 0.01 * self.CoreResonanceTally, self.role, [AtkType.ALL], 1,1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, tl, hl
+            bl.append(Buff("Trace3ShredExtra", StatTypes.SHRED, 0.01 * self.CoreResonanceTally, self.role, [AtkType.ALL], 1,1, Role.SELF, TickDown.PERM))
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         return "A" if self.EnhancedBasic else "E"

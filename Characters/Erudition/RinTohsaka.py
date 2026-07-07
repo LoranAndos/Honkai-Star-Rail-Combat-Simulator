@@ -65,7 +65,7 @@ class RinTohsaka(Character):
         self.E4StackLimit = 2 if self.eidolon >= 4 else 1
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("RinTohsakaTraceCD", StatTypes.CD_PERCENT, 0.373, self.role))
         bl.append(Buff("RinTohsakaTraceATK", StatTypes.ATK_PERCENT, 0.18, self.role))
         bl.append(Buff("RinTohsakaTraceDMG", StatTypes.DMG_PERCENT, 0.08, self.role))
@@ -77,17 +77,17 @@ class RinTohsaka(Character):
             bl.append(Buff("E2IDM", StatTypes.INDEPENDENTDAMAGEMULTIPLIER, 0.30, Role.ALL, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("RinTohsakaE6Pen", StatTypes.PEN, 0.20, self.role))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "RinTohsakaBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Mul = 0.99 if self.eidolon >= 3 else 0.90
         e3MulNormal = 1.98 if self.eidolon >= 3 else 1.80
         if self.EnhancedSkill and not self.HasShadowGem:
@@ -120,10 +120,10 @@ class RinTohsaka(Character):
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.SKL], [self.element],
                      [e3MulNormal, 0], [20, 0], 30, self.scaling, -1, "RinTohsakaSkill"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e5Main = 4.40 if self.eidolon >= 5 else 4.0
         e5Side = 2.20 if self.eidolon >= 5 else 2.0
@@ -140,45 +140,45 @@ class RinTohsaka(Character):
                 self.EnhancedSkill = True
                 logger.info(f"Rin can use Enhanced Skill")
             bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useSkl(-1))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useJointAttack(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useJointAttack(enemyID)
         e3Mult = 3.3 if self.eidolon >= 3 else 3.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3Mult, 0], [20, 0], 10, self.scaling, 4, "RinTohsakaJointAttack"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         e5CD = 0.77 if self.eidolon >= 5 else 0.70
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange) * self.SkillGemMultiplier
             bl.append(Buff("TalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, self.E4StackLimit, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange) * self.SkillGemMultiplier} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
             self.SkillGemMultiplier = 1
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e5CD = 0.77 if self.eidolon >= 5 else 0.70
         if turn.spChange != 0:
             self.GemEnergy += abs(turn.spChange)
             bl.append(Buff("RinTalentCD", StatTypes.CD_PERCENT, e5CD, turn.charRole, [AtkType.ALL], 2, 1, turn.charRole, TickDown.END))
             logger.info(f"Rin has obtained {abs(turn.spChange)} Gem Energy from SP and now has {self.GemEnergy} Gem Energy")
         if turn.moveName == "ArcherJointAttack":
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
-        return bl, dbl, al, dl, tl, hl
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useJointAttack(-1))
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.SPAmount = specialRes.attr1
         self.ArcherInTeam = specialRes.attr2
         if self.Tech:
             self.GemEnergy += 10
             logger.info(f"Rin has obtained 10 Gem Energy from Technique and now has {self.GemEnergy} Gem Energy")
             self.Tech = False
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         if self.SPAmount >= 7 or self.GemEnergy >= 15:

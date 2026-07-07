@@ -17,28 +17,28 @@ class BaptismOfPureThought(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         cdBuff = self.level * 0.03 + 0.17
         bl.append(
             Buff("BaptismCD", StatTypes.CD_PERCENT, cdBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useBsc(enemyID)
         cdBuff = (self.level * 0.01 + 0.07) * self.targetDebuffs
         bl.append(Buff("BaptismDebuffCD", StatTypes.CD_PERCENT, cdBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                        TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         cdBuff = (self.level * 0.01 + 0.07) * self.targetDebuffs
         bl.append(Buff("BaptismDebuffCD", StatTypes.CD_PERCENT, cdBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                        TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         cdBuff = (self.level * 0.01 + 0.07) * self.targetDebuffs
         bl.append(Buff("BaptismDebuffCD", StatTypes.CD_PERCENT, cdBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                        TickDown.PERM))
@@ -48,7 +48,7 @@ class BaptismOfPureThought(Lightcone):
         shredBuff = self.level * 0.04 + 0.20
         bl.append(Buff("BaptismDispSHRED", StatTypes.SHRED, shredBuff, self.wearerRole, [AtkType.FUA], 2, 1, Role.SELF,
                        TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class BaptismFeixiao(BaptismOfPureThought):

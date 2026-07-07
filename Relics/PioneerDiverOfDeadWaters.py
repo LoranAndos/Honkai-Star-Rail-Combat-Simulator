@@ -13,11 +13,11 @@ class PioneerDiverOfDeadWaters(Relic):
         super().__init__(wearerRole, setType)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         if self.setType == 4:
             bl.append(
                 Buff("PioneerCR", StatTypes.CR_PERCENT, 0.04, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class PioneerRatio(PioneerDiverOfDeadWaters):
@@ -25,7 +25,7 @@ class PioneerRatio(PioneerDiverOfDeadWaters):
         super().__init__(wearerRole, setType)
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if self.setType == 4:
             bl.append(Buff("PioneerBonusCR", StatTypes.CR_PERCENT, 0.04, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                            TickDown.PERM))
@@ -45,14 +45,14 @@ class PioneerRatio(PioneerDiverOfDeadWaters):
                 else:
                     bl.append(Buff("PioneerCD", StatTypes.CD_PERCENT, 0.00, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                                    TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 class PioneerAcheron(PioneerDiverOfDeadWaters):
     def __init__(self, wearerRole, setType):
         super().__init__(wearerRole, setType)
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if self.setType == 4:
             bl.append(Buff("PioneerBonusCR", StatTypes.CR_PERCENT, 0.04, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                            TickDown.PERM))
@@ -72,14 +72,14 @@ class PioneerAcheron(PioneerDiverOfDeadWaters):
                 else:
                     bl.append(Buff("PioneerCD", StatTypes.CD_PERCENT, 0.00, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                                    TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 class PioneerCipher(PioneerDiverOfDeadWaters):
     def __init__(self, wearerRole, setType):
         super().__init__(wearerRole, setType)
 
     def specialStart(self, special: Special):
-        bl, dbl, al, dl, hl = super().specialStart(special)
+        bl, dbl, al, dl, hl, sl = super().specialStart(special)
         if self.setType == 4:
             bl.append(Buff("PioneerBonusCR", StatTypes.CR_PERCENT, 0.04, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                            TickDown.PERM))
@@ -99,4 +99,4 @@ class PioneerCipher(PioneerDiverOfDeadWaters):
                 else:
                     bl.append(Buff("PioneerCD", StatTypes.CD_PERCENT, 0.00, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,
                                    TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

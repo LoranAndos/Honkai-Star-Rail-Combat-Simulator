@@ -16,13 +16,13 @@ class HolidayThermaeEscapade(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 0.04 + 0.12
         bl.append(Buff("HolidayThermaeDB", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl= super().ownTurn(turn, result)
         if self.level <= 3:
             vulnAmount = self.level * 0.015 + 0.085
         elif self.level == 4:
@@ -31,4 +31,4 @@ class HolidayThermaeEscapade(Lightcone):
             vulnAmount = 0.16
         if result.turnDmg > 0 and result.charRole != bonusDMG:
             dbl.append(Debuff("HolidayThermaeVULN", self.wearerRole, StatTypes.VULN, vulnAmount, turn.targetID, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
-        return dl, dbl, al, dl, hl
+        return dl, dbl, al, dl, hl, sl

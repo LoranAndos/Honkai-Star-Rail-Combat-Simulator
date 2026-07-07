@@ -13,13 +13,13 @@ class GeniusesGreetings(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         atkAmount = self.level * 0.04 + 0.12
         bl.append(Buff("GeniusesGreetingsATK", StatTypes.ATK_PERCENT, atkAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         BuffAmount = self.level * 0.05 + 0.15
         bl.append(Buff("GeniusesGreetingsDB", StatTypes.DMG_PERCENT, BuffAmount, Role.ALL, [AtkType.BSC], 3, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

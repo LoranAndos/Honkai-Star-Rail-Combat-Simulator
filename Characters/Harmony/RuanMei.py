@@ -54,7 +54,7 @@ class RuanMei(Character):
         self.rotation = rotation if rotation else ["A", "A", "E"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         teamSPD = 0.104 if self.eidolon >= 3 else 0.10
         bl.append(Buff("RuanSPD", StatTypes.SPD_PERCENT, teamSPD, Role.ALL))
         bl.append(Buff("RuanNerfSPD", StatTypes.SPD_PERCENT, -teamSPD, self.role))
@@ -67,26 +67,26 @@ class RuanMei(Character):
         bl.append(Buff("RuanTeamBE", StatTypes.BE_PERCENT, 0.20, Role.ALL))
         if self.eidolon >= 2:
             bl.append(Buff("RuanE2ATK", StatTypes.ATK_PERCENT, 0.4, Role.ALL, [AtkType.ALL], reqBroken= True))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e5Bonus = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],[e5Bonus, 0], [10, 0], 25, self.scaling, 1, "RuanBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5Bonus = 0.352 if self.eidolon >= 5 else 0.32
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 35,
                        self.scaling, -1, "RuanSkill"))
         bl.append(
             Buff("RuanDMG", StatTypes.DMG_PERCENT, e5Bonus + 0.36, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.START))
         bl.append(Buff("RuanWBE", StatTypes.WB_EFF, 0.50, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         ultTurns = 3 if self.eidolon == 6 else 2
         pen = 0.27 if self.eidolon >= 3 else 0.25
@@ -97,30 +97,30 @@ class RuanMei(Character):
             bl.append(
                 Buff("RuanE1Shred", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ALL], ultTurns, 1, self.role, TickDown.START))
         dl.append(Delay("RuanThanatoplum", 0.1 + self.beStat * 0.2, Role.ALL, True, False))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     # noinspection DuplicatedCode
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         if result.brokenEnemy and self.eidolon >= 4:
             bl.append(Buff("RuanE4BE", StatTypes.BE_PERCENT, 1.0, self.role, turns=4, tdType=TickDown.END))
         for enemy in result.brokenEnemy:
             breakMul = 1.32 if self.eidolon >= 3 else 1.2
             e6 = 2.0 if self.eidolon == 6 else 0
             tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.STBREAK, [AtkType.BRK], [self.element], [breakMul + e6, 0], [0, 0], 0, self.scaling, 0, "RuanAllyBreak"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.brokenEnemy and self.eidolon >= 4:
             bl.append(Buff("RuanE4BE", StatTypes.BE_PERCENT, 1.0, self.role, turns=3, tdType=TickDown.END))
         for enemy in result.brokenEnemy:
             breakMul = 1.32 if self.eidolon >= 3 else 1.2
             e6 = 2.0 if self.eidolon == 6 else 0
             tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.STBREAK, [AtkType.BRK], [self.element], [breakMul + e6, 0], [0, 0], 0, self.scaling, 0, "RuanAllyBreak"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.beStat = specialRes.attr1
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

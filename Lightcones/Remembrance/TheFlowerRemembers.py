@@ -13,9 +13,9 @@ class TheFlowerRemembers(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         cdAmount = self.level * 0.04 + 0.20
         cdMemoAmount = self.level * 0.06 + 0.18
         bl.append(Buff("FlowerRemembersCD", StatTypes.CD_PERCENT, cdAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("FlowerRemembersCD_MEMO", StatTypes.CD_PERCENT, cdMemoAmount, self.wearerRole, [AtkType.MEMO], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

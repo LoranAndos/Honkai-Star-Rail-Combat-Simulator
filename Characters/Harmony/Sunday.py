@@ -58,20 +58,20 @@ class Sunday(Character):
         self.targetRole = targetRole
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("SundayTraceCD", StatTypes.CD_PERCENT, 0.373, self.role, [AtkType.ALL]))
         bl.append(Buff("SundayTraceERS", StatTypes.ERS_PERCENT, 0.18, self.role, [AtkType.ALL]))
         bl.append(Buff("SundayTraceDEF", StatTypes.DEF_PERCENT, 0.125, self.role, [AtkType.ALL]))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [Element.IMAGINARY],[e3Mul, 0], [0, 0], 20, Scaling.ATK, 1, "SundayBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         sp = 0 if self.turn % 2 == 1 else -1
         e5DMG = 0.33 if self.eidolon >= 5 else 0.30
         e5SummonBoost = 0.55 if self.eidolon >= 5 else 0.50
@@ -87,10 +87,10 @@ class Sunday(Character):
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,self.scaling, sp, "SundaySkill"))
         al.append(Advance("SundayTargetADV", self.targetRole, 1.0))
         al.append(Advance("SundayTargetADV", self.targetRole, 0.1))  # Forces character to act before their summon
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e3Mul = 0.336 if self.eidolon >= 3 else 0.30
         e3Add = 0.128 if self.eidolon >= 3 else 0.12
@@ -113,21 +113,21 @@ class Sunday(Character):
             bl.append(Buff("SundayE2SPD", StatTypes.DMG_PERCENT, 0.30, self.targetRole, [AtkType.ALL], 3, 1, self.role, TickDown.START))
         if self.eidolon == 6:
             bl.append(Buff("SundaySklCR", StatTypes.CR_PERCENT, 0.22, self.targetRole, [AtkType.ALL], 2, 3, self.role,TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.targetSummonRole = specialRes.attr1
         self.targetEnergyCap = specialRes.attr2
         self.cdStat = specialRes.attr3
         if self.eidolon >= 4 and specialRes.attr4:
             bl.append(Buff("SundayE4ERR", StatTypes.ERR_T, 8, self.role))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialEnd(self, specialRes):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialEnd(specialRes)
         self.targetCR = specialRes.attr1
         excessCR = max(0, self.targetCR - 1.0)
         if self.eidolon == 6:
             bl.append(Buff("SundayE6CD", StatTypes.CD_PERCENT, excessCR * 2, self.targetRole))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

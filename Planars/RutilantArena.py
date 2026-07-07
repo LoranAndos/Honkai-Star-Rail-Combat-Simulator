@@ -11,9 +11,9 @@ class RutilantArena(Planar):
         super().__init__(wearerRole)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(
             Buff("RutilantCR", StatTypes.CR_PERCENT, 0.08, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("RutilantBonusDMG", StatTypes.DMG_PERCENT, 0.20, self.wearerRole, [AtkType.BSC, AtkType.SKL], 1, 1,
                        Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

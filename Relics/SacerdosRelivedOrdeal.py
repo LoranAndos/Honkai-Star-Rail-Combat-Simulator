@@ -11,33 +11,33 @@ class SacerdosRelivedOrdeal(Relic):
         self.targetRole = targetRole
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("SacerdosSPD", StatTypes.SPD_PERCENT, 0.06, self.wearerRole, [AtkType.ALL]))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class SacerdosSunday(SacerdosRelivedOrdeal):
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         if self.setType == 4:
             bl.append(
                 Buff(f"SacerdosCD{self.wearerRole.name}", StatTypes.CD_PERCENT, 0.18, self.targetRole, [AtkType.ALL], 2, 2,
                      self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         if self.setType == 4:
             bl.append(
                 Buff(f"SacerdosCD{self.wearerRole.name}", StatTypes.CD_PERCENT, 0.18, self.targetRole, [AtkType.ALL], 2, 2,
                      self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 class SacerdosSparkle(SacerdosRelivedOrdeal):
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         if self.setType == 4:
             bl.append(
                 Buff(f"SacerdosCD{self.wearerRole.name}", StatTypes.CD_PERCENT, 0.18, self.targetRole, [AtkType.ALL], 2, 2,
                      self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

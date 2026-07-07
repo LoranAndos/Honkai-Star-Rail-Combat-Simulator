@@ -13,7 +13,7 @@ class Passkey(Lightcone):
         super().__init__(wearerRole, level)
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         errAmount = self.level * 1 + 7
         bl.append(Buff("PasskeyERR_F", StatTypes.ERR_F, errAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

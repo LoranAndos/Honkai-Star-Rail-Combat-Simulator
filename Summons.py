@@ -1,6 +1,9 @@
 from Buff import *
+from Buff import Buff, Debuff
 from Delay_Text import *
+from Delay_Text import Advance, Delay
 from Healing import Healing
+from Shields import Shield
 from Result import *
 from Turn_Text import Turn
 from Character import Character
@@ -29,8 +32,8 @@ class Summon:
     def isSummon() -> bool:
         return True
 
-    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        return [], [], [], [], [], []
+    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
+        return [], [], [], [], [], [], []
 
     def standardAVred(self, av: float):
         self.currAV = max(0.0, self.currAV - av)
@@ -39,8 +42,8 @@ class Summon:
         self.currAV = max(0.0, self.currAV - reduceValue)
 
     def allyTurn(self, turn: Turn, result: Result) -> tuple[
-        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        return [], [], [], [], [], []
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
+        return [], [], [], [], [], [], []
 
 
 class Numby(Summon):
@@ -55,10 +58,10 @@ class Numby(Summon):
         super().__init__(ownerRole, role)
 
     def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, "NumbyGoGo"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
 
 class Fuyuan(Summon):
@@ -73,10 +76,10 @@ class Fuyuan(Summon):
         super().__init__(ownerRole, role)
 
     def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, "FuyuanGoGo"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
 
 class DeHenshin(Summon):
@@ -89,19 +92,20 @@ class DeHenshin(Summon):
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)
 
-    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+    def takeTurn(self) -> tuple[
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
         self.currAV = 10000
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl= super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, self.name))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result) -> tuple[
-        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if turn.moveName == "FireflyUlt":
             self.currAV = 10000 / 70
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
 class InfiniteFury(Summon):
     name = "InfiniteFury"
@@ -114,21 +118,22 @@ class InfiniteFury(Summon):
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)
 
-    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+    def takeTurn(self) -> tuple[
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
         self.currAV = 10000
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, self.name))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result) -> tuple[
-        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing], list[Shield]]:
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if turn.moveName == "MortenaxBladeUlt":
             self.currAV = 10000 / 70
         if turn.moveName == "MortenaxBladeUltDelay":
             self.currAV += 0.15*(10000 / 70)
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
 
 class LightningLord(Summon):
@@ -143,13 +148,13 @@ class LightningLord(Summon):
         super().__init__(ownerRole, role)
 
     def takeTurn(self):
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         paddedStacks = "0" + str(self.stacks) if self.stacks < 10 else str(self.stacks)
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, f"LightningLordGoGo{paddedStacks}"))
         self.adjSpeed(60)
         self.stacks = 3
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn, result):
         addStacks = 2 if turn.moveName == "JingYuanSkill" else (3 if turn.moveName == "JingYuanUlt" else 0)
@@ -187,7 +192,7 @@ class Aha(Summon):
         self.hasEvanescia = any("AhaEvanesciaGoGo" in turnName for _, turnName in self.elationTeam)
 
     def takeTurn(self):
-        bl, dbl, al, dl, tl, hl = super().takeTurn()
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         self.IsAhaTurn = True
         Character.ahaFixedPunchline = False
         Character.savedPunchline = Character.SharedPunchline
@@ -219,10 +224,10 @@ class Aha(Summon):
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                        [0, 0], [0, 0], 0, self.scaling, 0, "AhaEndGoGo"))
         Character.SharedPunchline = Character.savedPunchline
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn, result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.turnName == "YaoGuangUlt":
             self.IsAhaTurn = True
             ElationAmount = 0
@@ -346,4 +351,4 @@ class Aha(Summon):
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

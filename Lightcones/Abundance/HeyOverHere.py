@@ -14,13 +14,13 @@ class HeyOverHere(Lightcone):
 
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 0.01 + 0.07
         bl.append(Buff("HeyOverHereHP", StatTypes.HP_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl()
+        bl, dbl, al, dl, hl, sl = super().useSkl()
         oghAmount = self.level * 0.03 + 0.13
         bl.append(Buff("HeyOverHere_SKLOGH", StatTypes.OGH_PERCENT, oghAmount, self.wearerRole, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

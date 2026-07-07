@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 32441.829 | Saber: 17254.153 | Gilgamesh: 14278.000 | RuanMei: 559.210 | HuoHuo: 35.123
+Run    2: Team DPAV: 33418.829 | Saber: 17149.361 | Gilgamesh: 15353.515 | RuanMei: 559.210 | HuoHuo: 36.874
+Run    3: Team DPAV: 34726.602 | Saber: 18489.533 | Gilgamesh: 15322.865 | RuanMei: 559.210 | HuoHuo: 35.123
+Run    4: Team DPAV: 32936.652 | Saber: 18920.440 | Gilgamesh: 13199.499 | RuanMei: 509.609 | HuoHuo: 37.068
+Run    5: Team DPAV: 32936.652 | Saber: 18920.440 | Gilgamesh: 13199.499 | RuanMei: 509.609 | HuoHuo: 37.068
+Run    6: Team DPAV: 33418.829 | Saber: 17149.361 | Gilgamesh: 15353.515 | RuanMei: 559.210 | HuoHuo: 36.874
+Run    7: Team DPAV: 34589.544 | Saber: 18394.377 | Gilgamesh: 15322.865 | RuanMei: 506.309 | HuoHuo: 37.068
+Run    8: Team DPAV: 33281.771 | Saber: 17054.204 | Gilgamesh: 15353.515 | RuanMei: 506.309 | HuoHuo: 38.819
+Run    9: Team DPAV: 30720.776 | Saber: 17255.394 | Gilgamesh: 12647.938 | RuanMei: 510.533 | HuoHuo: 36.874
+Run   10: Team DPAV: 34687.253 | Saber: 18489.533 | Gilgamesh: 15288.044 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   11: Team DPAV: 32142.171 | Saber: 16880.168 | Gilgamesh: 14201.836 | RuanMei: 642.243 | HuoHuo: 77.673
+Run   12: Team DPAV: 26321.431 | Saber: 13653.075 | Gilgamesh: 11821.474 | RuanMei: 490.980 | HuoHuo: 33.761
+Run   13: Team DPAV: 25888.911 | Saber: 12721.836 | Gilgamesh: 12240.268 | RuanMei: 556.446 | HuoHuo: 34.637
+Run   14: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   15: Team DPAV: 33155.784 | Saber: 17260.707 | Gilgamesh: 14986.023 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   16: Team DPAV: 31315.823 | Saber: 17455.533 | Gilgamesh: 13049.125 | RuanMei: 510.533 | HuoHuo: 35.123
+Run   17: Team DPAV: 31456.610 | Saber: 17847.380 | Gilgamesh: 12786.239 | RuanMei: 509.609 | HuoHuo: 38.819
+Run   18: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   19: Team DPAV: 32407.008 | Saber: 17254.153 | Gilgamesh: 14243.179 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   20: Team DPAV: 33151.835 | Saber: 17260.707 | Gilgamesh: 14982.074 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   21: Team DPAV: 34085.254 | Saber: 17742.464 | Gilgamesh: 15389.534 | RuanMei: 585.512 | HuoHuo: 38.819
+Run   22: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   23: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   24: Team DPAV: 34588.008 | Saber: 18528.889 | Gilgamesh: 15232.186 | RuanMei: 480.995 | HuoHuo: 35.123
+Run   25: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   26: Team DPAV: 31277.052 | Saber: 17455.533 | Gilgamesh: 13010.354 | RuanMei: 510.533 | HuoHuo: 35.123
+Run   27: Team DPAV: 34042.648 | Saber: 17572.718 | Gilgamesh: 15420.569 | RuanMei: 642.243 | HuoHuo: 75.923
+Run   28: Team DPAV: 34874.986 | Saber: 18643.800 | Gilgamesh: 15358.884 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   29: Team DPAV: 32408.412 | Saber: 17260.707 | Gilgamesh: 14243.179 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   30: Team DPAV: 31495.381 | Saber: 17847.380 | Gilgamesh: 12825.010 | RuanMei: 509.609 | HuoHuo: 38.819
+Run   31: Team DPAV: 34840.165 | Saber: 18643.800 | Gilgamesh: 15324.063 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   32: Team DPAV: 33190.606 | Saber: 17260.707 | Gilgamesh: 15020.844 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   33: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   34: Team DPAV: 34085.254 | Saber: 17742.464 | Gilgamesh: 15389.534 | RuanMei: 585.512 | HuoHuo: 38.819
+Run   35: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   36: Team DPAV: 32408.990 | Saber: 17260.707 | Gilgamesh: 14239.229 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   37: Team DPAV: 31495.381 | Saber: 17847.380 | Gilgamesh: 12825.010 | RuanMei: 509.609 | HuoHuo: 38.819
+Run   38: Team DPAV: 33281.771 | Saber: 17054.204 | Gilgamesh: 15353.515 | RuanMei: 506.309 | HuoHuo: 38.819
+Run   39: Team DPAV: 34085.254 | Saber: 17742.464 | Gilgamesh: 15389.534 | RuanMei: 585.512 | HuoHuo: 38.819
+Run   40: Team DPAV: 34691.781 | Saber: 18489.533 | Gilgamesh: 15288.044 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   41: Team DPAV: 33746.439 | Saber: 17239.626 | Gilgamesh: 15522.933 | RuanMei: 617.498 | HuoHuo: 37.457
+Run   42: Team DPAV: 34124.025 | Saber: 17742.464 | Gilgamesh: 15428.305 | RuanMei: 585.512 | HuoHuo: 38.819
+Run   43: Team DPAV: 34287.568 | Saber: 18067.952 | Gilgamesh: 15165.727 | RuanMei: 642.243 | HuoHuo: 75.923
+Run   44: Team DPAV: 32407.586 | Saber: 17254.153 | Gilgamesh: 14239.229 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   45: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   46: Team DPAV: 32148.942 | Saber: 17075.961 | Gilgamesh: 14215.283 | RuanMei: 507.233 | HuoHuo: 35.123
+Run   47: Team DPAV: 33196.738 | Saber: 17863.344 | Gilgamesh: 14480.844 | RuanMei: 508.883 | HuoHuo: 35.123
+Run   48: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   49: Team DPAV: 34137.117 | Saber: 17797.177 | Gilgamesh: 15389.534 | RuanMei: 600.462 | HuoHuo: 36.874
+Run   50: Team DPAV: 34836.215 | Saber: 18643.800 | Gilgamesh: 15320.114 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   51: Team DPAV: 34205.520 | Saber: 18650.353 | Gilgamesh: 14650.639 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   52: Team DPAV: 34554.723 | Saber: 18394.377 | Gilgamesh: 15288.044 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   53: Team DPAV: 29789.794 | Saber: 16880.168 | Gilgamesh: 11849.459 | RuanMei: 642.243 | HuoHuo: 77.673
+Run   54: Team DPAV: 32447.761 | Saber: 17260.707 | Gilgamesh: 14278.000 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   55: Team DPAV: 34149.155 | Saber: 17801.072 | Gilgamesh: 15467.807 | RuanMei: 503.637 | HuoHuo: 36.387
+Run   56: Team DPAV: 33414.302 | Saber: 17149.361 | Gilgamesh: 15353.515 | RuanMei: 559.210 | HuoHuo: 36.874
+Run   57: Team DPAV: 32970.896 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   58: Team DPAV: 31676.339 | Saber: 16350.537 | Gilgamesh: 14398.996 | RuanMei: 556.446 | HuoHuo: 34.637
+Run   59: Team DPAV: 30682.005 | Saber: 17255.394 | Gilgamesh: 12609.167 | RuanMei: 510.533 | HuoHuo: 36.874
+Run   60: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   61: Team DPAV: 34287.568 | Saber: 18067.952 | Gilgamesh: 15165.727 | RuanMei: 642.243 | HuoHuo: 75.923
+Run   62: Team DPAV: 34874.986 | Saber: 18643.800 | Gilgamesh: 15358.884 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   63: Team DPAV: 33423.082 | Saber: 17742.464 | Gilgamesh: 14685.461 | RuanMei: 638.414 | HuoHuo: 36.874
+Run   64: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   65: Team DPAV: 33320.542 | Saber: 17054.204 | Gilgamesh: 15392.286 | RuanMei: 506.309 | HuoHuo: 38.819
+Run   66: Team DPAV: 34874.986 | Saber: 18643.800 | Gilgamesh: 15358.884 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   67: Team DPAV: 34874.986 | Saber: 18643.800 | Gilgamesh: 15358.884 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   68: Team DPAV: 34874.986 | Saber: 18643.800 | Gilgamesh: 15358.884 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   69: Team DPAV: 31315.823 | Saber: 17455.533 | Gilgamesh: 13049.125 | RuanMei: 510.533 | HuoHuo: 35.123
+Run   70: Team DPAV: 34587.074 | Saber: 18572.683 | Gilgamesh: 15155.672 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   71: Team DPAV: 34836.215 | Saber: 18643.800 | Gilgamesh: 15320.114 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   72: Team DPAV: 34047.176 | Saber: 17572.718 | Gilgamesh: 15420.569 | RuanMei: 642.243 | HuoHuo: 75.923
+Run   73: Team DPAV: 34403.785 | Saber: 18391.058 | Gilgamesh: 15164.083 | RuanMei: 493.652 | HuoHuo: 35.123
+Run   74: Team DPAV: 32407.586 | Saber: 17254.153 | Gilgamesh: 14239.229 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   75: Team DPAV: 33281.771 | Saber: 17054.204 | Gilgamesh: 15353.515 | RuanMei: 506.309 | HuoHuo: 38.819
+Run   76: Team DPAV: 31996.823 | Saber: 17132.023 | Gilgamesh: 13904.838 | RuanMei: 599.338 | HuoHuo: 33.956
+Run   77: Team DPAV: 34840.165 | Saber: 18643.800 | Gilgamesh: 15324.063 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   78: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   79: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   80: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   81: Team DPAV: 30627.685 | Saber: 17255.394 | Gilgamesh: 12554.847 | RuanMei: 510.533 | HuoHuo: 36.874
+Run   82: Team DPAV: 32334.518 | Saber: 18394.377 | Gilgamesh: 13067.840 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   83: Team DPAV: 34589.544 | Saber: 18394.377 | Gilgamesh: 15322.865 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   84: Team DPAV: 31456.610 | Saber: 17847.380 | Gilgamesh: 12786.239 | RuanMei: 509.609 | HuoHuo: 38.819
+Run   85: Team DPAV: 34589.544 | Saber: 18394.377 | Gilgamesh: 15322.865 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   86: Team DPAV: 34619.726 | Saber: 18532.208 | Gilgamesh: 15238.873 | RuanMei: 493.652 | HuoHuo: 35.123
+Run   87: Team DPAV: 33142.916 | Saber: 18920.440 | Gilgamesh: 13411.311 | RuanMei: 510.533 | HuoHuo: 35.123
+Run   88: Team DPAV: 34085.254 | Saber: 17742.464 | Gilgamesh: 15389.534 | RuanMei: 585.512 | HuoHuo: 38.819
+Run   89: Team DPAV: 34840.165 | Saber: 18643.800 | Gilgamesh: 15324.063 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   90: Team DPAV: 34687.831 | Saber: 18489.533 | Gilgamesh: 15284.095 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   91: Team DPAV: 34687.831 | Saber: 18489.533 | Gilgamesh: 15284.095 | RuanMei: 559.210 | HuoHuo: 35.123
+Run   92: Team DPAV: 32373.289 | Saber: 18394.377 | Gilgamesh: 13106.611 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   93: Team DPAV: 25927.787 | Saber: 12727.090 | Gilgamesh: 12279.039 | RuanMei: 558.096 | HuoHuo: 34.637
+Run   94: Team DPAV: 30720.776 | Saber: 17255.394 | Gilgamesh: 12647.938 | RuanMei: 510.533 | HuoHuo: 36.874
+Run   95: Team DPAV: 31277.052 | Saber: 17455.533 | Gilgamesh: 13010.354 | RuanMei: 510.533 | HuoHuo: 35.123
+Run   96: Team DPAV: 33209.945 | Saber: 17863.344 | Gilgamesh: 14442.073 | RuanMei: 560.860 | HuoHuo: 35.123
+Run   97: Team DPAV: 32975.423 | Saber: 18920.440 | Gilgamesh: 13238.270 | RuanMei: 509.609 | HuoHuo: 37.068
+Run   98: Team DPAV: 34550.773 | Saber: 18394.377 | Gilgamesh: 15284.095 | RuanMei: 506.309 | HuoHuo: 37.068
+Run   99: Team DPAV: 31940.899 | Saber: 17869.898 | Gilgamesh: 13180.474 | RuanMei: 564.985 | HuoHuo: 35.123
+Run  100: Team DPAV: 33150.430 | Saber: 17254.153 | Gilgamesh: 14982.074 | RuanMei: 559.210 | HuoHuo: 35.123
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 33149.187
+Average Saber DPAV: 17829.259 Percentage: 53.785%
+Average Gilgamesh DPAV: 14433.050 Percentage: 43.540%
+Average RuanMei DPAV: 536.269 Percentage: 1.618%
+Average HuoHuo DPAV: 38.940 Percentage: 0.117%
+
+Min Team DPAV: 25888.911
+Max Team DPAV: 34874.986

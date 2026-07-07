@@ -13,10 +13,10 @@ class ATrailOfBygoneBlood(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         crAmount = self.level * 0.02 + 0.10
         dmgAmount = self.level * 0.04 + 0.20
         bl.append(Buff("BygoneBloodCR", StatTypes.CR_PERCENT, crAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("BygoneBlood_SKLDMG", StatTypes.DMG_PERCENT, dmgAmount, self.wearerRole, [AtkType.SKL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("BygoneBlood_ULTDMG", StatTypes.DMG_PERCENT, dmgAmount, self.wearerRole, [AtkType.ULT], 1, 1, Role.SELF,TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

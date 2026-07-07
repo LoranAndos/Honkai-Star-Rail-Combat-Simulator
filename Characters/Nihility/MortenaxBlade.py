@@ -12,6 +12,7 @@ from Lightcones.Nihility.LiesDanceOnTheBreeze import LiesDanceOnTheBreeze
 from Planars.BoneCollectionsSereneDemesne import BoneCollectionsSereneDemesne
 from Planars.DuranDynastyOfRunningWolves import DuranDynastyOfRunningWolves
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.DivineQueryingMasterSmith import DivineQueryMasterSmith
 from Relics.ScholarLostInErudition import ScholarLostInErudition
@@ -67,13 +68,19 @@ class MortenaxBlade(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else BeforeTheTutorialMissionStarts(role, 5)
+        self.lightcone = lc if lc else ResolutionMortenaxBlade(role, 5)
         self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else LushakaTheSunkenSeas(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 3, 2, 2, 2, 2, 2, 10, 6, StatTypes.CR_PERCENT,
+        self.planar = pl if pl else SprightlyVonwacq(role)
+        if self.lightcone.name == "Resolution Shines as Pearls of Sweat":
+            RelicBuild = RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 7, 2, 10, 2, StatTypes.EHR_PERCENT,
                                                        StatTypes.SPD, StatTypes.HP_PERCENT,
                                                        StatTypes.ERR_PERCENT)
+        else:
+            RelicBuild = RelicStats(10, 2, 2, 2, 3, 2, 2, 2, 2, 2, 10, 6, StatTypes.CR_PERCENT,
+                       StatTypes.SPD, StatTypes.HP_PERCENT,
+                       StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicBuild
         self.rotation = rotation if rotation else ["E"]
         self.overflowEnergy = 0.0
         self.E2AllyUltChargeCount = 0
@@ -94,16 +101,16 @@ class MortenaxBlade(Character):
             self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("MortenaxBladeTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("MortenaxBladeTraceHP", StatTypes.HP_PERCENT, 0.10, self.role))
         bl.append(Buff("MortenaxBladeTraceDMG", StatTypes.DMG_PERCENT, 0.224, self.role))
         if self.eidolon >= 2:
             bl.append(Buff("MortenaxBladeE2FUADMG", StatTypes.DMG_PERCENT, 0.75, Role.ALL, [AtkType.FUA], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e5MulReg = 0.55 if self.eidolon >= 5 else 0.5
         e5MulEnhanced = 1.1 if self.eidolon >= 5 else 1.0
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
@@ -118,10 +125,10 @@ class MortenaxBlade(Character):
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                      [e5MulReg, 0], [10, 0], 20, self.scaling, 1, "MortenaxBladeBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5MulAoe = 0.792 if self.eidolon >= 5 else 0.72
         e5MulBounce = 0.264 if self.eidolon >= 5 else 0.24
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
@@ -147,10 +154,10 @@ class MortenaxBlade(Character):
         if self.lightcone.name == "Reforged in Hellfire":
             purgatoryCD = self.lightcone.level * 0.075 + 0.225
             bl.append(Buff("MortenaxBladePurgatoryBoost", StatTypes.CD_PERCENT, purgatoryCD, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         if self.EnhancedState == False:
             self.EnhancedState = True
@@ -194,10 +201,10 @@ class MortenaxBlade(Character):
                            [e3EnhancedUlt*e6DMGBoost, 0], [20, 0], 5, self.scaling, 0, "MortenaxBladeEnhancedUlt"))
             self.ChargeCount += 1
             logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useFua(enemyID)
         e5MulAoe = 0.792 if self.eidolon >= 5 else 0.72
         e5MulBounce = 0.264 if self.eidolon >= 5 else 0.24
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
@@ -220,10 +227,10 @@ class MortenaxBlade(Character):
                          [0, 0], [0, 0], 0, self.scaling, 0, "MortenaxBladeUltDelay"))
         self.ChargeCount += 1
         logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         ChargeCap = 7 if self.eidolon >= 2 else 9
@@ -259,10 +266,10 @@ class MortenaxBlade(Character):
         # E6: reset charge trigger at end of every turn
         if self.eidolon >= 6 and self.EnhancedState:
             self.E6ChargeReady = True
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         ChargeCap = 7 if self.eidolon >= 2 else 9
@@ -278,10 +285,10 @@ class MortenaxBlade(Character):
         # E6: reset charge trigger at end of every turn
         if self.eidolon >= 6 and self.EnhancedState:
             self.E6ChargeReady = True
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useHit(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useHit(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useHit(enemyID)
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         if self.EnhancedState:
@@ -295,10 +302,10 @@ class MortenaxBlade(Character):
                 logger.debug(f"{self.name} has obtained 1 Charge. Current Charge count: {self.ChargeCount}.")
                 self.E6ChargeReady = False
                 logger.debug(f"{self.name} E6: gained 1 Charge from taking DMG")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.NihilityCount = specialRes.attr1
         if self.Tech:
             self.Tech = False
@@ -308,7 +315,7 @@ class MortenaxBlade(Character):
             self.aggro = 10000
             bl.append(Buff("MortenaxBladeTechDMGReduction", StatTypes.DMG_REDUCTION, 0.90, self.role,
                            [AtkType.ALL], 2, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
         return "E" if self.EnhancedState else "A"

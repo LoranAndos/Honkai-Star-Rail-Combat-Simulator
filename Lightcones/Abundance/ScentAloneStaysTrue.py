@@ -17,11 +17,11 @@ class ScentAloneStaysTrue(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         beBuff = self.level * 0.1 + 0.5
         bl.append(
             Buff("ScentBE", StatTypes.BE_PERCENT, beBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
 
 class ScentAloneStaysTrueLingsha(ScentAloneStaysTrue):
@@ -29,11 +29,11 @@ class ScentAloneStaysTrueLingsha(ScentAloneStaysTrue):
         super().__init__(wearerRole, level)
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         vuln = self.level * 0.02 + 0.08
         extraVuln = self.level * 0.02 + 0.06 if self.beStat >= 1.5 else 0
         dbl.append(Debuff("ScentVuln", self.wearerRole, StatTypes.VULN, vuln + extraVuln, Role.ALL, [AtkType.ALL], 2))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def specialStart(self, special: Special):
         if special.specialName == "Lingsha":
@@ -46,11 +46,11 @@ class ScentAloneStaysTrueGallagher(ScentAloneStaysTrue):
         super().__init__(wearerRole, level)
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         vuln = self.level * 0.02 + 0.08
         extraVuln = self.level * 0.02 + 0.06 if self.beStat >= 1.5 else 0
         dbl.append(Debuff("ScentVuln", self.wearerRole, StatTypes.VULN, vuln + extraVuln, Role.ALL, [AtkType.ALL], 2))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def specialStart(self, special: Special):
         if special.specialName == "Gallagher":

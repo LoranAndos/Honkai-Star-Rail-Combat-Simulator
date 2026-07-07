@@ -65,10 +65,10 @@ class HuoHuo(Character):
         self.planar = pl if pl else BrokenKeel(self.role)
         self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 13, 2, 2, 2, 2, 4, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["E","E","E"])
+        self.rotation = rotation if rotation else (["E", "A", "A", "A"] if eidolon >= 1 else ["E","A","A"])
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("HHTraceHP", StatTypes.HP_PERCENT, 0.28, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("HHTraceERS", StatTypes.ERS_PERCENT, 0.18, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("HHTraceSPD", StatTypes.SPD, 5, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
@@ -81,17 +81,17 @@ class HuoHuo(Character):
                            tdType=TickDown.START))
         if self.eidolon == 6:
             bl.append(Buff("HHE6DMG", StatTypes.DMG_PERCENT, 0.5, Role.ALL))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
         e5Mul = 0.55 if self.eidolon >= 5 else 0.5
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e5Mul, 0], [10, 0], 20, self.scaling, 1, "HuoHuoBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         self.divineTrigger = 6
         E5BigHealScale = 0.256 if self.eidolon >= 5 else 0.24
         E5BigHealFlat = 712 if self.eidolon >= 5 else 640
@@ -106,10 +106,10 @@ class HuoHuo(Character):
                            tdType=TickDown.START))
         hl.append(Healing("HuoHuoSkillHealingScaling",[E5BigHealScale,E5SmallHealScale],self.scaling,Role.ALL,self.role,Targeting.BLAST))
         hl.append(Healing("HuoHuoSkillHealingFlat",[E5BigHealFlat,E5SmallHealFlat],Scaling.Other,Role.ALL,self.role,Targeting.BLAST))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         atkBuff = 0.432 if self.eidolon >= 3 else 0.4
         errMul = 0.21 if self.eidolon >= 3 else 0.2
@@ -149,10 +149,10 @@ class HuoHuo(Character):
         tl.append(
             Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ULT], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "HuoHuoUlt"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         E3HealScale = 0.048 if self.eidolon >= 3 else 0.045
         E3HealFlat = 133.5 if self.eidolon >= 3 else 120
         if ("Skill" in turn.moveName or "Basic" in turn.moveName or "Ult" in turn.moveName) and turn.moveName not in bonusDMG and self.divineTrigger > 0:
@@ -184,10 +184,10 @@ class HuoHuo(Character):
                             Targeting.SINGLE))
                 hl.append(Healing("HuoHuoTalentHealingFlat", [E3HealFlat, 0], Scaling.Other, Role.ALL, self.ally4HPRole,
                                   Targeting.SINGLE))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         if not self.foundEnergy:
             self.foundEnergy = True
             self.ally1Energy = specialRes.attr1[0]
@@ -211,4 +211,4 @@ class HuoHuo(Character):
         if self.Tech:
             dbl.append(Debuff("HuohuoTechniqueDebuff", self.role, StatTypes.ATK_REDUCTION, 0.25, Role.ALL, [AtkType.SPECIAL], 2))
             self.Tech = False
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

@@ -17,7 +17,7 @@ class UntilTheFlowersBloomAgain(Lightcone):
 
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         CDBuff = self.level * 0.15 + 0.45
         if self.level <= 3:
             ERRBuff = self.level * 0.015 + 0.085
@@ -30,10 +30,10 @@ class UntilTheFlowersBloomAgain(Lightcone):
         if self.maxEnergy >= 120:
             ERRExtraBuff = min(floor((self.maxEnergy-120)/10)*0.3,10.8)
             bl.append(Buff("FlowersBloomExtraERR", StatTypes.ERR_PERCENT, ERRExtraBuff/100, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useElaSkill(self, enemyID = -1):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         VulAmount = self.level * 0.0375 + 0.1125
         dbl.append(Debuff("FlowersBloomVul", self.wearerRole, StatTypes.VULN, VulAmount, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

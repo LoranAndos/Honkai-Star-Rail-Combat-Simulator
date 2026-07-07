@@ -13,7 +13,7 @@ class WhenSheDecidedToSee(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         SpdBuff = self.level * 0.03 + 0.15
         CRBuff = self.level * 0.01 + 0.09
         CDBuff = self.level * 0.075 + 0.225
@@ -23,14 +23,14 @@ class WhenSheDecidedToSee(Lightcone):
         bl.append(Buff("GreatFortuneCR", StatTypes.CR_PERCENT, CRBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL, TickDown.START))
         bl.append(Buff("GreatFortuneCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL,TickDown.START))
         bl.append(Buff("GreatFortuneER", StatTypes.ERR_PERCENT, ERBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         CRBuff = self.level * 0.01 + 0.09
         CDBuff = self.level * 0.075 + 0.225
         ERBuff = self.level * 0.02 + 0.1
         bl.append(Buff("GreatFortuneCR", StatTypes.CR_PERCENT, CRBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL, TickDown.START))
         bl.append(Buff("GreatFortuneCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.ALL,TickDown.START))
         bl.append(Buff("GreatFortuneER", StatTypes.ERR_PERCENT, ERBuff, self.wearerRole, [AtkType.ALL], 3, 1, Role.SELF,TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

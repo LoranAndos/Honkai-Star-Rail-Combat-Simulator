@@ -1,10 +1,11 @@
 """
-Returns 5 lists:
+Returns 6 lists:
 - list of buffs added
 - list of debuffs added
 - list of adv% adjustments
 - list of enemy debuffs to be applied
 - list of healing done
+- list of shields applied
 """
 from Turn_Text import *
 from Result import *
@@ -15,52 +16,53 @@ class Equipment:
         self.wearerRole = wearerRole
 
     def equip(self):  # init function to add base buffs to wearer
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useSkl(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useBsc(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useUlt(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useFua(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useAdd(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useElaSkill(self, enemyID = -1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useMemo(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def useHit(self, enemyID=-1):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def allyTurn(self, turn: Turn, result: Result):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     def ownTurn(self, turn: Turn, result: Result):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     @staticmethod
     def specialStart(special: Special):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     # noinspection PyUnusedLocal
     @staticmethod
     def specialEnd(special: Special):
-        return [], [], [], [], []
+        return [], [], [], [], [], []
 
     @staticmethod
-    def extendLists(bl: list, dbl: list, al: list, dl: list, hl: list, nbl: list, ndbl: list, nal: list, ndl: list, nhl: list):
+    def extendLists(bl: list, dbl: list, al: list, dl: list, hl: list, sl: list, nbl: list, ndbl: list, nal: list, ndl: list, nhl: list, nsl: list):
         bl.extend(nbl)
         dbl.extend(ndbl)
         al.extend(nal)
         dl.extend(ndl)
         hl.extend(nhl)
-        return bl, dbl, al, dl, hl
+        sl.extend(nsl)
+        return bl, dbl, al, dl, hl, sl

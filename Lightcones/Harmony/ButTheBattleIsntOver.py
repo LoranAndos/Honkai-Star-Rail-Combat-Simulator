@@ -15,20 +15,20 @@ class ButTheBattleIsntOver(Lightcone):
         self.targetRole = targetRole
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         BuffAmount = self.level * 0.02 + 0.08
         bl.append(Buff("BattleIsntOverERR", StatTypes.ERR_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useSkl(enemyID)
         DmgAmount = self.level * 0.05 + 0.25
         bl.append(Buff(f"BattleIsntOverDMG{self.wearerRole}", StatTypes.DMG_PERCENT, DmgAmount, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole, TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         if self.UltAmount % 2 == 0:
             bl.append(Buff(f"BattleIsntOverSP{self.wearerRole}", StatTypes.SKLPT, 1, self.wearerRole))
         self.UltAmount += 1
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl

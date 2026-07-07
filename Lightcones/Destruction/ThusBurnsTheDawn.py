@@ -16,19 +16,19 @@ class ThusBurnsTheDawn(Lightcone):
         super().__init__(wearerRole, level)
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("ThusBurnsTheDawnSPD", StatTypes.SPD, 12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         ShredAmount = self.level * 0.045 + 0.135
         if result.turnDmg > 0:
             bl.append(Buff("ThusBurnsTheDawnSHRED", StatTypes.SHRED, ShredAmount, self.wearerRole, [AtkType.ALL], 1, 1,Role.SELF, TickDown.PERM))
-        return dl, dbl, al, dl, hl
+        return dl, dbl, al, dl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, hl = super().useUlt()
+        bl, dbl, al, dl, hl, sl = super().useUlt()
         BuffAmount = self.level * 0.18 + 0.42
         bl.append(Buff("ThusBurnsTheDawnDB", StatTypes.DMG_PERCENT, BuffAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
