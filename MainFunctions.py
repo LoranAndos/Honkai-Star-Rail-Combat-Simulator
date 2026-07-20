@@ -385,15 +385,24 @@ def addShield(currList: list[Shield], newList: list[Shield]) -> list[Shield]:
     return currList
 
 def getShieldGrantedAmount(character: Character, shieldEntry: Shield, buffList: list[Buff], turn: Turn) -> float:
-    """Compute how much shield HP a single Shield entry grants, mirroring the
-    Heal.val[0] * Scaling_Multiplier * OGH_Multiplier logic used for Healing."""
+    """Compute how much shield HP a single Shield entry grants.
+
+    val can be:
+      - float : pure percent or flat depending on scaling
+      - [percentVal, flatVal] : percent portion scaled by stat + flat bonus added directly
+        (mirrors how Healing.val works: val[0] * scaling_multiplier + val[1])
+    """
+    isList = isinstance(shieldEntry.val, (list, tuple))
+    percentVal = shieldEntry.val[0] if isList else shieldEntry.val
+    flatVal    = shieldEntry.val[1] if isList else 0.0
+
     if shieldEntry.scaling == Scaling.Other:
-        return shieldEntry.val
+        return percentVal + flatVal
     elif shieldEntry.scaling == Scaling.MAXHP:
-        return shieldEntry.val * character.maxHP
+        return percentVal * character.maxHP + flatVal
     else:
         scalingMul = getBaseValue(character, buffList, turn)
-        return shieldEntry.val * scalingMul
+        return percentVal * scalingMul + flatVal
 
 def applyShields(shieldEntries: list[Shield], playerTeam: list[Character], buffList: list[Buff], turn: Turn = None,
                  dmgTracker: DmgTracker = None) -> list[Shield]:
@@ -410,7 +419,7 @@ def applyShields(shieldEntries: list[Shield], playerTeam: list[Character], buffL
     for shieldEntry in shieldEntries:
         target = next((c for c in playerTeam if c.role == shieldEntry.target), None)
         applierChar = next((c for c in playerTeam if c.role == shieldEntry.applier), None)
-        if target is None or applierChar is None or shieldEntry.val == 0:
+        if target is None or applierChar is None or shieldEntry.val == 0 or shieldEntry.val == [0, 0]:
             continue
         if not hasattr(target, 'shields') or target.shields is None:
             target.shields = []
@@ -904,6 +913,8 @@ def addSummons(playerTeam: list[Character]) -> list:
             summons.append(LightningLord(char.role, Role.LIGHTNINGLORD))
         elif char.name == "MortenaxBlade":
             summons.append(InfiniteFury(char.role, Role.INFINITEFURY))
+        elif char.name == "DanHengPermansorTerrae":
+            summons.append(Souldragon(char.role, Role.SOULDRAGON, char))
         elif char.name in charToTurnName:
             if not ahaAdded:
                 elationTeam = [(c.role, charToTurnName[c.name]) for c in
@@ -1870,7 +1881,7 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.warning(f"    {result}")
         if manualMode:
             print(result)
-        teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList, [], newDebuffs,[], newDelays,[],[])
+        teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList,healList, shieldList, [],newDebuffs, [], newDelays,[], [])
 
         # For Evanescia specifically: apply her own action's errGain to currEnergy immediately
         # so _tryMasterFoxFUA in ownTurn sees the correct post-action energy.

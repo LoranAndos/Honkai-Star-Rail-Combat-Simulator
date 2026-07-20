@@ -22,12 +22,14 @@ class Shield:
           currentAmount, clamped at capValue (or uncapped if capValue is None).
     """
 
-    def __init__(self, name: str, val: float, scaling: Scaling, target: Role, applier: Role,
+    def __init__(self, name: str, val: float | list, scaling: Scaling, target: Role, applier: Role,
                  targeting: Targeting, capMultiplier: float = None, isDefining: bool = True,
                  turns: int = 1, tickDown: Role = Role.SELF, tdType: TickDown = TickDown.END,
                  atkType: list = None):
         self.name = name
-        self.val = val                  # raw value used to compute the shield amount granted this application
+        self.val = val                  # raw value(s): float for pure-scaling shields,
+                                        # or [percentVal, flatVal] for mixed shields
+                                        # (e.g. [0.20, 400] = 20% ATK + 400 flat)
         self.scaling = scaling          # Scaling.ATK / HP / DEF / Other / MAXHP -- mirrors Healing
         self.target = target            # Role being shielded
         self.applier = applier          # Role of the caster
@@ -49,7 +51,7 @@ class Shield:
         return (f"{self.name} | Target: {self.target.name} | Current: {self.currentAmount:.1f} | "
                 f"Cap: {capStr} | Turns: {self.turns}")
 
-    def getShieldVal(self) -> float:
+    def getShieldVal(self) -> float | list:
         return self.val
 
     def reduceTurns(self):

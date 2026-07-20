@@ -57,7 +57,7 @@ class Numby(Summon):
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)
 
-    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+    def takeTurn(self):
         bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, "NumbyGoGo"))
@@ -75,7 +75,7 @@ class Fuyuan(Summon):
     def __init__(self, ownerRole: Role, role: Role) -> None:
         super().__init__(ownerRole, role)
 
-    def takeTurn(self) -> tuple[list[Buff], list[Debuff], list[Advance], list[Delay], list[Turn], list[Healing]]:
+    def takeTurn(self):
         bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                        self.scaling, 0, "FuyuanGoGo"))
@@ -351,4 +351,62 @@ class Aha(Summon):
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
 
+        return bl, dbl, al, dl, tl, hl, sl
+
+class Souldragon(Summon):
+    name = "Souldragon"
+    element = Element.PHYSICAL
+    scaling = Scaling.ATK
+    currSPD = 165
+    baseSPD = 165
+    currAV = 10000 / currSPD
+
+    def __init__(self, ownerRole: Role, role: Role, owner=None) -> None:
+        super().__init__(ownerRole, role)
+        self.owner = owner      # reference to DanHengPermansorTerrae instance for stat/bondmate access
+        self.ultEnhanced = 0    # remaining enhanced actions from Dan Heng's Ult (max 2)
+
+    def takeTurn(self):
+        bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
+
+        # ── Talent shield: 10% ATK + 200, AOE, non-defining (shares cap with Skill) ──
+        # isDefining=False so this doesn't reset the cap; it just tops up
+        # currentAmount within whatever cap Dan Heng's Skill last established.
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                       [0, 0], [0, 0], 0, self.scaling, 0, "SoulDragonShield"))
+
+        # ── Ult enhancement: extra FUA + bondmate additional DMG ─────────────
+        if self.ultEnhanced > 0:
+            self.ultEnhanced -= 1
+
+            # Extra physical FUA (80% Dan Heng ATK, AOE) — same charRole as owner
+            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                           [0, 0], [0, 0], 0, self.scaling, 0, "SoulDragonAttack"))
+
+            # Bondmate additional DMG: 80% of Bondmate's ATK, Bondmate's element, AOE
+            # Emitted with bondmateRole as charRole so getBaseValue resolves
+            # the bondmate's ATK% buffs correctly via their role.
+            if self.owner is not None and self.owner.bondmateRole is not None:
+                bondmateRole = self.owner.bondmateRole
+                # Resolve bondmate's element from the player team
+                bondmateElement = Element.PHYSICAL  # fallback
+                bondmateName = "DanHengPermansorTerrae"
+                if Character._current_player_team:
+                    for char in Character._current_player_team:
+                        if char.role == bondmateRole:
+                            bondmateElement = char.element
+                            bondmateName = char.name
+                            break
+                e3Mul = 0.88 if self.owner.eidolon >= 3 else 0.80
+                tl.append(Turn(
+                    bondmateName, bondmateRole, -1, Targeting.AOE,
+                    [AtkType.ADD], [bondmateElement],
+                    [e3Mul, 0], [0, 0], 0, Scaling.ATK, 0, "SouldragonBondmateADD"))
+
+        return bl, dbl, al, dl, tl, hl, sl
+
+    def allyTurn(self, turn, result):
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
+        if turn.moveName == "DanHengPermansorTerraeUlt":
+            self.ultEnhanced += 2
         return bl, dbl, al, dl, tl, hl, sl
