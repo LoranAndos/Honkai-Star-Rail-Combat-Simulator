@@ -360,23 +360,81 @@ def addHealing(currList: list[Healing], newList: list[Healing]) -> list[Healing]
     return currList
 
 def parseShield(lst: list[Shield], playerTeam: list[Character]) -> list[Shield]:
-    """Expand raw Shield entries (one per applier action) into one resolved
-    Shield instance per affected character, mirroring parseHealing's pattern
-    for AOE/BLAST/SINGLE/Role targeting. BLAST targeting for shields always
-    behaves like AOE (no "lowest HP" selection makes sense for a shield)."""
+    """Expand raw Shield entries into one resolved Shield instance per affected
+    character, mirroring parseHealing's AOE/BLAST/SINGLE/Role logic exactly —
+    but for BLAST and SINGLE targeting uses lowest *shield HP* instead of
+    lowest *character HP* to determine the primary target."""
     ShieldList = []
+
+    # Build shield-HP list in playerTeam order (mirrors HpList in parseHealing)
+    ShieldHpList = [c.getTotalShieldHP() for c in playerTeam]
+    LowestShieldHp = min(ShieldHpList)
+    NumberLowestShieldHp = ShieldHpList.index(LowestShieldHp)
+
     for shield in lst:
         if shield.target == Role.ALL:
-            for char in playerTeam:
-                ShieldList.append(Shield(shield.name, shield.val, shield.scaling, char.role, shield.applier,
-                                         shield.targeting, shield.capMultiplier, shield.isDefining,
-                                         shield.turns, shield.tickDown, shield.tdType, shield.atkType))
-        else:
-            for char in playerTeam:
-                if char.role == shield.target:
+            if shield.targeting == Targeting.AOE:
+                # Full shield to every character
+                for char in playerTeam:
+                    ShieldList.append(Shield(shield.name, shield.val, shield.scaling, char.role, shield.applier,
+                                             shield.targeting, shield.capMultiplier, shield.isDefining,
+                                             shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+            elif shield.targeting == Targeting.BLAST:
+                # Full shield to lowest-shield-HP target + adjacent; full to others too
+                for i in range(len(playerTeam)):
+                    if i == NumberLowestShieldHp and NumberLowestShieldHp > 0:
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                    elif i == NumberLowestShieldHp and NumberLowestShieldHp == 0:
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                    elif i == NumberLowestShieldHp and NumberLowestShieldHp == len(playerTeam):
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                    else:
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+            else:
+                # SINGLE: full shield only to lowest-shield-HP character, zero to others
+                for i in range(len(playerTeam)):
+                    if i == NumberLowestShieldHp:
+                        ShieldList.append(Shield(shield.name, shield.val, shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                    else:
+                        ShieldList.append(Shield(shield.name, [0, 0] if isinstance(shield.val, list) else 0,
+                                                 shield.scaling, playerTeam[i].role, shield.applier,
+                                                 shield.targeting, shield.capMultiplier, shield.isDefining,
+                                                 shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+        elif shield.target != Role.ALL:
+            # Explicit role target: full shield to matching character, zero to others
+            for character in playerTeam:
+                if character.role == shield.target:
                     ShieldList.append(Shield(shield.name, shield.val, shield.scaling, shield.target, shield.applier,
                                              shield.targeting, shield.capMultiplier, shield.isDefining,
                                              shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+                else:
+                    ShieldList.append(Shield(shield.name, [0, 0] if isinstance(shield.val, list) else 0,
+                                             shield.scaling, character.role, shield.applier,
+                                             shield.targeting, shield.capMultiplier, shield.isDefining,
+                                             shield.turns, shield.tickDown, shield.tdType, shield.atkType))
+
     return ShieldList
 
 def addShield(currList: list[Shield], newList: list[Shield]) -> list[Shield]:
@@ -914,7 +972,9 @@ def addSummons(playerTeam: list[Character]) -> list:
         elif char.name == "MortenaxBlade":
             summons.append(InfiniteFury(char.role, Role.INFINITEFURY))
         elif char.name == "DanHengPermansorTerrae":
-            summons.append(Souldragon(char.role, Role.SOULDRAGON, char))
+            souldragon = Souldragon(char.targetRole, Role.SOULDRAGON, char)
+            char.souldragon = souldragon
+            summons.append(souldragon)
         elif char.name in charToTurnName:
             if not ahaAdded:
                 elationTeam = [(c.role, charToTurnName[c.name]) for c in
@@ -1438,6 +1498,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
                 return Special(name=specStr, attr1=CharSPD, attr2=enemyDebuffs, enemies=gauge)
 
+            case "DanHengPermansorTerrae":
+                atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
+                return Special(name=specStr, attr1=atkStat, enemies=gauge)
+
             case "DrRatio":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
                 canUlt = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
@@ -1856,12 +1920,15 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
         logging.debug("\n        ----------Char Buffs----------")
         [logging.debug(f"        {buff}") for buff in teamBuffs if (buff.target == turn.charRole and checkValidList(turn.atkType, buff.atkType))]
         logging.debug("        ----------End of Buff List----------")
-        logging.debug("\n        ----------Enemy Debuffs----------")
+        logging.debug("        ----------Enemy Debuffs----------")
         [logging.debug(f"        {debuff}") for debuff in enemyDebuffs if debuff.target == turn.targetID]
         logging.debug("        ----------End of Debuff List----------")
         logging.debug("        ----------Healing List----------")
         [logging.debug(f"        {heal}") for heal in healList]
         logging.debug("        ----------End of Healing List----------")
+        logging.debug("        ----------Shields List----------")
+        [logging.debug(f"        {shield}") for shield in shieldList]
+        logging.debug("        ----------End of Shields List----------")
 
 
         res, newDebuffs, newDelays = handleTurn(turn, playerTeam, eTeam, teamBuffs, enemyDebuffs, healList,manualMode=manualMode)

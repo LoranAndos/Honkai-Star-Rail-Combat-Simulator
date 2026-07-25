@@ -60,24 +60,24 @@ class Sparkle(Character):
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("SparkleTraceHP", StatTypes.HP_PERCENT, 0.28, self.role))
         bl.append(Buff("SparkleTraceCD", StatTypes.CD_PERCENT, 0.24, self.role))
         bl.append(Buff("SparkleTraceERS", StatTypes.ERS_PERCENT, 0.10, self.role))
         bl.append(Buff("SparkleTeamATK", StatTypes.ATK_PERCENT, 0.45, Role.ALL))
         if self.eidolon >= 1:
             bl.append(Buff("SparkleE1SPD", StatTypes.SPD_PERCENT, 0.15, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 30, self.scaling, 1, "SparkleBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3CDMul = 0.264 if self.eidolon >= 3 else 0.24
         e3CDFlat = 0.486 if self.eidolon >= 3 else 0.45
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 30,
@@ -93,10 +93,10 @@ class Sparkle(Character):
             al.append(Advance("SparkleForward", self.targetRole, 0.50))
         if self.eidolon >= 1:
             bl.append(Buff("SparkleE1SPD", StatTypes.SPD_PERCENT, 0.15, self.role, [AtkType.ALL], 2, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e4SP = 7 if self.eidolon >= 4 else 6
         e5VUL = 0.0648 if self.eidolon >= 5 else 0.06
@@ -105,22 +105,22 @@ class Sparkle(Character):
         bl.append(Buff("SparkleUltVUL", StatTypes.VULN, e5VUL*3, Role.ALL,[AtkType.ALL], 3, 1, Role.SELF,TickDown.END))
         if self.eidolon >= 1:
             bl.append(Buff("SparkleE1ATK", StatTypes.ATK_PERCENT, 0.40, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
         preRefreshSP = self.currentSP  # still the pre-ult value before _refreshSP updates it
         self._refreshSP()
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         if result.turnName == "SparkleUlt":
             # Use preRefreshSP (before ult spChange was applied) to correctly compute overflow
             e4SP = 7 if self.eidolon >= 4 else 6
             overflow = max(0, preRefreshSP + e4SP - self.maxSP)
             self.overflowSP = min(overflow, 10)
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
         self._refreshSP()
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e5VUL = 0.044 if self.eidolon >= 5 else 0.04
         if turn.spChange <= -1:
             bl.append(Buff("SparkleVUL", StatTypes.VULN, e5VUL, Role.ALL,[AtkType.ALL], 2, 3, Role.SELF, TickDown.END))
@@ -140,7 +140,7 @@ class Sparkle(Character):
                                [self.element], [0, 0], [0, 0], 0, self.scaling,
                                spToRestore, "SparkleOverflowSP"))
                 self.overflowSP -= spToRestore
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def _refreshSP(self):
         """Sync currentSP and maxSP from the live spTracker if available."""
@@ -149,7 +149,7 @@ class Sparkle(Character):
             self.maxSP = self.spTracker.maxSP
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         if self.startSP:
             self.startSP = False
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SPECIAL],
@@ -162,4 +162,4 @@ class Sparkle(Character):
         # Store the spTracker reference on first receipt so we can refresh SP live
         if self.spTracker is None and specialRes.attr4 is not None:
             self.spTracker = specialRes.attr4
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

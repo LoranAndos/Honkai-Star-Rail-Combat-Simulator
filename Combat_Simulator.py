@@ -3,6 +3,7 @@ import logging
 import Enemy
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
+from Characters.Preservation.DanHengPermansorTerrae import DangHengPermansorTerrae
 from Characters.Destruction.Saber import Saber
 from Characters.Destruction.Gilgamesh import Gilgamesh
 from Characters.Elation.Yao_Guang import YaoGuang
@@ -34,13 +35,13 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                    outputLog: bool = False, enemyModule=None, manualMode=False) -> str:
     # =============== SETTINGS ===============
     # Enemy Settings
-    numEnemies = 2
-    enemyLevel = [95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
-    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS] # make sure that the number of entries in this list is the same as "numEnemies"
-    enemySPD = [130 ,158.4]  # make sure that the number of entries in this list is the same as "numEnemies"
-    toughness = [100, 160]  # make sure that the number of entries in this list is the same as "numEnemies"
+    numEnemies = 3
+    enemyLevel = [95, 95, 95]  # make sure that the number of entries in this list is the same as "numEnemies"
+    enemyTypes = [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE] # make sure that the number of entries in this list is the same as "numEnemies"
+    enemySPD = [130 ,158.4, 130]  # make sure that the number of entries in this list is the same as "numEnemies"
+    toughness = [100, 160, 100]  # make sure that the number of entries in this list is the same as "numEnemies"
     attackRatio = atkRatio  # from Misc.py
-    weaknesses = [Element.WIND]
+    weaknesses = [Element.QUANTUM]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
     enemyModule = ThreeEnemyModule
     #enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness, attackRatio, weaknesses, actionOrder)
@@ -59,10 +60,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = Sunday(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = RinTohsaka(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -517,7 +518,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True   # Set to True for multiple runs, False for single run
+    multiRun = False   # Set to True for multiple runs, False for single run
     numRuns = 100     # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 

@@ -62,7 +62,7 @@ class Archer(Character):
         self.rotation = rotation if rotation else ["E"]
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("ArcherTraceCR", StatTypes.CD_PERCENT, 0.067, self.role))
         bl.append(Buff("ArcherTraceATK", StatTypes.ATK_PERCENT, 0.18, self.role))
         bl.append(Buff("ArcherTraceDMG", StatTypes.DMG_PERCENT, 0.224, self.role))
@@ -70,17 +70,17 @@ class Archer(Character):
             bl.append(Buff("ArcherE4UltDMG", StatTypes.DMG_PERCENT, 1.50, self.role,[AtkType.ULT],1,1, self.role, TickDown.PERM))
         if self.eidolon >= 6:
             bl.append(Buff("ArcherE6SKLShred", StatTypes.SHRED, 0.20, self.role,[AtkType.SKL],1,1, self.role, TickDown.PERM))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "ArcherBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Mul = 3.96 if self.eidolon >= 3 else 3.6
         e3DmgBoost = 1.08 if self.eidolon >= 3 else 1.00
         e6DmgBoostLimit = 3 if self.eidolon == 6 else 2
@@ -104,7 +104,7 @@ class Archer(Character):
         # correct (accumulated) stkMul before state is cleared.
         spAfterThis = self.SPAmount - 2
         if spAfterThis <= 3 and self.RinTohsakaInTeam and self.RinTurnHappened:
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useJointAttack(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useJointAttack(-1))
             self.RinTurnHappened = False
             spAfterThis += 4
         shouldExit = (self.circuitSklCount >= 5) or (spAfterThis < abs(SpUsage))
@@ -114,10 +114,10 @@ class Archer(Character):
             self.circuitSklCount = 0
             logger.info(f"CIRCUIT > {self.name} exited Circuit Connection state")
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e5Mul = 10.8 if self.eidolon >= 5 else 10.0
         if self.eidolon >= 2:
@@ -126,25 +126,25 @@ class Archer(Character):
                        [e5Mul, 0], [30, 0], 5, self.scaling, 0, "ArcherUlt"))
         self.FUACharge = min(self.FUACharge+2,4)
         logger.info(f"Archer Obtained 2 FUA Charge")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useFua(enemyID)
         e5Mul = 2.2 if self.eidolon >= 5 else 2.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.FUA], [self.element],
                        [e5Mul, 0], [10, 0], 5, self.scaling, 1, "ArcherFUA"))
         self.FUACharge -= 1
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useJointAttack(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useJointAttack(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useJointAttack(enemyID)
         e3RinMult = 3.3 if self.RinEidolon >= 3 else 3.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA],
                        [self.element], [e3RinMult, 0], [0, 0], 0, self.scaling, 0, "ArcherJointAttack"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         # If all enemies are defeated mid-circuit, cancel the remaining uses.
         if self.circuitActive and self.get_alive_enemy_count() == 0:
             self.circuitActive = False
@@ -153,20 +153,20 @@ class Archer(Character):
             logger.info(f"CIRCUIT > {self.name} exited Circuit Connection (all enemies defeated)")
         if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.FUACharge > 0:
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
         if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))
         if turn.moveName not in bonusDMG and turn.charName == "RinTohsaka" and (turn.moveName == "RinTohsakaBasic" or turn.moveName == "RinTohsakaSkill" or turn.moveName == "RinTohsakaSkillAOE") :
             self.RinTurnHappened = True
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.SPAmount = specialRes.attr1
         isOwnTurn = specialRes.attr2
         self.RinTohsakaInTeam = specialRes.attr3
@@ -181,4 +181,4 @@ class Archer(Character):
         # E6: recover 1 SP at the start of Archer's own turn
         if self.eidolon >= 6 and isOwnTurn:
             bl.append(Buff("ArcherE6SP", StatTypes.SKLPT, 1, self.role))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

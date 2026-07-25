@@ -15,7 +15,7 @@ class DayOneOfMyNewLife(Lightcone):
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
         defAmount = self.level * 0.02 + 0.14
-        penAmount = self.level * 0.01 + 0.07
+        ResAmount = self.level * 0.01 + 0.07
         bl.append(Buff("DayOneDEF", StatTypes.DEF_PERCENT, defAmount, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
-        bl.append(Buff("DayOnePEN", StatTypes.PEN, penAmount, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        bl.append(Buff("DayOneRES", StatTypes.DMG_REDUCTION, ResAmount, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
