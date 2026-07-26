@@ -42,6 +42,7 @@ class StatTypes(Enum):
     BRK_DMG = "BRK_DMG%"
     SBRK_DMG = "SBRK_DMG%"
     OGH_PERCENT = "OGH%"
+    SHD_PERCENT = "SHD%"
     ERR_PERCENT = "ERR%"
     EHR_PERCENT = "EHR%"
     ERS_PERCENT = "ERS%"

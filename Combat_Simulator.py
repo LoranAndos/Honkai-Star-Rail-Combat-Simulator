@@ -26,9 +26,9 @@ log = True
 manual = False
 
 
-FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.WIND], [1]) # 5 enemyModule
-ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.WIND], [1]) # 3 enemyModule
-TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [Element.WIND], [1]) # 2 enemyModule
+FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [Element.QUANTUM], [1]) # 5 enemyModule
+ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [Element.QUANTUM], [1]) # 3 enemyModule
+TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [Element.QUANTUM], [1]) # 2 enemyModule
 
 # noinspection PyUnboundLocalVariable,PyUnusedLocal
 def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3: Character = None, s4: Character = None,
@@ -63,7 +63,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = RinTohsaka(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=6, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -319,7 +319,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                     if turnList:
                         allUnits = sortUnits(allUnits)
                         setPriority(allUnits)
-                        readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0]
+                        readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0 and getattr(u, "breakMidTurn", True)]
                         for summon in readySummons:
                             bl, dbl, al, dl, tl, hl, sl = summon.takeTurn()
                             teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList = handleAdditions(
@@ -377,7 +377,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                 # A summon hit 0 AV mid-sequence — let it act before continuing
                 allUnits = sortUnits(allUnits)
                 setPriority(allUnits)
-                readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0]
+                readySummons = [u for u in allUnits if u.isSummon() and u.currAV <= 0 and getattr(u, "breakMidTurn", True)]
                 for summon in readySummons:
                     summonAction = f"ACTION > [SUMMON] TotalAV: {simAV:.3f} | TurnAV: 0.000 | {summon.name}"
                     logging.critical(summonAction)
@@ -550,10 +550,10 @@ if __name__ == "__main__":
 
         # Build filename matching log format (So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = RinTohsaka(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
         outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
@@ -572,10 +572,10 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Saber(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Archer(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = RinTohsaka(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = Sparkle(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=1, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=slot1, s2=slot2, s3=slot3, s4=slot4,

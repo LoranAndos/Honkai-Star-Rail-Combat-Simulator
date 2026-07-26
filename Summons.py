@@ -7,7 +7,8 @@ from Shields import Shield
 from Result import *
 from Turn_Text import Turn
 from Character import Character
-
+import logging
+logger = logging.getLogger(__name__)
 
 class Summon:
     name = "Summon"
@@ -18,6 +19,8 @@ class Summon:
     currHP = 0
     currEnergy = 0
     maxEnergy = 0
+    breakMidTurn = False  # if True, summon acts immediately when AV hits 0 mid-processTurnList
+                         # set to False for summons that should only act after a full turn ends
 
     def __init__(self, ownerRole: Role, role: Role) -> None:
         self.ownerRole = ownerRole
@@ -360,6 +363,7 @@ class Souldragon(Summon):
     currSPD = 165
     baseSPD = 165
     currAV = 10000 / currSPD
+    breakMidTurn = False  # Souldragon waits until the full turn ends before acting
 
     def __init__(self, ownerRole: Role, role: Role, owner=None) -> None:
         super().__init__(ownerRole, role)
@@ -375,6 +379,7 @@ class Souldragon(Summon):
         # currentAmount within whatever cap Dan Heng's Skill last established.
         tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                        [0, 0], [0, 0], 0, self.scaling, 0, "SoulDragonShield"))
+        logger.debug(f"Souldragon.takeTurn: ultEnhanced={self.ultEnhanced}")
 
         # ── Ult enhancement: extra FUA + bondmate additional DMG ─────────────
         if self.ultEnhanced > 0:

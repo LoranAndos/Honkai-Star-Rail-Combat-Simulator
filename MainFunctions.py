@@ -442,6 +442,18 @@ def addShield(currList: list[Shield], newList: list[Shield]) -> list[Shield]:
         currList.append(shield)
     return currList
 
+def getMulSHD(character: Character, shieldEntry: Shield, buffList: list[Buff]) -> float:
+    """Sum StatTypes.SHD_PERCENT buffs on the applying character (filtered by
+    the shield's atkType, mirroring how buff-filtering works for scaling
+    lookups) and return the resulting multiplier (1 + sum). This boosts the
+    amount of shield HP granted by the APPLIER, the same way OGH_PERCENT
+    boosts outgoing healing."""
+    shd = sum(buff.getBuffVal() for buff in buffList
+              if buff.target == character.role
+              and buff.buffType == StatTypes.SHD_PERCENT
+              and checkValidList(shieldEntry.atkType, buff.atkType))
+    return 1 + shd
+
 def getShieldGrantedAmount(character: Character, shieldEntry: Shield, buffList: list[Buff], turn: Turn) -> float:
     """Compute how much shield HP a single Shield entry grants.
 
@@ -449,18 +461,22 @@ def getShieldGrantedAmount(character: Character, shieldEntry: Shield, buffList: 
       - float : pure percent or flat depending on scaling
       - [percentVal, flatVal] : percent portion scaled by stat + flat bonus added directly
         (mirrors how Healing.val works: val[0] * scaling_multiplier + val[1])
+
+    The result is scaled by the applying character's SHD_PERCENT ("Shield
+    Boost") buffs, the same way Outgoing Healing Boost scales Healing.
     """
     isList = isinstance(shieldEntry.val, (list, tuple))
     percentVal = shieldEntry.val[0] if isList else shieldEntry.val
     flatVal    = shieldEntry.val[1] if isList else 0.0
+    shdMul = getMulSHD(character, shieldEntry, buffList)
 
     if shieldEntry.scaling == Scaling.Other:
-        return percentVal + flatVal
+        return (percentVal + flatVal) * shdMul
     elif shieldEntry.scaling == Scaling.MAXHP:
-        return percentVal * character.maxHP + flatVal
+        return (percentVal * character.maxHP + flatVal) * shdMul
     else:
         scalingMul = getBaseValue(character, buffList, turn)
-        return percentVal * scalingMul + flatVal
+        return (percentVal * scalingMul + flatVal) * shdMul
 
 def applyShields(shieldEntries: list[Shield], playerTeam: list[Character], buffList: list[Buff], turn: Turn = None,
                  dmgTracker: DmgTracker = None) -> list[Shield]:
@@ -1986,8 +2002,10 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             avAdjustment(playerTeam + summons, advList)
             advList = []
             # If any summon is now ready to act (AV <= 0), stop processing and return
-            # control to the main AV loop so the summon can be scheduled immediately
-            if any(s.currAV <= 0 for s in summons):
+            # control to the main AV loop so the summon can be scheduled immediately.
+            # Summons with breakMidTurn=False (e.g. Souldragon) wait until the full
+            # turn sequence completes before acting.
+            if any(s.currAV <= 0 and getattr(s, 'breakMidTurn', True) for s in summons):
                 turnList = turnList[1:]
                 break
 
@@ -2191,6 +2209,8 @@ def getCharStat(query: StatTypes, char: Character, enemy: Enemy, buffList: list[
             return res + char.relicStats.getERR() # base value of 1 not added
         case StatTypes.OGH_PERCENT:
             return res + char.relicStats.getOGH() # base multiplier of 1 not added
+        case StatTypes.SHD_PERCENT:
+            return res # base multiplier of 1 not added; pure buff-based (see getMulSHD in the shield-granting path)
         case StatTypes.BRK_DMG:
             return res
         case StatTypes.SBRK_DMG:

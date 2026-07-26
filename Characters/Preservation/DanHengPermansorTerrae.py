@@ -2,11 +2,10 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Preservation.DayOneOfMyNewLife import DayOneOfMyNewLife
+from Lightcones.Preservation.LandausChoice import LandausChoice
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
-from Relics.ScholarLostInErudition import ScholarLostInErudition
-from Relics.AsNavigatorIseeSeesIt import AsNavigatorIseeSeesIt
+from Relics.SelfEnshroudedRecluse import SelfEnshroudedRecluse
 from Result import *
 from Turn_Text import Turn
 from Delay_Text import Advance
@@ -42,8 +41,8 @@ class DangHengPermansorTerrae(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else DayOneOfMyNewLife(role, 5)
-        self.relic1 = r1 if r1 else ScholarLostInErudition(role, 4)
+        self.lightcone = lc if lc else LandausChoice(role, 5)
+        self.relic1 = r1 if r1 else SelfEnshroudedRecluse(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)
         self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 3, 2, 2, 2, 2, 11, 10, StatTypes.ATK_PERCENT, StatTypes.SPD,
@@ -62,11 +61,12 @@ class DangHengPermansorTerrae(Character):
 
         sl.append(Shield("DanHengPermansorTerraeShield",[ScalingMul, FlatMul],Scaling.ATK,Role.ALL,self.role,Targeting.AOE, 3.0,True, 3, self.role, TickDown.END))
         bl.append(Buff("DanHengPermansorTerraeERR", StatTypes.ERR_T, 30, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        self.bondmateRole = self.targetRole
         if self.eidolon >= 4:
             bl.append(Buff("DanHengPermansorTerraeE4DMGReduction", StatTypes.DMG_REDUCTION, 0.20, self.targetRole, [AtkType.ALL], 1,
                      1, self.targetRole, TickDown.PERM))
         if self.eidolon == 6:
-            dbl.append(Debuff("DanHengPermansorTerrae", self.role, StatTypes.VULN, 0.20, Role.ALL, [AtkType.ALL], 9999))
+            dbl.append(Debuff("DanHengPermansorTerraeE6Debuff", self.role, StatTypes.VULN, 0.20, Role.ALL, [AtkType.ALL], 9999))
             bl.append(Buff("DanHengPermansorTerraeE6Shred", StatTypes.SHRED, 0.12, self.targetRole,[AtkType.ALL], 1,
                            1, self.targetRole, TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
@@ -137,10 +137,11 @@ class DangHengPermansorTerrae(Character):
         # the Advance(SOULDRAGON, 1.00) causes processTurnList to break early
         # (before E2SoulDragonActions is processed), so allyTurn never sees it.
         E2Multiplier = 2.0 if self.eidolon >= 2 else 1.0
+        E2Actions = 4 if self.eidolon >= 2 else 2
         if hasattr(self, 'souldragon') and self.souldragon is not None:
-            self.souldragon.ultEnhanced = 4 if self.eidolon >= 2 else 2
+            self.souldragon.ultEnhanced += E2Actions
             self.souldragon.E2Multiplier = E2Multiplier
-            logger.info(f"SOULDRAGON > Ult enhancement granted (ultEnhanced=2, E2Multiplier={E2Multiplier})")
+            logger.info(f"SOULDRAGON > Ult enhancement granted (ultEnhanced={E2Actions}, E2Multiplier={E2Multiplier})")
         if self.eidolon >= 2:
             al.append(Advance("DanHengPermansorTerraeE2Advance", Role.SOULDRAGON, 1.00))
 
@@ -160,7 +161,6 @@ class DangHengPermansorTerrae(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
-
         return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):

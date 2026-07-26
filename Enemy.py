@@ -99,7 +99,7 @@ class Enemy:
 
         DEF formula: defMul = 1 - charDEF / (charDEF + 200 + 10 * enemyLevel)
         """
-        hitScale = energyGiven / 10.0
+        hitScale = energyGiven / 10.0 # Change value of the divider to increase or decrease damage
         base = self.atk * hitScale * self.dmgPercent
         defMul = 1 - (targetDef / (targetDef + 200 + 10 * self.level))
         return base * defMul

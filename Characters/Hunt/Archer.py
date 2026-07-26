@@ -29,7 +29,7 @@ class Archer(Character):
     ultCost = 220
     currAV = 0
     aggro = 75
-    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.FUA: 0}  # Adjust accordingly
+    dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.FUA: 0, AtkType.ADD: 0}  # Adjust accordingly
 
     # Unique Character Properties
     FUACharge = 1
