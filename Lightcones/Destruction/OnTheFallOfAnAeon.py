@@ -16,7 +16,6 @@ class OnTheFallOfAnAeon(Lightcone):
         super().__init__(wearerRole, level)
         self.AttackCount = 0
 
-
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         AtkBuff = self.level * 0.02 + 0.06

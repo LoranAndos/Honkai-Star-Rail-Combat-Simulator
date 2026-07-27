@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 65662.259 | Archer: 59188.070 | RinTohsaka: 5922.049 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.168
-Run    2: Team DPAV: 66651.450 | Archer: 60269.784 | RinTohsaka: 5832.855 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.839
-Run    3: Team DPAV: 62799.107 | Archer: 56198.889 | RinTohsaka: 6047.473 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.774
-Run    4: Team DPAV: 66967.529 | Archer: 60466.313 | RinTohsaka: 5954.724 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.519
-Run    5: Team DPAV: 66537.403 | Archer: 60091.256 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 391.326
-Run    6: Team DPAV: 66528.706 | Archer: 60038.894 | RinTohsaka: 5937.066 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.774
-Run    7: Team DPAV: 66446.913 | Archer: 59996.529 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run    8: Team DPAV: 61606.377 | Archer: 55367.952 | RinTohsaka: 5696.602 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run    9: Team DPAV: 65357.206 | Archer: 59153.112 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 384.641
-Run   10: Team DPAV: 65469.864 | Archer: 59265.582 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 384.830
-Run   11: Team DPAV: 62762.245 | Archer: 56423.352 | RinTohsaka: 5808.622 | Sparkle: 0.000 | DanHengPermansorTerrae: 374.298
-Run   12: Team DPAV: 66867.314 | Archer: 60485.648 | RinTohsaka: 5832.855 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.839
-Run   13: Team DPAV: 65793.184 | Archer: 59615.374 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 391.467
-Run   14: Team DPAV: 62082.589 | Archer: 55743.792 | RinTohsaka: 5793.160 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.665
-Run   15: Team DPAV: 62758.883 | Archer: 56159.875 | RinTohsaka: 6047.473 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   16: Team DPAV: 66101.426 | Archer: 59645.399 | RinTohsaka: 5902.529 | Sparkle: 0.000 | DanHengPermansorTerrae: 397.527
-Run   17: Team DPAV: 63158.761 | Archer: 56669.009 | RinTohsaka: 5943.261 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.519
-Run   18: Team DPAV: 66066.638 | Archer: 59568.667 | RinTohsaka: 5952.529 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.470
-Run   19: Team DPAV: 62405.708 | Archer: 55856.619 | RinTohsaka: 6009.255 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.861
-Run   20: Team DPAV: 66829.269 | Archer: 60326.842 | RinTohsaka: 5954.724 | Sparkle: 0.000 | DanHengPermansorTerrae: 391.730
-Run   21: Team DPAV: 66162.901 | Archer: 59666.140 | RinTohsaka: 5952.529 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.260
-Run   22: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   23: Team DPAV: 65840.446 | Archer: 59663.248 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.855
-Run   24: Team DPAV: 63032.809 | Archer: 56753.502 | RinTohsaka: 5740.953 | Sparkle: 0.000 | DanHengPermansorTerrae: 382.382
-Run   25: Team DPAV: 65456.843 | Archer: 59217.032 | RinTohsaka: 5698.040 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.798
-Run   26: Team DPAV: 65744.509 | Archer: 59568.521 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.645
-Run   27: Team DPAV: 61858.494 | Archer: 55558.071 | RinTohsaka: 5758.599 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   28: Team DPAV: 65604.847 | Archer: 59395.307 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.089
-Run   29: Team DPAV: 66062.351 | Archer: 59603.808 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.260
-Run   30: Team DPAV: 65258.776 | Archer: 59074.629 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 382.341
-Run   31: Team DPAV: 66057.117 | Archer: 59597.364 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.470
-Run   32: Team DPAV: 62760.890 | Archer: 56198.889 | RinTohsaka: 6009.255 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.774
-Run   33: Team DPAV: 66569.790 | Archer: 60120.516 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 394.453
-Run   34: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   35: Team DPAV: 65840.446 | Archer: 59663.248 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.855
-Run   36: Team DPAV: 62205.045 | Archer: 55933.938 | RinTohsaka: 5725.490 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.645
-Run   37: Team DPAV: 66651.450 | Archer: 60269.784 | RinTohsaka: 5832.855 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.839
-Run   38: Team DPAV: 61719.312 | Archer: 55440.046 | RinTohsaka: 5740.953 | Sparkle: 0.000 | DanHengPermansorTerrae: 382.341
-Run   39: Team DPAV: 62934.446 | Archer: 56616.441 | RinTohsaka: 5774.062 | Sparkle: 0.000 | DanHengPermansorTerrae: 387.970
-Run   40: Team DPAV: 61470.574 | Archer: 55153.349 | RinTohsaka: 5777.755 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.498
-Run   41: Team DPAV: 62205.045 | Archer: 55933.938 | RinTohsaka: 5725.490 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.645
-Run   42: Team DPAV: 65412.296 | Archer: 59222.097 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.394
-Run   43: Team DPAV: 66045.929 | Archer: 59588.496 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 387.150
-Run   44: Team DPAV: 66790.093 | Archer: 60289.674 | RinTohsaka: 5949.247 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.200
-Run   45: Team DPAV: 65789.149 | Archer: 59545.471 | RinTohsaka: 5698.040 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.665
-Run   46: Team DPAV: 63183.375 | Archer: 56691.302 | RinTohsaka: 5943.261 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.839
-Run   47: Team DPAV: 66881.621 | Archer: 60381.918 | RinTohsaka: 5954.724 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.006
-Run   48: Team DPAV: 66465.851 | Archer: 59948.518 | RinTohsaka: 5973.243 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.118
-Run   49: Team DPAV: 65258.776 | Archer: 59074.629 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 382.341
-Run   50: Team DPAV: 62544.828 | Archer: 56052.597 | RinTohsaka: 5957.743 | Sparkle: 0.000 | DanHengPermansorTerrae: 378.515
-Run   51: Team DPAV: 66084.057 | Archer: 59626.624 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 387.150
-Run   52: Team DPAV: 62828.000 | Archer: 56228.992 | RinTohsaka: 6047.473 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   53: Team DPAV: 62866.732 | Archer: 56420.255 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 376.195
-Run   54: Team DPAV: 62313.374 | Archer: 55704.997 | RinTohsaka: 6062.936 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.470
-Run   55: Team DPAV: 66548.084 | Archer: 60097.701 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   56: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   57: Team DPAV: 65846.127 | Archer: 59668.619 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 391.165
-Run   58: Team DPAV: 65721.369 | Archer: 59516.065 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   59: Team DPAV: 65964.923 | Archer: 59512.728 | RinTohsaka: 5902.529 | Sparkle: 0.000 | DanHengPermansorTerrae: 393.693
-Run   60: Team DPAV: 66651.450 | Archer: 60269.784 | RinTohsaka: 5832.855 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.839
-Run   61: Team DPAV: 66531.662 | Archer: 60082.388 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 394.453
-Run   62: Team DPAV: 66446.913 | Archer: 59996.529 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   63: Team DPAV: 66113.812 | Archer: 59644.348 | RinTohsaka: 5927.372 | Sparkle: 0.000 | DanHengPermansorTerrae: 386.121
-Run   64: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   65: Team DPAV: 65357.206 | Archer: 59153.112 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 384.641
-Run   66: Team DPAV: 63513.054 | Archer: 57309.429 | RinTohsaka: 5655.923 | Sparkle: 0.000 | DanHengPermansorTerrae: 391.730
-Run   67: Team DPAV: 65744.509 | Archer: 59568.521 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.645
-Run   68: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   69: Team DPAV: 66571.303 | Archer: 60120.516 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.967
-Run   70: Team DPAV: 66567.981 | Archer: 60188.636 | RinTohsaka: 5832.855 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.519
-Run   71: Team DPAV: 66391.949 | Archer: 59920.971 | RinTohsaka: 5927.372 | Sparkle: 0.000 | DanHengPermansorTerrae: 387.634
-Run   72: Team DPAV: 66919.749 | Archer: 60420.046 | RinTohsaka: 5954.724 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.006
-Run   73: Team DPAV: 65360.394 | Archer: 59174.727 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.861
-Run   74: Team DPAV: 62430.253 | Archer: 56219.933 | RinTohsaka: 5663.492 | Sparkle: 0.000 | DanHengPermansorTerrae: 390.855
-Run   75: Team DPAV: 65354.713 | Archer: 59169.356 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.552
-Run   76: Team DPAV: 62308.939 | Archer: 56042.069 | RinTohsaka: 5725.490 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.408
-Run   77: Team DPAV: 66281.386 | Archer: 60037.709 | RinTohsaka: 5698.040 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.665
-Run   78: Team DPAV: 65376.656 | Archer: 59185.246 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 389.605
-Run   79: Team DPAV: 66662.777 | Archer: 60212.394 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   80: Team DPAV: 65474.640 | Archer: 59290.494 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 382.341
-Run   81: Team DPAV: 65598.463 | Archer: 59358.652 | RinTohsaka: 5698.040 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.798
-Run   82: Team DPAV: 64124.436 | Archer: 57645.704 | RinTohsaka: 5939.262 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.498
-Run   83: Team DPAV: 65570.577 | Archer: 59385.220 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.552
-Run   84: Team DPAV: 66446.913 | Archer: 59996.529 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   85: Team DPAV: 67352.090 | Archer: 60859.034 | RinTohsaka: 5939.262 | Sparkle: 0.000 | DanHengPermansorTerrae: 397.823
-Run   86: Team DPAV: 65947.036 | Archer: 59450.276 | RinTohsaka: 5952.529 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.260
-Run   87: Team DPAV: 66507.517 | Archer: 60059.757 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 392.940
-Run   88: Team DPAV: 67367.354 | Archer: 60875.810 | RinTohsaka: 5939.262 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.310
-Run   89: Team DPAV: 62374.139 | Archer: 55822.327 | RinTohsaka: 6009.255 | Sparkle: 0.000 | DanHengPermansorTerrae: 386.585
-Run   90: Team DPAV: 65598.463 | Archer: 59358.652 | RinTohsaka: 5698.040 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.798
-Run   91: Team DPAV: 66446.913 | Archer: 59996.529 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   92: Team DPAV: 63352.465 | Archer: 56914.147 | RinTohsaka: 5898.848 | Sparkle: 0.000 | DanHengPermansorTerrae: 383.498
-Run   93: Team DPAV: 66045.929 | Archer: 59588.496 | RinTohsaka: 5914.311 | Sparkle: 0.000 | DanHengPermansorTerrae: 387.150
-Run   94: Team DPAV: 65453.143 | Archer: 59247.839 | RinTohsaka: 5663.480 | Sparkle: 0.000 | DanHengPermansorTerrae: 385.852
-Run   95: Team DPAV: 62789.782 | Archer: 56228.992 | RinTohsaka: 6009.255 | Sparkle: 0.000 | DanHengPermansorTerrae: 395.563
-Run   96: Team DPAV: 67453.262 | Archer: 60960.205 | RinTohsaka: 5939.262 | Sparkle: 0.000 | DanHengPermansorTerrae: 397.823
-Run   97: Team DPAV: 65307.451 | Archer: 59121.482 | RinTohsaka: 5645.833 | Sparkle: 0.000 | DanHengPermansorTerrae: 384.164
-Run   98: Team DPAV: 62597.250 | Archer: 56429.588 | RinTohsaka: 5630.370 | Sparkle: 0.000 | DanHengPermansorTerrae: 381.319
-Run   99: Team DPAV: 66039.064 | Archer: 59528.759 | RinTohsaka: 5965.589 | Sparkle: 0.000 | DanHengPermansorTerrae: 388.744
-Run  100: Team DPAV: 67405.482 | Archer: 60913.938 | RinTohsaka: 5939.262 | Sparkle: 0.000 | DanHengPermansorTerrae: 396.310
+Run    1: Team DPAV: 55762.925 | Archer: 49348.519 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 275.735
+Run    2: Team DPAV: 58980.025 | Archer: 52628.045 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.715
+Run    3: Team DPAV: 58572.715 | Archer: 52277.740 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 314.380
+Run    4: Team DPAV: 57078.130 | Archer: 50742.879 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 306.987
+Run    5: Team DPAV: 57075.335 | Archer: 50734.698 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run    6: Team DPAV: 57333.125 | Archer: 50992.488 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run    7: Team DPAV: 59219.824 | Archer: 52823.418 | RinTohsaka: 5915.488 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.736
+Run    8: Team DPAV: 54563.669 | Archer: 48196.394 | RinTohsaka: 5932.820 | Sparkle: 0.000 | DanHengPermansorTerrae: 276.273
+Run    9: Team DPAV: 59551.836 | Archer: 52828.984 | RinTohsaka: 6244.708 | Sparkle: 0.000 | DanHengPermansorTerrae: 319.962
+Run   10: Team DPAV: 59305.317 | Archer: 52908.258 | RinTohsaka: 5915.488 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   11: Team DPAV: 57344.452 | Archer: 51006.835 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.354
+Run   12: Team DPAV: 55338.227 | Archer: 48911.329 | RinTohsaka: 5995.952 | Sparkle: 0.000 | DanHengPermansorTerrae: 272.764
+Run   13: Team DPAV: 56819.186 | Archer: 50370.591 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.925
+Run   14: Team DPAV: 54653.243 | Archer: 48254.226 | RinTohsaka: 5932.820 | Sparkle: 0.000 | DanHengPermansorTerrae: 308.015
+Run   15: Team DPAV: 55854.948 | Archer: 49442.256 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 274.021
+Run   16: Team DPAV: 55923.527 | Archer: 49476.808 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 308.048
+Run   17: Team DPAV: 58460.502 | Archer: 52106.772 | RinTohsaka: 5872.812 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.736
+Run   18: Team DPAV: 55990.773 | Archer: 49690.650 | RinTohsaka: 5837.875 | Sparkle: 0.000 | DanHengPermansorTerrae: 304.066
+Run   19: Team DPAV: 59170.584 | Archer: 52820.155 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.165
+Run   20: Team DPAV: 54850.924 | Archer: 48588.304 | RinTohsaka: 5837.875 | Sparkle: 0.000 | DanHengPermansorTerrae: 266.563
+Run   21: Team DPAV: 58851.655 | Archer: 52493.140 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 314.788
+Run   22: Team DPAV: 55388.303 | Archer: 48962.874 | RinTohsaka: 5995.952 | Sparkle: 0.000 | DanHengPermansorTerrae: 271.296
+Run   23: Team DPAV: 59549.133 | Archer: 53159.320 | RinTohsaka: 5910.936 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.696
+Run   24: Team DPAV: 57177.627 | Archer: 50683.625 | RinTohsaka: 6025.895 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.925
+Run   25: Team DPAV: 58825.240 | Archer: 52474.811 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.165
+Run   26: Team DPAV: 59348.899 | Archer: 52996.920 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.715
+Run   27: Team DPAV: 56655.880 | Archer: 50305.688 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 306.465
+Run   28: Team DPAV: 58688.311 | Archer: 52442.526 | RinTohsaka: 5767.070 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.533
+Run   29: Team DPAV: 57366.953 | Archer: 51015.300 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   30: Team DPAV: 59255.331 | Archer: 52910.288 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 316.779
+Run   31: Team DPAV: 59279.291 | Archer: 52930.331 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.696
+Run   32: Team DPAV: 55673.415 | Archer: 49346.969 | RinTohsaka: 5862.826 | Sparkle: 0.000 | DanHengPermansorTerrae: 305.437
+Run   33: Team DPAV: 59154.939 | Archer: 52589.638 | RinTohsaka: 6089.034 | Sparkle: 0.000 | DanHengPermansorTerrae: 318.085
+Run   34: Team DPAV: 57624.955 | Archer: 51238.912 | RinTohsaka: 5915.488 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   35: Team DPAV: 56701.846 | Archer: 50400.261 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.990
+Run   36: Team DPAV: 57266.514 | Archer: 50925.877 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   37: Team DPAV: 57401.808 | Archer: 50742.879 | RinTohsaka: 6192.046 | Sparkle: 0.000 | DanHengPermansorTerrae: 308.701
+Run   38: Team DPAV: 57366.953 | Archer: 51015.300 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   39: Team DPAV: 57103.012 | Archer: 50629.259 | RinTohsaka: 6036.899 | Sparkle: 0.000 | DanHengPermansorTerrae: 278.672
+Run   40: Team DPAV: 58846.819 | Archer: 52500.763 | RinTohsaka: 5865.530 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.344
+Run   41: Team DPAV: 58322.129 | Archer: 52028.046 | RinTohsaka: 5815.205 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.696
+Run   42: Team DPAV: 56655.334 | Archer: 49851.056 | RinTohsaka: 6369.627 | Sparkle: 0.000 | DanHengPermansorTerrae: 276.469
+Run   43: Team DPAV: 56703.544 | Archer: 50389.582 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 270.235
+Run   44: Team DPAV: 57081.068 | Archer: 50742.879 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.925
+Run   45: Team DPAV: 57083.516 | Archer: 50742.879 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   46: Team DPAV: 56459.164 | Archer: 50112.773 | RinTohsaka: 5908.232 | Sparkle: 0.000 | DanHengPermansorTerrae: 279.978
+Run   47: Team DPAV: 59230.258 | Archer: 52879.258 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.736
+Run   48: Team DPAV: 58137.031 | Archer: 51903.097 | RinTohsaka: 5757.618 | Sparkle: 0.000 | DanHengPermansorTerrae: 318.134
+Run   49: Team DPAV: 59199.163 | Archer: 52911.301 | RinTohsaka: 5807.923 | Sparkle: 0.000 | DanHengPermansorTerrae: 321.757
+Run   50: Team DPAV: 57329.000 | Archer: 51027.041 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 273.695
+Run   51: Team DPAV: 57331.656 | Archer: 50992.488 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 310.904
+Run   52: Team DPAV: 55225.967 | Archer: 49221.695 | RinTohsaka: 5541.371 | Sparkle: 0.000 | DanHengPermansorTerrae: 304.719
+Run   53: Team DPAV: 56654.656 | Archer: 50305.688 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 305.241
+Run   54: Team DPAV: 54609.338 | Archer: 48247.939 | RinTohsaka: 5932.820 | Sparkle: 0.000 | DanHengPermansorTerrae: 270.398
+Run   55: Team DPAV: 56903.042 | Archer: 50555.298 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 304.017
+Run   56: Team DPAV: 55814.470 | Archer: 49400.064 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 275.735
+Run   57: Team DPAV: 55953.161 | Archer: 49538.021 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 276.469
+Run   58: Team DPAV: 57077.885 | Archer: 50742.879 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 306.743
+Run   59: Team DPAV: 56392.775 | Archer: 49933.400 | RinTohsaka: 5995.952 | Sparkle: 0.000 | DanHengPermansorTerrae: 305.241
+Run   60: Team DPAV: 57366.953 | Archer: 51015.300 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   61: Team DPAV: 57375.133 | Archer: 51023.480 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   62: Team DPAV: 57070.929 | Archer: 50734.698 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 307.967
+Run   63: Team DPAV: 57333.125 | Archer: 50992.488 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   64: Team DPAV: 56418.408 | Archer: 50127.840 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.974
+Run   65: Team DPAV: 58829.164 | Archer: 52473.097 | RinTohsaka: 5885.545 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.340
+Run   66: Team DPAV: 58888.170 | Archer: 52541.413 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 318.493
+Run   67: Team DPAV: 58945.653 | Archer: 52595.224 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.165
+Run   68: Team DPAV: 56490.988 | Archer: 50112.773 | RinTohsaka: 5908.232 | Sparkle: 0.000 | DanHengPermansorTerrae: 311.802
+Run   69: Team DPAV: 55886.073 | Archer: 49476.808 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 270.594
+Run   70: Team DPAV: 58020.786 | Archer: 51305.523 | RinTohsaka: 6244.708 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   71: Team DPAV: 56065.553 | Archer: 49751.977 | RinTohsaka: 5850.936 | Sparkle: 0.000 | DanHengPermansorTerrae: 304.458
+Run   72: Team DPAV: 57375.133 | Archer: 51023.480 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   73: Team DPAV: 57145.408 | Archer: 50806.567 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 310.578
+Run   74: Team DPAV: 57583.402 | Archer: 51549.280 | RinTohsaka: 5559.031 | Sparkle: 0.000 | DanHengPermansorTerrae: 316.910
+Run   75: Team DPAV: 56414.736 | Archer: 50127.840 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 306.302
+Run   76: Team DPAV: 59196.486 | Archer: 52844.833 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   77: Team DPAV: 58827.839 | Archer: 52477.410 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 322.165
+Run   78: Team DPAV: 59565.361 | Archer: 53213.708 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 323.389
+Run   79: Team DPAV: 59233.463 | Archer: 52846.285 | RinTohsaka: 5908.300 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.696
+Run   80: Team DPAV: 56742.837 | Archer: 50325.412 | RinTohsaka: 5980.489 | Sparkle: 0.000 | DanHengPermansorTerrae: 278.754
+Run   81: Team DPAV: 58832.027 | Archer: 52585.018 | RinTohsaka: 5767.070 | Sparkle: 0.000 | DanHengPermansorTerrae: 321.757
+Run   82: Team DPAV: 59228.660 | Archer: 52843.848 | RinTohsaka: 5908.300 | Sparkle: 0.000 | DanHengPermansorTerrae: 318.330
+Run   83: Team DPAV: 56970.630 | Archer: 50634.155 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 308.211
+Run   84: Team DPAV: 58036.329 | Archer: 51787.244 | RinTohsaka: 5769.799 | Sparkle: 0.000 | DanHengPermansorTerrae: 321.104
+Run   85: Team DPAV: 56418.408 | Archer: 50127.840 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.974
+Run   86: Team DPAV: 57327.727 | Archer: 50987.090 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 312.373
+Run   87: Team DPAV: 54618.972 | Archer: 48254.226 | RinTohsaka: 5932.820 | Sparkle: 0.000 | DanHengPermansorTerrae: 273.744
+Run   88: Team DPAV: 57884.532 | Archer: 51573.719 | RinTohsaka: 5837.875 | Sparkle: 0.000 | DanHengPermansorTerrae: 314.756
+Run   89: Team DPAV: 59314.283 | Archer: 52964.098 | RinTohsaka: 5870.082 | Sparkle: 0.000 | DanHengPermansorTerrae: 321.920
+Run   90: Team DPAV: 56701.846 | Archer: 50400.261 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.990
+Run   91: Team DPAV: 56410.228 | Archer: 50119.660 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 309.974
+Run   92: Team DPAV: 55386.234 | Archer: 48941.130 | RinTohsaka: 5975.937 | Sparkle: 0.000 | DanHengPermansorTerrae: 310.986
+Run   93: Team DPAV: 56128.386 | Archer: 49799.738 | RinTohsaka: 5862.826 | Sparkle: 0.000 | DanHengPermansorTerrae: 307.640
+Run   94: Team DPAV: 56959.636 | Archer: 50658.051 | RinTohsaka: 5822.413 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.990
+Run   95: Team DPAV: 56184.047 | Archer: 49722.767 | RinTohsaka: 6025.895 | Sparkle: 0.000 | DanHengPermansorTerrae: 277.204
+Run   96: Team DPAV: 59095.945 | Archer: 52805.979 | RinTohsaka: 5812.476 | Sparkle: 0.000 | DanHengPermansorTerrae: 319.309
+Run   97: Team DPAV: 57963.689 | Archer: 51715.012 | RinTohsaka: 5769.799 | Sparkle: 0.000 | DanHengPermansorTerrae: 320.696
+Run   98: Team DPAV: 55463.089 | Archer: 49039.618 | RinTohsaka: 5995.952 | Sparkle: 0.000 | DanHengPermansorTerrae: 269.337
+Run   99: Team DPAV: 55028.693 | Archer: 49016.825 | RinTohsaka: 5577.135 | Sparkle: 0.000 | DanHengPermansorTerrae: 276.551
+Run  100: Team DPAV: 57435.347 | Archer: 51055.913 | RinTohsaka: 5915.488 | Sparkle: 0.000 | DanHengPermansorTerrae: 305.763
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 65119.363
-Average Archer DPAV: 58755.168 Percentage: 90.227%
-Average RinTohsaka DPAV: 5819.029 Percentage: 8.936%
+Average Team DPAV: 57337.036
+Average Archer DPAV: 50978.370 Percentage: 88.910%
+Average RinTohsaka DPAV: 5893.480 Percentage: 10.279%
 Average Sparkle DPAV: 0.000 Percentage: 0.000%
-Average DanHengPermansorTerrae DPAV: 389.194 Percentage: 0.598%
+Average DanHengPermansorTerrae DPAV: 307.003 Percentage: 0.535%
 
-Min Team DPAV: 61470.574
-Max Team DPAV: 67453.262
+Min Team DPAV: 54563.669
+Max Team DPAV: 59565.361

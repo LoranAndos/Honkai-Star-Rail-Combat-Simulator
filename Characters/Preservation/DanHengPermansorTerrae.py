@@ -2,7 +2,7 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Preservation.LandausChoice import LandausChoice
+from Lightcones.Preservation.DHPT_Lightcone_Aeon import DHPT_Lightcone_Aeon
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
 from Relics.SelfEnshroudedRecluse import SelfEnshroudedRecluse
@@ -41,11 +41,11 @@ class DangHengPermansorTerrae(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else LandausChoice(role, 5)
+        self.lightcone = lc if lc else DHPT_Lightcone_Aeon(role, 5)
         self.relic1 = r1 if r1 else SelfEnshroudedRecluse(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)
-        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 3, 2, 2, 2, 2, 11, 10, StatTypes.ATK_PERCENT, StatTypes.SPD,
+        self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 11, 2, 2, 2, 2, 2, 2, StatTypes.ATK_PERCENT, StatTypes.SPD,
                                                        StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["A"]
