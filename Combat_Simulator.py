@@ -32,7 +32,7 @@ TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [13
 
 # noinspection PyUnboundLocalVariable,PyUnusedLocal
 def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3: Character = None, s4: Character = None,
-                   outputLog: bool = False, enemyModule=None, manualMode=False) -> str:
+                   outputLog: bool = False, enemyModule=None, manualMode=False, resultEnemies: list = None) -> str:
     # =============== SETTINGS ===============
     # Enemy Settings
     numEnemies = 3
@@ -507,6 +507,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         logging.critical(
             f"{char.name} > Total DMG: {charDMG:.3f} | Basics: {char.basics} | Skills: {char.skills} | Ults: {char.ults} | FuAs: {char.fuas} | MemoAttacks: {char.MemoAttack} | ElationSkills: {char.ElationSkills} | JointAttacks: {char.JointAttacks} | Leftover AV: {char.currAV:.3f} | Excess Energy: {char.currEnergy:.3f}")
         logging.critical(res)
+
+    if resultEnemies is not None:
+        resultEnemies.extend(eTeam)
 
     return f"DPAV: {dmg.getTotalDMG() / avLimit:.3f} | SP Used: {spTracker.getSPUsed()}, SP Gain: {spTracker.getSPGain()}"
 

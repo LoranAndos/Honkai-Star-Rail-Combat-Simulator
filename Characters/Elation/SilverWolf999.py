@@ -296,7 +296,7 @@ class SilverWolf999(Character):
         bl.append(Buff("SilverWolf999Zone", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 999, 1,
                        self.role, TickDown.START))
 
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ULT], [self.element],
                  [0, 0], [0, 0], 0, self.scaling, 0, "SilverWolf999Ult"))
 
         if self.eidolon >= 1:

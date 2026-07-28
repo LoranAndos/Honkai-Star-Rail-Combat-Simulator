@@ -292,6 +292,6 @@ class Cipher(Character):
 
         if self.Tech:
             self.Tech = False
-            tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.TECH],
+            tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.AOE, [AtkType.TECH],
                            [self.element], [1.0, 0], [0 , 0], 0, self.scaling, 0, "CipherTech"))
         return bl, dbl, al, dl, tl, hl, sl

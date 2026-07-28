@@ -113,6 +113,7 @@ class HuoHuo(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         atkBuff = 0.432 if self.eidolon >= 3 else 0.4
         errMul = 0.21 if self.eidolon >= 3 else 0.2
+        self.divineTrigger = 6
         bl.append(
             Buff("HuoHuoERR", StatTypes.ERR_F, self.ally1Energy * errMul, self.ally1Role, [AtkType.ALL], 1, 1, self.ally1Role,
                  TickDown.PERM))

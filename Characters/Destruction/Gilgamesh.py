@@ -182,7 +182,7 @@ class Gilgamesh(Character):
         if turn.charRole == self.ally3Role and self.ally3Energy > 140:
             bl.append(Buff("GilgameshTrace3AllyATK", StatTypes.ATK_PERCENT, min((self.ally3Energy - 140) * 0.01, 1.00), self.ally3Role, [AtkType.ALL], 1, 1, self.ally3Role, TickDown.PERM))
             bl.append(Buff("GilgameshTrace3AllyCD", StatTypes.CD_PERCENT, min((self.ally3Energy - 140) * 0.01, 1.00), self.ally3Role, [AtkType.ALL], 1, 1, self.ally3Role, TickDown.PERM))
-        if turn.moveName not in bonusDMG:
+        if turn.moveName not in bonusDMG and turn.targeting != Targeting.NA:
             self.Interest += 1
             logger.debug(f"Gilgamesh Obtained 1 Interest from Teammate, Current count: {self.Interest}")
         if self.Interest >= 10 and not self.InterestPiqued:
@@ -213,6 +213,8 @@ class Gilgamesh(Character):
                            [self.element], [2.00, 0], [0, 0], 0, self.scaling, 0, "GilgameshTechnique"))
             self.Interest += 3
             logger.debug(f"Gilgamesh Obtained 3 Interest from Technique, Current count: {self.Interest}")
+            self.JointCounter += 1
+            logger.debug(f"Gilgamesh JointCounter increased by one, current count: {self.JointCounter}")
             if self.eidolon >= 2:
                 self.Interest += 5
                 logger.debug(f"Gilgamesh Obtained 5 Interest from E2, Current count: {self.Interest}")

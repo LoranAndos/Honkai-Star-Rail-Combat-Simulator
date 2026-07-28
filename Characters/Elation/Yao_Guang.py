@@ -107,7 +107,7 @@ class YaoGuang(Character):
         Character.SharedPunchline += 5
         bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,
                        TickDown.START))
-        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.SKL], [self.element], [0, 0], [0, 0], 5, self.scaling,
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ULT], [self.element], [0, 0], [0, 0], 5, self.scaling,
                  0, "YaoGuangUlt"))
         Character.savedPunchline = Character.SharedPunchline
         Character.ahaYaoGuangUlt = True

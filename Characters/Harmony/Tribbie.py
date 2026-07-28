@@ -75,7 +75,7 @@ class Tribbie(Character):
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5ResPen = 0.264 if self.eidolon >= 5 else 0.24
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL], [self.element],
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.SKL], [self.element],
                        [0,0], [0, 0], 30, self.scaling, -1, "TribbieSkill"))
         bl.append(Buff("Numinosity",StatTypes.PEN,e5ResPen,Role.ALL,[AtkType.ALL],3,1,self.role,TickDown.START))
         if self.eidolon >= 4:

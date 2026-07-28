@@ -164,7 +164,7 @@ class Ashveil(Character):
         bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
         self.LowestHPEnemyID = specialRes.attr1
         if self.Tech:
-            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AshveilTech"))
+            tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AshveilTech"))
             self.Charge = min(self.Charge+1,3)
             self.Tech = False
         if self.eidolon == 6:

@@ -65,24 +65,24 @@ class Rmc(Character):
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.SPECIAL], [self.element],
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 30, self.scaling, -1, "MemSpawn"))
         return bl, dbl, al, dl, tl, hl
 
     def useUlt(self, enemyID=-1):
         self.currEnergy = self.currEnergy - self.ultCost
         bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ULT], [self.element],
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.ULT], [self.element],
                      [0, 0], [0, 0], 5, self.scaling, 0, "RmcUltimate"))
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
         if result.turnName == "MemBigSkill":
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ULT], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.ULT], [self.element],
                      [0, 0], [0, 0], 10, self.scaling, 0, "MemAttackEnergy"))
         if (turn.charRole == Role.MEMO1 or turn.charRole == Role.MEMO2 or turn.charRole == Role.MEMO3) and not turn.charName == "Mem" and self.CanGetEnergy == True and self.eidolon >= 2:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ULT], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.ULT], [self.element],
                      [0, 0], [0, 0], 8, self.scaling, 0, "MemAttackEnergy"))
             self.CanGetEnergy = False
 
@@ -103,7 +103,7 @@ class Rmc(Character):
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl = super().handleSpecialEnd(specialRes)
         if self.technique:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.SPECIAL], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.AOE, [AtkType.TECH], [self.element],
                      [1, 0], [0, 0], 0, self.scaling, 0, "RmcTechnique"))
             dl.append(Delay("RmcTechnique", 0.5,Role.ALL, False, False))
             self.technique = False

@@ -86,6 +86,13 @@ class Character(metaclass=CharacterMeta):
         self.eidolon = min(6, eidolon)
         self.targetPrio = targetPrio
         self.shields = []  # per-instance list of active Shield objects
+        # dmgDct is a mutable dict — without this, every instance shares the
+        # single class-level dict object, so damage silently accumulates
+        # across every Character ever instantiated in the process (all runs,
+        # all teams) instead of resetting per-instance/per-run.
+        self.dmgDct = {AtkType.BSC: 0.0, AtkType.SKL: 0.0, AtkType.ULT: 0.0, AtkType.BRK: 0.0, AtkType.SBK: 0.0, AtkType.FUA: 0.0,
+                       AtkType.ADD: 0.0, AtkType.DOT: 0.0, AtkType.TECH: 0.0, AtkType.ELABANGER: 0.0, AtkType.ELAPUNCH: 0.0, AtkType.MEMO: 0.0,
+                        AtkType.SPECIAL: 0.0}
 
     def __str__(self) -> str:
         res = f"{self.name} E{self.eidolon} | {self.element.name}-{self.path.name} | {self.role.name} | POS:{self.pos}\n"

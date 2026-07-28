@@ -309,7 +309,7 @@ class MortenaxBlade(Character):
         self.NihilityCount = specialRes.attr1
         if self.Tech:
             self.Tech = False
-            tl.append(Turn(self.name, self.role, self.bestEnemy(-1), Targeting.SINGLE, [AtkType.ALL], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(-1), Targeting.SINGLE, [AtkType.TECH], [self.element],
                            [0, 0], [20, 0], 0, self.scaling, 0, "MortenaxBladeTech"))
             # Technique: taunt for 1 turn via aggro spike, reduce DMG taken by 90% for 2 turns
             self.aggro = 10000

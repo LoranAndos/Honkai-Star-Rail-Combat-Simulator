@@ -1,0 +1,639 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  26 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  Saber E0 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 39461.472  |  min: 34692.288  |  max: 41127.559  |  95% CI margin of error: +/-0.50%
+    Saber                avg DPAV: 19253.934  (48.8%)
+      - ULT        avg DMG: 6355797.209  (60.0% of Saber's DMG)
+      - FUA        avg DMG: 2071816.020  (19.6% of Saber's DMG)
+      - SKL        avg DMG: 1484194.539  (14.0% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17662.664  (44.8%)
+      - ULT        avg DMG: 5083305.508  (52.3% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2623827.779  (27.0% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1940747.236  (20.0% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2512.655  (6.4%)
+      - ULT        avg DMG: 601292.721  (43.5% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 474297.005  (34.3% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 298051.771  (21.6% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.218  (0.1%)
+      - BSC        avg DMG: 17720.162  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 855942.8
+    Enemy 0 (ELITE)  avg Overkill: 230826.5
+    Enemy 1 (BOSS)  avg Overkill: 394064.8
+    Enemy 2 (ELITE)  avg Overkill: 231051.5
+
+  Saber E0 | Gilgamesh | Tribbie | Huo Huo
+  Team DPAV  avg: 25987.585  |  min: 19551.328  |  max: 28897.186  |  95% CI margin of error: +/-1.26%
+    Saber                avg DPAV: 14056.060  (54.1%)
+      - ULT        avg DMG: 4665038.293  (60.3% of Saber's DMG)
+      - FUA        avg DMG: 1404873.046  (18.2% of Saber's DMG)
+      - SKL        avg DMG: 1105100.071  (14.3% of Saber's DMG)
+    Gilgamesh            avg DPAV: 10774.180  (41.5%)
+      - ULT        avg DMG: 3027475.358  (51.1% of Gilgamesh's DMG)
+      - SKL        avg DMG: 1816921.881  (30.7% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1009792.282  (17.0% of Gilgamesh's DMG)
+    Tribbie              avg DPAV: 1136.108  (4.4%)
+      - ADD        avg DMG: 336380.302  (53.8% of Tribbie's DMG)
+      - ULT        avg DMG: 111138.127  (17.8% of Tribbie's DMG)
+      - FUA        avg DMG: 106651.401  (17.1% of Tribbie's DMG)
+    HuoHuo               avg DPAV: 21.237  (0.1%)
+      - BSC        avg DMG: 11680.321  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 395312.0
+    Enemy 0 (ELITE)  avg Overkill: 66224.8
+    Enemy 1 (BOSS)  avg Overkill: 264843.1
+    Enemy 2 (ELITE)  avg Overkill: 64244.1
+
+  Saber E0 | Gilgamesh | Ruan Mei | Huo Huo
+  Team DPAV  avg: 24270.978  |  min: 21621.113  |  max: 27738.024  |  95% CI margin of error: +/-1.01%
+    Saber                avg DPAV: 12996.852  (53.5%)
+      - ULT        avg DMG: 4272783.010  (59.8% of Saber's DMG)
+      - FUA        avg DMG: 1374251.869  (19.2% of Saber's DMG)
+      - SKL        avg DMG: 942922.767  (13.2% of Saber's DMG)
+    Gilgamesh            avg DPAV: 11009.436  (45.4%)
+      - ULT        avg DMG: 2995645.620  (49.5% of Gilgamesh's DMG)
+      - SKL        avg DMG: 1752736.672  (28.9% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1210566.660  (20.0% of Gilgamesh's DMG)
+    RuanMei              avg DPAV: 237.804  (1.0%)
+      - BRK        avg DMG: 124072.454  (94.9% of RuanMei's DMG)
+      - BSC        avg DMG: 6719.794  (5.1% of RuanMei's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of RuanMei's DMG)
+    HuoHuo               avg DPAV: 26.885  (0.1%)
+      - BSC        avg DMG: 14786.979  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 255398.0
+    Enemy 0 (ELITE)  avg Overkill: 50614.9
+    Enemy 1 (BOSS)  avg Overkill: 154168.2
+    Enemy 2 (ELITE)  avg Overkill: 50614.9
+
+  Saber E0 | Gilgamesh | Ruan Mei e1 | Huo Huo
+  Team DPAV  avg: 27515.349  |  min: 25111.859  |  max: 31315.114  |  95% CI margin of error: +/-1.27%
+    Saber                avg DPAV: 14830.841  (53.9%)
+      - ULT        avg DMG: 4941859.146  (60.6% of Saber's DMG)
+      - FUA        avg DMG: 1542139.969  (18.9% of Saber's DMG)
+      - SKL        avg DMG: 1063334.195  (13.0% of Saber's DMG)
+    Gilgamesh            avg DPAV: 12384.813  (45.0%)
+      - ULT        avg DMG: 3318217.582  (48.7% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2004650.540  (29.4% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1390116.381  (20.4% of Gilgamesh's DMG)
+    RuanMei              avg DPAV: 269.818  (1.0%)
+      - BRK        avg DMG: 141222.301  (95.2% of RuanMei's DMG)
+      - BSC        avg DMG: 7177.669  (4.8% of RuanMei's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of RuanMei's DMG)
+    HuoHuo               avg DPAV: 29.876  (0.1%)
+      - BSC        avg DMG: 16432.004  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 455346.2
+    Enemy 0 (ELITE)  avg Overkill: 78301.8
+    Enemy 1 (BOSS)  avg Overkill: 298742.5
+    Enemy 2 (ELITE)  avg Overkill: 78301.8
+
+  Saber E0 | Gilgamesh | Robin | Huo Huo
+  Team DPAV  avg: 21129.714  |  min: 18412.657  |  max: 24814.728  |  95% CI margin of error: +/-0.98%
+    Saber                avg DPAV: 12489.566  (59.1%)
+      - ULT        avg DMG: 4063051.993  (59.1% of Saber's DMG)
+      - FUA        avg DMG: 1671218.628  (24.3% of Saber's DMG)
+      - SKL        avg DMG: 704407.016  (10.3% of Saber's DMG)
+    Gilgamesh            avg DPAV: 8203.793  (38.8%)
+      - ULT        avg DMG: 2061519.517  (45.7% of Gilgamesh's DMG)
+      - SKL        avg DMG: 1328920.565  (29.5% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1001503.131  (22.2% of Gilgamesh's DMG)
+    Robin                avg DPAV: 416.866  (2.0%)
+      - SPECIAL    avg DMG: 222543.475  (97.1% of Robin's DMG)
+      - BSC        avg DMG: 6732.902  (2.9% of Robin's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Robin's DMG)
+    HuoHuo               avg DPAV: 19.489  (0.1%)
+      - BSC        avg DMG: 10718.925  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 200516.7
+    Enemy 0 (ELITE)  avg Overkill: 54221.6
+    Enemy 1 (BOSS)  avg Overkill: 89895.3
+    Enemy 2 (ELITE)  avg Overkill: 56399.8
+
+  Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e0s0
+  Team DPAV  avg: 34063.238  |  min: 29629.796  |  max: 38418.948  |  95% CI margin of error: +/-0.99%
+    Saber                avg DPAV: 17501.998  (51.4%)
+      - ULT        avg DMG: 5493850.656  (57.1% of Saber's DMG)
+      - FUA        avg DMG: 2185772.474  (22.7% of Saber's DMG)
+      - SKL        avg DMG: 1421859.143  (14.8% of Saber's DMG)
+    Gilgamesh            avg DPAV: 13835.448  (40.6%)
+      - ULT        avg DMG: 3625313.972  (47.6% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2316426.482  (30.4% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1601528.731  (21.0% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2431.335  (7.1%)
+      - FUA        avg DMG: 530226.322  (39.7% of MortenaxBlade's DMG)
+      - ULT        avg DMG: 522227.899  (39.1% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 275334.374  (20.6% of MortenaxBlade's DMG)
+    Lingsha              avg DPAV: 294.457  (0.9%)
+      - FUA        avg DMG: 89287.318  (55.1% of Lingsha's DMG)
+      - ULT        avg DMG: 40328.610  (24.9% of Lingsha's DMG)
+      - SKL        avg DMG: 16642.875  (10.3% of Lingsha's DMG)
+  Avg Total Overkill DMG: 542918.9
+    Enemy 0 (ELITE)  avg Overkill: 120430.8
+    Enemy 1 (BOSS)  avg Overkill: 316226.6
+    Enemy 2 (ELITE)  avg Overkill: 106261.5
+
+  Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e1s1
+  Team DPAV  avg: 36751.842  |  min: 30595.734  |  max: 40757.910  |  95% CI margin of error: +/-1.24%
+    Saber                avg DPAV: 18652.313  (50.8%)
+      - ULT        avg DMG: 5772981.394  (56.3% of Saber's DMG)
+      - FUA        avg DMG: 2386893.019  (23.3% of Saber's DMG)
+      - SKL        avg DMG: 1523661.149  (14.9% of Saber's DMG)
+    Gilgamesh            avg DPAV: 15083.199  (41.0%)
+      - ULT        avg DMG: 4027613.773  (48.6% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2463181.845  (29.7% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1738736.531  (21.0% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2666.763  (7.3%)
+      - FUA        avg DMG: 579113.487  (39.5% of MortenaxBlade's DMG)
+      - ULT        avg DMG: 578254.363  (39.4% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 299584.033  (20.4% of MortenaxBlade's DMG)
+    Lingsha              avg DPAV: 349.567  (1.0%)
+      - FUA        avg DMG: 104531.833  (54.4% of Lingsha's DMG)
+      - ULT        avg DMG: 50830.556  (26.4% of Lingsha's DMG)
+      - SKL        avg DMG: 18813.761  (9.8% of Lingsha's DMG)
+  Avg Total Overkill DMG: 913670.2
+    Enemy 0 (ELITE)  avg Overkill: 189579.2
+    Enemy 1 (BOSS)  avg Overkill: 465322.6
+    Enemy 2 (ELITE)  avg Overkill: 258768.4
+
+  Saber E0 | Gilgamesh e0s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 43936.873  |  min: 40769.673  |  max: 45150.999  |  95% CI margin of error: +/-0.58%
+    Saber                avg DPAV: 20763.464  (47.3%)
+      - ULT        avg DMG: 6950890.551  (60.9% of Saber's DMG)
+      - FUA        avg DMG: 2122010.146  (18.6% of Saber's DMG)
+      - SKL        avg DMG: 1629390.669  (14.3% of Saber's DMG)
+    Gilgamesh            avg DPAV: 20445.205  (46.5%)
+      - ULT        avg DMG: 6576187.200  (58.5% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2638739.260  (23.5% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1949760.228  (17.3% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2695.238  (6.1%)
+      - ULT        avg DMG: 642996.833  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 508023.489  (34.3% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 322666.551  (21.8% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.966  (0.1%)
+      - BSC        avg DMG: 18131.126  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1231872.3
+    Enemy 0 (ELITE)  avg Overkill: 178704.0
+    Enemy 1 (BOSS)  avg Overkill: 875120.7
+    Enemy 2 (ELITE)  avg Overkill: 178047.6
+
+  Saber E0 | Gilgamesh e1s0 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 51422.061  |  min: 49121.141  |  max: 59395.878  |  95% CI margin of error: +/-0.55%
+    Saber                avg DPAV: 25636.475  (49.9%)
+      - ULT        avg DMG: 8544493.328  (60.6% of Saber's DMG)
+      - FUA        avg DMG: 2856138.819  (20.3% of Saber's DMG)
+      - SKL        avg DMG: 1635149.738  (11.6% of Saber's DMG)
+    Gilgamesh            avg DPAV: 22541.906  (43.8%)
+      - ULT        avg DMG: 7034369.436  (56.7% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3079475.331  (24.8% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2217618.602  (17.9% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3202.731  (6.2%)
+      - ULT        avg DMG: 764974.000  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 610672.996  (34.7% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 375662.358  (21.3% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 40.950  (0.1%)
+      - BSC        avg DMG: 22522.567  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1620909.5
+    Enemy 0 (ELITE)  avg Overkill: 246377.8
+    Enemy 1 (BOSS)  avg Overkill: 1127344.1
+    Enemy 2 (ELITE)  avg Overkill: 247187.5
+
+  Saber E0 | Gilgamesh e1s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 55839.188  |  min: 53706.691  |  max: 65743.763  |  95% CI margin of error: +/-0.66%
+    Saber                avg DPAV: 26154.990  (46.8%)
+      - ULT        avg DMG: 8409569.822  (58.5% of Saber's DMG)
+      - FUA        avg DMG: 3065710.229  (21.3% of Saber's DMG)
+      - SKL        avg DMG: 1787718.729  (12.4% of Saber's DMG)
+    Gilgamesh            avg DPAV: 26193.847  (46.9%)
+      - ULT        avg DMG: 8989244.714  (62.4% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3093547.321  (21.5% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2243648.081  (15.6% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3448.268  (6.2%)
+      - ULT        avg DMG: 817953.910  (43.1% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 658443.908  (34.7% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 409737.663  (21.6% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 42.083  (0.1%)
+      - BSC        avg DMG: 23145.693  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2123163.0
+    Enemy 0 (ELITE)  avg Overkill: 435715.9
+    Enemy 1 (BOSS)  avg Overkill: 1247494.4
+    Enemy 2 (ELITE)  avg Overkill: 439952.6
+
+  Saber E0 | Gilgamesh e2s0 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 54774.254  |  min: 50410.350  |  max: 61862.358  |  95% CI margin of error: +/-0.65%
+    Saber                avg DPAV: 26930.666  (49.2%)
+      - ULT        avg DMG: 9170433.102  (61.9% of Saber's DMG)
+      - FUA        avg DMG: 2826864.479  (19.1% of Saber's DMG)
+      - SKL        avg DMG: 1759075.014  (11.9% of Saber's DMG)
+    Gilgamesh            avg DPAV: 24597.748  (44.9%)
+      - ULT        avg DMG: 6543987.888  (48.4% of Gilgamesh's DMG)
+      - SKL        avg DMG: 4701600.139  (34.8% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2218189.181  (16.4% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3204.907  (5.9%)
+      - ULT        avg DMG: 764974.000  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 610935.921  (34.7% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 376682.490  (21.4% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 40.932  (0.1%)
+      - BSC        avg DMG: 22512.740  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1951408.4
+    Enemy 0 (ELITE)  avg Overkill: 417466.9
+    Enemy 1 (BOSS)  avg Overkill: 1114731.6
+    Enemy 2 (ELITE)  avg Overkill: 419209.8
+
+  Saber E0 | Gilgamesh e2s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 59682.772  |  min: 54920.503  |  max: 68495.195  |  95% CI margin of error: +/-0.72%
+    Saber                avg DPAV: 28041.944  (47.0%)
+      - ULT        avg DMG: 9441609.034  (61.2% of Saber's DMG)
+      - FUA        avg DMG: 2997550.234  (19.4% of Saber's DMG)
+      - SKL        avg DMG: 1863433.869  (12.1% of Saber's DMG)
+    Gilgamesh            avg DPAV: 28166.345  (47.2%)
+      - ULT        avg DMG: 8443117.456  (54.5% of Gilgamesh's DMG)
+      - SKL        avg DMG: 4697150.027  (30.3% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2273523.042  (14.7% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3432.585  (5.8%)
+      - ULT        avg DMG: 817953.910  (43.3% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 655400.008  (34.7% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 403828.510  (21.4% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 41.899  (0.1%)
+      - BSC        avg DMG: 23044.201  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2591018.6
+    Enemy 0 (ELITE)  avg Overkill: 501551.6
+    Enemy 1 (BOSS)  avg Overkill: 1583075.5
+    Enemy 2 (ELITE)  avg Overkill: 506391.4
+
+  Saber E0 | Gilgamesh e3s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 62388.048  |  min: 58164.543  |  max: 71743.255  |  95% CI margin of error: +/-0.53%
+    Saber                avg DPAV: 28957.528  (46.4%)
+      - ULT        avg DMG: 9790971.364  (61.5% of Saber's DMG)
+      - FUA        avg DMG: 3074283.656  (19.3% of Saber's DMG)
+      - SKL        avg DMG: 1916813.348  (12.0% of Saber's DMG)
+    Gilgamesh            avg DPAV: 29867.972  (47.9%)
+      - ULT        avg DMG: 8630148.331  (52.5% of Gilgamesh's DMG)
+      - SKL        avg DMG: 5146854.243  (31.3% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2572683.204  (15.7% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3519.574  (5.6%)
+      - ULT        avg DMG: 837995.023  (43.3% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 671080.746  (34.7% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 415805.044  (21.5% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 42.973  (0.1%)
+      - BSC        avg DMG: 23635.420  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2078309.1
+    Enemy 0 (ELITE)  avg Overkill: 182188.6
+    Enemy 1 (BOSS)  avg Overkill: 1706598.8
+    Enemy 2 (ELITE)  avg Overkill: 189521.7
+
+  Saber E0 | Gilgamesh e4s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 65834.763  |  min: 59036.250  |  max: 80044.441  |  95% CI margin of error: +/-1.12%
+    Saber                avg DPAV: 29051.476  (44.1%)
+      - ULT        avg DMG: 9770430.206  (61.1% of Saber's DMG)
+      - FUA        avg DMG: 3078404.642  (19.3% of Saber's DMG)
+      - SKL        avg DMG: 1984430.341  (12.4% of Saber's DMG)
+    Gilgamesh            avg DPAV: 33183.945  (50.4%)
+      - ULT        avg DMG: 10614804.631  (58.2% of Gilgamesh's DMG)
+      - SKL        avg DMG: 4958772.101  (27.2% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2599893.912  (14.2% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3556.155  (5.4%)
+      - ULT        avg DMG: 840684.003  (43.0% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 690099.803  (35.3% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 414206.350  (21.2% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 43.188  (0.1%)
+      - BSC        avg DMG: 23753.282  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1204752.8
+    Enemy 0 (ELITE)  avg Overkill: 305412.4
+    Enemy 1 (BOSS)  avg Overkill: 596587.5
+    Enemy 2 (ELITE)  avg Overkill: 302753.0
+
+  Saber E0 | Gilgamesh e5s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 69709.208  |  min: 62284.734  |  max: 85117.634  |  95% CI margin of error: +/-0.92%
+    Saber                avg DPAV: 30805.127  (44.2%)
+      - ULT        avg DMG: 10522228.561  (62.1% of Saber's DMG)
+      - FUA        avg DMG: 3312125.382  (19.5% of Saber's DMG)
+      - SKL        avg DMG: 1961024.815  (11.6% of Saber's DMG)
+    Gilgamesh            avg DPAV: 35319.368  (50.7%)
+      - ULT        avg DMG: 11819363.220  (60.8% of Gilgamesh's DMG)
+      - SKL        avg DMG: 4952878.927  (25.5% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2575711.025  (13.3% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3541.770  (5.1%)
+      - ULT        avg DMG: 840797.682  (43.2% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 685238.178  (35.2% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 410860.460  (21.1% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 42.944  (0.1%)
+      - BSC        avg DMG: 23619.179  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1456592.2
+    Enemy 0 (ELITE)  avg Overkill: 496829.9
+    Enemy 1 (BOSS)  avg Overkill: 452614.2
+    Enemy 2 (ELITE)  avg Overkill: 507148.0
+
+  Saber E0 | Gilgamesh e6s1 | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 122294.495  |  min: 103768.394  |  max: 151395.450  |  95% CI margin of error: +/-1.09%
+    Saber                avg DPAV: 38317.059  (31.3%)
+      - ULT        avg DMG: 13036424.985  (61.9% of Saber's DMG)
+      - FUA        avg DMG: 4171881.249  (19.8% of Saber's DMG)
+      - SKL        avg DMG: 2431843.386  (11.5% of Saber's DMG)
+    Gilgamesh            avg DPAV: 79526.245  (65.0%)
+      - ULT        avg DMG: 29961533.983  (68.5% of Gilgamesh's DMG)
+      - SKL        avg DMG: 9062409.236  (20.7% of Gilgamesh's DMG)
+      - FUA        avg DMG: 4618367.596  (10.6% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 4397.303  (3.6%)
+      - ULT        avg DMG: 1043706.258  (43.2% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 847094.387  (35.0% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 513857.163  (21.2% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 53.889  (0.0%)
+      - BSC        avg DMG: 29638.918  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 6109925.4
+    Enemy 0 (ELITE)  avg Overkill: 1236139.2
+    Enemy 1 (BOSS)  avg Overkill: 3639754.0
+    Enemy 2 (ELITE)  avg Overkill: 1234032.2
+
+  Saber e0s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 39163.709  |  min: 34721.325  |  max: 39808.777  |  95% CI margin of error: +/-0.48%
+    Saber                avg DPAV: 19015.296  (48.6%)
+      - ULT        avg DMG: 6311389.321  (60.3% of Saber's DMG)
+      - FUA        avg DMG: 1977328.954  (18.9% of Saber's DMG)
+      - SKL        avg DMG: 1650519.111  (15.8% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17589.770  (44.9%)
+      - ULT        avg DMG: 5021378.901  (51.9% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2637707.804  (27.3% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1948701.920  (20.1% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2526.346  (6.5%)
+      - ULT        avg DMG: 599807.900  (43.2% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 480519.997  (34.6% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 300979.603  (21.7% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.296  (0.1%)
+      - BSC        avg DMG: 17763.034  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 768930.2
+    Enemy 0 (ELITE)  avg Overkill: 130931.5
+    Enemy 1 (BOSS)  avg Overkill: 506122.7
+    Enemy 2 (ELITE)  avg Overkill: 131876.1
+
+  Saber e1s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 40630.147  |  min: 38217.822  |  max: 43743.357  |  95% CI margin of error: +/-0.43%
+    Saber                avg DPAV: 20420.837  (50.3%)
+      - ULT        avg DMG: 7136044.370  (63.5% of Saber's DMG)
+      - FUA        avg DMG: 2012331.722  (17.9% of Saber's DMG)
+      - SKL        avg DMG: 1493880.044  (13.3% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17654.679  (43.5%)
+      - ULT        avg DMG: 5052439.808  (52.0% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2642426.970  (27.2% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1948621.766  (20.1% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2522.464  (6.2%)
+      - ULT        avg DMG: 601640.981  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 478523.746  (34.5% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 298939.641  (21.5% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.167  (0.1%)
+      - BSC        avg DMG: 17692.009  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 964051.9
+    Enemy 0 (ELITE)  avg Overkill: 154796.6
+    Enemy 1 (BOSS)  avg Overkill: 655580.5
+    Enemy 2 (ELITE)  avg Overkill: 153674.8
+
+  Saber e1s1 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 41351.073  |  min: 40159.417  |  max: 50084.612  |  95% CI margin of error: +/-0.66%
+    Saber                avg DPAV: 20980.584  (50.7%)
+      - ULT        avg DMG: 7049955.023  (61.1% of Saber's DMG)
+      - FUA        avg DMG: 2110643.990  (18.3% of Saber's DMG)
+      - SKL        avg DMG: 1527360.974  (13.2% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17818.473  (43.1%)
+      - ULT        avg DMG: 5137213.474  (52.4% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2650339.256  (27.0% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1946022.542  (19.9% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2519.808  (6.1%)
+      - ULT        avg DMG: 601815.111  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 477849.705  (34.5% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 297909.274  (21.5% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.208  (0.1%)
+      - BSC        avg DMG: 17714.436  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 801433.1
+    Enemy 0 (ELITE)  avg Overkill: 200050.3
+    Enemy 1 (BOSS)  avg Overkill: 398694.9
+    Enemy 2 (ELITE)  avg Overkill: 202687.9
+
+  Saber e2s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 42394.921  |  min: 36973.505  |  max: 45614.208  |  95% CI margin of error: +/-0.72%
+    Saber                avg DPAV: 22261.468  (52.5%)
+      - ULT        avg DMG: 7469463.006  (61.0% of Saber's DMG)
+      - FUA        avg DMG: 2127868.794  (17.4% of Saber's DMG)
+      - SKL        avg DMG: 2040156.498  (16.7% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17567.028  (41.4%)
+      - ULT        avg DMG: 5009937.327  (51.9% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2646601.371  (27.4% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1938741.861  (20.1% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2534.140  (6.0%)
+      - ULT        avg DMG: 601118.592  (43.1% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 480209.549  (34.5% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 304537.633  (21.8% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.284  (0.1%)
+      - BSC        avg DMG: 17756.404  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 668873.8
+    Enemy 0 (ELITE)  avg Overkill: 154312.2
+    Enemy 1 (BOSS)  avg Overkill: 357744.1
+    Enemy 2 (ELITE)  avg Overkill: 156817.4
+
+  Saber e2s1 | Gilgamesh | MortenaxBlade | Huo Huo
+  Team DPAV  avg: 43731.684  |  min: 38947.396  |  max: 53101.803  |  95% CI margin of error: +/-0.82%
+    Saber                avg DPAV: 23393.605  (53.5%)
+      - ULT        avg DMG: 7528537.936  (58.5% of Saber's DMG)
+      - FUA        avg DMG: 2245460.049  (17.5% of Saber's DMG)
+      - SKL        avg DMG: 2194178.349  (17.1% of Saber's DMG)
+    Gilgamesh            avg DPAV: 17788.028  (40.7%)
+      - ULT        avg DMG: 5120380.740  (52.3% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2651541.312  (27.1% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1944908.469  (19.9% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 2517.723  (5.8%)
+      - ULT        avg DMG: 601553.916  (43.4% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 477098.053  (34.5% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 297776.757  (21.5% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 32.328  (0.1%)
+      - BSC        avg DMG: 17780.526  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 938664.1
+    Enemy 0 (ELITE)  avg Overkill: 221609.8
+    Enemy 1 (BOSS)  avg Overkill: 494450.4
+    Enemy 2 (ELITE)  avg Overkill: 222603.9
+
+  Saber E0 | Gilgamesh | MortenaxBlade e0s1 | Huo Huo
+  Team DPAV  avg: 39819.691  |  min: 37147.783  |  max: 41662.075  |  95% CI margin of error: +/-0.50%
+    Saber                avg DPAV: 18565.339  (46.6%)
+      - ULT        avg DMG: 6068479.562  (59.4% of Saber's DMG)
+      - FUA        avg DMG: 2060444.383  (20.2% of Saber's DMG)
+      - SKL        avg DMG: 1422493.523  (13.9% of Saber's DMG)
+    Gilgamesh            avg DPAV: 16471.267  (41.4%)
+      - ULT        avg DMG: 4639125.176  (51.2% of Gilgamesh's DMG)
+      - SKL        avg DMG: 2548490.846  (28.1% of Gilgamesh's DMG)
+      - FUA        avg DMG: 1789309.657  (19.8% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 4755.305  (11.9%)
+      - ULT        avg DMG: 1150121.949  (44.0% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 872042.580  (33.3% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 577481.687  (22.1% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 27.780  (0.1%)
+      - BSC        avg DMG: 15278.868  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 514113.2
+    Enemy 0 (ELITE)  avg Overkill: 102162.8
+    Enemy 1 (BOSS)  avg Overkill: 307956.7
+    Enemy 2 (ELITE)  avg Overkill: 103993.7
+
+  Saber E0 | Gilgamesh | MortenaxBlade e1s0 | Huo Huo
+  Team DPAV  avg: 49210.731  |  min: 44643.777  |  max: 51403.715  |  95% CI margin of error: +/-0.41%
+    Saber                avg DPAV: 23721.401  (48.2%)
+      - ULT        avg DMG: 7832880.645  (60.0% of Saber's DMG)
+      - FUA        avg DMG: 2533903.768  (19.4% of Saber's DMG)
+      - SKL        avg DMG: 1826935.464  (14.0% of Saber's DMG)
+    Gilgamesh            avg DPAV: 21800.169  (44.3%)
+      - ULT        avg DMG: 6349545.155  (53.0% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3277115.778  (27.3% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2296847.564  (19.2% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 3649.457  (7.4%)
+      - ULT        avg DMG: 937100.659  (46.7% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 658294.872  (32.8% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 405237.261  (20.2% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 39.704  (0.1%)
+      - BSC        avg DMG: 21837.061  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 738689.1
+    Enemy 0 (ELITE)  avg Overkill: 125342.9
+    Enemy 1 (BOSS)  avg Overkill: 485724.1
+    Enemy 2 (ELITE)  avg Overkill: 127622.1
+
+  Saber E0 | Gilgamesh | MortenaxBlade e1s1 | Huo Huo
+  Team DPAV  avg: 49246.436  |  min: 45666.728  |  max: 53152.852  |  95% CI margin of error: +/-0.62%
+    Saber                avg DPAV: 22321.342  (45.3%)
+      - ULT        avg DMG: 7230781.309  (58.9% of Saber's DMG)
+      - FUA        avg DMG: 2457340.801  (20.0% of Saber's DMG)
+      - SKL        avg DMG: 1744189.405  (14.2% of Saber's DMG)
+    Gilgamesh            avg DPAV: 20152.304  (40.9%)
+      - ULT        avg DMG: 5735853.935  (51.8% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3150254.010  (28.4% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2108591.273  (19.0% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 6736.357  (13.7%)
+      - ULT        avg DMG: 1670722.617  (45.1% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 1233014.613  (33.3% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 789283.100  (21.3% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 36.434  (0.1%)
+      - BSC        avg DMG: 20038.624  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 908122.8
+    Enemy 0 (ELITE)  avg Overkill: 196138.0
+    Enemy 1 (BOSS)  avg Overkill: 515846.9
+    Enemy 2 (ELITE)  avg Overkill: 196138.0
+
+  Saber E0 | Gilgamesh | MortenaxBlade e2s0 | Huo Huo
+  Team DPAV  avg: 60750.571  |  min: 53801.294  |  max: 72980.920  |  95% CI margin of error: +/-0.78%
+    Saber                avg DPAV: 28717.692  (47.3%)
+      - ULT        avg DMG: 9504529.347  (60.2% of Saber's DMG)
+      - FUA        avg DMG: 3413815.401  (21.6% of Saber's DMG)
+      - SKL        avg DMG: 1923683.227  (12.2% of Saber's DMG)
+    Gilgamesh            avg DPAV: 26404.555  (43.5%)
+      - ULT        avg DMG: 8021946.066  (55.2% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3268451.502  (22.5% of Gilgamesh's DMG)
+      - FUA        avg DMG: 3165522.770  (21.8% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 5585.776  (9.2%)
+      - ULT        avg DMG: 1409157.489  (45.9% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 1223024.866  (39.8% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 434630.747  (14.1% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 42.548  (0.1%)
+      - BSC        avg DMG: 23401.397  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 3107446.6
+    Enemy 0 (ELITE)  avg Overkill: 449491.9
+    Enemy 1 (BOSS)  avg Overkill: 2216011.9
+    Enemy 2 (ELITE)  avg Overkill: 441942.9
+
+  Saber E0 | Gilgamesh | MortenaxBlade e2s1 | Huo Huo
+  Team DPAV  avg: 63840.263  |  min: 58544.467  |  max: 70991.191  |  95% CI margin of error: +/-0.65%
+    Saber                avg DPAV: 27881.442  (43.7%)
+      - ULT        avg DMG: 9120718.500  (59.5% of Saber's DMG)
+      - FUA        avg DMG: 3316983.070  (21.6% of Saber's DMG)
+      - SKL        avg DMG: 1807490.355  (11.8% of Saber's DMG)
+    Gilgamesh            avg DPAV: 25070.910  (39.3%)
+      - ULT        avg DMG: 7481185.317  (54.3% of Gilgamesh's DMG)
+      - SKL        avg DMG: 3271814.057  (23.7% of Gilgamesh's DMG)
+      - FUA        avg DMG: 2946933.138  (21.4% of Gilgamesh's DMG)
+    MortenaxBlade        avg DPAV: 10851.716  (17.0%)
+      - ULT        avg DMG: 2569066.371  (43.0% of MortenaxBlade's DMG)
+      - FUA        avg DMG: 2458329.407  (41.2% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 935821.741  (15.7% of MortenaxBlade's DMG)
+    HuoHuo               avg DPAV: 36.195  (0.1%)
+      - BSC        avg DMG: 19907.300  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 1558916.8
+    Enemy 0 (ELITE)  avg Overkill: 210849.4
+    Enemy 1 (BOSS)  avg Overkill: 1137218.0
+    Enemy 2 (ELITE)  avg Overkill: 210849.4
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  39461.472  —  Saber E0 | Gilgamesh | MortenaxBlade | Huo Huo
+  #2  25987.585  —  Saber E0 | Gilgamesh | Tribbie | Huo Huo
+  #3  24270.978  —  Saber E0 | Gilgamesh | Ruan Mei | Huo Huo
+  #4  27515.349  —  Saber E0 | Gilgamesh | Ruan Mei e1 | Huo Huo
+  #5  21129.714  —  Saber E0 | Gilgamesh | Robin | Huo Huo
+  #6  34063.238  —  Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e0s0
+  #7  36751.842  —  Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e1s1
+  #8  43936.873  —  Saber E0 | Gilgamesh e0s1 | MortenaxBlade | Huo Huo
+  #9  51422.061  —  Saber E0 | Gilgamesh e1s0 | MortenaxBlade | Huo Huo
+  #10  55839.188  —  Saber E0 | Gilgamesh e1s1 | MortenaxBlade | Huo Huo
+  #11  54774.254  —  Saber E0 | Gilgamesh e2s0 | MortenaxBlade | Huo Huo
+  #12  59682.772  —  Saber E0 | Gilgamesh e2s1 | MortenaxBlade | Huo Huo
+  #13  62388.048  —  Saber E0 | Gilgamesh e3s1 | MortenaxBlade | Huo Huo
+  #14  65834.763  —  Saber E0 | Gilgamesh e4s1 | MortenaxBlade | Huo Huo
+  #15  69709.208  —  Saber E0 | Gilgamesh e5s1 | MortenaxBlade | Huo Huo
+  #16  122294.495  —  Saber E0 | Gilgamesh e6s1 | MortenaxBlade | Huo Huo
+  #17  39163.709  —  Saber e0s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  #18  40630.147  —  Saber e1s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  #19  41351.073  —  Saber e1s1 | Gilgamesh | MortenaxBlade | Huo Huo
+  #20  42394.921  —  Saber e2s0 | Gilgamesh | MortenaxBlade | Huo Huo
+  #21  43731.684  —  Saber e2s1 | Gilgamesh | MortenaxBlade | Huo Huo
+  #22  39819.691  —  Saber E0 | Gilgamesh | MortenaxBlade e0s1 | Huo Huo
+  #23  49210.731  —  Saber E0 | Gilgamesh | MortenaxBlade e1s0 | Huo Huo
+  #24  49246.436  —  Saber E0 | Gilgamesh | MortenaxBlade e1s1 | Huo Huo
+  #25  60750.571  —  Saber E0 | Gilgamesh | MortenaxBlade e2s0 | Huo Huo
+  #26  63840.263  —  Saber E0 | Gilgamesh | MortenaxBlade e2s1 | Huo Huo
+
+======================================================================
+
