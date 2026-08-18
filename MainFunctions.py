@@ -1798,6 +1798,10 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charHP = getCharMaxHP(specChar, specChar.lightcone, buffList)
                 return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, attr4=charHP,enemies=gauge)
 
+            case "Welt":
+
+                return Special(name=specStr)
+
             case "YaoGuang":
                 SpdList = []
                 AHASpdBuffAmount = 0
@@ -2282,7 +2286,7 @@ def getMulVULN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: 
 def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     pen = getCharStat(StatTypes.PEN, char, enemy, buffList, debuffList, turn)
     pen = pen - enemy.getRes(turn.element[0])
-    return min(10.0, 1 + pen)
+    return min(2.0, 1 + pen)
 
 def getTRUEDAMAGE(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff],turn: Turn) -> float:
     return getCharStat(StatTypes.TRUEDAMAGE, char, enemy, buffList, debuffList, turn) + 1
