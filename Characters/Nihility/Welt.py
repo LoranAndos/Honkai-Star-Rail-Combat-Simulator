@@ -12,6 +12,7 @@ from Result import *
 from Turn_Text import Turn
 from Delay_Text import Delay
 from Healing import *
+from math import floor
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +35,7 @@ class Welt(Character):
     dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.ADD: 0,}  # Adjust accordingly
 
     # Unique Character Properties
+    EHR = 0.0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -64,8 +66,7 @@ class Welt(Character):
         bl.append(Buff("WeltTraceERS", StatTypes.ERS_PERCENT, 0.10, self.role))
         bl.append(Buff("WeltTraceEHR", StatTypes.EHR_PERCENT, 0.28, self.role))
         bl.append(Buff("WeltTraceDMG", StatTypes.DMG_PERCENT, 0.144, self.role))
-        dbl.append(Debuff("WeltTechImprisonSPD", self.role, StatTypes.SPD_PERCENT, -0.10, Role.ALL, [AtkType.ALL], 1))
-        dl.append(Delay("WeltTechImprisonDelay", 0.20, Role.ALL, False, True))
+        bl.append(Buff("WeltTalent1", StatTypes.ERR_T, 30, self.role))
 
         return bl, dbl, al, dl, hl, sl
 
@@ -76,30 +77,40 @@ class Welt(Character):
         targetID = self.bestEnemy(enemyID)
         tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "WeltBasic"))
-
-        # Passive: attacking an already-Slowed enemy additionally deals Imaginary
-        # Additional DMG equal to 100% of Welt's ATK. Triggers once per attack
-        # action (not once per individual multi-hit) — see useSkl for the same.
         if self._isSlowed(targetID):
             tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                            [e5TalentMul, 0], [0, 0], 0, self.scaling, 0, "WeltSlowedAdditionalDMG"))
+            if self.eidolon >= 2:
+                bl.append(Buff("WeltE2Err", StatTypes.ERR_T, 3, self.role))
+                logger.debug(f"Welt E2 has been Triggered")
+        tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
+                       [0.8*e3Mul, 0], [0, 0], 0, self.scaling, 0, "WeltAdditionalDMG"))
         return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Mul = 0.792 if self.eidolon >= 3 else 0.72
         e5TalentMul = 1.1 if self.eidolon >= 5 else 1.0
+        e5UltMul = 1.62 if self.eidolon >= 5 else 1.50
         targetID = self.bestEnemy(enemyID)
 
         # Check "already Slowed" BEFORE this Skill's own SPD debuff is applied/
         # tracked below, so this use doesn't trigger the bonus off its own Slow.
         wasSlowed = self._isSlowed(targetID)
 
+        if wasSlowed and self.eidolon == 6:
+            bl.append(Buff("WeltE6CR", StatTypes.CR_PERCENT, 0.30, self.role,[AtkType.SKL, AtkType.ULT], 1, 1, self.role, TickDown.START))
+            bl.append(Buff("WeltE6CD", StatTypes.CR_PERCENT, 0.60, self.role, [AtkType.SKL, AtkType.ULT], 1, 1, self.role, TickDown.START))
+
         tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.SKL], [self.element],
                        [e3Mul, 0], [10, 0], 6, self.scaling, -1, "WeltSkill"))
         if wasSlowed:
             tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                            [e5TalentMul, 0], [0, 0], 0, self.scaling, 0, "WeltSlowedAdditionalDMG"))
+            if self.eidolon >= 2:
+                bl.append(Buff("WeltE2Err", StatTypes.ERR_T, 3, self.role))
+                logger.debug(f"Welt E2 has been Triggered")
+
         dbl.append(Debuff("WeltSpdDebuff", self.role, StatTypes.SPD_PERCENT, -0.10, Role.ALL, [AtkType.ALL], 2))
         for i in range(4):
             tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.SKL], [self.element],
@@ -107,6 +118,16 @@ class Welt(Character):
             if wasSlowed:
                 tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                                [e5TalentMul, 0], [0, 0], 0, self.scaling, 0, "WeltSlowedAdditionalDMG"))
+                if self.eidolon >= 2:
+                    bl.append(Buff("WeltE2Err", StatTypes.ERR_T, 3, self.role))
+                    logger.debug(f"Welt E2 has been Triggered")
+        tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
+                       [1.2*e3Mul, 0], [0, 0], 0, self.scaling, 0, "WeltAdditionalDMG"))
+
+        if self.eidolon >= 1 and targetID in self._weightlessTurns:
+            tl.append(Turn(self.name, self.role, targetID, Targeting.SINGLE, [AtkType.ADD], [self.element],
+                           [0.4 * e5UltMul, 0], [0, 0], 0, self.scaling, 0, "WeltE1AdditionalDMG"))
+
 
         # Skill's SPD debuff hits all enemies (Role.ALL) — refresh Skill-Slow
         # tracking for every currently-known enemy to match.
@@ -120,23 +141,43 @@ class Welt(Character):
         self.currEnergy = self.currEnergy - self.ultCost
         e5Mul = 1.62 if self.eidolon >= 5 else 1.50
         e5TalentMul = 1.1 if self.eidolon >= 5 else 1.0
+        E2Happened = True
+
+        if self.eidolon == 6:
+            for enemy in (self.enemyStatus or []):
+                if enemy.enemyID in self._weightlessTurns:
+                    bl.append(Buff("WeltE6CR", StatTypes.CR_PERCENT, 0.30, self.role, [AtkType.SKL, AtkType.ULT], 1, 1,
+                                   self.role, TickDown.START))
+                    bl.append(Buff("WeltE6CD", StatTypes.CR_PERCENT, 0.60, self.role, [AtkType.SKL, AtkType.ULT], 1, 1,
+                                   self.role, TickDown.START))
+                    break
+
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT], [self.element],
-                       [e5Mul, 0], [20, 0], 5, self.scaling, 0, "WeltUlt"))
+                       [e5Mul, 0], [20, 0], 10, self.scaling, 0, "WeltUlt"))
 
         dbl.append(Debuff("WeltImprisonSPD", self.role, StatTypes.SPD_PERCENT, -0.10, Role.ALL, [AtkType.ALL], 1))
         dl.append(Delay("WeltImprisonDelay", 0.12, Role.ALL, False, True))
 
         dbl.append(Debuff("WeltWeightlessSPD", self.role, StatTypes.SPD_PERCENT, -0.05, Role.ALL, [AtkType.ALL], 2))
         dbl.append(Debuff("WeltWeightlessShred", self.role, StatTypes.SHRED, 0.40, Role.ALL, [AtkType.ALL], 2))
+        if self.eidolon >= 4:
+            dbl.append(Debuff("WeltE4Pen", self.role, StatTypes.PEN, 0.30, Role.ALL, [AtkType.ALL], 2, 1))
 
-        # Passive: attacking an already-Slowed enemy additionally deals Imaginary
-        # Additional DMG equal to 100% of Welt's ATK. Checked per-enemy BEFORE the
-        # Weightless seeding below, so an enemy isn't considered "already Slowed"
-        # purely because of the Weightless this same Ult is about to apply.
         for enemy in (self.enemyStatus or []):
             if self._isSlowed(enemy.enemyID):
                 tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                                [e5TalentMul, 0], [0, 0], 0, self.scaling, 0, "WeltSlowedAdditionalDMG"))
+                if self.eidolon >= 2 and E2Happened == True:
+                    bl.append(Buff("WeltE2Err", StatTypes.ERR_T, 3, self.role))
+                    logger.debug(f"Welt E2 has been Triggered")
+                    E2Happened = False
+
+        if self.eidolon >= 1:
+            for enemy in (self.enemyStatus or []):
+                if enemy.enemyID in self._weightlessTurns:
+                    tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.SINGLE, [AtkType.ADD], [self.element],
+                                   [0.4 * e5Mul, 0], [0, 0], 0, self.scaling, 0, "WeltE1AdditionalDMG"))
+                    break
 
         # Weightless: tracked entirely on Welt himself (no engine-visible debuff
         # needed). Seed/refresh 2 turns of Weightless on every currently-known
@@ -181,6 +222,14 @@ class Welt(Character):
                 newDelays.append(Delay("WeltWeightlessDelay", 0.04, eid, False, True))
         return newDelays
 
+    def _allyWeightlessDMGBuff(self, turn: Turn, result: Result) -> list:
+        if (result.turnDmg + result.ElationturnDMG) <= 0:
+            return []
+        if any(enemy.enemyID in self._weightlessTurns for enemy in result.enemiesHit):
+            return [Buff("WeltAllyWeightlessDMG", StatTypes.DMG_PERCENT, 0.10, turn.charRole,
+                         [AtkType.ALL], 2, 10, turn.charRole, TickDown.END)]
+        return []
+
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         dl.extend(self._weightlessTrigger(turn, result))
@@ -190,12 +239,14 @@ class Welt(Character):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         dl.extend(self._weightlessTrigger(turn, result))
-
+        bl.extend(self._allyWeightlessDMGBuff(turn, result))
 
         return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
+        self.EHR = specialRes.attr1
+        bl.append(Buff("WeltTalent3ATK", StatTypes.ATK_PERCENT, min(max(floor((self.EHR-0.4)/0.1)*0.20, 0), 0.8), self.role,[AtkType.ALL], 1, 1, self.role, TickDown.PERM))
 
         for enemy in (specialRes.enemies or []):
             eid = enemy.enemyID

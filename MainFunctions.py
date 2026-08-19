@@ -1799,8 +1799,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, attr4=charHP,enemies=gauge)
 
             case "Welt":
-
-                return Special(name=specStr)
+                ehr = getCharStat(StatTypes.EHR_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=ehr)
 
             case "YaoGuang":
                 SpdList = []
