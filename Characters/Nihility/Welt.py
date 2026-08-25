@@ -3,11 +3,11 @@ import logging
 from Buff import *
 from Character import Character
 from Attributes import *
-from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade
+from Lightcones.Nihility.ResolutionShinesAsPearlsOfSweat import ResolutionMortenaxBlade, ResolutionWelt
 from Lightcones.Nihility.LiesDanceOnTheBreeze import LiesDanceOnTheBreeze
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
 from RelicStats import RelicStats
-from Relics.PioneerDiverOfDeadWaters import PioneerCipher
+from Relics.DivineQueryingMasterSmith import DivineQueryMasterSmith
 from Result import *
 from Turn_Text import Turn
 from Delay_Text import Delay
@@ -36,6 +36,7 @@ class Welt(Character):
 
     # Unique Character Properties
     EHR = 0.0
+    Tech = True
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -44,12 +45,12 @@ class Welt(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ResolutionMortenaxBlade(role, 5)
-        self.relic1 = r1 if r1 else PioneerCipher(role, 4)
+        self.lightcone = lc if lc else ResolutionWelt(role, 5)
+        self.relic1 = r1 if r1 else DivineQueryMasterSmith(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else LushakaTheSunkenSeas(role)
         self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 4, 2, 10, 2, StatTypes.EHR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.DMG_PERCENT, StatTypes.ATK_PERCENT)
+                                                       StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
 
         # Weightless tracking (Ult passive) — fully self-contained, no engine changes.
@@ -61,13 +62,22 @@ class Welt(Character):
         # passive below = currently under Weightless OR under this Skill SPD debuff.
         self._skillSlowTurns = {}    # enemyID -> turns of Skill-applied Slow remaining
 
+        # Cache of live enemies, refreshed from specialRes.enemies every AV tick
+        # in handleSpecialStart. self.enemyStatus was assumed to serve this role
+        # but was found empty at useUlt()-time in testing, so the Weightless kit
+        # tracks its own copy instead of depending on it.
+        self._enemyStatusCache = []
+
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("WeltTraceERS", StatTypes.ERS_PERCENT, 0.10, self.role))
         bl.append(Buff("WeltTraceEHR", StatTypes.EHR_PERCENT, 0.28, self.role))
         bl.append(Buff("WeltTraceDMG", StatTypes.DMG_PERCENT, 0.144, self.role))
         bl.append(Buff("WeltTalent1", StatTypes.ERR_T, 30, self.role))
-
+        if self.Tech:
+            self.Tech = False
+            dbl.append(Debuff("WeltTechSPD", self.role, StatTypes.SPD_PERCENT, -0.10, Role.ALL, [AtkType.ALL], 1))
+            dl.append(Delay("WeltTechDelay", 0.20, Role.ALL, False, True))
         return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
@@ -131,7 +141,7 @@ class Welt(Character):
 
         # Skill's SPD debuff hits all enemies (Role.ALL) — refresh Skill-Slow
         # tracking for every currently-known enemy to match.
-        for enemy in (self.enemyStatus or []):
+        for enemy in self._enemyStatusCache:
             self._skillSlowTurns[enemy.enemyID] = 2
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -144,7 +154,7 @@ class Welt(Character):
         E2Happened = True
 
         if self.eidolon == 6:
-            for enemy in (self.enemyStatus or []):
+            for enemy in self._enemyStatusCache:
                 if enemy.enemyID in self._weightlessTurns:
                     bl.append(Buff("WeltE6CR", StatTypes.CR_PERCENT, 0.30, self.role, [AtkType.SKL, AtkType.ULT], 1, 1,
                                    self.role, TickDown.START))
@@ -163,7 +173,7 @@ class Welt(Character):
         if self.eidolon >= 4:
             dbl.append(Debuff("WeltE4Pen", self.role, StatTypes.PEN, 0.30, Role.ALL, [AtkType.ALL], 2, 1))
 
-        for enemy in (self.enemyStatus or []):
+        for enemy in self._enemyStatusCache:
             if self._isSlowed(enemy.enemyID):
                 tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                                [e5TalentMul, 0], [0, 0], 0, self.scaling, 0, "WeltSlowedAdditionalDMG"))
@@ -173,7 +183,7 @@ class Welt(Character):
                     E2Happened = False
 
         if self.eidolon >= 1:
-            for enemy in (self.enemyStatus or []):
+            for enemy in self._enemyStatusCache:
                 if enemy.enemyID in self._weightlessTurns:
                     tl.append(Turn(self.name, self.role, enemy.enemyID, Targeting.SINGLE, [AtkType.ADD], [self.element],
                                    [0.4 * e5Mul, 0], [0, 0], 0, self.scaling, 0, "WeltE1AdditionalDMG"))
@@ -181,12 +191,14 @@ class Welt(Character):
 
         # Weightless: tracked entirely on Welt himself (no engine-visible debuff
         # needed). Seed/refresh 2 turns of Weightless on every currently-known
-        # enemy, resetting each one's hit counter. self.enemyStatus is kept fresh
-        # every AV tick by handleSpecialStart, and since that fires before this
-        # method runs on Welt's own turn, it already reflects the live enemy team.
-        for enemy in (self.enemyStatus or []):
+        # enemy, resetting each one's hit counter. self._enemyStatusCache is kept
+        # fresh every AV tick by handleSpecialStart (from specialRes.enemies),
+        # and since that fires before this method runs on Welt's own turn, it
+        # already reflects the live enemy team.
+        for enemy in self._enemyStatusCache:
             self._weightlessTurns[enemy.enemyID] = 2
             self._weightlessHits[enemy.enemyID] = 0
+        logger.debug(f"[WeltAllyBuff] Ult seeded weightlessTurns={dict(self._weightlessTurns)}")
 
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -224,10 +236,13 @@ class Welt(Character):
 
     def _allyWeightlessDMGBuff(self, turn: Turn, result: Result) -> list:
         if (result.turnDmg + result.ElationturnDMG) <= 0:
+            logger.debug("[WeltAllyBuff] skipped: no damage on this turn")
             return []
         if any(enemy.enemyID in self._weightlessTurns for enemy in result.enemiesHit):
+            logger.debug("[WeltAllyBuff] TRIGGERED - granting WeltAllyWeightlessDMG")
             return [Buff("WeltAllyWeightlessDMG", StatTypes.DMG_PERCENT, 0.10, turn.charRole,
                          [AtkType.ALL], 2, 10, turn.charRole, TickDown.END)]
+        logger.debug("[WeltAllyBuff] skipped: none of enemiesHit are in weightlessTurns")
         return []
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -237,6 +252,7 @@ class Welt(Character):
         return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
+        logger.debug(f"[WeltAllyBuff] allyTurn() invoked for attacker={turn.charRole}, move={result.turnName}")
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         dl.extend(self._weightlessTrigger(turn, result))
         bl.extend(self._allyWeightlessDMGBuff(turn, result))
@@ -246,6 +262,7 @@ class Welt(Character):
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.EHR = specialRes.attr1
+        self._enemyStatusCache = specialRes.enemies or []
         bl.append(Buff("WeltTalent3ATK", StatTypes.ATK_PERCENT, min(max(floor((self.EHR-0.4)/0.1)*0.20, 0), 0.8), self.role,[AtkType.ALL], 1, 1, self.role, TickDown.PERM))
 
         for enemy in (specialRes.enemies or []):
@@ -253,11 +270,15 @@ class Welt(Character):
             prevAV = self._lastEnemyAV.get(eid)
             currAV = enemy.currAV
             if prevAV is not None and prevAV <= 0.01 and currAV > prevAV:
+                logger.debug(f"[WeltAllyBuff] enemy turn-boundary detected for eid={eid} "
+                             f"(prevAV={prevAV}, currAV={currAV}); "
+                             f"weightlessTurns before={dict(self._weightlessTurns)}")
                 self._weightlessHits[eid] = 0
                 if eid in self._weightlessTurns:
                     self._weightlessTurns[eid] -= 1
                     if self._weightlessTurns[eid] <= 0:
                         del self._weightlessTurns[eid]
+                logger.debug(f"[WeltAllyBuff] weightlessTurns after={dict(self._weightlessTurns)}")
                 if eid in self._skillSlowTurns:
                     self._skillSlowTurns[eid] -= 1
                     if self._skillSlowTurns[eid] <= 0:

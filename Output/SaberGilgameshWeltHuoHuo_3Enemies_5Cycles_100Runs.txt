@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 37408.029 | Saber: 22498.594 | Gilgamesh: 14160.702 | Welt: 623.404 | HuoHuo: 18.364
+Run    2: Team DPAV: 44742.543 | Saber: 2776.264 | Gilgamesh: 4471.097 | Welt: 90.060 | HuoHuo: 0.975
+Run    3: Team DPAV: 37280.573 | Saber: -3881.107 | Gilgamesh: -3577.705 | Welt: -3.116 | HuoHuo: -0.042
+Run    4: Team DPAV: 35221.431 | Saber: -1603.382 | Gilgamesh: -469.254 | Welt: 11.511 | HuoHuo: 0.042
+Run    5: Team DPAV: 37402.040 | Saber: 3155.314 | Gilgamesh: -1031.677 | Welt: 38.854 | HuoHuo: 2.231
+Run    6: Team DPAV: 38271.445 | Saber: 273.895 | Gilgamesh: 714.316 | Welt: -137.310 | HuoHuo: -3.206
+Run    7: Team DPAV: 38505.406 | Saber: 158.616 | Gilgamesh: 75.345 | Welt: 0.000 | HuoHuo: 0.000
+Run    8: Team DPAV: 35151.850 | Saber: -3959.856 | Gilgamesh: 547.859 | Welt: 97.046 | HuoHuo: 0.933
+Run    9: Team DPAV: 39448.794 | Saber: 6446.155 | Gilgamesh: -2090.769 | Welt: -97.046 | HuoHuo: -0.933
+Run   10: Team DPAV: 40848.178 | Saber: -2282.623 | Gilgamesh: 3682.007 | Welt: 0.000 | HuoHuo: 0.000
+Run   11: Team DPAV: 38999.590 | Saber: 191.187 | Gilgamesh: -1996.325 | Welt: -7.794 | HuoHuo: 0.000
+Run   12: Team DPAV: 44929.627 | Saber: 2145.327 | Gilgamesh: 3620.061 | Welt: 143.102 | HuoHuo: 5.660
+Run   13: Team DPAV: 37280.573 | Saber: -4524.633 | Gilgamesh: -3051.563 | Welt: -48.363 | HuoHuo: -4.727
+Run   14: Team DPAV: 39247.854 | Saber: 3156.052 | Gilgamesh: -1134.286 | Welt: -57.435 | HuoHuo: -0.933
+Run   15: Team DPAV: 39513.444 | Saber: -844.153 | Gilgamesh: 1005.358 | Welt: 103.647 | HuoHuo: 2.679
+Run   16: Team DPAV: 38528.343 | Saber: -327.455 | Gilgamesh: -559.406 | Welt: -133.157 | HuoHuo: -2.679
+Run   17: Team DPAV: 36114.674 | Saber: -2360.782 | Gilgamesh: -52.887 | Welt: 0.000 | HuoHuo: 0.000
+Run   18: Team DPAV: 38992.418 | Saber: 2609.982 | Gilgamesh: 186.122 | Welt: 120.245 | HuoHuo: 0.933
+Run   19: Team DPAV: 29096.478 | Saber: -7308.212 | Gilgamesh: -2462.638 | Welt: -128.039 | HuoHuo: -0.933
+Run   20: Team DPAV: 35203.961 | Saber: 5511.660 | Gilgamesh: 588.029 | Welt: 7.794 | HuoHuo: 0.000
+Run   21: Team DPAV: 36783.269 | Saber: 482.555 | Gilgamesh: 997.558 | Welt: 100.162 | HuoHuo: 0.975
+Run   22: Team DPAV: 35770.125 | Saber: -901.494 | Gilgamesh: -133.335 | Welt: 21.963 | HuoHuo: 1.662
+Run   23: Team DPAV: 31218.582 | Saber: -4833.675 | Gilgamesh: 410.807 | Welt: -129.919 | HuoHuo: -2.637
+Run   24: Team DPAV: 41084.015 | Saber: 8382.011 | Gilgamesh: 1391.795 | Welt: 91.367 | HuoHuo: 0.261
+Run   25: Team DPAV: 35475.344 | Saber: -4915.956 | Gilgamesh: -706.371 | Welt: 14.884 | HuoHuo: 0.714
+Run   26: Team DPAV: 36114.674 | Saber: 973.130 | Gilgamesh: -271.966 | Welt: -98.456 | HuoHuo: -0.975
+Run   27: Team DPAV: 38294.382 | Saber: 2202.166 | Gilgamesh: -22.458 | Welt: 0.000 | HuoHuo: 0.000
+Run   28: Team DPAV: 37199.629 | Saber: -2126.278 | Gilgamesh: 939.907 | Welt: 128.039 | HuoHuo: 3.116
+Run   29: Team DPAV: 39142.288 | Saber: 1502.745 | Gilgamesh: 412.189 | Welt: 9.271 | HuoHuo: 0.627
+Run   30: Team DPAV: 39818.034 | Saber: 2346.252 | Gilgamesh: -1604.979 | Welt: -49.104 | HuoHuo: -0.537
+Run   31: Team DPAV: 39723.116 | Saber: -1433.935 | Gilgamesh: 1392.355 | Welt: -88.206 | HuoHuo: -2.727
+Run   32: Team DPAV: 40185.201 | Saber: 2001.280 | Gilgamesh: -1525.869 | Welt: 22.871 | HuoHuo: -0.542
+Run   33: Team DPAV: 39016.962 | Saber: -2436.333 | Gilgamesh: 1136.441 | Welt: 114.439 | HuoHuo: 3.268
+Run   34: Team DPAV: 38621.136 | Saber: 494.930 | Gilgamesh: -728.501 | Welt: -145.104 | HuoHuo: -3.206
+Run   35: Team DPAV: 40039.312 | Saber: 2070.309 | Gilgamesh: -652.132 | Welt: 0.000 | HuoHuo: 0.000
+Run   36: Team DPAV: 40834.911 | Saber: -1591.751 | Gilgamesh: 2325.009 | Welt: 7.794 | HuoHuo: 1.064
+Run   37: Team DPAV: 38327.883 | Saber: -2382.816 | Gilgamesh: -263.960 | Welt: 140.952 | HuoHuo: 2.679
+Run   38: Team DPAV: 38973.371 | Saber: 1272.012 | Gilgamesh: -586.690 | Welt: -3.642 | HuoHuo: -0.537
+Run   39: Team DPAV: 30769.125 | Saber: -6669.693 | Gilgamesh: -1469.711 | Welt: -48.955 | HuoHuo: 0.000
+Run   40: Team DPAV: 34248.237 | Saber: 2766.623 | Gilgamesh: 704.416 | Welt: 11.955 | HuoHuo: -1.941
+Run   41: Team DPAV: 40197.189 | Saber: 4525.902 | Gilgamesh: 1320.414 | Welt: 66.444 | HuoHuo: 2.479
+Run   42: Team DPAV: 39626.065 | Saber: 23.046 | Gilgamesh: -429.497 | Welt: -166.754 | HuoHuo: -3.743
+Run   43: Team DPAV: 35209.592 | Saber: -1810.773 | Gilgamesh: -2702.656 | Welt: 131.608 | HuoHuo: 2.945
+Run   44: Team DPAV: 39353.687 | Saber: 1641.179 | Gilgamesh: 2478.674 | Welt: 3.700 | HuoHuo: 2.715
+Run   45: Team DPAV: 38220.873 | Saber: -266.205 | Gilgamesh: -745.410 | Welt: -135.308 | HuoHuo: -5.660
+Run   46: Team DPAV: 40588.057 | Saber: 765.345 | Gilgamesh: 1464.418 | Welt: 137.560 | HuoHuo: 3.743
+Run   47: Team DPAV: 45440.592 | Saber: 2353.465 | Gilgamesh: 2517.833 | Welt: -0.399 | HuoHuo: -0.537
+Run   48: Team DPAV: 39448.794 | Saber: -400.387 | Gilgamesh: -5472.753 | Welt: -137.162 | HuoHuo: -3.206
+Run   49: Team DPAV: 38197.936 | Saber: -2718.423 | Gilgamesh: 1467.566 | Welt: 0.000 | HuoHuo: 0.000
+Run   50: Team DPAV: 39892.718 | Saber: 362.292 | Gilgamesh: 1332.490 | Welt: 0.000 | HuoHuo: 0.000
+Run   51: Team DPAV: 39842.017 | Saber: 305.377 | Gilgamesh: -476.677 | Welt: 137.162 | HuoHuo: 3.206
+Run   52: Team DPAV: 35475.344 | Saber: -3769.457 | Gilgamesh: -538.452 | Welt: -38.706 | HuoHuo: -2.231
+Run   53: Team DPAV: 36060.532 | Saber: 1044.422 | Gilgamesh: -397.878 | Welt: -98.456 | HuoHuo: -0.496
+Run   54: Team DPAV: 45285.999 | Saber: 5304.517 | Gilgamesh: 3840.519 | Welt: 117.502 | HuoHuo: 2.466
+Run   55: Team DPAV: 38655.126 | Saber: -2982.456 | Gilgamesh: -3541.886 | Welt: -125.296 | HuoHuo: -2.945
+Run   56: Team DPAV: 38633.737 | Saber: 171.105 | Gilgamesh: -218.116 | Welt: 7.794 | HuoHuo: 0.000
+Run   57: Team DPAV: 35644.023 | Saber: -2728.494 | Gilgamesh: -283.596 | Welt: 63.162 | HuoHuo: 0.693
+Run   58: Team DPAV: 35270.146 | Saber: 954.990 | Gilgamesh: -1401.216 | Welt: 68.446 | HuoHuo: 0.021
+Run   59: Team DPAV: 37516.868 | Saber: 1210.988 | Gilgamesh: 982.486 | Welt: 32.995 | HuoHuo: 4.366
+Run   60: Team DPAV: 38601.178 | Saber: -527.078 | Gilgamesh: 1759.361 | Welt: -164.603 | HuoHuo: -5.080
+Run   61: Team DPAV: 45106.659 | Saber: 3426.108 | Gilgamesh: 2958.175 | Welt: 135.308 | HuoHuo: 5.660
+Run   62: Team DPAV: 38505.406 | Saber: -2540.190 | Gilgamesh: -3939.865 | Welt: -135.308 | HuoHuo: -5.660
+Run   63: Team DPAV: 44943.977 | Saber: 2786.140 | Gilgamesh: 3535.270 | Welt: 137.607 | HuoHuo: 3.206
+Run   64: Team DPAV: 39263.773 | Saber: -2944.756 | Gilgamesh: -2618.286 | Welt: -137.607 | HuoHuo: -3.206
+Run   65: Team DPAV: 39264.252 | Saber: 0.000 | Gilgamesh: 0.000 | Welt: 0.000 | HuoHuo: 0.479
+Run   66: Team DPAV: 37746.152 | Saber: 1201.859 | Gilgamesh: -2719.481 | Welt: 0.000 | HuoHuo: -0.479
+Run   67: Team DPAV: 35417.690 | Saber: -5003.100 | Gilgamesh: 2616.196 | Welt: 97.046 | HuoHuo: 0.933
+Run   68: Team DPAV: 38294.861 | Saber: 3801.240 | Gilgamesh: -866.107 | Welt: -97.046 | HuoHuo: -0.454
+Run   69: Team DPAV: 38918.402 | Saber: -554.881 | Gilgamesh: 1160.010 | Welt: 0.000 | HuoHuo: 0.585
+Run   70: Team DPAV: 36709.761 | Saber: -424.809 | Gilgamesh: -1828.481 | Welt: 100.162 | HuoHuo: -0.089
+Run   71: Team DPAV: 42031.853 | Saber: 3586.534 | Gilgamesh: 1842.548 | Welt: -107.956 | HuoHuo: -0.975
+Run   72: Team DPAV: 40529.196 | Saber: -1424.378 | Gilgamesh: -173.463 | Welt: 96.149 | HuoHuo: 0.975
+Run   73: Team DPAV: 29348.710 | Saber: -9246.399 | Gilgamesh: -1936.231 | Welt: 1.854 | HuoHuo: 2.231
+Run   74: Team DPAV: 38835.762 | Saber: 7353.157 | Gilgamesh: 2034.160 | Welt: 45.716 | HuoHuo: 0.537
+Run   75: Team DPAV: 34558.599 | Saber: -3161.924 | Gilgamesh: -1020.069 | Welt: -38.878 | HuoHuo: -2.810
+Run   76: Team DPAV: 38656.674 | Saber: 4234.991 | Gilgamesh: -78.474 | Welt: -97.046 | HuoHuo: -0.933
+Run   77: Team DPAV: 35797.014 | Saber: -2186.828 | Gilgamesh: -637.177 | Welt: 0.000 | HuoHuo: 0.000
+Run   78: Team DPAV: 38533.916 | Saber: 1943.725 | Gilgamesh: 638.778 | Welt: 135.308 | HuoHuo: 3.206
+Run   79: Team DPAV: 38665.352 | Saber: -782.795 | Gilgamesh: 1032.496 | Welt: -135.308 | HuoHuo: -2.727
+Run   80: Team DPAV: 37640.283 | Saber: 2187.375 | Gilgamesh: -3186.343 | Welt: -7.794 | HuoHuo: -0.479
+Run   81: Team DPAV: 29348.710 | Saber: -9587.701 | Gilgamesh: 1216.628 | Welt: 98.003 | HuoHuo: 3.206
+Run   82: Team DPAV: 40302.539 | Saber: 8528.859 | Gilgamesh: 2459.956 | Welt: -90.209 | HuoHuo: -2.141
+Run   83: Team DPAV: 39611.749 | Saber: -593.030 | Gilgamesh: -221.980 | Welt: 143.250 | HuoHuo: 2.679
+Run   84: Team DPAV: 39817.264 | Saber: 1187.168 | Gilgamesh: -813.398 | Welt: -151.045 | HuoHuo: -3.264
+Run   85: Team DPAV: 38977.900 | Saber: -736.567 | Gilgamesh: -120.146 | Welt: 0.000 | HuoHuo: -0.479
+Run   86: Team DPAV: 35484.880 | Saber: -1561.168 | Gilgamesh: -1896.197 | Welt: 0.000 | HuoHuo: 0.000
+Run   87: Team DPAV: 37746.152 | Saber: 2440.530 | Gilgamesh: -222.708 | Welt: 7.794 | HuoHuo: 0.000
+Run   88: Team DPAV: 38584.759 | Saber: -2564.651 | Gilgamesh: 3283.915 | Welt: 137.310 | HuoHuo: 3.743
+Run   89: Team DPAV: 38656.674 | Saber: 1725.083 | Gilgamesh: -1533.825 | Welt: -137.310 | HuoHuo: -3.743
+Run   90: Team DPAV: 38743.964 | Saber: 965.333 | Gilgamesh: -834.593 | Welt: -7.794 | HuoHuo: 0.000
+Run   91: Team DPAV: 38977.900 | Saber: -1005.128 | Gilgamesh: 1203.408 | Welt: 0.000 | HuoHuo: 0.000
+Run   92: Team DPAV: 36929.620 | Saber: 39.795 | Gilgamesh: -2095.869 | Welt: 7.794 | HuoHuo: 0.000
+Run   93: Team DPAV: 36591.620 | Saber: -1527.553 | Gilgamesh: 1129.450 | Welt: 100.607 | HuoHuo: 0.975
+Run   94: Team DPAV: 39039.930 | Saber: 223.334 | Gilgamesh: 2165.649 | Welt: 34.849 | HuoHuo: 2.768
+Run   95: Team DPAV: 39422.389 | Saber: 1100.544 | Gilgamesh: -598.654 | Welt: -135.456 | HuoHuo: -3.743
+Run   96: Team DPAV: 38271.445 | Saber: -158.616 | Gilgamesh: -992.329 | Welt: 0.000 | HuoHuo: 0.000
+Run   97: Team DPAV: 40529.196 | Saber: 1182.466 | Gilgamesh: 1023.551 | Welt: 88.355 | HuoHuo: 0.975
+Run   98: Team DPAV: 38656.674 | Saber: -820.175 | Gilgamesh: -1000.614 | Welt: -88.355 | HuoHuo: -0.975
+Run   99: Team DPAV: 39604.228 | Saber: -96.086 | Gilgamesh: 922.442 | Welt: 135.308 | HuoHuo: 5.660
+Run  100: Team DPAV: 29159.069 | Saber: -7343.356 | Gilgamesh: -2937.154 | Welt: -143.102 | HuoHuo: -5.660
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 38142.123
+Average Saber DPAV: 161.424 Percentage: 0.423%
+Average Gilgamesh DPAV: 122.757 Percentage: 0.322%
+Average Welt DPAV: 6.156 Percentage: 0.016%
+Average HuoHuo DPAV: 0.184 Percentage: 0.000%
+
+Min Team DPAV: 29096.478
+Max Team DPAV: 45440.592

@@ -1551,7 +1551,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     "SilverWolf999": "AhaSilverWolf999GoGo",
                     "ElationMC": "AhaElationMCGoGo",}
                 targetElaSkillTurn = elaSkillTurnMap.get(targetChar.name, "")
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=atkStat, attr4=TotalSPD, attr5=charBanger, attr6=BangerDict, attr7=targetHasElaSkill, attr8=targetElaSkillTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=atkStat, attr4=TotalSPD, attr5=charBanger, attr6=BangerDict, attr7=targetHasElaSkill, attr8=targetElaSkillTurn, enemies=gauge)
 
             case "Evanescia":
                 SpdList = []
@@ -1570,7 +1570,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charCD = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charERR = getCharStat(StatTypes.ERR_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charBanger, attr6=charCD, attr7=charERR)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charBanger, attr6=charCD, attr7=charERR, enemies=gauge)
 
             case "Feixiao":
                 enemyDebuffs = [countDebuffs(e.enemyID, debuffList) for e in enemyTeam]
@@ -1744,7 +1744,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charPunch = Character.SharedPunchline
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch, enemies=gauge)
 
             case "SilverWolf999":
                 SpdList = []
@@ -1763,7 +1763,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charSPD = getCharSPD(specChar, buffList)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charCR = getCharStat(StatTypes.CR_PERCENT, specChar, enemyTeam[0], buffList, debuffList,placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charSPD, attr6=charBanger, attr7=charCR)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charPunch, attr5=charSPD, attr6=charBanger, attr7=charCR, enemies=gauge)
 
             case "Sunday":
                 if inTeam(playerTeam, "JingYuan"):
@@ -1796,11 +1796,11 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                         TeamHP = TeamHP + getCharMaxHP(character, character.lightcone, buffList)
                 UltIsActive = True if "TribbieUltVuln" in getBuffNames(buffList) else False
                 charHP = getCharMaxHP(specChar, specChar.lightcone, buffList)
-                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, attr4=charHP,enemies=gauge)
+                return Special(name=specStr, attr1=CharacterList, attr2=TeamHP, attr3= UltIsActive, attr4=charHP, enemies=gauge)
 
             case "Welt":
                 ehr = getCharStat(StatTypes.EHR_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=ehr)
+                return Special(name=specStr, attr1=ehr, enemies=gauge)
 
             case "YaoGuang":
                 SpdList = []
@@ -1820,7 +1820,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                                                        [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "PH"))
                            for char in playerTeam}
                 TotalSPD = getCharSPD(specChar, buffList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=elaDict, attr5=TotalSPD,)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=elaDict, attr5=TotalSPD, enemies=gauge)
 
             case "Yunli":
                 yunliSlot = specChar.pos

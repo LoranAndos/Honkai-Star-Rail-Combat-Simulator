@@ -48,6 +48,10 @@ class ResolutionJQ(ResolutionPela):
     def __init__(self, wearerRole, level=5):
         super().__init__(wearerRole, level)
 
+class ResolutionWelt(ResolutionPela):
+    def __init__(self, wearerRole, level=5):
+        super().__init__(wearerRole, level)
+
 class ResolutionMortenaxBlade(ResolutionJQ):
     def __init__(self, wearerRole, level=5):
         super().__init__(wearerRole, level)
