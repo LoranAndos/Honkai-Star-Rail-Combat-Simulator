@@ -1774,6 +1774,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Pearl":
                 SpdList = []
+                RoleList = []
                 AHASpdBuffAmount = 0
                 ElationDPS = False
                 DPSName = "Pearl"
@@ -1793,7 +1794,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charDEF = getScalingValues(specChar, buffList, [AtkType.ALL])
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charDEF, attr5=charBanger, attr6=ElationDPS, attr7=DPSName,enemies=gauge)
+                for char in [char for char in playerTeam if char.name != "Pearl"]:
+                    RoleList.append(char.role)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charDEF, attr5=charBanger, attr6=ElationDPS, attr7=DPSName, attr8= RoleList,enemies=gauge)
 
             case "Rappa":
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])

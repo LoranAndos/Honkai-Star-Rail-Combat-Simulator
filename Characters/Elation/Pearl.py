@@ -71,6 +71,12 @@ class Pearl(Character):
     EnhancedUses = 0
     SpecialEnhanced = False
     tech = True
+    ally1Role = 0
+    ally2Role = 0
+    ally3Role = 0
+    ally1Proc = False
+    ally2Proc = False
+    ally3Proc = False
 
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
@@ -207,20 +213,87 @@ class Pearl(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
 
-        if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
+        if result.turnName == "AhaPearlGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         return bl, dbl, al, dl, tl, hl
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
-        if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
+        if self.TotalElationChar == 1:
+            if self.eidolon >= 5:
+                e5Mul = 0.11
+            elif 5 > self.eidolon >= 3:
+                e5Mul = 0.105
+            else:
+                e5Mul = 0.10
+        elif self.TotalElationChar == 2:
+            if self.eidolon >= 5:
+                e5Mul = 0.165
+            elif 5 > self.eidolon >= 3:
+                e5Mul = 0.1575
+            else:
+                e5Mul = 0.15
+        elif self.TotalElationChar == 3:
+            if self.eidolon >= 5:
+                e5Mul = 0.22
+            elif 5 > self.eidolon >= 3:
+                e5Mul = 0.21
+            else:
+                e5Mul = 0.20
+        elif self.TotalElationChar == 4:
+            if self.eidolon >= 5:
+                e5Mul = 0.44
+            elif 5 > self.eidolon >= 3:
+                e5Mul = 0.42
+            else:
+                e5Mul = 0.40
+        if result.turnName == "AhaPearlGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
+        if turn.charRole == self.ally1Role and turn.moveName not in bonusDMG and result.turnDmg > 0 and self.ally1Proc == True:
+            if result.atkType == AtkType.ELAPUNCH:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELAPUNCH], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally1Proc = False
+            else:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER,turn.atkType], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally1Proc = False
+        if turn.charRole == self.ally2Role and turn.moveName not in bonusDMG and result.turnDmg > 0 and self.ally2Proc == True:
+            if result.atkType == AtkType.ELAPUNCH:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELAPUNCH], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally2Proc = False
+            else:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER,turn.atkType], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally2Proc = False
+        if turn.charRole == self.ally3Role and turn.moveName not in bonusDMG and result.turnDmg > 0 and self.ally3Proc == True:
+            if result.atkType == AtkType.ELAPUNCH:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELAPUNCH], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally3Proc = False
+            else:
+                tl.append(Turn(self.name, self.role, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER,turn.atkType], [self.element],
+                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                self.ally3Proc = False
 
         return bl, dbl, al, dl, tl, hl
 
     def useElaSkill(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
+                       Targeting.NA, [AtkType.ELAPUNCH], [self.element],
+                       [0, 0], [0, 0], 5, self.scaling, 0, "PearlELASkill"))
+        self.ally1Proc = True
+        self.ally2Proc = True
+        self.ally3Proc = True
 
         return bl, dbl, al, dl, tl, hl
 
@@ -233,8 +306,13 @@ class Pearl(Character):
         self.Banger = specialRes.attr5
         self.ElationDPS = specialRes.attr6
         self.DPSName = specialRes.attr7
+        self.ally1Role = specialRes.attr8[0]
+        self.ally2Role = specialRes.attr8[1]
+        self.ally3Role = specialRes.attr8[2]
+
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
+        bl.append(Buff("PearlDEFtoELA", StatTypes.ELA, 0.32 + min(max(floor((self.CharDEF-2400)/100)*0.03, 0), 1.08), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
 
         # Talent: "When an ally target's current HP percentage is 50% or
         # lower, DMG taken is reduced by 30%." Checked live every tick
@@ -255,3 +333,6 @@ class Pearl(Character):
             self.EnhancedUses = 2
 
         return bl, dbl, al, dl, tl, hl
+
+    def takeTurn(self) -> str:
+        return super().takeTurn()

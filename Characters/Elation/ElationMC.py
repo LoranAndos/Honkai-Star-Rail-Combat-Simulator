@@ -175,7 +175,7 @@ class ElationMC(Character):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"):
+        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE", "PearlELASkill"):
             self.bangerBonus = min(self.bangerBonus + 2, 2)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
