@@ -59,7 +59,7 @@ class YaoGuang(Character):
         self.elationParticipationID = elationParticipationID
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         ElationBuff = 0.22 if self.eidolon >=3 else 0.20
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("YaoGuangTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
@@ -74,19 +74,19 @@ class YaoGuang(Character):
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELABANGER], 1, 1,self.role, TickDown.PERM))
         if self.eidolon == 6:
             bl.append(Buff("YaoGuangE6MerryMake", StatTypes.MERRY, 0.25,Role.ALL))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3MulBig = 0.99 if self.eidolon >= 3 else 0.9
         e3MulSmall = 0.33 if self.eidolon >= 3 else 0.3
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.BLAST, [AtkType.BSC],
 [self.element],[e3MulBig, e3MulSmall], [10, 5], 30, self.scaling, 1, "YaoGuangBasic"))
         Character.SharedPunchline += 3
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         #print(f"SKL DEBUG | TotalSP: {self.TotalSP} | Thrill: {self.Thrill} | TotalElationChar: {self.TotalElationChar} | AHASpdBuff: {self.AHASpdBuff:.3f}")
         ElationBuff = 0.22 if self.eidolon >=3 else 0.20
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.SKL],
@@ -98,10 +98,10 @@ class YaoGuang(Character):
                            TickDown.START))
             bl.append(Buff("YaoGuangE2ELABuff", StatTypes.ELA, 0.16, Role.ALL, [AtkType.ALL], 3, 1, self.role,
                            TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
         Character.SharedPunchline += 5
@@ -116,19 +116,25 @@ class YaoGuang(Character):
         Character.ahaFixedPunchline = True  # ADD THIS LINE
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
 
-        return bl, dbl, al, dl, tl, hl
+        if result.turnName == "YaoGuangTalentADD" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline -= 60
+            Character.PearlUlt = False
+
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e5Mul = 0.22 if self.eidolon >= 5 else 0.2
 
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
@@ -149,10 +155,18 @@ class YaoGuang(Character):
             else:
                 tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
                                [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
-        return bl, dbl, al, dl, tl, hl
+
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline += 60
+
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
+
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useElaSkill(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
         if self.eidolon >= 5:
             e5MulBig = 1.1
             e5MulSmall = 0.22
@@ -174,10 +188,10 @@ class YaoGuang(Character):
                        [self.element], [e5MulBig*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 1, "YaoGuangELASkillAOE"))
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
                        [self.element], [e5MulSmall*5*E6ELASkillIncrease*Character.ahaElaDMGBoost, 0], [5*5, 0], 0, Scaling.ELA, 0, "YaoGuangELASkillSINGLE"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.AHASpdBuff = specialRes.attr1
         self.TotalElationChar = specialRes.attr2
         self.Banger = specialRes.attr3
@@ -187,4 +201,4 @@ class YaoGuang(Character):
         if self.currSPD >= 120:
             ELABuff = min(max((self.SPDStat-120), 0), 200)
             bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role  , [AtkType.ALL], 1, 1, self.role,TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

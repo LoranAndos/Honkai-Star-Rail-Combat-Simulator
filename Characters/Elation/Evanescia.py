@@ -82,7 +82,7 @@ class Evanescia(Character):
     masterFoxFiredCount = 0
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
-                 eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
+                 eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=146) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else UntilTheFlowersBloomAgain(role, 1)
@@ -91,13 +91,12 @@ class Evanescia(Character):
         self.planar = pl if pl else PunklordeStageZero(role)
         self.relicStats = subs if subs else RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 13, 10, StatTypes.CD_PERCENT,
                                                        StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
-        self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.masterFoxFiredCount = 0
         self.elationParticipationID = elationParticipationID
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
         bl.append(Buff("EvanesciaTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("EvanesciaTraceSPD", StatTypes.SPD, 5, self.role))
@@ -111,7 +110,7 @@ class Evanescia(Character):
             bl.append(Buff("EvanesciaE1PEN", StatTypes.PEN, 0.20, self.role))
         if self.eidolon >= 4:
             bl.append(Buff("EvanesciaE4Shred", StatTypes.SHRED, 0.15, self.role))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     # ---------------------------------------------------------------------------
     # Talent helpers
@@ -132,8 +131,8 @@ class Evanescia(Character):
         return bangerGain, amount
 
     def _addBangerEnergy(self, bangerAmount: int, bl: list, source: str = ""):
-        """When Banger is gained, simultaneously gain equal Energy (ERR_F = no ERR multiplier).
-        The ERR_F buff feeds into currEnergy through handleEnergyFromBuffs, which is what
+        """When Banger is gained, simultaneously gain equal Energy.
+        The ERR_T buff feeds into currEnergy through handleEnergyFromBuffs, which is what
         drives the Master Fox threshold check.
         """
         bl.append(Buff(f"TalentErrFromBanger_{source}{self.Count}", StatTypes.ERR_T, bangerAmount,
@@ -185,17 +184,17 @@ class Evanescia(Character):
     # ---------------------------------------------------------------------------
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "EvanesciaBasic"))
         self._addEnergy(20, bl, "Basic")
         # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5MulMain = 3.3 if self.eidolon >= 5 else 3.0
         e5MulSub = 1.65 if self.eidolon >= 5 else 1.5
         e5MulELA = 0.176 if self.eidolon >= 5 else 0.16
@@ -211,10 +210,10 @@ class Evanescia(Character):
                            [e5MulELA, e5MulELA], [0, 0], 0, Scaling.ELA, 0, "EvanesciaSkillELAPUNCH"))
 
         # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         # Sync fired count down so the next crossing of 240 fires Master Fox again.
         self.masterFoxFiredCount = int(self.currEnergy // self.MASTER_FOX_THRESHOLD)
@@ -257,10 +256,10 @@ class Evanescia(Character):
             self.UltCounter += 1
 
         # _tryMasterFoxFUA not called here — ownTurn handles it after currEnergy settles.
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
 
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
@@ -268,9 +267,7 @@ class Evanescia(Character):
         if result.turnName == "EvanesciaMasterFoxFUA":
             dbl.append(Debuff("EvanesciaMasterFoxDebuff", self.role, StatTypes.VULN, 0.12, Role.ALL, [AtkType.ALL], 3, 1, Targeting.AOE))
             if self.eidolon >= 1:
-                ela_bl, ela_dbl, ela_al, ela_dl, ela_tl, ela_hl = self.useElaSkill(-1)
-                bl.extend(ela_bl); dbl.extend(ela_dbl); al.extend(ela_al)
-                dl.extend(ela_dl); tl.extend(ela_tl); hl.extend(ela_hl)
+                bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useElaSkill(-1))
 
         # Check Master Fox after every action that gave Evanescia energy.
         # By the time ownTurn is called, handleEnergyFromBuffs has already updated
@@ -282,19 +279,33 @@ class Evanescia(Character):
             enemyID = result.enemyID if hasattr(result, 'enemyID') else -1
             self._tryMasterFoxFUA(enemyID, bl, tl)
 
-        return bl, dbl, al, dl, tl, hl
+        if result.turnName == "EvanesciaSkillELAPUNCH" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline -= 60
+            Character.PearlUlt = False
+
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline += 60
+            self._addBangerEnergy(30, bl, "PearlAestheticArchetype")
+
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
+
         self._handleTeammateBangerConversion(turn, result, bl)
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useElaSkill(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
         if self.eidolon >= 5:
             e5Mul = 1.21
         elif 5 > self.eidolon >= 3:
@@ -322,10 +333,10 @@ class Evanescia(Character):
         self.currEnergy = self.currEnergy + BangerBuff
 
         self._addEnergy(5, bl, "ElaSkill")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.AHASpdBuffAmount = specialRes.attr1
         self.TotalElationChar = specialRes.attr2
         self.ElaStat = specialRes.attr3
@@ -353,7 +364,7 @@ class Evanescia(Character):
                            0.15 + min(floor(self.Banger / 100) * 0.02, 0.20), self.role,
                            [AtkType.ALL], 1, 1, self.role, TickDown.START))
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     # ---------------------------------------------------------------------------
     # Helper methods

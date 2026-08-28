@@ -68,7 +68,7 @@ class ElationMC(Character):
         self.elationParticipationID = elationParticipationID
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("ElationMCTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("ElationMCTraceCD", StatTypes.CD_PERCENT, 0.133, self.role))
@@ -79,19 +79,19 @@ class ElationMC(Character):
             bl.append(Buff("ElationTechELA", StatTypes.ELA, 0.2, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.END))
         else:
             bl.append(Buff("ElationTechELA", StatTypes.ELA, 0.3, Role.ALL, [AtkType.ALL], 3, 1, self.role,TickDown.END))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e5Mul = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC],
 [self.element],[e5Mul, 0], [10, 0], 20, self.scaling, 1, "ElationMCBasic"))
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         Character.SharedPunchline += 3
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Mul = 0.66 if self.eidolon >= 3 else 0.6
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
                        [self.element], [e3Mul, 0], [20, 0], 30, self.scaling, -1, "ElationMCSkillNormal"))
@@ -102,12 +102,13 @@ class ElationMC(Character):
         bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,(20 + self.bangerBonus)*BangerReduction,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
-        self.UltBangerBonus += 2
+        if self.eidolon >= 1:
+            self.UltBangerBonus += 2
         self.bangerBonus = 0
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         self.preFiredPunchline = self.SharedPunchline  # ← add this before any buffs
         e5Mul = 0.54 if self.eidolon >= 5 else 0.50
@@ -136,10 +137,10 @@ class ElationMC(Character):
             al.append(Advance("ElationMCUltAdvance", self.targetRole, 0.50))
         if self.eidolon >= 2:
             bl.append(Buff("ElationMCUltE2ELA", StatTypes.ELA, 0.12, self.targetRole, [AtkType.ALL], 2, 1, self.role, TickDown.END))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         e3TalMul = 0.33 if self.eidolon >= 3 else 0.3
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
@@ -163,18 +164,29 @@ class ElationMC(Character):
                 tl.append(
                     Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                          self.scaling, 0, "AhaFixedEndGoGo"))
-        return bl, dbl, al, dl, tl, hl
+        if result.turnName == "ElationMCTalentSkill" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline -= 60
+            Character.PearlUlt = False
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE") and self.eidolon >= 1:
+        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE"):
             self.bangerBonus = min(self.bangerBonus + 2, 2)
-        return bl, dbl, al, dl, tl, hl
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline += 60
+
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useElaSkill(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
         if self.eidolon >= 5:
             e5MulBig = 0.66
             e5MulSmall = 0.22
@@ -196,10 +208,10 @@ class ElationMC(Character):
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
         if self.eidolon >= 4:
             dbl.append(Debuff("ElationMCELASkillVul", self.role, StatTypes.VULN, 0.10, Role.ALL, [AtkType.ALL], 2, 1, Targeting.AOE,False, [0, 0], False))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.AHASpdBuffAmount = specialRes.attr1
         self.TotalElationChar = specialRes.attr2
         self.AtkStat = specialRes.attr3
@@ -211,4 +223,4 @@ class ElationMC(Character):
         self.EvanesciaInTeam = specialRes.attr9
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
         bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl

@@ -236,7 +236,7 @@ class SilverWolf999(Character):
 
     def useBsc(self, enemyID=-1):
         """Basic ATK - enhanced when in Godmode."""
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
 
         if self.godmodeActive:
             # Enhanced Basic ATK in Godmode
@@ -256,11 +256,11 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
         self._applyHiddenMMRBuff(bl)
         self._syncPunchlineToHiddenMMR()
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
         """Skill ATK - applies Banger dependent Imaginary Elation DMG."""
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e3Mul = 1.76 if self.eidolon >= 3 else 1.6
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
@@ -283,11 +283,11 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
         self._applyHiddenMMRBuff(bl)
         self._syncPunchlineToHiddenMMR()
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
         """Ultimate: Enters Godmode and creates Zone."""
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
 
         # Enter Godmode
         self._enterGodmode(bl, al)
@@ -308,7 +308,7 @@ class SilverWolf999(Character):
         self._syncPunchlineToHiddenMMR()
         logger.info(f"{self.name} used Ultimate: entered Godmode (Hidden MMR: {self.hiddenMMR})")
 
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def _useEnhancedBasic(self, enemyID: int, bl: list, al: list, dbl: list, skip_exit_check: bool = False) -> list:
         """Enhanced Basic ATK: 100 bounces with 3 Top Loot Box triggers. E1: Enemies take +20% DMG.
@@ -339,11 +339,6 @@ class SilverWolf999(Character):
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                        [self.element], [e3Mul * e6Mul / enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))
-
-        if self.Banger >= 1:
-            e5Mul = 0.44 if self.eidolon >= 5 else 0.40
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER], [self.element],
-                     [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "SilverWolf999Talent"))
 
         # Increment basic count
         self.godmodeBasicCount += 1
@@ -411,7 +406,7 @@ class SilverWolf999(Character):
 
     def useElaSkill(self, enemyID=-1):
         """Elation Skill - Enhanced in Godmode."""
-        bl, dbl, al, dl, tl, hl = super().useElaSkill(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
 
         if self.eidolon >= 5:
             e5Mul = 0.99
@@ -447,10 +442,10 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
         self._applyHiddenMMRBuff(bl)
         self._syncPunchlineToHiddenMMR()
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
 
         if result.turnName == "AhaSilverWolf999GoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
@@ -461,15 +456,20 @@ class SilverWolf999(Character):
         if result.turnName == "SilverWolf999TechniqueFunkyMunchBean":
             bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, -99, self.role, [AtkType.ALL], 1, 1,
                            self.role, TickDown.START))
+        if result.turnName == "SilverWolf999EnhancedFinal" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline -= 60
+            Character.PearlUlt = False
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(self.bestEnemy(-1), bl, al, dbl)
         tl.extend(extra_basic_turns)
         self._updateEnergyFromMMR()
         self._applyHiddenMMRBuff(bl)
         self._syncPunchlineToHiddenMMR()
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
 
         if result.turnName == "AhaSilverWolf999GoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
@@ -503,6 +503,14 @@ class SilverWolf999(Character):
                 i += 1
         if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1 and turn.moveName != "SparxieSkill":
             self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
+
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+            Character.SharedPunchline += 60
+
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
+
         # E2: Check for MMR threshold after ally turn damage (no AV advance)
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(turn.targetID, bl, al, dbl)
         tl.extend(extra_basic_turns)
@@ -512,10 +520,10 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
         self._applyHiddenMMRBuff(bl)
         self._syncPunchlineToHiddenMMR()
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.AHASpdBuffAmount = specialRes.attr1
         self.TotalElationChar = specialRes.attr2
         self.ElaStat = specialRes.attr3
@@ -561,7 +569,7 @@ class SilverWolf999(Character):
         self._updateEnergyFromMMR()
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(self.bestEnemy(-1), bl, al, dbl)
         tl.extend(extra_basic_turns)
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def _getEnemyCount(self):
         return self.get_alive_enemy_count()

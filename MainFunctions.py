@@ -794,6 +794,58 @@ def getCharDEF(char: Character, buffList: list[Buff]) -> float:
     return getScalingValues(char, buffList, [AtkType.ALL], Scaling.DEF)
 
 
+def applyRepellency(char: Character, dmg: float, playerTeam: list[Character], buffList: list[Buff],
+                    dmgTracker: DmgTracker = None) -> float:
+    """Pearl's Talent: consume Repellency (backed by her persistent, capped
+    Certified Banger pool — 1 CB = 200 Repellency, tracked as
+    pearl.certifiedBanger, separate from the normal decaying StatTypes.BANGER
+    buffs) to block 60% of incoming DMG for any ally target hit by an enemy.
+
+    Unlike a normal Shield, this only ever blocks a fixed PERCENTAGE of a
+    given hit (not the whole hit up to capacity) — so it's implemented here
+    rather than via the Shield class.
+
+    Any CB consumed this way also yoinks 50% to Evanescia (if she's on the
+    team), mirroring handleBangerExpiry's existing "teammate's Banger goes
+    away -> Evanescia converts 50%" pattern, but for CB lost to Repellency
+    consumption rather than to normal buff expiry.
+
+    Mutates buffList in place (via addBuffs) exactly like
+    handleBangerConversions/handleBangerExpiry already do, so callers don't
+    need to change anything about how they use their buffList afterward.
+
+    Returns the (possibly reduced) dmg after Repellency blocking.
+    """
+    pearl = findCharName(playerTeam, "Pearl")
+    if not pearl or getattr(pearl, "certifiedBanger", 0) <= 0 or dmg <= 0:
+        return dmg
+
+    availableRepellency = pearl.certifiedBanger * pearl.repellencyPerCB
+    blocked = min(dmg * pearl.repellencyBlockPct, availableRepellency)
+    if blocked <= 0:
+        return dmg
+
+    consumedCB = blocked / pearl.repellencyPerCB
+    pearl.certifiedBanger -= consumedCB
+
+    if dmgTracker is not None and hasattr(dmgTracker, "addShieldAbsorbed"):
+        dmgTracker.addShieldAbsorbed(blocked)
+
+    evanescia = findCharName(playerTeam, "Evanescia")
+    if evanescia and consumedCB > 0:
+        # Let receiveBangerFromExpiration apply its own conversion rate
+        # (0.5 base / 1.0 at Evanescia's E2+) — don't pre-halve consumedCB
+        # here, that would double-apply the conversion.
+        newBuffs = []
+        evanescia.receiveBangerFromExpiration(consumedCB, "PearlRepellency", newBuffs)
+        if newBuffs:
+            addBuffs(buffList, newBuffs)
+
+    logger.info(f"REPELLENCY > Pearl blocked {blocked:.1f} DMG for {char.name} "
+               f"(consumed {consumedCB:.2f} CB, remaining: {pearl.certifiedBanger:.2f})")
+
+    return dmg - blocked
+
 def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[tuple[int, float]],
                        buffList: list[Buff], enemyDebuffs: list[Debuff] = None, dmgTracker: DmgTracker = None) -> tuple[bool, list[str], list[Debuff]]:
     """Deal damage to characters based on the hitMap produced by addEnergy.
@@ -842,6 +894,10 @@ def handleEnemyAttacks(enemy: Enemy, playerTeam: list[Character], hitMap: list[t
         dmg *= atkMul          # apply enemy ATK reduction
         dmg *= enemyDmgMul     # apply enemy DMG reduction
         dmg *= getMulDMGReduction(char, buffList)
+
+        # Pearl Talent: Repellency blocks 60% of this hit before shields,
+        # drawn from her persistent Certified Banger pool.
+        dmg = applyRepellency(char, dmg, playerTeam, buffList, dmgTracker)
 
         # ── Shield absorption: drain active shields (largest first) before HP ──
         dmgAfterShield = absorbShieldDamage(char, dmg, dmgTracker)
@@ -968,13 +1024,14 @@ def addSummons(playerTeam: list[Character]) -> list:
     summons = []
     ahaAdded = False
     charToTurnName = {
+        "Pearl": "AhaPearlGoGo",
         "YaoGuang": "AhaYaoGuangGoGo",
         "ElationMC": "AhaElationMCGoGo",
         "Sparxie": "AhaSparxieGoGo",
         "Evanescia": "AhaEvanesciaGoGo",
         "SilverWolf999": "AhaSilverWolf999GoGo"
     }
-    fixedOrder = ["YaoGuang", "ElationMC", "Sparxie", "Evanescia", "SilverWolf999"]
+    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "SilverWolf999"]
 
     for char in playerTeam:
         if char.name == "Topaz":
@@ -1447,6 +1504,36 @@ def handleBangerExpiry(buffList: list[Buff], playerTeam: list[Character]) -> lis
 
     return buffList
 
+def handleCertifiedBangerAccumulation(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
+    """Feeds Pearl's persistent, capped certifiedBanger pool (Talent:
+    Certified Banger as Repellency) from ANY StatTypes.BANGER buff
+    targeting her role — not just the ones granted from within Pearl.py
+    itself (equip's BangerStartBattle, useSkl's SkillBanger, useUlt's
+    UltBanger), but also external sources like Summons.py's Aha
+    "BangerELASkill..." buffs that target every Elation character
+    including Pearl by role.
+
+    Uses its own flag (certifiedBangerAccumulated) rather than
+    bangerConverted/bangerExpired, since a single Banger buff object can
+    legitimately be processed by all three functions independently — this
+    one doesn't reduce or consume the buff, just mirrors its value into
+    Pearl's separate pool once.
+    """
+    pearl = findCharName(playerTeam, "Pearl")
+    if not pearl:
+        return buffList
+
+    for buff in buffList:
+        if buff.buffType == StatTypes.BANGER and buff.target == pearl.role:
+            if getattr(buff, 'certifiedBangerAccumulated', False):
+                continue
+            pearl._gainCertifiedBanger(buff.val)
+            buff.certifiedBangerAccumulated = True
+            logger.info(f"BANGER > {pearl.name}'s Certified Banger pool +{buff.val:.1f} from '{buff.name}' "
+                       f"(now {pearl.certifiedBanger:.2f}/{pearl.certifiedBangerCap:.0f})")
+
+    return buffList
+
 def handleSPFromBuffs(buffList: list[Buff], spTracker: SpTracker) -> list[Buff]:
     newList = []
     for buff in buffList:
@@ -1545,6 +1632,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 targetChar = findCharRole(playerTeam, specChar.targetRole)
                 targetHasElaSkill = targetChar.path == Path.ELATION
                 elaSkillTurnMap = {
+                    "Pearl": "AhaPearlGoGo",
                     "Sparxie": "AhaSparxieGoGo",
                     "YaoGuang": "AhaYaoGuangGoGo",
                     "Evanescia": "AhaEvanesciaGoGo",
@@ -1683,6 +1771,29 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
             case "Moze":
                 res = ("RobinFuaCD" in getBuffNames(buffList)) if inTeam(playerTeam, "Robin") else True
                 return Special(name=specStr, attr1=res, enemies=gauge)
+
+            case "Pearl":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                ElationDPS = False
+                DPSName = "Pearl"
+                i = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                    if character.path == Path.ELATION and character.role == Role.DPS:
+                        ElationDPS = True
+                    if character.role == Role.DPS:
+                        DPSName = character.name
+                AHASpdList = sorted(SpdList, reverse=True)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ** (i)
+                    i += 1
+                TotalElationChar = len(AHASpdList)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                charDEF = getScalingValues(specChar, buffList, [AtkType.ALL])
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charDEF, attr5=charBanger, attr6=ElationDPS, attr7=DPSName,enemies=gauge)
 
             case "Rappa":
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])
@@ -2129,6 +2240,10 @@ def handleSpecialEffects(unit, playerTeam, summons, eTeam, teamBuffs, enemyDebuf
 
     # Process Banger conversions for Elation characters
     teamBuffs = handleBangerConversions(teamBuffs, playerTeam)
+
+    # Feed Pearl's persistent Certified Banger/Repellency pool from any
+    # Banger buff targeting her role, from any source.
+    teamBuffs = handleCertifiedBangerAccumulation(teamBuffs, playerTeam)
 
     return teamBuffs, enemyDebuffs, advList, delayList, healList, shieldList
 

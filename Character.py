@@ -38,16 +38,19 @@ class Character(metaclass=CharacterMeta):
     currHP = 1.0
     maxHP = 1.0
     aggro = 0
+    # Elation Properties
     Banger = 0
     _SharedPunchline_value = 0
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
     EMCUlt = False
+    PearlUlt = False
     ahaElaDMGBoost = 1.0
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
+    # Standard Character Properties
     _current_enemy_team = None
     _current_player_team = None
     _elation_characters_registry = {}
