@@ -1505,34 +1505,54 @@ def handleBangerExpiry(buffList: list[Buff], playerTeam: list[Character]) -> lis
     return buffList
 
 def handleCertifiedBangerAccumulation(buffList: list[Buff], playerTeam: list[Character]) -> list[Buff]:
-    """Feeds Pearl's persistent, capped certifiedBanger pool (Talent:
-    Certified Banger as Repellency) from ANY StatTypes.BANGER buff
-    targeting her role — not just the ones granted from within Pearl.py
-    itself (equip's BangerStartBattle, useSkl's SkillBanger, useUlt's
-    UltBanger), but also external sources like Summons.py's Aha
-    "BangerELASkill..." buffs that target every Elation character
-    including Pearl by role.
+    """Feeds Pearl's persistent, capped certifiedBanger pool from EXTERNAL
+    StatTypes.BANGER buffs targeting her role — e.g. Summons.py's Aha
+    "BangerELASkill..." buffs. Pearl's OWN sources (equip/useSkl/useUlt/
+    the ally-turn-begins Talent trigger) go through her own
+    _addCertifiedBanger() directly now and no longer create separate
+    scannable buffs, so this only ever sees genuinely external grants.
 
-    Uses its own flag (certifiedBangerAccumulated) rather than
-    bangerConverted/bangerExpired, since a single Banger buff object can
-    legitimately be processed by all three functions independently — this
-    one doesn't reduce or consume the buff, just mirrors its value into
-    Pearl's separate pool once.
+    Excludes "PearlCertifiedBanger" itself (the single persistent stat
+    buff this function's own absorptions ultimately feed, via
+    _addCertifiedBanger -> _syncCertifiedBangerBuff) to avoid a
+    self-feedback loop.
+
+    REMOVES the original buff from buffList once absorbed — it isn't
+    enough to just flag it, since a flag alone doesn't stop it from also
+    being summed into Pearl's live Banger stat via the normal
+    getCharStat(StatTypes.BANGER, ...) path, on top of the persistent
+    stat buff that now also reflects the same value. That was causing a
+    genuine double-count (Pearl's live Banger total inflated by whatever
+    external buffs hadn't yet naturally expired) rather than the buff
+    actually going away once permanently absorbed.
+
+    Evanescia's GAIN-side share for these external buffs is left to the
+    existing handleBangerConversions, which runs BEFORE this function in
+    MainFunctions' call order — so by the time this removes the buff,
+    Evanescia has already had her normal chance to see and convert it.
+    Since the buff is removed outright (not just flagged), there's
+    nothing left for handleBangerExpiry to later double-dip on either.
     """
     pearl = findCharName(playerTeam, "Pearl")
     if not pearl:
         return buffList
 
+    newList = []
+    newBuffsToAdd = []
     for buff in buffList:
-        if buff.buffType == StatTypes.BANGER and buff.target == pearl.role:
-            if getattr(buff, 'certifiedBangerAccumulated', False):
-                continue
-            pearl._gainCertifiedBanger(buff.val)
-            buff.certifiedBangerAccumulated = True
+        if buff.buffType == StatTypes.BANGER and buff.target == pearl.role and buff.name != "PearlCertifiedBanger":
+            localBl = []
+            pearl._addCertifiedBanger(buff.val, buff.name, localBl, notifyEvanescia=False)
+            newBuffsToAdd.extend(localBl)
             logger.info(f"BANGER > {pearl.name}'s Certified Banger pool +{buff.val:.1f} from '{buff.name}' "
-                       f"(now {pearl.certifiedBanger:.2f}/{pearl.certifiedBangerCap:.0f})")
+                       f"(now {pearl.certifiedBanger:.2f}/{pearl.certifiedBangerCap:.0f}) — buff removed, absorbed permanently")
+            continue  # don't keep the original buff; it's been permanently absorbed
+        newList.append(buff)
 
-    return buffList
+    if newBuffsToAdd:
+        newList = addBuffs(newList, newBuffsToAdd)
+
+    return newList
 
 def handleSPFromBuffs(buffList: list[Buff], spTracker: SpTracker) -> list[Buff]:
     newList = []
@@ -1774,7 +1794,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
 
             case "Pearl":
                 SpdList = []
-                RoleList = []
+                RoleLst = []
                 AHASpdBuffAmount = 0
                 ElationDPS = False
                 DPSName = "Pearl"
@@ -1795,8 +1815,16 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charDEF = getScalingValues(specChar, buffList, [AtkType.ALL])
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 for char in [char for char in playerTeam if char.name != "Pearl"]:
-                    RoleList.append(char.role)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charDEF, attr5=charBanger, attr6=ElationDPS, attr7=DPSName, attr8= RoleList,enemies=gauge)
+                    RoleLst.append(char.role)
+                logger.debug(f"[PearlELABonus] RoleLst built: {RoleLst} "
+                            f"(from playerTeam: {[c.name for c in playerTeam]})")
+
+                yaoguang = findCharName(playerTeam, "YaoGuang")
+                yaoguangRole = yaoguang.role if yaoguang is not None else None
+                yaoguangEnergyOK = yaoguang is not None and yaoguang.currEnergy >= 90
+                dpsRole = Role.DPS
+
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charELA, attr4=charDEF, attr5=charBanger, attr6=ElationDPS, attr7=DPSName, attr8=RoleLst, attr9=yaoguangRole, attr10=yaoguangEnergyOK, attr11=dpsRole, enemies=gauge)
 
             case "Rappa":
                 atkStat = getScalingValues(specChar, buffList, [AtkType.ALL])

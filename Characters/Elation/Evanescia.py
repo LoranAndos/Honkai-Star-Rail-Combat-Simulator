@@ -18,26 +18,6 @@ from Turn_Text import Turn
 from Healing import *
 from random import randrange
 from math import floor
-import logging
-
-from Buff import *
-from Delay_Text import Advance
-from Character import Character
-from Lightcones.Elation.UntilTheFlowersBloomAgain import UntilTheFlowersBloomAgain
-from Lightcones.Elation.TomorrowTogether import TomorrowTogether
-from Lightcones.Elation.TodaysGoodLuck import TodaysGoodLuck
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC, MushyShroomysAdventuresSparxie
-from Planars.IzumoGenseiAndTakamaDivineRealm import IzumoGenseiAndTakamaDivineRealm
-from Planars.PunklordeStageZero import PunklordeStageZero
-from RelicStats import RelicStats
-from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
-from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
-from Relics.EagleOfTwilightLine import EagleOfTwilightLine
-from Result import *
-from Turn_Text import Turn
-from Healing import *
-from random import randrange
-from math import floor
 
 logger = logging.getLogger(__name__)
 
@@ -123,7 +103,7 @@ class Evanescia(Character):
         there is no separate masterFoxEnergy accumulator.
         """
         bangerGain = min(amount, 100)
-        final_banger = floor(bangerGain * (1 + self.ERR))
+        final_banger = (bangerGain * (1 + self.ERR))
         bl.append(Buff(f"TalentBangerFromEnergy_{source}{self.Count}", StatTypes.BANGER, final_banger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
@@ -279,10 +259,11 @@ class Evanescia(Character):
             enemyID = result.enemyID if hasattr(result, 'enemyID') else -1
             self._tryMasterFoxFUA(enemyID, bl, tl)
 
-        if result.turnName == "EvanesciaSkillELAPUNCH" and Character.PearlUlt == True and self.role == Role.DPS:
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "EvanesciaSkillELAPUNCH" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60
+            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -292,11 +273,12 @@ class Evanescia(Character):
         if result.turnName == "AhaEvanesciaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline += 60
-            self._addBangerEnergy(30, bl, "PearlAestheticArchetype")
+            Character.SharedPunchline += 60 * Character.PearlE2Modifier
+            self._addBangerEnergy(30 * int(Character.PearlE2Modifier), bl, "PearlAestheticArchetype")
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
@@ -396,7 +378,7 @@ class Evanescia(Character):
         E2:   converts 100% instead.
         """
         conversionRate = 1.0 if self.eidolon >= 2 else 0.5
-        convertedBanger = floor(bangerAmount * conversionRate)
+        convertedBanger = (bangerAmount * conversionRate)
         bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1

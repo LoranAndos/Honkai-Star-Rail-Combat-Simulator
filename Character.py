@@ -38,7 +38,6 @@ class Character(metaclass=CharacterMeta):
     currHP = 1.0
     maxHP = 1.0
     aggro = 0
-    # Elation Properties
     Banger = 0
     _SharedPunchline_value = 0
     ahaFixedPunchline = False
@@ -46,11 +45,11 @@ class Character(metaclass=CharacterMeta):
     ahaYaoGuangUlt = False
     EMCUlt = False
     PearlUlt = False
+    PearlE2Modifier = 1.0
     ahaElaDMGBoost = 1.0
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
-    # Standard Character Properties
     _current_enemy_team = None
     _current_player_team = None
     _elation_characters_registry = {}
@@ -74,6 +73,13 @@ class Character(metaclass=CharacterMeta):
     planar = None
     enemyStatus = []
     shields = []  # active Shield instances currently absorbing damage for this character
+
+    # Himeko Nova's shared Assist Skill: per-seat toggle for whether this
+    # character redirects its own turn into using the Assist Skill instead
+    # of its normal action. "always" | "never" (set directly on the
+    # instance at team-construction time, e.g. `sup1.assistPolicy = "always"`).
+    # Harmless no-op for any team without a HimekoNova present.
+    assistPolicy = "never"
 
     # Unique Character Properties
 
@@ -269,6 +275,18 @@ class Character(metaclass=CharacterMeta):
     def takeTurn(self) -> str:
         res = self.turn
         self.turn = self.turn + 1
+
+        # Pearl's Talent (Certified Banger from ally turns): fires here
+        # because this is the one place that runs exactly once at the
+        # start of every character's own turn, for every character. A
+        # no-op whenever no Pearl is on the team.
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if pearl is not None:
+            if self is pearl:
+                pearl._onOwnTurnBegins_Repellency()
+            else:
+                pearl._onAllyTurnBegins_Repellency()
+
         return self.rotation[res % len(self.rotation)]
 
     def getTotalDMG(self) -> tuple[str, float]:

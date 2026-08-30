@@ -31,6 +31,12 @@ from Characters.Destruction.Gilgamesh import Gilgamesh
 from Characters.Harmony.RuanMei import RuanMei
 from Characters.Harmony.Tribbie import Tribbie
 from Characters.Harmony.Robin import Robin
+from Characters.Elation.ElationMC import ElationMC
+from Characters.Elation.Evanescia import Evanescia
+from Characters.Elation.SilverWolf999 import SilverWolf999
+from Characters.Elation.Pearl import Pearl
+from Characters.Elation.Sparxie import Sparxie
+from Characters.Elation.Yao_Guang import YaoGuang
 from Characters.Nihility.MortenaxBlade import MortenaxBlade
 # ... add more imports as needed
 
@@ -58,7 +64,7 @@ ENEMY_MODULE = EnemyModule(
     [130, 158.4, 130],
     [100, 160, 100],
     atkRatio,
-    [Element.WIND],
+    [Element.PHYSICAL],
     [1],
 )
 
@@ -71,296 +77,119 @@ ENEMY_MODULE = EnemyModule(
 #               Build characters fresh here — relics/LCs go inside.
 # ============================================================
 
-def team_Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Huohuo():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_Tribbie_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearl():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = Tribbie(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+def team_Evanescia_ElationMC_YaoGuang_Pearle0s1():
+
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1),eidolon=0)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_RuanMei_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle1s0():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = RuanMei(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=1)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_E1RuanMei_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle1s1():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = RuanMei(2, Role.SUP2, 1, eidolon=1)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=1)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_Robin_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle2s0():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = Robin(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=2)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_MortenaxBlade_Lingsha():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle2s1():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = Lingsha(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=2)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_MortenaxBlade_E1s1Lingsha():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle3s1():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = Lingsha(3, Role.SUS,   1, lc=Lightcones.Abundance.ScentAloneStaysTrue.ScentAloneStaysTrueLingsha(Role.SUS,1),eidolon=1)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=3)
+    return s1, s2, s3, s4
+def team_Evanescia_ElationMC_YaoGuang_Pearle4s1():
+
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=4)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_e0s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle5s1():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=5)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_e1s0MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
+def team_Evanescia_ElationMC_YaoGuang_Pearle6s1():
 
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=1)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=6)
     return s1, s2, s3, s4
 
-def team_Saber_Gilgamesh_e1s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=1)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e2s0MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=2)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e2s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=2)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e3s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=3)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e4s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=4)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e5s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=5)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_e6s1MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.IAmAsYouBehold.IAmAsYouBehold(Role.SUP1,1), eidolon=6)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgameshs1BygoneBlood_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.ATrailOfBygoneBlood.ATrailOfBygoneBlood(Role.SUP1,1) ,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgameshs5BygoneBlood_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.ATrailOfBygoneBlood.ATrailOfBygoneBlood(Role.SUP1,5) ,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgameshs5SecretVow_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, lc=Lightcones.Destruction.ASecretVow.ASecretVow(Role.SUP1,5) ,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_e0s0Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, lc=Lightcones.Destruction.ASecretVow.ASecretVow(Role.DPS,5) , eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_e1s0Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, lc=Lightcones.Destruction.ASecretVow.ASecretVow(Role.DPS,5) , eidolon=1)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_e1s1Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=1)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_e2s0Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, lc=Lightcones.Destruction.ASecretVow.ASecretVow(Role.DPS,5) , eidolon=2)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_e2s1Saber_Gilgamesh_MortenaxBlade_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=2)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_MortenaxBladee0s1_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, lc=Lightcones.Nihility.ReforgedInHellfire.ReforgedInHellfire(Role.SUP2,1), eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_MortenaxBladee1s0_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=1)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_MortenaxBladee1s1_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1, eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, lc=Lightcones.Nihility.ReforgedInHellfire.ReforgedInHellfire(Role.SUP2,1), eidolon=1)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_MortenaxBladee2s0_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, eidolon=2)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Saber_Gilgamesh_MortenaxBladee2s1_Huohuo():
-    """Archer / Sparkle / Ruan Mei / Huo Huo — standard hunt team"""
-
-    s1 = Saber(0, Role.DPS,   1, eidolon=0)
-    s2 = Gilgamesh(1, Role.SUP1, 1,eidolon=0)
-    s3 = MortenaxBlade(2, Role.SUP2, 1, lc=Lightcones.Nihility.ReforgedInHellfire.ReforgedInHellfire(Role.SUP2,1),eidolon=2)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
 
 
 # ── Register teams here ──────────────────────────────────────
 TEAMS = [
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | Tribbie | Huo Huo", "factory": team_Saber_Gilgamesh_Tribbie_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | Ruan Mei | Huo Huo", "factory": team_Saber_Gilgamesh_RuanMei_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | Ruan Mei e1 | Huo Huo", "factory": team_Saber_Gilgamesh_E1RuanMei_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | Robin | Huo Huo", "factory": team_Saber_Gilgamesh_Robin_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e0s0", "factory": team_Saber_Gilgamesh_MortenaxBlade_Lingsha},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade | Lingsha e1s1", "factory": team_Saber_Gilgamesh_MortenaxBlade_E1s1Lingsha},
-    {"name": "Saber E0 | Gilgamesh e0s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e0s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e1s0 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e1s0MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e1s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e1s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e2s0 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e2s0MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e2s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e2s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e3s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e3s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e4s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e4s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e5s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e5s1MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh e6s1 | MortenaxBlade | Huo Huo", "factory": team_Saber_Gilgamesh_e6s1MortenaxBlade_Huohuo},
-    {"name": "Saber e0s0 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_e0s0Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber e1s0 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_e1s0Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber e1s1 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_e1s1Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber e2s0 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_e2s0Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber e2s1 | Gilgamesh | MortenaxBlade | Huo Huo", "factory": team_e2s1Saber_Gilgamesh_MortenaxBlade_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade e0s1 | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBladee0s1_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade e1s0 | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBladee1s0_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade e1s1 | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBladee1s1_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade e2s0 | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBladee2s0_Huohuo},
-    {"name": "Saber E0 | Gilgamesh | MortenaxBlade e2s1 | Huo Huo", "factory": team_Saber_Gilgamesh_MortenaxBladee2s1_Huohuo},
+    {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearl},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle0s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e1s0",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle1s0},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e1s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle1s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e2s0",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle2s0},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e2s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle2s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e3s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle3s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e4s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle4s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e5s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle5s1},
+    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e6s1",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle6s1},
+
     # Add more teams here:
     # {"name": "My Team 3", "factory": team_my_team_3},
 ]
@@ -373,7 +202,6 @@ TEAMS = [
 def _parse_dpav(result_str: str) -> float:
     """Extract the DPAV float from startSimulator's return string."""
     return float(result_str.split("DPAV: ")[1].split(" |")[0])
-
 
 class _Tee:
     """Writes lines to both stdout and a log file.

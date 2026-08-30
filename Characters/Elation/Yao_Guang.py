@@ -52,7 +52,7 @@ class YaoGuang(Character):
         self.lightcone = lc if lc else MushyShroomysAdventuresYaoGuang(role, 5)
         self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else BrokenKeel(role)
+        self.planar = pl if pl else SprightlyVonwacq(role)
         self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 10, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A", "A", "E"]
@@ -120,15 +120,21 @@ class YaoGuang(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
+        e5Mul = 0.22 if self.eidolon >= 5 else 0.2
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
 
-        if result.turnName == "YaoGuangTalentADD" and Character.PearlUlt == True and self.role == Role.DPS:
+        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
+             tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
+                               [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "YaoGuangTalentADD" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60
+            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -142,7 +148,7 @@ class YaoGuang(Character):
 
         bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
 
-        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
+        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
             attackerELA = self.elaDict.get(turn.charRole, 0)
             yaoGuangELA = self.elaDict.get(self.role, 0)
             # If attacker has higher ELA, add the difference as a temporary buff on YaoGuang
@@ -156,10 +162,11 @@ class YaoGuang(Character):
                 tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
                                [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
 
-        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline += 60
+            Character.SharedPunchline += 60 * Character.PearlE2Modifier
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
 

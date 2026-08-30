@@ -60,3 +60,14 @@ class MushyShroomysAdventuresSilverWolf999(MushyShroomysAdventures):
         dbl.append(Debuff("MushyShroomyBangerSilverWolf999ELA_SKL", self.wearerRole, StatTypes.VULN, elaDBAmount, Role.ALL,
                           [AtkType.ELABANGER], 2, 1, Targeting.AOE,False, [0, 0], False))
         return bl, dbl, al, dl, hl, sl
+
+class MushyShroomysAdventuresPearl(MushyShroomysAdventures):
+
+    def useElaSkill(self, enemyID=-1):
+        bl, dbl, al, dl, hl, sl = super().useElaSkill(enemyID)
+        elaDBAmount = self.level * 0.01 + 0.05
+        dbl.append(Debuff("MushyShroomyPunchPearlELA_SKL", self.wearerRole, StatTypes.VULN, elaDBAmount, Role.ALL,
+                          [AtkType.ELAPUNCH], 2, 1, Targeting.AOE,False, [0, 0], False))
+        dbl.append(Debuff("MushyShroomyBangerPearlELA_SKL", self.wearerRole, StatTypes.VULN, elaDBAmount, Role.ALL,
+                          [AtkType.ELABANGER], 2, 1, Targeting.AOE,False, [0, 0], False))
+        return bl, dbl, al, dl, hl, sl

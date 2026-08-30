@@ -164,10 +164,11 @@ class ElationMC(Character):
                 tl.append(
                     Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                          self.scaling, 0, "AhaFixedEndGoGo"))
-        if result.turnName == "ElationMCTalentSkill" and Character.PearlUlt == True and self.role == Role.DPS:
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "ElationMCTalentSkill" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60
+            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
             Character.PearlUlt = False
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -177,10 +178,11 @@ class ElationMC(Character):
             return self.useElaSkill(-1)
         if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE", "PearlELASkill"):
             self.bangerBonus = min(self.bangerBonus + 2, 2)
-        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline += 60
+            Character.SharedPunchline += 60 * Character.PearlE2Modifier
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
         return bl, dbl, al, dl, tl, hl, sl

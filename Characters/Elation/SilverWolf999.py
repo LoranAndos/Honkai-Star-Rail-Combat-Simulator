@@ -101,12 +101,12 @@ class SilverWolf999(Character):
         logger.debug(f"{self.name} currEnergy synced to hiddenMMR: {self.currEnergy}")
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("SilverWolf999TraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("SilwerWolf999TraceSPD", StatTypes.SPD, 9, self.role))
         bl.append(Buff("SilverWolf999TraceELA", StatTypes.ELA, 0.10, self.role))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     # =========================================================================
     # TALENT: Hidden MMR → CRIT Rate/CRIT DMG conversion + Punchline sync
@@ -426,8 +426,8 @@ class SilverWolf999(Character):
             else:
                 ExtraPunchMul = 1
             self.topLootBoxChance = 1.0
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
-                           [self.element], [e5Mul * ExtraPunchMul * 6 * Character.ahaElaDMGBoost/enemyCount, 0], [60/enemyCount, 0], 0, Scaling.ELA, 0,
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
+                           [self.element], [e5Mul * ExtraPunchMul * 6 * Character.ahaElaDMGBoost, 0], [60, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999ELASkill"))
         else:
             # Normal Elation Skill
@@ -455,12 +455,13 @@ class SilverWolf999(Character):
             Character.SharedPunchline += 3
 
         if result.turnName == "SilverWolf999TechniqueFunkyMunchBean":
-            bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, -99, self.role, [AtkType.ALL], 1, 1,
+            bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 1, 1,
                            self.role, TickDown.START))
-        if result.turnName == "SilverWolf999EnhancedFinal" and Character.PearlUlt == True and self.role == Role.DPS:
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "SilverWolf999EnhancedFinal" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60
+            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
             Character.PearlUlt = False
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(self.bestEnemy(-1), bl, al, dbl)
         tl.extend(extra_basic_turns)
@@ -505,13 +506,15 @@ class SilverWolf999(Character):
         if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1 and turn.moveName != "SparxieSkill":
             self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
 
-        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline += 60
-
-            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
-
+            Character.SharedPunchline += 60 * Character.PearlE2Modifier
+            if self.godmodeActive:
+                bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
+            else:
+                bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
         # E2: Check for MMR threshold after ally turn damage (no AV advance)
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(turn.targetID, bl, al, dbl)
         tl.extend(extra_basic_turns)

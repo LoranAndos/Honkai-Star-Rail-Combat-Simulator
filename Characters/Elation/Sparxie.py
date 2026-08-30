@@ -57,8 +57,8 @@ class Sparxie(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 10, 10, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 
@@ -180,10 +180,11 @@ class Sparxie(Character):
         if self.eidolon >= 1 and result.turnName == "AhaElationFixedSequenceComplete":
             Character.SharedPunchline += 5
 
-        if result.turnName == "SparxieSkillElaExtra" and Character.PearlUlt == True and self.role == Role.DPS:
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "SparxieSkillElaExtra" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60
+            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -194,10 +195,11 @@ class Sparxie(Character):
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and self.role == Role.DPS:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30, self.role,
+        pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
+        if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline += 60
+            Character.SharedPunchline += 60 * Character.PearlE2Modifier
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 

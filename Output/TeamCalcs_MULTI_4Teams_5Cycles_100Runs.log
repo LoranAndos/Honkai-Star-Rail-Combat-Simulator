@@ -1,0 +1,111 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  4 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  SilverWolf999 e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Huo Huo e0s0
+  Team DPAV  avg: 40787.329  |  min: 37579.579  |  max: 44587.757  |  95% CI margin of error: +/-0.75%
+    SilverWolf999        avg DPAV: 19304.438  (47.3%)
+      - ELABANGER  avg DMG: 8019688.238  (75.5% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 2546368.754  (24.0% of SilverWolf999's DMG)
+      - BRK        avg DMG: 28528.278  (0.3% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 15703.645  (38.5%)
+      - ELAPUNCH   avg DMG: 4685577.518  (54.3% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 3483603.798  (40.3% of Sparxie's DMG)
+      - BSC        avg DMG: 376138.333  (4.4% of Sparxie's DMG)
+    YaoGuang             avg DPAV: 5763.262  (14.1%)
+      - ELAPUNCH   avg DMG: 2179022.762  (68.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 962453.773  (30.4% of YaoGuang's DMG)
+      - BSC        avg DMG: 28317.429  (0.9% of YaoGuang's DMG)
+    HuoHuo               avg DPAV: 15.984  (0.0%)
+      - BSC        avg DMG: 8790.970  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 670912.3
+    Enemy 0 (ELITE)  avg Overkill: 582881.1
+    Enemy 1 (BOSS)  avg Overkill: 41657.9
+    Enemy 2 (ELITE)  avg Overkill: 46373.4
+
+  SilverWolf999 e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 53452.813  |  min: 49837.269  |  max: 57488.524  |  95% CI margin of error: +/-0.63%
+    SilverWolf999        avg DPAV: 30121.063  (56.4%)
+      - ELABANGER  avg DMG: 14295165.817  (86.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 2180061.758  (13.2% of SilverWolf999's DMG)
+      - SKL        avg DMG: 59355.858  (0.4% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 16160.398  (30.2%)
+      - ELAPUNCH   avg DMG: 4793324.826  (53.9% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 3726731.250  (41.9% of Sparxie's DMG)
+      - BSC        avg DMG: 312384.703  (3.5% of Sparxie's DMG)
+    YaoGuang             avg DPAV: 6256.385  (11.7%)
+      - ELAPUNCH   avg DMG: 2306551.522  (67.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1111054.992  (32.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 23405.086  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 914.967  (1.7%)
+      - ELAPUNCH   avg DMG: 371267.219  (73.8% of Pearl's DMG)
+      - ELABANGER  avg DMG: 90502.618  (18.0% of Pearl's DMG)
+      - BSC        avg DMG: 41461.917  (8.2% of Pearl's DMG)
+  Avg Total Overkill DMG: 759188.6
+    Enemy 0 (ELITE)  avg Overkill: 602068.1
+    Enemy 1 (BOSS)  avg Overkill: 23494.5
+    Enemy 2 (ELITE)  avg Overkill: 133626.0
+
+  Evanescia e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Huo Huo e0s0
+  Team DPAV  avg: 40597.067  |  min: 36974.751  |  max: 42503.243  |  95% CI margin of error: +/-0.50%
+    Evanescia            avg DPAV: 29102.589  (71.7%)
+      - ELABANGER  avg DMG: 9514133.097  (59.4% of Evanescia's DMG)
+      - ELAPUNCH   avg DMG: 4786530.433  (29.9% of Evanescia's DMG)
+      - ULT        avg DMG: 1032052.399  (6.4% of Evanescia's DMG)
+    ElationMC            avg DPAV: 4934.158  (12.2%)
+      - ELAPUNCH   avg DMG: 2059725.359  (75.9% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 577476.926  (21.3% of ElationMC's DMG)
+      - SKL        avg DMG: 76584.754  (2.8% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 6540.888  (16.1%)
+      - ELAPUNCH   avg DMG: 2327479.360  (64.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1239677.181  (34.5% of YaoGuang's DMG)
+      - BSC        avg DMG: 30331.946  (0.8% of YaoGuang's DMG)
+    HuoHuo               avg DPAV: 19.431  (0.0%)
+      - BSC        avg DMG: 10686.874  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 350083.9
+    Enemy 0 (ELITE)  avg Overkill: 56971.8
+    Enemy 1 (BOSS)  avg Overkill: 236140.2
+    Enemy 2 (ELITE)  avg Overkill: 56971.8
+
+  Evanescia e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 62150.818  |  min: 58827.036  |  max: 65442.953  |  95% CI margin of error: +/-0.48%
+    Evanescia            avg DPAV: 48956.770  (78.8%)
+      - ELABANGER  avg DMG: 19924030.759  (74.0% of Evanescia's DMG)
+      - ELAPUNCH   avg DMG: 4957785.188  (18.4% of Evanescia's DMG)
+      - ULT        avg DMG: 1195914.828  (4.4% of Evanescia's DMG)
+    ElationMC            avg DPAV: 4913.024  (7.9%)
+      - ELAPUNCH   avg DMG: 2037566.591  (75.4% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 602526.598  (22.3% of ElationMC's DMG)
+      - SKL        avg DMG: 62070.179  (2.3% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 7225.178  (11.6%)
+      - ELAPUNCH   avg DMG: 2353499.577  (59.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1595694.081  (40.2% of YaoGuang's DMG)
+      - BSC        avg DMG: 24654.257  (0.6% of YaoGuang's DMG)
+    Pearl                avg DPAV: 1055.846  (1.7%)
+      - ELAPUNCH   avg DMG: 439203.894  (75.6% of Pearl's DMG)
+      - ELABANGER  avg DMG: 90726.178  (15.6% of Pearl's DMG)
+      - BSC        avg DMG: 50785.269  (8.7% of Pearl's DMG)
+  Avg Total Overkill DMG: 827764.9
+    Enemy 0 (ELITE)  avg Overkill: 104224.5
+    Enemy 1 (BOSS)  avg Overkill: 619315.9
+    Enemy 2 (ELITE)  avg Overkill: 104224.5
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  40787.329  —  SilverWolf999 e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Huo Huo e0s0
+  #2  53452.813  —  SilverWolf999 e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #3  40597.067  —  Evanescia e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Huo Huo e0s0
+  #4  62150.818  —  Evanescia e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+
+======================================================================
+
