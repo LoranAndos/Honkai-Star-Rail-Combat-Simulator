@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 66489.241 | SilverWolf999: 33151.591 | Sparxie: 21028.128 | YaoGuang: 9864.148 | MortenaxBlade: 2445.373
+Run    2: Team DPAV: 69519.737 | SilverWolf999: 1898.183 | Sparxie: 1490.802 | YaoGuang: 106.838 | MortenaxBlade: -465.326
+Run    3: Team DPAV: 70360.241 | SilverWolf999: 2470.857 | Sparxie: -1626.068 | YaoGuang: -233.239 | MortenaxBlade: 228.954
+Run    4: Team DPAV: 62881.512 | SilverWolf999: -6796.388 | Sparxie: -281.332 | YaoGuang: -369.971 | MortenaxBlade: -31.038
+Run    5: Team DPAV: 67188.121 | SilverWolf999: 2933.221 | Sparxie: 1220.769 | YaoGuang: 181.203 | MortenaxBlade: -28.585
+Run    6: Team DPAV: 68602.129 | SilverWolf999: 1711.649 | Sparxie: -387.559 | YaoGuang: 265.585 | MortenaxBlade: -175.667
+Run    7: Team DPAV: 64637.662 | SilverWolf999: -3290.327 | Sparxie: -1019.243 | YaoGuang: -85.574 | MortenaxBlade: 430.677
+Run    8: Team DPAV: 69607.534 | SilverWolf999: 4055.383 | Sparxie: 1020.086 | YaoGuang: 101.913 | MortenaxBlade: -207.510
+Run    9: Team DPAV: 68797.987 | SilverWolf999: -884.191 | Sparxie: 147.261 | YaoGuang: -355.271 | MortenaxBlade: 282.653
+Run   10: Team DPAV: 65401.605 | SilverWolf999: -2130.186 | Sparxie: -1033.889 | YaoGuang: 188.037 | MortenaxBlade: -420.344
+Run   11: Team DPAV: 73380.203 | SilverWolf999: 4869.687 | Sparxie: 2789.871 | YaoGuang: 263.286 | MortenaxBlade: 55.755
+Run   12: Team DPAV: 67633.854 | SilverWolf999: -3937.022 | Sparxie: -1274.661 | YaoGuang: -296.495 | MortenaxBlade: -238.171
+Run   13: Team DPAV: 70883.195 | SilverWolf999: 2606.659 | Sparxie: -342.323 | YaoGuang: 137.001 | MortenaxBlade: 848.003
+Run   14: Team DPAV: 67955.001 | SilverWolf999: -1031.587 | Sparxie: -1306.004 | YaoGuang: -127.547 | MortenaxBlade: -463.056
+Run   15: Team DPAV: 67643.784 | SilverWolf999: -2653.204 | Sparxie: 2184.582 | YaoGuang: 247.062 | MortenaxBlade: -89.657
+Run   16: Team DPAV: 68963.129 | SilverWolf999: 2128.620 | Sparxie: -608.435 | YaoGuang: -187.636 | MortenaxBlade: -13.205
+Run   17: Team DPAV: 66886.659 | SilverWolf999: -1479.958 | Sparxie: -133.034 | YaoGuang: -170.981 | MortenaxBlade: -292.496
+Run   18: Team DPAV: 69010.097 | SilverWolf999: 635.917 | Sparxie: 877.355 | YaoGuang: 375.327 | MortenaxBlade: 234.840
+Run   19: Team DPAV: 69428.926 | SilverWolf999: 1974.423 | Sparxie: -1420.885 | YaoGuang: -97.384 | MortenaxBlade: -37.327
+Run   20: Team DPAV: 68617.415 | SilverWolf999: -1282.820 | Sparxie: 58.286 | YaoGuang: -40.552 | MortenaxBlade: 453.576
+Run   21: Team DPAV: 66491.182 | SilverWolf999: -1280.010 | Sparxie: -526.748 | YaoGuang: -183.723 | MortenaxBlade: -135.752
+Run   22: Team DPAV: 70108.012 | SilverWolf999: 1693.459 | Sparxie: 1621.862 | YaoGuang: 398.971 | MortenaxBlade: -97.462
+Run   23: Team DPAV: 65918.243 | SilverWolf999: -1724.683 | Sparxie: -1392.694 | YaoGuang: -638.026 | MortenaxBlade: -434.367
+Run   24: Team DPAV: 69234.031 | SilverWolf999: 1129.945 | Sparxie: 1788.490 | YaoGuang: 306.582 | MortenaxBlade: 90.772
+Run   25: Team DPAV: 70841.690 | SilverWolf999: 767.037 | Sparxie: -946.648 | YaoGuang: 632.520 | MortenaxBlade: 1154.750
+Run   26: Team DPAV: 68322.157 | SilverWolf999: -936.571 | Sparxie: -480.793 | YaoGuang: -534.415 | MortenaxBlade: -567.755
+Run   27: Team DPAV: 69478.716 | SilverWolf999: 102.385 | Sparxie: 1450.869 | YaoGuang: 25.533 | MortenaxBlade: -422.227
+Run   28: Team DPAV: 67338.023 | SilverWolf999: -608.822 | Sparxie: -1597.487 | YaoGuang: -11.617 | MortenaxBlade: 77.232
+Run   29: Team DPAV: 65716.315 | SilverWolf999: -423.822 | Sparxie: -658.366 | YaoGuang: -461.721 | MortenaxBlade: -77.799
+Run   30: Team DPAV: 69861.355 | SilverWolf999: 956.706 | Sparxie: 2483.368 | YaoGuang: 792.373 | MortenaxBlade: -87.406
+Run   31: Team DPAV: 69872.477 | SilverWolf999: 2203.700 | Sparxie: -2143.472 | YaoGuang: -71.111 | MortenaxBlade: 22.005
+Run   32: Team DPAV: 67513.083 | SilverWolf999: -2662.506 | Sparxie: 619.848 | YaoGuang: -426.674 | MortenaxBlade: 109.938
+Run   33: Team DPAV: 65576.253 | SilverWolf999: -833.501 | Sparxie: -1365.248 | YaoGuang: 223.156 | MortenaxBlade: 38.763
+Run   34: Team DPAV: 70523.668 | SilverWolf999: 3093.779 | Sparxie: 1526.222 | YaoGuang: 125.787 | MortenaxBlade: 201.627
+Run   35: Team DPAV: 71046.295 | SilverWolf999: -723.097 | Sparxie: 1158.774 | YaoGuang: 269.107 | MortenaxBlade: -182.157
+Run   36: Team DPAV: 70429.815 | SilverWolf999: 911.811 | Sparxie: -968.164 | YaoGuang: -89.071 | MortenaxBlade: -471.056
+Run   37: Team DPAV: 69589.574 | SilverWolf999: -1170.077 | Sparxie: 468.277 | YaoGuang: -572.087 | MortenaxBlade: 433.645
+Run   38: Team DPAV: 69496.788 | SilverWolf999: 723.132 | Sparxie: -1208.768 | YaoGuang: 686.975 | MortenaxBlade: -294.125
+Run   39: Team DPAV: 66089.532 | SilverWolf999: -1875.215 | Sparxie: -524.004 | YaoGuang: -807.188 | MortenaxBlade: -200.849
+Run   40: Team DPAV: 69191.107 | SilverWolf999: 2204.857 | Sparxie: 543.107 | YaoGuang: -103.054 | MortenaxBlade: 456.664
+Run   41: Team DPAV: 67876.842 | SilverWolf999: -2107.756 | Sparxie: 262.069 | YaoGuang: 553.131 | MortenaxBlade: -21.709
+Run   42: Team DPAV: 69317.527 | SilverWolf999: 1272.887 | Sparxie: 223.679 | YaoGuang: -1.946 | MortenaxBlade: -53.934
+Run   43: Team DPAV: 70593.642 | SilverWolf999: 1427.744 | Sparxie: 218.320 | YaoGuang: -14.641 | MortenaxBlade: -355.307
+Run   44: Team DPAV: 69949.897 | SilverWolf999: -1291.581 | Sparxie: -66.924 | YaoGuang: 11.704 | MortenaxBlade: 703.056
+Run   45: Team DPAV: 65512.191 | SilverWolf999: -4349.984 | Sparxie: -274.846 | YaoGuang: 289.086 | MortenaxBlade: -101.962
+Run   46: Team DPAV: 69866.365 | SilverWolf999: 4669.030 | Sparxie: 231.172 | YaoGuang: -361.538 | MortenaxBlade: -184.490
+Run   47: Team DPAV: 65665.409 | SilverWolf999: -2336.728 | Sparxie: -1582.025 | YaoGuang: -71.923 | MortenaxBlade: -210.280
+Run   48: Team DPAV: 72915.800 | SilverWolf999: 4992.962 | Sparxie: 2134.251 | YaoGuang: -18.421 | MortenaxBlade: 141.600
+Run   49: Team DPAV: 72975.449 | SilverWolf999: -288.758 | Sparxie: -110.888 | YaoGuang: 222.866 | MortenaxBlade: 236.428
+Run   50: Team DPAV: 69032.984 | SilverWolf999: -3451.970 | Sparxie: -222.202 | YaoGuang: -21.026 | MortenaxBlade: -247.268
+Run   51: Team DPAV: 68834.441 | SilverWolf999: -1148.355 | Sparxie: 451.998 | YaoGuang: 163.555 | MortenaxBlade: 334.260
+Run   52: Team DPAV: 66020.970 | SilverWolf999: 679.631 | Sparxie: -2339.114 | YaoGuang: -622.277 | MortenaxBlade: -531.712
+Run   53: Team DPAV: 66464.637 | SilverWolf999: -199.520 | Sparxie: 358.127 | YaoGuang: 346.219 | MortenaxBlade: -61.159
+Run   54: Team DPAV: 70394.684 | SilverWolf999: 2361.789 | Sparxie: 809.814 | YaoGuang: 335.611 | MortenaxBlade: 422.834
+Run   55: Team DPAV: 70764.862 | SilverWolf999: -1506.782 | Sparxie: 1707.764 | YaoGuang: -90.909 | MortenaxBlade: 260.105
+Run   56: Team DPAV: 70840.500 | SilverWolf999: 575.809 | Sparxie: -505.774 | YaoGuang: -37.280 | MortenaxBlade: 42.883
+Run   57: Team DPAV: 68866.320 | SilverWolf999: -1043.602 | Sparxie: -722.249 | YaoGuang: 219.594 | MortenaxBlade: -427.923
+Run   58: Team DPAV: 69840.841 | SilverWolf999: 130.325 | Sparxie: 918.006 | YaoGuang: -354.231 | MortenaxBlade: 280.421
+Run   59: Team DPAV: 70151.890 | SilverWolf999: 845.139 | Sparxie: -10.659 | YaoGuang: -178.390 | MortenaxBlade: -345.041
+Run   60: Team DPAV: 68326.613 | SilverWolf999: -1694.549 | Sparxie: -322.386 | YaoGuang: 216.924 | MortenaxBlade: -25.265
+Run   61: Team DPAV: 70060.796 | SilverWolf999: 1364.486 | Sparxie: 521.905 | YaoGuang: -138.033 | MortenaxBlade: -14.174
+Run   62: Team DPAV: 67241.262 | SilverWolf999: -278.406 | Sparxie: -2370.531 | YaoGuang: -187.027 | MortenaxBlade: 16.429
+Run   63: Team DPAV: 67446.598 | SilverWolf999: -1289.190 | Sparxie: 1192.576 | YaoGuang: 532.284 | MortenaxBlade: -230.335
+Run   64: Team DPAV: 75694.061 | SilverWolf999: 8313.041 | Sparxie: -94.489 | YaoGuang: -358.173 | MortenaxBlade: 387.084
+Run   65: Team DPAV: 67447.481 | SilverWolf999: -8984.544 | Sparxie: 174.808 | YaoGuang: 338.277 | MortenaxBlade: 224.879
+Run   66: Team DPAV: 71328.770 | SilverWolf999: 3992.993 | Sparxie: 223.288 | YaoGuang: -135.705 | MortenaxBlade: -199.286
+Run   67: Team DPAV: 68000.758 | SilverWolf999: -2078.655 | Sparxie: -592.604 | YaoGuang: -352.669 | MortenaxBlade: -304.083
+Run   68: Team DPAV: 68122.839 | SilverWolf999: -86.102 | Sparxie: -196.099 | YaoGuang: 211.240 | MortenaxBlade: 193.042
+Run   69: Team DPAV: 71097.196 | SilverWolf999: 1889.197 | Sparxie: 546.023 | YaoGuang: 99.643 | MortenaxBlade: 439.495
+Run   70: Team DPAV: 73691.037 | SilverWolf999: 1676.007 | Sparxie: 978.700 | YaoGuang: -137.343 | MortenaxBlade: 76.476
+Run   71: Team DPAV: 63946.164 | SilverWolf999: -7291.350 | Sparxie: -2155.949 | YaoGuang: -94.870 | MortenaxBlade: -202.703
+Run   72: Team DPAV: 60541.892 | SilverWolf999: -2790.171 | Sparxie: -413.926 | YaoGuang: -287.386 | MortenaxBlade: 87.212
+Run   73: Team DPAV: 70764.178 | SilverWolf999: 8598.304 | Sparxie: 1503.461 | YaoGuang: 767.274 | MortenaxBlade: -646.753
+Run   74: Team DPAV: 71570.920 | SilverWolf999: -1580.822 | Sparxie: 2146.982 | YaoGuang: 81.510 | MortenaxBlade: 159.072
+Run   75: Team DPAV: 67191.382 | SilverWolf999: -1152.383 | Sparxie: -2580.059 | YaoGuang: -854.757 | MortenaxBlade: 207.661
+Run   76: Team DPAV: 70656.621 | SilverWolf999: 1647.436 | Sparxie: 560.073 | YaoGuang: 731.035 | MortenaxBlade: 526.695
+Run   77: Team DPAV: 67721.501 | SilverWolf999: -1880.667 | Sparxie: -168.126 | YaoGuang: -359.235 | MortenaxBlade: -527.092
+Run   78: Team DPAV: 71308.395 | SilverWolf999: 1624.090 | Sparxie: 1224.080 | YaoGuang: 346.286 | MortenaxBlade: 392.438
+Run   79: Team DPAV: 67466.749 | SilverWolf999: -82.357 | Sparxie: -2558.865 | YaoGuang: -648.767 | MortenaxBlade: -551.657
+Run   80: Team DPAV: 65040.548 | SilverWolf999: -2128.571 | Sparxie: -264.671 | YaoGuang: -7.104 | MortenaxBlade: -25.855
+Run   81: Team DPAV: 70716.128 | SilverWolf999: 3380.795 | Sparxie: 1333.110 | YaoGuang: 405.069 | MortenaxBlade: 556.605
+Run   82: Team DPAV: 66167.065 | SilverWolf999: -3522.872 | Sparxie: -124.947 | YaoGuang: -374.700 | MortenaxBlade: -526.545
+Run   83: Team DPAV: 65481.145 | SilverWolf999: 790.737 | Sparxie: -1394.563 | YaoGuang: -353.027 | MortenaxBlade: 270.933
+Run   84: Team DPAV: 66909.137 | SilverWolf999: -1282.356 | Sparxie: 1933.168 | YaoGuang: 1048.416 | MortenaxBlade: -271.236
+Run   85: Team DPAV: 64403.275 | SilverWolf999: -972.624 | Sparxie: -752.791 | YaoGuang: -879.331 | MortenaxBlade: 98.884
+Run   86: Team DPAV: 63637.796 | SilverWolf999: -626.551 | Sparxie: -245.757 | YaoGuang: 373.591 | MortenaxBlade: -266.762
+Run   87: Team DPAV: 70915.840 | SilverWolf999: 4178.450 | Sparxie: 2448.462 | YaoGuang: 428.555 | MortenaxBlade: 222.577
+Run   88: Team DPAV: 65811.602 | SilverWolf999: -3760.838 | Sparxie: -1728.058 | YaoGuang: -147.888 | MortenaxBlade: 532.547
+Run   89: Team DPAV: 71434.818 | SilverWolf999: 6226.261 | Sparxie: -29.272 | YaoGuang: -140.048 | MortenaxBlade: -433.726
+Run   90: Team DPAV: 62825.998 | SilverWolf999: -6920.982 | Sparxie: -1065.253 | YaoGuang: -559.522 | MortenaxBlade: -63.064
+Run   91: Team DPAV: 71037.482 | SilverWolf999: 5151.221 | Sparxie: 2421.344 | YaoGuang: 759.772 | MortenaxBlade: -120.853
+Run   92: Team DPAV: 63838.203 | SilverWolf999: -3920.678 | Sparxie: -2679.366 | YaoGuang: -850.987 | MortenaxBlade: 251.753
+Run   93: Team DPAV: 66118.291 | SilverWolf999: -20.192 | Sparxie: 1958.600 | YaoGuang: 421.513 | MortenaxBlade: -79.834
+Run   94: Team DPAV: 66251.077 | SilverWolf999: 1904.027 | Sparxie: -1164.446 | YaoGuang: -287.729 | MortenaxBlade: -319.065
+Run   95: Team DPAV: 70336.972 | SilverWolf999: 2156.088 | Sparxie: 582.545 | YaoGuang: 806.350 | MortenaxBlade: 540.912
+Run   96: Team DPAV: 69817.134 | SilverWolf999: 1194.951 | Sparxie: -774.079 | YaoGuang: -723.536 | MortenaxBlade: -217.173
+Run   97: Team DPAV: 68769.749 | SilverWolf999: -2649.563 | Sparxie: 1142.909 | YaoGuang: 684.058 | MortenaxBlade: -224.789
+Run   98: Team DPAV: 67949.184 | SilverWolf999: -1391.855 | Sparxie: 710.724 | YaoGuang: -201.261 | MortenaxBlade: 61.827
+Run   99: Team DPAV: 65994.560 | SilverWolf999: -467.494 | Sparxie: -1263.690 | YaoGuang: -336.137 | MortenaxBlade: 112.698
+Run  100: Team DPAV: 64761.807 | SilverWolf999: -69.826 | Sparxie: -733.046 | YaoGuang: -139.499 | MortenaxBlade: -290.383
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 68402.546
+Average SilverWolf999 DPAV: 328.938 Percentage: 0.481%
+Average Sparxie DPAV: 206.424 Percentage: 0.302%
+Average YaoGuang DPAV: 93.943 Percentage: 0.137%
+Average MortenaxBlade DPAV: 18.313 Percentage: 0.027%
+
+Min Team DPAV: 60541.892
+Max Team DPAV: 75694.061

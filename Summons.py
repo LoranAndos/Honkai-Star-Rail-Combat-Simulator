@@ -193,6 +193,8 @@ class Aha(Summon):
 
         # Check if Evanescia is in the team
         self.hasEvanescia = any("AhaEvanesciaGoGo" in turnName for _, turnName in self.elationTeam)
+        self.hasYaoGuang = any("AhaYaoGuangGoGo" in turnName for _, turnName in self.elationTeam)
+        self.hasElationMC = any("AhaElationMCGoGo" in turnName for _, turnName in self.elationTeam)
 
     def takeTurn(self):
         bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
@@ -211,14 +213,19 @@ class Aha(Summon):
             else:
                 BangerReduction = 1.0
 
+            if self.hasElationMC and turnName == "AhaElationMCGoGo":
+                BonusPunchline = 3
+            else:
+                BonusPunchline = 0
+
             # Determine BangerDuration based on character
-            if turnName == "AhaYaoGuangGoGo": # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
+            if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo": # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                 BangerDuraction = 3
             else:
                 BangerDuraction = 2
 
             bl.append(
-                Buff(f"BangerELASkill{turnName}{self.i}", StatTypes.BANGER, Character.savedPunchline * BangerReduction,
+                Buff(f"BangerELASkill{turnName}{self.i}", StatTypes.BANGER, (Character.savedPunchline+BonusPunchline) * BangerReduction,
                      role, [AtkType.ALL], BangerDuraction, 1, role, TickDown.END))
             ElationAmount += 1
         self.i += 1
@@ -236,16 +243,19 @@ class Aha(Summon):
             ElationAmount = 0
             Character.ahaFixedPunchline = True
             for role, turnName in self.elationTeam:
-                if turnName == "AhaEvanesciaGoGo":
-                    BangerReduction = 1.0
-                    bl.append(Buff(f"EnergyEvaELASkill{turnName}{self.i}", StatTypes.ERR_F,
-                                   Character.SharedPunchline, role, [AtkType.ALL], 1, 1,
-                                   role, TickDown.END))
+                # MODIFIED: Only reduce Banger if Evanescia is in team AND current character is NOT Evanescia
+                if self.hasEvanescia and turnName != "AhaEvanesciaGoGo":
+                    BangerReduction = 0.5
                 else:
-                    # MODIFIED: Only reduce if Evanescia is in team
-                    BangerReduction = 0.5 if self.hasEvanescia else 1.0
+                    BangerReduction = 1.0
 
-                if turnName == "AhaYaoGuangGoGo":  # "AhaEvanesciaGoGo": #If Evanescia = E6.
+                if self.hasElationMC and turnName == "AhaElationMCGoGo":
+                    BonusPunchline = 3
+                else:
+                    BonusPunchline = 0
+
+                # Determine BangerDuration based on character
+                if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2
@@ -253,7 +263,7 @@ class Aha(Summon):
                                self.scaling,
                                0, turnName))
                 bl.append(Buff(f"BangerELASkill{turnName}{self.i}", StatTypes.BANGER,
-                               Character.SharedPunchline * BangerReduction, role, [AtkType.ALL], BangerDuraction, 1,
+                               (Character.SharedPunchline+BonusPunchline) * BangerReduction, role, [AtkType.ALL], BangerDuraction, 1,
                                role, TickDown.END))
                 ElationAmount += 1
             self.i += 1

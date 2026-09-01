@@ -6,6 +6,14 @@ def team_Evanescia_ElationMC_YaoGuang_Huohuo():
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
+def team_Evanescia_ElationMC_YaoGuang_Huohuo_e1():
+
+    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=1)
+    return s1, s2, s3, s4
+
 def team_Evanescia_ElationMC_YaoGuang_Pearl():
 
     s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
@@ -86,6 +94,8 @@ def team_Evanescia_ElationMC_YaoGuang_Pearle6s1():
 
     {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
      "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo},
+    {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
+     "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo_e1},
     {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
      "factory": team_Evanescia_ElationMC_YaoGuang_Pearl},
     {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1",

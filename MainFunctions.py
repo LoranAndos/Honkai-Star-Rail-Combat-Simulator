@@ -1100,12 +1100,37 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
         PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
         MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
+        if currTurn.moveName == "PearlELASkillBonusDMG":
+            pearl = findCharName(playerTeam, "Pearl")
+            if pearl is not None:
+                pearlShredMul = getMulSHRED(pearl, currEnemy, buffList, debuffList, currTurn)
+                charShredMul = getMulSHRED(char, currEnemy, buffList, debuffList, currTurn)
+                if charShredMul != 0:
+                    enemyMul *= pearlShredMul / charShredMul
+        elif currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
+            pearl = findCharName(playerTeam, "Pearl")
+            if pearl is not None:
+                pearlBangerMul = getMulBANGER(pearl, currEnemy, buffList, debuffList, currTurn)
+                charBangerMul = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
+                if charBangerMul != 0:
+                    BangerMUL *= pearlBangerMul / charBangerMul
+
+                pearlShredMul = getMulSHRED(pearl, currEnemy, buffList, debuffList, currTurn)
+                charShredMul = getMulSHRED(char, currEnemy, buffList, debuffList, currTurn)
+                if charShredMul != 0:
+                    enemyMul *= pearlShredMul / charShredMul
+
         enemyBroken = False
         newDebuffs, newDelays = [], []
         # if turn.moveName == "H7UltEnhancedBSC":
         #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
         if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
-            effectiveBase = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)  # ← pass Scaling.ELA
+            elaScalingChar = char
+            if currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
+                pearl = findCharName(playerTeam, "Pearl")
+                if pearl is not None:
+                    elaScalingChar = pearl
+            effectiveBase = getScalingValues(elaScalingChar, buffList, currTurn.atkType, Scaling.ELA)
         else:
             effectiveBase = baseValue
 
@@ -1719,8 +1744,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 hmcBE = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[specChar.defaultTarget], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=hmcBE, enemies=gauge)
 
-            case "HuntM7":
-                master = findCharRole(playerTeam, findCharName(playerTeam, "HuntM7").masterRole)
+            case "HuntMarch":
+                master = findCharRole(playerTeam, findCharName(playerTeam, "HuntMarch").masterRole)
                 return Special(name=specStr, attr1=master.element, enemies=gauge)
 
             case "HuoHuo":

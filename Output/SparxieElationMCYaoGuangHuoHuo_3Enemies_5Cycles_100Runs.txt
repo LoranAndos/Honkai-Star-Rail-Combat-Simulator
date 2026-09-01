@@ -1,0 +1,19 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 45308.203 | Sparxie: 31931.150 | ElationMC: 5728.982 | YaoGuang: 7591.970 | HuoHuo: 7.688
+Run    2: Team DPAV: 44786.933 | Sparxie: -399.891 | ElationMC: -20.372 | YaoGuang: -96.166 | HuoHuo: 0.000
+Run    3: Team DPAV: 45294.983 | Sparxie: 478.334 | ElationMC: -38.588 | YaoGuang: 63.463 | HuoHuo: 0.000
+Run    4: Team DPAV: 45191.267 | Sparxie: -91.356 | ElationMC: 22.093 | YaoGuang: -34.453 | HuoHuo: 0.000
+Run    5: Team DPAV: 46111.040 | Sparxie: 826.247 | ElationMC: 34.902 | YaoGuang: 63.465 | HuoHuo: 0.000
+Run    6: Team DPAV: 40730.187 | Sparxie: -4327.262 | ElationMC: -521.684 | YaoGuang: -531.100 | HuoHuo: 0.000
+Run    7: Team DPAV: 44558.581 | Sparxie: 3115.400 | ElationMC: 478.061 | YaoGuang: 229.284 | HuoHuo: 0.000
+Run    8: Team DPAV: 45647.472 | Sparxie: 840.940 | ElationMC: 107.408 | YaoGuang: 140.543 | HuoHuo: 0.000
+Run    9: Team DPAV: 43874.460 | Sparxie: -1504.311 | ElationMC: -112.487 | YaoGuang: -151.374 | HuoHuo: 0.000
+Run   10: Team DPAV: 45657.415 | Sparxie: 1434.579 | ElationMC: 46.790 | YaoGuang: 296.745 | HuoHuo: 0.000
+Run   11: Team DPAV: 43072.302 | Sparxie: -1800.273 | ElationMC: -302.358 | YaoGuang: -482.482 | HuoHuo: 0.000
+Run   12: Team DPAV: 45183.019 | Sparxie: 1495.432 | ElationMC: 242.506 | YaoGuang: 372.779 | HuoHuo: 0.000
+Run   13: Team DPAV: 42544.122 | Sparxie: -1813.313 | ElationMC: -320.553 | YaoGuang: -505.031 | HuoHuo: 0.000
+Run   14: Team DPAV: 42410.027 | Sparxie: -194.776 | ElationMC: 1.998 | YaoGuang: 58.682 | HuoHuo: 0.000
+Run   15: Team DPAV: 41559.114 | Sparxie: -668.819 | ElationMC: -112.167 | YaoGuang: -64.279 | HuoHuo: 0.000
+Run   16: Team DPAV: 45055.195 | Sparxie: 2639.193 | ElationMC: 478.410 | YaoGuang: 377.671 | HuoHuo: 0.000

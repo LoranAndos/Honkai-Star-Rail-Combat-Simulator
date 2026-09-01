@@ -426,8 +426,8 @@ class SilverWolf999(Character):
             else:
                 ExtraPunchMul = 1
             self.topLootBoxChance = 1.0
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
-                           [self.element], [e5Mul * ExtraPunchMul * 6 * Character.ahaElaDMGBoost, 0], [60, 0], 0, Scaling.ELA, 0,
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
+                           [self.element], [e5Mul * ExtraPunchMul * 6 * Character.ahaElaDMGBoost/enemyCount, 0], [60/enemyCount, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999ELASkill"))
         else:
             # Normal Elation Skill
