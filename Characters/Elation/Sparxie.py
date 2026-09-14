@@ -253,12 +253,12 @@ class Sparxie(Character):
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
             self.tech = False
-        bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
+        bl.append(Buff("SparxieATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat-2000)/100)*0.05, 0), 0.8), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.PERM))
         bl.append(Buff("SparxiePunchtoCD", StatTypes.CD_PERCENT, min(Character.SharedPunchline * 0.08, 0.8), Role.ALL, [AtkType.ALL],
-                 1, 1, self.role, TickDown.END))
+                 1, 1, self.role, TickDown.PERM))
         if self.eidolon >= 1:
             bl.append(Buff("SparxiePunchtoPEN", StatTypes.PEN, min(Character.SharedPunchline * 0.015, 0.15), Role.ALL, [AtkType.ALL],
-                     1, 1, self.role, TickDown.END))
+                     1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl
 
     def addThrill(self, amount: int):

@@ -563,7 +563,7 @@ class SilverWolf999(Character):
 
         if self.currSPD >= 160:
             ELABuff = min(max((self.SpdStat - 160), 0), 100)
-            bl.append(Buff("SilverWolf999TalentELABuff", StatTypes.ELA, 0.50 + ELABuff * 0.02, self.role, [AtkType.ALL], 1, 1,self.role, TickDown.END))
+            bl.append(Buff("SilverWolf999TalentELABuff", StatTypes.ELA, 0.50 + ELABuff * 0.02, self.role, [AtkType.ALL], 1, 1,self.role, TickDown.PERM))
 
         # E6: Inflict enemies with Absolute Weakness
         if self.eidolon >= 6:

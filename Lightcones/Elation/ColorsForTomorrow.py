@@ -23,17 +23,11 @@ class ColorsForTomorrow(Lightcone):
 
     def useElaSkill(self, enemyID = -1):
         bl, dbl, al, dl, hl, sl = super().equip()
-        VulnAmount = self.level * 0.025 + 0.075
-        HealAmount = self.level * 0.01 + 0.09
+        VulnAmount = self.level * 0.055 + 0.17
+        HealAmount = self.level * 0.025 + 0.075
         dbl.append(Debuff("ColorsELASkillVuln", self.wearerRole, StatTypes.VULN, VulnAmount, Role.ALL, [AtkType.ALL], 3, 1, Targeting.AOE,False, [0, 0], False))
+        bl.append(Buff("ColorsERR", StatTypes.ERR_F, 10, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
         hl.append(Healing("ColorsELASkillHeal", [HealAmount, 0], Scaling.DEF, Role.ALL, self.wearerRole, Targeting.AOE))
 
-        otherElationCount = sum(
-            1 for c in (Character._current_player_team or [])
-            if c.path == Path.ELATION and c.role != self.wearerRole
-        )
-        if otherElationCount > 0:
-            teamVulnAmount = otherElationCount * (self.level * 0.01 + 0.03)
-            dbl.append(Debuff("ColorsTeamElationVuln", self.wearerRole, StatTypes.VULN, teamVulnAmount, Role.ALL,[AtkType.ALL], 3, 1, Targeting.AOE, False, [0, 0], False))
 
         return bl, dbl, al, dl, hl, sl

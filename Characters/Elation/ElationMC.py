@@ -8,6 +8,7 @@ from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
 from Planars.BrokenKeel import BrokenKeel
 from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
+from Relics.DreamlitActor import DreamlitActor
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
@@ -58,7 +59,7 @@ class ElationMC(Character):
                  elationParticipationID=120) -> None:  # ELATIONMC ID: 120
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else MushyShroomysAdventuresEMC(role, 5)
-        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4, self.element)
+        self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
         self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT,
@@ -224,5 +225,5 @@ class ElationMC(Character):
         self.targetElaSkillTurn = specialRes.attr8
         self.EvanesciaInTeam = specialRes.attr9
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
-        bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl

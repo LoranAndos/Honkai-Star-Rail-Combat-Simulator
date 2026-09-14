@@ -66,7 +66,7 @@ class Pearl(Character):
         self.relicStats = subs if subs else RelicStats(10, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT,
                                                        StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
-        self.rotation = rotation if rotation else ["A"]
+        self.rotation = rotation if rotation else ["A","A","E"]
         self.masterFoxFiredCount = 0
         self.elationParticipationID = elationParticipationID
 
@@ -106,8 +106,8 @@ class Pearl(Character):
         # stored separately, it's always derived as certifiedBanger * 200.
         self.certifiedBanger = 0.0
         self.certifiedBangerCap = 50.0
-        self.repellencyPerCB = 240.0 if self.eidolon >= 4 else 200.0
-        self.repellencyBlockPct = 0.65 if self.eidolon >= 4 else 0.60
+        self.repellencyPerCB = 200.0
+        self.repellencyBlockPct = 0.60
 
         # Talent: "When an ally target's turn begins, Pearl gains 5 CB, up
         # to a max of 50. The obtainable amount of CB resets at the start
@@ -381,6 +381,7 @@ class Pearl(Character):
                 e5Mul = 0.42
             else:
                 e5Mul = 0.40
+        e4ExtraMul = 2.0 if self.eidolon >= 4 else 1.0
         if result.turnName == "AhaPearlGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
@@ -402,7 +403,7 @@ class Pearl(Character):
                 # "their next attack" per the ability text. Consume now.
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally1")
                 self.ally1Proc = False
             elif ally1IsSilverWolf:
@@ -412,7 +413,7 @@ class Pearl(Character):
                 # instead of waiting for an Elation Skill that can't fire.
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELABANGER], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELABANGER bonus for ally1")
                 self.ally1Proc = False
             # else: this is the ally's real action, processed before their
@@ -426,13 +427,13 @@ class Pearl(Character):
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally2")
                 self.ally2Proc = False
             elif ally2IsSilverWolf:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELABANGER], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELABANGER bonus for ally2")
                 self.ally2Proc = False
         if turn.charRole == self.ally3Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.ally3Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally3Role and self.ally3Proc == True):
@@ -441,13 +442,13 @@ class Pearl(Character):
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally3")
                 self.ally3Proc = False
             elif ally3IsSilverWolf:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELABANGER], turn.element,
-                               [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELABANGER bonus for ally3")
                 self.ally3Proc = False
         if turn.charRole == self.targetRole and self.Trace3Energy and turn.moveName in UltimateList and self.ElationDPS:
@@ -493,15 +494,18 @@ class Pearl(Character):
 
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
-        bl.append(Buff("PearlDEFtoELA", StatTypes.ELA, 0.32 + min(max(floor((self.CharDEF-2400)/100)*0.03, 0), 1.08), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.END))
+        bl.append(Buff("PearlDEFtoELA", StatTypes.ELA, 0.32 + min(max(floor((self.CharDEF-2400)/100)*0.03, 0), 1.08), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.PERM))
+        bl.append(Buff("PearlELAtoOGH", StatTypes.OGH_PERCENT, 0.2*self.ElaStat, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+        if self.Banger >= 1:
+           bl.append(Buff("PearlERS", StatTypes.ERS_PERCENT, 0.50, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
 
         if self.eidolon >= 1:
             if self.TotalElationChar == 2:
-                bl.append(Buff("PearlE1ELA", StatTypes.ELA, min(self.ElaStat*0.1,0.6), Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+                bl.append(Buff("PearlE1ELA", StatTypes.ELA, 0.1, Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             elif self.TotalElationChar == 3:
-                bl.append(Buff("PearlE1ELA", StatTypes.ELA, min(self.ElaStat*0.2,0.6), Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+                bl.append(Buff("PearlE1ELA", StatTypes.ELA, 0.2, Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
             elif self.TotalElationChar >= 4:
-                bl.append(Buff("PearlE1ELA", StatTypes.ELA, min(self.ElaStat*0.8,0.6), Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
+                bl.append(Buff("PearlE1ELA", StatTypes.ELA, 0.6, Role.ALL,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
 
         if self.eidolon >= 6 and self.EnhancedUses != 0:
             bl.append(Buff("PearlE6PEN", StatTypes.PEN, 0.20, Role.ALL, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))

@@ -92,6 +92,8 @@ def team_Evanescia_ElationMC_YaoGuang_Pearle6s1():
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=6)
     return s1, s2, s3, s4
 
+
+
     {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
      "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo},
     {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
