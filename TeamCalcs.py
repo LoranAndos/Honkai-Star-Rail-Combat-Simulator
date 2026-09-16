@@ -49,7 +49,7 @@ from Characters.Nihility.MortenaxBlade import MortenaxBlade
 # ============================================================
 
 MODE       = "MULTI"   # "SINGLE" or "MULTI"
-NUM_RUNS   = 100        # only used in MULTI mode
+NUM_RUNS   = 100       # only used in MULTI mode
 CYCLES     = 5          # cycle limit for every run
 OUTPUT_LOG = True      # set True to write a .log file for a single run (per-team, via Combat_Simulator)
 
@@ -60,17 +60,12 @@ OUTPUT_LOG = True      # set True to write a .log file for a single run (per-tea
 LOG_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Output")
 
 # Enemy setup — shared across all teams
-ENEMY_MODULE = EnemyModule(
-    3,
-    [95, 95, 95],
-    [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE],
-    [130, 158.4, 130],
-    [100, 160, 100],
-    atkRatio,
-    [Element.PHYSICAL],
-    [1],
-)
+EnemyElement = Element.PHYSICAL
+FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
+ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
+TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
 
+ENEMY_MODULE = FiveEnemyModule
 
 # ============================================================
 # ── TEAM DEFINITIONS ────────────────────────────────────────
@@ -365,74 +360,8 @@ def team_Evanescia_ElationMC_e2s1YaoGuang_Pearl():
 TEAMS = [
     {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
      "factory": team_Evanescia_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo},
-    {"name": "Evanescia e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e1s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Huohuo_e1},
-    {"name": "Evanescia e0s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanescia_Sparxie_YaoGuang_Pearl},
-    {"name": "Evanescia e1s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
-     "factory": team_e1s1Evanescia_ElationMC_YaoGuang_Huohuo},
-    {"name": "Evanescia e1s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e1s0",
-     "factory": team_e1s1Evanescia_ElationMC_YaoGuang_Huohuo_e1},
-    {"name": "Evanescia e2s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e0s0",
-     "factory": team_e2s1Evanescia_ElationMC_YaoGuang_Huohuo},
-    {"name": "Evanescia e2s1 | ElationMC e6s0 | Yao Guang e0s0 | Huo Huo e1s0",
-     "factory": team_e2s1Evanescia_ElationMC_YaoGuang_Huohuo_e1},
     {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1",
      "factory": team_Evanescia_ElationMC_YaoGuang_Pearle0s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e1s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle1s0},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e1s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle1s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e2s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle2s0},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e2s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle2s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e3s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle3s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e4s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle4s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e5s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle5s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e6s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle6s1},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Eagle Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_EaglePearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Broken Keel Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_BrokenKeelPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | YG LC Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_YGLCPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | EVA LCPearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_EVALCPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Brimming Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_BrimmingPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | OGH Chest Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_OGHChestPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | DMG Orb Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_DMGOrbPearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | DEF Rope Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_DEFRopePearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s1 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_e0s1YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e1s0 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_e1s0YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e1s1 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_e1s1YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e2s0 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_e2s0YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e2s1 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_e2s1YaoGuang_Pearl},
-    {"name": "Evanescia e0s0 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanesciae0s0_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e1s0 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanesciae1s0_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e1s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanesciae1s1_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e2s0 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanesciae2s0_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e2s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanesciae2s1_ElationMC_YaoGuang_Pearl},
 
     # Add more teams here:
     # {"name": "My Team 3", "factory": team_my_team_3},
@@ -496,6 +425,139 @@ def _95_margin_of_error_pct(values: list, mean: float) -> float:
     stderr = math.sqrt(variance / n)
     margin = 1.96 * stderr
     return margin / mean * 100
+
+
+# ── Google Sheet export (matches the "Pearl Sheet" layout exactly) ─────
+#
+# Coordinates below are taken directly from the sheet's own gridlines:
+#   Team 1: header row 8,  columns G–N
+#   Team 2: header row 8,  columns R–Y   (+11 columns from Team 1)
+#   Team 3: header row 24, columns G–N   (+16 rows from Team 1)
+#   Team 4: header row 24, columns R–Y
+# i.e. a 2-teams-per-row grid, each block 8 columns wide / 16 rows tall.
+# If you add more than 4 teams to one MULTI run, it keeps extending the
+# grid downward (row 40 for teams 5/6, etc.) — extend your sheet template
+# to match, or only paste the first 4 teams' blocks.
+
+def _sheet_team_anchor(team_index: int) -> tuple:
+    """Return (row_base, col_base) for team_index (0-based). row_base is
+    the header row (e.g. 8 for Team 1); col_base is the first column of
+    that team's 8-column-wide block (7 = 'G', 18 = 'R')."""
+    grid_row = team_index // 2
+    grid_col = team_index % 2
+    row_base = 8 + grid_row * 16
+    col_base = 7 + grid_col * 11
+    return row_base, col_base
+
+
+# ── Cell styling (font, fill, alignment) for the sheet export ───────────
+SHEET_FONT_NAME = "Lexend"
+SHEET_FONT_COLOR = "FFFFFFFF"    # white
+SHEET_FILL_COLOR = "FF404754"    # background
+
+SHEET_FONT_SIZE_STATS = 10       # Average / Min / Max DPAV
+SHEET_FONT_SIZE_MARGIN = 9       # DPAV Error Margin
+SHEET_FONT_SIZE_TYPES = 8        # damage-type distribution cells
+SHEET_FONT_SIZE_OVERKILL = 10    # total + per-enemy overkill
+SHEET_FONT_SIZE_CHAR_LIST = 7    # bottom-right per-character avg DPAV
+
+
+def export_sheet_xlsx(all_results: list, filename: str = "TeamCalcs_SheetExport.xlsx",
+                       max_enemies: int = 5) -> str:
+    """Write an .xlsx that mirrors the Pearl Sheet's exact cell layout and
+    merges, one block per team. Because the merges match the destination
+    sheet 1-for-1, copying a team's block from this file and pasting it
+    into the real sheet won't trigger an unmerge — the incoming paste
+    already has the same merged shape, so Sheets has nothing to reconcile.
+
+    No header labels, titles, or icons are written (those already exist
+    in the destination sheet's template) — only the values that change
+    from run to run, styled to match: Lexend font, white text on a
+    #404754 background, centered with text wrap, and font sizes that vary
+    by cell category (see the SHEET_FONT_SIZE_* constants above).
+    """
+    try:
+        import openpyxl
+        from openpyxl.utils import get_column_letter
+        from openpyxl.styles import Font, PatternFill, Alignment
+    except ImportError as e:
+        raise RuntimeError(
+            "openpyxl is required for the .xlsx export. Install it with:\n"
+            "    pip install openpyxl"
+        ) from e
+
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Sheet Export"
+
+    fill = PatternFill(fill_type="solid", fgColor=SHEET_FILL_COLOR)
+    alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+    def style_cell(cell, size):
+        cell.font = Font(name=SHEET_FONT_NAME, size=size, color=SHEET_FONT_COLOR)
+        cell.fill = fill
+        cell.alignment = alignment
+
+    def merge_and_set(row, col_start, col_span, row_span, value, size):
+        c1 = get_column_letter(col_start)
+        c2 = get_column_letter(col_start + col_span - 1)
+        ws.merge_cells(f"{c1}{row}:{c2}{row + row_span - 1}")
+        cell = ws[f"{c1}{row}"]
+        cell.value = value
+        style_cell(cell, size)
+
+    for i, r in enumerate(all_results):
+        row_base, col_base = _sheet_team_anchor(i)
+        char_names = r["char_names"]
+
+        # Stats row: avg / min / max (size 10), margin (size 9)
+        # Written as text (not numeric) so a narrow destination column
+        # wraps instead of collapsing to "###".
+        stats_row = row_base + 1
+        merge_and_set(stats_row, col_base + 0, 2, 1, f"{r['avg']:.3f}", SHEET_FONT_SIZE_STATS)
+        merge_and_set(stats_row, col_base + 2, 2, 1, f"{r['min']:.3f}", SHEET_FONT_SIZE_STATS)
+        merge_and_set(stats_row, col_base + 4, 2, 1, f"{r['max']:.3f}", SHEET_FONT_SIZE_STATS)
+        merge_and_set(stats_row, col_base + 6, 2, 1, f"error margin: +/-{r['moe_pct']:.2f}%", SHEET_FONT_SIZE_MARGIN)
+
+        # 3 damage-type rows, each a 2-row x 2-col merge per character
+        top_types_per_char = [r["char_top_types"].get(name, []) for name in char_names]
+        for rank in range(3):
+            type_row = row_base + 4 + rank * 2
+            for ci, (name, top_types) in enumerate(zip(char_names, top_types_per_char)):
+                col_start = col_base + ci * 2
+                if rank < len(top_types):
+                    atk_type, avg_val, type_pct = top_types[rank]
+                    text = f"- {atk_type.name}  avg DMG: {avg_val:.3f}  ({type_pct:.1f}% of {name}'s DMG)"
+                else:
+                    text = "/"
+                merge_and_set(type_row, col_start, 2, 2, text, SHEET_FONT_SIZE_TYPES)
+
+        # Overkill row: total + up to max_enemies enemies, single columns,
+        # each merged with the row directly below it. Also written as text.
+        overkill_row = row_base + 11
+        merge_and_set(
+            overkill_row, col_base, 1, 2,
+            f"{r['avg_overkill_total']:.1f}" if r["avg_overkill_per_enemy"] else "/",
+            SHEET_FONT_SIZE_OVERKILL,
+        )
+        for e in range(max_enemies):
+            val = f"{r['avg_overkill_per_enemy'][e]:.1f}" if e < len(r["avg_overkill_per_enemy"]) else "/"
+            merge_and_set(overkill_row, col_base + 1 + e, 1, 2, val, SHEET_FONT_SIZE_OVERKILL)
+
+        # Character DPAV list: name + value, rows row_base+10..+13, last 2 cols
+        name_col = col_base + 6
+        val_col = col_base + 7
+        for ci, name in enumerate(char_names):
+            dpavs = r["char_dpavs"][name]
+            avg_c = sum(dpavs) / len(dpavs) if dpavs else 0.0
+            list_row = row_base + 10 + ci
+            c1 = ws.cell(row=list_row, column=name_col, value=name)
+            c2 = ws.cell(row=list_row, column=val_col, value=f"{avg_c:.3f}")
+            style_cell(c1, SHEET_FONT_SIZE_CHAR_LIST)
+            style_cell(c2, SHEET_FONT_SIZE_CHAR_LIST)
+
+    wb.save(filename)
+    return filename
 
 
 def run_single(teams, cycles, enemy_module, output_log):
@@ -680,7 +742,20 @@ def run_multi(teams, num_runs, cycles, enemy_module):
             elif not FINITE_ENEMY_HP:
                 lines.append("  FINITE HP MODE: OFF (overkill not tracked)")
 
+            # Plain DPAV numbers only, one per line in char order, so each
+            # value pastes into its own row (rather than across a row).
+            dpav_only = "\n".join(
+                f"{sum(r['char_dpavs'][name]) / num_runs:.3f}" for name in r["char_names"]
+            )
+            lines.append("  DPAV only (select the lines below):")
+            lines.append(dpav_only)
+
             tee.log("\n".join(lines))
+
+        # ── Google Sheet export ─────────────────────────────────────────────
+        xlsx_path = export_sheet_xlsx(all_results)
+        tee.log(f"\n  Sheet-layout export written to: {xlsx_path}")
+        print(f"Sheet-layout export written to: {xlsx_path}")
 
         # ── Order (as defined, NOT sorted by DPAV) ──────────────────────────
         tee.log(f"\n{separator}\n  TEAM ORDER (as defined)\n{separator}")

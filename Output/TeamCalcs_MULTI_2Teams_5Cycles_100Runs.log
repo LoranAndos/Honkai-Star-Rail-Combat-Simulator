@@ -2,3 +2,78 @@
 ======================================================================
   MULTI MODE  |  100 runs  |  5 cycles  |  2 team(s)
 ======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 112184.255  |  min: 105101.699  |  max: 117962.780  |  95% CI margin of error: +/-0.48%
+    Evanescia            avg DPAV: 87330.399  (77.8%)
+      - ELABANGER  avg DMG: 30726958.215  (64.0% of Evanescia's DMG)
+      - ELAPUNCH   avg DMG: 13777758.862  (28.7% of Evanescia's DMG)
+      - ULT        avg DMG: 1908102.496  (4.0% of Evanescia's DMG)
+    ElationMC            avg DPAV: 8873.391  (7.9%)
+      - ELAPUNCH   avg DMG: 3245783.425  (66.5% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 1517309.852  (31.1% of ElationMC's DMG)
+      - SKL        avg DMG: 117271.892  (2.4% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 15054.120  (13.4%)
+      - ELAPUNCH   avg DMG: 6078500.295  (73.4% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 2101946.974  (25.4% of YaoGuang's DMG)
+      - BRK        avg DMG: 66965.746  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 304.067  (0.3%)
+      - ELABANGER  avg DMG: 107184.545  (64.1% of Pearl's DMG)
+      - BSC        avg DMG: 60052.310  (35.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 4328429.3
+    Enemy 0 (ADD)  avg Overkill: 760333.5
+    Enemy 1 (ELITE)  avg Overkill: 2036510.8
+    Enemy 2 (BOSS)  avg Overkill: 28012.0
+    Enemy 3 (ADD)  avg Overkill: 754173.2
+    Enemy 4 (ADD)  avg Overkill: 749399.8
+  DPAV only (select the lines below):
+87330.399
+8873.391
+15054.120
+304.067
+
+  Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1
+  Team DPAV  avg: 124927.721  |  min: 115745.095  |  max: 130262.723  |  95% CI margin of error: +/-0.50%
+    Evanescia            avg DPAV: 97823.474  (78.3%)
+      - ELABANGER  avg DMG: 34751457.909  (64.6% of Evanescia's DMG)
+      - ELAPUNCH   avg DMG: 14817706.028  (27.5% of Evanescia's DMG)
+      - ULT        avg DMG: 2305622.703  (4.3% of Evanescia's DMG)
+    ElationMC            avg DPAV: 9554.943  (7.6%)
+      - ELAPUNCH   avg DMG: 3501443.185  (66.6% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 1620133.121  (30.8% of ElationMC's DMG)
+      - SKL        avg DMG: 133642.308  (2.5% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 16459.682  (13.2%)
+      - ELAPUNCH   avg DMG: 6558126.195  (72.4% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 2368527.607  (26.2% of YaoGuang's DMG)
+      - BRK        avg DMG: 89162.625  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 394.725  (0.3%)
+      - ELABANGER  avg DMG: 122841.786  (56.6% of Pearl's DMG)
+      - BSC        avg DMG: 94257.009  (43.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 4773518.3
+    Enemy 0 (ADD)  avg Overkill: 805119.3
+    Enemy 1 (ELITE)  avg Overkill: 2100906.3
+    Enemy 2 (BOSS)  avg Overkill: 82697.7
+    Enemy 3 (ADD)  avg Overkill: 891957.3
+    Enemy 4 (ADD)  avg Overkill: 892837.8
+  DPAV only (select the lines below):
+97823.474
+9554.943
+16459.682
+394.725
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  112184.255  —  Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0
+  #2  124927.721  —  Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1
+
+======================================================================
+

@@ -69,6 +69,15 @@ class Pearl(Character):
         self.rotation = rotation if rotation else ["A","A","E"]
         self.masterFoxFiredCount = 0
         self.elationParticipationID = elationParticipationID
+        self.EnhancedUses = 0
+        self.SpecialEnhanced = False
+        self.tech = True
+        self.ally1Proc = False
+        self.ally2Proc = False
+        self.ally3Proc = False
+        self.Trace3Energy = True
+        self.certifiedBanger = 0.0
+        self._pendingCBGain = 0.0
 
         # Ult targeting toggle: "energy" = YaoGuang whenever she has >=90
         # Energy, else DPS. "alternate" = strictly alternates between
@@ -108,6 +117,8 @@ class Pearl(Character):
         self.certifiedBangerCap = 50.0
         self.repellencyPerCB = 200.0
         self.repellencyBlockPct = 0.60
+
+        self.cbObtainableThisCycle = self.certifiedBangerCap  # Reset cycle budget
 
         # Talent: "When an ally target's turn begins, Pearl gains 5 CB, up
         # to a max of 50. The obtainable amount of CB resets at the start

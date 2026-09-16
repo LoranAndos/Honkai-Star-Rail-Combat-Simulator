@@ -49,10 +49,22 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     attackRatio = atkRatio  # from Misc.py
     weaknesses = [Element.QUANTUM]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
-    enemyModule = ThreeEnemyModule
+    enemyModule = FiveEnemyModule
     #enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness, attackRatio, weaknesses, actionOrder)
     # Character Settings
 
+    # RESET CLASS-LEVEL FLAGS
+    Character._SharedPunchline_value = 0
+    Character.ahaFixedPunchline = False
+    Character.ahaFixedPunchlineValue = 20
+    Character.ahaYaoGuangUlt = False
+    Character.EMCUlt = False
+    Character.PearlUlt = False
+    Character.PearlE2Modifier = 1.0
+    Character.ahaElaDMGBoost = 1.0
+    Character.savedPunchline = 0
+    Character.prePunchline = 0
+    Character.totalPunchline = 0
 
     # Simulation Settings
     totalEnemyAttacks = 0
@@ -528,7 +540,7 @@ if __name__ == "__main__":
 
     # =============== TOGGLE ===============
     multiRun = False   # Set to True for multiple runs, False for single run
-    numRuns = 100     # Number of runs (only used when multiRun = True)
+    numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
     # Enemy setup — shared between single and multi run
@@ -557,7 +569,7 @@ if __name__ == "__main__":
         # Multiple runs
         os.makedirs("Output", exist_ok=True)
 
-        # Build filename matching log format (So basically change both characters here and next instance, but only
+        # Build filename matching log format. So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)

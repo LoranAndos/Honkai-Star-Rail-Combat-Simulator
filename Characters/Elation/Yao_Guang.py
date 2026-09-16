@@ -72,6 +72,11 @@ class YaoGuang(Character):
         if self.eidolon >= 1:
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELAPUNCH], 1, 1,self.role, TickDown.PERM))
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELABANGER], 1, 1,self.role, TickDown.PERM))
+        if self.eidolon >= 2:
+            bl.append(Buff("YaoGuangE2SPDBuff", StatTypes.SPD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 3, 1, self.role,
+                           TickDown.START))
+            bl.append(Buff("YaoGuangE2ELABuff", StatTypes.ELA, 0.16, Role.ALL, [AtkType.ALL], 3, 1, self.role,
+                           TickDown.START))
         if self.eidolon == 6:
             bl.append(Buff("YaoGuangE6MerryMake", StatTypes.MERRY, 0.25,Role.ALL))
         return bl, dbl, al, dl, hl, sl
