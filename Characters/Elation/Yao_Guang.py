@@ -118,7 +118,7 @@ class YaoGuang(Character):
         Character.ahaYaoGuangUlt = True
         Character.SharedPunchline = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
-        Character.ahaFixedPunchline = True  # ADD THIS LINE
+        Character.ahaFixedPunchline = True
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
         return bl, dbl, al, dl, tl, hl, sl

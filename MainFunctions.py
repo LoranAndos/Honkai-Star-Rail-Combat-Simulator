@@ -978,12 +978,10 @@ def takeDebuffDMG(enemy: Enemy, playerTeam: list[Character], buffList: list[Buff
         pTurn = Turn(char.name, char.role, enemy.enemyID, Targeting.DOT, ["DOT"], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "Placeholder")
         if dot.debuffType in {StatTypes.BLEED, StatTypes.BURN, StatTypes.WINDSHEAR, StatTypes.SHOCK}: # normal dot debuff damage
             dotDmg = dot.getDebuffVal() * getMulENEMY(char, enemy, buffList, debuffList, pTurn)
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
         elif dot.debuffType == StatTypes.FREEZE or dot.name == StatTypes.ENTANGLE: # not dot-type damage from breaks, can't be buffed by dot buffs
             pTurn = Turn(char.name, char.role, enemy.enemyID, Targeting.DEBUFF, [], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "Placeholder")
             dotDmg = dot.getDebuffVal() * getMulENEMY(char, enemy, buffList, debuffList, pTurn)
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
         else: # dots applied by char
             baseValue = getBaseValue(char, buffList, pTurn)
@@ -991,8 +989,18 @@ def takeDebuffDMG(enemy: Enemy, playerTeam: list[Character], buffList: list[Buff
             dmgMul = getMulDMG(char, enemy, buffList, debuffList, pTurn)
             enemyMul = getMulENEMY(char, enemy, buffList, debuffList, pTurn)
             dotDmg = baseValue * percentMul * dmgMul * enemyMul
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
+        dmg += dotDmg
+        if enemy.takeHit(dotDmg):
+            killMsg = (f"    KILL   - {char.name} killed {enemy.name} via DoT "
+                       f"(overkill: {enemy.overkillDMG:.1f})")
+            logger.warning(killMsg)
+            killEnergy = KILL_ENERGY.get(enemy.enemyType, 0)
+            if killEnergy > 0:
+                char.addEnergy(killEnergy)
+                logger.info(f"    ENERGY - {char.name} gained {killEnergy} energy for kill")
+            enemy.respawn()
+            logger.info(f"    SPAWN  - {enemy.name} respawned at full HP, AV set to 0")
     enemy.addDebuffDMG(dmg)
     return dmg
 
@@ -2440,7 +2448,7 @@ def getMulSHRED(char: Character, enemy: Enemy, buffList: list[Buff], debuffList:
 
 def getMulVULN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     vuln = getCharStat(StatTypes.VULN, char, enemy, buffList, debuffList, turn)
-    return min(10.0, 1 + vuln)
+    return min(4.0, 1 + vuln)
 
 def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     pen = getCharStat(StatTypes.PEN, char, enemy, buffList, debuffList, turn)

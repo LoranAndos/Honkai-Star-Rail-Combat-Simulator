@@ -60,7 +60,7 @@ OUTPUT_LOG = True      # set True to write a .log file for a single run (per-tea
 LOG_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Output")
 
 # Enemy setup — shared across all teams
-EnemyElement = Element.PHYSICAL
+EnemyElement = Element.FIRE
 FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
@@ -75,282 +75,291 @@ ENEMY_MODULE = FiveEnemyModule
 #               Build characters fresh here — relics/LCs go inside.
 # ============================================================
 
-def team_Evanescia_ElationMC_YaoGuang_Pearl():
+def team_Sparxie_ElationMC_YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Huohuo():
+def team_Sparxie_Sparkle_YaoGuang_Huohuo():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Huohuo_e1():
+def team_Sparxie_Sparkle_YaoGuang_Huohuo_e1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=1)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_Sparxie_YaoGuang_Pearl():
+def team_Sparxie_Sparkle_YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
-    s2 = Sparxie(1, Role.SUP1, 1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_e1s1Evanescia_ElationMC_YaoGuang_Huohuo():
+def team_Sparxie_ElationMC_YaoGuang_Huohuo():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=1)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_e1s1Evanescia_ElationMC_YaoGuang_Huohuo_e1():
+def team_Sparxie_ElationMC_YaoGuang_Huohuo_e1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=1)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=1)
     return s1, s2, s3, s4
 
-def team_e2s1Evanescia_ElationMC_YaoGuang_Huohuo():
+def team_e2s1Sparxie_Sparkle_YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=2)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=2)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1Sparxie_Sparkle_YaoGuang_Huohuo():
+
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=2)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_e2s1Evanescia_ElationMC_YaoGuang_Huohuo_e1():
+def team_e2s1Sparxie_Sparkle_YaoGuang_Huohuo_e1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=2)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=2)
+    s2 = Sparkle(1, Role.SUP1, 1, eidolon=0)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = HuoHuo(3, Role.SUS,   1, eidolon=1)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle0s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle0s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1),eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle1s0():
+def team_Sparxie_ElationMC_YaoGuang_Pearle1s0():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=1)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle1s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle1s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=1)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle2s0():
+def team_Sparxie_ElationMC_YaoGuang_Pearle2s0():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=2)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle2s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle2s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=2)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle3s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle3s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=3)
     return s1, s2, s3, s4
-def team_Evanescia_ElationMC_YaoGuang_Pearle4s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+def team_Sparxie_ElationMC_YaoGuang_Pearle4s1():
+
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=4)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle5s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle5s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=5)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_Pearle6s1():
+def team_Sparxie_ElationMC_YaoGuang_Pearle6s1():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1), eidolon=6)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_EaglePearl():
+def team_Sparxie_ElationMC_YaoGuang_EaglePearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, r1=Relics.EagleOfTwilightLine.EagleOfTwilightLine(Role.SUS,4),eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_BrokenKeelPearl():
+def team_Sparxie_ElationMC_YaoGuang_BrokenKeelPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, pl=Planars.BrokenKeel.BrokenKeel(Role.SUS), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_YGLCPearl():
+def team_Sparxie_ElationMC_YaoGuang_YGLCPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUS,1), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_EVALCPearl():
+def team_Sparxie_ElationMC_YaoGuang_EVALCPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.UntilTheFlowersBloomAgain.UntilTheFlowersBloomAgain(Role.SUS,1,180), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_BrimmingPearl():
+def team_Sparxie_ElationMC_YaoGuang_BrimmingPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, lc=Lightcones.Elation.ElationBrimmingWithBlessings.ElationBrimmingWithBlessingsElationMC(Role.SUS,5), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_OGHChestPearl():
+def team_Sparxie_ElationMC_YaoGuang_OGHChestPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, subs=RelicStats(10, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_DMGOrbPearl():
+def team_Sparxie_ElationMC_YaoGuang_DMGOrbPearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, subs=RelicStats(10, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT, StatTypes.SPD, StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_YaoGuang_DEFRopePearl():
+def team_Sparxie_ElationMC_YaoGuang_DEFRopePearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, subs=RelicStats(10, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT, StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.DEF_PERCENT), eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanesciae0s0_ElationMC_YaoGuang_Pearl():
+def team_Sparxie_ElationMC_e0s1YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, lc=Lightcones.Elation.TomorrowTogether.TomorrowTogether(Role.DPS,5), eidolon=0)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Evanesciae1s0_ElationMC_YaoGuang_Pearl():
-
-    s1 = Evanescia(0, Role.DPS,   1, lc=Lightcones.Elation.TomorrowTogether.TomorrowTogether(Role.DPS,5), eidolon=1)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Evanesciae1s1_ElationMC_YaoGuang_Pearl():
-
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=1)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Evanesciae2s0_ElationMC_YaoGuang_Pearl():
-
-    s1 = Evanescia(0, Role.DPS,   1, lc=Lightcones.Elation.TomorrowTogether.TomorrowTogether(Role.DPS,5), eidolon=2)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Evanesciae2s1_ElationMC_YaoGuang_Pearl():
-
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=2)
-    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
-    return s1, s2, s3, s4
-
-def team_Evanescia_ElationMC_e0s1YaoGuang_Pearl():
-
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_e1s0YaoGuang_Pearl():
+def team_Sparxie_ElationMC_e1s0YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1,eidolon=1)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_e1s1YaoGuang_Pearl():
+def team_Sparxie_ElationMC_e1s1YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=1)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_e2s0YaoGuang_Pearl():
+def team_Sparxie_ElationMC_e2s0YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, eidolon=2)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
-def team_Evanescia_ElationMC_e2s1YaoGuang_Pearl():
+def team_Sparxie_ElationMC_e2s1YaoGuang_Pearl():
 
-    s1 = Evanescia(0, Role.DPS,   1, eidolon=0)
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=0)
     s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
     s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=2)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e0s0Sparxie_ElationMC_YaoGuang_Pearl():
+
+    s1 = Sparxie(0, Role.DPS,   1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresSparxie(Role.DPS, 5), eidolon=0)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s0Sparxie_ElationMC_YaoGuang_Pearl():
+
+    s1 = Sparxie(0, Role.DPS,   1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresSparxie(Role.DPS, 5), eidolon=1)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s1Sparxie_ElationMC_YaoGuang_Pearl():
+
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=1)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s0Sparxie_ElationMC_YaoGuang_Pearl():
+
+    s1 = Sparxie(0, Role.DPS,   1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresSparxie(Role.DPS, 5), eidolon=2)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1Sparxie_ElationMC_YaoGuang_Pearl():
+
+    s1 = Sparxie(0, Role.DPS,   1, eidolon=2)
+    s2 = ElationMC(1, Role.SUP1, 1, eidolon=6)
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=0)
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
     return s1, s2, s3, s4
 
@@ -358,10 +367,10 @@ def team_Evanescia_ElationMC_e2s1YaoGuang_Pearl():
 
 # ── Register teams here ──────────────────────────────────────
 TEAMS = [
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearl},
-    {"name": "Evanescia e0s1 | ElatiocMC e6s0 | Yao Guang e0s0 | Pearl e0s1",
-     "factory": team_Evanescia_ElationMC_YaoGuang_Pearle0s1},
+    {"name": "Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s0",
+     "factory": team_Sparxie_ElationMC_YaoGuang_Pearl},
+    {"name": "Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s1",
+     "factory": team_Sparxie_ElationMC_YaoGuang_Pearle0s1},
 
     # Add more teams here:
     # {"name": "My Team 3", "factory": team_my_team_3},

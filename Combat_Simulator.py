@@ -49,7 +49,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     attackRatio = atkRatio  # from Misc.py
     weaknesses = [Element.QUANTUM]
     actionOrder = [1, 1, 1]  # determines how many attacks enemies will have per turn
-    enemyModule = FiveEnemyModule
+    enemyModule = ThreeEnemyModule
     #enemyModule = EnemyModule(numEnemies, enemyLevel, enemyTypes, enemySPD, toughness, attackRatio, weaknesses, actionOrder)
     # Character Settings
 
@@ -80,7 +80,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
@@ -247,6 +247,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
         # Handle unit Turns
         if not unit.isChar():  # Enemy turn
+            dmg.addDebuffDMG(takeDebuffDMG(unit, playerTeam, teamBuffs, enemyDebuffs))
+
             numAttacks = unit.takeTurn()
             totalEnemyAttacks += numAttacks
             action = f"ACTION > [ENEMY] TotalAV: {simAV:.3f} | TurnAV: {av:.3f} | {unit.name} | {numAttacks} attacks"
@@ -290,8 +292,6 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
                 manualPrint(manualMode, msg)
             if run_stop:
                 break
-
-            dmg.addDebuffDMG(takeDebuffDMG(unit, playerTeam, teamBuffs, enemyDebuffs))
         elif unit.isChar() and not unit.isSummon():  # Character Turn
             if manualMode:
                 moveType, target = manualModule(spTracker, playerTeam, summons, eTeam, simAV, unit, "TURN")
@@ -573,7 +573,7 @@ if __name__ == "__main__":
         # next instance of characters matters for the result.
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -595,7 +595,7 @@ if __name__ == "__main__":
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
                 slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
