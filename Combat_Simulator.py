@@ -31,7 +31,7 @@ cycles = 5  # comment out this line if running the simulator from an external sc
 log = True
 manual = False
 
-EnemyElement = Element.PHYSICAL
+EnemyElement = Element.FIRE
 FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
@@ -80,8 +80,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     if all([a is None for a in [s1, s2, s3, s4]]):
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
-        slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -539,7 +539,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = True   # Set to True for multiple runs, False for single run
     numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -571,9 +571,9 @@ if __name__ == "__main__":
 
         # Build filename matching log format. So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -581,8 +581,7 @@ if __name__ == "__main__":
 
         teamDPAVList = []
         charDPAVDict = {}
-        CharTotalDmg = [0, 0, 0, 0, 0, 0, 0, 0]
-        CharDamageCycle = [0, 0, 0, 0, 0, 0, 0, 0]
+
 
         avLimit = cycles * 100 + 50
 
@@ -593,9 +592,9 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=1, targetPrio=Priority.DEFAULT)
+                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
@@ -614,13 +613,14 @@ if __name__ == "__main__":
                 runLine = f"Run {i+1:>4}: Team DPAV: {dpav:.3f}"
                 for char in team:
                     _, charTotalDMG = char.getTotalDMG()
-                    CharDamageCycle[k] = charTotalDMG - CharTotalDmg[k]
-                    CharTotalDmg[k] += CharDamageCycle[k]
-                    charDPAV = CharDamageCycle[k] / (avLimit)
+
+                    charDPAV = charTotalDMG / avLimit
+
                     if char.name not in charDPAVDict:
                         charDPAVDict[char.name] = []
+
                     charDPAVDict[char.name].append(charDPAV)
-                    k += 1
+
                     runLine += f" | {char.name}: {charDPAV:.3f}"
 
                 f.write(runLine + "\n")

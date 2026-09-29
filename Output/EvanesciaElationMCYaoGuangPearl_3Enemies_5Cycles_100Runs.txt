@@ -1,22 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 78356.841 | Evanescia: 60480.581 | ElationMC: 6046.606 | YaoGuang: 10967.521 | Pearl: 177.256
-Run    2: Team DPAV: 81807.197 | Evanescia: 3326.180 | ElationMC: 44.462 | YaoGuang: 68.204 | Pearl: -3.187
-Run    3: Team DPAV: 78552.755 | Evanescia: -3136.170 | ElationMC: -0.800 | YaoGuang: -117.395 | Pearl: -0.076
-Run    4: Team DPAV: 77997.782 | Evanescia: -748.356 | ElationMC: 70.804 | YaoGuang: 122.559 | Pearl: 0.021
-Run    5: Team DPAV: 84176.160 | Evanescia: 5621.842 | ElationMC: 116.109 | YaoGuang: 423.730 | Pearl: 10.818
-Run    6: Team DPAV: 78611.874 | Evanescia: -4858.390 | ElationMC: -153.074 | YaoGuang: -536.124 | Pearl: -10.819
-Run    7: Team DPAV: 78827.771 | Evanescia: 335.345 | ElationMC: -47.613 | YaoGuang: -60.989 | Pearl: -2.027
-Run    8: Team DPAV: 78138.534 | Evanescia: -718.121 | ElationMC: -2.801 | YaoGuang: 21.079 | Pearl: 1.788
-Run    9: Team DPAV: 81611.265 | Evanescia: 3099.029 | ElationMC: 71.111 | YaoGuang: 303.516 | Pearl: -0.926
-Run   10: Team DPAV: 78538.913 | Evanescia: -2916.169 | ElationMC: 22.809 | YaoGuang: -178.574 | Pearl: -0.418
-Run   11: Team DPAV: 81716.805 | Evanescia: 3022.505 | ElationMC: -43.050 | YaoGuang: 190.938 | Pearl: 1.620
-Run   12: Team DPAV: 82510.522 | Evanescia: 860.149 | ElationMC: 24.621 | YaoGuang: -79.425 | Pearl: 0.130
-Run   13: Team DPAV: 77322.126 | Evanescia: -4931.765 | ElationMC: -95.703 | YaoGuang: -166.341 | Pearl: 2.475
-Run   14: Team DPAV: 77671.117 | Evanescia: 183.759 | ElationMC: 99.674 | YaoGuang: 65.544 | Pearl: -2.926
-Run   15: Team DPAV: 80864.976 | Evanescia: 3188.648 | ElationMC: 5.760 | YaoGuang: 6.504 | Pearl: -1.175
-Run   16: Team DPAV: 77314.277 | Evanescia: -3436.951 | ElationMC: -103.932 | YaoGuang: -18.765 | Pearl: 3.071
-Run   17: Team DPAV: 80745.902 | Evanescia: 3279.064 | ElationMC: 98.172 | YaoGuang: 57.294 | Pearl: -2.905
-Run   18: Team DPAV: 81253.214 | Evanescia: 662.230 | ElationMC: -71.448 | YaoGuang: -84.922 | Pearl: 1.452
-Run   19: Team DPAV: 81495.557 | Evanescia: -184.329 | ElationMC: 157.749 | YaoGuang: 263.581 | Pearl: -0.537
+Run    1: Team DPAV: 86647.895 | Evanescia: 69734.172 | ElationMC: 7866.549 | YaoGuang: 8021.302 | Pearl: 255.754
+Run    2: Team DPAV: 90006.705 | Evanescia: 73206.650 | ElationMC: 7850.587 | YaoGuang: 7938.841 | Pearl: 251.939
+Run    3: Team DPAV: 85317.809 | Evanescia: 68898.177 | ElationMC: 7709.458 | YaoGuang: 7702.884 | Pearl: 259.380
+Run    4: Team DPAV: 87068.616 | Evanescia: 70385.299 | ElationMC: 7838.260 | YaoGuang: 7842.976 | Pearl: 243.719
+Run    5: Team DPAV: 84614.441 | Evanescia: 67907.716 | ElationMC: 7814.486 | YaoGuang: 7895.264 | Pearl: 240.901
+Run    6: Team DPAV: 89392.034 | Evanescia: 72858.508 | ElationMC: 7727.765 | YaoGuang: 7773.830 | Pearl: 253.973
+Run    7: Team DPAV: 90617.208 | Evanescia: 73742.422 | ElationMC: 7898.150 | YaoGuang: 7957.460 | Pearl: 253.955
+Run    8: Team DPAV: 89690.575 | Evanescia: 72952.793 | ElationMC: 7790.943 | YaoGuang: 7929.396 | Pearl: 253.855
+Run    9: Team DPAV: 83380.597 | Evanescia: 67657.353 | ElationMC: 7462.795 | YaoGuang: 7295.414 | Pearl: 239.334
+Run   10: Team DPAV: 88731.092 | Evanescia: 72304.159 | ElationMC: 7662.160 | YaoGuang: 7779.153 | Pearl: 256.651
+Run   11: Team DPAV: 89747.878 | Evanescia: 73082.244 | ElationMC: 7801.962 | YaoGuang: 7853.659 | Pearl: 251.978
+Run   12: Team DPAV: 88706.065 | Evanescia: 71859.996 | ElationMC: 7859.817 | YaoGuang: 7962.397 | Pearl: 256.348
+Run   13: Team DPAV: 86661.924 | Evanescia: 69789.739 | ElationMC: 7879.266 | YaoGuang: 7980.263 | Pearl: 253.968
+Run   14: Team DPAV: 90022.761 | Evanescia: 73273.073 | ElationMC: 7827.890 | YaoGuang: 7911.104 | Pearl: 252.005
+Run   15: Team DPAV: 90377.754 | Evanescia: 73800.125 | ElationMC: 7741.770 | YaoGuang: 7807.805 | Pearl: 254.015
+Run   16: Team DPAV: 85895.259 | Evanescia: 69196.289 | ElationMC: 7804.499 | YaoGuang: 7880.144 | Pearl: 251.720
+Run   17: Team DPAV: 85754.939 | Evanescia: 69043.557 | ElationMC: 7805.263 | YaoGuang: 7889.985 | Pearl: 253.527
+Run   18: Team DPAV: 85650.292 | Evanescia: 68932.090 | ElationMC: 7823.613 | YaoGuang: 7880.144 | Pearl: 251.839
+Run   19: Team DPAV: 85931.317 | Evanescia: 69267.980 | ElationMC: 7801.962 | YaoGuang: 7853.659 | Pearl: 249.681
+Run   20: Team DPAV: 86769.069 | Evanescia: 69969.866 | ElationMC: 7817.055 | YaoGuang: 7926.387 | Pearl: 268.006
+Run   21: Team DPAV: 85219.268 | Evanescia: 68498.135 | ElationMC: 7796.569 | YaoGuang: 7898.137 | Pearl: 253.369
+Run   22: Team DPAV: 90664.897 | Evanescia: 73792.151 | ElationMC: 7871.433 | YaoGuang: 7981.851 | Pearl: 255.874
+Run   23: Team DPAV: 89507.021 | Evanescia: 72834.176 | ElationMC: 7798.520 | YaoGuang: 7852.318 | Pearl: 253.521
+Run   24: Team DPAV: 85576.636 | Evanescia: 68856.698 | ElationMC: 7823.613 | YaoGuang: 7880.144 | Pearl: 253.574
+Run   25: Team DPAV: 86008.026 | Evanescia: 69280.698 | ElationMC: 7819.000 | YaoGuang: 7894.022 | Pearl: 242.881
+Run   26: Team DPAV: 85652.903 | Evanescia: 69136.916 | ElationMC: 7750.784 | YaoGuang: 7746.423 | Pearl: 253.885
+Run   27: Team DPAV: 86583.388 | Evanescia: 69995.836 | ElationMC: 7719.151 | YaoGuang: 7836.579 | Pearl: 258.764
+Run   28: Team DPAV: 85296.903 | Evanescia: 68685.330 | ElationMC: 7760.856 | YaoGuang: 7832.315 | Pearl: 251.875
+Run   29: Team DPAV: 88234.941 | Evanescia: 71691.136 | ElationMC: 7724.034 | YaoGuang: 7788.448 | Pearl: 253.367
+Run   30: Team DPAV: 90327.279 | Evanescia: 73949.477 | ElationMC: 7680.003 | YaoGuang: 7726.799 | Pearl: 245.951
+Run   31: Team DPAV: 92903.161 | Evanescia: 76062.412 | ElationMC: 7912.446 | YaoGuang: 7915.015 | Pearl: 256.233
+Run   32: Team DPAV: 90656.702 | Evanescia: 73823.114 | ElationMC: 7903.035 | YaoGuang: 7918.009 | Pearl: 253.856
+Run   33: Team DPAV: 83725.128 | Evanescia: 67388.420 | ElationMC: 7617.943 | YaoGuang: 7719.086 | Pearl: 240.990
+Run   34: Team DPAV: 85632.270 | Evanescia: 68912.384 | ElationMC: 7823.613 | YaoGuang: 7880.144 | Pearl: 253.522
+Run   35: Team DPAV: 88793.378 | Evanescia: 72079.707 | ElationMC: 7817.397 | YaoGuang: 7880.144 | Pearl: 253.522
+Run   36: Team DPAV: 89519.624 | Evanescia: 72808.436 | ElationMC: 7806.184 | YaoGuang: 7890.334 | Pearl: 252.063
+Run   37: Team DPAV: 89675.173 | Evanescia: 72854.193 | ElationMC: 7869.700 | YaoGuang: 7938.841 | Pearl: 253.751
+Run   38: Team DPAV: 85553.311 | Evanescia: 68854.114 | ElationMC: 7802.831 | YaoGuang: 7880.144 | Pearl: 253.615
+Run   39: Team DPAV: 89202.650 | Evanescia: 72584.800 | ElationMC: 7795.577 | YaoGuang: 7806.116 | Pearl: 253.549
+Run   40: Team DPAV: 86104.259 | Evanescia: 69522.706 | ElationMC: 7734.217 | YaoGuang: 7819.737 | Pearl: 253.560
+Run   41: Team DPAV: 92626.211 | Evanescia: 75806.322 | ElationMC: 7886.394 | YaoGuang: 7913.472 | Pearl: 256.435
+Run   42: Team DPAV: 90143.649 | Evanescia: 73343.646 | ElationMC: 7850.587 | YaoGuang: 7938.841 | Pearl: 251.887
+Run   43: Team DPAV: 87125.525 | Evanescia: 70483.472 | ElationMC: 7760.213 | YaoGuang: 7845.285 | Pearl: 258.598
+Run   44: Team DPAV: 90579.766 | Evanescia: 73893.128 | ElationMC: 7839.279 | YaoGuang: 7802.070 | Pearl: 272.883
+Run   45: Team DPAV: 86037.105 | Evanescia: 69809.172 | ElationMC: 7572.211 | YaoGuang: 7633.160 | Pearl: 244.604
+Run   46: Team DPAV: 86810.828 | Evanescia: 69953.730 | ElationMC: 7896.557 | YaoGuang: 7938.717 | Pearl: 253.338
+Run   47: Team DPAV: 90865.533 | Evanescia: 74019.885 | ElationMC: 7898.717 | YaoGuang: 7940.811 | Pearl: 253.964
+Run   48: Team DPAV: 85528.504 | Evanescia: 68829.380 | ElationMC: 7802.831 | YaoGuang: 7880.144 | Pearl: 253.542
+Run   49: Team DPAV: 90602.431 | Evanescia: 74144.661 | ElationMC: 7682.522 | YaoGuang: 7743.585 | Pearl: 253.706
+Run   50: Team DPAV: 86282.907 | Evanescia: 69586.819 | ElationMC: 7794.127 | YaoGuang: 7889.818 | Pearl: 253.454
+Run   51: Team DPAV: 89725.345 | Evanescia: 72856.540 | ElationMC: 7899.332 | YaoGuang: 7949.140 | Pearl: 253.808
+Run   52: Team DPAV: 89418.521 | Evanescia: 72701.042 | ElationMC: 7813.404 | YaoGuang: 7891.723 | Pearl: 253.664
+Run   53: Team DPAV: 87640.024 | Evanescia: 71186.531 | ElationMC: 7699.754 | YaoGuang: 7734.491 | Pearl: 254.355
+Run   54: Team DPAV: 85471.538 | Evanescia: 68782.603 | ElationMC: 7786.595 | YaoGuang: 7866.485 | Pearl: 257.898
+Run   55: Team DPAV: 89599.252 | Evanescia: 72784.744 | ElationMC: 7863.485 | YaoGuang: 7938.841 | Pearl: 253.494
+Run   56: Team DPAV: 86811.515 | Evanescia: 70036.628 | ElationMC: 7844.184 | YaoGuang: 7911.326 | Pearl: 255.790
+Run   57: Team DPAV: 86868.256 | Evanescia: 69965.423 | ElationMC: 7942.638 | YaoGuang: 7952.585 | Pearl: 255.454
+Run   58: Team DPAV: 89471.375 | Evanescia: 72978.920 | ElationMC: 7732.490 | YaoGuang: 7734.389 | Pearl: 254.150
+Run   59: Team DPAV: 85327.162 | Evanescia: 68797.813 | ElationMC: 7709.468 | YaoGuang: 7788.448 | Pearl: 253.475
+Run   60: Team DPAV: 87014.194 | Evanescia: 70214.800 | ElationMC: 7851.085 | YaoGuang: 7898.994 | Pearl: 270.377
+Run   61: Team DPAV: 88212.674 | Evanescia: 71538.953 | ElationMC: 7795.079 | YaoGuang: 7858.695 | Pearl: 253.420
+Run   62: Team DPAV: 89724.286 | Evanescia: 73032.216 | ElationMC: 7787.071 | YaoGuang: 7890.334 | Pearl: 252.058
+Run   63: Team DPAV: 89979.616 | Evanescia: 73324.396 | ElationMC: 7799.017 | YaoGuang: 7852.281 | Pearl: 251.766
+Run   64: Team DPAV: 90054.591 | Evanescia: 73809.980 | ElationMC: 7656.304 | YaoGuang: 7609.188 | Pearl: 258.969
+Run   65: Team DPAV: 89397.344 | Evanescia: 72954.822 | ElationMC: 7728.822 | YaoGuang: 7696.042 | Pearl: 251.785
+Run   66: Team DPAV: 90894.679 | Evanescia: 74192.479 | ElationMC: 7799.742 | YaoGuang: 7868.753 | Pearl: 261.299
+Run   67: Team DPAV: 85258.544 | Evanescia: 68812.500 | ElationMC: 7756.048 | YaoGuang: 7679.310 | Pearl: 253.631
+Run   68: Team DPAV: 89491.366 | Evanescia: 72620.884 | ElationMC: 7899.332 | YaoGuang: 7949.140 | Pearl: 255.485
+Run   69: Team DPAV: 85841.999 | Evanescia: 69315.257 | ElationMC: 7747.670 | YaoGuang: 7763.824 | Pearl: 246.109
+Run   70: Team DPAV: 89517.608 | Evanescia: 72953.383 | ElationMC: 7750.784 | YaoGuang: 7794.811 | Pearl: 253.736
+Run   71: Team DPAV: 91903.979 | Evanescia: 75346.244 | ElationMC: 7779.230 | YaoGuang: 7763.096 | Pearl: 254.436
+Run   72: Team DPAV: 88887.509 | Evanescia: 72405.190 | ElationMC: 7715.206 | YaoGuang: 7802.453 | Pearl: 257.574
+Run   73: Team DPAV: 86164.282 | Evanescia: 69363.981 | ElationMC: 7884.868 | YaoGuang: 7872.483 | Pearl: 270.544
+Run   74: Team DPAV: 85423.397 | Evanescia: 68778.855 | ElationMC: 7765.947 | YaoGuang: 7858.695 | Pearl: 253.373
+Run   75: Team DPAV: 85522.804 | Evanescia: 68940.828 | ElationMC: 7781.229 | YaoGuang: 7790.315 | Pearl: 251.743
+Run   76: Team DPAV: 90465.513 | Evanescia: 73535.502 | ElationMC: 7923.100 | YaoGuang: 7986.390 | Pearl: 253.996
+Run   77: Team DPAV: 91046.606 | Evanescia: 74072.572 | ElationMC: 7975.284 | YaoGuang: 7990.894 | Pearl: 255.699
+Run   78: Team DPAV: 90302.922 | Evanescia: 73373.001 | ElationMC: 7923.100 | YaoGuang: 7986.390 | Pearl: 253.905
+Run   79: Team DPAV: 89785.705 | Evanescia: 73098.762 | ElationMC: 7836.689 | YaoGuang: 7840.702 | Pearl: 253.477
+Run   80: Team DPAV: 92417.252 | Evanescia: 75861.281 | ElationMC: 7853.428 | YaoGuang: 7715.958 | Pearl: 272.968
+Run   81: Team DPAV: 85865.573 | Evanescia: 69154.216 | ElationMC: 7805.263 | YaoGuang: 7889.985 | Pearl: 253.502
+Run   82: Team DPAV: 88496.695 | Evanescia: 71822.885 | ElationMC: 7795.079 | YaoGuang: 7858.695 | Pearl: 253.509
+Run   83: Team DPAV: 87215.496 | Evanescia: 70319.424 | ElationMC: 7907.697 | YaoGuang: 7956.973 | Pearl: 259.977
+Run   84: Team DPAV: 89865.441 | Evanescia: 73276.032 | ElationMC: 7760.280 | YaoGuang: 7807.704 | Pearl: 253.918
+Run   85: Team DPAV: 88541.000 | Evanescia: 71867.297 | ElationMC: 7795.079 | YaoGuang: 7858.695 | Pearl: 253.402
+Run   86: Team DPAV: 90472.003 | Evanescia: 73481.526 | ElationMC: 7946.956 | YaoGuang: 8029.286 | Pearl: 255.548
+Run   87: Team DPAV: 89182.198 | Evanescia: 72534.916 | ElationMC: 7814.371 | YaoGuang: 7819.254 | Pearl: 253.663
+Run   88: Team DPAV: 88709.302 | Evanescia: 72029.359 | ElationMC: 7801.294 | YaoGuang: 7858.695 | Pearl: 253.426
+Run   89: Team DPAV: 86325.377 | Evanescia: 69642.756 | ElationMC: 7841.710 | YaoGuang: 7797.890 | Pearl: 270.615
+Run   90: Team DPAV: 89801.742 | Evanescia: 73199.883 | ElationMC: 7809.724 | YaoGuang: 7788.123 | Pearl: 251.856
+Run   91: Team DPAV: 89629.472 | Evanescia: 73027.601 | ElationMC: 7809.724 | YaoGuang: 7788.123 | Pearl: 251.868
+Run   92: Team DPAV: 86719.559 | Evanescia: 69829.924 | ElationMC: 7900.868 | YaoGuang: 7970.588 | Pearl: 255.572
+Run   93: Team DPAV: 85763.240 | Evanescia: 69025.684 | ElationMC: 7852.828 | YaoGuang: 7846.930 | Pearl: 259.840
+Run   94: Team DPAV: 90217.240 | Evanescia: 73386.198 | ElationMC: 7865.223 | YaoGuang: 7961.654 | Pearl: 252.009
+Run   95: Team DPAV: 86510.641 | Evanescia: 69805.692 | ElationMC: 7800.965 | YaoGuang: 7848.004 | Pearl: 268.226
+Run   96: Team DPAV: 90600.342 | Evanescia: 73628.980 | ElationMC: 7945.419 | YaoGuang: 8007.838 | Pearl: 255.498
+Run   97: Team DPAV: 86105.222 | Evanescia: 69212.245 | ElationMC: 7898.380 | YaoGuang: 7980.263 | Pearl: 255.646
+Run   98: Team DPAV: 86429.204 | Evanescia: 69811.755 | ElationMC: 7825.845 | YaoGuang: 7772.337 | Pearl: 255.680
+Run   99: Team DPAV: 90952.768 | Evanescia: 74029.502 | ElationMC: 7936.216 | YaoGuang: 7970.588 | Pearl: 253.855
+Run  100: Team DPAV: 89450.110 | Evanescia: 72675.367 | ElationMC: 7841.166 | YaoGuang: 7917.393 | Pearl: 253.577
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 88169.161
+Average Evanescia DPAV: 71487.406 Percentage: 81.080%
+Average ElationMC DPAV: 7808.491 Percentage: 8.856%
+Average YaoGuang DPAV: 7856.578 Percentage: 8.911%
+Average Pearl DPAV: 254.523 Percentage: 0.289%
+
+Min Team DPAV: 83380.597
+Max Team DPAV: 92903.161

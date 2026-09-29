@@ -1037,9 +1037,10 @@ def addSummons(playerTeam: list[Character]) -> list:
         "ElationMC": "AhaElationMCGoGo",
         "Sparxie": "AhaSparxieGoGo",
         "Evanescia": "AhaEvanesciaGoGo",
+        "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
         "SilverWolf999": "AhaSilverWolf999GoGo"
     }
-    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "SilverWolf999"]
+    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "Aventurine Waveflair", "SilverWolf999"]
 
     for char in playerTeam:
         if char.name == "Topaz":
@@ -1108,6 +1109,15 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
         PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
         MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
+        enemyBroken = False
+        newDebuffs, newDelays = [], []
+        # if turn.moveName == "H7UltEnhancedBSC":
+        #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
+        if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
+            effectiveBase = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)
+        else:
+            effectiveBase = baseValue
+
         if currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
             pearl = findCharName(playerTeam, "Pearl")
             if pearl is not None:
@@ -1121,14 +1131,18 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 if charShredMul != 0:
                     enemyMul *= pearlShredMul / charShredMul
 
-        enemyBroken = False
-        newDebuffs, newDelays = [], []
-        # if turn.moveName == "H7UltEnhancedBSC":
-        #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
-        if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
-            effectiveBase = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)
-        else:
-            effectiveBase = baseValue
+        elif currTurn.moveName in ("YaoGuangTalentADD", "YaoGuangTalentADDSP"):
+            yaoGuang = findCharName(playerTeam, "YaoGuang")
+            if yaoGuang is not None:
+                yaoGuangBangerMul = getMulBANGER(yaoGuang, currEnemy, buffList, debuffList, currTurn)
+                charBangerMul = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
+                if charBangerMul != 0:
+                    BangerMUL *= yaoGuangBangerMul / charBangerMul
+
+                yaoGuangELA = getScalingValues(yaoGuang, buffList, currTurn.atkType, Scaling.ELA)
+                charELA = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)
+                if charELA < yaoGuangELA:
+                    effectiveBase = yaoGuangELA
 
         #if currTurn.atkType[0] == AtkType.ELABANGER: #(Ela Damage Debugger)
         #    print(f"ELA DEBUG | effectiveBase: {effectiveBase:.3f} | percentMul: {percentMultiplier:.3f} | PunchMUL: {PunchMUL:.3f} | MerryMUL: {MerryMUL:.3f} | enemyMul: {enemyMul:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f}")
@@ -1673,6 +1687,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 targetChar = findCharRole(playerTeam, specChar.targetRole)
                 targetHasElaSkill = targetChar.path == Path.ELATION
                 elaSkillTurnMap = {
+                    "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
                     "Pearl": "AhaPearlGoGo",
                     "Sparxie": "AhaSparxieGoGo",
                     "YaoGuang": "AhaYaoGuangGoGo",

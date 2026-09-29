@@ -232,7 +232,7 @@ class Pearl(Character):
             hl.append(Healing("PearlExtraBasicHeal", [e3HealingFlat, 0], Scaling.Other, Role.ALL, self.role,Targeting.SINGLE))
             if self.Banger >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                               Targeting.AOE, [AtkType.ELABANGER], [self.element],
+                               Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
                                [e3ElationMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELABasic"))
             tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
                            Targeting.AOE, [AtkType.ELABANGER], [self.element],
@@ -251,7 +251,7 @@ class Pearl(Character):
             hl.append(Healing("PearlExtraBasicHeal", [e3HealingMult, 0], self.scaling, Role.ALL, self.role, Targeting.SINGLE))
             hl.append(Healing("PearlExtraBasicHeal", [e3HealingFlat, 0], Scaling.Other, Role.ALL, self.role,Targeting.SINGLE))
             tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
-                           Targeting.SINGLE, [AtkType.ELABANGER], [self.element],
+                           Targeting.AOE, [AtkType.ELABANGER], [self.element],
                            [e3DPSElationMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlDPSELABasic"))
             if self.eidolon == 6:
                 tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
@@ -414,7 +414,7 @@ class Pearl(Character):
                 # "their next attack" per the ability text. Consume now.
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul*Character.ahaElaDMGBoost, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally1")
                 self.ally1Proc = False
             elif ally1IsSilverWolf:
@@ -438,7 +438,7 @@ class Pearl(Character):
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul*Character.ahaElaDMGBoost, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally2")
                 self.ally2Proc = False
             elif ally2IsSilverWolf:
@@ -453,7 +453,7 @@ class Pearl(Character):
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELAPUNCH], turn.element,
-                               [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
+                               [e5Mul*e4ExtraMul*Character.ahaElaDMGBoost, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELAPUNCH bonus for ally3")
                 self.ally3Proc = False
             elif ally3IsSilverWolf:
