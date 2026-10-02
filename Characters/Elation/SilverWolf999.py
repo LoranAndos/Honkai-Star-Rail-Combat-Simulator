@@ -78,7 +78,7 @@ class SilverWolf999(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 10, StatTypes.CR_PERCENT,
+        self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 12, StatTypes.CR_PERCENT,
                                                        StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
