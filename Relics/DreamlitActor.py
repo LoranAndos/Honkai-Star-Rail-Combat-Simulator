@@ -21,9 +21,9 @@ class DreamlitActor(Relic):
     def useUlt(self, enemyID = -1):
         bl, dbl, al, dl, hl, sl = super().useSkl()
         if self.setType == 4:
-            bl.append(Buff("DreamlitELA", StatTypes.ELA,0.16, self.targetRole,[AtkType.ALL],3,1,Role.SELF, TickDown.END))
+            bl.append(Buff(f"DreamlitELA{self.wearerRole}", StatTypes.ELA,0.16, self.targetRole,[AtkType.ALL],3,1,Role.SELF, TickDown.END))
             if self.ExtraBuff == True:
-                bl.append(Buff("DreamlitCD", StatTypes.CD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
+                bl.append(Buff(f"DreamlitCD{self.wearerRole}", StatTypes.CD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 3, 1, Role.SELF, TickDown.END))
         return bl, dbl, al, dl, hl, sl
 
     def specialStart(self, special: Special):
@@ -32,6 +32,12 @@ class DreamlitActor(Relic):
             if special.specialName == "Pearl" :
                 pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
                 self.targetRole = pearl.targetRole
+                self.BangerStat = special.attr5
+                if self.BangerStat >= 10:
+                    self.ExtraBuff = True
+            if special.specialName == "ElationMC" :
+                ElationMC = next((c for c in (Character._current_player_team or []) if c.name == "ElationMC"), None)
+                self.targetRole = ElationMC.targetRole
                 self.BangerStat = special.attr5
                 if self.BangerStat >= 10:
                     self.ExtraBuff = True

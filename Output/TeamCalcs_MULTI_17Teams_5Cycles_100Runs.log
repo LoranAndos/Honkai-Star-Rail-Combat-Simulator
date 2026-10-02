@@ -1,0 +1,15 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  17 team(s)
+======================================================================
+
+!!! ERROR during run_multi — partial results above (if any) are still valid !!!
+Traceback (most recent call last):
+  File "C:\Users\rapet\Documents\GitHub\Honkai-Star-Rail-Combat-Simulator\TeamCalcs.py", line 433, in run_multi
+    s1, s2, s3, s4 = team["factory"]()
+                     ~~~~~~~~~~~~~~~^^
+  File "C:\Users\rapet\Documents\GitHub\Honkai-Star-Rail-Combat-Simulator\TeamCalcs.py", line 221, in team_Evanescia_ElationMC_YaoGuang_Pearl
+    s4 = Pearl(3, Role.SUS,   1, r1=Relics.EagleOfTwilightLine(Role.SUS, 4),eidolon=0)
+                                    ^^^^^^
+NameError: name 'Relics' is not defined
+

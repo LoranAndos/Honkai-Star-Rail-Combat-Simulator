@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 170230.439 | Sparxie: 148999.403 | Sparkle: 0.000 | YaoGuang: 20775.887 | Pearl: 351.980
+Run    2: Team DPAV: 153170.478 | Sparxie: -15619.745 | Sparkle: 0.000 | YaoGuang: -1444.242 | Pearl: 8.604
+Run    3: Team DPAV: 162172.271 | Sparxie: 8341.873 | Sparkle: 0.000 | YaoGuang: 653.470 | Pearl: -7.100
+Run    4: Team DPAV: 158332.081 | Sparxie: -3504.462 | Sparkle: 0.000 | YaoGuang: -326.380 | Pearl: 0.737
+Run    5: Team DPAV: 161364.894 | Sparxie: 2195.701 | Sparkle: 0.000 | YaoGuang: 827.358 | Pearl: 0.782
+Run    6: Team DPAV: 161631.227 | Sparxie: 926.320 | Sparkle: 0.000 | YaoGuang: -660.811 | Pearl: 0.825
+Run    7: Team DPAV: 154732.802 | Sparxie: -6558.096 | Sparkle: 0.000 | YaoGuang: -340.644 | Pearl: 2.666
+Run    8: Team DPAV: 161852.623 | Sparxie: 6522.806 | Sparkle: 0.000 | YaoGuang: 597.767 | Pearl: -1.990
+Run    9: Team DPAV: 158342.983 | Sparxie: -3258.003 | Sparkle: 0.000 | YaoGuang: -256.040 | Pearl: 2.175
+Run   10: Team DPAV: 151223.487 | Sparxie: -6299.519 | Sparkle: 0.000 | YaoGuang: -818.948 | Pearl: -1.030
+Run   11: Team DPAV: 165553.811 | Sparxie: 13216.262 | Sparkle: 0.000 | YaoGuang: 1117.424 | Pearl: -2.248
+Run   12: Team DPAV: 170990.094 | Sparxie: 4844.477 | Sparkle: 0.000 | YaoGuang: 594.007 | Pearl: -2.200
+Run   13: Team DPAV: 158828.858 | Sparxie: -11177.290 | Sparkle: 0.000 | YaoGuang: -987.107 | Pearl: 2.048
+Run   14: Team DPAV: 166158.347 | Sparxie: 6646.023 | Sparkle: 0.000 | YaoGuang: 694.395 | Pearl: -1.958
+Run   15: Team DPAV: 158789.207 | Sparxie: -6810.851 | Sparkle: 0.000 | YaoGuang: -546.375 | Pearl: -17.421
+Run   16: Team DPAV: 170953.746 | Sparxie: 11460.114 | Sparkle: 0.000 | YaoGuang: 694.105 | Pearl: 15.826
+Run   17: Team DPAV: 155227.801 | Sparxie: -14536.543 | Sparkle: 0.000 | YaoGuang: -1201.674 | Pearl: 4.538
+Run   18: Team DPAV: 171572.531 | Sparxie: 14972.771 | Sparkle: 0.000 | YaoGuang: 1382.763 | Pearl: -3.070
+Run   19: Team DPAV: 157294.873 | Sparxie: -13064.079 | Sparkle: 0.000 | YaoGuang: -1203.534 | Pearl: -15.552
+Run   20: Team DPAV: 154638.400 | Sparxie: -2423.920 | Sparkle: 0.000 | YaoGuang: -255.040 | Pearl: 20.260
+Run   21: Team DPAV: 165910.648 | Sparxie: 10163.555 | Sparkle: 0.000 | YaoGuang: 1109.954 | Pearl: -2.499
+Run   22: Team DPAV: 168500.922 | Sparxie: 2176.531 | Sparkle: 0.000 | YaoGuang: 424.839 | Pearl: -2.124
+Run   23: Team DPAV: 165908.829 | Sparxie: -2287.476 | Sparkle: 0.000 | YaoGuang: -315.094 | Pearl: 1.506
+Run   24: Team DPAV: 162214.218 | Sparxie: -3393.999 | Sparkle: 0.000 | YaoGuang: -303.020 | Pearl: 2.408
+Run   25: Team DPAV: 163872.918 | Sparxie: 1763.876 | Sparkle: 0.000 | YaoGuang: -101.575 | Pearl: -2.488
+Run   26: Team DPAV: 164344.413 | Sparxie: 515.286 | Sparkle: 0.000 | YaoGuang: -44.422 | Pearl: 0.632
+Run   27: Team DPAV: 161949.747 | Sparxie: -2411.569 | Sparkle: 0.000 | YaoGuang: 28.989 | Pearl: -3.115
+Run   28: Team DPAV: 166775.117 | Sparxie: 4518.163 | Sparkle: 0.000 | YaoGuang: 295.197 | Pearl: 3.935
+Run   29: Team DPAV: 153329.419 | Sparxie: -12157.393 | Sparkle: 0.000 | YaoGuang: -1292.353 | Pearl: 2.037
+Run   30: Team DPAV: 164618.948 | Sparxie: 10199.829 | Sparkle: 0.000 | YaoGuang: 1103.194 | Pearl: -3.409
+Run   31: Team DPAV: 166956.008 | Sparxie: 1989.687 | Sparkle: 0.000 | YaoGuang: 349.047 | Pearl: -2.788
+Run   32: Team DPAV: 156582.250 | Sparxie: -9112.680 | Sparkle: 0.000 | YaoGuang: -1255.055 | Pearl: -10.416
+Run   33: Team DPAV: 164219.010 | Sparxie: 6511.850 | Sparkle: 0.000 | YaoGuang: 1105.931 | Pearl: 15.515
+Run   34: Team DPAV: 161060.147 | Sparxie: -2575.354 | Sparkle: 0.000 | YaoGuang: -583.397 | Pearl: -1.226
+Run   35: Team DPAV: 170821.871 | Sparxie: 8710.986 | Sparkle: 0.000 | YaoGuang: 1053.399 | Pearl: -2.661
+Run   36: Team DPAV: 159405.517 | Sparxie: -10205.940 | Sparkle: 0.000 | YaoGuang: -1193.172 | Pearl: -10.314
+Run   37: Team DPAV: 168022.857 | Sparxie: 8174.068 | Sparkle: 0.000 | YaoGuang: 425.384 | Pearl: 12.072
+Run   38: Team DPAV: 163299.406 | Sparxie: -4654.841 | Sparkle: 0.000 | YaoGuang: -70.380 | Pearl: 0.657
+Run   39: Team DPAV: 163099.775 | Sparxie: -112.182 | Sparkle: 0.000 | YaoGuang: -88.965 | Pearl: 1.516
+Run   40: Team DPAV: 154679.272 | Sparxie: -7931.664 | Sparkle: 0.000 | YaoGuang: -485.482 | Pearl: 0.108
+Run   41: Team DPAV: 163865.909 | Sparxie: 8530.659 | Sparkle: 0.000 | YaoGuang: 664.990 | Pearl: -3.506
+Run   42: Team DPAV: 161753.758 | Sparxie: -1990.772 | Sparkle: 0.000 | YaoGuang: -128.287 | Pearl: -2.064
+Run   43: Team DPAV: 154173.863 | Sparxie: -6902.652 | Sparkle: 0.000 | YaoGuang: -679.966 | Pearl: 7.302
+Run   44: Team DPAV: 158202.857 | Sparxie: 3991.203 | Sparkle: 0.000 | YaoGuang: 55.427 | Pearl: -16.523
+Run   45: Team DPAV: 164384.652 | Sparxie: 5559.436 | Sparkle: 0.000 | YaoGuang: 664.360 | Pearl: -39.867
+Run   46: Team DPAV: 167002.454 | Sparxie: 2046.132 | Sparkle: 0.000 | YaoGuang: 521.275 | Pearl: 51.540
+Run   47: Team DPAV: 154131.131 | Sparxie: -11586.988 | Sparkle: 0.000 | YaoGuang: -1296.226 | Pearl: 2.920
+Run   48: Team DPAV: 162162.571 | Sparxie: 7483.296 | Sparkle: 0.000 | YaoGuang: 550.003 | Pearl: -1.860
+Run   49: Team DPAV: 164932.524 | Sparxie: 2807.748 | Sparkle: 0.000 | YaoGuang: -36.699 | Pearl: 1.131
+Run   50: Team DPAV: 165548.135 | Sparxie: 323.043 | Sparkle: 0.000 | YaoGuang: 292.927 | Pearl: 0.755
+Run   51: Team DPAV: 168197.357 | Sparxie: 1952.292 | Sparkle: 0.000 | YaoGuang: 736.696 | Pearl: -37.632
+Run   52: Team DPAV: 172057.639 | Sparxie: 3736.779 | Sparkle: 0.000 | YaoGuang: 94.359 | Pearl: 32.641
+Run   53: Team DPAV: 172232.028 | Sparxie: 282.809 | Sparkle: 0.000 | YaoGuang: -109.817 | Pearl: 1.397
+Run   54: Team DPAV: 159596.200 | Sparxie: -11422.996 | Sparkle: 0.000 | YaoGuang: -1224.977 | Pearl: 3.174
+Run   55: Team DPAV: 154592.662 | Sparxie: -5031.069 | Sparkle: 0.000 | YaoGuang: 28.296 | Pearl: -0.765
+Run   56: Team DPAV: 162201.772 | Sparxie: 7013.652 | Sparkle: 0.000 | YaoGuang: 599.352 | Pearl: -3.893
+Run   57: Team DPAV: 165382.068 | Sparxie: 3010.453 | Sparkle: 0.000 | YaoGuang: 168.166 | Pearl: 1.676
+Run   58: Team DPAV: 153553.171 | Sparxie: -10612.185 | Sparkle: 0.000 | YaoGuang: -1218.117 | Pearl: 2.519
+Run   59: Team DPAV: 164526.397 | Sparxie: 9853.410 | Sparkle: 0.000 | YaoGuang: 1130.412 | Pearl: -2.739
+Run   60: Team DPAV: 169842.499 | Sparxie: 5000.289 | Sparkle: 0.000 | YaoGuang: 326.131 | Pearl: -16.938
+Run   61: Team DPAV: 149013.680 | Sparxie: -19422.633 | Sparkle: 0.000 | YaoGuang: -1429.811 | Pearl: 23.625
+Run   62: Team DPAV: 162040.504 | Sparxie: 12159.913 | Sparkle: 0.000 | YaoGuang: 881.025 | Pearl: -7.493
+Run   63: Team DPAV: 171987.686 | Sparxie: 9124.156 | Sparkle: 0.000 | YaoGuang: 811.702 | Pearl: 2.353
+Run   64: Team DPAV: 170276.005 | Sparxie: -1241.356 | Sparkle: 0.000 | YaoGuang: -458.488 | Pearl: -2.866
+Run   65: Team DPAV: 162880.130 | Sparxie: -7150.357 | Sparkle: 0.000 | YaoGuang: -239.437 | Pearl: -10.474
+Run   66: Team DPAV: 161437.232 | Sparxie: -1245.884 | Sparkle: 0.000 | YaoGuang: -215.320 | Pearl: 14.841
+Run   67: Team DPAV: 163003.932 | Sparxie: 1541.638 | Sparkle: 0.000 | YaoGuang: 41.781 | Pearl: -12.016
+Run   68: Team DPAV: 158355.474 | Sparxie: -4668.267 | Sparkle: 0.000 | YaoGuang: 1.081 | Pearl: 12.913
+Run   69: Team DPAV: 162479.658 | Sparxie: 4201.568 | Sparkle: 0.000 | YaoGuang: -56.890 | Pearl: -17.029
+Run   70: Team DPAV: 156832.154 | Sparxie: -5213.564 | Sparkle: 0.000 | YaoGuang: -434.467 | Pearl: 2.878
+Run   71: Team DPAV: 158055.892 | Sparxie: 924.888 | Sparkle: 0.000 | YaoGuang: 279.162 | Pearl: 17.213
+Run   72: Team DPAV: 162879.650 | Sparxie: 4736.216 | Sparkle: 0.000 | YaoGuang: 85.690 | Pearl: -1.489
+Run   73: Team DPAV: 160130.369 | Sparxie: -2908.330 | Sparkle: 0.000 | YaoGuang: 175.052 | Pearl: -7.032
+Run   74: Team DPAV: 160848.481 | Sparxie: 999.073 | Sparkle: 0.000 | YaoGuang: -292.390 | Pearl: 4.686
+Run   75: Team DPAV: 159306.514 | Sparxie: -1560.299 | Sparkle: 0.000 | YaoGuang: 17.082 | Pearl: -0.977
+Run   76: Team DPAV: 161649.113 | Sparxie: 2249.503 | Sparkle: 0.000 | YaoGuang: 113.087 | Pearl: -15.412
+Run   77: Team DPAV: 162185.915 | Sparxie: 372.540 | Sparkle: 0.000 | YaoGuang: 156.034 | Pearl: 13.735
+Run   78: Team DPAV: 162613.174 | Sparxie: 554.690 | Sparkle: 0.000 | YaoGuang: -137.352 | Pearl: 0.733
+Run   79: Team DPAV: 159050.000 | Sparxie: -3429.684 | Sparkle: 0.000 | YaoGuang: -123.044 | Pearl: -2.371
+Run   80: Team DPAV: 157110.212 | Sparxie: -1752.433 | Sparkle: 0.000 | YaoGuang: -199.291 | Pearl: 5.192
+Run   81: Team DPAV: 167503.613 | Sparxie: 9745.933 | Sparkle: 0.000 | YaoGuang: 665.284 | Pearl: -16.579
+Run   82: Team DPAV: 162642.786 | Sparxie: -4574.216 | Sparkle: 0.000 | YaoGuang: -304.413 | Pearl: 15.450
+Run   83: Team DPAV: 161842.118 | Sparxie: -758.326 | Sparkle: 0.000 | YaoGuang: -42.172 | Pearl: -0.170
+Run   84: Team DPAV: 168144.196 | Sparxie: 6133.141 | Sparkle: 0.000 | YaoGuang: 191.384 | Pearl: -18.084
+Run   85: Team DPAV: 169294.114 | Sparxie: 585.169 | Sparkle: 0.000 | YaoGuang: 542.957 | Pearl: 17.429
+Run   86: Team DPAV: 160459.093 | Sparxie: -7622.656 | Sparkle: 0.000 | YaoGuang: -1191.183 | Pearl: -17.933
+Run   87: Team DPAV: 162619.212 | Sparxie: 1635.025 | Sparkle: 0.000 | YaoGuang: 503.124 | Pearl: 17.607
+Run   88: Team DPAV: 166437.168 | Sparxie: 3402.357 | Sparkle: 0.000 | YaoGuang: 426.739 | Pearl: -2.169
+Run   89: Team DPAV: 167133.103 | Sparxie: 695.481 | Sparkle: 0.000 | YaoGuang: 1.118 | Pearl: -0.664
+Run   90: Team DPAV: 159037.034 | Sparxie: -7480.798 | Sparkle: 0.000 | YaoGuang: -626.171 | Pearl: 4.155
+Run   91: Team DPAV: 165199.922 | Sparxie: 5657.019 | Sparkle: 0.000 | YaoGuang: 503.771 | Pearl: -0.129
+Run   92: Team DPAV: 165249.615 | Sparxie: -132.873 | Sparkle: 0.000 | YaoGuang: 182.545 | Pearl: 0.021
+Run   93: Team DPAV: 163117.614 | Sparxie: -1483.893 | Sparkle: 0.000 | YaoGuang: -627.700 | Pearl: -16.944
+Run   94: Team DPAV: 152919.672 | Sparxie: -9878.659 | Sparkle: 0.000 | YaoGuang: -319.754 | Pearl: 2.823
+Run   95: Team DPAV: 159923.787 | Sparxie: 6781.596 | Sparkle: 0.000 | YaoGuang: 202.718 | Pearl: 13.985
+Run   96: Team DPAV: 164908.478 | Sparxie: 4389.063 | Sparkle: 0.000 | YaoGuang: 596.293 | Pearl: 1.562
+Run   97: Team DPAV: 152585.272 | Sparxie: -11243.637 | Sparkle: 0.000 | YaoGuang: -1078.611 | Pearl: -2.072
+Run   98: Team DPAV: 172835.454 | Sparxie: 18962.119 | Sparkle: 0.000 | YaoGuang: 1287.631 | Pearl: -0.681
+Run   99: Team DPAV: 160898.852 | Sparxie: -11354.493 | Sparkle: 0.000 | YaoGuang: -555.401 | Pearl: -14.272
+Run  100: Team DPAV: 157870.070 | Sparxie: -2720.969 | Sparkle: 0.000 | YaoGuang: -335.392 | Pearl: 19.721
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 162297.288
+Average Sparxie DPAV: 1378.063 Percentage: 0.849%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average YaoGuang DPAV: 195.957 Percentage: 0.121%
+Average Pearl DPAV: 3.606 Percentage: 0.002%
+
+Min Team DPAV: 149013.680
+Max Team DPAV: 172835.454

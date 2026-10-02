@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 70817.743 | Evanescia: 35309.705 | Sparxie: 18272.463 | YaoGuang: 13260.498 | MortenaxBlade: 2925.783
+Run    2: Team DPAV: 72897.609 | Evanescia: 895.592 | Sparxie: -233.221 | YaoGuang: 724.318 | MortenaxBlade: 564.285
+Run    3: Team DPAV: 72149.241 | Evanescia: -58.151 | Sparxie: 131.799 | YaoGuang: -448.733 | MortenaxBlade: -378.271
+Run    4: Team DPAV: 69794.819 | Evanescia: -1195.239 | Sparxie: -61.471 | YaoGuang: -475.874 | MortenaxBlade: -532.435
+Run    5: Team DPAV: 71665.676 | Evanescia: 528.446 | Sparxie: 634.515 | YaoGuang: 462.470 | MortenaxBlade: 260.756
+Run    6: Team DPAV: 70196.250 | Evanescia: -1112.689 | Sparxie: -662.033 | YaoGuang: 52.415 | MortenaxBlade: 174.771
+Run    7: Team DPAV: 70929.054 | Evanescia: 525.114 | Sparxie: 580.130 | YaoGuang: 21.309 | MortenaxBlade: -384.490
+Run    8: Team DPAV: 69949.300 | Evanescia: -908.099 | Sparxie: -583.640 | YaoGuang: -194.543 | MortenaxBlade: 691.773
+Run    9: Team DPAV: 75940.765 | Evanescia: 5139.359 | Sparxie: 806.215 | YaoGuang: 124.240 | MortenaxBlade: -20.792
+Run   10: Team DPAV: 74362.333 | Evanescia: -1535.201 | Sparxie: 178.246 | YaoGuang: -140.302 | MortenaxBlade: -55.128
+Run   11: Team DPAV: 69989.479 | Evanescia: -3356.246 | Sparxie: -908.656 | YaoGuang: -75.030 | MortenaxBlade: -32.922
+Run   12: Team DPAV: 76513.980 | Evanescia: 5897.304 | Sparxie: 278.980 | YaoGuang: 224.364 | MortenaxBlade: 78.134
+Run   13: Team DPAV: 70141.052 | Evanescia: -5752.392 | Sparxie: -125.920 | YaoGuang: -339.721 | MortenaxBlade: -109.176
+Run   14: Team DPAV: 71582.705 | Evanescia: 613.818 | Sparxie: 412.231 | YaoGuang: 384.562 | MortenaxBlade: 31.042
+Run   15: Team DPAV: 70737.901 | Evanescia: -251.876 | Sparxie: -108.376 | YaoGuang: -175.381 | MortenaxBlade: -373.679
+Run   16: Team DPAV: 72108.329 | Evanescia: 1642.322 | Sparxie: -572.233 | YaoGuang: -94.765 | MortenaxBlade: 433.566
+Run   17: Team DPAV: 74770.283 | Evanescia: 1999.737 | Sparxie: 914.165 | YaoGuang: 292.486 | MortenaxBlade: -512.891
+Run   18: Team DPAV: 75272.537 | Evanescia: -1678.930 | Sparxie: 495.052 | YaoGuang: 785.580 | MortenaxBlade: 797.277
+Run   19: Team DPAV: 69150.868 | Evanescia: -3055.396 | Sparxie: -1015.743 | YaoGuang: -1181.387 | MortenaxBlade: -771.362
+Run   20: Team DPAV: 71709.421 | Evanescia: 1531.671 | Sparxie: 4.858 | YaoGuang: 570.945 | MortenaxBlade: 366.899
+Run   21: Team DPAV: 69639.596 | Evanescia: -930.925 | Sparxie: -769.510 | YaoGuang: -537.992 | MortenaxBlade: 163.684
+Run   22: Team DPAV: 73033.110 | Evanescia: 3083.654 | Sparxie: 1169.024 | YaoGuang: -99.327 | MortenaxBlade: -684.394
+Run   23: Team DPAV: 75956.790 | Evanescia: 2306.549 | Sparxie: -22.211 | YaoGuang: 611.571 | MortenaxBlade: -31.764
+Run   24: Team DPAV: 69891.207 | Evanescia: -5237.042 | Sparxie: -434.436 | YaoGuang: -556.346 | MortenaxBlade: 240.926
+Run   25: Team DPAV: 76240.449 | Evanescia: 5213.213 | Sparxie: 475.146 | YaoGuang: 463.282 | MortenaxBlade: 172.957
+Run   26: Team DPAV: 69443.036 | Evanescia: -5875.120 | Sparxie: -614.904 | YaoGuang: -433.008 | MortenaxBlade: 131.114
+Run   27: Team DPAV: 69974.967 | Evanescia: 469.768 | Sparxie: -69.021 | YaoGuang: 212.168 | MortenaxBlade: -145.439
+Run   28: Team DPAV: 74014.427 | Evanescia: 3871.340 | Sparxie: 791.497 | YaoGuang: -193.349 | MortenaxBlade: -404.918
+Run   29: Team DPAV: 74102.352 | Evanescia: -1069.172 | Sparxie: -476.703 | YaoGuang: 710.019 | MortenaxBlade: 877.034
+Run   30: Team DPAV: 71475.864 | Evanescia: -1205.330 | Sparxie: -1016.400 | YaoGuang: -358.016 | MortenaxBlade: -46.741
+Run   31: Team DPAV: 72183.848 | Evanescia: -152.891 | Sparxie: 1508.340 | YaoGuang: 56.909 | MortenaxBlade: -604.629
+Run   32: Team DPAV: 70224.245 | Evanescia: -754.098 | Sparxie: -1058.628 | YaoGuang: -331.062 | MortenaxBlade: 154.838
+Run   33: Team DPAV: 71322.741 | Evanescia: 250.953 | Sparxie: 633.890 | YaoGuang: 82.421 | MortenaxBlade: 160.577
+Run   34: Team DPAV: 73862.208 | Evanescia: 2872.410 | Sparxie: 102.608 | YaoGuang: 29.752 | MortenaxBlade: -522.122
+Run   35: Team DPAV: 74754.647 | Evanescia: 771.437 | Sparxie: 51.325 | YaoGuang: -134.872 | MortenaxBlade: 177.764
+Run   36: Team DPAV: 72254.358 | Evanescia: -3019.234 | Sparxie: -231.122 | YaoGuang: 324.116 | MortenaxBlade: 415.305
+Run   37: Team DPAV: 71102.165 | Evanescia: -1518.325 | Sparxie: 134.255 | YaoGuang: 61.460 | MortenaxBlade: 175.570
+Run   38: Team DPAV: 69293.253 | Evanescia: 84.937 | Sparxie: -946.223 | YaoGuang: -582.319 | MortenaxBlade: -276.208
+Run   39: Team DPAV: 72984.031 | Evanescia: 1660.803 | Sparxie: 973.630 | YaoGuang: 803.367 | MortenaxBlade: 153.232
+Run   40: Team DPAV: 71625.724 | Evanescia: -61.951 | Sparxie: -510.258 | YaoGuang: -294.825 | MortenaxBlade: -479.472
+Run   41: Team DPAV: 70660.085 | Evanescia: -1087.428 | Sparxie: 394.806 | YaoGuang: -194.396 | MortenaxBlade: -0.511
+Run   42: Team DPAV: 70232.314 | Evanescia: 728.135 | Sparxie: -840.826 | YaoGuang: -472.715 | MortenaxBlade: 153.455
+Run   43: Team DPAV: 70288.389 | Evanescia: -1646.401 | Sparxie: 996.778 | YaoGuang: 586.268 | MortenaxBlade: 55.336
+Run   44: Team DPAV: 71168.234 | Evanescia: 1228.164 | Sparxie: -446.557 | YaoGuang: -225.627 | MortenaxBlade: 313.740
+Run   45: Team DPAV: 74163.955 | Evanescia: 3212.474 | Sparxie: -231.836 | YaoGuang: 277.148 | MortenaxBlade: -252.515
+Run   46: Team DPAV: 71808.798 | Evanescia: -3463.803 | Sparxie: 581.118 | YaoGuang: 154.440 | MortenaxBlade: 368.170
+Run   47: Team DPAV: 74170.188 | Evanescia: 3566.884 | Sparxie: -325.632 | YaoGuang: -374.354 | MortenaxBlade: -435.560
+Run   48: Team DPAV: 69744.709 | Evanescia: -4574.832 | Sparxie: 53.386 | YaoGuang: 8.362 | MortenaxBlade: 17.656
+Run   49: Team DPAV: 75330.959 | Evanescia: 4186.137 | Sparxie: 1075.026 | YaoGuang: 446.513 | MortenaxBlade: -106.672
+Run   50: Team DPAV: 73877.747 | Evanescia: -1508.586 | Sparxie: -442.839 | YaoGuang: 264.701 | MortenaxBlade: 202.616
+Run   51: Team DPAV: 69388.282 | Evanescia: -2813.255 | Sparxie: -1100.299 | YaoGuang: -857.231 | MortenaxBlade: 271.124
+Run   52: Team DPAV: 69705.439 | Evanescia: 883.398 | Sparxie: -127.667 | YaoGuang: 151.627 | MortenaxBlade: -564.438
+Run   53: Team DPAV: 74470.020 | Evanescia: 2130.727 | Sparxie: 1539.115 | YaoGuang: 701.910 | MortenaxBlade: 382.994
+Run   54: Team DPAV: 74357.867 | Evanescia: 1446.833 | Sparxie: -262.269 | YaoGuang: -670.391 | MortenaxBlade: -573.797
+Run   55: Team DPAV: 70067.174 | Evanescia: -3636.649 | Sparxie: -864.528 | YaoGuang: 113.534 | MortenaxBlade: 54.258
+Run   56: Team DPAV: 74385.653 | Evanescia: 3655.260 | Sparxie: 466.461 | YaoGuang: 86.121 | MortenaxBlade: 189.323
+Run   57: Team DPAV: 69062.475 | Evanescia: -4032.737 | Sparxie: -732.857 | YaoGuang: -445.442 | MortenaxBlade: -184.812
+Run   58: Team DPAV: 70184.847 | Evanescia: -259.870 | Sparxie: 641.392 | YaoGuang: 405.581 | MortenaxBlade: 352.104
+Run   59: Team DPAV: 72443.212 | Evanescia: 2276.414 | Sparxie: -3.630 | YaoGuang: -301.345 | MortenaxBlade: 257.012
+Run   60: Team DPAV: 72133.884 | Evanescia: -1592.440 | Sparxie: 607.329 | YaoGuang: 595.353 | MortenaxBlade: 88.071
+Run   61: Team DPAV: 72662.718 | Evanescia: 2105.251 | Sparxie: -1074.605 | YaoGuang: -387.634 | MortenaxBlade: -70.277
+Run   62: Team DPAV: 68082.438 | Evanescia: -3599.147 | Sparxie: -19.338 | YaoGuang: -449.815 | MortenaxBlade: -472.277
+Run   63: Team DPAV: 71922.592 | Evanescia: 2877.903 | Sparxie: 63.027 | YaoGuang: 398.310 | MortenaxBlade: 455.195
+Run   64: Team DPAV: 70440.113 | Evanescia: -1065.001 | Sparxie: -120.310 | YaoGuang: -147.484 | MortenaxBlade: -182.131
+Run   65: Team DPAV: 72130.855 | Evanescia: -19.704 | Sparxie: 1162.281 | YaoGuang: 468.154 | MortenaxBlade: 79.490
+Run   66: Team DPAV: 70244.801 | Evanescia: -1040.463 | Sparxie: -827.231 | YaoGuang: -233.374 | MortenaxBlade: 210.097
+Run   67: Team DPAV: 75264.835 | Evanescia: 4569.269 | Sparxie: 569.689 | YaoGuang: 262.094 | MortenaxBlade: -381.018
+Run   68: Team DPAV: 70393.646 | Evanescia: -4229.226 | Sparxie: -386.968 | YaoGuang: -362.532 | MortenaxBlade: 191.141
+Run   69: Team DPAV: 74215.007 | Evanescia: 1952.192 | Sparxie: 866.676 | YaoGuang: 614.900 | MortenaxBlade: 287.777
+Run   70: Team DPAV: 69498.401 | Evanescia: -2058.755 | Sparxie: -1349.759 | YaoGuang: -806.102 | MortenaxBlade: -485.779
+Run   71: Team DPAV: 71654.449 | Evanescia: 842.699 | Sparxie: 1170.881 | YaoGuang: 513.503 | MortenaxBlade: -340.951
+Run   72: Team DPAV: 73790.322 | Evanescia: 1697.981 | Sparxie: -436.661 | YaoGuang: 83.449 | MortenaxBlade: 754.715
+Run   73: Team DPAV: 74721.779 | Evanescia: 2203.401 | Sparxie: -148.046 | YaoGuang: -617.185 | MortenaxBlade: -424.964
+Run   74: Team DPAV: 68265.949 | Evanescia: -5555.741 | Sparxie: -288.789 | YaoGuang: -81.565 | MortenaxBlade: -588.228
+Run   75: Team DPAV: 74142.709 | Evanescia: 3752.364 | Sparxie: 638.483 | YaoGuang: 570.012 | MortenaxBlade: 956.509
+Run   76: Team DPAV: 75380.004 | Evanescia: 548.127 | Sparxie: 155.837 | YaoGuang: 389.180 | MortenaxBlade: 70.453
+Run   77: Team DPAV: 73663.117 | Evanescia: -98.299 | Sparxie: -177.666 | YaoGuang: -618.519 | MortenaxBlade: -795.328
+Run   78: Team DPAV: 67773.110 | Evanescia: -4520.657 | Sparxie: -1145.832 | YaoGuang: -485.674 | MortenaxBlade: 321.171
+Run   79: Team DPAV: 75970.129 | Evanescia: 6690.392 | Sparxie: 1086.737 | YaoGuang: 468.105 | MortenaxBlade: -106.943
+Run   80: Team DPAV: 78717.198 | Evanescia: 756.276 | Sparxie: 396.455 | YaoGuang: 906.066 | MortenaxBlade: 660.909
+Run   81: Team DPAV: 76178.151 | Evanescia: -1142.919 | Sparxie: -262.846 | YaoGuang: -446.743 | MortenaxBlade: -600.970
+Run   82: Team DPAV: 70008.024 | Evanescia: -5080.038 | Sparxie: -806.397 | YaoGuang: -369.616 | MortenaxBlade: 21.415
+Run   83: Team DPAV: 69864.375 | Evanescia: 109.743 | Sparxie: -99.911 | YaoGuang: -185.905 | MortenaxBlade: 33.001
+Run   84: Team DPAV: 71674.770 | Evanescia: 1323.247 | Sparxie: 339.605 | YaoGuang: 53.221 | MortenaxBlade: 89.925
+Run   85: Team DPAV: 74294.658 | Evanescia: 661.822 | Sparxie: 915.828 | YaoGuang: 623.116 | MortenaxBlade: 407.376
+Run   86: Team DPAV: 75724.179 | Evanescia: 2805.577 | Sparxie: -624.459 | YaoGuang: -542.105 | MortenaxBlade: -144.462
+Run   87: Team DPAV: 70643.143 | Evanescia: -4699.299 | Sparxie: -489.134 | YaoGuang: 44.548 | MortenaxBlade: 2.972
+Run   88: Team DPAV: 78041.640 | Evanescia: 5955.835 | Sparxie: 773.826 | YaoGuang: 681.859 | MortenaxBlade: -23.670
+Run   89: Team DPAV: 70862.074 | Evanescia: -6108.128 | Sparxie: -145.908 | YaoGuang: -693.096 | MortenaxBlade: -211.374
+Run   90: Team DPAV: 70207.968 | Evanescia: 437.726 | Sparxie: -993.765 | YaoGuang: -142.980 | MortenaxBlade: 49.254
+Run   91: Team DPAV: 72926.721 | Evanescia: 1379.112 | Sparxie: 568.575 | YaoGuang: 390.625 | MortenaxBlade: 354.969
+Run   92: Team DPAV: 74043.347 | Evanescia: 412.654 | Sparxie: 670.803 | YaoGuang: 289.821 | MortenaxBlade: -217.886
+Run   93: Team DPAV: 74856.078 | Evanescia: 1663.588 | Sparxie: -339.041 | YaoGuang: -251.704 | MortenaxBlade: -277.172
+Run   94: Team DPAV: 69006.862 | Evanescia: -4107.667 | Sparxie: -873.277 | YaoGuang: -619.175 | MortenaxBlade: -165.493
+Run   95: Team DPAV: 75414.650 | Evanescia: 4914.468 | Sparxie: 1362.990 | YaoGuang: 329.951 | MortenaxBlade: -224.787
+Run   96: Team DPAV: 70196.019 | Evanescia: -4395.265 | Sparxie: -707.979 | YaoGuang: -281.292 | MortenaxBlade: 185.576
+Run   97: Team DPAV: 71035.910 | Evanescia: 239.539 | Sparxie: -27.004 | YaoGuang: 292.260 | MortenaxBlade: 250.679
+Run   98: Team DPAV: 71376.155 | Evanescia: 399.310 | Sparxie: -39.819 | YaoGuang: -28.943 | MortenaxBlade: 94.113
+Run   99: Team DPAV: 77013.399 | Evanescia: 4183.977 | Sparxie: 823.188 | YaoGuang: 450.317 | MortenaxBlade: 101.076
+Run  100: Team DPAV: 70973.659 | Evanescia: -4804.189 | Sparxie: -302.249 | YaoGuang: -485.935 | MortenaxBlade: -388.353
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 72249.785
+Average Evanescia DPAV: 345.962 Percentage: 0.479%
+Average Sparxie DPAV: 189.820 Percentage: 0.263%
+Average YaoGuang DPAV: 134.536 Percentage: 0.186%
+Average MortenaxBlade DPAV: 28.438 Percentage: 0.039%
+
+Min Team DPAV: 67773.110
+Max Team DPAV: 78717.198

@@ -40,6 +40,7 @@ class Character(metaclass=CharacterMeta):
     aggro = 0
     Banger = 0
     _SharedPunchline_value = 0
+    # Elation extra Modifiers
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
@@ -50,6 +51,7 @@ class Character(metaclass=CharacterMeta):
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
+    # Team Modifiers
     _current_enemy_team = None
     _current_player_team = None
     _elation_characters_registry = {}

@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 85910.073 | Sparxie: 65193.322 | ElationMC: 7237.616 | YaoGuang: 11679.871 | Pearl: 1737.134
-Run    2: Team DPAV: 83503.349 | Sparxie: -1598.562 | ElationMC: -279.833 | YaoGuang: -461.061 | Pearl: -81.389
-Run    3: Team DPAV: 81781.230 | Sparxie: -1150.455 | ElationMC: -226.252 | YaoGuang: -332.288 | Pearl: -16.957
-Run    4: Team DPAV: 81349.568 | Sparxie: -1165.599 | ElationMC: 343.980 | YaoGuang: 373.988 | Pearl: 30.090
-Run    5: Team DPAV: 88155.752 | Sparxie: 6021.462 | ElationMC: 201.434 | YaoGuang: 495.517 | Pearl: 74.457
-Run    6: Team DPAV: 78958.496 | Sparxie: -7293.901 | ElationMC: -658.774 | YaoGuang: -1073.397 | Pearl: -164.124
-Run    7: Team DPAV: 88777.843 | Sparxie: 7963.223 | ElationMC: 635.643 | YaoGuang: 1056.195 | Pearl: 153.392
-Run    8: Team DPAV: 82995.974 | Sparxie: -4418.839 | ElationMC: -463.944 | YaoGuang: -794.080 | Pearl: -98.752
-Run    9: Team DPAV: 86041.643 | Sparxie: 2003.559 | ElationMC: 208.498 | YaoGuang: 761.653 | Pearl: 69.538
-Run   10: Team DPAV: 85039.739 | Sparxie: -679.540 | ElationMC: -266.702 | YaoGuang: -41.144 | Pearl: -12.097
-Run   11: Team DPAV: 88713.951 | Sparxie: 2949.327 | ElationMC: 435.746 | YaoGuang: 216.664 | Pearl: 68.440
-Run   12: Team DPAV: 83650.834 | Sparxie: -4391.358 | ElationMC: -216.030 | YaoGuang: -362.629 | Pearl: -90.680
-Run   13: Team DPAV: 85051.942 | Sparxie: 1819.750 | ElationMC: -220.468 | YaoGuang: -215.507 | Pearl: 16.526
-Run   14: Team DPAV: 81007.154 | Sparxie: -3505.417 | ElationMC: 76.578 | YaoGuang: -562.852 | Pearl: -53.096
-Run   15: Team DPAV: 85021.641 | Sparxie: 3549.231 | ElationMC: 137.061 | YaoGuang: 254.561 | Pearl: 71.212
-Run   16: Team DPAV: 83693.056 | Sparxie: -1908.469 | ElationMC: -73.853 | YaoGuang: 697.883 | Pearl: -47.172
-Run   17: Team DPAV: 91447.744 | Sparxie: 7030.770 | ElationMC: 265.561 | YaoGuang: 396.354 | Pearl: 67.450
-Run   18: Team DPAV: 90032.790 | Sparxie: -843.321 | ElationMC: 40.173 | YaoGuang: -600.149 | Pearl: -6.210
-Run   19: Team DPAV: 90313.767 | Sparxie: -701.632 | ElationMC: 149.668 | YaoGuang: 764.812 | Pearl: 58.043
-Run   20: Team DPAV: 87901.308 | Sparxie: -2181.335 | ElationMC: -38.857 | YaoGuang: -173.190 | Pearl: 2.709
-Run   21: Team DPAV: 82980.227 | Sparxie: -3283.212 | ElationMC: -380.895 | YaoGuang: -1152.140 | Pearl: -121.981
-Run   22: Team DPAV: 84484.169 | Sparxie: 779.472 | ElationMC: 222.886 | YaoGuang: 476.659 | Pearl: 30.372
-Run   23: Team DPAV: 84550.938 | Sparxie: -123.031 | ElationMC: -111.364 | YaoGuang: 285.161 | Pearl: 10.556
-Run   24: Team DPAV: 82218.035 | Sparxie: -1479.441 | ElationMC: -75.070 | YaoGuang: -787.165 | Pearl: 6.351
-Run   25: Team DPAV: 86756.132 | Sparxie: 3351.702 | ElationMC: 149.020 | YaoGuang: 1019.841 | Pearl: 14.509
-Run   26: Team DPAV: 86240.868 | Sparxie: 314.787 | ElationMC: -39.318 | YaoGuang: -794.530 | Pearl: 1.375
-Run   27: Team DPAV: 83989.520 | Sparxie: -1906.213 | ElationMC: -127.354 | YaoGuang: -170.932 | Pearl: -41.401
-Run   28: Team DPAV: 80227.664 | Sparxie: -3672.470 | ElationMC: -169.388 | YaoGuang: 141.283 | Pearl: -58.054
-Run   29: Team DPAV: 84785.597 | Sparxie: 4322.508 | ElationMC: 215.057 | YaoGuang: -54.659 | Pearl: 71.800
-Run   30: Team DPAV: 85897.963 | Sparxie: 248.639 | ElationMC: 332.841 | YaoGuang: 467.641 | Pearl: 79.585
-Run   31: Team DPAV: 82863.384 | Sparxie: -2216.154 | ElationMC: -447.852 | YaoGuang: -257.354 | Pearl: -126.331
-Run   32: Team DPAV: 87013.242 | Sparxie: 3032.593 | ElationMC: 220.565 | YaoGuang: 851.232 | Pearl: 46.275
-Run   33: Team DPAV: 83344.717 | Sparxie: -2233.548 | ElationMC: -295.765 | YaoGuang: -1083.324 | Pearl: -61.335
-Run   34: Team DPAV: 87350.395 | Sparxie: 3191.502 | ElationMC: 402.026 | YaoGuang: 303.605 | Pearl: 104.510
-Run   35: Team DPAV: 84733.003 | Sparxie: -2450.026 | ElationMC: -285.486 | YaoGuang: 185.222 | Pearl: -59.235
-Run   36: Team DPAV: 86195.574 | Sparxie: 210.429 | ElationMC: 537.532 | YaoGuang: 628.315 | Pearl: 98.801
-Run   37: Team DPAV: 86145.319 | Sparxie: 809.269 | ElationMC: -404.965 | YaoGuang: -393.152 | Pearl: -73.106
-Run   38: Team DPAV: 78225.591 | Sparxie: -6604.401 | ElationMC: -326.656 | YaoGuang: -908.336 | Pearl: -85.781
-Run   39: Team DPAV: 82557.393 | Sparxie: 3787.918 | ElationMC: 232.356 | YaoGuang: 281.208 | Pearl: 41.214
-Run   40: Team DPAV: 83846.641 | Sparxie: 1986.764 | ElationMC: -57.540 | YaoGuang: -639.818 | Pearl: -8.832
-Run   41: Team DPAV: 83314.439 | Sparxie: -978.501 | ElationMC: 12.167 | YaoGuang: 425.509 | Pearl: 11.043
-Run   42: Team DPAV: 86958.075 | Sparxie: 3106.143 | ElationMC: 174.206 | YaoGuang: 307.821 | Pearl: 53.044
-Run   43: Team DPAV: 83939.419 | Sparxie: -2910.507 | ElationMC: -235.886 | YaoGuang: 168.472 | Pearl: -39.120
-Run   44: Team DPAV: 88578.195 | Sparxie: 3773.852 | ElationMC: 392.590 | YaoGuang: 387.121 | Pearl: 84.405
-Run   45: Team DPAV: 84372.286 | Sparxie: -3641.301 | ElationMC: -256.616 | YaoGuang: -241.327 | Pearl: -69.690
-Run   46: Team DPAV: 83583.544 | Sparxie: -521.507 | ElationMC: 41.279 | YaoGuang: -335.634 | Pearl: 30.146
-Run   47: Team DPAV: 81405.842 | Sparxie: -1360.733 | ElationMC: -369.226 | YaoGuang: -340.246 | Pearl: -104.269
-Run   48: Team DPAV: 80357.887 | Sparxie: -998.249 | ElationMC: 161.342 | YaoGuang: -255.754 | Pearl: 40.672
-Run   49: Team DPAV: 83738.078 | Sparxie: 2304.200 | ElationMC: 166.023 | YaoGuang: 903.858 | Pearl: 9.338
-Run   50: Team DPAV: 84472.518 | Sparxie: 628.400 | ElationMC: 75.102 | YaoGuang: -18.953 | Pearl: 47.470
-Run   51: Team DPAV: 84421.137 | Sparxie: -132.464 | ElationMC: -27.506 | YaoGuang: 138.811 | Pearl: -29.415
-Run   52: Team DPAV: 86461.936 | Sparxie: 1967.231 | ElationMC: 11.717 | YaoGuang: 40.965 | Pearl: 18.667
-Run   53: Team DPAV: 85708.651 | Sparxie: -1460.573 | ElationMC: 323.999 | YaoGuang: 349.295 | Pearl: 53.359
-Run   54: Team DPAV: 85451.345 | Sparxie: 529.433 | ElationMC: -380.407 | YaoGuang: -353.124 | Pearl: -64.100
-Run   55: Team DPAV: 83993.062 | Sparxie: -910.501 | ElationMC: -121.524 | YaoGuang: -402.795 | Pearl: -28.103
-Run   56: Team DPAV: 81116.176 | Sparxie: -2174.274 | ElationMC: 79.721 | YaoGuang: -770.469 | Pearl: -15.092
-Run   57: Team DPAV: 85518.075 | Sparxie: 2975.398 | ElationMC: 77.182 | YaoGuang: 1307.346 | Pearl: 46.815
-Run   58: Team DPAV: 87085.400 | Sparxie: 1476.768 | ElationMC: 156.883 | YaoGuang: -96.154 | Pearl: 26.600
-Run   59: Team DPAV: 84840.249 | Sparxie: -2224.574 | ElationMC: -104.541 | YaoGuang: 119.240 | Pearl: -33.662
-Run   60: Team DPAV: 83312.295 | Sparxie: -853.295 | ElationMC: -161.868 | YaoGuang: -481.772 | Pearl: -29.405
-Run   61: Team DPAV: 83314.333 | Sparxie: 129.616 | ElationMC: -98.135 | YaoGuang: -48.516 | Pearl: 11.206
-Run   62: Team DPAV: 85881.751 | Sparxie: 2201.700 | ElationMC: 218.404 | YaoGuang: 106.014 | Pearl: 48.361
-Run   63: Team DPAV: 82932.686 | Sparxie: -2708.773 | ElationMC: -59.001 | YaoGuang: -162.894 | Pearl: -26.264
-Run   64: Team DPAV: 87324.844 | Sparxie: 3762.157 | ElationMC: 44.840 | YaoGuang: 551.572 | Pearl: 40.649
-Run   65: Team DPAV: 81205.117 | Sparxie: -4965.495 | ElationMC: -195.081 | YaoGuang: -877.718 | Pearl: -79.214
-Run   66: Team DPAV: 88718.776 | Sparxie: 6204.240 | ElationMC: 314.258 | YaoGuang: 911.787 | Pearl: 81.963
-Run   67: Team DPAV: 86197.427 | Sparxie: -2522.128 | ElationMC: -30.690 | YaoGuang: 17.828 | Pearl: 21.307
-Run   68: Team DPAV: 84288.923 | Sparxie: -1392.715 | ElationMC: -88.969 | YaoGuang: -361.482 | Pearl: -72.196
-Run   69: Team DPAV: 82641.557 | Sparxie: -1030.963 | ElationMC: -67.628 | YaoGuang: -536.007 | Pearl: -15.188
-Run   70: Team DPAV: 84837.128 | Sparxie: 1528.316 | ElationMC: 104.664 | YaoGuang: 530.864 | Pearl: 34.147
-Run   71: Team DPAV: 83749.973 | Sparxie: -923.303 | ElationMC: -100.455 | YaoGuang: -28.556 | Pearl: -36.455
-Run   72: Team DPAV: 83314.790 | Sparxie: -573.464 | ElationMC: 98.676 | YaoGuang: 25.334 | Pearl: 31.418
-Run   73: Team DPAV: 87585.396 | Sparxie: 3938.644 | ElationMC: 115.845 | YaoGuang: 184.100 | Pearl: 14.065
-Run   74: Team DPAV: 82000.097 | Sparxie: -5055.575 | ElationMC: -256.725 | YaoGuang: -205.695 | Pearl: -66.497
-Run   75: Team DPAV: 91950.434 | Sparxie: 8641.383 | ElationMC: 461.495 | YaoGuang: 694.858 | Pearl: 144.734
-Run   76: Team DPAV: 85797.099 | Sparxie: -5384.420 | ElationMC: -227.366 | YaoGuang: -439.196 | Pearl: -93.678
-Run   77: Team DPAV: 85370.656 | Sparxie: -356.116 | ElationMC: -38.030 | YaoGuang: -34.377 | Pearl: 11.360
-Run   78: Team DPAV: 86109.103 | Sparxie: 944.124 | ElationMC: 77.947 | YaoGuang: -330.846 | Pearl: 33.908
-Run   79: Team DPAV: 82302.715 | Sparxie: -3395.884 | ElationMC: -206.329 | YaoGuang: -122.684 | Pearl: -77.456
-Run   80: Team DPAV: 83833.997 | Sparxie: 941.436 | ElationMC: 73.088 | YaoGuang: 466.641 | Pearl: 48.503
-Run   81: Team DPAV: 82872.891 | Sparxie: -276.898 | ElationMC: -226.399 | YaoGuang: -367.890 | Pearl: -88.305
-Run   82: Team DPAV: 78991.849 | Sparxie: -3032.332 | ElationMC: -184.840 | YaoGuang: -631.368 | Pearl: -32.502
-Run   83: Team DPAV: 84471.362 | Sparxie: 4307.826 | ElationMC: 296.685 | YaoGuang: 769.994 | Pearl: 102.588
-Run   84: Team DPAV: 84636.032 | Sparxie: -20.255 | ElationMC: 146.848 | YaoGuang: 30.613 | Pearl: 19.972
-Run   85: Team DPAV: 83360.738 | Sparxie: -1272.647 | ElationMC: 47.171 | YaoGuang: -54.262 | Pearl: 8.277
-Run   86: Team DPAV: 83295.497 | Sparxie: -5.083 | ElationMC: -175.490 | YaoGuang: 129.111 | Pearl: -29.312
-Run   87: Team DPAV: 82915.631 | Sparxie: 662.449 | ElationMC: -138.250 | YaoGuang: -868.378 | Pearl: -38.107
-Run   88: Team DPAV: 86042.342 | Sparxie: 1769.779 | ElationMC: 239.107 | YaoGuang: 1059.295 | Pearl: 60.951
-Run   89: Team DPAV: 88829.020 | Sparxie: 2701.512 | ElationMC: 206.564 | YaoGuang: -169.212 | Pearl: 39.947
-Run   90: Team DPAV: 85133.331 | Sparxie: -3147.502 | ElationMC: -299.886 | YaoGuang: -160.825 | Pearl: -78.802
-Run   91: Team DPAV: 82380.075 | Sparxie: -2464.084 | ElationMC: -127.399 | YaoGuang: -121.272 | Pearl: -38.888
-Run   92: Team DPAV: 80572.616 | Sparxie: -1244.148 | ElationMC: -88.972 | YaoGuang: -455.323 | Pearl: -19.016
-Run   93: Team DPAV: 85734.261 | Sparxie: 4179.736 | ElationMC: 271.716 | YaoGuang: 614.022 | Pearl: 104.644
-Run   94: Team DPAV: 87265.331 | Sparxie: 1451.089 | ElationMC: 126.400 | YaoGuang: -50.432 | Pearl: -12.326
-Run   95: Team DPAV: 78940.054 | Sparxie: -7322.847 | ElationMC: -431.942 | YaoGuang: -465.310 | Pearl: -98.119
-Run   96: Team DPAV: 86455.779 | Sparxie: 7005.149 | ElationMC: 85.972 | YaoGuang: 390.031 | Pearl: 33.766
-Run   97: Team DPAV: 83583.466 | Sparxie: -3505.931 | ElationMC: 478.309 | YaoGuang: 106.470 | Pearl: 64.373
-Run   98: Team DPAV: 84296.980 | Sparxie: 1311.208 | ElationMC: -335.586 | YaoGuang: -220.149 | Pearl: -56.684
-Run   99: Team DPAV: 83386.684 | Sparxie: -649.440 | ElationMC: -101.764 | YaoGuang: -168.401 | Pearl: 6.888
-Run  100: Team DPAV: 81800.054 | Sparxie: -1431.264 | ElationMC: -140.922 | YaoGuang: -0.334 | Pearl: -17.943
+Run    1: Team DPAV: 62903.915 | Sparxie: 47338.870 | ElationMC: 8595.754 | YaoGuang: 6681.400 | Pearl: 246.471
+Run    2: Team DPAV: 59934.565 | Sparxie: 44293.497 | ElationMC: 8587.761 | YaoGuang: 6760.596 | Pearl: 246.450
+Run    3: Team DPAV: 61089.875 | Sparxie: 45696.410 | ElationMC: 8498.866 | YaoGuang: 6609.913 | Pearl: 243.265
+Run    4: Team DPAV: 60364.801 | Sparxie: 45362.683 | ElationMC: 8170.966 | YaoGuang: 6551.455 | Pearl: 231.553
+Run    5: Team DPAV: 63616.405 | Sparxie: 47918.802 | ElationMC: 8685.387 | YaoGuang: 6722.888 | Pearl: 247.908
+Run    6: Team DPAV: 60187.073 | Sparxie: 44831.903 | ElationMC: 8423.885 | YaoGuang: 6641.140 | Pearl: 244.690
+Run    7: Team DPAV: 65149.633 | Sparxie: 49280.182 | ElationMC: 8762.297 | YaoGuang: 6795.040 | Pearl: 265.852
+Run    8: Team DPAV: 60004.233 | Sparxie: 44883.017 | ElationMC: 8270.473 | YaoGuang: 6571.363 | Pearl: 235.270
+Run    9: Team DPAV: 61737.852 | Sparxie: 45746.181 | ElationMC: 8802.061 | YaoGuang: 6901.700 | Pearl: 256.172
+Run   10: Team DPAV: 59859.805 | Sparxie: 44517.123 | ElationMC: 8415.600 | YaoGuang: 6647.388 | Pearl: 233.431
+Run   11: Team DPAV: 60243.973 | Sparxie: 44428.335 | ElationMC: 8777.014 | YaoGuang: 6745.225 | Pearl: 247.944
+Run   12: Team DPAV: 60789.813 | Sparxie: 45829.865 | ElationMC: 8136.733 | YaoGuang: 6548.687 | Pearl: 229.969
+Run   13: Team DPAV: 61151.800 | Sparxie: 45955.813 | ElationMC: 8272.340 | YaoGuang: 6649.985 | Pearl: 234.035
+Run   14: Team DPAV: 58799.111 | Sparxie: 43675.816 | ElationMC: 8340.064 | YaoGuang: 6511.463 | Pearl: 230.347
+Run   15: Team DPAV: 63208.269 | Sparxie: 48068.643 | ElationMC: 8263.501 | YaoGuang: 6605.410 | Pearl: 230.550
+Run   16: Team DPAV: 59658.197 | Sparxie: 44429.186 | ElationMC: 8288.649 | YaoGuang: 6654.099 | Pearl: 236.326
+Run   17: Team DPAV: 60760.461 | Sparxie: 45756.399 | ElationMC: 8204.447 | YaoGuang: 6528.247 | Pearl: 231.204
+Run   18: Team DPAV: 61756.607 | Sparxie: 46203.533 | ElationMC: 8588.224 | YaoGuang: 6649.602 | Pearl: 263.608
+Run   19: Team DPAV: 62512.601 | Sparxie: 46717.469 | ElationMC: 8599.341 | YaoGuang: 6901.690 | Pearl: 252.949
+Run   20: Team DPAV: 60038.356 | Sparxie: 44900.770 | ElationMC: 8249.202 | YaoGuang: 6606.706 | Pearl: 238.285
+Run   21: Team DPAV: 62015.480 | Sparxie: 46539.778 | ElationMC: 8423.181 | YaoGuang: 6761.184 | Pearl: 245.973
+Run   22: Team DPAV: 60109.707 | Sparxie: 45076.480 | ElationMC: 8201.394 | YaoGuang: 6551.715 | Pearl: 236.814
+Run   23: Team DPAV: 60722.562 | Sparxie: 45115.724 | ElationMC: 8579.332 | YaoGuang: 6735.537 | Pearl: 245.708
+Run   24: Team DPAV: 61675.345 | Sparxie: 46192.147 | ElationMC: 8612.915 | YaoGuang: 6555.446 | Pearl: 268.575
+Run   25: Team DPAV: 61951.008 | Sparxie: 46452.484 | ElationMC: 8535.216 | YaoGuang: 6659.533 | Pearl: 262.356
+Run   26: Team DPAV: 58902.381 | Sparxie: 43655.855 | ElationMC: 8374.111 | YaoGuang: 6566.692 | Pearl: 254.620
+Run   27: Team DPAV: 60986.310 | Sparxie: 45468.963 | ElationMC: 8549.968 | YaoGuang: 6684.280 | Pearl: 237.196
+Run   28: Team DPAV: 61025.150 | Sparxie: 45955.227 | ElationMC: 8206.030 | YaoGuang: 6587.829 | Pearl: 231.416
+Run   29: Team DPAV: 59836.932 | Sparxie: 44747.336 | ElationMC: 8279.490 | YaoGuang: 6539.811 | Pearl: 228.875
+Run   30: Team DPAV: 60039.597 | Sparxie: 45110.879 | ElationMC: 8131.651 | YaoGuang: 6520.288 | Pearl: 232.581
+Run   31: Team DPAV: 62995.755 | Sparxie: 47066.304 | ElationMC: 8798.743 | YaoGuang: 6840.871 | Pearl: 248.416
+Run   32: Team DPAV: 61614.588 | Sparxie: 46393.996 | ElationMC: 8319.359 | YaoGuang: 6624.864 | Pearl: 231.901
+Run   33: Team DPAV: 61969.226 | Sparxie: 46203.950 | ElationMC: 8566.983 | YaoGuang: 6898.372 | Pearl: 256.169
+Run   34: Team DPAV: 61196.434 | Sparxie: 45445.624 | ElationMC: 8610.260 | YaoGuang: 6845.246 | Pearl: 250.835
+Run   35: Team DPAV: 60752.547 | Sparxie: 45630.298 | ElationMC: 8374.509 | YaoGuang: 6454.625 | Pearl: 247.750
+Run   36: Team DPAV: 58081.482 | Sparxie: 42810.960 | ElationMC: 8317.967 | YaoGuang: 6661.217 | Pearl: 246.242
+Run   37: Team DPAV: 60638.037 | Sparxie: 45005.618 | ElationMC: 8511.793 | YaoGuang: 6840.927 | Pearl: 240.701
+Run   38: Team DPAV: 60020.319 | Sparxie: 44757.553 | ElationMC: 8292.649 | YaoGuang: 6691.740 | Pearl: 238.212
+Run   39: Team DPAV: 61084.684 | Sparxie: 45689.794 | ElationMC: 8369.663 | YaoGuang: 6741.632 | Pearl: 239.484
+Run   40: Team DPAV: 61332.234 | Sparxie: 45694.372 | ElationMC: 8562.602 | YaoGuang: 6782.755 | Pearl: 248.037
+Run   41: Team DPAV: 63597.132 | Sparxie: 47922.410 | ElationMC: 8608.460 | YaoGuang: 6754.142 | Pearl: 261.017
+Run   42: Team DPAV: 61130.048 | Sparxie: 45998.500 | ElationMC: 8246.301 | YaoGuang: 6616.696 | Pearl: 232.778
+Run   43: Team DPAV: 60003.734 | Sparxie: 44821.981 | ElationMC: 8304.268 | YaoGuang: 6599.574 | Pearl: 233.621
+Run   44: Team DPAV: 61241.247 | Sparxie: 46124.567 | ElationMC: 8209.403 | YaoGuang: 6630.016 | Pearl: 231.895
+Run   45: Team DPAV: 59589.880 | Sparxie: 44085.881 | ElationMC: 8450.989 | YaoGuang: 6760.444 | Pearl: 247.200
+Run   46: Team DPAV: 60316.819 | Sparxie: 45078.279 | ElationMC: 8311.976 | YaoGuang: 6647.968 | Pearl: 235.382
+Run   47: Team DPAV: 60659.903 | Sparxie: 45528.773 | ElationMC: 8205.708 | YaoGuang: 6658.080 | Pearl: 232.466
+Run   48: Team DPAV: 60311.200 | Sparxie: 44616.557 | ElationMC: 8632.930 | YaoGuang: 6771.697 | Pearl: 248.596
+Run   49: Team DPAV: 60361.182 | Sparxie: 44773.307 | ElationMC: 8478.071 | YaoGuang: 6816.040 | Pearl: 249.296
+Run   50: Team DPAV: 63064.818 | Sparxie: 47074.402 | ElationMC: 8850.074 | YaoGuang: 6853.227 | Pearl: 250.535
+Run   51: Team DPAV: 57588.534 | Sparxie: 42836.433 | ElationMC: 8099.204 | YaoGuang: 6384.996 | Pearl: 228.632
+Run   52: Team DPAV: 63807.407 | Sparxie: 48240.797 | ElationMC: 8570.050 | YaoGuang: 6680.435 | Pearl: 269.864
+Run   53: Team DPAV: 61370.672 | Sparxie: 45703.262 | ElationMC: 8596.184 | YaoGuang: 6751.556 | Pearl: 263.188
+Run   54: Team DPAV: 60957.138 | Sparxie: 45447.167 | ElationMC: 8520.924 | YaoGuang: 6670.073 | Pearl: 262.491
+Run   55: Team DPAV: 63031.759 | Sparxie: 47079.105 | ElationMC: 8681.374 | YaoGuang: 6975.504 | Pearl: 255.252
+Run   56: Team DPAV: 62098.248 | Sparxie: 46861.788 | ElationMC: 8424.041 | YaoGuang: 6510.352 | Pearl: 251.323
+Run   57: Team DPAV: 60384.349 | Sparxie: 44928.040 | ElationMC: 8554.295 | YaoGuang: 6620.029 | Pearl: 236.530
+Run   58: Team DPAV: 63264.792 | Sparxie: 47567.238 | ElationMC: 8587.310 | YaoGuang: 6818.526 | Pearl: 246.353
+Run   59: Team DPAV: 57557.366 | Sparxie: 42748.277 | ElationMC: 8097.669 | YaoGuang: 6439.037 | Pearl: 228.542
+Run   60: Team DPAV: 58237.649 | Sparxie: 43065.911 | ElationMC: 8258.596 | YaoGuang: 6628.688 | Pearl: 240.344
+Run   61: Team DPAV: 60776.328 | Sparxie: 45385.175 | ElationMC: 8338.089 | YaoGuang: 6770.311 | Pearl: 242.140
+Run   62: Team DPAV: 59994.550 | Sparxie: 44503.845 | ElationMC: 8462.597 | YaoGuang: 6736.989 | Pearl: 249.160
+Run   63: Team DPAV: 58423.708 | Sparxie: 43452.882 | ElationMC: 8163.278 | YaoGuang: 6538.545 | Pearl: 235.024
+Run   64: Team DPAV: 59853.235 | Sparxie: 44658.267 | ElationMC: 8347.707 | YaoGuang: 6569.838 | Pearl: 232.058
+Run   65: Team DPAV: 59507.145 | Sparxie: 44519.338 | ElationMC: 8195.599 | YaoGuang: 6517.331 | Pearl: 231.664
+Run   66: Team DPAV: 61236.596 | Sparxie: 45573.272 | ElationMC: 8558.438 | YaoGuang: 6831.142 | Pearl: 238.959
+Run   67: Team DPAV: 60229.952 | Sparxie: 44934.338 | ElationMC: 8374.333 | YaoGuang: 6633.293 | Pearl: 243.878
+Run   68: Team DPAV: 62399.757 | Sparxie: 46874.521 | ElationMC: 8564.998 | YaoGuang: 6655.328 | Pearl: 258.649
+Run   69: Team DPAV: 61364.749 | Sparxie: 45780.292 | ElationMC: 8516.810 | YaoGuang: 6772.751 | Pearl: 245.585
+Run   70: Team DPAV: 60437.601 | Sparxie: 45122.960 | ElationMC: 8447.679 | YaoGuang: 6590.302 | Pearl: 235.240
+Run   71: Team DPAV: 61060.479 | Sparxie: 45683.997 | ElationMC: 8326.482 | YaoGuang: 6765.810 | Pearl: 234.790
+Run   72: Team DPAV: 59755.415 | Sparxie: 44659.759 | ElationMC: 8271.894 | YaoGuang: 6547.739 | Pearl: 231.554
+Run   73: Team DPAV: 59667.523 | Sparxie: 44577.005 | ElationMC: 8301.171 | YaoGuang: 6514.053 | Pearl: 232.081
+Run   74: Team DPAV: 63766.971 | Sparxie: 47993.803 | ElationMC: 8672.083 | YaoGuang: 6779.895 | Pearl: 264.707
+Run   75: Team DPAV: 62402.886 | Sparxie: 46650.585 | ElationMC: 8761.422 | YaoGuang: 6680.596 | Pearl: 264.020
+Run   76: Team DPAV: 59812.507 | Sparxie: 44801.197 | ElationMC: 8181.522 | YaoGuang: 6556.275 | Pearl: 229.851
+Run   77: Team DPAV: 61368.463 | Sparxie: 46135.351 | ElationMC: 8312.232 | YaoGuang: 6639.687 | Pearl: 230.987
+Run   78: Team DPAV: 60035.861 | Sparxie: 44560.690 | ElationMC: 8461.729 | YaoGuang: 6719.154 | Pearl: 249.820
+Run   79: Team DPAV: 62821.361 | Sparxie: 47223.840 | ElationMC: 8481.471 | YaoGuang: 6843.941 | Pearl: 236.336
+Run   80: Team DPAV: 60335.649 | Sparxie: 44817.159 | ElationMC: 8452.284 | YaoGuang: 6775.616 | Pearl: 250.066
+Run   81: Team DPAV: 58957.059 | Sparxie: 43852.580 | ElationMC: 8257.372 | YaoGuang: 6570.290 | Pearl: 232.708
+Run   82: Team DPAV: 58160.665 | Sparxie: 43071.799 | ElationMC: 8234.958 | YaoGuang: 6574.958 | Pearl: 234.661
+Run   83: Team DPAV: 59172.384 | Sparxie: 44082.510 | ElationMC: 8255.892 | YaoGuang: 6557.616 | Pearl: 232.705
+Run   84: Team DPAV: 62750.030 | Sparxie: 47440.252 | ElationMC: 8412.503 | YaoGuang: 6620.605 | Pearl: 233.457
+Run   85: Team DPAV: 59965.193 | Sparxie: 44543.730 | ElationMC: 8426.619 | YaoGuang: 6701.809 | Pearl: 248.387
+Run   86: Team DPAV: 62974.244 | Sparxie: 47517.781 | ElationMC: 8470.320 | YaoGuang: 6714.783 | Pearl: 239.622
+Run   87: Team DPAV: 63200.614 | Sparxie: 47432.250 | ElationMC: 8624.084 | YaoGuang: 6854.607 | Pearl: 244.577
+Run   88: Team DPAV: 57663.527 | Sparxie: 42582.632 | ElationMC: 8162.865 | YaoGuang: 6645.019 | Pearl: 227.915
+Run   89: Team DPAV: 61942.589 | Sparxie: 46535.886 | ElationMC: 8375.911 | YaoGuang: 6739.641 | Pearl: 246.681
+Run   90: Team DPAV: 58522.438 | Sparxie: 43487.675 | ElationMC: 8193.994 | YaoGuang: 6563.657 | Pearl: 232.553
+Run   91: Team DPAV: 59496.148 | Sparxie: 44690.611 | ElationMC: 8085.224 | YaoGuang: 6447.222 | Pearl: 229.788
+Run   92: Team DPAV: 61180.275 | Sparxie: 45616.979 | ElationMC: 8598.724 | YaoGuang: 6671.513 | Pearl: 246.259
+Run   93: Team DPAV: 62967.960 | Sparxie: 47482.572 | ElationMC: 8513.297 | YaoGuang: 6691.875 | Pearl: 237.003
+Run   94: Team DPAV: 59886.329 | Sparxie: 44558.393 | ElationMC: 8391.263 | YaoGuang: 6654.852 | Pearl: 246.947
+Run   95: Team DPAV: 59088.270 | Sparxie: 43914.817 | ElationMC: 8268.023 | YaoGuang: 6623.697 | Pearl: 231.795
+Run   96: Team DPAV: 60970.687 | Sparxie: 46024.030 | ElationMC: 8234.100 | YaoGuang: 6440.048 | Pearl: 228.040
+Run   97: Team DPAV: 65160.804 | Sparxie: 49292.249 | ElationMC: 8805.646 | YaoGuang: 6750.718 | Pearl: 261.087
+Run   98: Team DPAV: 62795.102 | Sparxie: 47213.170 | ElationMC: 8489.365 | YaoGuang: 6800.192 | Pearl: 247.010
+Run   99: Team DPAV: 62741.840 | Sparxie: 47156.310 | ElationMC: 8437.287 | YaoGuang: 6863.995 | Pearl: 244.530
+Run  100: Team DPAV: 63087.544 | Sparxie: 47379.266 | ElationMC: 8597.476 | YaoGuang: 6820.059 | Pearl: 246.542
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 84567.036
-Average Sparxie DPAV: 623.533 Percentage: 0.737%
-Average ElationMC DPAV: 66.806 Percentage: 0.079%
-Average YaoGuang DPAV: 110.396 Percentage: 0.131%
-Average Pearl DPAV: 16.426 Percentage: 0.019%
+Average Team DPAV: 60952.254
+Average Sparxie DPAV: 45571.343 Percentage: 74.766%
+Average ElationMC DPAV: 8422.649 Percentage: 13.818%
+Average YaoGuang DPAV: 6671.614 Percentage: 10.946%
+Average Pearl DPAV: 242.723 Percentage: 0.398%
 
-Min Team DPAV: 78225.591
-Max Team DPAV: 91950.434
+Min Team DPAV: 57557.366
+Max Team DPAV: 65160.804

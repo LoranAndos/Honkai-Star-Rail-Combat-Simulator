@@ -2,3 +2,78 @@
 ======================================================================
   MULTI MODE  |  100 runs  |  5 cycles  |  2 team(s)
 ======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 76786.492  |  min: 70413.337  |  max: 83474.925  |  95% CI margin of error: +/-0.74%
+    Sparxie              avg DPAV: 53149.838  (69.2%)
+      - ELAPUNCH   avg DMG: 17468895.875  (59.8% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 10701882.514  (36.6% of Sparxie's DMG)
+      - BSC        avg DMG: 598775.127  (2.0% of Sparxie's DMG)
+    ElationMC            avg DPAV: 9518.744  (12.4%)
+      - ELAPUNCH   avg DMG: 3349822.915  (64.0% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 1773795.778  (33.9% of ElationMC's DMG)
+      - SKL        avg DMG: 111690.232  (2.1% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 13797.780  (18.0%)
+      - ELAPUNCH   avg DMG: 5743271.415  (75.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1819001.637  (24.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 26505.789  (0.3% of YaoGuang's DMG)
+    Pearl                avg DPAV: 215.885  (0.3%)
+      - ELABANGER  avg DMG: 68301.665  (57.5% of Pearl's DMG)
+      - BSC        avg DMG: 50435.214  (42.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 8675940.8
+    Enemy 0 (ADD)  avg Overkill: 6792929.7
+    Enemy 1 (ELITE)  avg Overkill: 306704.0
+    Enemy 2 (BOSS)  avg Overkill: 5881.5
+    Enemy 3 (ADD)  avg Overkill: 1279383.4
+    Enemy 4 (ADD)  avg Overkill: 291042.2
+  DPAV only (select the lines below):
+53149.838
+9518.744
+13797.780
+215.885
+
+  Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s1
+  Team DPAV  avg: 83555.088  |  min: 79196.481  |  max: 87216.702  |  95% CI margin of error: +/-0.43%
+    Sparxie              avg DPAV: 57986.129  (69.4%)
+      - ELAPUNCH   avg DMG: 18728986.878  (58.7% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 11874300.871  (37.2% of Sparxie's DMG)
+      - BSC        avg DMG: 732907.267  (2.3% of Sparxie's DMG)
+    ElationMC            avg DPAV: 10273.673  (12.3%)
+      - ELAPUNCH   avg DMG: 3624443.779  (64.1% of ElationMC's DMG)
+      - ELABANGER  avg DMG: 1895713.976  (33.5% of ElationMC's DMG)
+      - SKL        avg DMG: 130362.433  (2.3% of ElationMC's DMG)
+    YaoGuang             avg DPAV: 14880.139  (17.8%)
+      - ELAPUNCH   avg DMG: 6198123.241  (75.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1955394.644  (23.9% of YaoGuang's DMG)
+      - BSC        avg DMG: 30558.393  (0.4% of YaoGuang's DMG)
+    Pearl                avg DPAV: 292.075  (0.3%)
+      - BSC        avg DMG: 80566.455  (50.2% of Pearl's DMG)
+      - ELABANGER  avg DMG: 80074.767  (49.8% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 10276560.2
+    Enemy 0 (ADD)  avg Overkill: 8248884.1
+    Enemy 1 (ELITE)  avg Overkill: 287312.9
+    Enemy 2 (BOSS)  avg Overkill: 22062.2
+    Enemy 3 (ADD)  avg Overkill: 1287393.3
+    Enemy 4 (ADD)  avg Overkill: 430907.7
+  DPAV only (select the lines below):
+57986.129
+10273.673
+14880.139
+292.075
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  76786.492  —  Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s0
+  #2  83555.088  —  Sparxie e0s1 | ElationMC e6s0 | Yao Guang e0s0 | Pearl e0s1
+
+======================================================================
+

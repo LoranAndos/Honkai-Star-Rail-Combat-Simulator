@@ -978,12 +978,10 @@ def takeDebuffDMG(enemy: Enemy, playerTeam: list[Character], buffList: list[Buff
         pTurn = Turn(char.name, char.role, enemy.enemyID, Targeting.DOT, ["DOT"], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "Placeholder")
         if dot.debuffType in {StatTypes.BLEED, StatTypes.BURN, StatTypes.WINDSHEAR, StatTypes.SHOCK}: # normal dot debuff damage
             dotDmg = dot.getDebuffVal() * getMulENEMY(char, enemy, buffList, debuffList, pTurn)
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
         elif dot.debuffType == StatTypes.FREEZE or dot.name == StatTypes.ENTANGLE: # not dot-type damage from breaks, can't be buffed by dot buffs
             pTurn = Turn(char.name, char.role, enemy.enemyID, Targeting.DEBUFF, [], [char.element], [0, 0], [0, 0], 0, char.scaling, 0, "Placeholder")
             dotDmg = dot.getDebuffVal() * getMulENEMY(char, enemy, buffList, debuffList, pTurn)
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
         else: # dots applied by char
             baseValue = getBaseValue(char, buffList, pTurn)
@@ -991,8 +989,18 @@ def takeDebuffDMG(enemy: Enemy, playerTeam: list[Character], buffList: list[Buff
             dmgMul = getMulDMG(char, enemy, buffList, debuffList, pTurn)
             enemyMul = getMulENEMY(char, enemy, buffList, debuffList, pTurn)
             dotDmg = baseValue * percentMul * dmgMul * enemyMul
-            dmg += dotDmg
             logger.warning(f"    DEBUFF - {enemy.name} took {dotDmg:.3f} Debuff damage from {dot.name}")
+        dmg += dotDmg
+        if enemy.takeHit(dotDmg):
+            killMsg = (f"    KILL   - {char.name} killed {enemy.name} via DoT "
+                       f"(overkill: {enemy.overkillDMG:.1f})")
+            logger.warning(killMsg)
+            killEnergy = KILL_ENERGY.get(enemy.enemyType, 0)
+            if killEnergy > 0:
+                char.addEnergy(killEnergy)
+                logger.info(f"    ENERGY - {char.name} gained {killEnergy} energy for kill")
+            enemy.respawn()
+            logger.info(f"    SPAWN  - {enemy.name} respawned at full HP, AV set to 0")
     enemy.addDebuffDMG(dmg)
     return dmg
 
@@ -1029,9 +1037,10 @@ def addSummons(playerTeam: list[Character]) -> list:
         "ElationMC": "AhaElationMCGoGo",
         "Sparxie": "AhaSparxieGoGo",
         "Evanescia": "AhaEvanesciaGoGo",
+        "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
         "SilverWolf999": "AhaSilverWolf999GoGo"
     }
-    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "SilverWolf999"]
+    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "Aventurine Waveflair", "SilverWolf999"]
 
     for char in playerTeam:
         if char.name == "Topaz":
@@ -1100,14 +1109,16 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
         BangerMUL = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
         PunchMUL = getMulPUNCH(char, currEnemy, buffList, debuffList, currTurn)
         MerryMUL = getMulMERRY(char, currEnemy, buffList, debuffList, currTurn)
-        if currTurn.moveName == "PearlELASkillBonusDMG":
-            pearl = findCharName(playerTeam, "Pearl")
-            if pearl is not None:
-                pearlShredMul = getMulSHRED(pearl, currEnemy, buffList, debuffList, currTurn)
-                charShredMul = getMulSHRED(char, currEnemy, buffList, debuffList, currTurn)
-                if charShredMul != 0:
-                    enemyMul *= pearlShredMul / charShredMul
-        elif currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
+        enemyBroken = False
+        newDebuffs, newDelays = [], []
+        # if turn.moveName == "H7UltEnhancedBSC":
+        #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
+        if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
+            effectiveBase = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)
+        else:
+            effectiveBase = baseValue
+
+        if currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
             pearl = findCharName(playerTeam, "Pearl")
             if pearl is not None:
                 pearlBangerMul = getMulBANGER(pearl, currEnemy, buffList, debuffList, currTurn)
@@ -1120,19 +1131,18 @@ def handleTurn(turn: Turn, playerTeam: list[Character], enemyTeam: list[Enemy], 
                 if charShredMul != 0:
                     enemyMul *= pearlShredMul / charShredMul
 
-        enemyBroken = False
-        newDebuffs, newDelays = [], []
-        # if turn.moveName == "H7UltEnhancedBSC":
-        #     print(f"ATK: {baseValue:.3f} | DMG%: {charDMG:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f} | EnemyMul: {enemyMul:.3f}")
-        if currTurn.atkType[0] in (AtkType.ELABANGER, AtkType.ELAPUNCH):
-            elaScalingChar = char
-            if currTurn.moveName in ("PearlDPSELABasic", "PearlDPSE6ELABasic"):
-                pearl = findCharName(playerTeam, "Pearl")
-                if pearl is not None:
-                    elaScalingChar = pearl
-            effectiveBase = getScalingValues(elaScalingChar, buffList, currTurn.atkType, Scaling.ELA)
-        else:
-            effectiveBase = baseValue
+        elif currTurn.moveName in ("YaoGuangTalentADD", "YaoGuangTalentADDSP"):
+            yaoGuang = findCharName(playerTeam, "YaoGuang")
+            if yaoGuang is not None:
+                yaoGuangBangerMul = getMulBANGER(yaoGuang, currEnemy, buffList, debuffList, currTurn)
+                charBangerMul = getMulBANGER(char, currEnemy, buffList, debuffList, currTurn)
+                if charBangerMul != 0:
+                    BangerMUL *= yaoGuangBangerMul / charBangerMul
+
+                yaoGuangELA = getScalingValues(yaoGuang, buffList, currTurn.atkType, Scaling.ELA)
+                charELA = getScalingValues(char, buffList, currTurn.atkType, Scaling.ELA)
+                if charELA < yaoGuangELA:
+                    effectiveBase = yaoGuangELA
 
         #if currTurn.atkType[0] == AtkType.ELABANGER: #(Ela Damage Debugger)
         #    print(f"ELA DEBUG | effectiveBase: {effectiveBase:.3f} | percentMul: {percentMultiplier:.3f} | PunchMUL: {PunchMUL:.3f} | MerryMUL: {MerryMUL:.3f} | enemyMul: {enemyMul:.3f} | CR: {charCR:.3f} | CD: {charCD:.3f}")
@@ -1677,6 +1687,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 targetChar = findCharRole(playerTeam, specChar.targetRole)
                 targetHasElaSkill = targetChar.path == Path.ELATION
                 elaSkillTurnMap = {
+                    "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
                     "Pearl": "AhaPearlGoGo",
                     "Sparxie": "AhaSparxieGoGo",
                     "YaoGuang": "AhaYaoGuangGoGo",
@@ -2452,7 +2463,7 @@ def getMulSHRED(char: Character, enemy: Enemy, buffList: list[Buff], debuffList:
 
 def getMulVULN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     vuln = getCharStat(StatTypes.VULN, char, enemy, buffList, debuffList, turn)
-    return min(10.0, 1 + vuln)
+    return min(4.0, 1 + vuln)
 
 def getMulPEN(char: Character, enemy: Enemy, buffList: list[Buff], debuffList: list[Debuff], turn: Turn) -> float:
     pen = getCharStat(StatTypes.PEN, char, enemy, buffList, debuffList, turn)

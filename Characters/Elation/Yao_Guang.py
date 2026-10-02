@@ -72,6 +72,11 @@ class YaoGuang(Character):
         if self.eidolon >= 1:
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELAPUNCH], 1, 1,self.role, TickDown.PERM))
             bl.append(Buff("YaoGuangE1SHRED", StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ELABANGER], 1, 1,self.role, TickDown.PERM))
+        if self.eidolon >= 2:
+            bl.append(Buff("YaoGuangE2SPDBuff", StatTypes.SPD_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 3, 1, self.role,
+                           TickDown.START))
+            bl.append(Buff("YaoGuangE2ELABuff", StatTypes.ELA, 0.16, Role.ALL, [AtkType.ALL], 3, 1, self.role,
+                           TickDown.START))
         if self.eidolon == 6:
             bl.append(Buff("YaoGuangE6MerryMake", StatTypes.MERRY, 0.25,Role.ALL))
         return bl, dbl, al, dl, hl, sl
@@ -113,7 +118,7 @@ class YaoGuang(Character):
         Character.ahaYaoGuangUlt = True
         Character.SharedPunchline = 40 if self.eidolon >= 1 else 20
         Character.ahaFixedPunchlineValue = 40 if self.eidolon >= 1 else 20
-        Character.ahaFixedPunchline = True  # ADD THIS LINE
+        Character.ahaFixedPunchline = True
         if self.eidolon >= 4:
             Character.ahaElaDMGBoost = 1.5
         return bl, dbl, al, dl, tl, hl, sl
@@ -124,11 +129,12 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
-
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
              tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
                                [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+             if turn.spChange <= -1:
+                 tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
+                               [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "YaoGuangTalentADD" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
@@ -146,21 +152,15 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, 0,self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
-
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
-            attackerELA = self.elaDict.get(turn.charRole, 0)
-            yaoGuangELA = self.elaDict.get(self.role, 0)
-            # If attacker has higher ELA, add the difference as a temporary buff on YaoGuang
-            if attackerELA > yaoGuangELA:
-                bl.append(Buff("YaoGuangGreatBoonELA", StatTypes.ELA, attackerELA - yaoGuangELA,
-                               self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.PERM))
             if turn.spChange <= -1:
-                tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
-                               [self.element], [e5Mul * 2, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
+                tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
             else:
-                tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
-                               [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
@@ -207,5 +207,5 @@ class YaoGuang(Character):
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuff, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,TickDown.START))
         if self.currSPD >= 120:
             ELABuff = min(max((self.SPDStat-120), 0), 200)
-            bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role  , [AtkType.ALL], 1, 1, self.role,TickDown.START))
+            bl.append(Buff("YaoGuangTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl

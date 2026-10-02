@@ -8,6 +8,7 @@ from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
 from Planars.BrokenKeel import BrokenKeel
 from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
+from Relics.DreamlitActor import DreamlitActor
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
@@ -58,7 +59,7 @@ class ElationMC(Character):
                  elationParticipationID=120) -> None:  # ELATIONMC ID: 120
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else MushyShroomysAdventuresEMC(role, 5)
-        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4, self.element)
+        self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
         self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT,
@@ -123,7 +124,8 @@ class ElationMC(Character):
         if targetHasElaSkill:
             # Grant 10 Certified Banger to target
             self.UltBangerBonus = min(self.UltBangerBonus, 6)
-            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10+self.UltBangerBonus, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole,TickDown.START))
+            BangerDuration = 3 if self.EvanesciaInTeam else 2
+            bl.append(Buff("ElationMCUltBanger", StatTypes.BANGER, 10+self.UltBangerBonus, self.targetRole, [AtkType.ALL], BangerDuration, 1, self.targetRole,TickDown.END))
             self.UltBangerBonus = 0
 
             # Signal fixed 20 Punchline extra turn
@@ -199,10 +201,12 @@ class ElationMC(Character):
             e5MulBig = 0.6
             e5MulSmall = 0.2
 
+        enemyCount = self._getEnemyCount()
+
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],[self.element], [e5MulSmall*8*Character.ahaElaDMGBoost, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCELASkillBig"))
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*Character.ahaElaDMGBoost, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],[self.element], [e5MulBig*Character.ahaElaDMGBoost/enemyCount, 0], [20, 0], 5, Scaling.ELA, 0, "ElationMCELASkillSmall"))
         if self.eidolon >= 6:
             bl.append(Buff("ElationMCUltE6CD", StatTypes.CD_PERCENT, 1.00, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         Character.savedPunchline += 3
@@ -224,5 +228,8 @@ class ElationMC(Character):
         self.targetElaSkillTurn = specialRes.attr8
         self.EvanesciaInTeam = specialRes.attr9
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
-        bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl
+
+    def _getEnemyCount(self):
+        return self.get_alive_enemy_count()

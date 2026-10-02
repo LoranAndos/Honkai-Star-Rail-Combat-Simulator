@@ -354,8 +354,40 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
+
         elif (
                 result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedEMCSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsEMCTurn = False
+
+        elif (
+                result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS:
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaYaoGuangUlt = False
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = False
+
+        elif (
+                result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS:
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationSequenceComplete"))
+            Character.SharedPunchline = len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = True
+
+        elif (
+                result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedEMCSequenceComplete"))

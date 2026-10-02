@@ -28,7 +28,7 @@ class UntilTheFlowersBloomAgain(Lightcone):
         bl.append(Buff("FlowersBloomCD", StatTypes.CD_PERCENT, CDBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         bl.append(Buff("FlowersBloomERR", StatTypes.ERR_PERCENT, ERRBuff, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.maxEnergy >= 120:
-            ERRExtraBuff = min(floor((self.maxEnergy-120)/10)*0.3,10.8)
+            ERRExtraBuff = min((self.maxEnergy-120)/10*0.3,10.8)
             bl.append(Buff("FlowersBloomExtraERR", StatTypes.ERR_PERCENT, ERRExtraBuff/100, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
 

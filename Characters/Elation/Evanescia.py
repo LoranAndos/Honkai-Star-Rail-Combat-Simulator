@@ -65,7 +65,7 @@ class Evanescia(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=146) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else UntilTheFlowersBloomAgain(role, 1)
+        self.lightcone = lc if lc else UntilTheFlowersBloomAgain(role,1)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
@@ -330,7 +330,7 @@ class Evanescia(Character):
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.START))
         bl.append(Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * E5CdBuff, self.role, [AtkType.ALL], 1, 1,
-                       self.role, TickDown.START))
+                       self.role, TickDown.PERM))
 
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1, 0], [20, 0], 0,
@@ -362,7 +362,7 @@ class Evanescia(Character):
     def receiveBangerFromTeammate(self, bangerAmount: int, source: str, bl: list):
         """Called when a teammate with lower Elation ID gains Banger.
         Base: converts 50% into Evanescia's own Banger.
-        E2:   converts 100% instead.
+        E2:   converts 75% instead.
         """
         conversionRate = 1.5 if self.eidolon >= 2 else 1.0
         convertedBanger = floor(bangerAmount * conversionRate)

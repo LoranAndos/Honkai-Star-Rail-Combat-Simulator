@@ -1,0 +1,46 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  1 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  SilverWolf999 e2s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 86613.032  |  min: 76420.889  |  max: 100127.491  |  95% CI margin of error: +/-1.07%
+    SilverWolf999        avg DPAV: 61786.112  (71.3%)
+      - ELABANGER  avg DMG: 29390484.863  (86.5% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4448586.842  (13.1% of SilverWolf999's DMG)
+      - SKL        avg DMG: 93999.533  (0.3% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 16108.359  (18.6%)
+      - ELAPUNCH   avg DMG: 5601962.174  (63.2% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 2953835.107  (33.3% of Sparxie's DMG)
+      - BSC        avg DMG: 250361.503  (2.8% of Sparxie's DMG)
+    YaoGuang             avg DPAV: 8573.755  (9.9%)
+      - ELAPUNCH   avg DMG: 3359353.570  (71.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1329900.849  (28.2% of YaoGuang's DMG)
+      - BSC        avg DMG: 26310.959  (0.6% of YaoGuang's DMG)
+    Pearl                avg DPAV: 144.806  (0.2%)
+      - ELABANGER  avg DMG: 48980.375  (61.5% of Pearl's DMG)
+      - BSC        avg DMG: 30663.013  (38.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 847561.8
+    Enemy 0 (ELITE)  avg Overkill: 556397.3
+    Enemy 1 (BOSS)  avg Overkill: 93554.9
+    Enemy 2 (ELITE)  avg Overkill: 197609.7
+  DPAV only (select the lines below):
+61786.112
+16108.359
+8573.755
+144.806
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  86613.032  —  SilverWolf999 e2s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0
+
+======================================================================
+
