@@ -96,12 +96,14 @@ class Sparxie(Character):
         totalPunch = 0
         spGain = 0
         SPUsed = min(self.TotalSP + self.Thrill, 20)
+        StraightFireCount = 0
 
         # Roll once per SP consumed
         for _ in range(SPUsed):
-            if random() < 0.2:  # "Straight Fire"
+            if random() < 0.2 and StraightFireCount <= 3 :  # "Straight Fire"
                 totalPunch += 2
                 spGain += 2
+                StraightFireCount += 1
             else:  # "Unreal Banger"
                 totalPunch += 1
 
@@ -110,8 +112,9 @@ class Sparxie(Character):
         # Roll for bonus SP from Straight Fire, capped at 20 total
         bonusSPConsumed = min(spGain, 20 - SPUsed)
         for _ in range(bonusSPConsumed):
-            if random() < 0.2:  # "Straight Fire"
+            if random() < 0.2 and StraightFireCount <= 3 :  # "Straight Fire"
                 totalPunch += 2
+                StraightFireCount += 1
             else:  # "Unreal Banger"
                 totalPunch += 1
 
