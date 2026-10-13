@@ -195,6 +195,7 @@ class Aha(Summon):
         self.hasEvanescia = any("AhaEvanesciaGoGo" in turnName for _, turnName in self.elationTeam)
         self.hasYaoGuang = any("AhaYaoGuangGoGo" in turnName for _, turnName in self.elationTeam)
         self.hasElationMC = any("AhaElationMCGoGo" in turnName for _, turnName in self.elationTeam)
+        self.hasAventurineWaveflair = any("AhaAventurineWaveflairGoGo" in turnName for _, turnName in self.elationTeam)
 
     def takeTurn(self):
         bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
@@ -220,6 +221,11 @@ class Aha(Summon):
 
             # Determine BangerDuration based on character
             if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo": # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
+                BangerDuraction = 3
+            else:
+                BangerDuraction = 2
+
+            if self.hasAventurineWaveflair and turnName == "AhaAventurineWaveflairGoGo": # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                 BangerDuraction = 3
             else:
                 BangerDuraction = 2

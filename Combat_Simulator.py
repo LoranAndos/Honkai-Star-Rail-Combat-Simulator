@@ -81,7 +81,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
         slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = HuoHuo(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -539,7 +539,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = True   # Set to True for multiple runs, False for single run
+    multiRun = False   # Set to True for multiple runs, False for single run
     numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 

@@ -15,7 +15,7 @@ UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt"
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
                 "SilverWolf999Ult","MortenaxBladeUlt","MortenaxBladeEnhancedUlt","AshveilUlt","AcheronUlt","FeixiaoUltFinal",
                 "CipherUltAOE","ArcherUlt","RinTohsakaUltSide","SaberUltBig","GilgameshUltAll","DanHengPermansorTerraeUlt",
-                "WeltUlt","PearlUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+                "WeltUlt","PearlUlt","AventurineWaveflairUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SilverWolf999NormalELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE","PearlELASkill"}
 
 wbMultiplier = 3767.5533

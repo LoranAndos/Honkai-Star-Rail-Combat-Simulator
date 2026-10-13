@@ -61,7 +61,7 @@ class YaoGuang(Character):
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
         ElationBuff = 0.22 if self.eidolon >=3 else 0.20
-        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
+        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         bl.append(Buff("YaoGuangTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("YaoGuangTraceSPD", StatTypes.SPD, 9, self.role))
         bl.append(Buff("YaoGuangTraceELA", StatTypes.ELA, 0.10, self.role))

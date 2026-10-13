@@ -57,11 +57,13 @@ class Sparxie(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role,5)
+        self.lightcone = lc if lc else DazzledByAFloweryWorld(role,1)
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 11, 9, StatTypes.CR_PERCENT,
+                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT,
+                                                       StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 
@@ -249,7 +251,7 @@ class Sparxie(Character):
         self.TotalElationChar = specialRes.attr4
         self.ELAStat = specialRes.attr5
         self.Banger = specialRes.attr6
-        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
+        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
             self.tech = False

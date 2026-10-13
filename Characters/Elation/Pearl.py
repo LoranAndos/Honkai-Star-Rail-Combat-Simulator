@@ -63,7 +63,7 @@ class Pearl(Character):
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 10, 2, 2, 2, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT,
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 3, 2, 2, 13, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT,
                                                        StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["A","A","E"]
@@ -307,40 +307,33 @@ class Pearl(Character):
                        Targeting.NA, [AtkType.ULT], [self.element],
                        [0, 0], [0, 0], 5, self.scaling, 0, "PearlUlt"))
         self._addCertifiedBanger(20, "UltBanger", bl)
-        if self.TotalElationChar == 2:
+        if self.TotalElationChar == 1:
             if self.eidolon >= 2:
                 al.append(Advance("PearlUltAlly1Forward", self.ally1Role, 0.10))
                 al.append(Advance("PearlUltAlly2Forward", self.ally2Role, 0.10))
                 al.append(Advance("PearlUltAlly2Forward", self.ally3Role, 0.10))
             else:
                 al.append(Advance("PearlUltForward", self.targetRole, 0.10))
-        elif self.TotalElationChar == 3:
+        elif self.TotalElationChar == 2:
             if self.eidolon >= 2:
                 al.append(Advance("PearlUltAlly1Forward", self.ally1Role, 0.15))
                 al.append(Advance("PearlUltAlly2Forward", self.ally2Role, 0.15))
                 al.append(Advance("PearlUltAlly2Forward", self.ally3Role, 0.15))
             else:
                 al.append(Advance("PearlUltForward", self.targetRole, 0.15))
-        elif self.TotalElationChar >= 4:
+        elif self.TotalElationChar >= 3:
             if self.eidolon >= 2:
                 al.append(Advance("PearlUltAlly1Forward", self.ally1Role, 0.30))
                 al.append(Advance("PearlUltAlly2Forward", self.ally2Role, 0.30))
                 al.append(Advance("PearlUltAlly2Forward", self.ally3Role, 0.30))
             else:
                 al.append(Advance("PearlUltForward", self.targetRole, 0.30))
-            Character.PearlUlt = True
-            if self.eidolon >= 2:
-                Character.PearlE2Modifier = 2.0
-            # Marker turn (0 DMG) so ElationMC/etc. can react to
-            # Character.PearlUlt via result.turnName == "PearlUltimate" —
-            # this was missing entirely, which is why the extra-turn
-            # trigger wasn't firing for anyone regardless of the
-            # Role.DPS -> pearl.targetRole change. Appended AFTER
-            # self.targetRole is finalized above, so anything checking
-            # pearl.targetRole in reaction to this marker sees the
-            # correct, already-decided target.
-            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element],
-                           [0, 0], [0, 0], 0, self.scaling, 0, "PearlUltimate"))
+            if self.TotalElationChar >= 4:
+                Character.PearlUlt = True
+                if self.eidolon >= 2:
+                    Character.PearlE2Modifier = 2.0
+                tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL], [self.element],
+                               [0, 0], [0, 0], 0, self.scaling, 0, "PearlUltimate"))
 
         if self.ElationDPS == True:
             self.SpecialEnhanced = True
@@ -504,7 +497,7 @@ class Pearl(Character):
         self._dpsRole = specialRes.attr11
 
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
-                       TickDown.START))
+                       TickDown.PERM))
         bl.append(Buff("PearlDEFtoELA", StatTypes.ELA, 0.32 + min(max(floor((self.CharDEF-2400)/100)*0.03, 0), 1.08), self.role, [AtkType.ALL], 1, 1,Role.SELF, TickDown.PERM))
         bl.append(Buff("PearlELAtoOGH", StatTypes.OGH_PERCENT, 0.2*self.ElaStat, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if self.Banger >= 1:

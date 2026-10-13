@@ -1646,6 +1646,20 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 bbList = [2 * aggroList[i] if i == specChar.pos else 1 * aggroList[i] for i in range(4)]
                 return Special(name=specStr, attr1=avenDef, attr2=sum(bbList), enemies=gauge)
 
+            case "AventurineWaveflair":
+                SpdList = []
+                AHASpdBuffAmount = 0
+                i = 0
+                for character in playerTeam:
+                    if character.path == Path.ELATION:
+                        SpdList.append(getCharSPD(character, buffList))
+                AHASpdList = sorted(SpdList, reverse=True)
+                while i < len(AHASpdList):
+                    AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ** (i)
+                    i += 1
+                TotalElationChar = len(AHASpdList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, enemies=gauge)
+
             case "Bronya":
                 cd = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)
                 cd = cd - findBuffName(buffList, "BronyaUltCD").getBuffVal() if "BronyaUltATK" in getBuffNames(buffList) else cd

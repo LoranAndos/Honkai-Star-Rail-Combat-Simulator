@@ -328,7 +328,7 @@ class Evanescia(Character):
         self.ERR = specialRes.attr7
         E5CdBuff = 0.22 if self.eidolon >= 5 else 0.20
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
-                       TickDown.START))
+                       TickDown.PERM))
         bl.append(Buff("EvanesciaTalentELAfromCD", StatTypes.ELA, self.CD * E5CdBuff, self.role, [AtkType.ALL], 1, 1,
                        self.role, TickDown.PERM))
 

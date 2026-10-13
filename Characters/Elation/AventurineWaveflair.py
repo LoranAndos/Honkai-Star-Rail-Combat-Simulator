@@ -34,6 +34,10 @@ class AventurineWaveflair(Character):
     dmgDct = {AtkType.BSC: 0, AtkType.SKL: 0, AtkType.ULT: 0, AtkType.BRK: 0, AtkType.ELAPUNCH: 0, AtkType.ELABANGER: 0}  # Adjust accordingly
 
     # Unique Character Properties
+    hasSummon = True
+    AHASpdBuffAmount = 0
+    TotalElationChar = 0
+    Fervor = 0
 
 
     # Relic Settings
@@ -54,28 +58,38 @@ class AventurineWaveflair(Character):
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
-        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
-        bl.append(Buff("SparxieTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
-        bl.append(Buff("SparxieTraceCD", StatTypes.CD_PERCENT, 0.133, self.role))
-        bl.append(Buff("SparxieTraceELA", StatTypes.ELA, 0.28, self.role))
+        bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 3, 1, self.role, TickDown.END))
+        bl.append(Buff("AventurineWaveflairTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
+        bl.append(Buff("AventurineWaveflairTraceSPD", StatTypes.SPD, 9, self.role))
+        bl.append(Buff("AventurineWaveflairTraceELA", StatTypes.ELA, 0.10, self.role))
         return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
-        e3Mul = 1.1 if self.eidolon >= 3 else 1.0
+        e5Mul = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC],
-[self.element],[e3Mul, 0], [10, 0], 20, self.scaling, 1, "SparxieBasic"))
+[self.element],[e5Mul, 0], [10, 0], 20, self.scaling, 1, "AventurineWaveflairBasic"))
         return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
-
+        e3Mul = 2.64 if self.eidolon >= 3 else 2.4
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.SKL],
+                       [self.element], [e3Mul, 0], [10, 0], 30, self.scaling, -1, "AventurineWaveflairSkill"))
+        Character.SharedPunchline += 4
+        self.Fervor += 4
         return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
-
+        e5Mul = 4.32 if self.eidolon >= 5 else 4.00
+        e5SPD = 0.336 if self.eidolon >= 5 else 0.300
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT],
+                       [self.element], [e5Mul, 0], [20, 0], 5, self.scaling, 0, "AventurineWaveflairUlt"))
+        Character.SharedPunchline += 6
+        self.Fervor += 8
+        bl.append(Buff("AventurineWaveflairUltSPD", StatTypes.SPD_PERCENT, e5SPD, self.role, [AtkType.ALL], 4, 1, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
@@ -110,15 +124,16 @@ class AventurineWaveflair(Character):
 
     def useElaSkill(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
-        # Aventurine Wavelflair laatste elation skill hit ook toevoegen aan lijst in summons voor aha correct te laten verlopen en ook gewoon in lijst van attributes en bij alle andere zaken die horen bij Pearl
-
+        # Aventurine Wavelflair laatste elation skill hit ook toevoegen aan lijst in summons voor aha correct te laten verlopen en ook gewoon in lijst van attributes en bij alle andere zaken die horen bij Pearl en aha damage boost van YG
+        # Toevoegen aan summons hetzelfde mechanisme als bij ElationMC rond het triggeren van een fixed 20 Punchline elation skill of gewoon zelf doen in Aventurine afhankelijk van wat beter is
         return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
+        self.AHASpdBuffAmount = specialRes.attr1
+        self.TotalElationChar = specialRes.attr2
 
-
-        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
+        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
         if self.tech:
             self.tech = False
 

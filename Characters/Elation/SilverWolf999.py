@@ -539,7 +539,7 @@ class SilverWolf999(Character):
         enemyCount = self._getEnemyCount()
 
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1,
-                       Role.AHA, TickDown.START))
+                       Role.AHA, TickDown.PERM))
 
         if self.tech:
             if not self.techniqueTriggered:

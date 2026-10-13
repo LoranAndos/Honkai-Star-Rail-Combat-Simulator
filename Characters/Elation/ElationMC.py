@@ -162,7 +162,6 @@ class ElationMC(Character):
                 tl.append(
                     Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                          self.scaling, 0, f"ElationMCUltTrigger_{self.targetRole.name}"))
-                # Change from "ElationMCEndGoGo" to "AhaFixedEndGoGo"
                 tl.append(
                     Turn(self.name, self.targetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                          self.scaling, 0, "AhaFixedEndGoGo"))
@@ -227,7 +226,7 @@ class ElationMC(Character):
         self.targetHasElaSkill = specialRes.attr7
         self.targetElaSkillTurn = specialRes.attr8
         self.EvanesciaInTeam = specialRes.attr9
-        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.START))
+        bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
         bl.append(Buff("ElationMCATKtoELA", StatTypes.ELA, min(max(floor((self.AtkStat - 1000) / 200) * 0.10, 0), 0.6),self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl
 
