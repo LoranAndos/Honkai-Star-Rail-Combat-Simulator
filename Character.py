@@ -40,7 +40,6 @@ class Character(metaclass=CharacterMeta):
     aggro = 0
     Banger = 0
     _SharedPunchline_value = 0
-    # Elation extra Modifiers
     ahaFixedPunchline = False
     ahaFixedPunchlineValue = 20
     ahaYaoGuangUlt = False
@@ -51,7 +50,6 @@ class Character(metaclass=CharacterMeta):
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
-    # Team Modifiers
     _current_enemy_team = None
     _current_player_team = None
     _elation_characters_registry = {}
@@ -288,6 +286,16 @@ class Character(metaclass=CharacterMeta):
                 pearl._onOwnTurnBegins_Repellency()
             else:
                 pearl._onAllyTurnBegins_Repellency()
+
+        # Aeon Aha's Talent: 'At the start of the turn of the target with
+        # the "Emanator of Elation" state, Aeon Aha gains 1 point of
+        # "Wishpower."' Fires here for the same reason as Pearl's hook
+        # above: this is the one place that runs exactly once at the
+        # start of every character's own turn, for every character. A
+        # no-op whenever no Aeon Aha is on the team.
+        aha = next((c for c in (Character._current_player_team or []) if c.name == "AeonAha"), None)
+        if aha is not None and self.role == aha.targetRole:
+            aha._onTargetTurnBegins_Wishpower()
 
         return self.rotation[res % len(self.rotation)]
 

@@ -1038,9 +1038,10 @@ def addSummons(playerTeam: list[Character]) -> list:
         "Sparxie": "AhaSparxieGoGo",
         "Evanescia": "AhaEvanesciaGoGo",
         "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
-        "SilverWolf999": "AhaSilverWolf999GoGo"
+        "SilverWolf999": "AhaSilverWolf999GoGo",
+        "AeonAha": "AhaGoGo"
     }
-    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "Aventurine Waveflair", "SilverWolf999"]
+    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "Aventurine Waveflair", "SilverWolf999", "AeonAha"]
 
     for char in playerTeam:
         if char.name == "Topaz":
@@ -1701,6 +1702,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 targetChar = findCharRole(playerTeam, specChar.targetRole)
                 targetHasElaSkill = targetChar.path == Path.ELATION
                 elaSkillTurnMap = {
+                    "AeonAha": "AhaGoGo",
                     "AventurineWaveflair": "AhaAventurineWaveflairGoGo",
                     "Pearl": "AhaPearlGoGo",
                     "Sparxie": "AhaSparxieGoGo",
