@@ -44,6 +44,8 @@ class Sparxie(Character):
     prePunchline = 0
     tech = True
     hasSummon = True
+    AhaInTeam = False
+    AhaEidolon = 0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -66,6 +68,10 @@ class Sparxie(Character):
                                                        StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
+
+    def _ascended(self) -> bool:
+        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
+        return bool(self.AhaInTeam and Character.AeonAhaUltActive)
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
@@ -98,10 +104,16 @@ class Sparxie(Character):
         SPUsed = min(self.TotalSP + self.Thrill, 20)
         StraightFireCount = 0
 
+        if self._ascended():
+            MaxPunchlineCount = 12 if self.AhaEidolon >= 2 else 8
+            ExtraPunchline = min(floor(self.Banger/10),MaxPunchlineCount)
+        else:
+            ExtraPunchline = 0
+
         # Roll once per SP consumed
         for _ in range(SPUsed):
             if random() < 0.2 and StraightFireCount <= 3 :  # "Straight Fire"
-                totalPunch += 2
+                totalPunch += 2 + ExtraPunchline
                 spGain += 2
                 StraightFireCount += 1
             else:  # "Unreal Banger"
@@ -113,7 +125,7 @@ class Sparxie(Character):
         bonusSPConsumed = min(spGain, 20 - SPUsed)
         for _ in range(bonusSPConsumed):
             if random() < 0.2 and StraightFireCount <= 3 :  # "Straight Fire"
-                totalPunch += 2
+                totalPunch += 2 + ExtraPunchline
                 StraightFireCount += 1
             else:  # "Unreal Banger"
                 totalPunch += 1
@@ -190,9 +202,13 @@ class Sparxie(Character):
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "SparxieSkillElaExtra" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+            if self._ascended():
+                AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -226,6 +242,11 @@ class Sparxie(Character):
             e5MulSmall = 0.25
         E6ExtraProc = min(Character.SharedPunchline, 40) if self.eidolon == 6 else 0
 
+        if self._ascended():
+            ExtraAhaMultiplier = 2.20 if self.AhaEidolon >= 2 else 1.50
+        else:
+            ExtraAhaMultiplier = 1.00
+
         if Character.ahaFixedPunchline:
             self.savedPunchline = self.SharedPunchline
             self.prePunchline = self.SharedPunchline
@@ -236,9 +257,9 @@ class Sparxie(Character):
         #print(f"DEBUG {self.name} useElaSkill | SharedPunchline: {Character.SharedPunchline} | ahaFixedPunchline: {Character.ahaFixedPunchline}")
 
         tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.ELAPUNCH],
-                [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [6.67, 0], 5, Scaling.ELA, 0, "SparxieElaSkillBig"))
+                [self.element], [e5MulBig * Character.ahaElaDMGBoost * ExtraAhaMultiplier, 0], [6.67, 0], 5, Scaling.ELA, 0, "SparxieElaSkillBig"))
         tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELAPUNCH],
-                [self.element], [e5MulSmall * (20 + E6ExtraProc) * Character.ahaElaDMGBoost, 0], [1.67 * (20 + E6ExtraProc), 0], 0,
+                [self.element], [e5MulSmall * (20 + E6ExtraProc) * Character.ahaElaDMGBoost * ExtraAhaMultiplier, 0], [1.67 * (20 + E6ExtraProc), 0], 0,
                         Scaling.ELA, 0, "SparxieElaSkillSmall"))
         self.addThrill(2)
         if self.eidolon >= 2:
@@ -254,6 +275,8 @@ class Sparxie(Character):
         self.TotalElationChar = specialRes.attr4
         self.ELAStat = specialRes.attr5
         self.Banger = specialRes.attr6
+        self.AhaInTeam = specialRes.attr8
+        self.AhaEidolon = specialRes.attr9
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuff,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
         if self.tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [0.5, 0], [10, 0], 0,self.scaling, 2, "SparxieTech"))
@@ -264,6 +287,15 @@ class Sparxie(Character):
         if self.eidolon >= 1:
             bl.append(Buff("SparxiePunchtoPEN", StatTypes.PEN, min(Character.SharedPunchline * 0.015, 0.15), Role.ALL, [AtkType.ALL],
                      1, 1, self.role, TickDown.PERM))
+
+        if self._ascended():
+            ExtraAhaShred = 0.20 if self.AhaEidolon >= 2 else 0.15
+            bl.append(Buff("AhaExtraShred", StatTypes.SHRED, ExtraAhaShred, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                           TickDown.PERM))
+        else:
+            ExtraAhaShred = 0.00
+            bl.append(Buff("AhaExtraShred", StatTypes.SHRED, ExtraAhaShred, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                           TickDown.PERM))
         return bl, dbl, al, dl, tl, hl, sl
 
     def addThrill(self, amount: int):

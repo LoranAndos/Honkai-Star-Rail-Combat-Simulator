@@ -40,6 +40,8 @@ class YaoGuang(Character):
     Banger = 0
     elaDict = {}
     SPDStat = 0
+    AhaInTeam = False
+    AhaEidolon = 0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -57,6 +59,10 @@ class YaoGuang(Character):
                                                        StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["A", "A", "E"]
         self.elationParticipationID = elationParticipationID
+
+    def _ascended(self) -> bool:
+        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
+        return bool(self.AhaInTeam and Character.AeonAhaUltActive)
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
@@ -109,6 +115,10 @@ class YaoGuang(Character):
         bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         ResPenBuff = 0.22 if self.eidolon >= 5 else 0.2
+        if self._ascended():
+            Character.SharedPunchline += 10
+            ExtraEnergy = 30 if self.AhaEidolon >= 2 else 12
+            bl.append(Buff("YaoGuangAhaBoost", StatTypes.ERR_F, ExtraEnergy, self.role))
         Character.SharedPunchline += 5
         bl.append(Buff("YaoGuangUltResPen", StatTypes.PEN, ResPenBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role,
                        TickDown.START))
@@ -126,21 +136,29 @@ class YaoGuang(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         e5Mul = 0.22 if self.eidolon >= 5 else 0.2
+        if self._ascended():
+            ExtraAhaMultiplier = 1.40 if self.AhaEidolon >= 2 else 1.20
+        else:
+            ExtraAhaMultiplier = 1.00
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
              tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
-                               [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                               [self.element], [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
              if turn.spChange <= -1:
                  tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
-                               [self.element], [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
+                               [self.element], [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "YaoGuangTalentADD" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+            if self._ascended():
+                AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -148,24 +166,27 @@ class YaoGuang(Character):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e5Mul = 0.22 if self.eidolon >= 5 else 0.2
-
+        if self.AhaInTeam and Character.AeonAhaUltActive:
+            ExtraAhaMultiplier = 1.40 if self.AhaEidolon >= 2 else 1.20
+        else:
+            ExtraAhaMultiplier = 1.00
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
             if turn.spChange <= -1:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
             else:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
             Character.SharedPunchline += 60 * Character.PearlE2Modifier
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useBsc(-1))
@@ -204,6 +225,8 @@ class YaoGuang(Character):
         self.Banger = specialRes.attr3
         self.elaDict = specialRes.attr4
         self.SPDStat = specialRes.attr5
+        self.AhaInTeam = specialRes.attr6
+        self.AhaEidolon = specialRes.attr7
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuff, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,TickDown.START))
         if self.currSPD >= 120:
             ELABuff = min(max((self.SPDStat-120), 0), 200)

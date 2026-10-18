@@ -49,10 +49,14 @@ class SilverWolf999(Character):
     Banger = 0
     CR = 0
     tech = True
+    AhaInTeam = False
+    AhaEidolon = 0
 
     # SilverWolf999 Specific Properties
     hiddenMMR = 0  # Talent: tracks Hidden MMR points
     hiddenMMR_MAX = 300  # Can overflow by 240, base 60 = 300 total
+    hiddenMMR_MAX_ASCENDED = 360  # While the Path of Elation ascends (Aeon Aha's Ultimate active)
+    hiddenMMR_MAX_ASCENDED_E2 = 999  # Same, with Aeon Aha at eidolon 2 or higher
     godmodeActive = False  # State for Godmode Player
     godmodeBasicCount = 0  # Count Enhanced Basic ATK uses
     godmodeBasicUsesRemaining = 3  # E2: Extra uses from Hidden MMR breakpoints
@@ -94,9 +98,21 @@ class SilverWolf999(Character):
         self.topLootBoxTriggersRemaining = 3
         self.techniqueTriggered = False
         self.e2ExtendPending = False
+        self.lastBangerSeen = None  # Party Trick (Certified Banger) seen at the previous special start
+
+    def _ascended(self) -> bool:
+        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
+        return bool(self.AhaInTeam and Character.AeonAhaUltActive)
+
+    def _mmrCap(self) -> float:
+        """Hidden MMR limit: 300 normally, 360 while the Path of Elation ascends, 999 if Aeon Aha is E2+."""
+        if not self._ascended():
+            return self.hiddenMMR_MAX
+        return self.hiddenMMR_MAX_ASCENDED_E2 if self.AhaEidolon >= 2 else self.hiddenMMR_MAX_ASCENDED
 
     def _updateEnergyFromMMR(self):
         """Constantly sync currEnergy to match hiddenMMR value."""
+        self.maxEnergy = self._mmrCap()
         self.currEnergy = self.hiddenMMR
         logger.debug(f"{self.name} currEnergy synced to hiddenMMR: {self.currEnergy}")
 
@@ -116,7 +132,7 @@ class SilverWolf999(Character):
         """Sync Punchline changes to Hidden MMR."""
         punchline_diff = Character.SharedPunchline - self.lastPunchlineValue
         if punchline_diff > 0 and Character.ahaYaoGuangUlt == False and Character.EMCUlt == False:
-            self.hiddenMMR = min(self.hiddenMMR + punchline_diff, self.hiddenMMR_MAX)
+            self.hiddenMMR = min(self.hiddenMMR + punchline_diff, self._mmrCap())
             logger.debug(f"{self.name} +{punchline_diff} Hidden MMR from Punchline (total: {self.hiddenMMR})")
         self.lastPunchlineValue = Character.SharedPunchline
         self._updateEnergyFromMMR()
@@ -434,7 +450,7 @@ class SilverWolf999(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
                            [self.element], [0, 0], [0, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999NormalELASkill"))
-            self.hiddenMMR = min(self.hiddenMMR + 15, self.hiddenMMR_MAX)
+            self.hiddenMMR = min(self.hiddenMMR + 15, self._mmrCap())
 
         # E2: Check for MMR threshold and grant extra Enhanced Basic if needed (no AV advance)
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(enemyID, bl, al, dbl)
@@ -458,10 +474,14 @@ class SilverWolf999(Character):
             bl.append(Buff("SilverWolf999TechniqueBanger", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 1, 1,
                            self.role, TickDown.START))
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
-        if result.turnName == "SilverWolf999EnhancedFinal" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+        if result.turnName in ("SilverWolf999EnhancedFinal","SilverWolf999Talent") and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            if self._ascended():
+                AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
         extra_basic_turns = self._checkAndExecuteE2ExtraBasic(self.bestEnemy(-1), bl, al, dbl)
         tl.extend(extra_basic_turns)
@@ -535,6 +555,19 @@ class SilverWolf999(Character):
         self.SpdStat = specialRes.attr5
         self.Banger = specialRes.attr6
         self.CR = specialRes.attr7
+        self.AhaInTeam = specialRes.attr8
+        self.AhaEidolon = specialRes.attr9
+
+        # Path of Elation ascends: +40% CRIT DMG, and gaining Party Trick (Certified Banger)
+        # provides Hidden MMR equal to 20% of the Party Trick gained (40% with Aeon Aha at E2+).
+        ascended = self._ascended()
+        bl.append(Buff("SilverWolf999AscendCD", StatTypes.CD_PERCENT, 0.40 if ascended else 0, self.role,
+                       [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
+        if self.lastBangerSeen is not None and ascended and self.Banger > self.lastBangerSeen:
+            mmrGain = (0.40 if self.AhaEidolon >= 2 else 0.20) * (self.Banger - self.lastBangerSeen)
+            self.hiddenMMR = min(self.hiddenMMR + mmrGain, self._mmrCap())
+            logger.info(f"{self.name} +{mmrGain:.1f} Hidden MMR from gaining Party Trick (total: {self.hiddenMMR})")
+        self.lastBangerSeen = self.Banger
 
         enemyCount = self._getEnemyCount()
 

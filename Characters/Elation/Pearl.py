@@ -53,6 +53,8 @@ class Pearl(Character):
     ally2Proc = False
     ally3Proc = False
     Trace3Energy = True
+    AhaInTeam = False
+    AhaEidolon = 0
 
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
@@ -114,7 +116,7 @@ class Pearl(Character):
         # "1 point of CB = 200 Repellency" — Repellency itself is never
         # stored separately, it's always derived as certifiedBanger * 200.
         self.certifiedBanger = 0.0
-        self.certifiedBangerCap = 50.0
+        self.certifiedBangerCap = 75.0 if self._ascended() else 50.0
         self.repellencyPerCB = 200.0
         self.repellencyBlockPct = 0.60
 
@@ -136,6 +138,10 @@ class Pearl(Character):
         # handleSpecialStart (which DOES return a proper bl) applies it
         # on the next tick.
         self._pendingCBGain = 0.0
+
+    def _ascended(self) -> bool:
+        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
+        return bool(self.AhaInTeam and Character.AeonAhaUltActive)
 
     def _addCertifiedBanger(self, amount: float, source: str, bl: list, notifyEvanescia: bool = True):
         """Central Talent gain-path for ALL of Pearl's own CB sources
@@ -486,15 +492,12 @@ class Pearl(Character):
         self.ally1Role = specialRes.attr8[0]
         self.ally2Role = specialRes.attr8[1]
         self.ally3Role = specialRes.attr8[2]
-        e5Mul = 0.33 if self.eidolon >= 5 else 0.30
-
-        # Cache the raw ingredients every tick — the actual targeting
-        # decision (mode-dependent) is made once per real Ult use in
-        # useUlt(), not here, so alternation only flips once per Ult
-        # rather than every tick before she gets to act.
         self._yaoguangRole = specialRes.attr9
         self._yaoguangEnergyOK = specialRes.attr10
         self._dpsRole = specialRes.attr11
+        self.AhaInTeam = specialRes.attr12
+        self.AhaEidolon = specialRes.attr13
+        e5Mul = 0.33 if self.eidolon >= 5 else 0.30
 
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.PERM))

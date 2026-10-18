@@ -52,6 +52,8 @@ class Evanescia(Character):
     UltCounter = 0
     ERR = 0.0
     Count = 0
+    AhaInTeam = False
+    AhaEidolon = 0
 
     # Elation Skill Participation ID (for Banger conversion mechanics)
     elationParticipationID = 0
@@ -74,6 +76,9 @@ class Evanescia(Character):
         self.rotation = rotation if rotation else ["E"]
         self.masterFoxFiredCount = 0
         self.elationParticipationID = elationParticipationID
+        # Ascension state (instance-level to avoid class-level leaks)
+        self.overflowEnergy = 0.0
+        self.partyTrickAccum = 0.0
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
@@ -92,6 +97,28 @@ class Evanescia(Character):
             bl.append(Buff("EvanesciaE4Shred", StatTypes.SHRED, 0.15, self.role))
         return bl, dbl, al, dl, hl, sl
 
+    def _ascended(self) -> bool:
+        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
+        return bool(self.AhaInTeam and Character.AeonAhaUltActive)
+
+    OVERFLOW_ENERGY_MAX = 60
+    PARTY_TRICK_PER_STACK = 480
+    PARTY_TRICK_ULT_BONUS = 0.75
+
+    def addEnergy(self, amount: float):
+        """Energy beyond maxEnergy accumulates as overflow (max 60) while the Path of Elation ascends."""
+        space = max(0.0, self.maxEnergy - self.currEnergy)
+        absorbed = min(amount, space)
+        self.currEnergy += absorbed
+        extra = amount - absorbed
+        if extra > 0 and self._ascended():
+            self.overflowEnergy = min(self.OVERFLOW_ENERGY_MAX, self.overflowEnergy + extra)
+
+    def notePartyTrick(self, amount: float):
+        """Record Party Trick (Banger) gained while ascended; every 480 empowers the next Ultimate."""
+        if amount > 0 and self._ascended():
+            self.partyTrickAccum += amount
+
     # ---------------------------------------------------------------------------
     # Talent helpers
     # ---------------------------------------------------------------------------
@@ -104,6 +131,7 @@ class Evanescia(Character):
         """
         bangerGain = min(amount, 100)
         final_banger = (bangerGain * (1 + self.ERR))
+        self.notePartyTrick(final_banger)
         bl.append(Buff(f"TalentBangerFromEnergy_{source}{self.Count}", StatTypes.BANGER, final_banger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
@@ -198,10 +226,20 @@ class Evanescia(Character):
         # Sync fired count down so the next crossing of 240 fires Master Fox again.
         self.masterFoxFiredCount = int(self.currEnergy // self.MASTER_FOX_THRESHOLD)
 
-        e3MulAOE = 1.76 if self.eidolon >= 3 else 1.6
-        e3MulSingle = 1.296 if self.eidolon >= 3 else 1.2
-        e5MulAOE = 0.264 if self.eidolon >= 5 else 0.24
-        e5MulSingle = 0.308 if self.eidolon >= 5 else 0.28
+        # Ascension: stored overflow energy is regenerated directly (no Banger conversion).
+        if self.overflowEnergy > 0:
+            self.currEnergy = min(self.maxEnergy, self.currEnergy + self.overflowEnergy)
+            self.overflowEnergy = 0.0
+
+        # Ascension: every 480 Party Trick accumulated -> next Ult multiplier +75% of original.
+        stacks = int(self.partyTrickAccum // self.PARTY_TRICK_PER_STACK)
+        ultMulBonus = 1 + self.PARTY_TRICK_ULT_BONUS * stacks
+        self.partyTrickAccum -= stacks * self.PARTY_TRICK_PER_STACK
+
+        e3MulAOE = (1.76 if self.eidolon >= 3 else 1.6) * ultMulBonus
+        e3MulSingle = (1.296 if self.eidolon >= 3 else 1.2) * ultMulBonus
+        e5MulAOE = (0.264 if self.eidolon >= 5 else 0.24) * ultMulBonus
+        e5MulSingle = (0.308 if self.eidolon >= 5 else 0.28) * ultMulBonus
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ULT], [self.element],
@@ -261,9 +299,13 @@ class Evanescia(Character):
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "EvanesciaSkillELAPUNCH" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+            if self._ascended():
+                AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -326,6 +368,18 @@ class Evanescia(Character):
         self.Banger = specialRes.attr5
         self.CD = specialRes.attr6
         self.ERR = specialRes.attr7
+        self.AhaInTeam = specialRes.attr8
+        self.AhaEidolon = specialRes.attr9
+
+        self.OVERFLOW_ENERGY_MAX = 240 if self.AhaEidolon >= 2 else 60
+        self.PARTY_TRICK_ULT_BONUS = 1.50 if self.AhaEidolon >= 2 else 0.75
+
+        if self._ascended():
+            ExtraAhaShred = 0.24 if self.AhaEidolon >= 2 else 0.10
+        else:
+            ExtraAhaShred = 0.0
+        bl.append(Buff("EvanesciaAscendShred", StatTypes.SHRED, ExtraAhaShred, self.role,[AtkType.ALL], 1, 1, self.role, TickDown.PERM))
+
         E5CdBuff = 0.22 if self.eidolon >= 5 else 0.20
         bl.append(Buff("AhaSpdBuff", StatTypes.SPD, self.AHASpdBuffAmount, Role.AHA, [AtkType.SPECIAL], 1, 1, Role.AHA,
                        TickDown.PERM))
@@ -369,6 +423,7 @@ class Evanescia(Character):
         bl.append(Buff(f"EvanesciaBangerConvert_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
+        self.notePartyTrick(convertedBanger)
         logger.debug(f"{self.name} converted {convertedBanger} Banger from teammate {source}")
         self._addBangerEnergy(convertedBanger, bl, f"ConvertedFrom_{source}")
 
@@ -382,6 +437,7 @@ class Evanescia(Character):
         bl.append(Buff(f"EvanesciaBangerExpire_{source}{self.Count}", StatTypes.BANGER, convertedBanger,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
+        self.notePartyTrick(convertedBanger)
         logger.debug(f"{self.name} converted {convertedBanger} Banger from expired {source} buff")
         self._addBangerEnergy(convertedBanger, bl, f"ExpiredFrom_{source}")
 
@@ -393,6 +449,7 @@ class Evanescia(Character):
         bl.append(Buff(f"EvanesciaBangerFromEnergyBuff_{source}{self.Count}", StatTypes.BANGER, bangerGain,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
+        self.notePartyTrick(bangerGain)
         logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} energy buff ({source})")
 
     def receiveEnergyFromDamage(self, energyAmount: int, bl: list):
@@ -403,4 +460,5 @@ class Evanescia(Character):
         bl.append(Buff(f"EvanesciaBangerFromDamage{self.Count}", StatTypes.BANGER, bangerGain,
                        self.role, [AtkType.ALL], self.BangerDuration, 100, self.role, TickDown.END))
         self.Count += 1
+        self.notePartyTrick(bangerGain)
         logger.debug(f"{self.name} gained {bangerGain} Banger from {energyAmount} hit energy")

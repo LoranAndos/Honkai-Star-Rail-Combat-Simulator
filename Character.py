@@ -19,6 +19,14 @@ class CharacterMeta(type):
         cls._SharedPunchline_value = value
         logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f}")
 
+    @property
+    def AeonAhaUltActive(cls) -> bool:
+        """True while Aeon Aha (if on the team) has her Ultimate active. Read live from her
+        UltActive flag, so it works as Character.AeonAhaUltActive from any file and can't go
+        stale between runs. False when Aeon Aha isn't on the team."""
+        aeon = next((c for c in (cls._current_player_team or []) if c.name == "AeonAha"), None)
+        return bool(aeon is not None and getattr(aeon, "UltActive", False))
+
 class Character(metaclass=CharacterMeta):
     # Standard Character Properties
     name = "Character"
@@ -380,3 +388,8 @@ class Character(metaclass=CharacterMeta):
         old = Character._SharedPunchline_value
         Character._SharedPunchline_value = value
         logging.warning(f"    PUNCH  > SharedPunchline: {old:.1f} -> {value:.1f}")
+
+    @property
+    def AeonAhaUltActive(self) -> bool:
+        """Instance-level access to Character.AeonAhaUltActive"""
+        return Character.AeonAhaUltActive

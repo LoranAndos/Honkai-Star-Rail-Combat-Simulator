@@ -98,10 +98,14 @@ class AventurineWaveflair(Character):
             return self.useElaSkill(-1)
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
-        if result.turnName == "SparxieSkillElaExtra" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+        if result.turnName == "Nog aanvullen (Niet vergeten)" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
+            if self._ascended():
+                AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         return bl, dbl, al, dl, tl, hl, sl

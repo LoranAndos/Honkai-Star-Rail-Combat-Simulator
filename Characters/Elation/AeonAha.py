@@ -43,6 +43,11 @@ class AeonAha(Character):
     UltActive = False
     UltTurns = 0
     TalentWishpowerTrigger = True
+    DPSName = "AeonAha"
+    SpdStat = 0
+    DPSElement = Element.QUANTUM
+    FirstUlt = True
+    Tech = True
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -60,19 +65,41 @@ class AeonAha(Character):
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
+        # Aha Instant tracking (instance-level on purpose: class-level state leaks across runs/teams)
+        self.instantActive = False
+        self.instantNonTrueDMG = 0.0
+        self.emcAscendDMG = 0.0
+        self.emcAscendPending = False
+        self.trueFromEMCAscend = False
+        # Talent: Wishpower from teammate healing/shields (max once, re-arms on Ultimate)
+        self.healShieldWishpowerUsed = False
+        self._lastShieldHP = 0.0
+        self._lastShieldCount = 0
 
-    def addEnergy(self, amount: float):
+    def _gainWishpowerFromSupport(self, source: str):
+        """'When receiving healing or a Shield provided by a teammate, gains 1 point of Wishpower.
+        This can be triggered up to 1 times. The trigger count resets after using Ultimate.'"""
+        if self.healShieldWishpowerUsed:
+            return
+        self.healShieldWishpowerUsed = True
+        self.currEnergy += 1
+        logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from receiving {source} "
+                    f"(total: {self.currEnergy})")
 
-        if not self.UltActive:
-            space = self.maxEnergy - self.currEnergy
-            if amount > space:
-                # Fill currEnergy to max, put the remainder into overflow
-                self.currEnergy = self.maxEnergy
-                self.overflowEnergy = min(80.0, self.overflowEnergy + (amount - space))
-            else:
-                self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
-        else:
-            self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
+    def ChangeHpValue(self, HPChangingValue: float):
+        super().ChangeHpValue(HPChangingValue)
+        # Aha has no self-healing, so any positive HP change is healing from a teammate
+        if HPChangingValue > 0:
+            self._gainWishpowerFromSupport("healing")
+
+    def _checkShieldReceived(self):
+        """Shields are attached to her after the providing teammate's turn resolves, so compare
+        against the last snapshot (any new/larger shield means one was provided to her)."""
+        hp = self.getTotalShieldHP()
+        count = len(self.shields)
+        if hp > self._lastShieldHP + 1e-9 or count > self._lastShieldCount:
+            self._gainWishpowerFromSupport("a Shield")
+        self._lastShieldHP, self._lastShieldCount = hp, count
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
@@ -80,6 +107,10 @@ class AeonAha(Character):
         bl.append(Buff("AeonAhaTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("AeonAhaTraceSPD", StatTypes.SPD, 5, self.role))
         bl.append(Buff("AeonAhaTraceCD", StatTypes.ELA, 0.373, self.role))
+        al.append(Advance("Trace3ADV", self.role, 0.30))
+        if self.eidolon >= 1:
+            self.currEnergy += 5
+            bl.append(Buff("E1AhaMerry", StatTypes.MERRY, 0.15, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
 
     def useBsc(self, enemyID=-1):
@@ -87,7 +118,7 @@ class AeonAha(Character):
         e3Mul = 0.55 if self.eidolon >= 3 else 0.50
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC,AtkType.ELABANGER],
 [self.element],[e3Mul, 0], [10, 0], 0, self.scaling, 1, "AeonAhaBasic"))
-        self.Wishpower += 1
+        self.currEnergy += 1
         return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
@@ -96,16 +127,25 @@ class AeonAha(Character):
         e5ELABuff = 0.22 if self.eidolon >= 5 else 0.20
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA, AtkType.ELABANGER],
                  [self.element], [e5Mul, 0], [10, 0], 0, self.scaling, -1, "AeonAhaSkill"))
+        tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
+                       Targeting.AOE, [AtkType.ELABANGER, AtkType.FUA], self.DPSElement,
+                       [0.20, 0], [0, 0], 0, Scaling.ELA, 0, "AhaDPSSkill"))
         bl.append(Buff("AhaSkillELA", StatTypes.ELA, e5ELABuff, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole, TickDown.PERM))
-        self.Wishpower += 1
+        self.currEnergy += 1
+        bl.append(Buff("Trace1SPRefund", StatTypes.SKLPT, 1, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole, TickDown.START))
         return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
+        self.healShieldWishpowerUsed = False
         e3MulBig = 2.16 if self.eidolon >= 3 else 2.00
         e3MulSmall = 0.648 if self.eidolon >= 3 else 0.60
-        al.append(Advance("AhaADV", Role.AHA, 0.20))
+        if self.FirstUlt and self.eidolon == 6:
+            al.append(Advance("AhaADV", Role.AHA, 1.00))
+            Character.SharedPunchline += 100
+        else:
+            al.append(Advance("AhaADV", Role.AHA, 0.20))
         self.UltActive = True
         self.UltTurns = 3
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT, AtkType.ELABANGER],
@@ -115,21 +155,56 @@ class AeonAha(Character):
                      [self.element], [e3MulSmall, 0], [5, 0], 0, self.scaling, 0, "AeonAhaUltExtra"))
         return bl, dbl, al, dl, tl, hl, sl
 
+    ELA_SEQUENCE_END = ("AhaElationSequenceComplete", "AhaElationFixedSequenceComplete", "AhaElationFixedEMCSequenceComplete")
+    GREAT_BOON_MOVES = ("YaoGuangTalentADD", "YaoGuangTalentADDSP")
+    EMC_ASCEND_MOVES = ("ElationMCUltAscendBig", "ElationMCUltAscendSmall")
+
+    def _trackInstant(self, turn: Turn, result: Result):
+        """Tracks the non-True DMG dealt during the current Aha Instant: all ELAPUNCH damage from
+        Elation skills and Yao Guang's Great Boon procs (Aha's own DMG is excluded). Tracking
+        starts when an Elation skill is triggered (GoGo / Ult-trigger marker) and the pool is
+        cleared when the Aha turn ends."""
+        name = result.turnName
+        if name in self.EMC_ASCEND_MOVES:
+            # Trailblazer's ascended Elation Skill resolves BEFORE Aha's skill is triggered; when it
+            # does, the True DMG is based on this DMG alone.
+            self.emcAscendPending = True
+            self.emcAscendDMG += result.ElationturnDMG
+        elif (name.startswith("Aha") and name.endswith("GoGo")) or name.startswith("ElationMCUltTrigger_"):
+            if not self.instantActive:
+                self.instantActive = True
+                self.instantNonTrueDMG = self.emcAscendDMG if self.emcAscendPending else 0.0
+                self.trueFromEMCAscend = self.emcAscendPending
+                self.emcAscendDMG = 0.0
+                self.emcAscendPending = False
+        elif name in self.ELA_SEQUENCE_END:
+            self.instantActive = False
+            self.instantNonTrueDMG = 0.0
+            self.trueFromEMCAscend = False
+        elif self.instantActive and not self.trueFromEMCAscend and (AtkType.ELAPUNCH in turn.atkType or name in self.GREAT_BOON_MOVES):
+            self.instantNonTrueDMG += result.ElationturnDMG
+
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
+        self._checkShieldReceived()
+        self._trackInstant(turn, result)
         e5CDBuff = 0.44 if self.eidolon >= 5 else 0.40
         if result.turnName == "AhaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "AeonAhaSkill" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 0, self.role,
-                           [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
-            Character.SharedPunchline -= 60 * Character.PearlE2Modifier
+            if self.UltActive:
+                AhaExtraBuffRetain = 0.2 if self.eidolon >= 2 else 0.1
+            else:
+                AhaExtraBuffRetain = 0.0
+            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+                           [AtkType.ALL], 2, 1, self.role, TickDown.END))
+            Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
-            self.Wishpower += 1
+            self.currEnergy += 1
             self.TalentWishpowerTrigger = False
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
 
@@ -137,6 +212,8 @@ class AeonAha(Character):
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
+        self._checkShieldReceived()
+        self._trackInstant(turn, result)
         e5CDBuff = 0.44 if self.eidolon >= 5 else 0.40
 
         if result.turnName == "AhaGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
@@ -154,42 +231,86 @@ class AeonAha(Character):
             self.TalentWishpowerTrigger = True
 
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger and Character.PearlUlt == False:
-            self.Wishpower += 1
+            self.currEnergy += 1
             self.TalentWishpowerTrigger = False
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
-
-
         return bl, dbl, al, dl, tl, hl, sl
 
     def _onTargetTurnBegins_Wishpower(self):
-        self.Wishpower += 1
+        self.currEnergy += 1
         logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from {self.targetRole.name}'s turn beginning "
                    f"(total: {self.Wishpower})")
 
     def useElaSkill(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
-        self.Wishpower += 1
+        if self.eidolon >= 5:
+            e5Mul = 0.66
+        elif 5 > self.eidolon >= 3:
+            e5Mul = 0.63
+        else:
+            e5Mul = 0.60
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
+                       [self.element], [e5Mul*Character.ahaElaDMGBoost, 0], [10, 0], 0, self.scaling, 0, "AeonAhaELASkill"))
+        # Then True DMG = 20% of the non-True DMG allies dealt this Instant, split equally over all
+        # enemies. The pool is read when this Turn resolves (see handleTurn in MainFunctions.py).
+        trueMul = 0.20 * 1.25 if self.eidolon >= 4 else 0.20
+        tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL],
+                       [self.element], [trueMul, 0], [0, 0], 0, self.scaling, 0, "AeonAhaELATrueDMG"))
+        self.currEnergy += 1
         return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
+        self._checkShieldReceived()
         self.AHASpdBuffAmount = specialRes.attr1
         self.TotalElationChar = specialRes.attr2
+        self.DPSName = specialRes.attr3
+        self.SpdStat = specialRes.attr4
+        self.DPSElement = specialRes.attr5
 
         e5CDBuff = 0.44 if self.eidolon >= 5 else 0.40
 
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
-        if self.tech:
-            self.tech = False
+        if self.Tech:
+            self.Tech = False
+            Character.savedPunchline = Character.SharedPunchline
+            Character.ahaYaoGuangUlt = True
+            Character.SharedPunchline = 20
+            Character.ahaFixedPunchlineValue = 20
+            Character.ahaFixedPunchline = True
+            tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0, 0], [0, 0], 0,
+                           self.scaling,0, "AeonAhaTech"))
 
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
-            self.Wishpower += 1
+            self.currEnergy += 1
             self.TalentWishpowerTrigger = False
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
+
+        if self.UltActive:
+            if self.eidolon >= 2:
+                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.20, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                               TickDown.PERM))
+                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.60, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                               TickDown.PERM))
+            else:
+                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                               TickDown.PERM))
+                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.30, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                               TickDown.PERM))
+        else:
+            bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                           TickDown.PERM))
+            bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                           TickDown.PERM))
+        if self.SpdStat >= 150:
+            bl.append(Buff("AhaTrace3ELA", StatTypes.ELA, 1.50, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
+        elif self.SpdStat >= 125:
+            bl.append(Buff("AhaTrace3ELA", StatTypes.ELA, 1.20, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
 
         return bl, dbl, al, dl, tl, hl, sl
 
     def takeTurn(self) -> str:
+        self._checkShieldReceived()
         if self.UltActive:
             self.UltTurns -= 1
         if self.UltTurns == 0:
