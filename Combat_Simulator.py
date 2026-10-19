@@ -12,6 +12,7 @@ from Characters.Elation.Evanescia import Evanescia
 from Characters.Elation.Pearl import Pearl
 from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.SilverWolf999 import SilverWolf999
+from Characters.Elation.AeonAha import AeonAha
 from Characters.Harmony.RuanMei import RuanMei
 from Characters.Harmony.Sunday import Sunday
 from Characters.Hunt.Archer import Archer
@@ -31,7 +32,7 @@ cycles = 5  # comment out this line if running the simulator from an external sc
 log = True
 manual = False
 
-EnemyElement = Element.FIRE
+EnemyElement = Element.IMAGINARY
 FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
@@ -78,8 +79,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = Evanescia(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
+        slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = AeonAha(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
@@ -184,6 +185,9 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList = handleAdditions(playerTeam, eTeam, teamBuffs, enemyDebuffs,
                                                                       advList, delayList, healingList, shieldList, initBuffs, initDebuffs,
                                                                       initAdv, initDelay, initHealing, initShield)
+    for s in summons:
+        if hasattr(s, "refreshBaseSPD"):
+            s.refreshBaseSPD()
 
     # Setup initial AV
     for char in playerTeam:
@@ -539,7 +543,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False   # Set to True for multiple runs, False for single run
+    multiRun = False # Set to True for multiple runs, False for single run
     numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -572,8 +576,8 @@ if __name__ == "__main__":
         # Build filename matching log format. So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
         slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-        slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = AeonAha(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
@@ -593,8 +597,8 @@ if __name__ == "__main__":
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
                 slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = ElationMC(1, Role.SUP1, 1, eidolon=6, targetPrio=Priority.DEFAULT)
-                slot3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = AeonAha(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,

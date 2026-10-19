@@ -41,4 +41,10 @@ class DreamlitActor(Relic):
                 self.BangerStat = special.attr5
                 if self.BangerStat >= 10:
                     self.ExtraBuff = True
+            if special.specialName == "AeonAha" :
+                AeonAha = next((c for c in (Character._current_player_team or []) if c.name == "AeonAha"), None)
+                self.targetRole = AeonAha.targetRole
+                self.BangerStat = special.attr6
+                if self.BangerStat >= 10:
+                    self.ExtraBuff = True
         return bl, dbl, al, dl, hl, sl

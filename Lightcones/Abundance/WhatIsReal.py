@@ -21,8 +21,7 @@ class WhatIsReal(Lightcone):
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, hl, sl = super().useBsc(enemyID)
-        #Like this till I figure out how to add healing in a lightcone
-        #HealAmount = self.level * 0.005 + 0.015
-        #hl.append(Healing("WhatIsRealBasicScalingHeal", [HealAmount,0], Scaling.MAXHP, self.wearerRole, self.wearerRole, Targeting.SINGLE))
-        #hl.append(Healing("WhatIsRealBasicFlatHeal", [800,0], Scaling.Other, self.wearerRole, self.wearerRole, Targeting.SINGLE))
+        HealAmount = self.level * 0.005 + 0.015
+        hl.append(Healing("WhatIsRealBasicScalingHeal", [HealAmount,0], Scaling.MAXHP, self.wearerRole, self.wearerRole, Targeting.SINGLE))
+        hl.append(Healing("WhatIsRealBasicFlatHeal", [800,0], Scaling.Other, self.wearerRole, self.wearerRole, Targeting.SINGLE))
         return bl, dbl, al, dl, hl, sl

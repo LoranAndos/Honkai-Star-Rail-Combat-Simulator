@@ -198,6 +198,9 @@ class Aha(Summon):
         self.hasElationMC = any("AhaElationMCGoGo" in turnName for _, turnName in self.elationTeam)
         self.hasAventurineWaveflair = any("AhaAventurineWaveflairGoGo" in turnName for _, turnName in self.elationTeam)
         self.hasAeonAha = any("AhaGoGo" in turnName for _, turnName in self.elationTeam)
+        self.refreshBaseSPD()
+
+    def refreshBaseSPD(self):
         if self.hasAeonAha:
             aeonBaseSPD = self._getAeonAhaBaseSPD()
             self.baseSPD = aeonBaseSPD

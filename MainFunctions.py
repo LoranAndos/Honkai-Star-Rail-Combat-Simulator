@@ -1672,7 +1672,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     i += 1
                 TotalElationChar = len(AHASpdList)
                 charSPD = getCharSPD(specChar, buffList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=DPSName, attr4=charSPD, attr5=DPSElement, enemies=gauge)
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=DPSName, attr4=charSPD, attr5=DPSElement, attr6=charBanger, attr7=charELA, enemies=gauge)
 
             case "Archer":
                 SPAmount = spTracker.getCurrenSP()
@@ -2265,7 +2267,12 @@ def processTurnList(turnList: list[Turn], playerTeam, summons, eTeam, teamBuffs,
             if hasattr(char, 'lightcone') and hasattr(char.lightcone, 'debuffList'):
                 char.lightcone.debuffList = enemyDebuffs
             if char.role == turn.charRole:
+                dmgBefore = sum(char.dmgDct.values()) if turn.moveName == "AeonAhaELATrueDMG" else 0.0
                 tempB, tempDB, tempA, tempD, newTurns, tempH, tempS = char.ownTurn(turn, res)
+                if turn.moveName == "AeonAhaELATrueDMG":
+                    missing = res.turnDmg + res.ElationturnDMG - (sum(char.dmgDct.values()) - dmgBefore)
+                    if missing > 1e-9:
+                        char.dmgDct[AtkType.ELABANGER] = char.dmgDct.get(AtkType.ELABANGER, 0) + missing
             else:
                 tempB, tempDB, tempA, tempD, newTurns, tempH, tempS = char.allyTurn(turn, res)
             if len(tempDB) > 0:

@@ -2,11 +2,11 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSparxie
-from Planars.TengokuLivestream import TengokuLivestream
+from Lightcones.Elation.UponTheFirstEchoOfAha import UponTheFirstEchoOfAha
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresAeonAHa
+from Planars.GodsMomentOfJoy import GodsMomentOfJoy
 from RelicStats import RelicStats
-from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.DreamlitActor import DreamlitActor
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -46,6 +46,8 @@ class AeonAha(Character):
     DPSName = "AeonAha"
     SpdStat = 0
     DPSElement = Element.QUANTUM
+    BangerStat = 0
+    ELAStat = 0
     FirstUlt = True
     Tech = True
 
@@ -57,11 +59,11 @@ class AeonAha(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=0) -> None:  # AeonAha ID: 0
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role,5)
-        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
+        self.lightcone = lc if lc else UponTheFirstEchoOfAha(role,1)
+        self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.planar = pl if pl else GodsMomentOfJoy(role)
+        self.relicStats = subs if subs else RelicStats(11, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 8, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.HP_PERCENT, StatTypes.DEF_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
@@ -128,7 +130,7 @@ class AeonAha(Character):
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA, AtkType.ELABANGER],
                  [self.element], [e5Mul, 0], [10, 0], 0, self.scaling, -1, "AeonAhaSkill"))
         tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
-                       Targeting.AOE, [AtkType.ELABANGER, AtkType.FUA], self.DPSElement,
+                       Targeting.AOE, [AtkType.ELABANGER, AtkType.FUA], [self.DPSElement],
                        [0.20, 0], [0, 0], 0, Scaling.ELA, 0, "AhaDPSSkill"))
         bl.append(Buff("AhaSkillELA", StatTypes.ELA, e5ELABuff, self.targetRole, [AtkType.ALL], 1, 1, self.targetRole, TickDown.PERM))
         self.currEnergy += 1
@@ -206,6 +208,7 @@ class AeonAha(Character):
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
             self.currEnergy += 1
             self.TalentWishpowerTrigger = False
+            logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from reaching 40 Punchline")
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -233,6 +236,7 @@ class AeonAha(Character):
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger and Character.PearlUlt == False:
             self.currEnergy += 1
             self.TalentWishpowerTrigger = False
+            logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from reaching 40 Punchline")
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -267,6 +271,8 @@ class AeonAha(Character):
         self.DPSName = specialRes.attr3
         self.SpdStat = specialRes.attr4
         self.DPSElement = specialRes.attr5
+        self.BangerStat = specialRes.attr6
+        self.ELAStat = specialRes.attr7
 
         e5CDBuff = 0.44 if self.eidolon >= 5 else 0.40
 
@@ -284,23 +290,24 @@ class AeonAha(Character):
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
             self.currEnergy += 1
             self.TalentWishpowerTrigger = False
+            logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from reaching 40 Punchline")
             bl.append(Buff("AhaTalentCD", StatTypes.CD_PERCENT, e5CDBuff, Role.ALL, [AtkType.ALL], 3, 1, self.role, TickDown.END))
 
         if self.UltActive:
             if self.eidolon >= 2:
-                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.20, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.20, self.role, [AtkType.ALL], 1, 1, self.role,
                                TickDown.PERM))
-                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.60, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.60, self.role, [AtkType.ALL], 1, 1, self.role,
                                TickDown.PERM))
             else:
-                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.12, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0.12, self.role, [AtkType.ALL], 1, 1, self.role,
                                TickDown.PERM))
-                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.30, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0.30, self.role, [AtkType.ALL], 1, 1, self.role,
                                TickDown.PERM))
         else:
-            bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+            bl.append(Buff("AhaEnhancedCR", StatTypes.CR_PERCENT, 0, self.role, [AtkType.ALL], 1, 1, self.role,
                            TickDown.PERM))
-            bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+            bl.append(Buff("AhaEnhancedShred", StatTypes.SHRED, 0, self.role, [AtkType.ALL], 1, 1, self.role,
                            TickDown.PERM))
         if self.SpdStat >= 150:
             bl.append(Buff("AhaTrace3ELA", StatTypes.ELA, 1.50, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))

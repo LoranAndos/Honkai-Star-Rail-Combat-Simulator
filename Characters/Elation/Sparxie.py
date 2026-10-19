@@ -63,9 +63,7 @@ class Sparxie(Character):
         self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 11, 9, StatTypes.CR_PERCENT,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT,
-                                                       StatTypes.ATK_PERCENT)
+        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 11, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 

@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 80040.227 | Sparxie: 67225.468 | Sparkle: 0.000 | AeonAha: 4247.530 | HuoHuo: 11.803
+Run    2: Team DPAV: 86005.482 | Sparxie: 72349.596 | Sparkle: 0.000 | AeonAha: 4534.315 | HuoHuo: 11.722
+Run    3: Team DPAV: 85759.642 | Sparxie: 72088.096 | Sparkle: 0.000 | AeonAha: 4441.006 | HuoHuo: 12.412
+Run    4: Team DPAV: 95699.648 | Sparxie: 80654.863 | Sparkle: 0.000 | AeonAha: 4871.796 | HuoHuo: 13.023
+Run    5: Team DPAV: 87898.654 | Sparxie: 73821.538 | Sparkle: 0.000 | AeonAha: 4625.691 | HuoHuo: 11.914
+Run    6: Team DPAV: 101409.212 | Sparxie: 85890.238 | Sparkle: 0.000 | AeonAha: 4973.721 | HuoHuo: 12.558
+Run    7: Team DPAV: 90310.990 | Sparxie: 76203.152 | Sparkle: 0.000 | AeonAha: 4689.762 | HuoHuo: 11.720
+Run    8: Team DPAV: 85114.049 | Sparxie: 71454.898 | Sparkle: 0.000 | AeonAha: 4470.089 | HuoHuo: 12.861
+Run    9: Team DPAV: 87553.148 | Sparxie: 73565.846 | Sparkle: 0.000 | AeonAha: 4786.099 | HuoHuo: 11.538
+Run   10: Team DPAV: 87614.367 | Sparxie: 73685.188 | Sparkle: 0.000 | AeonAha: 4504.936 | HuoHuo: 11.777
+Run   11: Team DPAV: 87421.061 | Sparxie: 73860.240 | Sparkle: 0.000 | AeonAha: 4377.450 | HuoHuo: 12.039
+Run   12: Team DPAV: 77320.559 | Sparxie: 65021.586 | Sparkle: 0.000 | AeonAha: 4137.265 | HuoHuo: 11.004
+Run   13: Team DPAV: 91070.984 | Sparxie: 76842.242 | Sparkle: 0.000 | AeonAha: 4766.047 | HuoHuo: 12.039
+Run   14: Team DPAV: 80044.164 | Sparxie: 67415.873 | Sparkle: 0.000 | AeonAha: 4180.106 | HuoHuo: 11.893
+Run   15: Team DPAV: 92094.692 | Sparxie: 77251.644 | Sparkle: 0.000 | AeonAha: 5054.304 | HuoHuo: 12.928
+Run   16: Team DPAV: 89127.634 | Sparxie: 75004.447 | Sparkle: 0.000 | AeonAha: 4702.661 | HuoHuo: 11.872
+Run   17: Team DPAV: 89139.933 | Sparxie: 75173.228 | Sparkle: 0.000 | AeonAha: 4531.391 | HuoHuo: 11.903
+Run   18: Team DPAV: 102642.892 | Sparxie: 86544.990 | Sparkle: 0.000 | AeonAha: 5268.338 | HuoHuo: 13.023
+Run   19: Team DPAV: 99131.084 | Sparxie: 83608.194 | Sparkle: 0.000 | AeonAha: 5301.879 | HuoHuo: 12.093
+Run   20: Team DPAV: 92009.583 | Sparxie: 77432.657 | Sparkle: 0.000 | AeonAha: 4922.842 | HuoHuo: 13.023
+Run   21: Team DPAV: 79216.594 | Sparxie: 66771.978 | Sparkle: 0.000 | AeonAha: 4101.830 | HuoHuo: 11.814
+Run   22: Team DPAV: 86122.324 | Sparxie: 72206.048 | Sparkle: 0.000 | AeonAha: 4650.272 | HuoHuo: 11.777
+Run   23: Team DPAV: 92600.683 | Sparxie: 78221.529 | Sparkle: 0.000 | AeonAha: 4696.560 | HuoHuo: 11.960
+Run   24: Team DPAV: 97873.044 | Sparxie: 82621.730 | Sparkle: 0.000 | AeonAha: 5178.531 | HuoHuo: 13.023
+Run   25: Team DPAV: 87716.157 | Sparxie: 73834.178 | Sparkle: 0.000 | AeonAha: 4646.077 | HuoHuo: 12.039
+Run   26: Team DPAV: 88107.196 | Sparxie: 74066.214 | Sparkle: 0.000 | AeonAha: 4866.766 | HuoHuo: 12.184
+Run   27: Team DPAV: 77757.673 | Sparxie: 65326.235 | Sparkle: 0.000 | AeonAha: 4025.292 | HuoHuo: 11.273
+Run   28: Team DPAV: 91842.132 | Sparxie: 77267.963 | Sparkle: 0.000 | AeonAha: 4880.636 | HuoHuo: 11.903
+Run   29: Team DPAV: 94121.943 | Sparxie: 79103.700 | Sparkle: 0.000 | AeonAha: 4934.238 | HuoHuo: 12.184
+Run   30: Team DPAV: 92397.467 | Sparxie: 77671.980 | Sparkle: 0.000 | AeonAha: 4907.190 | HuoHuo: 12.093
+Run   31: Team DPAV: 95309.757 | Sparxie: 80127.158 | Sparkle: 0.000 | AeonAha: 4925.760 | HuoHuo: 12.878
+Run   32: Team DPAV: 93193.126 | Sparxie: 78515.895 | Sparkle: 0.000 | AeonAha: 4829.761 | HuoHuo: 12.184
+Run   33: Team DPAV: 88306.078 | Sparxie: 74191.677 | Sparkle: 0.000 | AeonAha: 4823.936 | HuoHuo: 11.629
+Run   34: Team DPAV: 93758.647 | Sparxie: 79014.807 | Sparkle: 0.000 | AeonAha: 4934.948 | HuoHuo: 12.184
+Run   35: Team DPAV: 81156.531 | Sparxie: 67962.678 | Sparkle: 0.000 | AeonAha: 4318.306 | HuoHuo: 11.769
+Run   36: Team DPAV: 81474.102 | Sparxie: 68431.371 | Sparkle: 0.000 | AeonAha: 4260.270 | HuoHuo: 11.853
+Run   37: Team DPAV: 92071.538 | Sparxie: 77471.502 | Sparkle: 0.000 | AeonAha: 4871.970 | HuoHuo: 13.023
+Run   38: Team DPAV: 96376.433 | Sparxie: 81294.516 | Sparkle: 0.000 | AeonAha: 5130.224 | HuoHuo: 12.036
+Run   39: Team DPAV: 89425.535 | Sparxie: 75372.672 | Sparkle: 0.000 | AeonAha: 4614.529 | HuoHuo: 12.861
+Run   40: Team DPAV: 83983.303 | Sparxie: 70621.042 | Sparkle: 0.000 | AeonAha: 4361.024 | HuoHuo: 11.623
+Run   41: Team DPAV: 89450.770 | Sparxie: 75121.712 | Sparkle: 0.000 | AeonAha: 4861.094 | HuoHuo: 12.184
+Run   42: Team DPAV: 101146.749 | Sparxie: 85018.151 | Sparkle: 0.000 | AeonAha: 5330.719 | HuoHuo: 13.023
+Run   43: Team DPAV: 96624.235 | Sparxie: 81621.716 | Sparkle: 0.000 | AeonAha: 5070.994 | HuoHuo: 11.944
+Run   44: Team DPAV: 89114.762 | Sparxie: 75110.621 | Sparkle: 0.000 | AeonAha: 4797.464 | HuoHuo: 11.666
+Run   45: Team DPAV: 84526.350 | Sparxie: 71113.838 | Sparkle: 0.000 | AeonAha: 4426.892 | HuoHuo: 11.960
+Run   46: Team DPAV: 90499.825 | Sparxie: 76378.919 | Sparkle: 0.000 | AeonAha: 4641.121 | HuoHuo: 11.872
+Run   47: Team DPAV: 84665.605 | Sparxie: 71266.883 | Sparkle: 0.000 | AeonAha: 4510.514 | HuoHuo: 11.626
+Run   48: Team DPAV: 90142.780 | Sparxie: 75611.818 | Sparkle: 0.000 | AeonAha: 4781.827 | HuoHuo: 13.023
+Run   49: Team DPAV: 82323.289 | Sparxie: 69337.805 | Sparkle: 0.000 | AeonAha: 4232.416 | HuoHuo: 11.484
+Run   50: Team DPAV: 96714.242 | Sparxie: 81492.448 | Sparkle: 0.000 | AeonAha: 5165.265 | HuoHuo: 12.369
+Run   51: Team DPAV: 88819.933 | Sparxie: 74633.825 | Sparkle: 0.000 | AeonAha: 4653.026 | HuoHuo: 12.003
+Run   52: Team DPAV: 89951.808 | Sparxie: 75645.620 | Sparkle: 0.000 | AeonAha: 4694.018 | HuoHuo: 12.184
+Run   53: Team DPAV: 97744.364 | Sparxie: 82196.318 | Sparkle: 0.000 | AeonAha: 5095.544 | HuoHuo: 12.369
+Run   54: Team DPAV: 100375.047 | Sparxie: 84496.225 | Sparkle: 0.000 | AeonAha: 5352.515 | HuoHuo: 12.558
+Run   55: Team DPAV: 90231.167 | Sparxie: 75551.383 | Sparkle: 0.000 | AeonAha: 5010.002 | HuoHuo: 12.093
+Run   56: Team DPAV: 92449.908 | Sparxie: 77599.673 | Sparkle: 0.000 | AeonAha: 5154.273 | HuoHuo: 11.720
+Run   57: Team DPAV: 81203.161 | Sparxie: 68409.716 | Sparkle: 0.000 | AeonAha: 4197.097 | HuoHuo: 11.361
+Run   58: Team DPAV: 83570.323 | Sparxie: 69989.226 | Sparkle: 0.000 | AeonAha: 4509.473 | HuoHuo: 12.318
+Run   59: Team DPAV: 94207.409 | Sparxie: 79486.729 | Sparkle: 0.000 | AeonAha: 4814.074 | HuoHuo: 12.276
+Run   60: Team DPAV: 81918.560 | Sparxie: 68801.219 | Sparkle: 0.000 | AeonAha: 4201.020 | HuoHuo: 12.267
+Run   61: Team DPAV: 93927.683 | Sparxie: 79243.991 | Sparkle: 0.000 | AeonAha: 4897.353 | HuoHuo: 11.872
+Run   62: Team DPAV: 87363.506 | Sparxie: 73646.126 | Sparkle: 0.000 | AeonAha: 4563.574 | HuoHuo: 11.960
+Run   63: Team DPAV: 87042.541 | Sparxie: 73540.793 | Sparkle: 0.000 | AeonAha: 4397.986 | HuoHuo: 12.039
+Run   64: Team DPAV: 80115.664 | Sparxie: 67321.924 | Sparkle: 0.000 | AeonAha: 4195.566 | HuoHuo: 12.320
+Run   65: Team DPAV: 88384.710 | Sparxie: 74353.502 | Sparkle: 0.000 | AeonAha: 4681.739 | HuoHuo: 11.678
+Run   66: Team DPAV: 111831.266 | Sparxie: 94523.726 | Sparkle: 0.000 | AeonAha: 5647.610 | HuoHuo: 12.463
+Run   67: Team DPAV: 99635.107 | Sparxie: 84043.340 | Sparkle: 0.000 | AeonAha: 5361.935 | HuoHuo: 12.369
+Run   68: Team DPAV: 76919.443 | Sparxie: 64605.463 | Sparkle: 0.000 | AeonAha: 3947.467 | HuoHuo: 11.986
+Run   69: Team DPAV: 94313.341 | Sparxie: 79389.822 | Sparkle: 0.000 | AeonAha: 4906.525 | HuoHuo: 13.023
+Run   70: Team DPAV: 80930.818 | Sparxie: 67777.706 | Sparkle: 0.000 | AeonAha: 4390.467 | HuoHuo: 12.133
+Run   71: Team DPAV: 83979.197 | Sparxie: 70387.235 | Sparkle: 0.000 | AeonAha: 4534.729 | HuoHuo: 12.003
+Run   72: Team DPAV: 95541.576 | Sparxie: 80587.804 | Sparkle: 0.000 | AeonAha: 4964.243 | HuoHuo: 12.276
+Run   73: Team DPAV: 98657.257 | Sparxie: 83085.169 | Sparkle: 0.000 | AeonAha: 5328.334 | HuoHuo: 13.023
+Run   74: Team DPAV: 91963.597 | Sparxie: 77284.905 | Sparkle: 0.000 | AeonAha: 4874.605 | HuoHuo: 12.558
+Run   75: Team DPAV: 91895.382 | Sparxie: 77397.571 | Sparkle: 0.000 | AeonAha: 4847.630 | HuoHuo: 12.039
+Run   76: Team DPAV: 88183.441 | Sparxie: 74043.482 | Sparkle: 0.000 | AeonAha: 4712.050 | HuoHuo: 12.129
+Run   77: Team DPAV: 84126.535 | Sparxie: 70583.034 | Sparkle: 0.000 | AeonAha: 4503.658 | HuoHuo: 11.858
+Run   78: Team DPAV: 89422.281 | Sparxie: 75279.950 | Sparkle: 0.000 | AeonAha: 4667.830 | HuoHuo: 11.630
+Run   79: Team DPAV: 88010.794 | Sparxie: 73764.561 | Sparkle: 0.000 | AeonAha: 4896.249 | HuoHuo: 11.785
+Run   80: Team DPAV: 82545.660 | Sparxie: 69254.295 | Sparkle: 0.000 | AeonAha: 4395.186 | HuoHuo: 12.318
+Run   81: Team DPAV: 115041.177 | Sparxie: 97138.629 | Sparkle: 0.000 | AeonAha: 6048.063 | HuoHuo: 12.276
+Run   82: Team DPAV: 82302.973 | Sparxie: 69239.825 | Sparkle: 0.000 | AeonAha: 4377.806 | HuoHuo: 11.944
+Run   83: Team DPAV: 86552.939 | Sparxie: 72792.925 | Sparkle: 0.000 | AeonAha: 4519.200 | HuoHuo: 11.872
+Run   84: Team DPAV: 78638.674 | Sparxie: 66027.911 | Sparkle: 0.000 | AeonAha: 4090.411 | HuoHuo: 12.083
+Run   85: Team DPAV: 101803.126 | Sparxie: 85984.997 | Sparkle: 0.000 | AeonAha: 5321.246 | HuoHuo: 12.369
+Run   86: Team DPAV: 89851.402 | Sparxie: 75749.485 | Sparkle: 0.000 | AeonAha: 4695.494 | HuoHuo: 11.960
+Run   87: Team DPAV: 93186.159 | Sparxie: 78444.472 | Sparkle: 0.000 | AeonAha: 4795.551 | HuoHuo: 12.861
+Run   88: Team DPAV: 83490.249 | Sparxie: 70296.897 | Sparkle: 0.000 | AeonAha: 4460.449 | HuoHuo: 11.495
+Run   89: Team DPAV: 80559.656 | Sparxie: 67895.044 | Sparkle: 0.000 | AeonAha: 4168.760 | HuoHuo: 11.316
+Run   90: Team DPAV: 86067.851 | Sparxie: 72597.328 | Sparkle: 0.000 | AeonAha: 4361.333 | HuoHuo: 12.861
+Run   91: Team DPAV: 80810.045 | Sparxie: 67706.933 | Sparkle: 0.000 | AeonAha: 4427.711 | HuoHuo: 12.225
+Run   92: Team DPAV: 86279.783 | Sparxie: 72531.020 | Sparkle: 0.000 | AeonAha: 4494.307 | HuoHuo: 11.948
+Run   93: Team DPAV: 82969.688 | Sparxie: 69931.055 | Sparkle: 0.000 | AeonAha: 4322.676 | HuoHuo: 12.267
+Run   94: Team DPAV: 87530.248 | Sparxie: 73814.751 | Sparkle: 0.000 | AeonAha: 4443.179 | HuoHuo: 12.412
+Run   95: Team DPAV: 92174.642 | Sparxie: 77766.216 | Sparkle: 0.000 | AeonAha: 4908.538 | HuoHuo: 12.184
+Run   96: Team DPAV: 94890.694 | Sparxie: 79889.841 | Sparkle: 0.000 | AeonAha: 4861.762 | HuoHuo: 12.276
+Run   97: Team DPAV: 95391.287 | Sparxie: 80189.047 | Sparkle: 0.000 | AeonAha: 4948.484 | HuoHuo: 13.023
+Run   98: Team DPAV: 109636.960 | Sparxie: 92649.320 | Sparkle: 0.000 | AeonAha: 5616.344 | HuoHuo: 12.558
+Run   99: Team DPAV: 103237.330 | Sparxie: 86847.968 | Sparkle: 0.000 | AeonAha: 5646.296 | HuoHuo: 12.369
+Run  100: Team DPAV: 91098.854 | Sparxie: 76619.187 | Sparkle: 0.000 | AeonAha: 4837.318 | HuoHuo: 11.914
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 89922.021
+Average Sparxie DPAV: 75682.999 Percentage: 84.165%
+Average Sparkle DPAV: 0.000 Percentage: 0.000%
+Average AeonAha DPAV: 4729.044 Percentage: 5.259%
+Average HuoHuo DPAV: 12.154 Percentage: 0.014%
+
+Min Team DPAV: 76919.443
+Max Team DPAV: 115041.177

@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 169284.347 | Sparxie: 109450.164 | AeonAha: 30583.568 | YaoGuang: 13542.291 | Pearl: 424.584
+Run    2: Team DPAV: 162778.174 | Sparxie: 106038.258 | AeonAha: 28520.089 | YaoGuang: 12954.475 | Pearl: 430.714
+Run    3: Team DPAV: 165868.162 | Sparxie: 106878.459 | AeonAha: 29923.497 | YaoGuang: 13545.428 | Pearl: 413.061
+Run    4: Team DPAV: 173845.772 | Sparxie: 112484.748 | AeonAha: 31335.954 | YaoGuang: 13856.592 | Pearl: 421.344
+Run    5: Team DPAV: 167869.201 | Sparxie: 108234.668 | AeonAha: 30459.342 | YaoGuang: 13614.637 | Pearl: 419.230
+Run    6: Team DPAV: 175202.577 | Sparxie: 113236.544 | AeonAha: 31689.803 | YaoGuang: 14096.705 | Pearl: 433.489
+Run    7: Team DPAV: 160322.657 | Sparxie: 103812.839 | AeonAha: 28912.846 | YaoGuang: 12709.479 | Pearl: 430.330
+Run    8: Team DPAV: 165700.491 | Sparxie: 107866.412 | AeonAha: 29475.503 | YaoGuang: 13111.664 | Pearl: 441.109
+Run    9: Team DPAV: 153358.939 | Sparxie: 99430.690 | AeonAha: 27586.879 | YaoGuang: 12246.097 | Pearl: 419.049
+Run   10: Team DPAV: 151111.292 | Sparxie: 97829.599 | AeonAha: 27354.448 | YaoGuang: 12027.306 | Pearl: 412.230
+Run   11: Team DPAV: 155413.081 | Sparxie: 99014.564 | AeonAha: 28997.166 | YaoGuang: 12700.466 | Pearl: 401.669
+Run   12: Team DPAV: 162937.235 | Sparxie: 105279.602 | AeonAha: 29511.429 | YaoGuang: 13056.308 | Pearl: 403.383
+Run   13: Team DPAV: 164055.539 | Sparxie: 106901.463 | AeonAha: 29031.035 | YaoGuang: 12927.375 | Pearl: 415.604
+Run   14: Team DPAV: 164042.728 | Sparxie: 106840.020 | AeonAha: 28530.683 | YaoGuang: 13219.088 | Pearl: 413.356
+Run   15: Team DPAV: 168833.176 | Sparxie: 108464.639 | AeonAha: 31241.567 | YaoGuang: 13398.279 | Pearl: 443.371
+Run   16: Team DPAV: 156961.423 | Sparxie: 101811.880 | AeonAha: 28210.453 | YaoGuang: 12488.544 | Pearl: 422.702
+Run   17: Team DPAV: 163713.364 | Sparxie: 107515.471 | AeonAha: 28177.369 | YaoGuang: 12819.966 | Pearl: 454.511
+Run   18: Team DPAV: 143744.413 | Sparxie: 92870.503 | AeonAha: 25818.255 | YaoGuang: 11608.348 | Pearl: 399.599
+Run   19: Team DPAV: 168972.284 | Sparxie: 110254.131 | AeonAha: 30280.819 | YaoGuang: 13131.004 | Pearl: 455.132
+Run   20: Team DPAV: 165297.813 | Sparxie: 106783.514 | AeonAha: 30014.099 | YaoGuang: 13196.877 | Pearl: 416.923
+Run   21: Team DPAV: 150972.994 | Sparxie: 98965.445 | AeonAha: 26557.862 | YaoGuang: 11654.159 | Pearl: 440.748
+Run   22: Team DPAV: 163524.014 | Sparxie: 104941.266 | AeonAha: 29929.078 | YaoGuang: 13391.793 | Pearl: 412.949
+Run   23: Team DPAV: 151188.650 | Sparxie: 96351.148 | AeonAha: 28161.122 | YaoGuang: 12440.846 | Pearl: 410.708
+Run   24: Team DPAV: 160319.285 | Sparxie: 103009.201 | AeonAha: 29271.063 | YaoGuang: 13069.092 | Pearl: 416.889
+Run   25: Team DPAV: 177415.900 | Sparxie: 116603.989 | AeonAha: 30623.800 | YaoGuang: 13701.836 | Pearl: 434.362
+Run   26: Team DPAV: 153463.070 | Sparxie: 100103.308 | AeonAha: 27328.952 | YaoGuang: 11999.066 | Pearl: 420.883
+Run   27: Team DPAV: 176363.621 | Sparxie: 114056.943 | AeonAha: 31884.005 | YaoGuang: 14157.871 | Pearl: 441.241
+Run   28: Team DPAV: 160456.912 | Sparxie: 104493.376 | AeonAha: 28455.705 | YaoGuang: 12595.623 | Pearl: 426.350
+Run   29: Team DPAV: 155451.420 | Sparxie: 99139.515 | AeonAha: 29010.842 | YaoGuang: 12707.869 | Pearl: 411.503
+Run   30: Team DPAV: 174658.491 | Sparxie: 114418.261 | AeonAha: 30721.671 | YaoGuang: 13403.994 | Pearl: 459.908
+Run   31: Team DPAV: 167826.541 | Sparxie: 109876.457 | AeonAha: 30131.483 | YaoGuang: 12882.664 | Pearl: 416.363
+Run   32: Team DPAV: 151014.517 | Sparxie: 96917.034 | AeonAha: 27951.012 | YaoGuang: 12099.501 | Pearl: 418.111
+Run   33: Team DPAV: 172028.190 | Sparxie: 112960.530 | AeonAha: 29617.505 | YaoGuang: 13253.878 | Pearl: 443.087
+Run   34: Team DPAV: 163818.260 | Sparxie: 106599.169 | AeonAha: 29257.944 | YaoGuang: 12912.461 | Pearl: 435.282
+Run   35: Team DPAV: 160724.020 | Sparxie: 104093.876 | AeonAha: 28505.834 | YaoGuang: 13092.844 | Pearl: 424.992
+Run   36: Team DPAV: 164213.176 | Sparxie: 106809.843 | AeonAha: 29008.693 | YaoGuang: 13158.490 | Pearl: 420.791
+Run   37: Team DPAV: 155925.527 | Sparxie: 101132.924 | AeonAha: 27971.666 | YaoGuang: 12394.563 | Pearl: 414.662
+Run   38: Team DPAV: 152528.031 | Sparxie: 98286.458 | AeonAha: 27311.716 | YaoGuang: 12563.388 | Pearl: 415.371
+Run   39: Team DPAV: 155738.151 | Sparxie: 101035.752 | AeonAha: 27739.726 | YaoGuang: 12461.791 | Pearl: 416.008
+Run   40: Team DPAV: 153900.589 | Sparxie: 99653.971 | AeonAha: 27808.806 | YaoGuang: 12278.514 | Pearl: 414.020
+Run   41: Team DPAV: 154174.423 | Sparxie: 101385.785 | AeonAha: 27056.132 | YaoGuang: 11767.787 | Pearl: 414.363
+Run   42: Team DPAV: 146558.123 | Sparxie: 94462.929 | AeonAha: 26601.269 | YaoGuang: 11744.668 | Pearl: 402.653
+Run   43: Team DPAV: 162380.008 | Sparxie: 105856.706 | AeonAha: 28953.433 | YaoGuang: 12750.056 | Pearl: 426.127
+Run   44: Team DPAV: 170280.354 | Sparxie: 109968.186 | AeonAha: 30935.572 | YaoGuang: 13651.300 | Pearl: 432.372
+Run   45: Team DPAV: 161038.386 | Sparxie: 103519.806 | AeonAha: 29416.412 | YaoGuang: 13082.637 | Pearl: 400.434
+Run   46: Team DPAV: 153591.546 | Sparxie: 98873.335 | AeonAha: 27844.419 | YaoGuang: 12469.079 | Pearl: 425.125
+Run   47: Team DPAV: 177901.970 | Sparxie: 116638.429 | AeonAha: 30994.345 | YaoGuang: 13864.737 | Pearl: 431.767
+Run   48: Team DPAV: 158955.936 | Sparxie: 102187.206 | AeonAha: 29082.054 | YaoGuang: 12914.599 | Pearl: 400.954
+Run   49: Team DPAV: 168747.165 | Sparxie: 108022.486 | AeonAha: 31325.986 | YaoGuang: 13620.820 | Pearl: 436.995
+Run   50: Team DPAV: 158348.104 | Sparxie: 102082.984 | AeonAha: 29052.301 | YaoGuang: 12485.356 | Pearl: 434.376
+Run   51: Team DPAV: 163969.343 | Sparxie: 105474.394 | AeonAha: 30149.665 | YaoGuang: 13191.735 | Pearl: 403.232
+Run   52: Team DPAV: 160989.109 | Sparxie: 104983.754 | AeonAha: 27995.461 | YaoGuang: 12847.731 | Pearl: 395.393
+Run   53: Team DPAV: 168268.918 | Sparxie: 108244.578 | AeonAha: 30824.021 | YaoGuang: 13481.219 | Pearl: 417.046
+Run   54: Team DPAV: 160064.435 | Sparxie: 104276.134 | AeonAha: 28413.540 | YaoGuang: 12589.553 | Pearl: 433.405
+Run   55: Team DPAV: 162458.143 | Sparxie: 106100.316 | AeonAha: 28585.276 | YaoGuang: 12750.170 | Pearl: 420.000
+Run   56: Team DPAV: 162234.551 | Sparxie: 104331.193 | AeonAha: 29716.847 | YaoGuang: 13112.534 | Pearl: 401.056
+Run   57: Team DPAV: 158898.631 | Sparxie: 101829.586 | AeonAha: 29479.810 | YaoGuang: 12762.238 | Pearl: 417.647
+Run   58: Team DPAV: 178271.913 | Sparxie: 116464.574 | AeonAha: 31562.712 | YaoGuang: 13946.293 | Pearl: 456.509
+Run   59: Team DPAV: 173515.301 | Sparxie: 112259.917 | AeonAha: 31354.458 | YaoGuang: 13873.278 | Pearl: 433.284
+Run   60: Team DPAV: 143271.421 | Sparxie: 92717.336 | AeonAha: 25693.256 | YaoGuang: 11462.448 | Pearl: 419.470
+Run   61: Team DPAV: 166249.324 | Sparxie: 108952.408 | AeonAha: 29605.160 | YaoGuang: 12687.730 | Pearl: 422.736
+Run   62: Team DPAV: 169990.825 | Sparxie: 109797.942 | AeonAha: 30784.887 | YaoGuang: 13662.031 | Pearl: 429.251
+Run   63: Team DPAV: 160543.274 | Sparxie: 104157.080 | AeonAha: 28256.667 | YaoGuang: 12966.417 | Pearl: 419.807
+Run   64: Team DPAV: 163209.359 | Sparxie: 106740.764 | AeonAha: 28174.623 | YaoGuang: 12905.585 | Pearl: 416.750
+Run   65: Team DPAV: 161751.236 | Sparxie: 104431.564 | AeonAha: 29471.430 | YaoGuang: 12845.760 | Pearl: 441.909
+Run   66: Team DPAV: 160050.160 | Sparxie: 104804.253 | AeonAha: 28510.691 | YaoGuang: 12376.587 | Pearl: 434.085
+Run   67: Team DPAV: 157605.495 | Sparxie: 100524.213 | AeonAha: 29430.101 | YaoGuang: 12859.163 | Pearl: 416.053
+Run   68: Team DPAV: 171180.387 | Sparxie: 110311.588 | AeonAha: 31382.204 | YaoGuang: 13702.452 | Pearl: 442.691
+Run   69: Team DPAV: 153048.788 | Sparxie: 99443.527 | AeonAha: 27025.257 | YaoGuang: 12161.614 | Pearl: 434.369
+Run   70: Team DPAV: 164438.305 | Sparxie: 106312.265 | AeonAha: 29607.824 | YaoGuang: 13173.172 | Pearl: 443.011
+Run   71: Team DPAV: 167543.255 | Sparxie: 109023.549 | AeonAha: 30182.871 | YaoGuang: 13109.041 | Pearl: 442.209
+Run   72: Team DPAV: 155797.408 | Sparxie: 102097.499 | AeonAha: 27544.933 | YaoGuang: 12179.650 | Pearl: 416.237
+Run   73: Team DPAV: 176812.895 | Sparxie: 115985.224 | AeonAha: 31450.689 | YaoGuang: 13537.395 | Pearl: 433.450
+Run   74: Team DPAV: 157387.967 | Sparxie: 100536.090 | AeonAha: 29266.419 | YaoGuang: 12738.973 | Pearl: 408.067
+Run   75: Team DPAV: 154248.303 | Sparxie: 100891.036 | AeonAha: 26779.026 | YaoGuang: 12123.144 | Pearl: 400.635
+Run   76: Team DPAV: 155501.612 | Sparxie: 99375.967 | AeonAha: 28665.714 | YaoGuang: 12655.968 | Pearl: 400.274
+Run   77: Team DPAV: 160318.706 | Sparxie: 103062.674 | AeonAha: 29340.235 | YaoGuang: 13023.637 | Pearl: 415.165
+Run   78: Team DPAV: 159199.042 | Sparxie: 103410.417 | AeonAha: 28502.015 | YaoGuang: 12654.274 | Pearl: 419.343
+Run   79: Team DPAV: 174880.644 | Sparxie: 114476.424 | AeonAha: 31068.982 | YaoGuang: 13334.594 | Pearl: 445.526
+Run   80: Team DPAV: 155857.736 | Sparxie: 101166.473 | AeonAha: 28062.208 | YaoGuang: 12334.069 | Pearl: 413.312
+Run   81: Team DPAV: 176324.711 | Sparxie: 114419.868 | AeonAha: 31406.039 | YaoGuang: 14050.019 | Pearl: 430.940
+Run   82: Team DPAV: 157009.475 | Sparxie: 100805.610 | AeonAha: 28662.767 | YaoGuang: 12850.936 | Pearl: 403.335
+Run   83: Team DPAV: 172574.320 | Sparxie: 111500.304 | AeonAha: 31282.712 | YaoGuang: 13838.551 | Pearl: 425.780
+Run   84: Team DPAV: 148981.412 | Sparxie: 95154.950 | AeonAha: 27306.212 | YaoGuang: 12262.002 | Pearl: 439.249
+Run   85: Team DPAV: 161624.721 | Sparxie: 105083.266 | AeonAha: 28675.934 | YaoGuang: 12893.105 | Pearl: 427.836
+Run   86: Team DPAV: 175003.676 | Sparxie: 113982.172 | AeonAha: 30970.658 | YaoGuang: 13825.652 | Pearl: 439.973
+Run   87: Team DPAV: 158194.072 | Sparxie: 103350.357 | AeonAha: 27984.961 | YaoGuang: 12373.602 | Pearl: 432.640
+Run   88: Team DPAV: 154775.527 | Sparxie: 100171.840 | AeonAha: 28043.271 | YaoGuang: 12345.533 | Pearl: 424.552
+Run   89: Team DPAV: 168016.955 | Sparxie: 109602.035 | AeonAha: 30064.380 | YaoGuang: 13118.086 | Pearl: 448.483
+Run   90: Team DPAV: 171660.132 | Sparxie: 111014.047 | AeonAha: 30954.885 | YaoGuang: 13760.740 | Pearl: 435.175
+Run   91: Team DPAV: 155639.163 | Sparxie: 101064.747 | AeonAha: 27844.768 | YaoGuang: 12316.187 | Pearl: 427.634
+Run   92: Team DPAV: 165762.992 | Sparxie: 108348.311 | AeonAha: 29554.401 | YaoGuang: 12832.933 | Pearl: 427.944
+Run   93: Team DPAV: 154452.752 | Sparxie: 100266.185 | AeonAha: 27551.586 | YaoGuang: 12288.989 | Pearl: 409.688
+Run   94: Team DPAV: 161416.306 | Sparxie: 104982.804 | AeonAha: 28939.478 | YaoGuang: 12716.043 | Pearl: 437.548
+Run   95: Team DPAV: 161126.669 | Sparxie: 104229.874 | AeonAha: 28719.645 | YaoGuang: 12975.138 | Pearl: 417.171
+Run   96: Team DPAV: 170574.432 | Sparxie: 111543.781 | AeonAha: 29618.492 | YaoGuang: 13450.053 | Pearl: 408.247
+Run   97: Team DPAV: 168090.465 | Sparxie: 109430.032 | AeonAha: 30187.183 | YaoGuang: 13125.636 | Pearl: 422.612
+Run   98: Team DPAV: 169233.761 | Sparxie: 109227.562 | AeonAha: 30585.319 | YaoGuang: 13637.831 | Pearl: 431.922
+Run   99: Team DPAV: 159112.366 | Sparxie: 102383.508 | AeonAha: 28913.231 | YaoGuang: 12934.421 | Pearl: 410.484
+Run  100: Team DPAV: 177017.435 | Sparxie: 115735.190 | AeonAha: 31135.640 | YaoGuang: 13843.334 | Pearl: 416.548
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 162569.679
+Average Sparxie DPAV: 105379.237 Percentage: 64.821%
+Average AeonAha DPAV: 29194.538 Percentage: 17.958%
+Average YaoGuang DPAV: 12933.095 Percentage: 7.955%
+Average Pearl DPAV: 423.805 Percentage: 0.261%
+
+Min Team DPAV: 143271.421
+Max Team DPAV: 178271.913
