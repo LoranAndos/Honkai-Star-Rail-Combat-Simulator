@@ -2011,7 +2011,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charPunch = Character.SharedPunchline
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch, attr8=AhaInTeam, attr9=AhaEidolon, enemies=gauge)
+                charSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2= atkStat, attr3= SPAmount, attr4= TotalElationChar, attr5= charELA, attr6=charBanger, attr7=charPunch, attr8=AhaInTeam, attr9=AhaEidolon, attr10=charSPD, enemies=gauge)
 
             case "SilverWolf999":
                 SpdList = []

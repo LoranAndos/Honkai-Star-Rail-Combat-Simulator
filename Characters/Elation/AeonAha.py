@@ -59,7 +59,7 @@ class AeonAha(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=0) -> None:  # AeonAha ID: 0
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else UponTheFirstEchoOfAha(role,1)
+        self.lightcone = lc if lc else MushyShroomysAdventuresAeonAHa(role,5)
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else GodsMomentOfJoy(role)

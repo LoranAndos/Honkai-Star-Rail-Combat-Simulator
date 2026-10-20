@@ -543,7 +543,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False # Set to True for multiple runs, False for single run
+    multiRun = True # Set to True for multiple runs, False for single run
     numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -575,8 +575,8 @@ if __name__ == "__main__":
 
         # Build filename matching log format. So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+        slot2 = Sparxie(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = AeonAha(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
@@ -596,8 +596,8 @@ if __name__ == "__main__":
             for i in range(numRuns):
                 # Recreate characters fresh each run
                 # Small note: Make sure Rmc is always SUP1 and Dps Memo always Memo1
-                slot1 = Sparxie(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+                slot2 = Sparxie(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot3 = AeonAha(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(

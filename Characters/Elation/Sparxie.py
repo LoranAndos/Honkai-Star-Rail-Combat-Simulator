@@ -5,7 +5,10 @@ from Character import Character
 from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSparxie
 from Planars.TengokuLivestream import TengokuLivestream
+from Planars.GodsMomentOfJoy import GodsMomentOfJoy
+from Planars.BrokenKeel import BrokenKeel
 from RelicStats import RelicStats
+from Relics.DivinerOfDistantReach import DivinerOfDistantReach
 from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
 from Result import *
 from Turn_Text import Turn
@@ -50,8 +53,10 @@ class Sparxie(Character):
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
-    # Sparxie sub-dps:
+    # Sparxie sub-dps: (When Yao Guang is in team)
     # self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+    # Sparxie sub-dps: (When Yao Guang isn't in team)
+    # self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 5, 2, 2, 2, 2, 7, 7, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
     # Sparxie main dps:
     # self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 11, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
 
@@ -59,11 +64,11 @@ class Sparxie(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else DazzledByAFloweryWorld(role,1)
-        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
+        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role,5)
+        self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 8, 2, 2, 2, 2, 11, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+        self.planar = pl if pl else BrokenKeel(role)
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 5, 2, 2, 2, 2, 7, 7, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 
