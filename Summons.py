@@ -285,12 +285,7 @@ class Aha(Summon):
                     BonusPunchline = 0
 
                 # Determine BangerDuration based on character
-                if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
-                    BangerDuraction = 3
-                else:
-                    BangerDuraction = 2
-
-                if self.hasAventurineWaveflair and turnName == "AhaAventurineWaveflairGoGo":
+                if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2
@@ -348,7 +343,8 @@ class Aha(Summon):
             tl.append(Turn(self.name, self.ownerRole, -1, Targeting.NA, [AtkType.ALL], [self.element],
                            [0, 0], [0, 0], 0, self.scaling, 0, "AhaTechEndGoGo"))
 
-        if result.turnName == "ElationMCUlt":
+        if result.turnName in ("ElationMCUlt", "AventurineWaveflairCheers"):
+            # Both start an extra Elation Skill instance with a fixed 20 Punchline
             Character.savedPunchline = Character.SharedPunchline
             Character.SharedPunchline = 20
             self.IsEMCTurn = True
@@ -502,6 +498,38 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
+
+        elif (
+                result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True:
+            # His own "Cheers! To Summer's Blaze" instance (fixed 20 Punchline), or an EMC Ult targeting him
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedEMCSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsEMCTurn = False
+
+        elif (
+                result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and self.elationTeam[-1][1] == "AhaAventurineWaveflairGoGo":
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationFixedSequenceComplete"))
+            Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.ahaYaoGuangUlt = False
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = False
+
+        elif (
+                result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and self.elationTeam[-1][1] == "AhaAventurineWaveflairGoGo":
+            tl.append(
+                Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
+                     self.scaling, 0, "AhaElationSequenceComplete"))
+            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.ahaFixedPunchline = False
+            Character.ahaElaDMGBoost = 1.0
+            self.IsAhaTurn = True
 
         return bl, dbl, al, dl, tl, hl, sl
 

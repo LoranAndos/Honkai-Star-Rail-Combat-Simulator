@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 76180.286 | Evanescia: 57841.267 | ElationMC: 9876.836 | AeonAha: 7796.161 | Pearl: 84.762
+Run    2: Team DPAV: 71674.443 | Evanescia: 56184.172 | ElationMC: 7914.192 | AeonAha: 6869.728 | Pearl: 83.380
+Run    3: Team DPAV: 75902.453 | Evanescia: 60368.399 | ElationMC: 7876.799 | AeonAha: 6948.589 | Pearl: 85.695
+Run    4: Team DPAV: 75862.364 | Evanescia: 58017.250 | ElationMC: 9537.456 | AeonAha: 7642.524 | Pearl: 83.874
+Run    5: Team DPAV: 76172.984 | Evanescia: 57861.370 | ElationMC: 9865.620 | AeonAha: 7779.779 | Pearl: 84.955
+Run    6: Team DPAV: 76123.671 | Evanescia: 57796.952 | ElationMC: 9870.772 | AeonAha: 7789.793 | Pearl: 84.893
+Run    7: Team DPAV: 76525.608 | Evanescia: 58258.610 | ElationMC: 9860.072 | AeonAha: 7740.897 | Pearl: 84.769
+Run    8: Team DPAV: 75256.685 | Evanescia: 59472.501 | ElationMC: 7933.132 | AeonAha: 7142.776 | Pearl: 85.305
+Run    9: Team DPAV: 76165.689 | Evanescia: 57835.946 | ElationMC: 9873.241 | AeonAha: 7790.287 | Pearl: 84.955
+Run   10: Team DPAV: 73724.196 | Evanescia: 57823.466 | ElationMC: 8105.700 | AeonAha: 7128.783 | Pearl: 84.987
+Run   11: Team DPAV: 79283.373 | Evanescia: 61184.695 | ElationMC: 9768.096 | AeonAha: 7621.640 | Pearl: 85.971
+Run   12: Team DPAV: 76018.299 | Evanescia: 57838.619 | ElationMC: 9750.377 | AeonAha: 7763.052 | Pearl: 84.991
+Run   13: Team DPAV: 72979.390 | Evanescia: 57520.004 | ElationMC: 7899.866 | AeonAha: 6853.054 | Pearl: 83.494
+Run   14: Team DPAV: 73545.189 | Evanescia: 57990.701 | ElationMC: 7943.756 | AeonAha: 6903.619 | Pearl: 84.142
+Run   15: Team DPAV: 77644.815 | Evanescia: 59345.530 | ElationMC: 9851.890 | AeonAha: 7739.261 | Pearl: 85.163
+Run   16: Team DPAV: 76871.268 | Evanescia: 58456.547 | ElationMC: 9922.677 | AeonAha: 7825.315 | Pearl: 85.470
+Run   17: Team DPAV: 75664.523 | Evanescia: 57637.695 | ElationMC: 9667.548 | AeonAha: 7694.105 | Pearl: 83.916
+Run   18: Team DPAV: 76618.566 | Evanescia: 58305.574 | ElationMC: 9872.762 | AeonAha: 7773.993 | Pearl: 84.977
+Run   19: Team DPAV: 78090.733 | Evanescia: 59786.540 | ElationMC: 9856.204 | AeonAha: 7740.123 | Pearl: 84.895
+Run   20: Team DPAV: 75471.405 | Evanescia: 57603.231 | ElationMC: 9531.362 | AeonAha: 7671.642 | Pearl: 83.911
+Run   21: Team DPAV: 78513.796 | Evanescia: 60354.447 | ElationMC: 9784.103 | AeonAha: 7666.427 | Pearl: 85.848
+Run   22: Team DPAV: 76063.417 | Evanescia: 57770.841 | ElationMC: 9849.761 | AeonAha: 7776.607 | Pearl: 84.948
+Run   23: Team DPAV: 76098.680 | Evanescia: 58214.591 | ElationMC: 9516.637 | AeonAha: 7660.602 | Pearl: 83.878
+Run   24: Team DPAV: 74766.512 | Evanescia: 58813.800 | ElationMC: 8133.905 | AeonAha: 7151.990 | Pearl: 85.557
+Run   25: Team DPAV: 76010.896 | Evanescia: 58032.280 | ElationMC: 9652.514 | AeonAha: 7660.761 | Pearl: 84.080
+Run   26: Team DPAV: 75951.568 | Evanescia: 58010.471 | ElationMC: 9535.227 | AeonAha: 7703.778 | Pearl: 83.756
+Run   27: Team DPAV: 78617.143 | Evanescia: 60201.493 | ElationMC: 9901.354 | AeonAha: 7806.040 | Pearl: 85.286
+Run   28: Team DPAV: 76220.072 | Evanescia: 58244.730 | ElationMC: 9562.249 | AeonAha: 7711.070 | Pearl: 83.686
+Run   29: Team DPAV: 79738.874 | Evanescia: 61545.883 | ElationMC: 9833.859 | AeonAha: 7650.155 | Pearl: 86.006
+Run   30: Team DPAV: 77429.991 | Evanescia: 59556.264 | ElationMC: 9520.198 | AeonAha: 7646.508 | Pearl: 84.049
+Run   31: Team DPAV: 76534.431 | Evanescia: 58248.613 | ElationMC: 9875.620 | AeonAha: 7744.006 | Pearl: 84.932
+Run   32: Team DPAV: 73032.805 | Evanescia: 58335.066 | ElationMC: 7390.884 | AeonAha: 6599.919 | Pearl: 83.964
+Run   33: Team DPAV: 78261.775 | Evanescia: 60246.906 | ElationMC: 9567.843 | AeonAha: 7744.425 | Pearl: 84.265
+Run   34: Team DPAV: 77080.164 | Evanescia: 58779.895 | ElationMC: 9853.048 | AeonAha: 7739.492 | Pearl: 84.757
+Run   35: Team DPAV: 77900.606 | Evanescia: 59593.897 | ElationMC: 9858.233 | AeonAha: 7740.529 | Pearl: 84.976
+Run   36: Team DPAV: 78934.225 | Evanescia: 61200.792 | ElationMC: 9530.557 | AeonAha: 7493.454 | Pearl: 86.450
+Run   37: Team DPAV: 72278.875 | Evanescia: 57601.451 | ElationMC: 7399.107 | AeonAha: 6570.989 | Pearl: 84.357
+Run   38: Team DPAV: 73180.349 | Evanescia: 57744.522 | ElationMC: 7886.317 | AeonAha: 6842.908 | Pearl: 83.630
+Run   39: Team DPAV: 75677.559 | Evanescia: 57724.592 | ElationMC: 9551.197 | AeonAha: 7699.877 | Pearl: 83.558
+Run   40: Team DPAV: 72931.179 | Evanescia: 57327.079 | ElationMC: 7973.886 | AeonAha: 6923.228 | Pearl: 84.015
+Run   41: Team DPAV: 72219.872 | Evanescia: 57656.656 | ElationMC: 7202.980 | AeonAha: 6653.854 | Pearl: 83.411
+Run   42: Team DPAV: 72682.037 | Evanescia: 57228.034 | ElationMC: 7876.941 | AeonAha: 6870.552 | Pearl: 83.539
+Run   43: Team DPAV: 75979.818 | Evanescia: 58002.797 | ElationMC: 9644.951 | AeonAha: 7666.685 | Pearl: 84.125
+Run   44: Team DPAV: 72366.345 | Evanescia: 56918.848 | ElationMC: 7896.130 | AeonAha: 6844.870 | Pearl: 83.525
+Run   45: Team DPAV: 76923.126 | Evanescia: 58848.606 | ElationMC: 9603.437 | AeonAha: 7768.531 | Pearl: 84.215
+Run   46: Team DPAV: 75478.972 | Evanescia: 57609.741 | ElationMC: 9532.144 | AeonAha: 7671.798 | Pearl: 84.030
+Run   47: Team DPAV: 75986.047 | Evanescia: 58048.065 | ElationMC: 9540.177 | AeonAha: 7695.784 | Pearl: 83.685
+Run   48: Team DPAV: 73161.542 | Evanescia: 57726.726 | ElationMC: 7885.527 | AeonAha: 6842.750 | Pearl: 83.568
+Run   49: Team DPAV: 76157.199 | Evanescia: 57842.180 | ElationMC: 9861.052 | AeonAha: 7787.849 | Pearl: 84.857
+Run   50: Team DPAV: 77915.814 | Evanescia: 59596.644 | ElationMC: 9868.630 | AeonAha: 7742.608 | Pearl: 84.960
+Run   51: Team DPAV: 76006.725 | Evanescia: 57597.892 | ElationMC: 9917.898 | AeonAha: 7824.359 | Pearl: 85.317
+Run   52: Team DPAV: 75960.892 | Evanescia: 58012.727 | ElationMC: 9541.238 | AeonAha: 7704.980 | Pearl: 83.610
+Run   53: Team DPAV: 76931.703 | Evanescia: 59066.239 | ElationMC: 9486.736 | AeonAha: 7671.507 | Pearl: 84.249
+Run   54: Team DPAV: 74969.907 | Evanescia: 59070.429 | ElationMC: 8084.176 | AeonAha: 7107.401 | Pearl: 84.931
+Run   55: Team DPAV: 76344.568 | Evanescia: 58217.685 | ElationMC: 9739.223 | AeonAha: 7721.501 | Pearl: 84.898
+Run   56: Team DPAV: 72131.571 | Evanescia: 56691.916 | ElationMC: 7889.579 | AeonAha: 6843.560 | Pearl: 83.545
+Run   57: Team DPAV: 73710.538 | Evanescia: 57837.787 | ElationMC: 8089.939 | AeonAha: 7116.647 | Pearl: 84.905
+Run   58: Team DPAV: 78344.408 | Evanescia: 59832.342 | ElationMC: 10026.980 | AeonAha: 7777.181 | Pearl: 84.933
+Run   59: Team DPAV: 79149.886 | Evanescia: 60744.700 | ElationMC: 9851.544 | AeonAha: 7845.026 | Pearl: 85.644
+Run   60: Team DPAV: 77452.044 | Evanescia: 59593.430 | ElationMC: 9513.648 | AeonAha: 7637.762 | Pearl: 84.233
+Run   61: Team DPAV: 82084.671 | Evanescia: 63204.739 | ElationMC: 10248.847 | AeonAha: 7921.824 | Pearl: 86.290
+Run   62: Team DPAV: 76139.827 | Evanescia: 57826.291 | ElationMC: 9865.975 | AeonAha: 7781.398 | Pearl: 84.904
+Run   63: Team DPAV: 72410.413 | Evanescia: 56909.324 | ElationMC: 7934.032 | AeonAha: 6901.674 | Pearl: 84.122
+Run   64: Team DPAV: 75998.416 | Evanescia: 58016.533 | ElationMC: 9649.003 | AeonAha: 7667.495 | Pearl: 84.125
+Run   65: Team DPAV: 69948.036 | Evanescia: 55337.319 | ElationMC: 7242.475 | AeonAha: 6661.753 | Pearl: 83.518
+Run   66: Team DPAV: 76482.889 | Evanescia: 58074.541 | ElationMC: 9903.029 | AeonAha: 7838.373 | Pearl: 85.686
+Run   67: Team DPAV: 71042.627 | Evanescia: 56293.443 | ElationMC: 7426.968 | AeonAha: 6656.121 | Pearl: 84.835
+Run   68: Team DPAV: 73111.638 | Evanescia: 56133.771 | ElationMC: 8939.849 | AeonAha: 7331.745 | Pearl: 83.303
+Run   69: Team DPAV: 77223.792 | Evanescia: 59169.040 | ElationMC: 9644.122 | AeonAha: 7703.568 | Pearl: 84.090
+Run   70: Team DPAV: 70784.836 | Evanescia: 56154.873 | ElationMC: 7394.116 | AeonAha: 6569.991 | Pearl: 84.596
+Run   71: Team DPAV: 77365.871 | Evanescia: 59368.415 | ElationMC: 9594.636 | AeonAha: 7695.519 | Pearl: 84.330
+Run   72: Team DPAV: 71961.994 | Evanescia: 56448.078 | ElationMC: 7916.040 | AeonAha: 6891.344 | Pearl: 83.562
+Run   73: Team DPAV: 75820.195 | Evanescia: 57851.873 | ElationMC: 9556.369 | AeonAha: 7709.894 | Pearl: 83.721
+Run   74: Team DPAV: 73602.704 | Evanescia: 58039.589 | ElationMC: 7883.789 | AeonAha: 7013.893 | Pearl: 84.173
+Run   75: Team DPAV: 76190.913 | Evanescia: 57865.664 | ElationMC: 9869.638 | AeonAha: 7789.566 | Pearl: 84.784
+Run   76: Team DPAV: 78516.694 | Evanescia: 60632.480 | ElationMC: 9641.026 | AeonAha: 7533.747 | Pearl: 86.469
+Run   77: Team DPAV: 72960.976 | Evanescia: 57519.924 | ElationMC: 7884.631 | AeonAha: 6850.007 | Pearl: 83.443
+Run   78: Team DPAV: 76005.774 | Evanescia: 58024.284 | ElationMC: 9648.623 | AeonAha: 7667.419 | Pearl: 84.187
+Run   79: Team DPAV: 78292.971 | Evanescia: 59828.774 | ElationMC: 9956.817 | AeonAha: 7799.566 | Pearl: 84.843
+Run   80: Team DPAV: 76559.017 | Evanescia: 58263.113 | ElationMC: 9876.471 | AeonAha: 7753.160 | Pearl: 85.014
+Run   81: Team DPAV: 75875.087 | Evanescia: 58016.259 | ElationMC: 9548.799 | AeonAha: 7644.792 | Pearl: 83.977
+Run   82: Team DPAV: 78150.002 | Evanescia: 59828.063 | ElationMC: 9870.911 | AeonAha: 7743.065 | Pearl: 84.993
+Run   83: Team DPAV: 77104.647 | Evanescia: 59055.078 | ElationMC: 9652.212 | AeonAha: 7690.380 | Pearl: 84.006
+Run   84: Team DPAV: 78202.330 | Evanescia: 62369.958 | ElationMC: 7949.987 | AeonAha: 7174.039 | Pearl: 85.375
+Run   85: Team DPAV: 75513.671 | Evanescia: 59754.254 | ElationMC: 7982.081 | AeonAha: 7069.513 | Pearl: 84.853
+Run   86: Team DPAV: 76548.696 | Evanescia: 58269.462 | ElationMC: 9863.913 | AeonAha: 7749.101 | Pearl: 84.959
+Run   87: Team DPAV: 71609.910 | Evanescia: 56217.677 | ElationMC: 7878.575 | AeonAha: 6848.796 | Pearl: 83.602
+Run   88: Team DPAV: 75061.069 | Evanescia: 58094.179 | ElationMC: 9052.490 | AeonAha: 7207.315 | Pearl: 84.114
+Run   89: Team DPAV: 76547.560 | Evanescia: 58260.277 | ElationMC: 9869.287 | AeonAha: 7751.723 | Pearl: 85.013
+Run   90: Team DPAV: 73756.194 | Evanescia: 58855.461 | ElationMC: 7482.073 | AeonAha: 6710.505 | Pearl: 85.184
+Run   91: Team DPAV: 76515.575 | Evanescia: 58361.601 | ElationMC: 9726.554 | AeonAha: 7761.605 | Pearl: 84.555
+Run   92: Team DPAV: 73009.909 | Evanescia: 57538.224 | ElationMC: 7910.077 | AeonAha: 6855.096 | Pearl: 83.541
+Run   93: Team DPAV: 72077.387 | Evanescia: 57149.483 | ElationMC: 7560.862 | AeonAha: 6701.172 | Pearl: 84.609
+Run   94: Team DPAV: 77950.250 | Evanescia: 59633.603 | ElationMC: 9866.598 | AeonAha: 7742.202 | Pearl: 84.875
+Run   95: Team DPAV: 76220.167 | Evanescia: 58239.936 | ElationMC: 9566.330 | AeonAha: 7711.886 | Pearl: 83.678
+Run   96: Team DPAV: 76848.681 | Evanescia: 58760.552 | ElationMC: 9616.150 | AeonAha: 7769.547 | Pearl: 84.095
+Run   97: Team DPAV: 74843.722 | Evanescia: 58879.528 | ElationMC: 8149.914 | AeonAha: 7147.529 | Pearl: 85.491
+Run   98: Team DPAV: 77735.632 | Evanescia: 59376.069 | ElationMC: 9869.530 | AeonAha: 7782.109 | Pearl: 84.953
+Run   99: Team DPAV: 75929.417 | Evanescia: 57578.125 | ElationMC: 9885.290 | AeonAha: 7799.740 | Pearl: 85.003
+Run  100: Team DPAV: 73299.627 | Evanescia: 58257.422 | ElationMC: 7638.624 | AeonAha: 6695.527 | Pearl: 85.083
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 75661.757
+Average Evanescia DPAV: 58442.774 Percentage: 77.242%
+Average ElationMC DPAV: 9090.245 Percentage: 12.014%
+Average AeonAha DPAV: 7438.368 Percentage: 9.831%
+Average Pearl DPAV: 84.546 Percentage: 0.112%
+
+Min Team DPAV: 69948.036
+Max Team DPAV: 82084.671

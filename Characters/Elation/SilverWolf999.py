@@ -600,7 +600,7 @@ class SilverWolf999(Character):
 
         # E6: Inflict enemies with Absolute Weakness
         if self.eidolon >= 6:
-            dbl.append(Debuff("SilverWolf999E6AbsoluteWeakness", self.role, StatTypes.PEN, 0.20, Role.ALL,[AtkType.ALL], 999, 1, False, [0, 0], False))
+            dbl.append(Debuff("SilverWolf999E6AbsoluteWeakness", self.role, StatTypes.PEN, 0.20, Role.ALL,[AtkType.ALL], 999, 1, Targeting.AOE))
             logger.info(f"{self.name} E6: Enemies inflicted with Absolute Weakness (All-Type weakness + RES reduction)")
 
         self._updateEnergyFromMMR()

@@ -65,7 +65,7 @@ class Pearl(Character):
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)
-        self.relicStats = subs if subs else RelicStats(10, 2, 2, 3, 2, 2, 13, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT,
+        self.relicStats = subs if subs else RelicStats(14, 2, 2, 2, 2, 2, 7, 2, 2, 2, 2, 2, StatTypes.DEF_PERCENT,
                                                        StatTypes.SPD, StatTypes.DEF_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["A","A","E"]

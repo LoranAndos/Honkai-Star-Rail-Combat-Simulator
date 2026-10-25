@@ -198,7 +198,6 @@ class ElationMC(Character):
                     Turn(self.name, self.ultTargetRole, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                          self.scaling, 0, "AhaFixedEndGoGo"))
         if result.turnName == "ElationMCUltAscendSmall":
-            # Clear the temporary "highest ally Party Trick" Banger used by the ascended Elation Skill.
             bl.append(Buff("ElationMCUltAscendBanger", StatTypes.BANGER, 0, self.role, [AtkType.ALL], 1, 1,
                            self.role, TickDown.PERM))
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)

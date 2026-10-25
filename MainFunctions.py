@@ -1041,7 +1041,7 @@ def addSummons(playerTeam: list[Character]) -> list:
         "SilverWolf999": "AhaSilverWolf999GoGo",
         "AeonAha": "AhaGoGo"
     }
-    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "Aventurine Waveflair", "SilverWolf999", "AeonAha"]
+    fixedOrder = ["Pearl", "YaoGuang", "ElationMC", "Sparxie", "Evanescia", "AventurineWaveflair", "SilverWolf999", "AeonAha"]
 
     for char in playerTeam:
         if char.name == "Topaz":
@@ -1063,8 +1063,12 @@ def addSummons(playerTeam: list[Character]) -> list:
                 elationTeam = [(c.role, charToTurnName[c.name]) for c in
                                sorted([c for c in playerTeam if c.path == Path.ELATION and c.name in charToTurnName],
                                       key=lambda c: fixedOrder.index(c.name))]
-                summons.append(Aha(char.role, Role.AHA, elationTeam))
+                ahaSummon = Aha(char.role, Role.AHA, elationTeam)
+                summons.append(ahaSummon)
                 ahaAdded = True
+                for c in playerTeam:
+                    if c.name == "AeonAha":
+                        c.ahaSummon = ahaSummon
     return summons
 
 def handleAdditions(playerTeam: list, enemyTeam: list[Enemy], buffList: list[Buff], debuffList: list[Debuff], advList: list[Advance], delayList: list[Delay], healingList: list[Healing], shieldList: list[Shield],
@@ -1660,12 +1664,15 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 i = 0
                 DPSName = "AeonAha"
                 DPSElement = Element.QUANTUM
+                EvanesciaInTeam = False
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
                     if character.role == Role.DPS:
                         DPSName = character.name
                         DPSElement = character.element
+                    if character.name == "Evanescia":
+                        EvanesciaInTeam = True
                 AHASpdList = sorted(SpdList, reverse=True)
                 while i < len(AHASpdList):
                     AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ** (i)
@@ -1674,7 +1681,7 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 charSPD = getCharSPD(specChar, buffList)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=DPSName, attr4=charSPD, attr5=DPSElement, attr6=charBanger, attr7=charELA, enemies=gauge)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=DPSName, attr4=charSPD, attr5=DPSElement, attr6=charBanger, attr7=charELA, attr8=EvanesciaInTeam, enemies=gauge)
 
             case "Archer":
                 SPAmount = spTracker.getCurrenSP()
@@ -1701,15 +1708,22 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 SpdList = []
                 AHASpdBuffAmount = 0
                 i = 0
+                AhaInTeam = False
+                AhaEidolon = 0
                 for character in playerTeam:
                     if character.path == Path.ELATION:
                         SpdList.append(getCharSPD(character, buffList))
+                    if character.name == "AeonAha":
+                        AhaInTeam = True
+                        AhaEidolon = character.eidolon
                 AHASpdList = sorted(SpdList, reverse=True)
                 while i < len(AHASpdList):
                     AHASpdBuffAmount += 0.2 * AHASpdList[i] * 0.5 ** (i)
                     i += 1
                 TotalElationChar = len(AHASpdList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, enemies=gauge)
+                charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                charSPD = getCharSPD(specChar, buffList)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=charSPD, attr5=AhaInTeam, attr6=AhaEidolon, enemies=gauge)
 
             case "Bronya":
                 cd = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)

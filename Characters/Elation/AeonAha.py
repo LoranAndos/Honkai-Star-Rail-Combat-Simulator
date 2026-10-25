@@ -48,6 +48,7 @@ class AeonAha(Character):
     DPSElement = Element.QUANTUM
     BangerStat = 0
     ELAStat = 0
+    EvaInTeam = False
     FirstUlt = True
     Tech = True
 
@@ -59,7 +60,7 @@ class AeonAha(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=0) -> None:  # AeonAha ID: 0
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresAeonAHa(role,5)
+        self.lightcone = lc if lc else MushyShroomysAdventuresAeonAHa (role,5)
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else GodsMomentOfJoy(role)
@@ -73,6 +74,7 @@ class AeonAha(Character):
         self.emcAscendDMG = 0.0
         self.emcAscendPending = False
         self.trueFromEMCAscend = False
+        self.ahaSummon = None  # set in addSummons (MainFunctions.py)
         # Talent: Wishpower from teammate healing/shields (max once, re-arms on Ultimate)
         self.healShieldWishpowerUsed = False
         self._lastShieldHP = 0.0
@@ -114,6 +116,19 @@ class AeonAha(Character):
             self.currEnergy += 5
             bl.append(Buff("E1AhaMerry", StatTypes.MERRY, 0.15, Role.ALL, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
+
+    def canUseUlt(self) -> bool:
+        """Only use the Ultimate while the Aha summon still has more than 20% of its AV left, so the
+        20% Advance it grants is not wasted."""
+        if not super().canUseUlt():
+            return False
+        if not self.EvaInTeam:
+            return False
+        summon = self.ahaSummon
+        if summon is None or summon.currSPD <= 0:
+           return True
+        fullAV = 10000 / summon.currSPD
+        return summon.currAV > 0.20 * fullAV
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
@@ -273,6 +288,7 @@ class AeonAha(Character):
         self.DPSElement = specialRes.attr5
         self.BangerStat = specialRes.attr6
         self.ELAStat = specialRes.attr7
+        self.EvaInTeam = specialRes.attr8
 
         e5CDBuff = 0.44 if self.eidolon >= 5 else 0.40
 

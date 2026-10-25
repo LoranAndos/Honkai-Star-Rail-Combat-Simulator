@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 231592.505 | Sparxie: 115007.052 | AeonAha: 67163.578 | YaoGuang: 14112.111 | ElationMC: 35263.381
+Run    2: Team DPAV: 233353.188 | Sparxie: 114864.878 | AeonAha: 67466.196 | YaoGuang: 14327.380 | ElationMC: 36642.931
+Run    3: Team DPAV: 230119.955 | Sparxie: 114392.322 | AeonAha: 65997.128 | YaoGuang: 14129.835 | ElationMC: 35548.867
+Run    4: Team DPAV: 212988.685 | Sparxie: 104305.080 | AeonAha: 61391.358 | YaoGuang: 12508.054 | ElationMC: 34732.389
+Run    5: Team DPAV: 205887.760 | Sparxie: 100729.345 | AeonAha: 59087.591 | YaoGuang: 12428.489 | ElationMC: 33585.111
+Run    6: Team DPAV: 214154.506 | Sparxie: 105560.493 | AeonAha: 61238.630 | YaoGuang: 12983.814 | ElationMC: 34319.765
+Run    7: Team DPAV: 216804.139 | Sparxie: 108185.679 | AeonAha: 62110.615 | YaoGuang: 13195.258 | ElationMC: 33255.362
+Run    8: Team DPAV: 231960.610 | Sparxie: 118895.670 | AeonAha: 65706.232 | YaoGuang: 14061.542 | ElationMC: 33239.940
+Run    9: Team DPAV: 211904.347 | Sparxie: 104239.815 | AeonAha: 60913.170 | YaoGuang: 12637.626 | ElationMC: 34061.933
+Run   10: Team DPAV: 217409.715 | Sparxie: 107672.887 | AeonAha: 62137.161 | YaoGuang: 13168.633 | ElationMC: 34373.810
+Run   11: Team DPAV: 206953.059 | Sparxie: 102005.418 | AeonAha: 59079.413 | YaoGuang: 12735.113 | ElationMC: 33075.891
+Run   12: Team DPAV: 212344.143 | Sparxie: 104389.873 | AeonAha: 61272.931 | YaoGuang: 12837.429 | ElationMC: 33792.106
+Run   13: Team DPAV: 213239.873 | Sparxie: 104695.669 | AeonAha: 61902.714 | YaoGuang: 12811.047 | ElationMC: 33784.060
+Run   14: Team DPAV: 178541.880 | Sparxie: 95548.536 | AeonAha: 48337.319 | YaoGuang: 10882.207 | ElationMC: 23728.038
+Run   15: Team DPAV: 212281.204 | Sparxie: 104365.268 | AeonAha: 60845.323 | YaoGuang: 12783.149 | ElationMC: 34235.660
+Run   16: Team DPAV: 214365.591 | Sparxie: 106202.020 | AeonAha: 61293.707 | YaoGuang: 12920.382 | ElationMC: 33897.680
+Run   17: Team DPAV: 216296.054 | Sparxie: 112645.457 | AeonAha: 59928.181 | YaoGuang: 13411.376 | ElationMC: 30259.236
+Run   18: Team DPAV: 217961.265 | Sparxie: 113285.973 | AeonAha: 60543.246 | YaoGuang: 13431.803 | ElationMC: 30648.439
+Run   19: Team DPAV: 221444.543 | Sparxie: 114244.191 | AeonAha: 61820.905 | YaoGuang: 13192.654 | ElationMC: 32129.568
+Run   20: Team DPAV: 227649.229 | Sparxie: 113570.472 | AeonAha: 64851.890 | YaoGuang: 13769.996 | ElationMC: 35399.647
+Run   21: Team DPAV: 213109.661 | Sparxie: 104982.845 | AeonAha: 61463.805 | YaoGuang: 12866.333 | ElationMC: 33744.874
+Run   22: Team DPAV: 207842.466 | Sparxie: 101901.722 | AeonAha: 59627.619 | YaoGuang: 12523.470 | ElationMC: 33737.851
+Run   23: Team DPAV: 223921.163 | Sparxie: 110194.931 | AeonAha: 65192.525 | YaoGuang: 13689.148 | ElationMC: 34798.176
+Run   24: Team DPAV: 232731.941 | Sparxie: 115348.315 | AeonAha: 67517.078 | YaoGuang: 14129.620 | ElationMC: 35690.547
+Run   25: Team DPAV: 222167.220 | Sparxie: 110323.452 | AeonAha: 63561.103 | YaoGuang: 13673.976 | ElationMC: 34556.886
+Run   26: Team DPAV: 216814.782 | Sparxie: 107769.318 | AeonAha: 62495.624 | YaoGuang: 13167.319 | ElationMC: 33336.139
+Run   27: Team DPAV: 226315.612 | Sparxie: 112211.525 | AeonAha: 64694.021 | YaoGuang: 13671.561 | ElationMC: 35686.702
+Run   28: Team DPAV: 228730.884 | Sparxie: 113118.367 | AeonAha: 66226.267 | YaoGuang: 14003.146 | ElationMC: 35336.722
+Run   29: Team DPAV: 203298.902 | Sparxie: 103629.293 | AeonAha: 57697.918 | YaoGuang: 12571.413 | ElationMC: 29348.474
+Run   30: Team DPAV: 203867.492 | Sparxie: 103241.167 | AeonAha: 57954.768 | YaoGuang: 12668.607 | ElationMC: 29951.147
+Run   31: Team DPAV: 214869.832 | Sparxie: 106863.445 | AeonAha: 61631.188 | YaoGuang: 13459.375 | ElationMC: 32869.441
+Run   32: Team DPAV: 220957.353 | Sparxie: 114313.460 | AeonAha: 61533.809 | YaoGuang: 13741.120 | ElationMC: 31317.161
+Run   33: Team DPAV: 224195.187 | Sparxie: 114941.077 | AeonAha: 63099.523 | YaoGuang: 13642.329 | ElationMC: 32455.033
+Run   34: Team DPAV: 235588.987 | Sparxie: 117884.983 | AeonAha: 67164.184 | YaoGuang: 14354.282 | ElationMC: 36133.735
+Run   35: Team DPAV: 213744.442 | Sparxie: 110384.511 | AeonAha: 59769.319 | YaoGuang: 13221.354 | ElationMC: 30317.454
+Run   36: Team DPAV: 215804.352 | Sparxie: 107487.535 | AeonAha: 61609.290 | YaoGuang: 13342.492 | ElationMC: 33313.231
+Run   37: Team DPAV: 236794.597 | Sparxie: 123076.449 | AeonAha: 66009.942 | YaoGuang: 14322.910 | ElationMC: 33333.493
+Run   38: Team DPAV: 240987.655 | Sparxie: 120214.739 | AeonAha: 69058.593 | YaoGuang: 14790.029 | ElationMC: 36872.491
+Run   39: Team DPAV: 209707.732 | Sparxie: 111084.401 | AeonAha: 58122.576 | YaoGuang: 12697.520 | ElationMC: 27746.010
+Run   40: Team DPAV: 213005.217 | Sparxie: 106180.597 | AeonAha: 61167.840 | YaoGuang: 12793.502 | ElationMC: 32816.895
+Run   41: Team DPAV: 230187.543 | Sparxie: 118794.283 | AeonAha: 64252.612 | YaoGuang: 13805.081 | ElationMC: 33278.342
+Run   42: Team DPAV: 220682.670 | Sparxie: 109689.937 | AeonAha: 63240.441 | YaoGuang: 13479.659 | ElationMC: 34215.408
+Run   43: Team DPAV: 221586.065 | Sparxie: 110033.524 | AeonAha: 63587.350 | YaoGuang: 13503.687 | ElationMC: 34409.701
+Run   44: Team DPAV: 215899.043 | Sparxie: 106733.409 | AeonAha: 62115.912 | YaoGuang: 12735.860 | ElationMC: 34267.480
+Run   45: Team DPAV: 236430.850 | Sparxie: 117284.619 | AeonAha: 68371.592 | YaoGuang: 14471.163 | ElationMC: 36251.673
+Run   46: Team DPAV: 238683.962 | Sparxie: 118656.850 | AeonAha: 68357.804 | YaoGuang: 14559.066 | ElationMC: 37058.438
+Run   47: Team DPAV: 213398.709 | Sparxie: 105262.866 | AeonAha: 60877.650 | YaoGuang: 12710.489 | ElationMC: 34490.478
+Run   48: Team DPAV: 235003.133 | Sparxie: 116453.579 | AeonAha: 67803.533 | YaoGuang: 14433.211 | ElationMC: 36261.007
+Run   49: Team DPAV: 236629.479 | Sparxie: 117947.158 | AeonAha: 68169.091 | YaoGuang: 14358.666 | ElationMC: 36102.761
+Run   50: Team DPAV: 221867.824 | Sparxie: 110343.530 | AeonAha: 63692.742 | YaoGuang: 13038.031 | ElationMC: 34747.138
+Run   51: Team DPAV: 226582.314 | Sparxie: 112878.362 | AeonAha: 65690.275 | YaoGuang: 13526.587 | ElationMC: 34440.708
+Run   52: Team DPAV: 210962.628 | Sparxie: 104363.082 | AeonAha: 60331.863 | YaoGuang: 12545.014 | ElationMC: 33670.865
+Run   53: Team DPAV: 217444.147 | Sparxie: 112659.809 | AeonAha: 60707.558 | YaoGuang: 13058.765 | ElationMC: 30960.791
+Run   54: Team DPAV: 224928.737 | Sparxie: 110738.988 | AeonAha: 65052.677 | YaoGuang: 13845.962 | ElationMC: 35239.306
+Run   55: Team DPAV: 209679.618 | Sparxie: 108643.871 | AeonAha: 58674.983 | YaoGuang: 12920.004 | ElationMC: 29383.535
+Run   56: Team DPAV: 213134.037 | Sparxie: 105217.789 | AeonAha: 61351.326 | YaoGuang: 12655.457 | ElationMC: 33857.662
+Run   57: Team DPAV: 210517.123 | Sparxie: 103811.029 | AeonAha: 60059.099 | YaoGuang: 12562.143 | ElationMC: 34027.627
+Run   58: Team DPAV: 242857.101 | Sparxie: 121494.509 | AeonAha: 69550.349 | YaoGuang: 14760.008 | ElationMC: 37000.431
+Run   59: Team DPAV: 225927.990 | Sparxie: 116457.197 | AeonAha: 63073.084 | YaoGuang: 13572.462 | ElationMC: 32768.023
+Run   60: Team DPAV: 221846.965 | Sparxie: 114099.116 | AeonAha: 61892.299 | YaoGuang: 12954.915 | ElationMC: 32843.410
+Run   61: Team DPAV: 228595.441 | Sparxie: 113857.261 | AeonAha: 65641.754 | YaoGuang: 13525.094 | ElationMC: 35519.528
+Run   62: Team DPAV: 219514.971 | Sparxie: 108497.722 | AeonAha: 62853.529 | YaoGuang: 13502.277 | ElationMC: 34609.640
+Run   63: Team DPAV: 243265.015 | Sparxie: 121914.919 | AeonAha: 69197.846 | YaoGuang: 14845.180 | ElationMC: 37255.267
+Run   64: Team DPAV: 220959.297 | Sparxie: 113233.531 | AeonAha: 62328.145 | YaoGuang: 13396.040 | ElationMC: 31944.356
+Run   65: Team DPAV: 223453.094 | Sparxie: 110575.836 | AeonAha: 63835.807 | YaoGuang: 13826.510 | ElationMC: 35157.716
+Run   66: Team DPAV: 220018.276 | Sparxie: 109402.016 | AeonAha: 62532.746 | YaoGuang: 12929.654 | ElationMC: 35102.057
+Run   67: Team DPAV: 220314.863 | Sparxie: 108619.044 | AeonAha: 63593.716 | YaoGuang: 13564.105 | ElationMC: 34486.194
+Run   68: Team DPAV: 211995.190 | Sparxie: 108556.134 | AeonAha: 59532.607 | YaoGuang: 12667.064 | ElationMC: 31182.161
+Run   69: Team DPAV: 213471.077 | Sparxie: 104525.008 | AeonAha: 61659.628 | YaoGuang: 13233.624 | ElationMC: 33995.593
+Run   70: Team DPAV: 220574.464 | Sparxie: 109076.697 | AeonAha: 63603.428 | YaoGuang: 13300.664 | ElationMC: 34541.872
+Run   71: Team DPAV: 211802.075 | Sparxie: 104467.175 | AeonAha: 60757.434 | YaoGuang: 12760.192 | ElationMC: 33765.469
+Run   72: Team DPAV: 195305.035 | Sparxie: 100550.735 | AeonAha: 54632.492 | YaoGuang: 11688.205 | ElationMC: 28387.824
+Run   73: Team DPAV: 219614.186 | Sparxie: 108342.360 | AeonAha: 62873.298 | YaoGuang: 13679.565 | ElationMC: 34661.739
+Run   74: Team DPAV: 215843.449 | Sparxie: 111774.061 | AeonAha: 59753.290 | YaoGuang: 12976.771 | ElationMC: 31282.102
+Run   75: Team DPAV: 209206.446 | Sparxie: 102865.407 | AeonAha: 59843.396 | YaoGuang: 12531.747 | ElationMC: 33914.093
+Run   76: Team DPAV: 211394.839 | Sparxie: 103662.176 | AeonAha: 60788.983 | YaoGuang: 12755.228 | ElationMC: 34136.648
+Run   77: Team DPAV: 213182.925 | Sparxie: 104712.291 | AeonAha: 61354.070 | YaoGuang: 13008.231 | ElationMC: 34051.107
+Run   78: Team DPAV: 225014.129 | Sparxie: 116475.165 | AeonAha: 62580.124 | YaoGuang: 13426.258 | ElationMC: 32486.200
+Run   79: Team DPAV: 215549.917 | Sparxie: 106439.772 | AeonAha: 61920.384 | YaoGuang: 12798.820 | ElationMC: 34339.138
+Run   80: Team DPAV: 223236.009 | Sparxie: 110721.147 | AeonAha: 63830.555 | YaoGuang: 13126.572 | ElationMC: 35505.931
+Run   81: Team DPAV: 224921.730 | Sparxie: 111417.221 | AeonAha: 64395.150 | YaoGuang: 13818.610 | ElationMC: 35233.524
+Run   82: Team DPAV: 209340.377 | Sparxie: 102396.695 | AeonAha: 60757.866 | YaoGuang: 12671.149 | ElationMC: 33462.863
+Run   83: Team DPAV: 217912.936 | Sparxie: 107998.675 | AeonAha: 62961.119 | YaoGuang: 13145.851 | ElationMC: 33755.489
+Run   84: Team DPAV: 207155.499 | Sparxie: 104653.407 | AeonAha: 58983.112 | YaoGuang: 12877.960 | ElationMC: 30589.216
+Run   85: Team DPAV: 228422.680 | Sparxie: 113840.052 | AeonAha: 65956.991 | YaoGuang: 13869.099 | ElationMC: 34710.156
+Run   86: Team DPAV: 241399.699 | Sparxie: 120135.059 | AeonAha: 69265.811 | YaoGuang: 14825.610 | ElationMC: 37121.416
+Run   87: Team DPAV: 209028.893 | Sparxie: 102755.871 | AeonAha: 60722.084 | YaoGuang: 12876.797 | ElationMC: 32622.339
+Run   88: Team DPAV: 230411.761 | Sparxie: 114979.076 | AeonAha: 66252.827 | YaoGuang: 14316.106 | ElationMC: 34817.370
+Run   89: Team DPAV: 190840.153 | Sparxie: 96728.142 | AeonAha: 53767.552 | YaoGuang: 11782.742 | ElationMC: 28509.914
+Run   90: Team DPAV: 223745.785 | Sparxie: 114991.484 | AeonAha: 62679.747 | YaoGuang: 13491.400 | ElationMC: 32531.351
+Run   91: Team DPAV: 211120.060 | Sparxie: 107710.784 | AeonAha: 59050.230 | YaoGuang: 12448.548 | ElationMC: 31853.274
+Run   92: Team DPAV: 219990.626 | Sparxie: 107908.993 | AeonAha: 63703.472 | YaoGuang: 13559.106 | ElationMC: 34761.831
+Run   93: Team DPAV: 216476.354 | Sparxie: 110978.564 | AeonAha: 61612.093 | YaoGuang: 13267.052 | ElationMC: 30566.842
+Run   94: Team DPAV: 209230.018 | Sparxie: 107052.110 | AeonAha: 58769.244 | YaoGuang: 12444.275 | ElationMC: 30912.586
+Run   95: Team DPAV: 207897.633 | Sparxie: 102394.672 | AeonAha: 59517.847 | YaoGuang: 12613.978 | ElationMC: 33319.333
+Run   96: Team DPAV: 219226.750 | Sparxie: 108704.897 | AeonAha: 62759.045 | YaoGuang: 13054.065 | ElationMC: 34656.939
+Run   97: Team DPAV: 232358.033 | Sparxie: 116026.362 | AeonAha: 66599.912 | YaoGuang: 14295.346 | ElationMC: 35384.610
+Run   98: Team DPAV: 209700.951 | Sparxie: 101907.918 | AeonAha: 61084.837 | YaoGuang: 12759.861 | ElationMC: 33891.110
+Run   99: Team DPAV: 214872.633 | Sparxie: 106137.144 | AeonAha: 62078.760 | YaoGuang: 12752.551 | ElationMC: 33857.796
+Run  100: Team DPAV: 215110.443 | Sparxie: 106375.125 | AeonAha: 61086.735 | YaoGuang: 12719.492 | ElationMC: 34877.288
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 219074.314
+Average Sparxie DPAV: 109648.824 Percentage: 50.051%
+Average AeonAha DPAV: 62506.542 Percentage: 28.532%
+Average YaoGuang DPAV: 13282.850 Percentage: 6.063%
+Average ElationMC DPAV: 33583.709 Percentage: 15.330%
+
+Min Team DPAV: 178541.880
+Max Team DPAV: 243265.015

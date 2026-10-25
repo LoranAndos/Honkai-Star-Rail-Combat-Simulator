@@ -1,15 +1,16 @@
 from enum import Enum, auto
 
-bonusDMG = {"AvenFUAExtras", "TYAllyBonus", "TYBeneBonus", "YunliCullBounce", "FeixiaoUlt", "RobinConcertoDMG", "H7UltEnhancedBSCExtras", "H7EnhancedBSCExtras", "MozeBonusDMG", "RuanMeiBreakBonus", "LingshaFuaExtra",
-            "RatioE2Bonus", "JadeBonusDMG", "SamSkillSB", "SamSkill", "SamBasicSB", "SamBasic", "FireflySkillP1", "GallagherBasicP1", "GallagherEBSCExtras", "RuanUltBreak", "RuanAllyBreak", "HMCSkillExtras", "HMCSuperBreak",
-            "HMCAllySuperBreak", "LingshaAutohealExtra", "LingshaE6Extras", "RobinMoonlessMidnight", "RappaEBASB", "RappaEBAP1", "RappaBounceHits", "RappaTalentBRK", "RappaTalentSBK", "JingYuanFuaExtras","SushangSwordStanceExtra"
-            ,"SushangSwordStance","HuoHuoAllyERR","MemSkill","TribbieAdditionalDamage", "RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
+bonusDMG = {"AvenFUAExtras","TYAllyBonus","TYBeneBonus","YunliCullBounce","FeixiaoUlt","RobinConcertoDMG","H7UltEnhancedBSCExtras","H7EnhancedBSCExtras","MozeBonusDMG","RuanMeiBreakBonus","LingshaFuaExtra",
+            "RatioE2Bonus","JadeBonusDMG","SamSkillSB","SamSkill","SamBasicSB", "SamBasic","FireflySkillP1","GallagherBasicP1","GallagherEBSCExtras","RuanUltBreak","RuanAllyBreak","HMCSkillExtras","HMCSuperBreak",
+            "HMCAllySuperBreak","LingshaAutohealExtra","LingshaE6Extras","RobinMoonlessMidnight","RappaEBASB","RappaEBAP1","RappaBounceHits", "RappaTalentBRK","RappaTalentSBK","JingYuanFuaExtras","SushangSwordStanceExtra"
+            ,"SushangSwordStance","HuoHuoAllyERR","MemSkill","TribbieAdditionalDamage","RmcTechnique","SparxieSkillEla","SparxieSkillElaExtra","SparxieUltEla","SparxieElaSkillSmall","SparxieTech","YaoGuangTalentADD",
             "YaoGuangTalentADDSP","YaoGuangELASkillSINGLE","ElationMCTalentSkill","ElationMCELASkillSmall","ElationMCUltTrigger_DPS","EvanesciaMasterFoxELAPUNCH","EvanesciaSkillELAPUNCH","EvanesciaUltELAPUNCH_AOE"
             ,"EvanesciaUltELAPUNCH_ST","EvanesciaTech","SilverWolf999ELASkillExtra","SilverWolf999BigFlippingSword","EvanesciaUltSingle","MortenaxBladeBounceSkill","MortenaxBladeBounceFUA","AshveilTech",
             "AcheronRainblade1","AcheronRainblade2","AcheronRainblade3","AcheronRainbladeKnot1","AcheronRainbladeKnot2","AcheronRainbladeKnot3","AcheronResurgeBounce1","AcheronResurgeBounce2","AcheronResurgeBounce3",
             "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6","AcheronTech","CipherUltST","CipherTech","CipherE4Add","ArcherTech","RinTohsakaUltMain","RinTohsakaSkillSingle","SaberUltSmall",
             "GilgameshUltSingle","GilgameshTechnique","SouldragonBondmateADD","WeltSkillExtra","WeltSlowedAdditionalDMG","WeltAdditionalDMG","WeltE1AdditionalDMG","PearlDPSELABasic","PearlELABasic","PearlELASkillBonusDMG",
-            "PearlDPSE6ELABasic","AeonAhaUltExtra","AhaDPSSkill","AeonAhaELATrueDMG","ElationMCUltAscendSmall"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            "PearlDPSE6ELABasic","AeonAhaUltExtra","AhaDPSSkill","AeonAhaELATrueDMG","ElationMCUltAscendSmall","AventurineWaveflairSkillELA","AventurineWaveflairUltELA","AventurineWaveflairELASkillRandom",
+            "AventurineWaveflairTech",} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
@@ -17,7 +18,8 @@ UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt"
                 "CipherUltAOE","ArcherUlt","RinTohsakaUltSide","SaberUltBig","GilgameshUltAll","DanHengPermansorTerraeUlt",
                 "WeltUlt","PearlUlt","AventurineWaveflairUlt","AeonAhaUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SilverWolf999NormalELASkill",
-                    "SparxieElaSkillBig","YaoGuangELASkillAOE","PearlELASkill","AeonAhaELASkill","ElationMCUltAscendBig"}
+                    "SparxieElaSkillBig","YaoGuangELASkillAOE","PearlELASkill","AeonAhaELASkill","ElationMCUltAscendBig",
+                    "AventurineWaveflairELASkill"}
 
 wbMultiplier = 3767.5533
 eleDct = {"PHY": 2.0, "FIR": 2.0, "WIN": 1.5, "ICE": 1.0, "LNG": 1.0, "QUA": 0.5, "IMG": 0.5}
