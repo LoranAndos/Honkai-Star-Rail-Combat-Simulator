@@ -44,6 +44,11 @@ class AventurineWaveflair(Character):
     Tech = True
     FERVOR_THRESHOLD = 10
     FERVOR_CAP = 30
+    FERVOR_CAP_E2 = 50
+    @property
+    def fervorCap(self) -> int:
+        """E2: the upper limit of Fervor increases to 50."""
+        return self.FERVOR_CAP_E2 if self.eidolon >= 2 else self.FERVOR_CAP
     FIXED_PUNCHLINE = 20
     AhaInTeam = False
     AhaEidolon = 0
@@ -65,9 +70,13 @@ class AventurineWaveflair(Character):
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
         # Instance-level state
-        self.cheersArmed = True      # Cheers triggers when Fervor reaches 10; re-arms once Fervor drops below 10
+        self.elaUses = 0             # E6: number of Elation Skills used so far
+        self.cheersTriggered = set() # Fervor thresholds (10, and with E1 also 20/30) that already triggered Cheers
         self.cheersActive = False    # a "Cheers! To Summer's Blaze" instance (fixed 20 Punchline) is in progress
         self.elaEnhanced = False     # next Elation Skill becomes "All In! To Summer's Blaze"
+        self.soleElation = False     # Trace 2: he is the only Elation character in the team (set in equip)
+        self.trace2Count = 0         # unique-name counter for the Certified Banger buffs of Trace 2
+        self.trace3Count = 0         # Trace 3 triggers (max 6, resets when he uses his Skill)
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
@@ -75,6 +84,21 @@ class AventurineWaveflair(Character):
         bl.append(Buff("AventurineWaveflairTraceCR", StatTypes.CR_PERCENT, 0.187, self.role))
         bl.append(Buff("AventurineWaveflairTraceSPD", StatTypes.SPD, 9, self.role))
         bl.append(Buff("AventurineWaveflairTraceELA", StatTypes.ELA, 0.10, self.role))
+        # Trace 3: +48% CRIT DMG
+        bl.append(Buff("AventurineWaveflairTrace3CD", StatTypes.CD_PERCENT, 0.48, self.role))
+        # Eidolon 6: Elation DMG dealt merrymakes by 25%
+        if self.eidolon >= 6:
+            bl.append(Buff("AventurineWaveflairE6Merry", StatTypes.MERRY, 0.25, self.role))
+        # Eidolon 1: +24% All-Type RES PEN
+        if self.eidolon >= 1:
+            bl.append(Buff("AventurineWaveflairE1PEN", StatTypes.PEN, 0.24, self.role))
+        # Trace 2 (checked once, at the start of the battle)
+        otherElation = [c for c in (Character._current_player_team or [])
+                        if c.path == Path.ELATION and c.name != self.name]
+        self.soleElation = len(otherElation) == 0
+        if not self.soleElation:
+            bl.append(Buff("AventurineWaveflairTrace2ELA", StatTypes.ELA, 0.20, Role.ALL))
+            bl.append(Buff("AventurineWaveflairTrace2ELASelf", StatTypes.ELA, 0.80, self.role))
         return bl, dbl, al, dl, hl, sl
 
     def _ascended(self) -> bool:
@@ -98,7 +122,11 @@ class AventurineWaveflair(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                            [self.element], [e3ELAMul, 0], [0, 0], 0, Scaling.ELA, 0, "AventurineWaveflairSkillELA"))
         Character.SharedPunchline += 4
-        self.Fervor = min(self.Fervor + 4, self.FERVOR_CAP)
+        if self.eidolon >= 4:
+            bl.append(Buff("AventurineWaveFlairE4Shred", StatTypes.SHRED, 0.18, Role.ALL, [AtkType.ALL], 3, 1,
+                           self.role, TickDown.END))
+        self.Fervor = min(self.Fervor + 4, self.fervorCap)
+        self.trace3Count = 0
         return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
@@ -113,22 +141,31 @@ class AventurineWaveflair(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                            [self.element], [e3ELAMul, 0], [0, 0], 0, Scaling.ELA, 0, "AventurineWaveflairUltELA"))
         Character.SharedPunchline += 6
-        self.Fervor = min(self.Fervor + 8, self.FERVOR_CAP)
+        self.Fervor = min(self.Fervor + 8, self.fervorCap)
         bl.append(Buff("AventurineWaveflairUltSPD", StatTypes.SPD_PERCENT, e5SPD, self.role, [AtkType.ALL], 4, 1, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl, sl
 
     def _handleSequenceEnd(self, result: Result):
-        # End of the fixed-20-Punchline instance started by Cheers (same marker the EMC Ult instance uses)
+        bl = []
+        if result.turnName in self.ELA_SEQUENCE_END and self.soleElation:
+            bl.append(Buff("AventurineWaveflairTrace2AhaSPD", StatTypes.SPD, 0, Role.AHA, [AtkType.SPECIAL], 1, 1,
+                           Role.AHA, TickDown.PERM))
+        return bl
+
+    ELA_SEQUENCE_END = ("AhaElationSequenceComplete", "AhaElationFixedSequenceComplete", "AhaElationFixedEMCSequenceComplete")
+
+    def _handleCheersEnd(self, result: Result):
         if result.turnName == "AhaElationFixedEMCSequenceComplete" and self.cheersActive:
             self.cheersActive = False
             Character.EMCUlt = False
 
     def _checkFervor(self):
         bl, dbl, al, dl, tl, hl, sl = [], [], [], [], [], [], []
-        if self.Fervor < self.FERVOR_THRESHOLD:
-            self.cheersArmed = True
-        if self.Fervor >= self.FERVOR_THRESHOLD and self.cheersArmed and not self.cheersActive:
-            self.cheersArmed = False
+        self.cheersTriggered = {t for t in self.cheersTriggered if t <= self.Fervor}
+        thresholds = (10, 20, 30, 40, 50) if self.eidolon >= 2 else ((10, 20, 30) if self.eidolon >= 1 else (10,))
+        reached = [t for t in thresholds if self.Fervor >= t and t not in self.cheersTriggered]
+        if reached and not self.cheersActive:
+            self.cheersTriggered.add(reached[0])   # one at a time; a further threshold triggers on the next check
             self.cheersActive = True
             Character.ahaFixedPunchline = True
             Character.ahaFixedPunchlineValue = self.FIXED_PUNCHLINE
@@ -140,7 +177,8 @@ class AventurineWaveflair(Character):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
-        self._handleSequenceEnd(result)
+        bl.extend(self._handleSequenceEnd(result))
+        self._handleCheersEnd(result)
         if result.turnName == "AhaAventurineWaveflairGoGo":
             return self.useElaSkill(-1)
         if result.turnName == f"ElationMCUltTrigger_{self.role.name}":
@@ -165,7 +203,8 @@ class AventurineWaveflair(Character):
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
-        self._handleSequenceEnd(result)
+        bl.extend(self._handleSequenceEnd(result))
+        self._handleCheersEnd(result)
 
         if result.turnName == "AhaAventurineWaveflairGoGo":
             return self.useElaSkill(-1)
@@ -181,8 +220,22 @@ class AventurineWaveflair(Character):
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
-            self.Fervor = min(self.Fervor + 1, self.FERVOR_CAP)
+            self.Fervor = min(self.Fervor + 1, self.fervorCap)
             Character.SharedPunchline += 1
+
+            if self.soleElation:
+                bl.append(Buff(f"AventurineWaveflairTrace2Banger{self.trace2Count}", StatTypes.BANGER, 2, self.role,
+                               [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
+                self.trace2Count += 1
+                Character.SharedPunchline += 1
+                bl.append(Buff("AventurineWaveflairTrace2AhaSPD", StatTypes.SPD, 25, Role.AHA, [AtkType.SPECIAL], 1, 1,
+                               Role.AHA, TickDown.PERM))
+
+            if self.trace3Count < 6 and any(t in (AtkType.BSC, AtkType.SKL, AtkType.FUA, AtkType.ULT) for t in turn.atkType):
+                self.trace3Count += 1
+                bl.append(Buff("AventurineWaveflairTrace3AllyCD", StatTypes.CD_PERCENT, 0.48, Role.ALL, [AtkType.ALL], 3, 1,
+                               self.role, TickDown.END))
+                self.Fervor = min(self.Fervor + 2, self.fervorCap)
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self._checkFervor())
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -195,39 +248,49 @@ class AventurineWaveflair(Character):
         else:
             e5MulBig, e5MulSmall, e5MulEnhanced = 0.60, 0.18, 0.21
 
+        elaType = [AtkType.ELAPUNCH, AtkType.FUA] if self.soleElation else [AtkType.ELAPUNCH]  # Trace 2
+
         if fervorConsumed == 0:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, elaType,
                            [self.element], [10*e5MulSmall * Character.ahaElaDMGBoost, 0], [10*3.33, 0], 0, Scaling.ELA, 0,
                            "AventurineWaveflairELASkillRandom"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, elaType,
                            [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [10, 0], 0, Scaling.ELA, 0,
                            "AventurineWaveflairELASkill"))
         else:
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELAPUNCH],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, elaType,
                            [self.element], [(10*e5MulSmall+fervorConsumed*e5MulEnhanced) * Character.ahaElaDMGBoost, 0], [10*5, 0], 0, Scaling.ELA, 0,
                            "AventurineWaveflairELASkillRandom"))
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, elaType,
                            [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [20, 0], 0, Scaling.ELA, 0,
                            "AventurineWaveflairELASkill"))
 
-    def useAllInElaSkill(self, enemyID=-1):
+    def useAllInElaSkill(self, enemyID=-1, consume=True):
+        """"All In! To Summer's Blaze": consumes all Fervor (+21% random-enemy instance per point consumed).
+        E6: when used outside the Aha Instant (the Cheers instance) it no longer consumes Fervor."""
         bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
-        consumed = self.Fervor
-        self.Fervor = 0
-        self.cheersArmed = True
-        self._buildElaTurns(enemyID, tl, fervorConsumed=consumed)
+        fervor = self.Fervor
+        if consume:
+            self.Fervor = 0
+            self.cheersTriggered.clear()
+        self._buildElaTurns(enemyID, tl, fervorConsumed=fervor)
         return bl, dbl, al, dl, tl, hl, sl
 
     def useElaSkill(self, enemyID=-1, cheers=False):
-        # Next Elation Skill in an Aha Instant after a Cheers use is enhanced
+        allIn = (self.elaEnhanced and not cheers) or (self.eidolon >= 6 and self.elaUses >= 2)
         if self.elaEnhanced and not cheers:
             self.elaEnhanced = False
-            return self.useAllInElaSkill(enemyID)
-        bl, dbl, al, dl, tl, hl, sl = super().useElaSkill(enemyID)
-        self._buildElaTurns(enemyID, tl)
-        if cheers:
-            self.elaEnhanced = True
-        return bl, dbl, al, dl, tl, hl, sl
+        self.elaUses += 1
+        if allIn:
+            res = self.useAllInElaSkill(enemyID, consume=not cheers)
+        else:
+            res = list(super().useElaSkill(enemyID))
+            self._buildElaTurns(enemyID, res[4])
+            if cheers:
+                self.elaEnhanced = True
+        if self.eidolon >= 2:
+            self.Fervor = min(self.Fervor + 4, self.fervorCap)
+        return tuple(res)
 
     def handleSpecialStart(self, specialRes: Special):
         bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
@@ -239,11 +302,14 @@ class AventurineWaveflair(Character):
         self.AhaEidolon = specialRes.attr6
 
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
+        if self.currSPD >= 140:
+            ELABuff = min(max((self.CharSpd-140), 0), 200)
+            bl.append(Buff("AventurineWaveflairTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
         if self.Tech:
             self.Tech = False
             bl.append(Buff("BangerAventurineWaveflairTech", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AventurineWaveflairTech"))
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.TECH], [self.element], [0.0, 0], [20, 0], 0,self.scaling, 0, "AventurineWaveflairTech"))
-            self.Fervor = min(self.Fervor + 2, self.FERVOR_CAP)
+            self.Fervor = min(self.Fervor + 2, self.fervorCap)
 
         return bl, dbl, al, dl, tl, hl, sl
