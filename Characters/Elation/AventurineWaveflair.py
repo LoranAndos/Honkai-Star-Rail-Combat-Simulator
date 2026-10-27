@@ -2,11 +2,10 @@ import logging
 
 from Buff import *
 from Character import Character
-from Lightcones.Elation.DazzledByAFloweryWorld import DazzledByAFloweryWorld
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresSparxie
-from Planars.TengokuLivestream import TengokuLivestream
+from Lightcones.Elation.SummerRidesTheSurf import SummerRidesTheSurf
+from Planars.PunklordeStageZero import PunklordeStageZero
 from RelicStats import RelicStats
-from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+from Relics.GeniusOfBrilliantStars import GeniusOfBrilliantStars
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -50,8 +49,13 @@ class AventurineWaveflair(Character):
         """E2: the upper limit of Fervor increases to 50."""
         return self.FERVOR_CAP_E2 if self.eidolon >= 2 else self.FERVOR_CAP
     FIXED_PUNCHLINE = 20
+    ASCEND_SPD = 0.15
+    ASCEND_SPD_E2 = 0.25
+    ASCEND_GAIN = 1
+    ASCEND_GAIN_E2 = 2
     AhaInTeam = False
     AhaEidolon = 0
+    ELAStat = 0.0
 
 
     # Relic Settings
@@ -62,11 +66,11 @@ class AventurineWaveflair(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=156) -> None:  # Aventurine Waveflair ID: 156
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role,5)
-        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
+        self.lightcone = lc if lc else SummerRidesTheSurf(role,1)
+        self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.planar = pl if pl else PunklordeStageZero(role)
+        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
         # Instance-level state
@@ -75,6 +79,7 @@ class AventurineWaveflair(Character):
         self.cheersActive = False    # a "Cheers! To Summer's Blaze" instance (fixed 20 Punchline) is in progress
         self.elaEnhanced = False     # next Elation Skill becomes "All In! To Summer's Blaze"
         self.soleElation = False     # Trace 2: he is the only Elation character in the team (set in equip)
+        self.ahaOnlyElation = False  # Aeon Aha is his only Elation teammate (set in equip)
         self.trace2Count = 0         # unique-name counter for the Certified Banger buffs of Trace 2
         self.trace3Count = 0         # Trace 3 triggers (max 6, resets when he uses his Skill)
 
@@ -96,14 +101,31 @@ class AventurineWaveflair(Character):
         otherElation = [c for c in (Character._current_player_team or [])
                         if c.path == Path.ELATION and c.name != self.name]
         self.soleElation = len(otherElation) == 0
+        self.ahaOnlyElation = len(otherElation) == 1 and otherElation[0].name == "AeonAha"
         if not self.soleElation:
             bl.append(Buff("AventurineWaveflairTrace2ELA", StatTypes.ELA, 0.20, Role.ALL))
             bl.append(Buff("AventurineWaveflairTrace2ELASelf", StatTypes.ELA, 0.80, self.role))
         return bl, dbl, al, dl, hl, sl
 
     def _ascended(self) -> bool:
-        """The Path of Elation ascends: Aeon Aha is in the team and her Ultimate is active."""
         return bool(self.AhaInTeam and Character.AeonAhaUltActive)
+
+    def _gainFervor(self, amount: int, source: str):
+        """Single entry point for every Fervor gain, so each one is logged with its source."""
+        before = self.Fervor
+        self.Fervor = min(self.Fervor + amount, self.fervorCap)
+        gained = self.Fervor - before
+        capNote = f" (capped, +{amount} attempted)" if gained < amount else ""
+        logger.info(f"FERVOR > {self.name} +{gained} from {source}{capNote} | Fervor: {before} -> {self.Fervor}/{self.fervorCap}")
+
+    def _ascendSpd(self) -> float:
+        return self.ASCEND_SPD_E2 if self.AhaEidolon >= 2 else self.ASCEND_SPD
+
+    def _ascendGain(self) -> int:
+        return self.ASCEND_GAIN_E2 if self.AhaEidolon >= 2 else self.ASCEND_GAIN
+
+    def _soleActive(self) -> bool:
+        return self.soleElation or (self.ahaOnlyElation and self._ascended())
 
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
@@ -125,7 +147,7 @@ class AventurineWaveflair(Character):
         if self.eidolon >= 4:
             bl.append(Buff("AventurineWaveFlairE4Shred", StatTypes.SHRED, 0.18, Role.ALL, [AtkType.ALL], 3, 1,
                            self.role, TickDown.END))
-        self.Fervor = min(self.Fervor + 4, self.fervorCap)
+        self._gainFervor(4, "Skill")
         self.trace3Count = 0
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -141,13 +163,13 @@ class AventurineWaveflair(Character):
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                            [self.element], [e3ELAMul, 0], [0, 0], 0, Scaling.ELA, 0, "AventurineWaveflairUltELA"))
         Character.SharedPunchline += 6
-        self.Fervor = min(self.Fervor + 8, self.fervorCap)
+        self._gainFervor(8, "Ultimate")
         bl.append(Buff("AventurineWaveflairUltSPD", StatTypes.SPD_PERCENT, e5SPD, self.role, [AtkType.ALL], 4, 1, self.role,TickDown.START))
         return bl, dbl, al, dl, tl, hl, sl
 
     def _handleSequenceEnd(self, result: Result):
         bl = []
-        if result.turnName in self.ELA_SEQUENCE_END and self.soleElation:
+        if result.turnName in self.ELA_SEQUENCE_END and (self.soleElation or self.ahaOnlyElation):
             bl.append(Buff("AventurineWaveflairTrace2AhaSPD", StatTypes.SPD, 0, Role.AHA, [AtkType.SPECIAL], 1, 1,
                            Role.AHA, TickDown.PERM))
         return bl
@@ -166,6 +188,8 @@ class AventurineWaveflair(Character):
         reached = [t for t in thresholds if self.Fervor >= t and t not in self.cheersTriggered]
         if reached and not self.cheersActive:
             self.cheersTriggered.add(reached[0])   # one at a time; a further threshold triggers on the next check
+            logger.info(f"FERVOR > {self.name} reached threshold {reached[0]} -> Cheers! To Summer's Blaze "
+                        f"| Fervor: {self.Fervor}/{self.fervorCap}")
             self.cheersActive = True
             Character.ahaFixedPunchline = True
             Character.ahaFixedPunchlineValue = self.FIXED_PUNCHLINE
@@ -195,7 +219,6 @@ class AventurineWaveflair(Character):
             Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
 
-        # Skill / Ult gave Fervor: check the threshold
         if result.turnName in ("AventurineWaveflairSkill", "AventurineWaveflairUlt"):
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self._checkFervor())
 
@@ -220,10 +243,10 @@ class AventurineWaveflair(Character):
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
-            self.Fervor = min(self.Fervor + 1, self.fervorCap)
+            self._gainFervor(1, f"teammate attack ({turn.charName}: {turn.moveName})")
             Character.SharedPunchline += 1
 
-            if self.soleElation:
+            if self._soleActive():
                 bl.append(Buff(f"AventurineWaveflairTrace2Banger{self.trace2Count}", StatTypes.BANGER, 2, self.role,
                                [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
                 self.trace2Count += 1
@@ -231,11 +254,15 @@ class AventurineWaveflair(Character):
                 bl.append(Buff("AventurineWaveflairTrace2AhaSPD", StatTypes.SPD, 25, Role.AHA, [AtkType.SPECIAL], 1, 1,
                                Role.AHA, TickDown.PERM))
 
+            if self._ascended():
+                self._gainFervor(self._ascendGain(), f"ascension bonus on teammate attack ({turn.charName}: {turn.moveName})")
+                Character.SharedPunchline += self._ascendGain()
+
             if self.trace3Count < 6 and any(t in (AtkType.BSC, AtkType.SKL, AtkType.FUA, AtkType.ULT) for t in turn.atkType):
                 self.trace3Count += 1
                 bl.append(Buff("AventurineWaveflairTrace3AllyCD", StatTypes.CD_PERCENT, 0.48, Role.ALL, [AtkType.ALL], 3, 1,
                                self.role, TickDown.END))
-                self.Fervor = min(self.Fervor + 2, self.fervorCap)
+                self._gainFervor(2, f"Trace 3 ({turn.charName}: {turn.moveName}, trigger {self.trace3Count}/6)")
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self._checkFervor())
 
         return bl, dbl, al, dl, tl, hl, sl
@@ -248,18 +275,18 @@ class AventurineWaveflair(Character):
         else:
             e5MulBig, e5MulSmall, e5MulEnhanced = 0.60, 0.18, 0.21
 
-        elaType = [AtkType.ELAPUNCH, AtkType.FUA] if self.soleElation else [AtkType.ELAPUNCH]  # Trace 2
+        elaType = [AtkType.ELAPUNCH, AtkType.FUA] if self._soleActive() else [AtkType.ELAPUNCH]
 
         if fervorConsumed == 0:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, elaType,
-                           [self.element], [10*e5MulSmall * Character.ahaElaDMGBoost, 0], [10*3.33, 0], 0, Scaling.ELA, 0,
+                           [self.element], [10*e5MulSmall * Character.ahaElaDMGBoost, 0], [10*3.33, 0], 5, Scaling.ELA, 0,
                            "AventurineWaveflairELASkillRandom"))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, elaType,
                            [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [10, 0], 0, Scaling.ELA, 0,
                            "AventurineWaveflairELASkill"))
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, elaType,
-                           [self.element], [(10*e5MulSmall+fervorConsumed*e5MulEnhanced) * Character.ahaElaDMGBoost, 0], [10*5, 0], 0, Scaling.ELA, 0,
+                           [self.element], [(10*e5MulSmall+fervorConsumed*e5MulEnhanced) * Character.ahaElaDMGBoost, 0], [10*5, 0], 5, Scaling.ELA, 0,
                            "AventurineWaveflairELASkillRandom"))
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, elaType,
                            [self.element], [e5MulBig * Character.ahaElaDMGBoost, 0], [20, 0], 0, Scaling.ELA, 0,
@@ -273,6 +300,10 @@ class AventurineWaveflair(Character):
         if consume:
             self.Fervor = 0
             self.cheersTriggered.clear()
+            logger.info(f"FERVOR > {self.name} consumed {fervor} by All In! To Summer's Blaze | Fervor: {fervor} -> 0/{self.fervorCap}")
+        else:
+            logger.info(f"FERVOR > {self.name} All In! (E6, outside Aha Instant) did not consume Fervor, "
+                        f"counted {fervor} | Fervor: {self.Fervor}/{self.fervorCap}")
         self._buildElaTurns(enemyID, tl, fervorConsumed=fervor)
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -281,6 +312,7 @@ class AventurineWaveflair(Character):
         if self.elaEnhanced and not cheers:
             self.elaEnhanced = False
         self.elaUses += 1
+        self.elaSkillVariant = "AllIn" if allIn else "Normal"
         if allIn:
             res = self.useAllInElaSkill(enemyID, consume=not cheers)
         else:
@@ -289,7 +321,7 @@ class AventurineWaveflair(Character):
             if cheers:
                 self.elaEnhanced = True
         if self.eidolon >= 2:
-            self.Fervor = min(self.Fervor + 4, self.fervorCap)
+            self._gainFervor(4, "E2 (after Elation Skill)")
         return tuple(res)
 
     def handleSpecialStart(self, specialRes: Special):
@@ -300,8 +332,13 @@ class AventurineWaveflair(Character):
         self.CharSpd = specialRes.attr4
         self.AhaInTeam = specialRes.attr5
         self.AhaEidolon = specialRes.attr6
+        self.ELAStat = specialRes.attr7
 
         bl.append(Buff("AhaSpdBuff",StatTypes.SPD,self.AHASpdBuffAmount,Role.AHA,[AtkType.SPECIAL],1,1,Role.AHA,TickDown.PERM))
+        if self.ahaOnlyElation:
+            bl.append(Buff("AventurineWaveflairAscendSPD", StatTypes.SPD_PERCENT,
+                           self._ascendSpd() if self._ascended() else 0, Role.ALL, [AtkType.ALL], 1, 1, self.role,
+                           TickDown.PERM))
         if self.currSPD >= 140:
             ELABuff = min(max((self.CharSpd-140), 0), 200)
             bl.append(Buff("AventurineWaveflairTalentELABuff", StatTypes.ELA, 0.30+ELABuff*0.01, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.PERM))
@@ -310,6 +347,6 @@ class AventurineWaveflair(Character):
             bl.append(Buff("BangerAventurineWaveflairTech", StatTypes.BANGER, 20, self.role, [AtkType.ALL], self.BangerDuration, 1, self.role, TickDown.END))
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AventurineWaveflairTech"))
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.TECH], [self.element], [0.0, 0], [20, 0], 0,self.scaling, 0, "AventurineWaveflairTech"))
-            self.Fervor = min(self.Fervor + 2, self.fervorCap)
+            self._gainFervor(2, "Technique")
 
         return bl, dbl, al, dl, tl, hl, sl

@@ -33,18 +33,27 @@ class PunklordeStageZero(Planar):
                 bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.ELAStat >= 0.80:
                 bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+        elif special.specialName == "AventurineWaveflair":
+            self.ELAStat = special.attr7
+            if  self.ELAStat >= 0.40:
+                bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+            if self.ELAStat >= 0.80:
+                bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         return bl, dbl, al, dl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         if turn.charName == "Evanescia" :
-            self.ELAStat = self.ELAStat
             if  self.ELAStat >= 0.40:
                 bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             elif self.ELAStat >= 0.80:
                 bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         elif turn.charName == "SilverWolf999":
-            self.ELAStat = self.ELAStat
+            if  self.ELAStat >= 0.40:
+                bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+            if self.ELAStat >= 0.80:
+                bl.append(Buff("PunklordeCDSecond", StatTypes.CD_PERCENT, 0.12, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
+        elif turn.charName == "AventurineWaveflair":
             if  self.ELAStat >= 0.40:
                 bl.append(Buff("PunklordeCDFirst", StatTypes.CD_PERCENT, 0.20, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
             if self.ELAStat >= 0.80:

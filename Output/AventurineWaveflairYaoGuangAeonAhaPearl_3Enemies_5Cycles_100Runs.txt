@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 105995.731 | AventurineWaveflair: 71189.040 | YaoGuang: 10895.506 | AeonAha: 23578.826 | Pearl: 332.359
+Run    2: Team DPAV: 112738.232 | AventurineWaveflair: 80292.504 | YaoGuang: 9403.323 | AeonAha: 22712.149 | Pearl: 330.256
+Run    3: Team DPAV: 103873.502 | AventurineWaveflair: 71778.748 | YaoGuang: 10072.505 | AeonAha: 21699.325 | Pearl: 322.925
+Run    4: Team DPAV: 102661.557 | AventurineWaveflair: 72092.572 | YaoGuang: 9287.268 | AeonAha: 20967.597 | Pearl: 314.120
+Run    5: Team DPAV: 108827.639 | AventurineWaveflair: 74288.496 | YaoGuang: 10770.962 | AeonAha: 23438.473 | Pearl: 329.707
+Run    6: Team DPAV: 97443.751 | AventurineWaveflair: 67683.687 | YaoGuang: 9211.035 | AeonAha: 20232.147 | Pearl: 316.882
+Run    7: Team DPAV: 113971.197 | AventurineWaveflair: 80661.932 | YaoGuang: 9780.541 | AeonAha: 23219.607 | Pearl: 309.116
+Run    8: Team DPAV: 101132.330 | AventurineWaveflair: 68970.126 | YaoGuang: 10014.275 | AeonAha: 21824.159 | Pearl: 323.771
+Run    9: Team DPAV: 101045.468 | AventurineWaveflair: 68908.414 | YaoGuang: 9901.888 | AeonAha: 21906.874 | Pearl: 328.292
+Run   10: Team DPAV: 111994.198 | AventurineWaveflair: 80339.362 | YaoGuang: 9171.771 | AeonAha: 22154.060 | Pearl: 329.005
+Run   11: Team DPAV: 109083.021 | AventurineWaveflair: 76462.237 | YaoGuang: 9901.533 | AeonAha: 22405.069 | Pearl: 314.183
+Run   12: Team DPAV: 103076.927 | AventurineWaveflair: 69866.031 | YaoGuang: 10489.580 | AeonAha: 22404.687 | Pearl: 316.628
+Run   13: Team DPAV: 112634.881 | AventurineWaveflair: 77092.061 | YaoGuang: 11196.115 | AeonAha: 24022.905 | Pearl: 323.800
+Run   14: Team DPAV: 99129.011 | AventurineWaveflair: 67750.725 | YaoGuang: 9582.411 | AeonAha: 21466.253 | Pearl: 329.622
+Run   15: Team DPAV: 104277.399 | AventurineWaveflair: 72900.740 | YaoGuang: 9593.005 | AeonAha: 21486.652 | Pearl: 297.002
+Run   16: Team DPAV: 101768.155 | AventurineWaveflair: 71045.008 | YaoGuang: 9323.094 | AeonAha: 21082.870 | Pearl: 317.182
+Run   17: Team DPAV: 101356.794 | AventurineWaveflair: 69222.240 | YaoGuang: 9900.441 | AeonAha: 21905.951 | Pearl: 328.162
+Run   18: Team DPAV: 100821.043 | AventurineWaveflair: 67769.523 | YaoGuang: 10522.101 | AeonAha: 22208.141 | Pearl: 321.278
+Run   19: Team DPAV: 104174.780 | AventurineWaveflair: 70129.718 | YaoGuang: 10730.657 | AeonAha: 22997.326 | Pearl: 317.079
+Run   20: Team DPAV: 103519.769 | AventurineWaveflair: 71490.831 | YaoGuang: 10000.366 | AeonAha: 21704.792 | Pearl: 323.779
+Run   21: Team DPAV: 109787.210 | AventurineWaveflair: 74634.722 | YaoGuang: 11109.689 | AeonAha: 23721.521 | Pearl: 321.278
+Run   22: Team DPAV: 99610.140 | AventurineWaveflair: 69668.652 | YaoGuang: 9247.820 | AeonAha: 20375.637 | Pearl: 318.031
+Run   23: Team DPAV: 97992.176 | AventurineWaveflair: 67102.181 | YaoGuang: 9614.488 | AeonAha: 20950.781 | Pearl: 324.726
+Run   24: Team DPAV: 107721.997 | AventurineWaveflair: 72226.095 | YaoGuang: 11119.268 | AeonAha: 24049.870 | Pearl: 326.764
+Run   25: Team DPAV: 107077.898 | AventurineWaveflair: 74428.079 | YaoGuang: 9978.424 | AeonAha: 22348.471 | Pearl: 322.923
+Run   26: Team DPAV: 109586.014 | AventurineWaveflair: 74397.224 | YaoGuang: 11127.695 | AeonAha: 23739.817 | Pearl: 321.278
+Run   27: Team DPAV: 108459.659 | AventurineWaveflair: 74581.672 | YaoGuang: 10670.826 | AeonAha: 22887.768 | Pearl: 319.393
+Run   28: Team DPAV: 109797.108 | AventurineWaveflair: 74513.360 | YaoGuang: 11154.627 | AeonAha: 23807.844 | Pearl: 321.278
+Run   29: Team DPAV: 107196.466 | AventurineWaveflair: 73319.318 | YaoGuang: 10670.222 | AeonAha: 22886.218 | Pearl: 320.709
+Run   30: Team DPAV: 99609.093 | AventurineWaveflair: 69668.637 | YaoGuang: 9246.811 | AeonAha: 20375.637 | Pearl: 318.007
+Run   31: Team DPAV: 101054.988 | AventurineWaveflair: 69891.783 | YaoGuang: 9512.226 | AeonAha: 21324.096 | Pearl: 326.882
+Run   32: Team DPAV: 98925.090 | AventurineWaveflair: 66928.553 | YaoGuang: 10144.297 | AeonAha: 21535.133 | Pearl: 317.106
+Run   33: Team DPAV: 99785.123 | AventurineWaveflair: 67753.433 | YaoGuang: 10122.897 | AeonAha: 21591.646 | Pearl: 317.146
+Run   34: Team DPAV: 95251.782 | AventurineWaveflair: 64321.250 | YaoGuang: 9950.078 | AeonAha: 20669.172 | Pearl: 311.282
+Run   35: Team DPAV: 99134.276 | AventurineWaveflair: 67755.225 | YaoGuang: 9583.086 | AeonAha: 21466.253 | Pearl: 329.711
+Run   36: Team DPAV: 98959.423 | AventurineWaveflair: 67567.299 | YaoGuang: 9582.239 | AeonAha: 21480.243 | Pearl: 329.641
+Run   37: Team DPAV: 111266.760 | AventurineWaveflair: 79361.639 | YaoGuang: 9394.271 | AeonAha: 22204.550 | Pearl: 306.299
+Run   38: Team DPAV: 97440.979 | AventurineWaveflair: 67678.983 | YaoGuang: 9212.994 | AeonAha: 20232.147 | Pearl: 316.854
+Run   39: Team DPAV: 101166.706 | AventurineWaveflair: 69114.249 | YaoGuang: 9988.869 | AeonAha: 21739.800 | Pearl: 323.788
+Run   40: Team DPAV: 108510.203 | AventurineWaveflair: 76842.757 | YaoGuang: 9451.550 | AeonAha: 21913.239 | Pearl: 302.657
+Run   41: Team DPAV: 109050.580 | AventurineWaveflair: 74878.780 | YaoGuang: 10691.364 | AeonAha: 23161.118 | Pearl: 319.318
+Run   42: Team DPAV: 104927.995 | AventurineWaveflair: 73321.002 | YaoGuang: 9731.494 | AeonAha: 21578.576 | Pearl: 296.923
+Run   43: Team DPAV: 108363.755 | AventurineWaveflair: 74095.372 | YaoGuang: 10891.753 | AeonAha: 23031.609 | Pearl: 345.021
+Run   44: Team DPAV: 99783.513 | AventurineWaveflair: 67753.433 | YaoGuang: 10121.327 | AeonAha: 21591.646 | Pearl: 317.107
+Run   45: Team DPAV: 100795.955 | AventurineWaveflair: 68611.467 | YaoGuang: 9903.137 | AeonAha: 21951.676 | Pearl: 329.676
+Run   46: Team DPAV: 109730.596 | AventurineWaveflair: 78262.332 | YaoGuang: 9167.595 | AeonAha: 21970.259 | Pearl: 330.409
+Run   47: Team DPAV: 101512.161 | AventurineWaveflair: 70466.322 | YaoGuang: 9360.903 | AeonAha: 21366.494 | Pearl: 318.442
+Run   48: Team DPAV: 103260.907 | AventurineWaveflair: 70664.135 | YaoGuang: 10047.928 | AeonAha: 22219.212 | Pearl: 329.633
+Run   49: Team DPAV: 114122.879 | AventurineWaveflair: 78024.447 | YaoGuang: 11191.754 | AeonAha: 24578.758 | Pearl: 327.920
+Run   50: Team DPAV: 106075.747 | AventurineWaveflair: 73182.882 | YaoGuang: 9770.307 | AeonAha: 22806.983 | Pearl: 315.575
+Run   51: Team DPAV: 101555.555 | AventurineWaveflair: 70547.849 | YaoGuang: 9547.036 | AeonAha: 21146.404 | Pearl: 314.266
+Run   52: Team DPAV: 109485.067 | AventurineWaveflair: 74227.795 | YaoGuang: 11162.070 | AeonAha: 23773.924 | Pearl: 321.278
+Run   53: Team DPAV: 111108.255 | AventurineWaveflair: 78867.401 | YaoGuang: 9696.195 | AeonAha: 22231.853 | Pearl: 312.806
+Run   54: Team DPAV: 100787.759 | AventurineWaveflair: 68605.208 | YaoGuang: 9901.345 | AeonAha: 21951.676 | Pearl: 329.531
+Run   55: Team DPAV: 103902.134 | AventurineWaveflair: 71661.132 | YaoGuang: 10109.462 | AeonAha: 21808.648 | Pearl: 322.893
+Run   56: Team DPAV: 106268.771 | AventurineWaveflair: 72610.096 | YaoGuang: 10596.505 | AeonAha: 22742.823 | Pearl: 319.347
+Run   57: Team DPAV: 104021.280 | AventurineWaveflair: 71051.074 | YaoGuang: 10455.942 | AeonAha: 22190.524 | Pearl: 323.739
+Run   58: Team DPAV: 108459.348 | AventurineWaveflair: 73875.300 | YaoGuang: 10792.290 | AeonAha: 23462.014 | Pearl: 329.745
+Run   59: Team DPAV: 111913.670 | AventurineWaveflair: 80269.353 | YaoGuang: 9180.535 | AeonAha: 22133.480 | Pearl: 330.302
+Run   60: Team DPAV: 109797.108 | AventurineWaveflair: 74513.360 | YaoGuang: 11154.627 | AeonAha: 23807.844 | Pearl: 321.278
+Run   61: Team DPAV: 111782.506 | AventurineWaveflair: 79570.408 | YaoGuang: 9273.035 | AeonAha: 22608.688 | Pearl: 330.375
+Run   62: Team DPAV: 109336.937 | AventurineWaveflair: 77054.960 | YaoGuang: 10081.181 | AeonAha: 21881.860 | Pearl: 318.936
+Run   63: Team DPAV: 108978.955 | AventurineWaveflair: 74395.289 | YaoGuang: 10791.918 | AeonAha: 23462.014 | Pearl: 329.734
+Run   64: Team DPAV: 103227.418 | AventurineWaveflair: 72504.450 | YaoGuang: 9322.915 | AeonAha: 21082.870 | Pearl: 317.182
+Run   65: Team DPAV: 105992.832 | AventurineWaveflair: 71189.040 | YaoGuang: 10892.676 | AeonAha: 23578.826 | Pearl: 332.289
+Run   66: Team DPAV: 108189.095 | AventurineWaveflair: 74346.645 | YaoGuang: 10671.021 | AeonAha: 22851.870 | Pearl: 319.559
+Run   67: Team DPAV: 111903.069 | AventurineWaveflair: 80299.776 | YaoGuang: 9171.520 | AeonAha: 22101.447 | Pearl: 330.327
+Run   68: Team DPAV: 102602.302 | AventurineWaveflair: 70538.366 | YaoGuang: 9992.866 | AeonAha: 21747.307 | Pearl: 323.764
+Run   69: Team DPAV: 105994.146 | AventurineWaveflair: 71189.040 | YaoGuang: 10893.959 | AeonAha: 23578.826 | Pearl: 332.321
+Run   70: Team DPAV: 111935.316 | AventurineWaveflair: 80308.390 | YaoGuang: 9152.139 | AeonAha: 22145.699 | Pearl: 329.088
+Run   71: Team DPAV: 106013.683 | AventurineWaveflair: 71172.420 | YaoGuang: 10897.453 | AeonAha: 23611.547 | Pearl: 332.263
+Run   72: Team DPAV: 99849.559 | AventurineWaveflair: 67789.267 | YaoGuang: 10123.374 | AeonAha: 21620.110 | Pearl: 316.808
+Run   73: Team DPAV: 112388.654 | AventurineWaveflair: 79743.714 | YaoGuang: 9647.411 | AeonAha: 22688.168 | Pearl: 309.362
+Run   74: Team DPAV: 97743.262 | AventurineWaveflair: 67818.458 | YaoGuang: 9305.170 | AeonAha: 20303.532 | Pearl: 316.102
+Run   75: Team DPAV: 108395.441 | AventurineWaveflair: 74521.238 | YaoGuang: 10666.971 | AeonAha: 22887.768 | Pearl: 319.463
+Run   76: Team DPAV: 101692.144 | AventurineWaveflair: 69406.791 | YaoGuang: 10176.963 | AeonAha: 21784.703 | Pearl: 323.687
+Run   77: Team DPAV: 100821.191 | AventurineWaveflair: 69311.272 | YaoGuang: 9870.730 | AeonAha: 21323.084 | Pearl: 316.106
+Run   78: Team DPAV: 109591.477 | AventurineWaveflair: 74271.428 | YaoGuang: 11172.633 | AeonAha: 23826.139 | Pearl: 321.278
+Run   79: Team DPAV: 98493.853 | AventurineWaveflair: 67153.635 | YaoGuang: 9612.331 | AeonAha: 21398.400 | Pearl: 329.487
+Run   80: Team DPAV: 99608.910 | AventurineWaveflair: 69668.652 | YaoGuang: 9246.619 | AeonAha: 20375.637 | Pearl: 318.002
+Run   81: Team DPAV: 109092.482 | AventurineWaveflair: 73798.908 | YaoGuang: 11180.076 | AeonAha: 23792.220 | Pearl: 321.278
+Run   82: Team DPAV: 108361.420 | AventurineWaveflair: 74144.140 | YaoGuang: 10860.246 | AeonAha: 23012.949 | Pearl: 344.085
+Run   83: Team DPAV: 102879.015 | AventurineWaveflair: 70861.530 | YaoGuang: 9892.598 | AeonAha: 21805.065 | Pearl: 319.822
+Run   84: Team DPAV: 111929.599 | AventurineWaveflair: 80285.076 | YaoGuang: 9180.535 | AeonAha: 22133.480 | Pearl: 330.507
+Run   85: Team DPAV: 105602.410 | AventurineWaveflair: 73346.683 | YaoGuang: 9949.368 | AeonAha: 21981.468 | Pearl: 324.891
+Run   86: Team DPAV: 105993.736 | AventurineWaveflair: 71189.040 | YaoGuang: 10893.558 | AeonAha: 23578.826 | Pearl: 332.311
+Run   87: Team DPAV: 113547.962 | AventurineWaveflair: 80501.169 | YaoGuang: 9750.187 | AeonAha: 22990.576 | Pearl: 306.029
+Run   88: Team DPAV: 106271.323 | AventurineWaveflair: 72610.096 | YaoGuang: 10598.988 | AeonAha: 22742.823 | Pearl: 319.415
+Run   89: Team DPAV: 97442.984 | AventurineWaveflair: 67680.956 | YaoGuang: 9212.994 | AeonAha: 20232.147 | Pearl: 316.886
+Run   90: Team DPAV: 97437.226 | AventurineWaveflair: 67677.966 | YaoGuang: 9210.340 | AeonAha: 20232.147 | Pearl: 316.773
+Run   91: Team DPAV: 106013.810 | AventurineWaveflair: 72548.567 | YaoGuang: 10238.349 | AeonAha: 22910.442 | Pearl: 316.452
+Run   92: Team DPAV: 108175.702 | AventurineWaveflair: 74346.645 | YaoGuang: 10657.940 | AeonAha: 22851.870 | Pearl: 319.248
+Run   93: Team DPAV: 106500.727 | AventurineWaveflair: 72683.057 | YaoGuang: 10589.151 | AeonAha: 22909.281 | Pearl: 319.239
+Run   94: Team DPAV: 103660.446 | AventurineWaveflair: 71679.468 | YaoGuang: 9996.883 | AeonAha: 21660.412 | Pearl: 323.684
+Run   95: Team DPAV: 103180.227 | AventurineWaveflair: 69965.425 | YaoGuang: 10493.392 | AeonAha: 22404.687 | Pearl: 316.723
+Run   96: Team DPAV: 111912.933 | AventurineWaveflair: 80268.625 | YaoGuang: 9180.535 | AeonAha: 22133.480 | Pearl: 330.293
+Run   97: Team DPAV: 104357.809 | AventurineWaveflair: 71755.015 | YaoGuang: 10117.319 | AeonAha: 22160.374 | Pearl: 325.101
+Run   98: Team DPAV: 102444.601 | AventurineWaveflair: 70307.690 | YaoGuang: 9901.888 | AeonAha: 21906.874 | Pearl: 328.149
+Run   99: Team DPAV: 108520.838 | AventurineWaveflair: 74654.752 | YaoGuang: 10684.955 | AeonAha: 22863.244 | Pearl: 317.887
+Run  100: Team DPAV: 108981.140 | AventurineWaveflair: 74395.289 | YaoGuang: 10794.049 | AeonAha: 23462.014 | Pearl: 329.789
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 105296.287
+Average AventurineWaveflair DPAV: 72641.312 Percentage: 68.988%
+Average YaoGuang DPAV: 10084.506 Percentage: 9.577%
+Average AeonAha DPAV: 22248.461 Percentage: 21.129%
+Average Pearl DPAV: 322.008 Percentage: 0.306%
+
+Min Team DPAV: 95251.782
+Max Team DPAV: 114122.879

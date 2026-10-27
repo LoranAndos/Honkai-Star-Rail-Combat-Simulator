@@ -84,10 +84,12 @@ class Pearl(Character):
         # Ult targeting toggle: "energy" = YaoGuang whenever she has >=90
         # Energy, else DPS. "alternate" = strictly alternates between
         # YaoGuang and DPS on every Ult use, ignoring energy entirely.
-        # "dps" = always targets DPS, ignoring YaoGuang entirely. Set
+        # "dps" = always targets DPS, ignoring YaoGuang entirely.
+        # "yaoguang" = always targets YaoGuang, regardless of her energy.
+        # "sparxie" = always targets Sparxie. Set
         # directly on the instance at team-construction time, e.g.
         # `pearl.ultTargetMode = "dps"`.
-        self.ultTargetMode = "dps"
+        self.ultTargetMode = "energy"
         # Alternation state: which target Ult used LAST time, so the next
         # Ult flips to the other one. Starts False so the very first Ult
         # in "alternate" mode goes to YaoGuang (mirrors "energy" mode's
@@ -300,6 +302,19 @@ class Pearl(Character):
                 self._lastUltTargetedYaoGuang = True
         elif self.ultTargetMode == "dps":
             self.targetRole = self._dpsRole
+            self._lastUltTargetedYaoGuang = False
+        elif self.ultTargetMode == "yaoguang":
+            # Always YaoGuang. Falls back to DPS only if she isn't on the team.
+            if self._yaoguangRole is not None:
+                self.targetRole = self._yaoguangRole
+                self._lastUltTargetedYaoGuang = True
+            else:
+                self.targetRole = self._dpsRole
+                self._lastUltTargetedYaoGuang = False
+        elif self.ultTargetMode == "sparxie":
+            # Always Sparxie. Falls back to DPS only if she isn't on the team.
+            sparxie = next((c for c in (Character._current_player_team or []) if c.name == "Sparxie"), None)
+            self.targetRole = sparxie.role if sparxie is not None else self._dpsRole
             self._lastUltTargetedYaoGuang = False
         else:  # "energy" mode
             if self._yaoguangRole is not None and self._yaoguangEnergyOK:

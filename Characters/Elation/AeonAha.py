@@ -123,7 +123,7 @@ class AeonAha(Character):
         if not super().canUseUlt():
             return False
         if not self.EvaInTeam:
-            return False
+            return True
         summon = self.ahaSummon
         if summon is None or summon.currSPD <= 0:
            return True

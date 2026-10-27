@@ -1723,7 +1723,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                 TotalElationChar = len(AHASpdList)
                 charBanger = getCharStat(StatTypes.BANGER, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 charSPD = getCharSPD(specChar, buffList)
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=charSPD, attr5=AhaInTeam, attr6=AhaEidolon, enemies=gauge)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=charBanger, attr4=charSPD, attr5=AhaInTeam, attr6=AhaEidolon, attr7=charELA, enemies=gauge)
 
             case "Bronya":
                 cd = getCharStat(StatTypes.CD_PERCENT, specChar, enemyTeam[0], buffList, [], placeHolderTurn)

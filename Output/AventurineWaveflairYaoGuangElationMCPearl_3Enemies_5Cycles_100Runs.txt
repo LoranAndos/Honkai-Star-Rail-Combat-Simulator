@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 83870.655 | AventurineWaveflair: 66479.700 | YaoGuang: 9125.181 | ElationMC: 7978.587 | Pearl: 287.186
+Run    2: Team DPAV: 89902.942 | AventurineWaveflair: 71551.209 | YaoGuang: 9677.255 | ElationMC: 8384.383 | Pearl: 290.096
+Run    3: Team DPAV: 93982.629 | AventurineWaveflair: 77096.821 | YaoGuang: 8485.422 | ElationMC: 8111.429 | Pearl: 288.956
+Run    4: Team DPAV: 84306.952 | AventurineWaveflair: 67176.809 | YaoGuang: 9079.005 | ElationMC: 7760.803 | Pearl: 290.335
+Run    5: Team DPAV: 89470.998 | AventurineWaveflair: 71351.940 | YaoGuang: 9535.222 | ElationMC: 8296.650 | Pearl: 287.186
+Run    6: Team DPAV: 86653.184 | AventurineWaveflair: 68854.262 | YaoGuang: 9389.316 | ElationMC: 8122.673 | Pearl: 286.933
+Run    7: Team DPAV: 86272.777 | AventurineWaveflair: 68532.725 | YaoGuang: 9350.858 | ElationMC: 8101.021 | Pearl: 288.173
+Run    8: Team DPAV: 92090.192 | AventurineWaveflair: 75080.142 | YaoGuang: 8782.040 | ElationMC: 7954.967 | Pearl: 273.043
+Run    9: Team DPAV: 82608.784 | AventurineWaveflair: 65179.273 | YaoGuang: 9159.950 | ElationMC: 7982.599 | Pearl: 286.961
+Run   10: Team DPAV: 86710.119 | AventurineWaveflair: 68964.830 | YaoGuang: 9355.953 | ElationMC: 8101.021 | Pearl: 288.316
+Run   11: Team DPAV: 93114.140 | AventurineWaveflair: 74737.814 | YaoGuang: 9688.888 | ElationMC: 8397.705 | Pearl: 289.733
+Run   12: Team DPAV: 96396.246 | AventurineWaveflair: 79462.420 | YaoGuang: 8500.316 | ElationMC: 8149.580 | Pearl: 283.930
+Run   13: Team DPAV: 91565.143 | AventurineWaveflair: 73266.236 | YaoGuang: 9652.089 | ElationMC: 8352.169 | Pearl: 294.649
+Run   14: Team DPAV: 88440.455 | AventurineWaveflair: 70643.331 | YaoGuang: 9387.567 | ElationMC: 8122.673 | Pearl: 286.884
+Run   15: Team DPAV: 82169.322 | AventurineWaveflair: 65436.136 | YaoGuang: 8660.662 | ElationMC: 7783.427 | Pearl: 289.096
+Run   16: Team DPAV: 82738.719 | AventurineWaveflair: 65249.665 | YaoGuang: 9195.461 | ElationMC: 8005.435 | Pearl: 288.158
+Run   17: Team DPAV: 84786.815 | AventurineWaveflair: 68139.932 | YaoGuang: 8603.009 | ElationMC: 7750.651 | Pearl: 293.222
+Run   18: Team DPAV: 90171.209 | AventurineWaveflair: 71790.417 | YaoGuang: 9683.571 | ElationMC: 8403.903 | Pearl: 293.318
+Run   19: Team DPAV: 81697.025 | AventurineWaveflair: 64102.341 | YaoGuang: 9310.418 | ElationMC: 7981.721 | Pearl: 302.544
+Run   20: Team DPAV: 89736.015 | AventurineWaveflair: 71505.239 | YaoGuang: 9604.010 | ElationMC: 8335.406 | Pearl: 291.360
+Run   21: Team DPAV: 90177.404 | AventurineWaveflair: 71864.700 | YaoGuang: 9636.889 | ElationMC: 8388.717 | Pearl: 287.098
+Run   22: Team DPAV: 98049.045 | AventurineWaveflair: 83231.774 | YaoGuang: 6962.057 | ElationMC: 7552.789 | Pearl: 302.424
+Run   23: Team DPAV: 92734.826 | AventurineWaveflair: 74152.251 | YaoGuang: 9768.865 | ElationMC: 8519.821 | Pearl: 293.889
+Run   24: Team DPAV: 89342.111 | AventurineWaveflair: 71548.975 | YaoGuang: 9436.432 | ElationMC: 8064.891 | Pearl: 291.813
+Run   25: Team DPAV: 96901.259 | AventurineWaveflair: 79873.189 | YaoGuang: 8550.781 | ElationMC: 8188.147 | Pearl: 289.143
+Run   26: Team DPAV: 83023.138 | AventurineWaveflair: 65506.322 | YaoGuang: 9197.337 | ElationMC: 8032.108 | Pearl: 287.372
+Run   27: Team DPAV: 89538.536 | AventurineWaveflair: 71549.273 | YaoGuang: 9475.177 | ElationMC: 8220.583 | Pearl: 293.503
+Run   28: Team DPAV: 82738.952 | AventurineWaveflair: 66179.042 | YaoGuang: 8576.358 | ElationMC: 7693.632 | Pearl: 289.919
+Run   29: Team DPAV: 86683.373 | AventurineWaveflair: 68928.217 | YaoGuang: 9413.978 | ElationMC: 8051.326 | Pearl: 289.853
+Run   30: Team DPAV: 88932.702 | AventurineWaveflair: 70818.964 | YaoGuang: 9529.902 | ElationMC: 8296.650 | Pearl: 287.186
+Run   31: Team DPAV: 83014.051 | AventurineWaveflair: 66466.260 | YaoGuang: 8574.195 | ElationMC: 7686.478 | Pearl: 287.118
+Run   32: Team DPAV: 86714.323 | AventurineWaveflair: 68896.750 | YaoGuang: 9405.631 | ElationMC: 8125.009 | Pearl: 286.933
+Run   33: Team DPAV: 83013.449 | AventurineWaveflair: 66466.260 | YaoGuang: 8573.610 | ElationMC: 7686.478 | Pearl: 287.100
+Run   34: Team DPAV: 90578.426 | AventurineWaveflair: 72680.188 | YaoGuang: 9402.510 | ElationMC: 8201.223 | Pearl: 294.505
+Run   35: Team DPAV: 83013.372 | AventurineWaveflair: 66466.260 | YaoGuang: 8573.534 | ElationMC: 7686.478 | Pearl: 287.099
+Run   36: Team DPAV: 84944.146 | AventurineWaveflair: 66604.446 | YaoGuang: 9664.184 | ElationMC: 8395.468 | Pearl: 280.047
+Run   37: Team DPAV: 89322.695 | AventurineWaveflair: 71502.074 | YaoGuang: 9452.197 | ElationMC: 8076.634 | Pearl: 291.790
+Run   38: Team DPAV: 86984.728 | AventurineWaveflair: 69267.800 | YaoGuang: 9304.744 | ElationMC: 8123.180 | Pearl: 289.003
+Run   39: Team DPAV: 90776.563 | AventurineWaveflair: 72333.680 | YaoGuang: 9706.128 | ElationMC: 8444.925 | Pearl: 291.830
+Run   40: Team DPAV: 83444.562 | AventurineWaveflair: 66951.451 | YaoGuang: 8526.052 | ElationMC: 7679.764 | Pearl: 287.295
+Run   41: Team DPAV: 89143.368 | AventurineWaveflair: 71612.144 | YaoGuang: 9204.104 | ElationMC: 8032.852 | Pearl: 294.268
+Run   42: Team DPAV: 85702.279 | AventurineWaveflair: 67903.632 | YaoGuang: 9444.975 | ElationMC: 8066.746 | Pearl: 286.926
+Run   43: Team DPAV: 86654.484 | AventurineWaveflair: 68854.262 | YaoGuang: 9390.581 | ElationMC: 8122.673 | Pearl: 286.968
+Run   44: Team DPAV: 91362.493 | AventurineWaveflair: 73050.737 | YaoGuang: 9628.091 | ElationMC: 8390.378 | Pearl: 293.287
+Run   45: Team DPAV: 91558.924 | AventurineWaveflair: 73289.289 | YaoGuang: 9623.227 | ElationMC: 8352.015 | Pearl: 294.392
+Run   46: Team DPAV: 83687.429 | AventurineWaveflair: 68348.074 | YaoGuang: 7649.311 | ElationMC: 7442.926 | Pearl: 247.118
+Run   47: Team DPAV: 94399.801 | AventurineWaveflair: 77450.000 | YaoGuang: 8506.198 | ElationMC: 8152.001 | Pearl: 291.603
+Run   48: Team DPAV: 88422.201 | AventurineWaveflair: 70128.775 | YaoGuang: 9650.659 | ElationMC: 8355.620 | Pearl: 287.146
+Run   49: Team DPAV: 95955.300 | AventurineWaveflair: 79069.492 | YaoGuang: 8485.422 | ElationMC: 8111.429 | Pearl: 288.956
+Run   50: Team DPAV: 86140.079 | AventurineWaveflair: 68462.333 | YaoGuang: 9312.660 | ElationMC: 8078.186 | Pearl: 286.900
+Run   51: Team DPAV: 89030.981 | AventurineWaveflair: 72477.058 | YaoGuang: 8496.256 | ElationMC: 7771.088 | Pearl: 286.579
+Run   52: Team DPAV: 82737.970 | AventurineWaveflair: 65249.665 | YaoGuang: 9194.732 | ElationMC: 8005.435 | Pearl: 288.138
+Run   53: Team DPAV: 84949.279 | AventurineWaveflair: 68341.227 | YaoGuang: 8589.040 | ElationMC: 7727.091 | Pearl: 291.920
+Run   54: Team DPAV: 97226.351 | AventurineWaveflair: 80635.794 | YaoGuang: 8356.567 | ElationMC: 7945.986 | Pearl: 288.004
+Run   55: Team DPAV: 88544.571 | AventurineWaveflair: 71862.943 | YaoGuang: 8594.940 | ElationMC: 7814.028 | Pearl: 272.660
+Run   56: Team DPAV: 89871.184 | AventurineWaveflair: 72041.702 | YaoGuang: 9393.178 | ElationMC: 8141.806 | Pearl: 294.498
+Run   57: Team DPAV: 84579.127 | AventurineWaveflair: 66990.984 | YaoGuang: 9301.812 | ElationMC: 7983.788 | Pearl: 302.544
+Run   58: Team DPAV: 86052.941 | AventurineWaveflair: 68486.162 | YaoGuang: 9226.111 | ElationMC: 8053.557 | Pearl: 287.111
+Run   59: Team DPAV: 81617.273 | AventurineWaveflair: 65059.072 | YaoGuang: 8575.277 | ElationMC: 7695.909 | Pearl: 287.015
+Run   60: Team DPAV: 83316.805 | AventurineWaveflair: 66608.997 | YaoGuang: 8635.382 | ElationMC: 7783.115 | Pearl: 289.311
+Run   61: Team DPAV: 90591.766 | AventurineWaveflair: 72273.854 | YaoGuang: 9641.953 | ElationMC: 8388.717 | Pearl: 287.241
+Run   62: Team DPAV: 85163.801 | AventurineWaveflair: 67646.148 | YaoGuang: 9192.209 | ElationMC: 8035.467 | Pearl: 289.976
+Run   63: Team DPAV: 87140.129 | AventurineWaveflair: 69474.253 | YaoGuang: 9269.480 | ElationMC: 8101.530 | Pearl: 294.867
+Run   64: Team DPAV: 84947.986 | AventurineWaveflair: 68341.227 | YaoGuang: 8587.783 | ElationMC: 7727.091 | Pearl: 291.885
+Run   65: Team DPAV: 86654.192 | AventurineWaveflair: 69150.407 | YaoGuang: 9187.186 | ElationMC: 8026.146 | Pearl: 290.452
+Run   66: Team DPAV: 84223.350 | AventurineWaveflair: 69018.287 | YaoGuang: 7515.221 | ElationMC: 7445.964 | Pearl: 243.879
+Run   67: Team DPAV: 91353.470 | AventurineWaveflair: 73027.684 | YaoGuang: 9642.124 | ElationMC: 8390.532 | Pearl: 293.130
+Run   68: Team DPAV: 84939.156 | AventurineWaveflair: 68341.227 | YaoGuang: 8579.193 | ElationMC: 7727.091 | Pearl: 291.645
+Run   69: Team DPAV: 96737.288 | AventurineWaveflair: 79595.693 | YaoGuang: 8648.866 | ElationMC: 8208.857 | Pearl: 283.872
+Run   70: Team DPAV: 87484.993 | AventurineWaveflair: 69523.054 | YaoGuang: 9471.252 | ElationMC: 8200.396 | Pearl: 290.291
+Run   71: Team DPAV: 86229.281 | AventurineWaveflair: 68612.813 | YaoGuang: 9246.589 | ElationMC: 8077.970 | Pearl: 291.909
+Run   72: Team DPAV: 87263.955 | AventurineWaveflair: 69273.815 | YaoGuang: 9488.665 | ElationMC: 8212.527 | Pearl: 288.949
+Run   73: Team DPAV: 87264.214 | AventurineWaveflair: 69273.815 | YaoGuang: 9488.916 | ElationMC: 8212.527 | Pearl: 288.956
+Run   74: Team DPAV: 86659.510 | AventurineWaveflair: 68854.262 | YaoGuang: 9395.470 | ElationMC: 8122.673 | Pearl: 287.105
+Run   75: Team DPAV: 91385.467 | AventurineWaveflair: 73457.244 | YaoGuang: 9452.360 | ElationMC: 8186.075 | Pearl: 289.788
+Run   76: Team DPAV: 85930.999 | AventurineWaveflair: 68496.358 | YaoGuang: 9151.385 | ElationMC: 7996.359 | Pearl: 286.897
+Run   77: Team DPAV: 91860.275 | AventurineWaveflair: 73274.055 | YaoGuang: 9780.849 | ElationMC: 8509.914 | Pearl: 295.457
+Run   78: Team DPAV: 85441.684 | AventurineWaveflair: 67893.485 | YaoGuang: 9217.469 | ElationMC: 8042.024 | Pearl: 288.705
+Run   79: Team DPAV: 85913.958 | AventurineWaveflair: 68369.336 | YaoGuang: 9221.966 | ElationMC: 8035.662 | Pearl: 286.993
+Run   80: Team DPAV: 90093.629 | AventurineWaveflair: 71870.353 | YaoGuang: 9604.829 | ElationMC: 8329.613 | Pearl: 288.834
+Run   81: Team DPAV: 89870.647 | AventurineWaveflair: 72932.080 | YaoGuang: 8745.659 | ElationMC: 7916.607 | Pearl: 276.301
+Run   82: Team DPAV: 90369.819 | AventurineWaveflair: 73384.689 | YaoGuang: 8755.360 | ElationMC: 7956.578 | Pearl: 273.192
+Run   83: Team DPAV: 91310.299 | AventurineWaveflair: 73169.227 | YaoGuang: 9540.921 | ElationMC: 8304.850 | Pearl: 295.300
+Run   84: Team DPAV: 91852.228 | AventurineWaveflair: 73345.313 | YaoGuang: 9747.060 | ElationMC: 8469.231 | Pearl: 290.623
+Run   85: Team DPAV: 84815.028 | AventurineWaveflair: 67680.791 | YaoGuang: 9067.384 | ElationMC: 7776.604 | Pearl: 290.250
+Run   86: Team DPAV: 89168.197 | AventurineWaveflair: 72324.822 | YaoGuang: 8673.056 | ElationMC: 7900.937 | Pearl: 269.381
+Run   87: Team DPAV: 87295.241 | AventurineWaveflair: 69137.396 | YaoGuang: 9570.071 | ElationMC: 8300.662 | Pearl: 287.112
+Run   88: Team DPAV: 85954.165 | AventurineWaveflair: 68543.228 | YaoGuang: 9249.241 | ElationMC: 7871.521 | Pearl: 290.176
+Run   89: Team DPAV: 86047.135 | AventurineWaveflair: 68439.326 | YaoGuang: 9280.851 | ElationMC: 8039.984 | Pearl: 286.975
+Run   90: Team DPAV: 85991.357 | AventurineWaveflair: 68270.550 | YaoGuang: 9300.544 | ElationMC: 8129.542 | Pearl: 290.722
+Run   91: Team DPAV: 85908.280 | AventurineWaveflair: 68222.792 | YaoGuang: 9276.581 | ElationMC: 8119.626 | Pearl: 289.280
+Run   92: Team DPAV: 82259.148 | AventurineWaveflair: 65701.919 | YaoGuang: 8573.751 | ElationMC: 7693.632 | Pearl: 289.846
+Run   93: Team DPAV: 85026.505 | AventurineWaveflair: 68248.088 | YaoGuang: 8669.933 | ElationMC: 7814.610 | Pearl: 293.875
+Run   94: Team DPAV: 86638.805 | AventurineWaveflair: 68935.809 | YaoGuang: 9334.189 | ElationMC: 8079.021 | Pearl: 289.787
+Run   95: Team DPAV: 96367.433 | AventurineWaveflair: 79487.541 | YaoGuang: 8468.861 | ElationMC: 8122.205 | Pearl: 288.826
+Run   96: Team DPAV: 86882.535 | AventurineWaveflair: 69284.803 | YaoGuang: 9231.268 | ElationMC: 8074.719 | Pearl: 291.745
+Run   97: Team DPAV: 92754.246 | AventurineWaveflair: 74359.566 | YaoGuang: 9688.329 | ElationMC: 8414.408 | Pearl: 291.943
+Run   98: Team DPAV: 84427.610 | AventurineWaveflair: 66999.784 | YaoGuang: 9150.310 | ElationMC: 7988.870 | Pearl: 288.646
+Run   99: Team DPAV: 92086.949 | AventurineWaveflair: 73687.576 | YaoGuang: 9689.990 | ElationMC: 8417.660 | Pearl: 291.723
+Run  100: Team DPAV: 88194.088 | AventurineWaveflair: 69900.310 | YaoGuang: 9651.258 | ElationMC: 8355.620 | Pearl: 286.900
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 87980.636
+Average AventurineWaveflair DPAV: 70496.344 Percentage: 80.127%
+Average YaoGuang DPAV: 9126.637 Percentage: 10.373%
+Average ElationMC DPAV: 8069.418 Percentage: 9.172%
+Average Pearl DPAV: 288.238 Percentage: 0.328%
+
+Min Team DPAV: 81617.273
+Max Team DPAV: 98049.045

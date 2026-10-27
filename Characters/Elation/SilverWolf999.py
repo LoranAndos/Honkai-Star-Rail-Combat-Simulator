@@ -327,7 +327,7 @@ class SilverWolf999(Character):
         return bl, dbl, al, dl, tl, hl, sl
 
     def _useEnhancedBasic(self, enemyID: int, bl: list, al: list, dbl: list, skip_exit_check: bool = False) -> list:
-        """Enhanced Basic ATK: 100 bounces with 3 Top Loot Box triggers. E1: Enemies take +20% DMG.
+        """Enhanced Basic ATK: 100 bounces (batched in steps of 33) with 3 Top Loot Box triggers. E1: Enemies take +20% DMG.
         skip_exit_check: If True, don't check for Godmode exit (used for E2 threshold bonus uses)."""
         tl = []
         base_mul = 2.64 / 100 if self.eidolon >= 3 else 2.40 / 100  # 220% split among 100 bounces
@@ -339,19 +339,23 @@ class SilverWolf999(Character):
         mmr_boost_multiplier = 1.0 + (floor(min(self.hiddenMMR, 120) / 60) * 0.15)
         base_mul_boosted = base_mul * mmr_boost_multiplier * e6Mul
 
-        # Each bounce
         bounce_count = 100
-        bounces_per_lootbox = bounce_count // 3  # ~33 bounces between triggers
-
-        for i in range(bounce_count):
+        step = bounce_count // 3  # 33
+        remaining = bounce_count
+        stepNum = 0
+        for _ in range(3):
+            stepNum += 1
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [base_mul_boosted, 0], [0, 0], 0, Scaling.ELA, 0,
-                           f"SilverWolf999EnhancedBounce_{i + 1}"))
-
-            # Pause for Top Loot Box trigger every ~33 bounces
-            if (i + 1) % bounces_per_lootbox == 0:
-                self.EnhancedBasicLootBox = True
-                self._triggerTopLootBox(enemyID, tl, bl,is_sp_triggered=False)
+                           [self.element], [base_mul_boosted * step, 0], [0, 0], 0, Scaling.ELA, 0,
+                           f"SilverWolf999EnhancedBounce_{stepNum}"))
+            remaining -= step
+            self.EnhancedBasicLootBox = True
+            self._triggerTopLootBox(enemyID, tl, bl, is_sp_triggered=False)
+        if remaining > 0:
+            stepNum += 1
+            tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
+                           [self.element], [base_mul_boosted * remaining, 0], [0, 0], 0, Scaling.ELA, 0,
+                           f"SilverWolf999EnhancedBounce_{stepNum}"))
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                        [self.element], [e3Mul * e6Mul / enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))

@@ -59,13 +59,13 @@ class HuoHuo(Character):
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else NightOfFright(self.role, 1)
+        self.lightcone = lc if lc else PostOpConversation(self.role, 5)
         self.relic1 = r1 if r1 else WarriorGoddessOfSunAndThunder(self.role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(self.role)
         self.relicStats = subs if subs else RelicStats(9, 2, 2, 2, 13, 2, 2, 2, 2, 4, 2, 2, StatTypes.OGH_PERCENT, StatTypes.SPD,
                                                        StatTypes.HP_PERCENT, StatTypes.ERR_PERCENT)
-        self.rotation = rotation if rotation else (["E", "E", "A"] if eidolon >= 1 else ["E","E","A"])
+        self.rotation = rotation if rotation else (["E", "E", "A"] if eidolon >= 1 else ["E","A","A"])
 
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()

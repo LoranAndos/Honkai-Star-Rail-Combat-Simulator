@@ -62,7 +62,7 @@ class Ashveil(Character):
         self.GluttonyCap = 18 if self.eidolon >= 2 else 12
 
     def equip(self):
-        bl, dbl, al, dl, hl = super().equip()
+        bl, dbl, al, dl, hl, sl = super().equip()
         e5DefShred = 0.44 if self.eidolon >= 5 else 0.4
         bl.append(Buff("AshveilTraceCD", StatTypes.CD_PERCENT, 0.373, self.role))
         bl.append(Buff("AshveilTraceATK", StatTypes.ATK_PERCENT, 0.10, self.role))
@@ -73,7 +73,7 @@ class Ashveil(Character):
         dbl.append(Debuff("AshveilBaitShred", self.role, StatTypes.SHRED, e5DefShred, Role.ALL, [AtkType.ALL], 1000))
         if self.eidolon >= 6:
             dbl.append(Debuff("AshveilE6SHRED", self.role, StatTypes.SHRED, 0.20, Role.ALL, [AtkType.ALL], 1000))
-        return bl, dbl, al, dl, hl
+        return bl, dbl, al, dl, hl, sl
 
     def _updateE1VULN(self, dbl: list):
         if self.eidolon < 1:
@@ -83,14 +83,14 @@ class Ashveil(Character):
             dbl.append(Debuff(f"AshveilE1VULN_{enemy.enemyID}", self.role, StatTypes.VULN, vulnVal, enemy.enemyID, [AtkType.ALL], 1,1, Targeting.SINGLE))
 
     def useBsc(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useBsc(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 1.1 if self.eidolon >= 3 else 1.0
         tl.append(Turn(self.name, self.role, self.LowestHPEnemyID, Targeting.SINGLE, [AtkType.BSC], [self.element],
                        [e3Mul, 0], [10, 0], 20, self.scaling, 1, "AshveilBasic"))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useSkl(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useSkl(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5MulBig = 2.2 if self.eidolon >= 5 else 2.0
         e5MulSmall = 1.1 if self.eidolon >= 5 else 1.0
         tl.append(Turn(self.name, self.role, self.LowestHPEnemyID, Targeting.SINGLE, [AtkType.SKL], [self.element],
@@ -98,10 +98,10 @@ class Ashveil(Character):
         self.Gluttony = min(self.Gluttony + 1, self.GluttonyCap)
         self.GluttonyObtained += 1
         logger.debug(f"{self.name} has obtained 1 gluttony stack from Skill.")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useUlt(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useUlt(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useUlt(enemyID)
         self.currEnergy = self.currEnergy - self.ultCost
         e3UltMul = 4.4 if self.eidolon >= 3 else 4.0
         if self.eidolon >= 4:
@@ -116,10 +116,10 @@ class Ashveil(Character):
         self.GluttonyObtained += 2
         logger.debug(f"{self.name} has obtained 2 gluttony stacks from Ult.")
         self.Gluttony = max(self.Gluttony-self.GluttonyExtraDamage*4,0)
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def useFua(self, enemyID=-1):
-        bl, dbl, al, dl, tl, hl = super().useFua(enemyID)
+        bl, dbl, al, dl, tl, hl, sl = super().useFua(enemyID)
         e3MulExtra = 2.2 if self.eidolon >= 3 else 2.0
         e5Mul = 2.2 if self.eidolon >= 5 else 2.0
         if self.UltFUA == False:
@@ -137,10 +137,10 @@ class Ashveil(Character):
         self.Gluttony = min(self.Gluttony+2,self.GluttonyCap)
         self.GluttonyObtained += 2
         logger.debug(f"{self.name} has obtained 2 gluttony stacks from FUA.")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def ownTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().ownTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         self._updateE1VULN(dbl)
         if turn.moveName == "AshveilUlt":
             return self.useFua(-1)
@@ -148,20 +148,20 @@ class Ashveil(Character):
             self.Gluttony = min(self.Gluttony + result.numKills, self.GluttonyCap)
             self.GluttonyObtained += result.numKills
             logger.debug(f"{self.name} has obtained {result.numKills} gluttony stacks from kill.")
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def allyTurn(self, turn: Turn, result: Result):
-        bl, dbl, al, dl, tl, hl = super().allyTurn(turn, result)
+        bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         self._updateE1VULN(dbl)
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
             bl.append(Buff(f"AshveilTalentEnergy{self.Counter}", StatTypes.ERR_F, 8, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
             self.Counter += 1
         if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.Charge > 0:
-            bl, dbl, al, dl, tl, hl = self.extendLists(bl, dbl, al, dl, tl, hl, *self.useFua(-1))
-        return bl, dbl, al, dl, tl, hl
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
+        return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):
-        bl, dbl, al, dl, tl, hl = super().handleSpecialStart(specialRes)
+        bl, dbl, al, dl, tl, hl, sl = super().handleSpecialStart(specialRes)
         self.LowestHPEnemyID = specialRes.attr1
         if self.Tech:
             tl.append(Turn(self.name, self.role, -1, Targeting.AOE, [AtkType.TECH], [self.element], [1.0, 0], [0, 0], 0,self.scaling, 0, "AshveilTech"))
@@ -169,7 +169,7 @@ class Ashveil(Character):
             self.Tech = False
         if self.eidolon == 6:
             bl.append(Buff("AshveilE6GluttonyDMG", StatTypes.DMG_PERCENT, 0.04 * min(self.GluttonyObtained,30), self.role, [AtkType.ALL],1, 1, self.role, TickDown.PERM))
-        return bl, dbl, al, dl, tl, hl
+        return bl, dbl, al, dl, tl, hl, sl
 
     def canUseUlt(self) -> bool:
         return super().canUseUlt() if self.Charge == 0 else False
