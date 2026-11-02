@@ -15,10 +15,15 @@ import logging
 import math
 import os
 
+from Characters.Elation import AventurineWaveflair
+from Characters.Elation.AeonAha import AeonAha
+from Characters.Elation.SilverWolf999 import SilverWolf999
+from Characters.Hunt.Ashveil import Ashveil
 from Combat_Simulator import startSimulator
 from MainFunctions import *
 from Enemy import EnemyModule, EnemyType, FINITE_ENEMY_HP
 from Attributes import *
+from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 import Relics
 import Lightcones
@@ -35,12 +40,13 @@ from Characters.Harmony.Tribbie import Tribbie
 from Characters.Harmony.Robin import Robin
 from Characters.Harmony.Sparkle import Sparkle
 from Characters.Elation.ElationMC import ElationMC
-from Characters.Elation.Evanescia import Evanescia
-from Characters.Elation.SilverWolf999 import SilverWolf999
 from Characters.Elation.Pearl import Pearl
-from Characters.Elation.Sparxie import Sparxie
 from Characters.Elation.Yao_Guang import YaoGuang
+from Characters.Elation.AventurineWaveflair import AventurineWaveflair
+from Characters.Elation.AeonAha import AeonAha
 from Characters.Nihility.MortenaxBlade import MortenaxBlade
+from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
+
 # ... add more imports as needed
 
 
@@ -60,12 +66,12 @@ OUTPUT_LOG = True      # set True to write a .log file for a single run (per-tea
 LOG_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Output")
 
 # Enemy setup — shared across all teams
-EnemyElement = Element.FIRE
+EnemyElement = Element.QUANTUM
 FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
 
-ENEMY_MODULE = FiveEnemyModule
+ENEMY_MODULE = ThreeEnemyModule
 
 # ============================================================
 # ── TEAM DEFINITIONS ────────────────────────────────────────
@@ -75,23 +81,341 @@ ENEMY_MODULE = FiveEnemyModule
 #               Build characters fresh here — relics/LCs go inside.
 # ============================================================
 
-def team_e2s1SilverWolf999_Sparxie_YaoGuang_Pearl():
 
-    s1 = SilverWolf999(0, Role.DPS,1, eidolon=2)
-    s2 = Sparxie(1, Role.SUP1, 1, eidolon=0)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+def team_AventurineWaveflair_Yaoguang_AeonAha_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
     s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_ElationMC_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = ElationMC(2, Role.SUP2, 1, eidolon=6,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_MortenaxBlade_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0)
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0, rotation=["E","A","A"])
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s1AventurineWaveflair_MortenaxBlade_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=1)
+    s2 = MortenaxBlade(1, Role.SUP1, 1, eidolon=0)
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s1AventurineWaveflair_AeonAha_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=1)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0, rotation=["E","A","A"])
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1AventurineWaveflair_Yaoguang_e2s0AeonAha_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=2)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=2,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1AventurineWaveflair_e2s0Yaoguang_e2s0AeonAha_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=2)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=2)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=2,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1AventurineWaveflair_e2s0Yaoguang_e2s0AeonAha_e2s0Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=2)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=2)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=2,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=2)
+    return s1, s2, s3, s4
+
+def team_e1s1AventurineWaveflair_e2s0AeonAha_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=1)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=2, rotation=["E","A","A"])
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1AventurineWaveflair_e2s0AeonAha_Ashveil_Huohuo():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=2)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=2, rotation=["E","A","A"])
+    s3 = Ashveil(2, Role.SUP2, 1, eidolon=0)
+    s4 = HuoHuo(3, Role.SUS,   1, eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e0s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e1s0AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1, eidolon=1,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e1s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=1,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e2s0AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1, eidolon=2,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e2s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=2,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e3s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=3,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e4s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=4,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e5s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=5,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_e6s1AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUBDPS, 1,lc=Lightcones.Elation.UponTheFirstEchoOfAha.UponTheFirstEchoOfAha(Role.SUP1,1), eidolon=6,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP1, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_EagleAeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, r1=Relics.EagleOfTwilightLine.EagleOfTwilightLine(Role.SUP1,4), eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_BrokenKeelAeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, pl=Planars.BrokenKeel.BrokenKeel(Role.SUP1), eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_SWLCAeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, lc=Lightcones.Elation.WelcomeToTheCosmicCity.WelcometotheCosmicCity(Role.SUP1,1), rotation=["E","A","A"],subs=RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 10, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.HP_PERCENT, StatTypes.DEF_PERCENT) ,eidolon=0)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_ElationBrimmingAeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, lc=Lightcones.Elation.ElationBrimmingWithBlessings.ElationBrimmingWithBlessingsAha(Role.SUP1,5), eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_WorldsEndAeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, lc=Lightcones.Elation.SeeYouAtTheWorldsEnd.SeeYouAtTheWorldsEnd(Role.SUP1,5), eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e0s0AventurineWaveflair_AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresAventurineWaveflair(Role.DPS,5), eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s0AventurineWaveflair_AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresAventurineWaveflair(Role.DPS,5), eidolon=1)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e1s1AventurineWaveflair_AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,1, eidolon=1)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s0AventurineWaveflair_AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,1, lc=Lightcones.Elation.MushyShroomyAdventures.MushyShroomysAdventuresAventurineWaveflair(Role.DPS,5), eidolon=2)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_e2s1AventurineWaveflair_AeonAha_YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,1, eidolon=2)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_e0s1YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=0)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_e1s0YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1,eidolon=1)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_e1s1YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=1)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_e2s0YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=2)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_AeonAha_e2s1YaoGuang_Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, eidolon=0,rotation=["E","A","A"])
+    s3 = YaoGuang(2, Role.SUP2, 1, lc=Lightcones.Elation.WhenSheDecidedToSee.WhenSheDecidedToSee(Role.SUP2,1),eidolon=2)
+    s4 = Pearl(3, Role.SUS,   1,eidolon=0)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_AeonAha_e0s1Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0,lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1))
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_AeonAha_e1s0Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=1)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_AeonAha_e1s1Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=1,lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1))
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_AeonAha_e2s0Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=2)
+    return s1, s2, s3, s4
+
+def team_AventurineWaveflair_Yaoguang_AeonAha_e2s1Pearl():
+
+    s1 = AventurineWaveflair(0, Role.DPS,   1, eidolon=0)
+    s2 = YaoGuang(1, Role.SUP1, 1, eidolon=0)
+    s3 = AeonAha(2, Role.SUP2, 1, eidolon=0,rotation=["E","A","A"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=2,lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1))
+    return s1, s2, s3, s4
+
+def team_SilverWolf999_SWLCAeonAha_YaoGuang_Pearl():
+
+    s1 = SilverWolf999(0, Role.DPS,   1, eidolon=0)
+    s2 = AeonAha(1, Role.SUP1, 1, lc=Lightcones.Elation.WelcomeToTheCosmicCity.WelcometotheCosmicCity(Role.SUP1,1), rotation=["E","A","A"],subs=RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 10, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.HP_PERCENT, StatTypes.DEF_PERCENT) ,eidolon=0)
+    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, rotation=["E"])
+    s4 = Pearl(3, Role.SUS,   1, eidolon=0, ultTargetMode="energy", rotation=["E"])
     return s1, s2, s3, s4
 
 
 
 # ── Register teams here ──────────────────────────────────────
 TEAMS = [
-    {"name": "SilverWolf999 e2s1 | Sparxie e0s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_e2s1SilverWolf999_Sparxie_YaoGuang_Pearl},
-
-    # Add more teams here:
-    # {"name": "My Team 3", "factory": team_my_team_3},
+    {"name": "SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0",
+     "factory": team_SilverWolf999_SWLCAeonAha_YaoGuang_Pearl},
 ]
 
 

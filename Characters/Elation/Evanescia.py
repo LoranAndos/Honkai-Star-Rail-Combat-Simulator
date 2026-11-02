@@ -54,6 +54,7 @@ class Evanescia(Character):
     Count = 0
     AhaInTeam = False
     AhaEidolon = 0
+    PearlUltCount = 0
 
     # Elation Skill Participation ID (for Banger conversion mechanics)
     elationParticipationID = 0
@@ -303,7 +304,7 @@ class Evanescia(Character):
                 AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
             else:
                 AhaExtraBuffRetain = 0.0
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.END))
             Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
@@ -317,7 +318,8 @@ class Evanescia(Character):
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
+            self.PearlUltCount += 1
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
             Character.SharedPunchline += 60 * Character.PearlE2Modifier
             self._addBangerEnergy(30 * int(Character.PearlE2Modifier), bl, "PearlAestheticArchetype")

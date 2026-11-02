@@ -1,115 +1,115 @@
 Simulation Results - 100 runs
 ================================================================================
 
-Run    1: Team DPAV: 110911.656 | SilverWolf999: 92654.349 | Sparxie: 11139.848 | AeonAha: 7044.201 | Pearl: 73.258
-Run    2: Team DPAV: 110482.934 | SilverWolf999: 90342.576 | Sparxie: 11465.600 | AeonAha: 8601.793 | Pearl: 72.966
-Run    3: Team DPAV: 101433.645 | SilverWolf999: 81930.138 | Sparxie: 11157.942 | AeonAha: 8270.863 | Pearl: 74.702
-Run    4: Team DPAV: 119486.105 | SilverWolf999: 98817.805 | Sparxie: 12196.867 | AeonAha: 8396.972 | Pearl: 74.460
-Run    5: Team DPAV: 110819.367 | SilverWolf999: 89214.315 | Sparxie: 12149.634 | AeonAha: 9381.457 | Pearl: 73.961
-Run    6: Team DPAV: 117992.046 | SilverWolf999: 95713.953 | Sparxie: 12603.760 | AeonAha: 9599.096 | Pearl: 75.237
-Run    7: Team DPAV: 110948.104 | SilverWolf999: 91262.160 | Sparxie: 11727.675 | AeonAha: 7884.442 | Pearl: 73.827
-Run    8: Team DPAV: 97731.379 | SilverWolf999: 79893.232 | Sparxie: 10692.856 | AeonAha: 7071.613 | Pearl: 73.679
-Run    9: Team DPAV: 108791.412 | SilverWolf999: 87705.935 | Sparxie: 12260.310 | AeonAha: 8751.652 | Pearl: 73.514
-Run   10: Team DPAV: 99320.072 | SilverWolf999: 80274.277 | Sparxie: 10879.066 | AeonAha: 8093.790 | Pearl: 72.939
-Run   11: Team DPAV: 115202.087 | SilverWolf999: 92889.296 | Sparxie: 12452.552 | AeonAha: 9786.052 | Pearl: 74.186
-Run   12: Team DPAV: 107147.920 | SilverWolf999: 88895.776 | Sparxie: 11169.644 | AeonAha: 7008.998 | Pearl: 73.502
-Run   13: Team DPAV: 112193.563 | SilverWolf999: 91802.969 | Sparxie: 11405.368 | AeonAha: 8911.880 | Pearl: 73.347
-Run   14: Team DPAV: 116288.381 | SilverWolf999: 92991.981 | Sparxie: 13174.117 | AeonAha: 10047.603 | Pearl: 74.680
-Run   15: Team DPAV: 102551.033 | SilverWolf999: 84648.092 | Sparxie: 10630.304 | AeonAha: 7197.785 | Pearl: 74.852
-Run   16: Team DPAV: 94312.721 | SilverWolf999: 75731.521 | Sparxie: 10552.236 | AeonAha: 7955.390 | Pearl: 73.574
-Run   17: Team DPAV: 104334.543 | SilverWolf999: 84572.218 | Sparxie: 11484.370 | AeonAha: 8203.899 | Pearl: 74.056
-Run   18: Team DPAV: 114700.489 | SilverWolf999: 92707.606 | Sparxie: 12223.190 | AeonAha: 9695.505 | Pearl: 74.188
-Run   19: Team DPAV: 111755.833 | SilverWolf999: 91828.928 | Sparxie: 11961.393 | AeonAha: 7891.194 | Pearl: 74.318
-Run   20: Team DPAV: 105598.221 | SilverWolf999: 85772.981 | Sparxie: 11490.264 | AeonAha: 8260.744 | Pearl: 74.232
-Run   21: Team DPAV: 117685.495 | SilverWolf999: 94805.666 | Sparxie: 12881.098 | AeonAha: 9925.497 | Pearl: 73.233
-Run   22: Team DPAV: 108326.315 | SilverWolf999: 89644.965 | Sparxie: 11552.474 | AeonAha: 7054.072 | Pearl: 74.804
-Run   23: Team DPAV: 112382.938 | SilverWolf999: 90990.872 | Sparxie: 11885.904 | AeonAha: 9432.227 | Pearl: 73.936
-Run   24: Team DPAV: 101979.633 | SilverWolf999: 82114.366 | Sparxie: 11491.686 | AeonAha: 8300.307 | Pearl: 73.273
-Run   25: Team DPAV: 102501.817 | SilverWolf999: 83688.683 | Sparxie: 11305.232 | AeonAha: 7433.137 | Pearl: 74.765
-Run   26: Team DPAV: 110248.724 | SilverWolf999: 90036.465 | Sparxie: 11513.560 | AeonAha: 8624.669 | Pearl: 74.030
-Run   27: Team DPAV: 106234.664 | SilverWolf999: 86194.731 | Sparxie: 11820.641 | AeonAha: 8144.819 | Pearl: 74.473
-Run   28: Team DPAV: 105600.787 | SilverWolf999: 86443.230 | Sparxie: 11334.944 | AeonAha: 7748.231 | Pearl: 74.383
-Run   29: Team DPAV: 114532.567 | SilverWolf999: 92569.938 | Sparxie: 12218.143 | AeonAha: 9670.131 | Pearl: 74.354
-Run   30: Team DPAV: 105165.134 | SilverWolf999: 84974.844 | Sparxie: 11624.699 | AeonAha: 8490.985 | Pearl: 74.606
-Run   31: Team DPAV: 117859.515 | SilverWolf999: 96601.412 | Sparxie: 12553.505 | AeonAha: 8630.596 | Pearl: 74.003
-Run   32: Team DPAV: 103432.642 | SilverWolf999: 83262.557 | Sparxie: 11738.092 | AeonAha: 8358.794 | Pearl: 73.199
-Run   33: Team DPAV: 112511.462 | SilverWolf999: 92622.954 | Sparxie: 12075.839 | AeonAha: 7738.109 | Pearl: 74.560
-Run   34: Team DPAV: 103721.632 | SilverWolf999: 85070.486 | Sparxie: 11361.990 | AeonAha: 7215.565 | Pearl: 73.591
-Run   35: Team DPAV: 116174.975 | SilverWolf999: 96242.750 | Sparxie: 12049.499 | AeonAha: 7808.542 | Pearl: 74.185
-Run   36: Team DPAV: 108227.108 | SilverWolf999: 88517.000 | Sparxie: 11666.806 | AeonAha: 7969.560 | Pearl: 73.741
-Run   37: Team DPAV: 111554.436 | SilverWolf999: 91651.311 | Sparxie: 12030.182 | AeonAha: 7798.543 | Pearl: 74.400
-Run   38: Team DPAV: 107560.086 | SilverWolf999: 88279.028 | Sparxie: 11416.329 | AeonAha: 7791.472 | Pearl: 73.257
-Run   39: Team DPAV: 103447.159 | SilverWolf999: 83497.782 | Sparxie: 11336.234 | AeonAha: 8540.151 | Pearl: 72.993
-Run   40: Team DPAV: 105362.520 | SilverWolf999: 85946.703 | Sparxie: 11444.988 | AeonAha: 7898.099 | Pearl: 72.730
-Run   41: Team DPAV: 101360.483 | SilverWolf999: 82742.890 | Sparxie: 10916.148 | AeonAha: 7626.887 | Pearl: 74.557
-Run   42: Team DPAV: 107897.643 | SilverWolf999: 87701.894 | Sparxie: 11602.495 | AeonAha: 8518.928 | Pearl: 74.326
-Run   43: Team DPAV: 116062.161 | SilverWolf999: 96155.108 | Sparxie: 12186.479 | AeonAha: 7646.098 | Pearl: 74.477
-Run   44: Team DPAV: 106143.065 | SilverWolf999: 84853.028 | Sparxie: 11965.214 | AeonAha: 9252.016 | Pearl: 72.807
-Run   45: Team DPAV: 102708.467 | SilverWolf999: 83647.792 | Sparxie: 10833.627 | AeonAha: 8153.586 | Pearl: 73.462
-Run   46: Team DPAV: 94678.785 | SilverWolf999: 77157.632 | Sparxie: 10392.026 | AeonAha: 7056.608 | Pearl: 72.519
-Run   47: Team DPAV: 111211.831 | SilverWolf999: 89308.678 | Sparxie: 12326.802 | AeonAha: 9502.092 | Pearl: 74.260
-Run   48: Team DPAV: 112075.240 | SilverWolf999: 91556.614 | Sparxie: 11990.797 | AeonAha: 8454.473 | Pearl: 73.356
-Run   49: Team DPAV: 106944.511 | SilverWolf999: 87414.024 | Sparxie: 11129.062 | AeonAha: 8328.283 | Pearl: 73.142
-Run   50: Team DPAV: 113780.662 | SilverWolf999: 91285.270 | Sparxie: 12526.951 | AeonAha: 9894.448 | Pearl: 73.993
-Run   51: Team DPAV: 105644.268 | SilverWolf999: 85779.992 | Sparxie: 11272.524 | AeonAha: 8517.803 | Pearl: 73.948
-Run   52: Team DPAV: 107160.437 | SilverWolf999: 85883.171 | Sparxie: 12149.453 | AeonAha: 9053.393 | Pearl: 74.419
-Run   53: Team DPAV: 98214.080 | SilverWolf999: 78414.959 | Sparxie: 10956.418 | AeonAha: 8769.644 | Pearl: 73.059
-Run   54: Team DPAV: 111001.938 | SilverWolf999: 90976.187 | Sparxie: 11610.693 | AeonAha: 8340.625 | Pearl: 74.434
-Run   55: Team DPAV: 108289.917 | SilverWolf999: 88336.109 | Sparxie: 11799.615 | AeonAha: 8080.674 | Pearl: 73.519
-Run   56: Team DPAV: 110685.679 | SilverWolf999: 88955.324 | Sparxie: 12253.124 | AeonAha: 9401.582 | Pearl: 75.649
-Run   57: Team DPAV: 114509.080 | SilverWolf999: 91565.646 | Sparxie: 12779.555 | AeonAha: 10090.987 | Pearl: 72.892
-Run   58: Team DPAV: 111703.885 | SilverWolf999: 93922.860 | Sparxie: 10858.594 | AeonAha: 6849.960 | Pearl: 72.471
-Run   59: Team DPAV: 115584.897 | SilverWolf999: 93980.671 | Sparxie: 11999.937 | AeonAha: 9530.865 | Pearl: 73.424
-Run   60: Team DPAV: 111244.275 | SilverWolf999: 90480.311 | Sparxie: 11839.840 | AeonAha: 8849.501 | Pearl: 74.623
-Run   61: Team DPAV: 109791.376 | SilverWolf999: 87921.856 | Sparxie: 12347.873 | AeonAha: 9447.433 | Pearl: 74.214
-Run   62: Team DPAV: 107836.841 | SilverWolf999: 87216.848 | Sparxie: 11733.986 | AeonAha: 8813.608 | Pearl: 72.400
-Run   63: Team DPAV: 106865.157 | SilverWolf999: 87844.873 | Sparxie: 11233.335 | AeonAha: 7712.144 | Pearl: 74.806
-Run   64: Team DPAV: 101974.992 | SilverWolf999: 83651.073 | Sparxie: 10982.988 | AeonAha: 7266.212 | Pearl: 74.718
-Run   65: Team DPAV: 103807.816 | SilverWolf999: 83736.368 | Sparxie: 11486.854 | AeonAha: 8511.843 | Pearl: 72.751
-Run   66: Team DPAV: 111415.489 | SilverWolf999: 89779.148 | Sparxie: 12031.915 | AeonAha: 9531.450 | Pearl: 72.976
-Run   67: Team DPAV: 114059.466 | SilverWolf999: 93077.514 | Sparxie: 12050.835 | AeonAha: 8857.817 | Pearl: 73.301
-Run   68: Team DPAV: 94879.788 | SilverWolf999: 75640.219 | Sparxie: 10887.286 | AeonAha: 8280.211 | Pearl: 72.072
-Run   69: Team DPAV: 105978.572 | SilverWolf999: 85788.000 | Sparxie: 11895.970 | AeonAha: 8220.608 | Pearl: 73.994
-Run   70: Team DPAV: 102963.366 | SilverWolf999: 83452.638 | Sparxie: 11309.508 | AeonAha: 8128.147 | Pearl: 73.073
-Run   71: Team DPAV: 111976.370 | SilverWolf999: 91798.599 | Sparxie: 11788.626 | AeonAha: 8315.279 | Pearl: 73.866
-Run   72: Team DPAV: 104017.665 | SilverWolf999: 83626.038 | Sparxie: 11475.583 | AeonAha: 8840.375 | Pearl: 75.669
-Run   73: Team DPAV: 115661.475 | SilverWolf999: 94179.832 | Sparxie: 12413.649 | AeonAha: 8994.704 | Pearl: 73.291
-Run   74: Team DPAV: 108919.925 | SilverWolf999: 88342.055 | Sparxie: 11678.783 | AeonAha: 8826.015 | Pearl: 73.072
-Run   75: Team DPAV: 110103.957 | SilverWolf999: 90779.042 | Sparxie: 11529.893 | AeonAha: 7720.883 | Pearl: 74.139
-Run   76: Team DPAV: 111777.055 | SilverWolf999: 93447.433 | Sparxie: 11626.542 | AeonAha: 6629.249 | Pearl: 73.831
-Run   77: Team DPAV: 105642.739 | SilverWolf999: 85524.985 | Sparxie: 11589.747 | AeonAha: 8455.240 | Pearl: 72.768
-Run   78: Team DPAV: 88409.148 | SilverWolf999: 70519.645 | Sparxie: 10037.338 | AeonAha: 7779.120 | Pearl: 73.044
-Run   79: Team DPAV: 111662.428 | SilverWolf999: 89651.537 | Sparxie: 12414.774 | AeonAha: 9522.078 | Pearl: 74.039
-Run   80: Team DPAV: 108431.174 | SilverWolf999: 89276.094 | Sparxie: 11569.262 | AeonAha: 7511.653 | Pearl: 74.164
-Run   81: Team DPAV: 104530.323 | SilverWolf999: 85283.240 | Sparxie: 11180.002 | AeonAha: 7992.537 | Pearl: 74.544
-Run   82: Team DPAV: 103495.378 | SilverWolf999: 83244.955 | Sparxie: 11684.139 | AeonAha: 8492.046 | Pearl: 74.238
-Run   83: Team DPAV: 110364.983 | SilverWolf999: 89628.115 | Sparxie: 11672.405 | AeonAha: 8988.901 | Pearl: 75.563
-Run   84: Team DPAV: 106647.547 | SilverWolf999: 86692.604 | Sparxie: 11372.545 | AeonAha: 8506.754 | Pearl: 75.644
-Run   85: Team DPAV: 99517.994 | SilverWolf999: 80114.268 | Sparxie: 11064.320 | AeonAha: 8265.093 | Pearl: 74.312
-Run   86: Team DPAV: 102739.090 | SilverWolf999: 83852.235 | Sparxie: 11077.403 | AeonAha: 7734.903 | Pearl: 74.549
-Run   87: Team DPAV: 106644.927 | SilverWolf999: 86223.987 | Sparxie: 11617.081 | AeonAha: 8729.718 | Pearl: 74.141
-Run   88: Team DPAV: 110580.401 | SilverWolf999: 89295.987 | Sparxie: 12007.208 | AeonAha: 9204.712 | Pearl: 72.494
-Run   89: Team DPAV: 104151.277 | SilverWolf999: 85013.766 | Sparxie: 10974.462 | AeonAha: 8090.529 | Pearl: 72.520
-Run   90: Team DPAV: 110188.516 | SilverWolf999: 88481.442 | Sparxie: 12285.958 | AeonAha: 9345.920 | Pearl: 75.197
-Run   91: Team DPAV: 110353.752 | SilverWolf999: 90840.200 | Sparxie: 11437.237 | AeonAha: 8002.240 | Pearl: 74.074
-Run   92: Team DPAV: 103922.758 | SilverWolf999: 83248.357 | Sparxie: 11549.773 | AeonAha: 9050.625 | Pearl: 74.003
-Run   93: Team DPAV: 105927.266 | SilverWolf999: 87628.336 | Sparxie: 11549.877 | AeonAha: 6674.493 | Pearl: 74.559
-Run   94: Team DPAV: 105933.630 | SilverWolf999: 85958.418 | Sparxie: 11407.215 | AeonAha: 8494.907 | Pearl: 73.091
-Run   95: Team DPAV: 116235.192 | SilverWolf999: 94749.122 | Sparxie: 12396.182 | AeonAha: 9015.898 | Pearl: 73.990
-Run   96: Team DPAV: 112006.791 | SilverWolf999: 90454.118 | Sparxie: 12013.672 | AeonAha: 9465.373 | Pearl: 73.627
-Run   97: Team DPAV: 107500.122 | SilverWolf999: 87949.598 | Sparxie: 11496.536 | AeonAha: 7980.565 | Pearl: 73.423
-Run   98: Team DPAV: 102950.147 | SilverWolf999: 84987.626 | Sparxie: 10669.417 | AeonAha: 7219.183 | Pearl: 73.921
-Run   99: Team DPAV: 102247.819 | SilverWolf999: 81838.483 | Sparxie: 11599.336 | AeonAha: 8735.771 | Pearl: 74.229
-Run  100: Team DPAV: 112281.442 | SilverWolf999: 91196.261 | Sparxie: 11756.056 | AeonAha: 9254.514 | Pearl: 74.613
+Run    1: Team DPAV: 547323.930 | SilverWolf999: 455738.160 | YaoGuang: 23317.649 | AeonAha: 67213.467 | Pearl: 1054.655
+Run    2: Team DPAV: 574135.574 | SilverWolf999: 489668.088 | YaoGuang: 21161.660 | AeonAha: 62266.733 | Pearl: 1039.092
+Run    3: Team DPAV: 534634.527 | SilverWolf999: 450855.363 | YaoGuang: 20893.360 | AeonAha: 61833.953 | Pearl: 1051.851
+Run    4: Team DPAV: 586535.167 | SilverWolf999: 493889.498 | YaoGuang: 22956.171 | AeonAha: 68635.086 | Pearl: 1054.412
+Run    5: Team DPAV: 576834.582 | SilverWolf999: 487527.576 | YaoGuang: 22374.961 | AeonAha: 65907.953 | Pearl: 1024.091
+Run    6: Team DPAV: 593921.151 | SilverWolf999: 501631.644 | YaoGuang: 22951.677 | AeonAha: 68297.478 | Pearl: 1040.352
+Run    7: Team DPAV: 621676.915 | SilverWolf999: 531359.478 | YaoGuang: 22919.462 | AeonAha: 66344.132 | Pearl: 1053.842
+Run    8: Team DPAV: 586482.947 | SilverWolf999: 494758.402 | YaoGuang: 23068.012 | AeonAha: 67605.837 | Pearl: 1050.696
+Run    9: Team DPAV: 586621.821 | SilverWolf999: 499312.758 | YaoGuang: 21455.554 | AeonAha: 64808.434 | Pearl: 1045.075
+Run   10: Team DPAV: 548188.850 | SilverWolf999: 462325.455 | YaoGuang: 21093.263 | AeonAha: 63726.428 | Pearl: 1043.703
+Run   11: Team DPAV: 543470.075 | SilverWolf999: 458680.556 | YaoGuang: 21189.113 | AeonAha: 62568.154 | Pearl: 1032.252
+Run   12: Team DPAV: 566584.279 | SilverWolf999: 479672.806 | YaoGuang: 21350.518 | AeonAha: 64518.870 | Pearl: 1042.085
+Run   13: Team DPAV: 519033.201 | SilverWolf999: 434371.424 | YaoGuang: 21090.959 | AeonAha: 62474.475 | Pearl: 1096.344
+Run   14: Team DPAV: 586205.986 | SilverWolf999: 494188.692 | YaoGuang: 23115.480 | AeonAha: 67849.839 | Pearl: 1051.975
+Run   15: Team DPAV: 538370.153 | SilverWolf999: 451909.770 | YaoGuang: 21485.026 | AeonAha: 63919.532 | Pearl: 1055.824
+Run   16: Team DPAV: 551390.261 | SilverWolf999: 464779.335 | YaoGuang: 21518.895 | AeonAha: 64040.757 | Pearl: 1051.273
+Run   17: Team DPAV: 556235.257 | SilverWolf999: 465509.165 | YaoGuang: 22511.462 | AeonAha: 67190.355 | Pearl: 1024.274
+Run   18: Team DPAV: 539989.464 | SilverWolf999: 454818.589 | YaoGuang: 20868.778 | AeonAha: 63252.380 | Pearl: 1049.717
+Run   19: Team DPAV: 517814.351 | SilverWolf999: 434059.602 | YaoGuang: 20845.198 | AeonAha: 61872.007 | Pearl: 1037.543
+Run   20: Team DPAV: 519208.409 | SilverWolf999: 435792.892 | YaoGuang: 21130.326 | AeonAha: 61255.149 | Pearl: 1030.042
+Run   21: Team DPAV: 531303.108 | SilverWolf999: 446573.428 | YaoGuang: 21508.712 | AeonAha: 62172.566 | Pearl: 1048.401
+Run   22: Team DPAV: 541921.002 | SilverWolf999: 458765.950 | YaoGuang: 21270.236 | AeonAha: 60795.478 | Pearl: 1089.337
+Run   23: Team DPAV: 573204.699 | SilverWolf999: 486228.991 | YaoGuang: 21171.760 | AeonAha: 64761.963 | Pearl: 1041.986
+Run   24: Team DPAV: 544437.501 | SilverWolf999: 457217.230 | YaoGuang: 21397.483 | AeonAha: 64758.648 | Pearl: 1064.140
+Run   25: Team DPAV: 519645.205 | SilverWolf999: 431498.743 | YaoGuang: 22471.031 | AeonAha: 64614.143 | Pearl: 1061.288
+Run   26: Team DPAV: 614446.390 | SilverWolf999: 523290.915 | YaoGuang: 23258.747 | AeonAha: 66821.865 | Pearl: 1074.863
+Run   27: Team DPAV: 531189.995 | SilverWolf999: 445098.305 | YaoGuang: 21442.716 | AeonAha: 63593.116 | Pearl: 1055.858
+Run   28: Team DPAV: 553231.553 | SilverWolf999: 467378.053 | YaoGuang: 21080.721 | AeonAha: 63735.246 | Pearl: 1037.533
+Run   29: Team DPAV: 555335.364 | SilverWolf999: 471254.411 | YaoGuang: 21327.153 | AeonAha: 61696.067 | Pearl: 1057.733
+Run   30: Team DPAV: 664585.699 | SilverWolf999: 572998.277 | YaoGuang: 22976.453 | AeonAha: 67541.678 | Pearl: 1069.292
+Run   31: Team DPAV: 542834.264 | SilverWolf999: 457260.031 | YaoGuang: 21159.644 | AeonAha: 63361.897 | Pearl: 1052.691
+Run   32: Team DPAV: 533767.822 | SilverWolf999: 448023.434 | YaoGuang: 21725.846 | AeonAha: 62959.716 | Pearl: 1058.826
+Run   33: Team DPAV: 647756.706 | SilverWolf999: 554731.845 | YaoGuang: 22906.828 | AeonAha: 69046.956 | Pearl: 1071.077
+Run   34: Team DPAV: 569269.521 | SilverWolf999: 479481.089 | YaoGuang: 23032.856 | AeonAha: 65689.162 | Pearl: 1066.415
+Run   35: Team DPAV: 561829.846 | SilverWolf999: 469981.377 | YaoGuang: 22726.506 | AeonAha: 68067.313 | Pearl: 1054.650
+Run   36: Team DPAV: 527271.112 | SilverWolf999: 440946.299 | YaoGuang: 21645.484 | AeonAha: 63620.960 | Pearl: 1058.370
+Run   37: Team DPAV: 624635.577 | SilverWolf999: 533087.751 | YaoGuang: 23473.725 | AeonAha: 67020.175 | Pearl: 1053.925
+Run   38: Team DPAV: 573196.558 | SilverWolf999: 489657.409 | YaoGuang: 20996.704 | AeonAha: 61607.402 | Pearl: 935.043
+Run   39: Team DPAV: 581160.561 | SilverWolf999: 489529.417 | YaoGuang: 22559.369 | AeonAha: 68056.096 | Pearl: 1015.680
+Run   40: Team DPAV: 564048.638 | SilverWolf999: 479106.438 | YaoGuang: 21554.066 | AeonAha: 62326.167 | Pearl: 1061.967
+Run   41: Team DPAV: 609518.954 | SilverWolf999: 518512.129 | YaoGuang: 22872.914 | AeonAha: 67174.403 | Pearl: 959.508
+Run   42: Team DPAV: 552382.950 | SilverWolf999: 469202.093 | YaoGuang: 21165.133 | AeonAha: 60965.395 | Pearl: 1050.329
+Run   43: Team DPAV: 644728.654 | SilverWolf999: 554405.745 | YaoGuang: 22689.466 | AeonAha: 66661.919 | Pearl: 971.524
+Run   44: Team DPAV: 535904.466 | SilverWolf999: 452514.812 | YaoGuang: 21180.162 | AeonAha: 61174.696 | Pearl: 1034.796
+Run   45: Team DPAV: 575399.032 | SilverWolf999: 486362.493 | YaoGuang: 22887.716 | AeonAha: 65093.391 | Pearl: 1055.433
+Run   46: Team DPAV: 540428.017 | SilverWolf999: 450639.563 | YaoGuang: 22774.492 | AeonAha: 65987.524 | Pearl: 1026.438
+Run   47: Team DPAV: 580038.336 | SilverWolf999: 493647.397 | YaoGuang: 21315.798 | AeonAha: 64018.149 | Pearl: 1056.992
+Run   48: Team DPAV: 553313.962 | SilverWolf999: 466807.014 | YaoGuang: 21235.569 | AeonAha: 64225.224 | Pearl: 1046.155
+Run   49: Team DPAV: 521041.797 | SilverWolf999: 431838.102 | YaoGuang: 22119.891 | AeonAha: 66041.468 | Pearl: 1042.335
+Run   50: Team DPAV: 533109.564 | SilverWolf999: 446975.716 | YaoGuang: 21389.864 | AeonAha: 63693.045 | Pearl: 1050.940
+Run   51: Team DPAV: 531708.815 | SilverWolf999: 442814.378 | YaoGuang: 22083.704 | AeonAha: 65769.595 | Pearl: 1041.138
+Run   52: Team DPAV: 630292.349 | SilverWolf999: 539135.733 | YaoGuang: 23274.588 | AeonAha: 66822.060 | Pearl: 1059.968
+Run   53: Team DPAV: 607568.376 | SilverWolf999: 514305.923 | YaoGuang: 23556.341 | AeonAha: 68649.428 | Pearl: 1056.684
+Run   54: Team DPAV: 616711.059 | SilverWolf999: 527400.308 | YaoGuang: 22848.465 | AeonAha: 65484.664 | Pearl: 977.622
+Run   55: Team DPAV: 557018.674 | SilverWolf999: 472721.166 | YaoGuang: 21399.687 | AeonAha: 61845.085 | Pearl: 1052.735
+Run   56: Team DPAV: 531511.495 | SilverWolf999: 448008.737 | YaoGuang: 21114.762 | AeonAha: 61334.199 | Pearl: 1053.797
+Run   57: Team DPAV: 556261.996 | SilverWolf999: 467069.707 | YaoGuang: 22239.438 | AeonAha: 65904.985 | Pearl: 1047.867
+Run   58: Team DPAV: 522997.944 | SilverWolf999: 439627.128 | YaoGuang: 20826.287 | AeonAha: 61513.395 | Pearl: 1031.133
+Run   59: Team DPAV: 549838.978 | SilverWolf999: 463345.566 | YaoGuang: 21186.299 | AeonAha: 64259.883 | Pearl: 1047.230
+Run   60: Team DPAV: 569358.069 | SilverWolf999: 482288.056 | YaoGuang: 22862.241 | AeonAha: 63159.495 | Pearl: 1048.277
+Run   61: Team DPAV: 507992.693 | SilverWolf999: 426273.962 | YaoGuang: 20759.321 | AeonAha: 59873.187 | Pearl: 1086.223
+Run   62: Team DPAV: 545394.789 | SilverWolf999: 462897.888 | YaoGuang: 21205.374 | AeonAha: 60244.320 | Pearl: 1047.207
+Run   63: Team DPAV: 644985.933 | SilverWolf999: 552667.176 | YaoGuang: 22893.447 | AeonAha: 68470.365 | Pearl: 954.944
+Run   64: Team DPAV: 640061.157 | SilverWolf999: 545753.453 | YaoGuang: 22827.876 | AeonAha: 70434.048 | Pearl: 1045.780
+Run   65: Team DPAV: 584899.364 | SilverWolf999: 494702.000 | YaoGuang: 23212.517 | AeonAha: 65931.800 | Pearl: 1053.046
+Run   66: Team DPAV: 530845.171 | SilverWolf999: 446078.816 | YaoGuang: 21274.575 | AeonAha: 62459.270 | Pearl: 1032.509
+Run   67: Team DPAV: 574546.220 | SilverWolf999: 487156.580 | YaoGuang: 21472.036 | AeonAha: 64863.655 | Pearl: 1053.950
+Run   68: Team DPAV: 577963.401 | SilverWolf999: 491301.964 | YaoGuang: 22066.615 | AeonAha: 63572.639 | Pearl: 1022.182
+Run   69: Team DPAV: 524522.847 | SilverWolf999: 440762.024 | YaoGuang: 21246.488 | AeonAha: 61473.025 | Pearl: 1041.309
+Run   70: Team DPAV: 614863.936 | SilverWolf999: 528468.634 | YaoGuang: 21301.206 | AeonAha: 64051.947 | Pearl: 1042.149
+Run   71: Team DPAV: 559679.165 | SilverWolf999: 468698.120 | YaoGuang: 22568.079 | AeonAha: 67317.341 | Pearl: 1095.625
+Run   72: Team DPAV: 540723.209 | SilverWolf999: 457995.509 | YaoGuang: 20979.382 | AeonAha: 60794.108 | Pearl: 954.210
+Run   73: Team DPAV: 572878.273 | SilverWolf999: 488665.598 | YaoGuang: 20910.448 | AeonAha: 62350.874 | Pearl: 951.354
+Run   74: Team DPAV: 556908.707 | SilverWolf999: 466393.637 | YaoGuang: 22329.133 | AeonAha: 67159.247 | Pearl: 1026.691
+Run   75: Team DPAV: 582262.084 | SilverWolf999: 493484.603 | YaoGuang: 22601.671 | AeonAha: 65115.726 | Pearl: 1060.084
+Run   76: Team DPAV: 540390.135 | SilverWolf999: 454472.370 | YaoGuang: 21455.971 | AeonAha: 63414.071 | Pearl: 1047.723
+Run   77: Team DPAV: 659493.967 | SilverWolf999: 569706.996 | YaoGuang: 22878.707 | AeonAha: 65850.208 | Pearl: 1058.056
+Run   78: Team DPAV: 604751.322 | SilverWolf999: 512518.895 | YaoGuang: 23016.956 | AeonAha: 68167.235 | Pearl: 1048.237
+Run   79: Team DPAV: 566082.895 | SilverWolf999: 482701.875 | YaoGuang: 20861.989 | AeonAha: 61503.511 | Pearl: 1015.519
+Run   80: Team DPAV: 586655.647 | SilverWolf999: 498218.707 | YaoGuang: 22238.619 | AeonAha: 65148.976 | Pearl: 1049.346
+Run   81: Team DPAV: 525793.070 | SilverWolf999: 442275.716 | YaoGuang: 21398.662 | AeonAha: 61073.734 | Pearl: 1044.957
+Run   82: Team DPAV: 610703.903 | SilverWolf999: 520083.350 | YaoGuang: 23289.544 | AeonAha: 66270.880 | Pearl: 1060.129
+Run   83: Team DPAV: 618331.397 | SilverWolf999: 525625.894 | YaoGuang: 23195.671 | AeonAha: 68461.190 | Pearl: 1048.641
+Run   84: Team DPAV: 597856.823 | SilverWolf999: 506867.706 | YaoGuang: 22799.851 | AeonAha: 67088.890 | Pearl: 1100.376
+Run   85: Team DPAV: 513525.439 | SilverWolf999: 429206.172 | YaoGuang: 20981.846 | AeonAha: 62251.680 | Pearl: 1085.741
+Run   86: Team DPAV: 528489.957 | SilverWolf999: 439253.780 | YaoGuang: 22441.477 | AeonAha: 65711.970 | Pearl: 1082.730
+Run   87: Team DPAV: 536485.056 | SilverWolf999: 449940.241 | YaoGuang: 22627.848 | AeonAha: 62868.923 | Pearl: 1048.043
+Run   88: Team DPAV: 597807.564 | SilverWolf999: 513058.794 | YaoGuang: 21094.762 | AeonAha: 62616.329 | Pearl: 1037.680
+Run   89: Team DPAV: 514975.365 | SilverWolf999: 433819.741 | YaoGuang: 21167.910 | AeonAha: 58925.553 | Pearl: 1062.160
+Run   90: Team DPAV: 543494.531 | SilverWolf999: 453959.339 | YaoGuang: 22827.448 | AeonAha: 65653.185 | Pearl: 1054.559
+Run   91: Team DPAV: 644388.910 | SilverWolf999: 554258.658 | YaoGuang: 22715.776 | AeonAha: 66440.293 | Pearl: 974.183
+Run   92: Team DPAV: 545937.511 | SilverWolf999: 463244.249 | YaoGuang: 21180.235 | AeonAha: 60471.610 | Pearl: 1041.417
+Run   93: Team DPAV: 527168.536 | SilverWolf999: 437629.660 | YaoGuang: 22370.559 | AeonAha: 66110.231 | Pearl: 1058.085
+Run   94: Team DPAV: 615992.635 | SilverWolf999: 529508.267 | YaoGuang: 22628.389 | AeonAha: 62804.423 | Pearl: 1051.556
+Run   95: Team DPAV: 542715.365 | SilverWolf999: 457175.862 | YaoGuang: 21710.361 | AeonAha: 62789.035 | Pearl: 1040.108
+Run   96: Team DPAV: 617442.635 | SilverWolf999: 532181.185 | YaoGuang: 21438.769 | AeonAha: 62774.471 | Pearl: 1048.209
+Run   97: Team DPAV: 575142.096 | SilverWolf999: 486729.777 | YaoGuang: 22614.692 | AeonAha: 64734.632 | Pearl: 1062.994
+Run   98: Team DPAV: 595841.764 | SilverWolf999: 502388.419 | YaoGuang: 23780.781 | AeonAha: 68596.340 | Pearl: 1076.224
+Run   99: Team DPAV: 598657.386 | SilverWolf999: 510382.164 | YaoGuang: 23343.391 | AeonAha: 63863.625 | Pearl: 1068.206
+Run  100: Team DPAV: 616654.624 | SilverWolf999: 524529.335 | YaoGuang: 22930.195 | AeonAha: 68244.045 | Pearl: 951.049
 
 ================================================================================
 AVERAGES
 ================================================================================
-Average Team DPAV: 107878.066
-Average SilverWolf999 DPAV: 87748.589 Percentage: 81.341%
-Average Sparxie DPAV: 11644.038 Percentage: 10.794%
-Average AeonAha DPAV: 8411.556 Percentage: 7.797%
-Average Pearl DPAV: 73.882 Percentage: 0.068%
+Average Team DPAV: 568521.670
+Average SilverWolf999 DPAV: 480916.175 Percentage: 84.591%
+Average YaoGuang DPAV: 22026.450 Percentage: 3.874%
+Average AeonAha DPAV: 64535.522 Percentage: 11.351%
+Average Pearl DPAV: 1043.523 Percentage: 0.184%
 
-Min Team DPAV: 88409.148
-Max Team DPAV: 119486.105
+Min Team DPAV: 507992.693
+Max Team DPAV: 664585.699

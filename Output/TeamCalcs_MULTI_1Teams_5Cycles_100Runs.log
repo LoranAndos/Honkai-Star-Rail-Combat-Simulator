@@ -1,0 +1,46 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  1 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 65113.558  |  min: 53588.175  |  max: 74139.829  |  95% CI margin of error: +/-1.09%
+    SilverWolf999        avg DPAV: 45606.891  (70.0%)
+      - ELABANGER  avg DMG: 18452190.573  (73.6% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6560509.375  (26.2% of SilverWolf999's DMG)
+      - SKL        avg DMG: 40774.446  (0.2% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 12756.780  (19.6%)
+      - ELABANGER  avg DMG: 6031354.963  (86.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 984708.377  (14.0% of AeonAha's DMG)
+      - ULT        avg DMG: 136.037  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 6749.887  (10.4%)
+      - ELAPUNCH   avg DMG: 3403372.602  (91.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 295360.775  (8.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 13704.707  (0.4% of YaoGuang's DMG)
+    Pearl                avg DPAV: 0.000  (0.0%)
+      - BSC        avg DMG: 0.000  (0.0% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 701840.0
+    Enemy 0 (ELITE)  avg Overkill: 455216.6
+    Enemy 1 (BOSS)  avg Overkill: 82925.9
+    Enemy 2 (ELITE)  avg Overkill: 163697.5
+  DPAV only (select the lines below):
+45606.891
+12756.780
+6749.887
+0.000
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  65113.558  —  SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+
+======================================================================
+

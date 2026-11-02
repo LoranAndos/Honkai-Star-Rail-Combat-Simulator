@@ -56,6 +56,7 @@ class AventurineWaveflair(Character):
     AhaInTeam = False
     AhaEidolon = 0
     ELAStat = 0.0
+    PearlUltCount = 0
 
 
     # Relic Settings
@@ -70,7 +71,7 @@ class AventurineWaveflair(Character):
         self.relic1 = r1 if r1 else GeniusOfBrilliantStars(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else PunklordeStageZero(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 6, 2, 2, 2, 2, 9, 10, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.DMG_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
         # Instance-level state
@@ -214,7 +215,7 @@ class AventurineWaveflair(Character):
                 AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
             else:
                 AhaExtraBuffRetain = 0.0
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.END))
             Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
@@ -236,7 +237,8 @@ class AventurineWaveflair(Character):
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
+            self.PearlUltCount += 1
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
             Character.SharedPunchline += 60 * Character.PearlE2Modifier
 

@@ -3,7 +3,6 @@ from Lightcone import Lightcone
 from Attributes import *
 from Character import Character
 from Healing import Healing
-from math import floor
 
 class ColorsForTomorrow(Lightcone):
     name = "Colors for Tomorrow"

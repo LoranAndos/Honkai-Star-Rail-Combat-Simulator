@@ -3,7 +3,8 @@ import logging
 from Buff import *
 from Character import Character
 from Lightcones.Elation.UponTheFirstEchoOfAha import UponTheFirstEchoOfAha
-from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresAeonAHa
+from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresAeonAha
+from Lightcones.Elation.SeeYouAtTheWorldsEnd import SeeYouAtTheWorldsEnd
 from Planars.GodsMomentOfJoy import GodsMomentOfJoy
 from RelicStats import RelicStats
 from Relics.DreamlitActor import DreamlitActor
@@ -51,6 +52,7 @@ class AeonAha(Character):
     EvaInTeam = False
     FirstUlt = True
     Tech = True
+    PearlUltCount = 0
 
     # Relic Settings
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
@@ -60,7 +62,7 @@ class AeonAha(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=0) -> None:  # AeonAha ID: 0
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresAeonAHa (role,5)
+        self.lightcone = lc if lc else MushyShroomysAdventuresAeonAha(role,5)
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else GodsMomentOfJoy(role)
@@ -161,6 +163,7 @@ class AeonAha(Character):
         if self.FirstUlt and self.eidolon == 6:
             al.append(Advance("AhaADV", Role.AHA, 1.00))
             Character.SharedPunchline += 100
+            self.FirstUlt = False
         else:
             al.append(Advance("AhaADV", Role.AHA, 0.20))
         self.UltActive = True
@@ -215,7 +218,7 @@ class AeonAha(Character):
                 AhaExtraBuffRetain = 0.2 if self.eidolon >= 2 else 0.1
             else:
                 AhaExtraBuffRetain = 0.0
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.END))
             Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
@@ -239,7 +242,8 @@ class AeonAha(Character):
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
+            self.PearlUltCount += 1
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
             Character.SharedPunchline += 60 * Character.PearlE2Modifier
 

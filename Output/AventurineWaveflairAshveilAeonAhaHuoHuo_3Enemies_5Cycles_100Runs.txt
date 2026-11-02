@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 152036.786 | AventurineWaveflair: 133320.027 | Ashveil: 4099.855 | AeonAha: 14598.324 | HuoHuo: 18.580
+Run    2: Team DPAV: 151959.468 | AventurineWaveflair: 133683.564 | Ashveil: 3578.182 | AeonAha: 14679.070 | HuoHuo: 18.651
+Run    3: Team DPAV: 155393.089 | AventurineWaveflair: 136302.452 | Ashveil: 4076.394 | AeonAha: 14995.592 | HuoHuo: 18.651
+Run    4: Team DPAV: 152428.926 | AventurineWaveflair: 133899.753 | Ashveil: 3755.323 | AeonAha: 14755.199 | HuoHuo: 18.651
+Run    5: Team DPAV: 157181.013 | AventurineWaveflair: 138101.890 | Ashveil: 4054.460 | AeonAha: 15006.344 | HuoHuo: 18.319
+Run    6: Team DPAV: 153141.046 | AventurineWaveflair: 134426.589 | Ashveil: 4139.227 | AeonAha: 14557.014 | HuoHuo: 18.216
+Run    7: Team DPAV: 151255.005 | AventurineWaveflair: 132763.653 | Ashveil: 3563.103 | AeonAha: 14909.597 | HuoHuo: 18.651
+Run    8: Team DPAV: 154520.160 | AventurineWaveflair: 135560.737 | Ashveil: 3706.542 | AeonAha: 15234.187 | HuoHuo: 18.694
+Run    9: Team DPAV: 152424.943 | AventurineWaveflair: 134410.550 | Ashveil: 3553.106 | AeonAha: 14442.707 | HuoHuo: 18.580
+Run   10: Team DPAV: 152051.144 | AventurineWaveflair: 133440.242 | Ashveil: 4099.946 | AeonAha: 14492.637 | HuoHuo: 18.319
+Run   11: Team DPAV: 153510.034 | AventurineWaveflair: 134908.587 | Ashveil: 3595.941 | AeonAha: 14987.187 | HuoHuo: 18.319
+Run   12: Team DPAV: 149138.346 | AventurineWaveflair: 131332.672 | Ashveil: 3522.234 | AeonAha: 14264.860 | HuoHuo: 18.580
+Run   13: Team DPAV: 152147.855 | AventurineWaveflair: 133168.030 | Ashveil: 4194.227 | AeonAha: 14767.382 | HuoHuo: 18.216
+Run   14: Team DPAV: 154972.105 | AventurineWaveflair: 136018.458 | Ashveil: 4041.049 | AeonAha: 14894.382 | HuoHuo: 18.216
+Run   15: Team DPAV: 151909.084 | AventurineWaveflair: 133692.973 | Ashveil: 3594.935 | AeonAha: 14602.857 | HuoHuo: 18.319
+Run   16: Team DPAV: 151940.570 | AventurineWaveflair: 133792.335 | Ashveil: 3533.811 | AeonAha: 14596.209 | HuoHuo: 18.216
+Run   17: Team DPAV: 155812.781 | AventurineWaveflair: 136680.045 | Ashveil: 4144.116 | AeonAha: 14969.927 | HuoHuo: 18.694
+Run   18: Team DPAV: 154501.108 | AventurineWaveflair: 135557.393 | Ashveil: 4092.947 | AeonAha: 14832.074 | HuoHuo: 18.694
+Run   19: Team DPAV: 152640.659 | AventurineWaveflair: 133803.812 | Ashveil: 4058.081 | AeonAha: 14760.594 | HuoHuo: 18.173
+Run   20: Team DPAV: 155219.025 | AventurineWaveflair: 136454.941 | Ashveil: 3798.393 | AeonAha: 14946.997 | HuoHuo: 18.694
+Run   21: Team DPAV: 154450.605 | AventurineWaveflair: 135611.198 | Ashveil: 3974.337 | AeonAha: 14846.854 | HuoHuo: 18.216
+Run   22: Team DPAV: 154167.087 | AventurineWaveflair: 135330.845 | Ashveil: 4184.857 | AeonAha: 14632.733 | HuoHuo: 18.651
+Run   23: Team DPAV: 155569.166 | AventurineWaveflair: 136455.964 | Ashveil: 4093.970 | AeonAha: 15000.538 | HuoHuo: 18.694
+Run   24: Team DPAV: 152230.280 | AventurineWaveflair: 133658.008 | Ashveil: 3995.217 | AeonAha: 14558.737 | HuoHuo: 18.319
+Run   25: Team DPAV: 156515.696 | AventurineWaveflair: 137510.021 | Ashveil: 4067.235 | AeonAha: 14920.121 | HuoHuo: 18.319
+Run   26: Team DPAV: 152013.879 | AventurineWaveflair: 133682.655 | Ashveil: 3559.400 | AeonAha: 14753.608 | HuoHuo: 18.216
+Run   27: Team DPAV: 155760.387 | AventurineWaveflair: 136680.558 | Ashveil: 4062.408 | AeonAha: 14999.102 | HuoHuo: 18.319
+Run   28: Team DPAV: 152773.580 | AventurineWaveflair: 134215.750 | Ashveil: 3998.391 | AeonAha: 14540.902 | HuoHuo: 18.537
+Run   29: Team DPAV: 156337.827 | AventurineWaveflair: 137097.860 | Ashveil: 4065.660 | AeonAha: 15155.989 | HuoHuo: 18.319
+Run   30: Team DPAV: 151890.418 | AventurineWaveflair: 133144.253 | Ashveil: 4149.660 | AeonAha: 14578.290 | HuoHuo: 18.216
+Run   31: Team DPAV: 157995.439 | AventurineWaveflair: 138865.732 | Ashveil: 4268.071 | AeonAha: 14843.420 | HuoHuo: 18.216
+Run   32: Team DPAV: 153531.377 | AventurineWaveflair: 134954.939 | Ashveil: 3595.941 | AeonAha: 14961.803 | HuoHuo: 18.694
+Run   33: Team DPAV: 154302.235 | AventurineWaveflair: 135915.067 | Ashveil: 3633.734 | AeonAha: 14734.739 | HuoHuo: 18.694
+Run   34: Team DPAV: 155791.878 | AventurineWaveflair: 136736.579 | Ashveil: 4062.408 | AeonAha: 14974.196 | HuoHuo: 18.694
+Run   35: Team DPAV: 152195.470 | AventurineWaveflair: 133881.991 | Ashveil: 3559.400 | AeonAha: 14735.863 | HuoHuo: 18.216
+Run   36: Team DPAV: 149680.759 | AventurineWaveflair: 131798.974 | Ashveil: 3522.234 | AeonAha: 14340.972 | HuoHuo: 18.580
+Run   37: Team DPAV: 152478.200 | AventurineWaveflair: 133573.276 | Ashveil: 4237.801 | AeonAha: 14648.544 | HuoHuo: 18.580
+Run   38: Team DPAV: 150282.088 | AventurineWaveflair: 132248.475 | Ashveil: 3497.439 | AeonAha: 14518.002 | HuoHuo: 18.173
+Run   39: Team DPAV: 152253.698 | AventurineWaveflair: 133255.492 | Ashveil: 4212.609 | AeonAha: 14767.382 | HuoHuo: 18.216
+Run   40: Team DPAV: 151563.254 | AventurineWaveflair: 133072.069 | Ashveil: 3980.232 | AeonAha: 14492.634 | HuoHuo: 18.319
+Run   41: Team DPAV: 152495.098 | AventurineWaveflair: 134166.373 | Ashveil: 3505.442 | AeonAha: 14805.068 | HuoHuo: 18.216
+Run   42: Team DPAV: 150280.213 | AventurineWaveflair: 132214.306 | Ashveil: 3928.352 | AeonAha: 14118.976 | HuoHuo: 18.580
+Run   43: Team DPAV: 151829.861 | AventurineWaveflair: 132878.102 | Ashveil: 4224.911 | AeonAha: 14708.632 | HuoHuo: 18.216
+Run   44: Team DPAV: 154381.121 | AventurineWaveflair: 134797.728 | Ashveil: 4195.646 | AeonAha: 15369.097 | HuoHuo: 18.651
+Run   45: Team DPAV: 153031.045 | AventurineWaveflair: 134053.796 | Ashveil: 4147.106 | AeonAha: 14811.970 | HuoHuo: 18.173
+Run   46: Team DPAV: 154815.735 | AventurineWaveflair: 135841.768 | Ashveil: 4117.519 | AeonAha: 14838.232 | HuoHuo: 18.216
+Run   47: Team DPAV: 151379.287 | AventurineWaveflair: 133225.394 | Ashveil: 3523.816 | AeonAha: 14611.862 | HuoHuo: 18.216
+Run   48: Team DPAV: 157186.668 | AventurineWaveflair: 138156.423 | Ashveil: 4402.196 | AeonAha: 14609.834 | HuoHuo: 18.216
+Run   49: Team DPAV: 154361.786 | AventurineWaveflair: 135948.662 | Ashveil: 3659.690 | AeonAha: 14734.739 | HuoHuo: 18.694
+Run   50: Team DPAV: 155327.078 | AventurineWaveflair: 136477.711 | Ashveil: 3742.808 | AeonAha: 15088.240 | HuoHuo: 18.319
+Run   51: Team DPAV: 152554.234 | AventurineWaveflair: 133798.541 | Ashveil: 3995.773 | AeonAha: 14741.704 | HuoHuo: 18.216
+Run   52: Team DPAV: 154404.993 | AventurineWaveflair: 135443.016 | Ashveil: 4218.418 | AeonAha: 14725.229 | HuoHuo: 18.330
+Run   53: Team DPAV: 153751.593 | AventurineWaveflair: 134649.365 | Ashveil: 4209.792 | AeonAha: 14874.220 | HuoHuo: 18.216
+Run   54: Team DPAV: 149986.428 | AventurineWaveflair: 131677.977 | Ashveil: 3928.352 | AeonAha: 14361.520 | HuoHuo: 18.580
+Run   55: Team DPAV: 156183.964 | AventurineWaveflair: 137008.024 | Ashveil: 4144.116 | AeonAha: 15013.130 | HuoHuo: 18.694
+Run   56: Team DPAV: 156822.048 | AventurineWaveflair: 137503.501 | Ashveil: 4328.254 | AeonAha: 14971.974 | HuoHuo: 18.319
+Run   57: Team DPAV: 152314.933 | AventurineWaveflair: 133411.176 | Ashveil: 4170.024 | AeonAha: 14715.517 | HuoHuo: 18.216
+Run   58: Team DPAV: 153371.362 | AventurineWaveflair: 134442.716 | Ashveil: 4126.797 | AeonAha: 14783.633 | HuoHuo: 18.216
+Run   59: Team DPAV: 153230.371 | AventurineWaveflair: 134515.842 | Ashveil: 4166.968 | AeonAha: 14529.285 | HuoHuo: 18.276
+Run   60: Team DPAV: 157958.341 | AventurineWaveflair: 138809.439 | Ashveil: 4378.602 | AeonAha: 14752.084 | HuoHuo: 18.216
+Run   61: Team DPAV: 153617.571 | AventurineWaveflair: 134579.967 | Ashveil: 4220.807 | AeonAha: 14798.478 | HuoHuo: 18.319
+Run   62: Team DPAV: 154566.580 | AventurineWaveflair: 135470.756 | Ashveil: 4194.757 | AeonAha: 14882.373 | HuoHuo: 18.694
+Run   63: Team DPAV: 155321.055 | AventurineWaveflair: 136227.357 | Ashveil: 4113.205 | AeonAha: 14961.799 | HuoHuo: 18.694
+Run   64: Team DPAV: 151807.444 | AventurineWaveflair: 132902.042 | Ashveil: 4170.024 | AeonAha: 14717.162 | HuoHuo: 18.216
+Run   65: Team DPAV: 153463.761 | AventurineWaveflair: 134858.053 | Ashveil: 3595.941 | AeonAha: 14991.448 | HuoHuo: 18.319
+Run   66: Team DPAV: 156612.915 | AventurineWaveflair: 137290.129 | Ashveil: 4084.767 | AeonAha: 15219.325 | HuoHuo: 18.694
+Run   67: Team DPAV: 151942.044 | AventurineWaveflair: 133073.080 | Ashveil: 4260.590 | AeonAha: 14589.794 | HuoHuo: 18.580
+Run   68: Team DPAV: 153348.485 | AventurineWaveflair: 134799.550 | Ashveil: 3635.232 | AeonAha: 14895.487 | HuoHuo: 18.216
+Run   69: Team DPAV: 150024.142 | AventurineWaveflair: 132066.640 | Ashveil: 3497.439 | AeonAha: 14441.891 | HuoHuo: 18.173
+Run   70: Team DPAV: 152273.920 | AventurineWaveflair: 133942.696 | Ashveil: 3559.400 | AeonAha: 14753.608 | HuoHuo: 18.216
+Run   71: Team DPAV: 151873.239 | AventurineWaveflair: 132824.577 | Ashveil: 4313.284 | AeonAha: 14717.162 | HuoHuo: 18.216
+Run   72: Team DPAV: 151971.872 | AventurineWaveflair: 133417.869 | Ashveil: 4054.253 | AeonAha: 14481.056 | HuoHuo: 18.694
+Run   73: Team DPAV: 152127.692 | AventurineWaveflair: 133212.365 | Ashveil: 4134.915 | AeonAha: 14762.239 | HuoHuo: 18.173
+Run   74: Team DPAV: 157408.976 | AventurineWaveflair: 138397.674 | Ashveil: 4074.549 | AeonAha: 14918.478 | HuoHuo: 18.276
+Run   75: Team DPAV: 153540.510 | AventurineWaveflair: 134898.376 | Ashveil: 4077.979 | AeonAha: 14545.504 | HuoHuo: 18.651
+Run   76: Team DPAV: 155354.162 | AventurineWaveflair: 136169.345 | Ashveil: 4203.848 | AeonAha: 14962.753 | HuoHuo: 18.216
+Run   77: Team DPAV: 157436.912 | AventurineWaveflair: 138594.560 | Ashveil: 3999.435 | AeonAha: 14824.701 | HuoHuo: 18.216
+Run   78: Team DPAV: 154737.366 | AventurineWaveflair: 135676.236 | Ashveil: 4134.213 | AeonAha: 14908.745 | HuoHuo: 18.173
+Run   79: Team DPAV: 150194.627 | AventurineWaveflair: 132022.650 | Ashveil: 3589.099 | AeonAha: 14564.559 | HuoHuo: 18.319
+Run   80: Team DPAV: 155372.904 | AventurineWaveflair: 136271.691 | Ashveil: 4106.384 | AeonAha: 14976.614 | HuoHuo: 18.216
+Run   81: Team DPAV: 151213.159 | AventurineWaveflair: 133078.136 | Ashveil: 3579.950 | AeonAha: 14536.754 | HuoHuo: 18.319
+Run   82: Team DPAV: 153071.641 | AventurineWaveflair: 133990.887 | Ashveil: 4220.791 | AeonAha: 14841.748 | HuoHuo: 18.216
+Run   83: Team DPAV: 153573.187 | AventurineWaveflair: 134908.589 | Ashveil: 3708.113 | AeonAha: 14938.269 | HuoHuo: 18.216
+Run   84: Team DPAV: 151488.992 | AventurineWaveflair: 133213.091 | Ashveil: 3578.182 | AeonAha: 14679.067 | HuoHuo: 18.651
+Run   85: Team DPAV: 154638.005 | AventurineWaveflair: 135752.173 | Ashveil: 3597.526 | AeonAha: 15269.988 | HuoHuo: 18.319
+Run   86: Team DPAV: 156456.264 | AventurineWaveflair: 137116.679 | Ashveil: 4211.359 | AeonAha: 15109.908 | HuoHuo: 18.319
+Run   87: Team DPAV: 151255.005 | AventurineWaveflair: 132763.653 | Ashveil: 3563.103 | AeonAha: 14909.597 | HuoHuo: 18.651
+Run   88: Team DPAV: 152156.090 | AventurineWaveflair: 133761.671 | Ashveil: 3693.733 | AeonAha: 14681.991 | HuoHuo: 18.694
+Run   89: Team DPAV: 151920.042 | AventurineWaveflair: 132837.339 | Ashveil: 4252.732 | AeonAha: 14811.695 | HuoHuo: 18.276
+Run   90: Team DPAV: 155443.845 | AventurineWaveflair: 136379.311 | Ashveil: 4067.348 | AeonAha: 14978.535 | HuoHuo: 18.651
+Run   91: Team DPAV: 151634.006 | AventurineWaveflair: 133327.731 | Ashveil: 3692.098 | AeonAha: 14595.483 | HuoHuo: 18.694
+Run   92: Team DPAV: 155083.480 | AventurineWaveflair: 136142.899 | Ashveil: 4109.218 | AeonAha: 14812.783 | HuoHuo: 18.580
+Run   93: Team DPAV: 149368.566 | AventurineWaveflair: 131562.892 | Ashveil: 3522.234 | AeonAha: 14264.860 | HuoHuo: 18.580
+Run   94: Team DPAV: 153049.381 | AventurineWaveflair: 134245.300 | Ashveil: 4050.327 | AeonAha: 14735.538 | HuoHuo: 18.216
+Run   95: Team DPAV: 154951.966 | AventurineWaveflair: 135895.005 | Ashveil: 4200.514 | AeonAha: 14838.232 | HuoHuo: 18.216
+Run   96: Team DPAV: 154812.387 | AventurineWaveflair: 136419.241 | Ashveil: 3641.358 | AeonAha: 14733.093 | HuoHuo: 18.694
+Run   97: Team DPAV: 157609.479 | AventurineWaveflair: 138338.593 | Ashveil: 4263.470 | AeonAha: 14988.766 | HuoHuo: 18.651
+Run   98: Team DPAV: 151935.429 | AventurineWaveflair: 133621.950 | Ashveil: 3559.400 | AeonAha: 14735.863 | HuoHuo: 18.216
+Run   99: Team DPAV: 153891.105 | AventurineWaveflair: 135156.486 | Ashveil: 3610.926 | AeonAha: 15105.373 | HuoHuo: 18.319
+Run  100: Team DPAV: 153889.900 | AventurineWaveflair: 135140.213 | Ashveil: 3597.526 | AeonAha: 15133.468 | HuoHuo: 18.694
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 153520.707
+Average AventurineWaveflair DPAV: 134783.757 Percentage: 87.795%
+Average Ashveil DPAV: 3937.775 Percentage: 2.565%
+Average AeonAha DPAV: 14780.767 Percentage: 9.628%
+Average HuoHuo DPAV: 18.408 Percentage: 0.012%
+
+Min Team DPAV: 149138.346
+Max Team DPAV: 157995.439

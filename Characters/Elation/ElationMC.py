@@ -4,11 +4,14 @@ from Buff import *
 from Delay_Text import Advance
 from Character import Character
 from Lightcones.Elation.ElationBrimmingWithBlessings import ElationBrimmingWithBlessingsElationMC
+from Lightcones.Elation.SeeYouAtTheWorldsEnd import SeeYouAtTheWorldsEnd
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresEMC
 from Planars.BrokenKeel import BrokenKeel
 from Planars.SprightlyVonwacq import SprightlyVonwacq
+from Planars.TengokuLivestream import TengokuLivestream
 from RelicStats import RelicStats
 from Relics.DreamlitActor import DreamlitActor
+from Relics.EverGloriousMagicalGirl import EverGloriousMagicalGirl
 from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
@@ -51,8 +54,13 @@ class ElationMC(Character):
     EvanesciaInTeam = False
     AhaInTeam = False
     AhaEidolon = 0
+    PearlUltCount = 0
 
     # Relic Settings
+    # Support build:
+    # self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+    # Dps build:
+    # self.relicStats = subs if subs else RelicStats(7, 2, 2, 2, 2, 6, 2, 2, 2, 2, 9, 10, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
     # First 12 entries are sub rolls: SPD, HP, ATK, DEF, HP%, ATK%, DEF%, BE%, EHR%, RES%, CR%, CD%
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
 
@@ -64,8 +72,7 @@ class ElationMC(Character):
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else BrokenKeel(role)
-        self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT,
-                                                       StatTypes.SPD,StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.relicStats = subs if subs else RelicStats(12, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 6, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.targetRole = targetRole
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
@@ -206,7 +213,7 @@ class ElationMC(Character):
                 AhaExtraBuffRetain = 0.2 if self.AhaEidolon >= 2 else 0.1
             else:
                 AhaExtraBuffRetain = 0.0
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier * AhaExtraBuffRetain, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.END))
             Character.SharedPunchline -= (60*(1-AhaExtraBuffRetain)) * Character.PearlE2Modifier
             Character.PearlUlt = False
@@ -220,7 +227,8 @@ class ElationMC(Character):
             self.bangerBonus = min(self.bangerBonus + 2, 2)
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
-            bl.append(Buff("PearlAestheticArchetypeBanger", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
+            self.PearlUltCount += 1
+            bl.append(Buff(f"PearlAestheticArchetypeBanger{self.PearlUltCount}", StatTypes.BANGER, 30 * Character.PearlE2Modifier, self.role,
                            [AtkType.ALL], 2, 1, self.role, TickDown.PERM))
             Character.SharedPunchline += 60 * Character.PearlE2Modifier
 

@@ -1,0 +1,79 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  2 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  AventurineWaveflair e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 152943.423  |  min: 141733.069  |  max: 164526.812  |  95% CI margin of error: +/-0.75%
+    AventurineWaveflair  avg DPAV: 113396.822  (74.1%)
+      - ELABANGER  avg DMG: 33637143.966  (53.9% of AventurineWaveflair's DMG)
+      - ELAPUNCH   avg DMG: 26610983.308  (42.7% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 1303529.676  (2.1% of AventurineWaveflair's DMG)
+    YaoGuang             avg DPAV: 11501.410  (7.5%)
+      - ELAPUNCH   avg DMG: 5924917.294  (93.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 377164.380  (6.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 23693.971  (0.4% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 27536.507  (18.0%)
+      - ELABANGER  avg DMG: 13178599.877  (87.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1949480.685  (12.9% of AeonAha's DMG)
+      - BRK        avg DMG: 16564.280  (0.1% of AeonAha's DMG)
+    Pearl                avg DPAV: 508.683  (0.3%)
+      - ELABANGER  avg DMG: 227415.077  (81.3% of Pearl's DMG)
+      - BSC        avg DMG: 52360.656  (18.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 6233955.0
+    Enemy 0 (ADD)  avg Overkill: 1031080.1
+    Enemy 1 (ELITE)  avg Overkill: 3097699.7
+    Enemy 2 (BOSS)  avg Overkill: 52290.4
+    Enemy 3 (ADD)  avg Overkill: 1017462.6
+    Enemy 4 (ADD)  avg Overkill: 1035422.2
+  DPAV only (select the lines below):
+113396.822
+11501.410
+27536.507
+508.683
+
+  AventurineWaveflair e0s1 | AeonAha e0s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 168837.200  |  min: 158051.925  |  max: 176046.811  |  95% CI margin of error: +/-0.60%
+    AventurineWaveflair  avg DPAV: 125110.883  (74.1%)
+      - ELABANGER  avg DMG: 36762951.267  (53.4% of AventurineWaveflair's DMG)
+      - ELAPUNCH   avg DMG: 29632434.731  (43.1% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 1473972.415  (2.1% of AventurineWaveflair's DMG)
+    AeonAha              avg DPAV: 30499.725  (18.1%)
+      - ELABANGER  avg DMG: 14704939.621  (87.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2052529.124  (12.2% of AeonAha's DMG)
+      - BRK        avg DMG: 16938.439  (0.1% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12695.644  (7.5%)
+      - ELAPUNCH   avg DMG: 6531425.792  (93.5% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 425109.689  (6.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 26068.643  (0.4% of YaoGuang's DMG)
+    Pearl                avg DPAV: 530.949  (0.3%)
+      - ELABANGER  avg DMG: 234716.199  (80.4% of Pearl's DMG)
+      - BSC        avg DMG: 57305.667  (19.6% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 8684060.0
+    Enemy 0 (ADD)  avg Overkill: 1200725.2
+    Enemy 1 (ELITE)  avg Overkill: 5054179.8
+    Enemy 2 (BOSS)  avg Overkill: 103744.5
+    Enemy 3 (ADD)  avg Overkill: 1166954.0
+    Enemy 4 (ADD)  avg Overkill: 1158456.5
+  DPAV only (select the lines below):
+125110.883
+30499.725
+12695.644
+530.949
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  152943.423  —  AventurineWaveflair e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s0
+  #2  168837.200  —  AventurineWaveflair e0s1 | AeonAha e0s1 | Yao Guang e0s0 | Pearl e0s0
+
+======================================================================
+

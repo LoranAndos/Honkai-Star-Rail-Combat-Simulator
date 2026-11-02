@@ -58,7 +58,7 @@ class Pearl(Character):
 
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
-                 eidolon=0, targetRole=Role.DPS, rotation=None, targetPrio=Priority.DEFAULT,
+                 eidolon=0, targetRole=Role.DPS, rotation=None, ultTargetMode="dps", targetPrio=Priority.DEFAULT,
                  elationParticipationID=104) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else MushyShroomysAdventuresPearl(role, 5)
@@ -89,7 +89,7 @@ class Pearl(Character):
         # "sparxie" = always targets Sparxie. Set
         # directly on the instance at team-construction time, e.g.
         # `pearl.ultTargetMode = "dps"`.
-        self.ultTargetMode = "energy"
+        self.ultTargetMode = ultTargetMode if ultTargetMode else "dps"
         # Alternation state: which target Ult used LAST time, so the next
         # Ult flips to the other one. Starts False so the very first Ult
         # in "alternate" mode goes to YaoGuang (mirrors "energy" mode's

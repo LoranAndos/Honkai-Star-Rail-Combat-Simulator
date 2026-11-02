@@ -1784,7 +1784,8 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     "SilverWolf999": "AhaSilverWolf999GoGo",
                     "ElationMC": "AhaElationMCGoGo",}
                 targetElaSkillTurn = elaSkillTurnMap.get(targetChar.name, "")
-                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=atkStat, attr4=TotalSPD, attr5=charBanger, attr6=BangerDict, attr7=targetHasElaSkill, attr8=targetElaSkillTurn, attr9=EvanesciaInTeam, attr10=AhaInTeam, attr11=AhaEidolon, enemies=gauge)
+                charELA = getCharStat(StatTypes.ELA, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
+                return Special(name=specStr, attr1=AHASpdBuffAmount, attr2=TotalElationChar, attr3=atkStat, attr4=TotalSPD, attr5=charBanger, attr6=BangerDict, attr7=targetHasElaSkill, attr8=targetElaSkillTurn, attr9=EvanesciaInTeam, attr10=AhaInTeam, attr11=AhaEidolon, attr12=charELA, enemies=gauge)
 
             case "Evanescia":
                 SpdList = []
