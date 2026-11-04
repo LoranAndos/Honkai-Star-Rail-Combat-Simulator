@@ -101,15 +101,15 @@ class Tribbie(Character):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.TotalDamage > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*len(result.enemiesHit),0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
             bl.append(Buff(f"TribbieTrace1Energy{self.TriggerCount}", StatTypes.ERR_T, 1.5*len(result.enemiesHit), self.role, [AtkType.ALL], 1, 100, self.role, TickDown.START))
             self.TriggerCount += 1
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.TotalDamage > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*self.E2AddMultiplier,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
@@ -123,16 +123,16 @@ class Tribbie(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
         e3AdditionalMulti = 0.132 if self.eidolon >= 3 else 0.12
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.turnDmg > 0 and self.UltIsActive == True:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon < 2 and result.TotalDamage > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.SINGLE, [AtkType.ADD], [self.element],
                      [e3AdditionalMulti * len(result.enemiesHit),0], [0, 0], 0, self.scaling, 0,
                      "TribbieAdditionalDamage"))
             # Change target to enemy with highest hp once hp for enemies and them taking damage has been coded
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
             bl.append(Buff(f"TribbieTrace1Energy{self.TriggerCount}", StatTypes.ERR_T, 1.5 * len(result.enemiesHit), self.role))
             self.TriggerCount += 1
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.turnDmg > 0 and self.UltIsActive == True:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and self.eidolon >= 2 and result.TotalDamage > 0 and self.UltIsActive == True:
             tl.append(Turn(self.name,self.role, self.bestEnemy(enemyID=-1),Targeting.SINGLE,[AtkType.ADD],[self.element],
                            [e3AdditionalMulti*(len(result.enemiesHit)+1)*self.E2AddMultiplier,0],[0,0],0,self.scaling,0,"TribbieAdditionalDamage"))
             #Change target to enemy with highest hp once hp for enemies and them taking damage has been coded

@@ -61,7 +61,7 @@ class Pearl(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, ultTargetMode="dps", targetPrio=Priority.DEFAULT,
                  elationParticipationID=104) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresPearl(role, 5)
+        self.lightcone = lc if lc else ColorsForTomorrow(role, 1)
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)
@@ -413,14 +413,14 @@ class Pearl(Character):
         # Diagnostic: log every damaging, non-bonus Turn from any of the 3
         # tracked ally roles, regardless of whether it ends up matching
         # anything below, so we can see exactly what's reaching this point.
-        if turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.charRole in (self.ally1Role, self.ally2Role, self.ally3Role):
+        if turn.moveName not in bonusDMG and result.TotalDamage > 0 and turn.charRole in (self.ally1Role, self.ally2Role, self.ally3Role):
             logger.debug(f"[PearlELABonus] saw {turn.charRole} moveName={turn.moveName} "
                         f"inElationSkillList={turn.moveName in ElationSkillList} "
                         f"ally1Role={self.ally1Role}(proc={self.ally1Proc}) "
                         f"ally2Role={self.ally2Role}(proc={self.ally2Proc}) "
                         f"ally3Role={self.ally3Role}(proc={self.ally3Proc})")
 
-        if turn.charRole == self.ally1Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.ally1Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally1Role and self.ally1Proc == True):
+        if turn.charRole == self.ally1Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.ally1Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally1Role and self.ally1Proc == True):
             ally1Char = next((c for c in (Character._current_player_team or []) if c.role == self.ally1Role), None)
             ally1IsSilverWolf = ally1Char is not None and ally1Char.name == "SilverWolf999"
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
@@ -446,7 +446,7 @@ class Pearl(Character):
             # ally1Proc == True so it's still armed for their actual
             # Elation Skill Turn right after, instead of getting consumed
             # early by whatever they did to trigger it.
-        if turn.charRole == self.ally2Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.ally2Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally2Role and self.ally2Proc == True):
+        if turn.charRole == self.ally2Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.ally2Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally2Role and self.ally2Proc == True):
             ally2Char = next((c for c in (Character._current_player_team or []) if c.role == self.ally2Role), None)
             ally2IsSilverWolf = ally2Char is not None and ally2Char.name == "SilverWolf999"
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":
@@ -461,7 +461,7 @@ class Pearl(Character):
                                [e5Mul*e4ExtraMul, 0], [0, 0], 0, Scaling.ELA, 0, "PearlELASkillBonusDMG"))
                 logger.debug("[PearlELABonus] FIRED ELABANGER bonus for ally2")
                 self.ally2Proc = False
-        if turn.charRole == self.ally3Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.ally3Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally3Role and self.ally3Proc == True):
+        if turn.charRole == self.ally3Role and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.ally3Proc == True or (turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill" and turn.charRole == self.ally3Role and self.ally3Proc == True):
             ally3Char = next((c for c in (Character._current_player_team or []) if c.role == self.ally3Role), None)
             ally3IsSilverWolf = ally3Char is not None and ally3Char.name == "SilverWolf999"
             if turn.moveName in ElationSkillList and turn.moveName != "SilverWolf999NormalELASkill":

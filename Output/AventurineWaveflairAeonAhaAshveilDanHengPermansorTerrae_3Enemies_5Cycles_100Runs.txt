@@ -1,0 +1,6 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 136775.437 | AventurineWaveflair: 112972.574 | AeonAha: 20087.369 | Ashveil: 3521.955 | DanHengPermansorTerrae: 193.539
+Run    2: Team DPAV: 141978.218 | AventurineWaveflair: 117525.465 | AeonAha: 20643.027 | Ashveil: 3616.187 | DanHengPermansorTerrae: 193.539
+Run    3: Team DPAV: 135228.628 | AventurineWaveflair: 110703.927 | AeonAha: 20641.225 | Ashveil: 3690.904 | DanHengPermansorTerrae: 192.572

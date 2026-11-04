@@ -234,7 +234,7 @@ class MortenaxBlade(Character):
         e3DefShred = 0.32 if self.eidolon >= 3 else 0.30
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         ChargeCap = 7 if self.eidolon >= 2 else 9
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.EnhancedState:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.EnhancedState:
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, Role.ALL, [AtkType.ALL], 2))
             dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, Role.ALL, [AtkType.ALL], 2))
         if result.turnName == ("MortenaxBladeEnhancedBasic" or "MortenaxBladeBasic"):
@@ -274,7 +274,7 @@ class MortenaxBlade(Character):
         e3Vul = 0.54 if self.eidolon >= 3 else 0.50
         ChargeCap = 7 if self.eidolon >= 2 else 9
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.EnhancedState:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.EnhancedState:
             dbl.append(Debuff("MortenaxBladeUltVul", self.role, StatTypes.VULN, e3Vul, turn.targetID, [AtkType.ALL], 2))
             dbl.append(Debuff("MortenaxBladeUltShred", self.role, StatTypes.SHRED, e3DefShred, turn.targetID, [AtkType.ALL], 2))
             self.ChargeCount += 1

@@ -157,7 +157,7 @@ class Archer(Character):
 
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.FUACharge > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.FUACharge > 0:
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
         if self.SPAmount >= 4 and turn.spChange >= 1 or turn.spChange >= 4:
             bl.append(Buff("Trace3CD", StatTypes.CD_PERCENT,1.20, self.role,[AtkType.ALL],1,1, Role.SELF, TickDown.END))

@@ -4,8 +4,10 @@ from Buff import *
 from Character import Character
 from Lightcones.Preservation.DHPT_Lightcone_Aeon import DHPT_Lightcone_Aeon
 from Planars.LushakaTheSunkenSeas import LushakaTheSunkenSeas
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.SelfEnshroudedRecluse import SelfEnshroudedRecluse
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
 from Delay_Text import Advance
@@ -36,6 +38,7 @@ class DangHengPermansorTerrae(Character):
 
     # Unique Character Properties
     bondmateRole = None     # Role of the current Bondmate (most recent Skill target)
+    count = 0
     AtkStat = 0.0
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
@@ -175,8 +178,10 @@ class DangHengPermansorTerrae(Character):
                              Targeting.SINGLE, 3.0, False, 3, self.role, TickDown.END))
         if turn.moveName == "SoulDragonAttack":
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
-        if turn.charRole == self.targetRole and turn.moveName not in bonusDMG and result.turnDmg > 0:
-            bl.append(Buff("DanHengPermansorTerraeTrace2ERR", StatTypes.ERR_T, 6, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+        if turn.charRole == self.targetRole and turn.moveName not in bonusDMG and result.TotalDamage > 0:
+            bl.append(Buff(f"DanHengPermansorTerraeTrace2ERR{self.count}", StatTypes.ERR_T, 6, self.role, [AtkType.ALL], 1, 1, Role.SELF, TickDown.START))
+            self.count += 1
+            logger.debug("DanHengPermansorTerrae obtained energy from targetrole action")
             al.append(Advance("DanHengPermansorTerraeTrace2SouldragonAdvance", Role.SOULDRAGON, 0.15))
         return bl, dbl, al, dl, tl, hl, sl
 

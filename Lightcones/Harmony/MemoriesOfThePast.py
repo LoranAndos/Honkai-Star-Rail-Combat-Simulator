@@ -25,7 +25,7 @@ class MemoriesOfThePast(Lightcone):
 
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
-        if result.turnDmg > 0 and result.turnName not in bonusDMG:
+        if result.TotalDamage > 0 and result.turnName not in bonusDMG:
             errGain = self.level + 3
             bl.append(Buff("MotpBonusEnergy", StatTypes.ERR_T, errGain, self.wearerRole, [AtkType.ALL], 1, 1, Role.SELF,TickDown.PERM))
         return bl, dbl, al, dl, hl, sl

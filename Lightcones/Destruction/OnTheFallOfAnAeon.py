@@ -20,7 +20,7 @@ class OnTheFallOfAnAeon(Lightcone):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         AtkBuff = self.level * 0.02 + 0.06
         DmgBuff = self.level * 0.03 + 0.09
-        if turn.moveName not in bonusDMG and result.turnDmg > 0:
+        if turn.moveName not in bonusDMG and result.TotalDamage > 0:
             self.AttackCount += 1
             bl.append(Buff("AeonATK", StatTypes.ATK_PERCENT, min(self.AttackCount,4)*AtkBuff, self.wearerRole,[AtkType.ALL], 1, 1, Role.SELF, TickDown.PERM))
         if result.brokenEnemy:

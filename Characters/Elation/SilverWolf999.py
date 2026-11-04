@@ -528,7 +528,7 @@ class SilverWolf999(Character):
             while i < LootboxProcs:
                 self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
                 i += 1
-        if self.godmodeActive == True and turn.moveName not in bonusDMG and result.turnDmg > 0 and turn.spChange <= -1 and turn.moveName != "SparxieSkill":
+        if self.godmodeActive == True and turn.moveName not in bonusDMG and result.TotalDamage > 0 and turn.spChange <= -1 and turn.moveName != "SparxieSkill":
             self._triggerTopLootBox(turn.targetID, tl, bl, is_sp_triggered=True)
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)

@@ -402,20 +402,22 @@ def team_AventurineWaveflair_Yaoguang_AeonAha_e2s1Pearl():
     s4 = Pearl(3, Role.SUS,   1, eidolon=2,lc=Lightcones.Elation.ColorsForTomorrow.ColorsForTomorrow(Role.SUS,1))
     return s1, s2, s3, s4
 
-def team_SilverWolf999_SWLCAeonAha_YaoGuang_Pearl():
-
-    s1 = SilverWolf999(0, Role.DPS,   1, eidolon=0)
-    s2 = AeonAha(1, Role.SUP1, 1, lc=Lightcones.Elation.WelcomeToTheCosmicCity.WelcometotheCosmicCity(Role.SUP1,1), rotation=["E","A","A"],subs=RelicStats(5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 10, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.HP_PERCENT, StatTypes.DEF_PERCENT) ,eidolon=0)
-    s3 = YaoGuang(2, Role.SUP2, 1, eidolon=0, rotation=["E"])
-    s4 = Pearl(3, Role.SUS,   1, eidolon=0, ultTargetMode="energy", rotation=["E"])
-    return s1, s2, s3, s4
-
 
 
 # ── Register teams here ──────────────────────────────────────
 TEAMS = [
-    {"name": "SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0",
-     "factory": team_SilverWolf999_SWLCAeonAha_YaoGuang_Pearl},
+        {"name": "AventurineWaveflair e0s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_AventurineWaveflair_MortenaxBlade_Ashveil_Huohuo},
+        {"name": "AventurineWaveflair e0s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_AventurineWaveflair_AeonAha_Ashveil_Huohuo},
+        {"name": "AventurineWaveflair e1s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_e1s1AventurineWaveflair_MortenaxBlade_Ashveil_Huohuo},
+        {"name": "AventurineWaveflair e1s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_e1s1AventurineWaveflair_AeonAha_Ashveil_Huohuo},
+        {"name": "AventurineWaveflair e1s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_e1s1AventurineWaveflair_e2s0AeonAha_Ashveil_Huohuo},
+        {"name": "AventurineWaveflair e2s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0",
+         "factory": team_e2s1AventurineWaveflair_e2s0AeonAha_Ashveil_Huohuo},
 ]
 
 

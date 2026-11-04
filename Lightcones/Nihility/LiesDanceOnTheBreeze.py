@@ -27,9 +27,9 @@ class LiesDanceOnTheBreeze(Lightcone):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn,result)
         BigDefReduction = self.level * 0.02 + 0.14
         SmallDefReduction = self.level * 0.01 + 0.07
-        if turn.moveName not in bonusDMG and result.turnDmg > 0 and result.enemiesHit:
+        if turn.moveName not in bonusDMG and result.TotalDamage > 0 and result.enemiesHit:
             dbl.append(Debuff("LiesDanceBigShred", self.wearerRole, StatTypes.SHRED, BigDefReduction, Role.ALL, [AtkType.ALL], 2,1, Targeting.AOE))
-        if turn.moveName not in bonusDMG and result.turnDmg > 0 and result.enemiesHit and self.SpdTreshpoint:
+        if turn.moveName not in bonusDMG and result.TotalDamage > 0 and result.enemiesHit and self.SpdTreshpoint:
             dbl.append(Debuff("LiesDanceSmallShred", self.wearerRole, StatTypes.SHRED, SmallDefReduction, Role.ALL, [AtkType.ALL], 2,1, Targeting.AOE))
         return bl, dbl, al, dl, hl, sl
 

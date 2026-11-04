@@ -5,8 +5,10 @@ from Character import Character
 from Lightcones.Hunt.TheFinaleOfALie import TheFinaleOfALie
 from Lightcones.Hunt.CruisingInTheStellarSea import CruisingInTheStellarSea
 from Planars.CityOfConvergingStars import CityOfConvergingStars
+from Planars.SprightlyVonwacq import SprightlyVonwacq
 from RelicStats import RelicStats
 from Relics.TheAshblazingGrandDuke import DukeAshveil
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -48,16 +50,18 @@ class Ashveil(Character):
     # Last 4 entries are main stats: Body, Boots, Sphere, Rope
     # With Sparkle:
     # self.relicStats = subs if subs else RelicStats(2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 14, 9, StatTypes.CR_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+    # As support with Waven:
+    #
 
     def __init__(self, pos: int, role: Role, defaultTarget: int = -1, lc=None, r1=None, r2=None, pl=None, subs=None,
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else CruisingInTheStellarSea(role, 5)
-        self.relic1 = r1 if r1 else DukeAshveil(role, 4)
+        self.relic1 = r1 if r1 else EagleOfTwilightLine(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else CityOfConvergingStars(role)
-        self.relicStats = subs if subs else RelicStats(2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 12, 11, StatTypes.CR_PERCENT, StatTypes.SPD,
-                                                       StatTypes.ATK_PERCENT, StatTypes.ATK_PERCENT)
+        self.planar = pl if pl else SprightlyVonwacq(role)
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 3, 2, 2, 2, 2, 9, 8, StatTypes.CR_PERCENT, StatTypes.SPD,
+                                                       StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.GluttonyCap = 18 if self.eidolon >= 2 else 12
 
@@ -153,10 +157,10 @@ class Ashveil(Character):
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         self._updateE1VULN(dbl)
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
             bl.append(Buff(f"AshveilTalentEnergy{self.Counter}", StatTypes.ERR_F, 8, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.END))
             self.Counter += 1
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 and self.Charge > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 and self.Charge > 0:
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
         return bl, dbl, al, dl, tl, hl, sl
 

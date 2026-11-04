@@ -5,9 +5,11 @@ from Character import Character
 from Lightcones.Elation.UponTheFirstEchoOfAha import UponTheFirstEchoOfAha
 from Lightcones.Elation.MushyShroomyAdventures import MushyShroomysAdventuresAeonAha
 from Lightcones.Elation.SeeYouAtTheWorldsEnd import SeeYouAtTheWorldsEnd
+from Lightcones.Elation.WelcomeToTheCosmicCity import WelcometotheCosmicCity
 from Planars.GodsMomentOfJoy import GodsMomentOfJoy
 from RelicStats import RelicStats
 from Relics.DreamlitActor import DreamlitActor
+from Relics.EagleOfTwilightLine import EagleOfTwilightLine
 from Result import *
 from Turn_Text import Turn
 from Healing import *
@@ -124,8 +126,6 @@ class AeonAha(Character):
         20% Advance it grants is not wasted."""
         if not super().canUseUlt():
             return False
-        if not self.EvaInTeam:
-            return True
         summon = self.ahaSummon
         if summon is None or summon.currSPD <= 0:
            return True
@@ -135,8 +135,8 @@ class AeonAha(Character):
     def useBsc(self, enemyID=-1):
         bl, dbl, al, dl, tl, hl, sl = super().useBsc(enemyID)
         e3Mul = 0.55 if self.eidolon >= 3 else 0.50
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.BSC,AtkType.ELABANGER],
-[self.element],[e3Mul, 0], [10, 0], 0, self.scaling, 1, "AeonAhaBasic"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER, AtkType.BSC],
+[self.element],[e3Mul, 0], [10, 0], 0, Scaling.ELA, 1, "AeonAhaBasic"))
         self.currEnergy += 1
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -144,8 +144,8 @@ class AeonAha(Character):
         bl, dbl, al, dl, tl, hl, sl = super().useSkl(enemyID)
         e5Mul = 0.55 if self.eidolon >= 5 else 0.50
         e5ELABuff = 0.22 if self.eidolon >= 5 else 0.20
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.FUA, AtkType.ELABANGER],
-                 [self.element], [e5Mul, 0], [10, 0], 0, self.scaling, -1, "AeonAhaSkill"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER, AtkType.FUA],
+                 [self.element], [e5Mul, 0], [10, 0], 0, Scaling.ELA, -1, "AeonAhaSkill"))
         tl.append(Turn(self.DPSName, self.targetRole, self.bestEnemy(enemyID),
                        Targeting.AOE, [AtkType.ELABANGER, AtkType.FUA], [self.DPSElement],
                        [0.20, 0], [0, 0], 0, Scaling.ELA, 0, "AhaDPSSkill"))
@@ -168,11 +168,11 @@ class AeonAha(Character):
             al.append(Advance("AhaADV", Role.AHA, 0.20))
         self.UltActive = True
         self.UltTurns = 3
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ULT, AtkType.ELABANGER],
-                 [self.element], [e3MulBig, 0], [20, 0], 0, self.scaling, 0, "AeonAhaUlt"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER, AtkType.ULT],
+                 [self.element], [e3MulBig, 0], [20, 0], 0, Scaling.ELA, 0, "AeonAhaUlt"))
         for _ in range(5):
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ULT, AtkType.ELABANGER],
-                     [self.element], [e3MulSmall, 0], [5, 0], 0, self.scaling, 0, "AeonAhaUltExtra"))
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER, AtkType.ULT],
+                     [self.element], [e3MulSmall, 0], [5, 0], 0, Scaling.ELA, 0, "AeonAhaUltExtra"))
         return bl, dbl, al, dl, tl, hl, sl
 
     ELA_SEQUENCE_END = ("AhaElationSequenceComplete", "AhaElationFixedSequenceComplete", "AhaElationFixedEMCSequenceComplete")
@@ -272,13 +272,13 @@ class AeonAha(Character):
             e5Mul = 0.63
         else:
             e5Mul = 0.60
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [e5Mul*Character.ahaElaDMGBoost, 0], [10, 0], 0, self.scaling, 0, "AeonAhaELASkill"))
+        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELAPUNCH],
+                       [self.element], [e5Mul*Character.ahaElaDMGBoost, 0], [10, 0], 0, Scaling.ELA, 0, "AeonAhaELASkill"))
         # Then True DMG = 20% of the non-True DMG allies dealt this Instant, split equally over all
         # enemies. The pool is read when this Turn resolves (see handleTurn in MainFunctions.py).
         trueMul = 0.20 * 1.25 if self.eidolon >= 4 else 0.20
         tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.ALL],
-                       [self.element], [trueMul, 0], [0, 0], 0, self.scaling, 0, "AeonAhaELATrueDMG"))
+                       [self.element], [trueMul, 0], [0, 0], 0, Scaling.ELA, 0, "AeonAhaELATrueDMG"))
         self.currEnergy += 1
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -305,7 +305,7 @@ class AeonAha(Character):
             Character.ahaFixedPunchlineValue = 20
             Character.ahaFixedPunchline = True
             tl.append(Turn(self.name, self.role, -1, Targeting.NA, [AtkType.TECH], [self.element], [0, 0], [0, 0], 0,
-                           self.scaling,0, "AeonAhaTech"))
+                           Scaling.ELA,0, "AeonAhaTech"))
 
         if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
             self.currEnergy += 1

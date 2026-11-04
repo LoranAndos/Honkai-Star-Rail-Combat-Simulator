@@ -1,0 +1,191 @@
+
+======================================================================
+  MULTI MODE  |  100 runs  |  5 cycles  |  6 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (100 runs, 5 cycles)
+======================================================================
+
+  AventurineWaveflair e0s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 60048.686  |  min: 56498.756  |  max: 63294.200  |  95% CI margin of error: +/-0.41%
+    AventurineWaveflair  avg DPAV: 47989.348  (79.9%)
+      - ELAPUNCH   avg DMG: 18149157.514  (68.8% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 5699778.192  (21.6% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 1424644.215  (5.4% of AventurineWaveflair's DMG)
+    MortenaxBlade        avg DPAV: 5413.443  (9.0%)
+      - FUA        avg DMG: 1380460.157  (46.4% of MortenaxBlade's DMG)
+      - ULT        avg DMG: 1074746.179  (36.1% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 507891.352  (17.1% of MortenaxBlade's DMG)
+    Ashveil              avg DPAV: 6597.644  (11.0%)
+      - FUA        avg DMG: 2873205.222  (79.2% of Ashveil's DMG)
+      - ULT        avg DMG: 391945.088  (10.8% of Ashveil's DMG)
+      - SKL        avg DMG: 352387.879  (9.7% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 48.251  (0.1%)
+      - BSC        avg DMG: 26537.921  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 796461.6
+    Enemy 0 (ELITE)  avg Overkill: 138544.4
+    Enemy 1 (BOSS)  avg Overkill: 507394.1
+    Enemy 2 (ELITE)  avg Overkill: 150523.0
+  DPAV only (select the lines below):
+47989.348
+5413.443
+6597.644
+48.251
+
+  AventurineWaveflair e0s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 71860.741  |  min: 65883.201  |  max: 81069.817  |  95% CI margin of error: +/-0.78%
+    AventurineWaveflair  avg DPAV: 50860.957  (70.8%)
+      - ELAPUNCH   avg DMG: 20766868.238  (74.2% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 6140332.002  (22.0% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 596924.953  (2.1% of AventurineWaveflair's DMG)
+    AeonAha              avg DPAV: 17720.090  (24.7%)
+      - ELABANGER  avg DMG: 8234378.891  (84.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1478589.139  (15.2% of AeonAha's DMG)
+      - BRK        avg DMG: 33081.373  (0.3% of AeonAha's DMG)
+    Ashveil              avg DPAV: 3261.522  (4.5%)
+      - FUA        avg DMG: 1471298.686  (82.0% of Ashveil's DMG)
+      - ULT        avg DMG: 173188.590  (9.7% of Ashveil's DMG)
+      - SKL        avg DMG: 139385.059  (7.8% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 18.173  (0.0%)
+      - BSC        avg DMG: 9995.232  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2094078.5
+    Enemy 0 (ELITE)  avg Overkill: 164471.0
+    Enemy 1 (BOSS)  avg Overkill: 1762399.9
+    Enemy 2 (ELITE)  avg Overkill: 167207.6
+  DPAV only (select the lines below):
+50860.957
+17720.090
+3261.522
+18.173
+
+  AventurineWaveflair e1s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 95303.367  |  min: 87577.126  |  max: 102407.336  |  95% CI margin of error: +/-0.69%
+    AventurineWaveflair  avg DPAV: 80727.247  (84.7%)
+      - ELAPUNCH   avg DMG: 33410948.205  (75.2% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 7635698.001  (17.2% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 1784623.900  (4.0% of AventurineWaveflair's DMG)
+    MortenaxBlade        avg DPAV: 6153.288  (6.5%)
+      - FUA        avg DMG: 1703858.488  (50.3% of MortenaxBlade's DMG)
+      - ULT        avg DMG: 1109671.397  (32.8% of MortenaxBlade's DMG)
+      - SKL        avg DMG: 558356.188  (16.5% of MortenaxBlade's DMG)
+    Ashveil              avg DPAV: 8372.318  (8.8%)
+      - FUA        avg DMG: 3690681.789  (80.1% of Ashveil's DMG)
+      - ULT        avg DMG: 507375.948  (11.0% of Ashveil's DMG)
+      - SKL        avg DMG: 395550.763  (8.6% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 50.515  (0.1%)
+      - BSC        avg DMG: 27783.010  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2703383.8
+    Enemy 0 (ELITE)  avg Overkill: 302854.9
+    Enemy 1 (BOSS)  avg Overkill: 2114714.9
+    Enemy 2 (ELITE)  avg Overkill: 285814.0
+  DPAV only (select the lines below):
+80727.247
+6153.288
+8372.318
+50.515
+
+  AventurineWaveflair e1s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 108547.053  |  min: 101666.817  |  max: 119948.742  |  95% CI margin of error: +/-0.83%
+    AventurineWaveflair  avg DPAV: 85031.674  (78.3%)
+      - ELAPUNCH   avg DMG: 37077524.687  (79.3% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 8223959.275  (17.6% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 736759.282  (1.6% of AventurineWaveflair's DMG)
+    AeonAha              avg DPAV: 19966.330  (18.4%)
+      - ELABANGER  avg DMG: 9517786.899  (86.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1454615.821  (13.2% of AeonAha's DMG)
+      - BRK        avg DMG: 9078.676  (0.1% of AeonAha's DMG)
+    Ashveil              avg DPAV: 3530.618  (3.3%)
+      - FUA        avg DMG: 1604708.505  (82.6% of Ashveil's DMG)
+      - ULT        avg DMG: 188607.490  (9.7% of Ashveil's DMG)
+      - SKL        avg DMG: 138559.393  (7.1% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 18.431  (0.0%)
+      - BSC        avg DMG: 10137.061  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 2701050.3
+    Enemy 0 (ELITE)  avg Overkill: 356655.2
+    Enemy 1 (BOSS)  avg Overkill: 2055668.8
+    Enemy 2 (ELITE)  avg Overkill: 288726.4
+  DPAV only (select the lines below):
+85031.674
+19966.330
+3530.618
+18.431
+
+  AventurineWaveflair e1s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 162898.025  |  min: 153327.454  |  max: 166383.557  |  95% CI margin of error: +/-0.26%
+    AventurineWaveflair  avg DPAV: 119771.317  (73.5%)
+      - ELAPUNCH   avg DMG: 53087479.851  (80.6% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 11276349.744  (17.1% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 765846.605  (1.2% of AventurineWaveflair's DMG)
+    AeonAha              avg DPAV: 39245.899  (24.1%)
+      - ELABANGER  avg DMG: 18523591.366  (85.8% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3052408.390  (14.1% of AeonAha's DMG)
+      - BRK        avg DMG: 9244.884  (0.0% of AeonAha's DMG)
+    Ashveil              avg DPAV: 3861.750  (2.4%)
+      - FUA        avg DMG: 1752339.650  (82.5% of Ashveil's DMG)
+      - ULT        avg DMG: 204978.013  (9.7% of Ashveil's DMG)
+      - SKL        avg DMG: 156680.409  (7.4% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 19.059  (0.0%)
+      - BSC        avg DMG: 10482.565  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 11422236.3
+    Enemy 0 (ELITE)  avg Overkill: 864099.7
+    Enemy 1 (BOSS)  avg Overkill: 9882042.0
+    Enemy 2 (ELITE)  avg Overkill: 676094.6
+  DPAV only (select the lines below):
+119771.317
+39245.899
+3861.750
+19.059
+
+  AventurineWaveflair e2s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0
+  Team DPAV  avg: 224355.643  |  min: 216416.278  |  max: 231554.713  |  95% CI margin of error: +/-0.26%
+    AventurineWaveflair  avg DPAV: 174833.996  (77.9%)
+      - ELAPUNCH   avg DMG: 82558261.801  (85.9% of AventurineWaveflair's DMG)
+      - ELABANGER  avg DMG: 11982064.251  (12.5% of AventurineWaveflair's DMG)
+      - SKL        avg DMG: 767868.949  (0.8% of AventurineWaveflair's DMG)
+    AeonAha              avg DPAV: 45287.783  (20.2%)
+      - ELABANGER  avg DMG: 21831903.938  (87.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3056340.929  (12.3% of AeonAha's DMG)
+      - BRK        avg DMG: 20035.841  (0.1% of AeonAha's DMG)
+    Ashveil              avg DPAV: 4214.867  (1.9%)
+      - FUA        avg DMG: 1930698.229  (83.3% of Ashveil's DMG)
+      - ULT        avg DMG: 226078.350  (9.8% of Ashveil's DMG)
+      - SKL        avg DMG: 151435.492  (6.5% of Ashveil's DMG)
+    HuoHuo               avg DPAV: 18.997  (0.0%)
+      - BSC        avg DMG: 10448.114  (100.0% of HuoHuo's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+      - ULT        avg DMG: 0.000  (0.0% of HuoHuo's DMG)
+  Avg Total Overkill DMG: 17305004.4
+    Enemy 0 (ELITE)  avg Overkill: 1000755.2
+    Enemy 1 (BOSS)  avg Overkill: 15454094.2
+    Enemy 2 (ELITE)  avg Overkill: 850155.0
+  DPAV only (select the lines below):
+174833.996
+45287.783
+4214.867
+18.997
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  60048.686  —  AventurineWaveflair e0s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  #2  71860.741  —  AventurineWaveflair e0s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  #3  95303.367  —  AventurineWaveflair e1s1 | MortenaxBlade e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  #4  108547.053  —  AventurineWaveflair e1s1 | AeonAha e0s0 | Ashveil e0s0 | HuoHuo e0s0
+  #5  162898.025  —  AventurineWaveflair e1s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0
+  #6  224355.643  —  AventurineWaveflair e2s1 | AeonAha e2s0 | Ashveil e0s0 | HuoHuo e0s0
+
+======================================================================
+

@@ -52,7 +52,7 @@ class YaoGuang(Character):
                  eidolon=0, rotation=None, targetPrio=Priority.DEFAULT,
                  elationParticipationID=116) -> None:  # YAOGUANG ID: 116
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else MushyShroomysAdventuresYaoGuang(role, 5)
+        self.lightcone = lc if lc else WhenSheDecidedToSee(role, 1)
         self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)
@@ -144,7 +144,7 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or turn.moveName in ElationSkillList:
+        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 or turn.moveName in ElationSkillList:
              tl.append(Turn(self.name, self.role, turn.targetID, Targeting.SINGLE, [AtkType.ELABANGER],
                                [self.element], [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
              if turn.spChange <= -1:
@@ -174,7 +174,7 @@ class YaoGuang(Character):
         if result.turnName == "AhaYaoGuangGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
-        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
+        if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
             if turn.spChange <= -1:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
                                turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))

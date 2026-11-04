@@ -1440,7 +1440,7 @@ def handleEvanesciaOwnActionBanger(result: Result, playerTeam: list[Character]) 
         return banger_buffs
 
     # Check if this is an Evanescia action that gives energy
-    if result.turnDmg == 0 and result.errGain > 0:  # Actions that give energy
+    if result.TotalDamage == 0 and result.errGain > 0:  # Actions that give energy
         energy_to_convert = int(result.errGain)
         if energy_to_convert > 0:
             banger_buff = Buff(

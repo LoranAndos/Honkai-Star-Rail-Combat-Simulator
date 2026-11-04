@@ -24,7 +24,7 @@ class AlongThePassingShore(Lightcone):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         dmgDebuff = 0.04 * self.level + 0.20
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
             dbl.append(Debuff("PassingShoreDmgDebuff", self.wearerRole, StatTypes.DMG_PERCENT, dmgDebuff, Role.ALL, [AtkType.ALL], 1,1, Targeting.AOE))
             dbl.append(Debuff("PassingShoreUltDmgDebuff", self.wearerRole, StatTypes.DMG_PERCENT, dmgDebuff, Role.ALL, [AtkType.ULT], 1, 1, Targeting.AOE))
         return bl, dbl, al, dl, hl, sl

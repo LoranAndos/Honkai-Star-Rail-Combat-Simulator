@@ -223,7 +223,7 @@ class Welt(Character):
         - Capped at 8 triggers per enemy since that enemy's own last turn (see
           handleSpecialStart for the turn-boundary reset).
         """
-        if result.turnName in bonusDMG or (result.turnDmg + result.ElationturnDMG) <= 0:
+        if result.turnName in bonusDMG or (result.TotalDamage) <= 0:
             return []
 
         newDelays = []
@@ -235,7 +235,7 @@ class Welt(Character):
         return newDelays
 
     def _allyWeightlessDMGBuff(self, turn: Turn, result: Result) -> list:
-        if (result.turnDmg + result.ElationturnDMG) <= 0:
+        if (result.TotalDamage) <= 0:
             logger.debug("[WeltAllyBuff] skipped: no damage on this turn")
             return []
         if any(enemy.enemyID in self._weightlessTurns for enemy in result.enemiesHit):

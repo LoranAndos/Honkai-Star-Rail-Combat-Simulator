@@ -72,7 +72,7 @@ class Cipher(Character):
         if not enemiesHit:
             return 0.0, 0.0
 
-        totalDmg = result.turnDmg
+        totalDmg = result.TotalDamage
         patronID = self.patronEnemyID
 
         if turn.targeting == Targeting.AOE:
@@ -192,11 +192,11 @@ class Cipher(Character):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().ownTurn(turn, result)
 
-        if result.turnDmg > 0 and self.patronEnemyID != -1 and turn.moveName not in ("CipherUltST", "CipherUltAOE"):
+        if result.TotalDamage > 0 and self.patronEnemyID != -1 and turn.moveName not in ("CipherUltST", "CipherUltAOE"):
             patronDmg, nonPatronDmg = self._splitTally(turn, result)
             self._applyTally(patronDmg, nonPatronDmg)
 
-        if result.turnDmg > 0 and result.turnName == "CipherTech" and self.patronEnemyID != -1:
+        if result.TotalDamage > 0 and result.turnName == "CipherTech" and self.patronEnemyID != -1:
             # Technique grants double tally — apply the patron portion again at full rate
             patron = next((e for e in self.enemyStatus if e.enemyID == self.patronEnemyID), None)
             if patron:
@@ -231,7 +231,7 @@ class Cipher(Character):
                 self.TallyReturned = 0.20 * self.tally
             self.tally = 0.0 + self.TallyReturned
 
-        if result.turnDmg > 0 and self.eidolon >= 4 and turn.moveName not in bonusDMG:
+        if result.TotalDamage > 0 and self.eidolon >= 4 and turn.moveName not in bonusDMG:
             patron = next((e for e in self.enemyStatus if e.enemyID == self.patronEnemyID), None)
             if patron:
                 tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.ADD],
@@ -248,17 +248,17 @@ class Cipher(Character):
         # FUA only triggers when the Patron is hit
         hitPatron = any(e.enemyID == self.patronEnemyID for e in result.enemiesHit)
 
-        if result.turnDmg > 0:
+        if result.TotalDamage > 0:
             patronDmg, nonPatronDmg = self._splitTally(turn, result)
             self._applyTally(patronDmg, nonPatronDmg)
 
         # FUA: trigger once per Cipher turn when an ally (not Cipher) attacks the Patron
-        if hitPatron and not self.fuaUsedThisTurn and turn.charRole != self.role and turn.moveName not in bonusDMG and result.turnDmg > 0:
+        if hitPatron and not self.fuaUsedThisTurn and turn.charRole != self.role and turn.moveName not in bonusDMG and result.TotalDamage > 0:
             self.fuaUsedThisTurn = True
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useFua(-1))
             logger.debug(f"    FUA    - {self.name} Talent FUA triggered on enemy {self.patronEnemyID}")
 
-        if hitPatron and result.turnDmg > 0 and self.eidolon >= 4 and turn.moveName not in bonusDMG:
+        if hitPatron and result.TotalDamage > 0 and self.eidolon >= 4 and turn.moveName not in bonusDMG:
             patron = next((e for e in self.enemyStatus if e.enemyID == self.patronEnemyID), None)
             if patron:
                 tl.append(Turn(self.name, self.role, self.patronEnemyID, Targeting.SINGLE, [AtkType.ADD],

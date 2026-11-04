@@ -1,0 +1,115 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 224798.115 | Evanescia: 198823.787 | YaoGuang: 8897.916 | AeonAha: 15922.454 | Pearl: 318.558
+Run    2: Team DPAV: 231690.464 | Evanescia: 204954.316 | YaoGuang: 9162.942 | AeonAha: 16422.996 | Pearl: 305.135
+Run    3: Team DPAV: 227657.174 | Evanescia: 201621.978 | YaoGuang: 8878.057 | AeonAha: 15972.031 | Pearl: 349.708
+Run    4: Team DPAV: 222451.872 | Evanescia: 196498.512 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.155
+Run    5: Team DPAV: 222445.461 | Evanescia: 196491.733 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.524
+Run    6: Team DPAV: 235359.118 | Evanescia: 208318.465 | YaoGuang: 9330.906 | AeonAha: 16521.284 | Pearl: 343.386
+Run    7: Team DPAV: 227958.860 | Evanescia: 201922.041 | YaoGuang: 8883.630 | AeonAha: 15958.635 | Pearl: 349.479
+Run    8: Team DPAV: 224566.979 | Evanescia: 198586.035 | YaoGuang: 8883.634 | AeonAha: 15943.632 | Pearl: 318.278
+Run    9: Team DPAV: 222356.787 | Evanescia: 196227.965 | YaoGuang: 8926.102 | AeonAha: 16007.858 | Pearl: 349.786
+Run   10: Team DPAV: 224885.248 | Evanescia: 198904.023 | YaoGuang: 8883.634 | AeonAha: 15943.632 | Pearl: 318.558
+Run   11: Team DPAV: 229618.215 | Evanescia: 203185.458 | YaoGuang: 9068.219 | AeonAha: 16178.530 | Pearl: 340.933
+Run   12: Team DPAV: 222026.287 | Evanescia: 195761.212 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.365
+Run   13: Team DPAV: 229896.087 | Evanescia: 203463.352 | YaoGuang: 9068.219 | AeonAha: 16178.530 | Pearl: 340.910
+Run   14: Team DPAV: 233332.816 | Evanescia: 206797.763 | YaoGuang: 9145.536 | AeonAha: 16237.048 | Pearl: 317.068
+Run   15: Team DPAV: 237010.967 | Evanescia: 210497.733 | YaoGuang: 9053.944 | AeonAha: 16273.538 | Pearl: 350.351
+Run   16: Team DPAV: 229648.637 | Evanescia: 203215.703 | YaoGuang: 9068.219 | AeonAha: 16178.530 | Pearl: 341.110
+Run   17: Team DPAV: 222720.985 | Evanescia: 196767.460 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.321
+Run   18: Team DPAV: 223085.199 | Evanescia: 197009.401 | YaoGuang: 8895.644 | AeonAha: 15985.280 | Pearl: 349.797
+Run   19: Team DPAV: 228846.042 | Evanescia: 202402.098 | YaoGuang: 9093.517 | AeonAha: 16164.378 | Pearl: 340.973
+Run   20: Team DPAV: 224635.139 | Evanescia: 198713.892 | YaoGuang: 8867.458 | AeonAha: 15899.876 | Pearl: 318.512
+Run   21: Team DPAV: 224244.642 | Evanescia: 198275.584 | YaoGuang: 8905.769 | AeonAha: 15909.594 | Pearl: 318.294
+Run   22: Team DPAV: 226830.951 | Evanescia: 200806.672 | YaoGuang: 8878.057 | AeonAha: 15960.833 | Pearl: 349.988
+Run   23: Team DPAV: 224880.799 | Evanescia: 198927.235 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.360
+Run   24: Team DPAV: 224616.753 | Evanescia: 198663.259 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.291
+Run   25: Team DPAV: 222310.950 | Evanescia: 196357.162 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.584
+Run   26: Team DPAV: 234556.882 | Evanescia: 208440.333 | YaoGuang: 8909.383 | AeonAha: 16031.920 | Pearl: 349.520
+Run   27: Team DPAV: 227423.405 | Evanescia: 201420.628 | YaoGuang: 8873.895 | AeonAha: 15943.723 | Pearl: 349.758
+Run   28: Team DPAV: 225399.428 | Evanescia: 199800.828 | YaoGuang: 8689.195 | AeonAha: 15736.705 | Pearl: 346.975
+Run   29: Team DPAV: 222908.048 | Evanescia: 196642.878 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.460
+Run   30: Team DPAV: 237075.535 | Evanescia: 210521.989 | YaoGuang: 9101.827 | AeonAha: 16259.645 | Pearl: 346.998
+Run   31: Team DPAV: 228452.977 | Evanescia: 202320.065 | YaoGuang: 8924.270 | AeonAha: 16016.546 | Pearl: 347.019
+Run   32: Team DPAV: 224264.055 | Evanescia: 198294.764 | YaoGuang: 8905.769 | AeonAha: 15909.594 | Pearl: 318.528
+Run   33: Team DPAV: 227078.846 | Evanescia: 200998.247 | YaoGuang: 8913.090 | AeonAha: 15972.791 | Pearl: 349.642
+Run   34: Team DPAV: 226796.378 | Evanescia: 200772.300 | YaoGuang: 8878.057 | AeonAha: 15960.833 | Pearl: 349.787
+Run   35: Team DPAV: 226687.239 | Evanescia: 200706.770 | YaoGuang: 8848.597 | AeonAha: 15946.677 | Pearl: 349.794
+Run   36: Team DPAV: 236378.160 | Evanescia: 209968.601 | YaoGuang: 9072.658 | AeonAha: 16180.429 | Pearl: 321.070
+Run   37: Team DPAV: 224242.867 | Evanescia: 198241.366 | YaoGuang: 8909.930 | AeonAha: 15937.902 | Pearl: 318.268
+Run   38: Team DPAV: 229004.771 | Evanescia: 202520.515 | YaoGuang: 9102.982 | AeonAha: 16192.686 | Pearl: 343.512
+Run   39: Team DPAV: 228464.686 | Evanescia: 202372.678 | YaoGuang: 8907.659 | AeonAha: 15989.531 | Pearl: 349.743
+Run   40: Team DPAV: 222223.562 | Evanescia: 195958.350 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.502
+Run   41: Team DPAV: 227534.617 | Evanescia: 201504.487 | YaoGuang: 8885.910 | AeonAha: 15959.171 | Pearl: 349.649
+Run   42: Team DPAV: 228409.741 | Evanescia: 201944.638 | YaoGuang: 9094.167 | AeonAha: 16185.366 | Pearl: 340.493
+Run   43: Team DPAV: 227048.977 | Evanescia: 200935.741 | YaoGuang: 8917.251 | AeonAha: 16001.098 | Pearl: 349.811
+Run   44: Team DPAV: 238389.133 | Evanescia: 211427.663 | YaoGuang: 9257.126 | AeonAha: 16514.731 | Pearl: 344.538
+Run   45: Team DPAV: 228447.849 | Evanescia: 201951.594 | YaoGuang: 9091.467 | AeonAha: 16215.933 | Pearl: 343.779
+Run   46: Team DPAV: 213847.432 | Evanescia: 188207.527 | YaoGuang: 8705.570 | AeonAha: 15792.925 | Pearl: 309.234
+Run   47: Team DPAV: 236782.803 | Evanescia: 210357.991 | YaoGuang: 9064.805 | AeonAha: 16203.301 | Pearl: 321.305
+Run   48: Team DPAV: 228507.608 | Evanescia: 202395.309 | YaoGuang: 8933.955 | AeonAha: 15983.801 | Pearl: 349.467
+Run   49: Team DPAV: 227915.110 | Evanescia: 201845.432 | YaoGuang: 8887.792 | AeonAha: 15986.942 | Pearl: 349.868
+Run   50: Team DPAV: 227015.526 | Evanescia: 200932.261 | YaoGuang: 8916.368 | AeonAha: 15981.749 | Pearl: 349.748
+Run   51: Team DPAV: 222488.790 | Evanescia: 196535.172 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.414
+Run   52: Team DPAV: 229592.895 | Evanescia: 203192.223 | YaoGuang: 9064.057 | AeonAha: 16150.222 | Pearl: 341.316
+Run   53: Team DPAV: 226867.829 | Evanescia: 200876.420 | YaoGuang: 8873.895 | AeonAha: 15932.526 | Pearl: 349.587
+Run   54: Team DPAV: 224809.565 | Evanescia: 198876.252 | YaoGuang: 8867.458 | AeonAha: 15912.077 | Pearl: 318.377
+Run   55: Team DPAV: 224983.398 | Evanescia: 199417.601 | YaoGuang: 8685.033 | AeonAha: 15708.397 | Pearl: 346.641
+Run   56: Team DPAV: 227441.271 | Evanescia: 201439.758 | YaoGuang: 8833.319 | AeonAha: 15992.505 | Pearl: 349.961
+Run   57: Team DPAV: 226824.216 | Evanescia: 200832.637 | YaoGuang: 8873.895 | AeonAha: 15932.526 | Pearl: 349.757
+Run   58: Team DPAV: 227066.535 | Evanescia: 200985.791 | YaoGuang: 8913.090 | AeonAha: 15972.791 | Pearl: 349.787
+Run   59: Team DPAV: 225488.266 | Evanescia: 199857.906 | YaoGuang: 8715.491 | AeonAha: 15742.172 | Pearl: 346.971
+Run   60: Team DPAV: 230982.480 | Evanescia: 204029.547 | YaoGuang: 9219.628 | AeonAha: 16586.742 | Pearl: 307.937
+Run   61: Team DPAV: 237998.298 | Evanescia: 211458.129 | YaoGuang: 9039.347 | AeonAha: 16312.652 | Pearl: 352.770
+Run   62: Team DPAV: 224610.100 | Evanescia: 198656.305 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.591
+Run   63: Team DPAV: 227565.783 | Evanescia: 201503.084 | YaoGuang: 8890.071 | AeonAha: 15987.479 | Pearl: 349.749
+Run   64: Team DPAV: 227462.524 | Evanescia: 201440.564 | YaoGuang: 8859.616 | AeonAha: 15986.776 | Pearl: 349.842
+Run   65: Team DPAV: 227765.163 | Evanescia: 201817.316 | YaoGuang: 8844.435 | AeonAha: 15918.369 | Pearl: 349.641
+Run   66: Team DPAV: 222893.142 | Evanescia: 196628.040 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.392
+Run   67: Team DPAV: 227683.905 | Evanescia: 201681.332 | YaoGuang: 8873.895 | AeonAha: 15943.723 | Pearl: 349.554
+Run   68: Team DPAV: 227704.607 | Evanescia: 201724.031 | YaoGuang: 8848.597 | AeonAha: 15946.677 | Pearl: 349.900
+Run   69: Team DPAV: 227774.184 | Evanescia: 201739.044 | YaoGuang: 8878.057 | AeonAha: 15972.031 | Pearl: 349.653
+Run   70: Team DPAV: 222005.180 | Evanescia: 195437.852 | YaoGuang: 9060.414 | AeonAha: 16358.845 | Pearl: 309.443
+Run   71: Team DPAV: 221686.869 | Evanescia: 195421.592 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.567
+Run   72: Team DPAV: 228361.217 | Evanescia: 202324.110 | YaoGuang: 8883.630 | AeonAha: 15958.635 | Pearl: 349.766
+Run   73: Team DPAV: 226910.216 | Evanescia: 200854.270 | YaoGuang: 8904.353 | AeonAha: 15966.301 | Pearl: 349.891
+Run   74: Team DPAV: 224175.631 | Evanescia: 198206.269 | YaoGuang: 8905.769 | AeonAha: 15909.594 | Pearl: 318.598
+Run   75: Team DPAV: 231895.908 | Evanescia: 205222.960 | YaoGuang: 9137.018 | AeonAha: 16385.215 | Pearl: 305.638
+Run   76: Team DPAV: 225316.309 | Evanescia: 199237.142 | YaoGuang: 8872.514 | AeonAha: 16021.573 | Pearl: 349.678
+Run   77: Team DPAV: 236094.439 | Evanescia: 209593.765 | YaoGuang: 9053.232 | AeonAha: 16261.075 | Pearl: 350.966
+Run   78: Team DPAV: 236049.636 | Evanescia: 209614.354 | YaoGuang: 9091.101 | AeonAha: 16187.559 | Pearl: 321.221
+Run   79: Team DPAV: 225710.006 | Evanescia: 199663.400 | YaoGuang: 8868.352 | AeonAha: 15993.266 | Pearl: 349.587
+Run   80: Team DPAV: 233779.279 | Evanescia: 207220.269 | YaoGuang: 9065.635 | AeonAha: 16315.625 | Pearl: 352.023
+Run   81: Team DPAV: 221711.650 | Evanescia: 195433.971 | YaoGuang: 8969.756 | AeonAha: 16160.079 | Pearl: 302.768
+Run   82: Team DPAV: 222226.429 | Evanescia: 195659.211 | YaoGuang: 9060.414 | AeonAha: 16358.845 | Pearl: 309.334
+Run   83: Team DPAV: 227399.812 | Evanescia: 201362.786 | YaoGuang: 8883.630 | AeonAha: 15958.635 | Pearl: 349.686
+Run   84: Team DPAV: 222734.740 | Evanescia: 196781.159 | YaoGuang: 8871.619 | AeonAha: 15928.184 | Pearl: 318.376
+Run   85: Team DPAV: 235899.482 | Evanescia: 209437.034 | YaoGuang: 9103.116 | AeonAha: 16203.007 | Pearl: 320.924
+Run   86: Team DPAV: 234955.530 | Evanescia: 208568.866 | YaoGuang: 9082.363 | AeonAha: 16150.201 | Pearl: 318.699
+Run   87: Team DPAV: 221328.861 | Evanescia: 195063.500 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.651
+Run   88: Team DPAV: 229471.146 | Evanescia: 203379.083 | YaoGuang: 8907.659 | AeonAha: 15989.531 | Pearl: 349.797
+Run   89: Team DPAV: 230313.041 | Evanescia: 204365.720 | YaoGuang: 8884.049 | AeonAha: 15909.815 | Pearl: 318.057
+Run   90: Team DPAV: 224618.060 | Evanescia: 198696.848 | YaoGuang: 8867.458 | AeonAha: 15899.876 | Pearl: 318.477
+Run   91: Team DPAV: 234083.875 | Evanescia: 207389.992 | YaoGuang: 9141.111 | AeonAha: 16395.778 | Pearl: 321.593
+Run   92: Team DPAV: 228741.274 | Evanescia: 202610.930 | YaoGuang: 8933.955 | AeonAha: 16001.615 | Pearl: 349.697
+Run   93: Team DPAV: 221591.886 | Evanescia: 195274.561 | YaoGuang: 9010.470 | AeonAha: 16159.088 | Pearl: 302.692
+Run   94: Team DPAV: 227589.407 | Evanescia: 201641.217 | YaoGuang: 8844.435 | AeonAha: 15918.369 | Pearl: 349.985
+Run   95: Team DPAV: 237934.114 | Evanescia: 211391.253 | YaoGuang: 9058.193 | AeonAha: 16296.914 | Pearl: 352.352
+Run   96: Team DPAV: 222889.051 | Evanescia: 196624.093 | YaoGuang: 8969.756 | AeonAha: 16147.878 | Pearl: 302.247
+Run   97: Team DPAV: 226842.322 | Evanescia: 200852.100 | YaoGuang: 8833.319 | AeonAha: 15981.308 | Pearl: 349.868
+Run   98: Team DPAV: 227136.381 | Evanescia: 201055.472 | YaoGuang: 8913.090 | AeonAha: 15972.791 | Pearl: 349.952
+Run   99: Team DPAV: 223336.867 | Evanescia: 197256.149 | YaoGuang: 8887.792 | AeonAha: 15998.140 | Pearl: 349.710
+Run  100: Team DPAV: 227090.562 | Evanescia: 201007.142 | YaoGuang: 8916.368 | AeonAha: 15981.749 | Pearl: 349.903
+
+================================================================================
+AVERAGES
+================================================================================
+Average Team DPAV: 227506.123
+Average Evanescia DPAV: 201330.140 Percentage: 88.494%
+Average YaoGuang DPAV: 8947.351 Percentage: 3.933%
+Average AeonAha DPAV: 16056.426 Percentage: 7.058%
+Average Pearl DPAV: 333.839 Percentage: 0.147%
+
+Min Team DPAV: 213847.432
+Max Team DPAV: 238389.133

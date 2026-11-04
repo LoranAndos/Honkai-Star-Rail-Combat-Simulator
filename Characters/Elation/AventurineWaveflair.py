@@ -244,7 +244,7 @@ class AventurineWaveflair(Character):
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.turnDmg > 0:
+        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
             self._gainFervor(1, f"teammate attack ({turn.charName}: {turn.moveName})")
             Character.SharedPunchline += 1
 

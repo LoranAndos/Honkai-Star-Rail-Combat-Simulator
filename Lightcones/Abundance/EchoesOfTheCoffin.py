@@ -25,7 +25,7 @@ class EchoesOfTheCoffin(Lightcone):
     def ownTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, hl, sl = super().ownTurn(turn, result)
         ERRAmount = self.level * 0.05 + 2.5
-        if result.turnDmg > 0:
+        if result.TotalDamage > 0:
             AmountHit = min(len(result.enemiesHit),3)
             bl.append(Buff("EchoesOfTheCoffinERR", StatTypes.ERR_T, ERRAmount*AmountHit, self.wearerRole, [AtkType.ALL], 1, 1,Role.SELF, TickDown.START))
         return dl, dbl, al, dl, hl, sl
