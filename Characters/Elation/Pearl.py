@@ -61,7 +61,7 @@ class Pearl(Character):
                  eidolon=0, targetRole=Role.DPS, rotation=None, ultTargetMode="dps", targetPrio=Priority.DEFAULT,
                  elationParticipationID=104) -> None:
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
-        self.lightcone = lc if lc else ColorsForTomorrow(role, 1)
+        self.lightcone = lc if lc else MushyShroomysAdventuresPearl(role, 5)
         self.relic1 = r1 if r1 else DreamlitActor(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
         self.planar = pl if pl else SprightlyVonwacq(role)

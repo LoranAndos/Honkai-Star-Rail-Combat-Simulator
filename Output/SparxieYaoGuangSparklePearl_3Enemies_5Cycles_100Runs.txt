@@ -1,0 +1,8 @@
+Simulation Results - 100 runs
+================================================================================
+
+Run    1: Team DPAV: 86311.923 | Sparxie: 76793.613 | YaoGuang: 8793.398 | Sparkle: 0.000 | Pearl: 653.435
+Run    2: Team DPAV: 81541.316 | Sparxie: 72034.473 | YaoGuang: 8831.952 | Sparkle: 0.000 | Pearl: 599.344
+Run    3: Team DPAV: 78132.178 | Sparxie: 68963.068 | YaoGuang: 8548.971 | Sparkle: 0.000 | Pearl: 557.017
+Run    4: Team DPAV: 83723.386 | Sparxie: 74277.026 | YaoGuang: 8746.034 | Sparkle: 0.000 | Pearl: 628.849
+Run    5: Team DPAV: 83305.566 | Sparxie: 73726.052 | YaoGuang: 8936.566 | Sparkle: 0.000 | Pearl: 567.402

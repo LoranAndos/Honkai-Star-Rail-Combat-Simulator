@@ -347,7 +347,7 @@ class SilverWolf999(Character):
         for _ in range(3):
             stepNum += 1
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [base_mul_boosted * step, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [base_mul_boosted * step, 0], [3.3, 0], 0, Scaling.ELA, 0,
                            f"SilverWolf999EnhancedBounce_{stepNum}"))
             remaining -= step
             self.EnhancedBasicLootBox = True
@@ -355,11 +355,11 @@ class SilverWolf999(Character):
         if remaining > 0:
             stepNum += 1
             tl.append(Turn(self.name, self.role, -1, Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [base_mul_boosted * remaining, 0], [0, 0], 0, Scaling.ELA, 0,
+                           [self.element], [base_mul_boosted * remaining, 0], [0.1, 0], 0, Scaling.ELA, 0,
                            f"SilverWolf999EnhancedBounce_{stepNum}"))
 
         tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
-                       [self.element], [e3Mul * e6Mul / enemyCount, 0], [10, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))
+                       [self.element], [e3Mul * e6Mul / enemyCount, 0], [10/enemyCount, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedFinal"))
 
         # Increment basic count
         self.godmodeBasicCount += 1
@@ -406,19 +406,19 @@ class SilverWolf999(Character):
         if effect == 1:
             # Big Flipping Sword: 20% True DMG to highest HP enemy
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.SINGLE, [AtkType.ELABANGER],
-                           [self.element], [e5Mul * 0.2 * e6Mul, 0], [10/3, 0], 0, Scaling.ELA, 0,
+                           [self.element], [e5Mul * 0.2 * e6Mul, 0], [0, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999BigFlippingSword"))
             logger.info(f"{self.name} Top Loot Box: Big Flipping Sword triggered")
         elif effect == 2:
             # Kaboom Eggsplosion: Recover 2 SP
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL],
-                           [self.element], [0, 0], [10/3, 0], 0, Scaling.ELA, 2,
+                           [self.element], [0, 0], [0, 0], 0, Scaling.ELA, 2,
                            "SilverWolf999SPRecovery"))
             logger.info(f"{self.name} Top Loot Box: Kaboom Eggsplosion triggered (+2 SP)")
         else:
             # Funky Munch Bean: Gain 3 Punchline
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.NA, [AtkType.ALL],
-                           [self.element], [0, 0], [10/3, 0], 0, Scaling.ELA, 0,
+                           [self.element], [0, 0], [0, 0], 0, Scaling.ELA, 0,
                            "SilverWolf999FunkyMunchBean"))
             logger.info(f"{self.name} Top Loot Box: Funky Munch Bean triggered (+3 Punchline, +3 Hidden MMR)")
         self._updateEnergyFromMMR()

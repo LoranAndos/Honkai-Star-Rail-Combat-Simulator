@@ -33,7 +33,7 @@ cycles = 5  # comment out this line if running the simulator from an external sc
 log = True
 manual = False
 
-EnemyElement = Element.QUANTUM
+EnemyElement = Element.IMAGINARY
 FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType.ELITE, EnemyType.BOSS, EnemyType.ADD, EnemyType.ADD], [110, 130, 158.4, 110, 110], [20, 100, 160, 20, 20], atkRatio, [EnemyElement], [1]) # 5 enemyModule
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
@@ -80,10 +80,10 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Logging Config
 
     if all([a is None for a in [s1, s2, s3, s4]]):
-        slot1 = AventurineWaveflair(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+        slot1 = AventurineWaveflair(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot2 = AeonAha(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
         slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
     if not s1:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
@@ -295,6 +295,22 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
             for msg in death_msgs:
                 logging.critical(msg)
                 manualPrint(manualMode, msg)
+            # Memosprites that were reduced to 0 HP disappear (they do not die): clear their buffs and let the memomaster react
+            for mChar in playerTeam:
+                if getattr(mChar, "pendingDisappear", False):
+                    msg = f"MEMO   > {mChar.name} was reduced to 0 HP and disappeared"
+                    logging.critical(msg)
+                    manualPrint(manualMode, msg)
+                    bl, dbl, al, dl, tl, hl, sl = mChar.disappear()
+                    mChar.shields = []
+                    # only Mem's own temporary buffs (those that tick on Mem's own turns) vanish with it: its permanent stat buffs
+                    # (traces / gear) and buffs from team-wide effects such as fields keep applying when it is resummoned
+                    teamBuffs = [b for b in teamBuffs if b.name not in mChar.removeOnDisappear
+                                 and not (b.target == mChar.role and b.tdType != TickDown.PERM and b.tickDown == mChar.role)]
+                    teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList = handleAdditions(
+                        playerTeam, eTeam, teamBuffs, enemyDebuffs, advList, delayList, healingList, shieldList,
+                        bl, dbl, al, dl, hl, sl)
+                    turnList.extend(tl)
             if run_stop:
                 break
         elif unit.isChar() and not unit.isSummon():  # Character Turn
@@ -544,7 +560,7 @@ if __name__ == "__main__":
     import os
 
     # =============== TOGGLE ===============
-    multiRun = False # Set to True for multiple runs, False for single run
+    multiRun = True # Set to True for multiple runs, False for single run
     numRuns = 100    # Number of runs (only used when multiRun = True)
     # =============== END TOGGLE ===============
 
@@ -576,10 +592,10 @@ if __name__ == "__main__":
 
         # Build filename matching log format. So basically change both characters here and next instance, but only
         # next instance of characters matters for the result.
-        slot1 = AventurineWaveflair(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-        slot2 = AeonAha(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-        slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+        slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot3 = AeonAha(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+        slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT,ultTargetMode="energy")
         teamInfo = "".join([slot1.name, slot2.name, slot3.name, slot4.name])
         enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycles}Cycles"
         outputFile = f"Output/{teamInfo}{enemyInfo}_{numRuns}Runs.txt"
@@ -595,11 +611,10 @@ if __name__ == "__main__":
             f.write("=" * 80 + "\n\n")
 
             for i in range(numRuns):
-                # Recreate characters fresh each run
-                slot1 = AventurineWaveflair(0, Role.DPS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
-                slot2 = AeonAha(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot3 = Ashveil(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
-                slot4 = DangHengPermansorTerrae(3, Role.SUS, 1, eidolon=2, targetPrio=Priority.DEFAULT)
+                slot1 = SilverWolf999(0, Role.DPS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot2 = YaoGuang(1, Role.SUP1, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot3 = Sparxie(2, Role.SUP2, 1, eidolon=0, targetPrio=Priority.DEFAULT)
+                slot4 = Pearl(3, Role.SUS, 1, eidolon=0, targetPrio=Priority.DEFAULT)
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=slot1, s2=slot2, s3=slot3, s4=slot4,

@@ -116,6 +116,7 @@ class Role(Enum):
     MEMO1 = auto()
     MEMO2 = auto()
     MEMO3 = auto()
+    MEMO4 = auto()
     ALL = auto()
     SELF = auto()
     TEAM = auto()  # everyone except the source of the buff
@@ -147,6 +148,7 @@ class TickDown(Enum):
 class Targeting(Enum):
     SINGLE = "ST"
     BLAST = "BLAST"
+    RANDOM = "RANDOM"
     AOE = "AOE"
     NA = "NA"
     SPECIAL = "SPECIAL"

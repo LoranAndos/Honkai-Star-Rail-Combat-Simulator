@@ -252,7 +252,7 @@ class AeonAha(Character):
         if turn.moveName == "AhaElationSequenceComplete":
             self.TalentWishpowerTrigger = True
 
-        if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger and Character.PearlUlt == False:
+        if Character.SharedPunchline >= 40 and self.TalentWishpowerTrigger:
             self.currEnergy += 1
             self.TalentWishpowerTrigger = False
             logger.info(f"WISHPOWER > {self.name} gained 1 Wishpower from reaching 40 Punchline")

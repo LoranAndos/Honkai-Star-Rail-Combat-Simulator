@@ -43,7 +43,7 @@ class WelcometotheCosmicCity(Lightcone):
     def useUlt(self, enemyID=-1):
         bl, dbl, al, dl, hl, sl = super().useUlt(enemyID)
         PunchlineGain = self.level * 5 + 15
-        if self.SuperpowerCount < self.MAX_TRIGGERS:
+        if self.wearer.name == "SilverWolf999" and self.SuperpowerCount < self.MAX_TRIGGERS:
             self.SuperpowerCount += 1
             self.basicCount = 0
             Character.SharedPunchline += PunchlineGain
