@@ -26,7 +26,7 @@ class Rmc(Character):
     maxEnergy = 160.0
     ultCost = 160.0
     currEnergy = 80
-    currAV = 100.0
+    currAV = 0
     aggro = 100
     buffList = []
 

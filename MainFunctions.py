@@ -2010,6 +2010,9 @@ def handleSpec(specStr, unit, playerTeam, summons, enemyTeam, buffList, debuffLi
                     atk -= findBuffName(buffList, "RobinUltBuff").getBuffVal()
                 return Special(name=specStr, attr1=atk, enemies=gauge)
 
+            case "RobinSummeretto":
+                return Special(name=specStr, enemies=gauge)
+
             case "RuanMei":
                 be = getCharStat(StatTypes.BE_PERCENT, specChar, enemyTeam[0], buffList, debuffList, placeHolderTurn)
                 return Special(name=specStr, attr1=be, enemies=gauge)
