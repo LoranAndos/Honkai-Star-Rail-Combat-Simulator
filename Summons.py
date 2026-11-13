@@ -244,12 +244,7 @@ class Aha(Summon):
                 BonusPunchline = 0
 
             # Determine BangerDuration based on character
-            if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo": # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
-                BangerDuraction = 3
-            else:
-                BangerDuraction = 2
-
-            if self.hasAventurineWaveflair and turnName == "AhaAventurineWaveflairGoGo":
+            if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                 BangerDuraction = 3
             else:
                 BangerDuraction = 2
@@ -320,12 +315,7 @@ class Aha(Summon):
                     BonusPunchline = 0
 
                 # Determine BangerDuration based on character
-                if self.hasYaoGuang and turnName == "AhaYaoGuangGoGo":  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
-                    BangerDuraction = 3
-                else:
-                    BangerDuraction = 2
-
-                if self.hasAventurineWaveflair and turnName == "AhaAventurineWaveflairGoGo":
+                if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2
@@ -355,10 +345,12 @@ class Aha(Summon):
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
@@ -368,16 +360,19 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SilverWolf999NormalELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SilverWolf999NormalELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
@@ -387,16 +382,19 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
@@ -406,7 +404,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SilverWolf999ELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
             tl.append(
@@ -416,7 +414,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SilverWolf999NormalELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
             tl.append(
@@ -426,7 +424,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "EvanesciaELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
             tl.append(
@@ -436,18 +434,19 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and result.charRole == Role.DPS and not self.hasAeonAha:
             tl.append(
@@ -457,7 +456,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "SparxieElaSkillSmall") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True and result.charRole == Role.DPS:
             tl.append(
@@ -467,18 +466,19 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AeonAhaELATrueDMG") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False:
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AeonAhaELATrueDMG") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False:
             tl.append(
@@ -488,7 +488,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AeonAhaELATrueDMG") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True:
             tl.append(
@@ -498,7 +498,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == True and self.IsEMCTurn == True:
             # His own "Cheers! To Summer's Blaze" instance (fixed 20 Punchline), or an EMC Ult targeting him
@@ -509,18 +509,19 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsEMCTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == True and self.IsAhaTurn == True and self.IsEMCTurn == False and self.elationTeam[-1][1] == "AhaAventurineWaveflairGoGo":
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationFixedSequenceComplete"))
             Character.SharedPunchline = Character.savedPunchline + len(self.elationTeam)
+            Character.punchlineRestoreCount = getattr(Character, "punchlineRestoreCount", 0) + 1  # Punchline restored after a fixed-Punchline Instant (not a gain)
             Character.ahaYaoGuangUlt = False
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = False
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         elif (
                 result.turnName == "AventurineWaveflairELASkill") and Character.ahaFixedPunchline == False and self.IsAhaTurn == True and self.IsEMCTurn == False and self.elationTeam[-1][1] == "AhaAventurineWaveflairGoGo":
             tl.append(
@@ -530,7 +531,7 @@ class Aha(Summon):
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
-
+            logger.debug(f" Aha instance ended with {Character.savedPunchline} punchline")
         return bl, dbl, al, dl, tl, hl, sl
 
 class Souldragon(Summon):

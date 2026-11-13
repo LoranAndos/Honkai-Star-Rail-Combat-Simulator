@@ -91,6 +91,7 @@ class SilverWolf999(Character):
         self.hiddenMMR = 0
         self.currEnergy = 0
         self.lastPunchlineValue = Character.SharedPunchline
+        self.seenPunchlineRestores = getattr(Character, "punchlineRestoreCount", 0)
         self.godmodeActive = False
         self.godmodeBasicCount = 0
         self.godmodeBasicUsesRemaining = 3
@@ -131,6 +132,12 @@ class SilverWolf999(Character):
 
     def _syncPunchlineToHiddenMMR(self):
         """Sync Punchline changes to Hidden MMR."""
+        restores = getattr(Character, "punchlineRestoreCount", 0)
+        if restores != self.seenPunchlineRestores:
+            self.seenPunchlineRestores = restores
+            self.lastPunchlineValue = Character.SharedPunchline
+            self._updateEnergyFromMMR()
+            return
         punchline_diff = Character.SharedPunchline - self.lastPunchlineValue
         if punchline_diff > 0 and Character.ahaYaoGuangUlt == False and Character.EMCUlt == False:
             self.hiddenMMR = min(self.hiddenMMR + punchline_diff, self._mmrCap())
@@ -502,7 +509,7 @@ class SilverWolf999(Character):
             return self.useElaSkill(-1)
 
         if result.turnName == "AhaElationFixedSequenceComplete":
-            self.hiddenMMR += Character.ahaFixedPunchlineValue + self.TotalElationChar
+            self.hiddenMMR += self.TotalElationChar
 
         if result.turnName == "AhaElationSequenceComplete" and Character.savedPunchline >= 20 and Character.savedPunchline < 40:
             self.hiddenMMR += self.TotalElationChar + 20

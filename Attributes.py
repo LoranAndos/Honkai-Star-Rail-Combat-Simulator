@@ -10,7 +10,7 @@ bonusDMG = {"AvenFUAExtras","TYAllyBonus","TYBeneBonus","YunliCullBounce","Feixi
             "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6","AcheronTech","CipherUltST","CipherTech","CipherE4Add","ArcherTech","RinTohsakaUltMain","RinTohsakaSkillSingle","SaberUltSmall",
             "GilgameshUltSingle","GilgameshTechnique","SouldragonBondmateADD","WeltSkillExtra","WeltSlowedAdditionalDMG","WeltAdditionalDMG","WeltE1AdditionalDMG","PearlDPSELABasic","PearlELABasic","PearlELASkillBonusDMG",
             "PearlDPSE6ELABasic","AeonAhaUltExtra","AhaDPSSkill","AeonAhaELATrueDMG","ElationMCUltAscendSmall","AventurineWaveflairSkillELA","AventurineWaveflairUltELA","AventurineWaveflairELASkillRandom",
-            "AventurineWaveflairTech",} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            "AventurineWaveflairTech","SilverWolf999EnhancedBounce1","SilverWolf999EnhancedBounce2","SilverWolf999EnhancedBounce3","SilverWolf999EnhancedBounce4"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",

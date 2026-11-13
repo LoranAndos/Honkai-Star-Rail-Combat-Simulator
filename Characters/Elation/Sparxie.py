@@ -66,10 +66,10 @@ class Sparxie(Character):
                  elationParticipationID=144) -> None:  # SPARXIE ID: 144
         super().__init__(pos, role, defaultTarget, eidolon, targetPrio)
         self.lightcone = lc if lc else MushyShroomysAdventuresSparxie(role,5)
-        self.relic1 = r1 if r1 else EverGloriousMagicalGirl(role, 4)
+        self.relic1 = r1 if r1 else DivinerOfDistantReach(role, 4)
         self.relic2 = None if self.relic1.setType == 4 else (r2 if r2 else None)
-        self.planar = pl if pl else TengokuLivestream(role)
-        self.relicStats = subs if subs else RelicStats(6, 2, 2, 2, 2, 8, 2, 2, 2, 2, 9, 9, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
+        self.planar = pl if pl else GodsMomentOfJoy(role)
+        self.relicStats = subs if subs else RelicStats(10, 2, 2, 2, 2, 5, 2, 2, 2, 2, 7, 7, StatTypes.CR_PERCENT, StatTypes.SPD, StatTypes.ATK_PERCENT, StatTypes.ERR_PERCENT)
         self.rotation = rotation if rotation else ["E"]
         self.elationParticipationID = elationParticipationID
 
@@ -116,7 +116,7 @@ class Sparxie(Character):
 
         # Roll once per SP consumed
         for _ in range(SPUsed):
-            if random() < 0.2 and StraightFireCount <= 3 :  # "Straight Fire"
+            if random() < 0.25 and StraightFireCount <= 3 :  # "Straight Fire"
                 totalPunch += 2 + ExtraPunchline
                 spGain += 2
                 StraightFireCount += 1
