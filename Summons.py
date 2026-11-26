@@ -221,6 +221,21 @@ class Aha(Summon):
     def aeonAhaUltActive(self) -> bool:
         return Character.AeonAhaUltActive
 
+    def _endOfInstantPunchline(self) -> int:
+        if not self.aeonAhaUltActive:
+            return 0
+        carry = floor(0.1 * Character.SharedPunchline)
+        self._giveCarryToSilverWolf(carry)
+        return len(self.elationTeam) + carry
+
+    @staticmethod
+    def _giveCarryToSilverWolf(carry: int):
+        if carry <= 0:
+            return
+        sw = next((c for c in (Character._current_player_team or []) if c.name == "SilverWolf999"), None)
+        if sw is not None:
+            sw.gainHiddenMMR(carry)
+
     def takeTurn(self):
         bl, dbl, al, dl, tl, hl, sl = super().takeTurn()
         self.IsAhaTurn = True
@@ -244,7 +259,7 @@ class Aha(Summon):
                 BonusPunchline = 0
 
             # Determine BangerDuration based on character
-            if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
+            if turnName in ("AhaYaoGuangGoGo", "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                 BangerDuraction = 3
             else:
                 BangerDuraction = 2
@@ -280,7 +295,7 @@ class Aha(Summon):
                     BonusPunchline = 0
 
                 # Determine BangerDuration based on character
-                if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
+                if turnName in ("AhaYaoGuangGoGo", "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2
@@ -315,7 +330,7 @@ class Aha(Summon):
                     BonusPunchline = 0
 
                 # Determine BangerDuration based on character
-                if self.hasYaoGuang and turnName == ("AhaYaoGuangGoGo" or "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
+                if turnName in ("AhaYaoGuangGoGo", "AhaAventurineWaveflairGoGo"):  # or "AhaEvanesciaGoGo": #If Evanescia = E6 then 4.
                     BangerDuraction = 3
                 else:
                     BangerDuraction = 2
@@ -356,7 +371,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -378,7 +393,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -400,7 +415,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -452,7 +467,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -484,7 +499,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -527,7 +542,7 @@ class Aha(Summon):
             tl.append(
                 Turn(self.name, Role.SUS, -1, Targeting.NA, [AtkType.ALL], [self.element], [0, 0], [0, 0], 0,
                      self.scaling, 0, "AhaElationSequenceComplete"))
-            Character.SharedPunchline = len(self.elationTeam) + floor(0.1*Character.SharedPunchline) if self.aeonAhaUltActive else len(self.elationTeam)
+            Character.SharedPunchline = self._endOfInstantPunchline()
             Character.ahaFixedPunchline = False
             Character.ahaElaDMGBoost = 1.0
             self.IsAhaTurn = True
@@ -614,3 +629,36 @@ class Souldragon(Summon):
                     [3.30, 0], [0, 0], 0, Scaling.ATK, 0, "SouldragonBondmateADD"))
 
         return bl, dbl, al, dl, tl, hl, sl
+
+OFF_BAR_SPD = 0.0001
+
+class FeverCountdown(Summon):
+    name = "SongbirdsCountdown"
+    element = Element.WIND
+    scaling = Scaling.HP
+    COUNTDOWN_SPD = 140.0
+    baseSPD = COUNTDOWN_SPD
+    currSPD = OFF_BAR_SPD
+    currAV = 10000 / OFF_BAR_SPD
+    breakMidTurn = False                 # only acts after the current turn has fully resolved
+
+    def __init__(self, ownerRole: Role, role: Role) -> None:
+        super().__init__(ownerRole, role)
+        self.currSPD = OFF_BAR_SPD
+        self.currAV = 10000 / OFF_BAR_SPD
+
+    @staticmethod
+    def _songbirds():
+        return next((c for c in (Character._current_player_team or []) if c.name == "SummerSongbirds"), None)
+
+    def spdOverride(self):
+        songbirds = self._songbirds()
+        if songbirds is not None and songbirds.MemoActive and songbirds.feverActive():
+            return self.COUNTDOWN_SPD
+        return OFF_BAR_SPD
+
+    def takeTurn(self):
+        songbirds = self._songbirds()
+        if songbirds is None:
+            return [], [], [], [], [], [], []
+        return songbirds.countdownTurn()

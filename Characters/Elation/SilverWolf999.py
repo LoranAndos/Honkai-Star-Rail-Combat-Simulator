@@ -118,6 +118,13 @@ class SilverWolf999(Character):
         self.currEnergy = self.hiddenMMR
         logger.debug(f"{self.name} currEnergy synced to hiddenMMR: {self.currEnergy}")
 
+    def gainHiddenMMR(self, amount, source="Aeon Aha's carried-over Punchline"):
+        if amount <= 0:
+            return
+        self.hiddenMMR = min(self.hiddenMMR + amount, self._mmrCap())
+        self._updateEnergyFromMMR()
+        logger.info(f"{self.name} +{amount} Hidden MMR from {source} (total: {self.hiddenMMR})")
+
     def equip(self):
         bl, dbl, al, dl, hl, sl = super().equip()
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
@@ -396,16 +403,23 @@ class SilverWolf999(Character):
         if is_sp_triggered:
             self.topLootBoxChance *= 0.2
 
+        EnhancedBasicText = False
+
         e5Mul = 0.99 if self.eidolon >= 5 else 0.90
         if self.EnhancedBasicLootBox:
             e6Mul = 1.5 if self.eidolon >= 6 else 1.0
             self.EnhancedBasicLootBox = False
+            EnhancedBasicText = True
         else:
             e6Mul = 1.0
         enemyCount = self._getEnemyCount()
 
         tlb_mul = e5Mul * e6Mul
-        tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
+        if EnhancedBasicText:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
+                       [self.element], [tlb_mul/enemyCount, 0], [10/enemyCount, 0], 0, Scaling.ELA, 0, "SilverWolf999EnhancedBasicTopLootBox"))
+        else:
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID), Targeting.AOE, [AtkType.ELABANGER],
                        [self.element], [tlb_mul/enemyCount, 0], [10/enemyCount, 0], 0, Scaling.ELA, 0, "SilverWolf999TopLootBox"))
 
         # Random effect
@@ -524,6 +538,9 @@ class SilverWolf999(Character):
         if result.turnName == "YaoGuangUlt":
             self.hiddenMMR += 5
             self.hiddenMMR += Character.ahaFixedPunchlineValue
+
+        if result.turnName == "AeonAhaTech":
+            self.gainHiddenMMR(Character.ahaFixedPunchlineValue, "Aeon Aha's Technique Instant (20 Punchline counted)")
 
         if result.turnName == "AhaElationFixedEMCSequenceComplete":
             Character.EMCUlt = False

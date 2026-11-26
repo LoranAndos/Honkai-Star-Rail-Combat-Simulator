@@ -120,6 +120,7 @@ class ElationMC(Character):
             BangerReduction = 0.5
         else:
             BangerReduction = 1.0
+        self.lastSkillBangerGain = (20 + self.bangerBonus) * BangerReduction
         bl.append(Buff("ElationMCSkillBanger",StatTypes.BANGER,(20 + self.bangerBonus)*BangerReduction,self.role,[AtkType.ALL],2,10  ,Role.SELF,TickDown.END))
         Character.SharedPunchline += 3
         bl.append(Buff("ElationMCSkillTalentERR", StatTypes.ERR_F, 10, self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
@@ -183,12 +184,15 @@ class ElationMC(Character):
             return self.useElaSkill(-1)
 
         if turn.moveName == "ElationMCSkillNormal":
-            attackerBanger = self.BangerDict.get(self.role, 0)
-            ElationMCBanger = self.BangerDict.get(self.role, 0) # Technically not correct, but Evanescia causes some trouble with this and effect is not big so will remain till I can fix it
-            # If attacker has higher ELA, add the difference as a temporary buff on ElationMC
+            # Talent: Trailblazer's Banger is treated as the HIGHEST Banger among all allies for this hit.
+            bangerDict = getattr(self, "BangerDict", None) or {}
+            attackerBanger = max(bangerDict.values()) if bangerDict else 0
+            # BangerDict is a snapshot from before this Skill, so include the Banger the Skill itself just granted.
+            ElationMCBanger = bangerDict.get(self.role, 0) + getattr(self, "lastSkillBangerGain", 0)
+            # If an ally has a higher Banger, add the difference as a temporary buff on ElationMC
             if attackerBanger > ElationMCBanger:
                 bl.append(Buff("ElationMCTalentSkillBanger", StatTypes.BANGER, attackerBanger - ElationMCBanger,
-                               self.role, [AtkType.ALL], 1, 1, self.role, TickDown.START))
+                               self.role, [AtkType.ELABANGER], 1, 1, self.role, TickDown.END))
             if self.Banger >= 1:
                 tl.append(Turn(self.name, self.role, self.bestEnemy(-1), Targeting.AOE, [AtkType.ELABANGER],
                                [self.element], [e3TalMul, 0], [0, 0], 0, Scaling.ELA, 0, "ElationMCTalentSkill"))
@@ -223,7 +227,8 @@ class ElationMC(Character):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         if result.turnName == "AhaElationMCGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
-        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill","SparxieElaSkillBig","YaoGuangELASkillAOE", "PearlELASkill"):
+        if result.turnName in ("EvanesciaELASkill", "SilverWolf999ELASkill", "SilverWolf999NormalELASkill", "SparxieElaSkillBig",
+                               "YaoGuangELASkillAOE", "PearlELASkill", "AventurineWaveflairELASkill", "AeonAhaELASkill"):
             self.bangerBonus = min(self.bangerBonus + 2, 2)
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:

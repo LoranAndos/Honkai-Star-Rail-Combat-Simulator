@@ -114,7 +114,7 @@ class AeonAha(Character):
         bl.append(Buff("BangerStartBattle", StatTypes.BANGER, 20, self.role, [AtkType.ALL], 2, 1, self.role, TickDown.END))
         bl.append(Buff("AeonAhaTraceCR", StatTypes.CR_PERCENT, 0.12, self.role))
         bl.append(Buff("AeonAhaTraceSPD", StatTypes.SPD, 5, self.role))
-        bl.append(Buff("AeonAhaTraceCD", StatTypes.ELA, 0.373, self.role))
+        bl.append(Buff("AeonAhaTraceCD", StatTypes.CD_PERCENT, 0.373, self.role))
         al.append(Advance("Trace3ADV", self.role, 0.30))
         if self.eidolon >= 1:
             self.currEnergy += 5

@@ -70,6 +70,10 @@ class Mem(Memosprite):
         bl.append(Buff("RmcTraceHP", StatTypes.HP_PERCENT, 0.14, self.role))
         return bl, dbl, al, dl, hl, sl
 
+    def inheritMaxHP(self, masterMaxHP: float, buffHPPercent: float = 0.0, buffHPFlat: float = 0.0):
+        # Almighty Companion: Max HP = 80% of Rmc's Max HP + 640 (86% + 688 with E3's +2 talent levels)
+        return (0.86 * masterMaxHP + 688) if self.eidolon >= 3 else (0.80 * masterMaxHP + 640)
+
     def addCharge(self, amount: float):
         self.currEnergy = min(self.maxEnergy, self.currEnergy + amount)
 
@@ -95,9 +99,9 @@ class Mem(Memosprite):
         bl, dbl, al, dl, tl, hl, sl = super().disappear()
         self.MemospriteSupport = False
         self.currEnergy = 0
-        self.baseSPD = 1
-        self.currSPD = 1
-        self.currAV = 10000.0
+        self.baseSPD = 0.0001
+        self.currSPD = 0.0001
+        self.currAV = 10000.0 / self.currSPD
         self.currHP = self.maxHP                 # off-field Mem is shown at full HP so "lowest HP ally" logic ignores it
         self.cdBuffVal = 0.0
         # No... Regrets: when Mem disappears Rmc's action is advanced by 25%
@@ -124,7 +128,7 @@ class Mem(Memosprite):
             # Lemme! Help You!: advance one ally 100% and grant "Mem's Support" (True DMG) for 3 turns
             target = self.MemTarget
             baseTrue = 0.30 if self.eidolon >= 5 else 0.28
-            a6 = min(0.20, max(0.0, (self.TargetMaxEnergy - 100) / 10 * 0.02))      # A6: +2% per 10 Max Energy above 100
+            a6 = min(0.20, max(0.0, int((self.TargetMaxEnergy - 100) // 10) * 0.02))   # A6: +2% per full 10 Max Energy above 100 (max +20%)
             e4 = 0.06 if (self.eidolon >= 4 and self.TargetZeroEnergy) else 0.0       # E4: +6% on 0-Max-Energy allies
             trueDmg = baseTrue + a6 + e4
             if target != self.MasterRole:       # Mem cannot Support its own memomaster
@@ -165,6 +169,8 @@ class Mem(Memosprite):
                 heal = 0.66 if self.eidolon >= 3 else 0.60
                 self.ChangeHpValue(heal * self.maxHP)      # Rmc's Skill on an existing Mem: heal + 10% Charge
                 self.addCharge(10)
+        elif result.turnName == "RmcEnhancedBasic" and fromMaster:
+            self.addCharge(10)                   # Together, We Script Tomorrow!: Mem gains 10% Charge
         elif result.turnName == "RmcUltimate" and fromMaster:
             if not self.MemoActive:
                 self._summon()                   # the Ultimate summons Mem if absent

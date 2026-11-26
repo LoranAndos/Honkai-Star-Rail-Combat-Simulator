@@ -268,7 +268,7 @@ class Pearl(Character):
             self.EnhancedUses -= 1
         else:
             tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID),
-                           Targeting.AOE, [AtkType.BSC], [self.element],
+                           Targeting.SINGLE, [AtkType.BSC], [self.element],
                            [e3Mul, 0], [10, 0], 20, self.scaling, 1, "PearlBasic"))
         return bl, dbl, al, dl, tl, hl, sl
 
@@ -567,5 +567,7 @@ class Pearl(Character):
             self.tech = False
             self._addCertifiedBanger(20, "TechBanger", bl)
             self.EnhancedUses = 2
+            self.SpecialEnhanced = bool(self.ElationDPS)
 
+        self.certifiedBangerCap = 75.0 if self._ascended() else 50.0
         return bl, dbl, al, dl, tl, hl, sl

@@ -1,9 +1,0 @@
-Simulation Results - 100 runs
-================================================================================
-
-Run    1: Team DPAV: 96039.102 | SilverWolf999: 69085.930 | YaoGuang: 6574.514 | AeonAha: 20015.478 | Pearl: 363.180
-Run    2: Team DPAV: 101595.607 | SilverWolf999: 75676.606 | YaoGuang: 6449.550 | AeonAha: 19104.206 | Pearl: 365.245
-Run    3: Team DPAV: 106272.952 | SilverWolf999: 79487.652 | YaoGuang: 6538.109 | AeonAha: 19873.725 | Pearl: 373.465
-Run    4: Team DPAV: 100155.243 | SilverWolf999: 74157.110 | YaoGuang: 6491.045 | AeonAha: 19140.657 | Pearl: 366.431
-Run    5: Team DPAV: 104371.485 | SilverWolf999: 76502.462 | YaoGuang: 6626.903 | AeonAha: 20872.574 | Pearl: 369.546
-Run    6: Team DPAV: 112713.723 | SilverWolf999: 84419.761 | YaoGuang: 6812.813 | AeonAha: 21099.891 | Pearl: 381.258

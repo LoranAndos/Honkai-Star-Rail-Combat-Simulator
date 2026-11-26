@@ -58,6 +58,7 @@ class Character(metaclass=CharacterMeta):
     savedPunchline = 0
     prePunchline = 0
     totalPunchline = 0
+    actionId = 0   # incremented by the engine for every unit turn and every Ultimate; lets a unit react once per action instead of once per Turn/hit
     _current_enemy_team = None
     _current_player_team = None
     _elation_characters_registry = {}

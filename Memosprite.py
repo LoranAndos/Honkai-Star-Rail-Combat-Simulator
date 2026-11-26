@@ -85,6 +85,20 @@ class Memosprite:
         res += f"{self.planar}"
         return res
 
+    # ------------------------------------------------------------------ engine hooks
+    OFF_FIELD_SPD = 0.0001
+
+    def spdOverride(self):
+        """Called by MainFunctions.getCharSPD. A memosprite that is not on the field has no place on the action bar, whatever
+        flat SPD buffs the team has (without this, a +SPD team buff would give an off-field memosprite real turns).
+        Return a number to fully define the action-bar SPD, or None to use the normal baseSPD/buff calculation."""
+        return None if self.MemoActive else self.OFF_FIELD_SPD
+
+    def inheritMaxHP(self, masterMaxHP: float, buffHPPercent: float = 0.0, buffHPFlat: float = 0.0):
+        """Called by MainFunctions.getCharMaxHP. Return this memosprite's Max HP derived from its memomaster's Max HP
+        (buffHPPercent / buffHPFlat are HP buffs that target the memosprite itself), or None to use the normal calculation."""
+        return None
+
     # ------------------------------------------------------------------ actions
     # Every action returns the same 7-tuple the engine expects from a character:
     # (buffs, debuffs, advances, delays, turns, healings, shields)

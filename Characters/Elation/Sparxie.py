@@ -204,6 +204,8 @@ class Sparxie(Character):
         if self.eidolon >= 1 and result.turnName == "AhaElationFixedSequenceComplete":
             Character.SharedPunchline += 5
 
+        bl, dbl, al, dl, tl, hl, sl = self._onInstantEnd(result, bl, dbl, al, dl, tl, hl, sl)
+
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "SparxieSkillElaExtra" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             if self._ascended():
@@ -223,6 +225,14 @@ class Sparxie(Character):
         if result.turnName == "AhaSparxieGoGo" or result.turnName == f"ElationMCUltTrigger_{self.role.name}":
             return self.useElaSkill(-1)
 
+        if self.eidolon >= 1 and result.turnName == "AhaElationSequenceComplete":
+            Character.SharedPunchline += 5
+
+        if self.eidolon >= 1 and result.turnName == "AhaElationFixedSequenceComplete":
+            Character.SharedPunchline += 5
+
+        bl, dbl, al, dl, tl, hl, sl = self._onInstantEnd(result, bl, dbl, al, dl, tl, hl, sl)
+
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
             self.PearlUltCount += 1
@@ -232,6 +242,14 @@ class Sparxie(Character):
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
+        return bl, dbl, al, dl, tl, hl, sl
+
+    E2_INSTANT_END_TURNS = ("AhaElationSequenceComplete")
+
+    def _onInstantEnd(self, result: Result, bl, dbl, al, dl, tl, hl, sl):
+        if self.eidolon >= 2 and result.turnName in self.E2_INSTANT_END_TURNS:
+            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
+            self.addThrill(2)
         return bl, dbl, al, dl, tl, hl, sl
 
     def useElaSkill(self, enemyID=-1):
@@ -267,9 +285,6 @@ class Sparxie(Character):
                 [self.element], [e5MulSmall * (20 + E6ExtraProc) * Character.ahaElaDMGBoost * ExtraAhaMultiplier, 0], [1.67 * (20 + E6ExtraProc), 0], 0,
                         Scaling.ELA, 0, "SparxieElaSkillSmall"))
         self.addThrill(2)
-        if self.eidolon >= 2:
-            bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
-            self.addThrill(2)
         return bl, dbl, al, dl, tl, hl, sl
 
     def handleSpecialStart(self, specialRes: Special):

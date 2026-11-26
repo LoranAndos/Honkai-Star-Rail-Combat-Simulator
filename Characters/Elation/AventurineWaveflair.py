@@ -225,6 +225,20 @@ class AventurineWaveflair(Character):
 
         return bl, dbl, al, dl, tl, hl, sl
 
+    NOT_A_SEPARATE_ATTACK_PREFIXES = ( # Pearl skill for now, can possibly be more in the future.
+        "PearlELASkill",
+    )
+
+    def _countsAsTeammateAttack(self, turn: Turn, result: Result) -> bool:
+        """True when this teammate Turn is one attack (or one damaging Elation Skill) that
+        gives Aventurine Fervor: it must have hit an enemy for damage, must not be extra
+        damage (bonusDMG) and must not be one of several Turns of the same attack."""
+        if turn.moveName in bonusDMG:
+            return False
+        if turn.moveName.startswith(self.NOT_A_SEPARATE_ATTACK_PREFIXES):
+            return False
+        return bool(result.enemiesHit) and result.TotalDamage > 0
+
     def allyTurn(self, turn: Turn, result: Result):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         bl.extend(self._handleSequenceEnd(result))
@@ -244,7 +258,7 @@ class AventurineWaveflair(Character):
 
             bl, dbl, al, dl, tl, hl, sl = self.extendLists(bl, dbl, al, dl, tl, hl, sl, *self.useSkl(-1))
 
-        if (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0:
+        if self._countsAsTeammateAttack(turn, result):
             self._gainFervor(1, f"teammate attack ({turn.charName}: {turn.moveName})")
             Character.SharedPunchline += 1
 

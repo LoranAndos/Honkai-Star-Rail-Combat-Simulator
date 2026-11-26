@@ -6,6 +6,10 @@ Define multiple teams below, each with their own builds, then run either:
   - MULTI  mode: N runs per team, prints average + per-char DPAV breakdown
 
 Toggle between modes and configure runs at the top of the SETTINGS section.
+
+BATTLE SHEETS: for every team the FIRST battle is also written to its own combat log (in MULTI mode too) and
+all logs are converted into one Excel workbook (TeamCalcs_BattleSheets.xlsx) with one tab per team: builds,
+stats, every unit turn, every hit and every buff. See the "Battle sheets" settings below.
 """
 
 # ============================================================
@@ -14,6 +18,8 @@ Toggle between modes and configure runs at the top of the SETTINGS section.
 import logging
 import math
 import os
+import re
+import time
 
 # Import character/lightcone/relic/planar modules
 # Adjust paths to match your project layout
@@ -64,6 +70,14 @@ OUTPUT_LOG = True      # set True to write a .log file for a single run (per-tea
 # the script is launched from (e.g. an IDE's "run" button often uses a
 # different cwd than a terminal would).
 LOG_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Output")
+
+# ── Battle sheets ────────────────────────────────────────────
+# For EVERY team the first battle is logged (also in MULTI mode, where all other runs stay silent) and the
+# logs are converted into one Excel workbook with one tab per team. Needs:  pip install xlsxwriter
+BATTLE_SHEET       = True
+BATTLE_SHEET_FILE  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "TeamCalcs_BattleSheets.xlsx")
+BATTLE_LOG_FOLDER  = os.path.join(LOG_FOLDER, "BattleLogs")   # one .log per team (about 10 MB each)
+KEEP_LOGS          = True    # False = delete the per-team .log files again once the workbook has been written
 
 # Enemy setup — shared across all teams
 EnemyElement = Element.QUANTUM
@@ -582,6 +596,68 @@ def _log_filename(teams, cycles, num_runs=None, mode="SINGLE") -> str:
     return f"{LOG_FOLDER}/TeamCalcs_{mode}_{teamInfo}_{cycles}Cycles{runsInfo}.log"
 
 
+# ── Battle sheets: per-team log of the first battle -> one Excel tab per team ─────────────────────────────
+
+def _battle_log_path(team_index: int, team_name: str) -> str:
+    """Unique log file per team (team_index is 1-based), so no team ever overwrites another one's log."""
+    safe = re.sub(r"[^\w.+-]+", "_", team_name).strip("_")[:90]
+    return os.path.join(BATTLE_LOG_FOLDER, f"{team_index:02d}_{safe}.log")
+
+
+def _build_battle_sheets(entries: list, tee=None) -> None:
+    """Convert the per-team logs [(team_index, team_name, log_path), ...] into BATTLE_SHEET_FILE.
+
+    Never raises: the DPAV results are the main product and must not be lost because of the sheets.
+    """
+    say = tee.log if tee is not None else print
+    if not entries:
+        return
+    try:
+        from BattleSheet import build_battle_workbook
+    except Exception as e:  # noqa: BLE001
+        say(f"\n  Battle sheets skipped (could not import BattleSheet.py): {e}")
+        return
+
+    errors = []
+    t0 = time.time()
+    out = BATTLE_SHEET_FILE
+    try:
+        try:
+            build_battle_workbook(entries, out, errors=errors)
+        except RuntimeError as e:                      # xlsxwriter missing
+            say(f"\n  Battle sheets skipped: {e}")
+            return
+        except Exception as e:                         # most likely the workbook is still open in Excel
+            if not (isinstance(e, OSError) or type(e).__name__ in ("FileCreateError", "XlsxFileError")):
+                raise
+            root, ext = os.path.splitext(BATTLE_SHEET_FILE)
+            out = f"{root}_{time.strftime('%H%M%S')}{ext}"
+            say(f"\n  Could not write {BATTLE_SHEET_FILE} (open in Excel?) - writing {out} instead")
+            errors.clear()
+            build_battle_workbook(entries, out, errors=errors)
+    except Exception as e:  # noqa: BLE001
+        import traceback
+        say(f"\n  Battle sheets failed: {e}")
+        say(traceback.format_exc())
+        return
+
+    say(f"\n  Battle sheets written to: {out}  ({len(entries) - len(errors)} tab(s), {time.time() - t0:.0f}s)")
+    for msg in errors:
+        say(f"    ! skipped {msg}")
+    if not KEEP_LOGS:
+        failed = {m.split(" ", 1)[0] for m in errors}
+        removed = 0
+        for idx, _name, path in entries:
+            if f"#{idx}" in failed:
+                continue                               # keep the log of a team that could not be converted
+            try:
+                os.remove(path)
+                removed += 1
+            except OSError:
+                pass
+        say(f"  KEEP_LOGS is off: removed {removed} log file(s) from {BATTLE_LOG_FOLDER}")
+
+
 def _95_margin_of_error_pct(values: list, mean: float) -> float:
     """95% confidence-interval margin of error, expressed as a percent of the
     mean (i.e. 'the true mean is avg +/- X%' at 95% confidence).
@@ -742,18 +818,26 @@ def run_single(teams, cycles, enemy_module, output_log):
     try:
         tee.log(f"\n{separator}\n  SINGLE MODE  |  {cycles} cycles  |  {len(teams)} team(s)\n{separator}")
 
-        for team in teams:
+        battle_entries = []
+        for ti, team in enumerate(teams, 1):
             s1, s2, s3, s4 = team["factory"]()
+            log_path = _battle_log_path(ti, team["name"]) if BATTLE_SHEET else None
             result = startSimulator(
                 cycleLimit=cycles,
                 s1=s1, s2=s2, s3=s3, s4=s4,
-                outputLog=output_log,
+                outputLog=output_log or BATTLE_SHEET,
                 enemyModule=enemy_module,
+                logPath=log_path,
             )
+            if BATTLE_SHEET:
+                battle_entries.append((ti, team["name"], log_path))
             dpav = _parse_dpav(result)
             sp_info = " | ".join(result.split(" | ")[1:])  # SP Used / SP Gain
             tee.log(f"\n  {team['name']}")
             tee.log(f"  DPAV: {dpav:.3f}  |  {sp_info}")
+
+        if BATTLE_SHEET:
+            _build_battle_sheets(battle_entries, tee)
 
         tee.log(f"\n{separator}\n")
     except Exception:
@@ -785,8 +869,10 @@ def run_multi(teams, num_runs, cycles, enemy_module):
         tee.log(f"\n{separator}\n  MULTI MODE  |  {num_runs} runs  |  {cycles} cycles  |  {len(teams)} team(s)\n{separator}")
 
         all_results = []
+        battle_entries = []      # (team_index, team_name, log_path) of the first battle of every team
+        sheets_done = False
 
-        for team in teams:
+        for team_index, team in enumerate(teams, 1):
             team_dpavs = []
             char_dpavs = {}      # char_name -> list[float]
             char_dmg_dcts = {}   # char_name -> list[dict[AtkType, float]]  (one dmgDct snapshot per run)
@@ -810,13 +896,18 @@ def run_multi(teams, num_runs, cycles, enemy_module):
                         char_dmg_dcts[n] = []
 
                 resultEnemies = []
+                log_first_battle = BATTLE_SHEET and i == 0     # only the first battle of each team is logged
+                battle_log = _battle_log_path(team_index, team["name"]) if log_first_battle else None
                 result = startSimulator(
                     cycleLimit=cycles,
                     s1=s1, s2=s2, s3=s3, s4=s4,
-                    outputLog=False,
+                    outputLog=log_first_battle,
                     enemyModule=enemy_module,
                     resultEnemies=resultEnemies,
+                    logPath=battle_log,
                 )
+                if log_first_battle:
+                    battle_entries.append((team_index, team["name"], battle_log))
 
                 team_dpav = _parse_dpav(result)
                 team_dpavs.append(team_dpav)
@@ -930,6 +1021,11 @@ def run_multi(teams, num_runs, cycles, enemy_module):
         tee.log(f"\n  Sheet-layout export written to: {xlsx_path}")
         print(f"Sheet-layout export written to: {xlsx_path}")
 
+        # ── Battle sheets (first battle of every team -> one tab per team) ──
+        if BATTLE_SHEET:
+            _build_battle_sheets(battle_entries, tee)
+            sheets_done = True
+
         # ── Order (as defined, NOT sorted by DPAV) ──────────────────────────
         tee.log(f"\n{separator}\n  TEAM ORDER (as defined)\n{separator}")
         for i, r in enumerate(all_results, 1):
@@ -942,6 +1038,9 @@ def run_multi(teams, num_runs, cycles, enemy_module):
         tee.log(traceback.format_exc())
         raise
     finally:
+        # an interrupted run still turns the teams that finished into sheets
+        if BATTLE_SHEET and battle_entries and not sheets_done:
+            _build_battle_sheets(battle_entries, tee)
         tee.close()
 
     print(f"\nLog written to {tee.filename}")

@@ -1,6 +1,8 @@
 import logging
+import os
 
 import Enemy
+from BuildLog import logBuildSnapshot
 from Characters.Abundance.HuoHuo import HuoHuo
 from Characters.Abundance.Lingsha import Lingsha
 from Characters.Preservation.DanHengPermansorTerrae import DangHengPermansorTerrae
@@ -38,9 +40,50 @@ FiveEnemyModule = EnemyModule(5, [95, 95, 95, 95, 95], [EnemyType.ADD, EnemyType
 ThreeEnemyModule = EnemyModule(3, [95, 95, 95], [EnemyType.ELITE, EnemyType.BOSS, EnemyType.ELITE], [130, 158.4, 130], [100, 160, 100], atkRatio, [EnemyElement], [1]) # 3 enemyModule
 TwoEnemyModule = EnemyModule(2, [95, 95], [EnemyType.ELITE, EnemyType.BOSS], [130, 158.4], [100, 160], atkRatio, [EnemyElement], [1]) # 2 enemyModule
 
+_RUN_LOG_FLAG = "_isSimRunLog"
+
+# The module-level logging.critical()/warning()/... calls install a console handler on the root logger the
+# moment the root logger has no handler at all (an implicit logging.basicConfig()), even while logging is
+# disabled. Without this, the first silent run would leave such a handler behind and every later logged run
+# would also print its whole log to the console. A NullHandler keeps the root logger "configured".
+if not any(isinstance(h, logging.NullHandler) for h in logging.getLogger().handlers):
+    logging.getLogger().addHandler(logging.NullHandler())
+
+
+def _closeRunLog() -> None:
+    """Detach and close the per-run log file handler (if any)."""
+    root = logging.getLogger()
+    for handler in list(root.handlers):
+        if getattr(handler, _RUN_LOG_FLAG, False):
+            root.removeHandler(handler)
+            handler.close()
+
+
+def _openRunLog(path: str, level: int) -> None:
+    """Start writing the log of this run to `path`.
+
+    logging.basicConfig() only works the first time it is called in a process, and a previous
+    logging.disable(CRITICAL) (every outputLog=False run does that) silences everything until it
+    is undone. That made the log of every team after the first one end up in the wrong file or
+    nowhere at all, so each run now gets its own file handler and logging is re-enabled first.
+    """
+    _closeRunLog()
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    logging.disable(logging.NOTSET)
+    handler = logging.FileHandler(path, mode="w", encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(message)s"))
+    setattr(handler, _RUN_LOG_FLAG, True)
+    root = logging.getLogger()
+    root.addHandler(handler)
+    root.setLevel(level)
+
+
 # noinspection PyUnboundLocalVariable,PyUnusedLocal
 def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3: Character = None, s4: Character = None,
-                   outputLog: bool = False, enemyModule=None, manualMode=False, resultEnemies: list = None) -> str:
+                   outputLog: bool = False, enemyModule=None, manualMode=False, resultEnemies: list = None,
+                   extraChars: list = None, logPath: str = None) -> str:
+    # logPath: where to write the log when outputLog is True (default: Output/<team>_<enemies>_<cycles>.log
+    # next to this file). TeamCalcs passes a unique path per team so that logs never overwrite each other.
     # =============== SETTINGS ===============
     # Enemy Settings
     numEnemies = 3
@@ -67,6 +110,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     Character.savedPunchline = 0
     Character.prePunchline = 0
     Character.totalPunchline = 0
+    Character.actionId = 0
 
     # Simulation Settings
     totalEnemyAttacks = 0
@@ -88,18 +132,20 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
         playerTeam = [slot1, slot2, slot3, slot4]
     else:
         playerTeam = [s1, s2, s3, s4]
+    # Memosprites are separate units: a full team (4 characters + their memosprites) needs more than 4 entries.
+    # Pass them (in action-order position, memomaster first) through extraChars.
+    if extraChars:
+        playerTeam = playerTeam + [c for c in extraChars if c is not None]
 
     if outputLog:
-        log_folder = "Output"
-        teamInfo = "".join([char.name for char in playerTeam])
-        enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycleLimit}Cycles"
-        logging.basicConfig(
-            filename=f"{log_folder}/{teamInfo}{enemyInfo}.log",
-            level=logLevel,
-            format="%(message)s",
-            filemode="w"
-        )
+        if logPath is None:
+            log_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Output")
+            teamInfo = "".join([char.name for char in playerTeam])
+            enemyInfo = f"_{enemyModule.numEnemies}Enemies_{cycleLimit}Cycles"
+            logPath = os.path.join(log_folder, f"{teamInfo}{enemyInfo}.log")
+        _openRunLog(logPath, logLevel)
     else:
+        _closeRunLog()
         logging.disable(logging.CRITICAL)  # Disable all logging messages
 
     avLimit = cycleLimit * 100 + 50
@@ -210,6 +256,11 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     # Initialize starting Punchline for all characters
     Character.SharedPunchline = ElationCount
 
+    # Builds + battle-start stats, read back by BattleSheet.py (only writes anything when the log is on)
+    if outputLog:
+        logBuildSnapshot(playerTeam, teamBuffs, cycleLimit, cycleLimit * 100 + 50, startingSP, maxSP,
+                         enemyModule.numEnemies)
+
     logging.warning("\nInitial AV Adjustments")
     avAdjustment(playerTeam, advList)  # apply any "on battle start" advances
     advList = []  # clear advList after applying
@@ -226,6 +277,7 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
     while simAV < avLimit:
 
         unit = allUnits[0]  # Find next turn
+        Character.actionId += 1   # every unit turn is a new "action"
         av = unit.currAV
         simAV += av
         turnList = []
@@ -549,6 +601,8 @@ def startSimulator(cycleLimit=5, s1: Character = None, s2: Character = None, s3:
 
     if resultEnemies is not None:
         resultEnemies.extend(eTeam)
+
+    _closeRunLog()  # flush + release the per-run log file
 
     return f"DPAV: {dmg.getTotalDMG() / avLimit:.3f} | SP Used: {spTracker.getSPUsed()}, SP Gain: {spTracker.getSPGain()}"
 

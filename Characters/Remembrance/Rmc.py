@@ -102,12 +102,12 @@ class Rmc(Character):
         bl, dbl, al, dl, tl, hl, sl = super().allyTurn(turn, result)
         # Every Memosprite skill of Mem (Baddies! Trouble! / Lemme! Help You!) gives Rmc 10 Energy
         if result.turnName in ("MemBigSkill", "MemSupport"):
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.ULT], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 10, self.scaling, 0, "MemAttackEnergy"))
         # E2: other memosprites acting give Rmc 8 Energy (once per turn)
         if (turn.charRole in (Role.MEMO1, Role.MEMO2, Role.MEMO3, Role.MEMO4) and not turn.charName == "Mem"
                 and self.CanGetEnergy == True and self.eidolon >= 2):
-            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.ULT], [self.element],
+            tl.append(Turn(self.name, self.role, self.bestEnemy(enemyID=-1), Targeting.NA, [AtkType.SPECIAL], [self.element],
                      [0, 0], [0, 0], 8, self.scaling, 0, "RmcE2Energy"))
             self.CanGetEnergy = False
         return bl, dbl, al, dl, tl, hl, sl

@@ -10,13 +10,14 @@ bonusDMG = {"AvenFUAExtras","TYAllyBonus","TYBeneBonus","YunliCullBounce","Feixi
             "AcheronResurgeBounce4","AcheronResurgeBounce5","AcheronResurgeBounce6","AcheronTech","CipherUltST","CipherTech","CipherE4Add","ArcherTech","RinTohsakaUltMain","RinTohsakaSkillSingle","SaberUltSmall",
             "GilgameshUltSingle","GilgameshTechnique","SouldragonBondmateADD","WeltSkillExtra","WeltSlowedAdditionalDMG","WeltAdditionalDMG","WeltE1AdditionalDMG","PearlDPSELABasic","PearlELABasic","PearlELASkillBonusDMG",
             "PearlDPSE6ELABasic","AeonAhaUltExtra","AhaDPSSkill","AeonAhaELATrueDMG","ElationMCUltAscendSmall","AventurineWaveflairSkillELA","AventurineWaveflairUltELA","AventurineWaveflairELASkillRandom",
-            "AventurineWaveflairTech","SilverWolf999EnhancedBounce1","SilverWolf999EnhancedBounce2","SilverWolf999EnhancedBounce3","SilverWolf999EnhancedBounce4"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
+            "AventurineWaveflairTech","SilverWolf999EnhancedBounce_1","SilverWolf999EnhancedBounce_2","SilverWolf999EnhancedBounce_3","SilverWolf999EnhancedBounce_4","SilverWolf999EnhancedBasicTopLootBox",
+            "SongbirdsE1TrueDMG"} # Will be for special types of damage, and things like additional damage. (Make sure to always update because of Tingyun/Tribbie/Yao Guang/...)
 SkillList = {} # Will be used for Cerydra to know which attacks counts as skill and which not
 UltimateList = {"BronyaUlt","GallagherUlt","HuoHuoUlt","JiaoqiuUlt","LingshaUlt","LuochaUlt","PelaUlt","RmcUltimate","RuanUltBreak",
                 "SparkleUlt","SushangUlt","TingyunUlt","TribbieUlt","SparxieUltReg","YaoGuangUlt","ElationMCUlt", "EvanesciaUlt",
                 "SilverWolf999Ult","MortenaxBladeUlt","MortenaxBladeEnhancedUlt","AshveilUlt","AcheronUlt","FeixiaoUltFinal",
                 "CipherUltAOE","ArcherUlt","RinTohsakaUltSide","SaberUltBig","GilgameshUltAll","DanHengPermansorTerraeUlt",
-                "WeltUlt","PearlUlt","AventurineWaveflairUlt","AeonAhaUlt",} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
+                "WeltUlt","PearlUlt","AventurineWaveflairUlt","AeonAhaUlt","RobinSummerettoUlt"} # Is used for Tribbie to know which attack is Ultimate launch (Make sure to always update)
 ElationSkillList = {"ElationMCELASkillBig","EvanesciaELASkill","SilverWolf999ELASkill","SilverWolf999NormalELASkill",
                     "SparxieElaSkillBig","YaoGuangELASkillAOE","PearlELASkill","AeonAhaELASkill","ElationMCUltAscendBig",
                     "AventurineWaveflairELASkill"}
@@ -129,6 +130,7 @@ class Role(Enum):
     INFINITEFURY = auto()
     AHA = auto()
     SOULDRAGON = auto()
+    FEVERCOUNTDOWN = auto()
     # Memosprite roles
     Mem = auto()
 

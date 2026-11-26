@@ -1,0 +1,1324 @@
+
+======================================================================
+  MULTI MODE  |  1 runs  |  5 cycles  |  45 team(s)
+======================================================================
+
+======================================================================
+  RESULTS  (1 runs, 5 cycles)
+======================================================================
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 80657.782  |  min: 80657.782  |  max: 80657.782  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 50209.129  (62.2%)
+      - ELABANGER  avg DMG: 20796642.511  (75.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6784023.744  (24.6% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 8580.612  (10.6%)
+      - ELAPUNCH   avg DMG: 3591221.412  (76.1% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1083542.735  (23.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 44572.624  (0.9% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 21564.263  (26.7%)
+      - ELABANGER  avg DMG: 9364224.824  (79.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2496119.676  (21.0% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 303.777  (0.4%)
+      - ELABANGER  avg DMG: 137901.294  (82.5% of Pearl's DMG)
+      - BSC        avg DMG: 29176.265  (17.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 690180.2
+    Enemy 0 (ELITE)  avg Overkill: 322692.7
+    Enemy 1 (BOSS)  avg Overkill: 121441.3
+    Enemy 2 (ELITE)  avg Overkill: 246046.2
+  DPAV only (select the lines below):
+50209.129
+8580.612
+21564.263
+303.777
+
+  SilverWolf999 e0s1 | Sparxie e0s0 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 72973.261  |  min: 72973.261  |  max: 72973.261  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 50931.689  (69.8%)
+      - ELABANGER  avg DMG: 23286351.431  (83.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4650266.816  (16.6% of SilverWolf999's DMG)
+      - SKL        avg DMG: 50281.598  (0.2% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 9229.254  (12.6%)
+      - ELAPUNCH   avg DMG: 3523770.119  (69.4% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 1396365.372  (27.5% of Sparxie's DMG)
+      - BSC        avg DMG: 132163.130  (2.6% of Sparxie's DMG)
+    AeonAha              avg DPAV: 12749.108  (17.5%)
+      - ELABANGER  avg DMG: 5225901.543  (74.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1786107.829  (25.5% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 63.210  (0.1%)
+      - BSC        avg DMG: 23907.175  (68.8% of Pearl's DMG)
+      - ELABANGER  avg DMG: 10858.169  (31.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1120602.0
+    Enemy 0 (ELITE)  avg Overkill: 834241.1
+    Enemy 1 (BOSS)  avg Overkill: 147592.1
+    Enemy 2 (ELITE)  avg Overkill: 138768.9
+  DPAV only (select the lines below):
+50931.689
+9229.254
+12749.108
+63.210
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | Sparxie e0s0 | Pearl e0s0
+  Team DPAV  avg: 73330.461  |  min: 73330.461  |  max: 73330.461  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 52723.256  (71.9%)
+      - ELABANGER  avg DMG: 25040339.328  (86.4% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 3851256.523  (13.3% of SilverWolf999's DMG)
+      - SKL        avg DMG: 74190.264  (0.3% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 6280.359  (8.6%)
+      - ELAPUNCH   avg DMG: 3142640.426  (91.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 290396.509  (8.4% of YaoGuang's DMG)
+      - BSC        avg DMG: 21160.607  (0.6% of YaoGuang's DMG)
+    Sparxie              avg DPAV: 14067.601  (19.2%)
+      - ELAPUNCH   avg DMG: 4169607.863  (53.9% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 3359279.799  (43.4% of Sparxie's DMG)
+      - BSC        avg DMG: 175260.719  (2.3% of Sparxie's DMG)
+    Pearl                avg DPAV: 259.245  (0.4%)
+      - ELABANGER  avg DMG: 114938.238  (80.6% of Pearl's DMG)
+      - BSC        avg DMG: 27646.522  (19.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 957667.3
+    Enemy 0 (ELITE)  avg Overkill: 767069.4
+    Enemy 1 (BOSS)  avg Overkill: 21497.4
+    Enemy 2 (ELITE)  avg Overkill: 169100.5
+  DPAV only (select the lines below):
+52723.256
+6280.359
+14067.601
+259.245
+
+  SilverWolf999 e2s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s0
+  Team DPAV  avg: 169145.471  |  min: 169145.471  |  max: 169145.471  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 122229.420  (72.3%)
+      - ELABANGER  avg DMG: 56964393.869  (84.7% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 10156446.469  (15.1% of SilverWolf999's DMG)
+      - SKL        avg DMG: 62229.530  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 12843.343  (7.6%)
+      - ELAPUNCH   avg DMG: 5337724.239  (75.6% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1679534.338  (23.8% of YaoGuang's DMG)
+      - BSC        avg DMG: 46580.184  (0.7% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 33607.284  (19.9%)
+      - ELABANGER  avg DMG: 14995809.441  (81.1% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3488196.488  (18.9% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 465.425  (0.3%)
+      - ELABANGER  avg DMG: 222206.271  (86.8% of Pearl's DMG)
+      - BSC        avg DMG: 33777.344  (13.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 3417892.5
+    Enemy 0 (ELITE)  avg Overkill: 1384079.6
+    Enemy 1 (BOSS)  avg Overkill: 681022.2
+    Enemy 2 (ELITE)  avg Overkill: 1352790.7
+  DPAV only (select the lines below):
+122229.420
+12843.343
+33607.284
+465.425
+
+  SilverWolf999 e2s1 | Sparxie e0s0 | AeonAha e0s0 | Pearl e2s0
+  Team DPAV  avg: 226371.429  |  min: 226371.429  |  max: 226371.429  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 173544.194  (76.7%)
+      - ELABANGER  avg DMG: 84668335.218  (88.7% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 10733423.075  (11.2% of SilverWolf999's DMG)
+      - BRK        avg DMG: 34157.190  (0.0% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 26212.127  (11.6%)
+      - ELAPUNCH   avg DMG: 7867110.912  (54.6% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 6200586.779  (43.0% of Sparxie's DMG)
+      - BSC        avg DMG: 286317.630  (2.0% of Sparxie's DMG)
+    AeonAha              avg DPAV: 26530.402  (11.7%)
+      - ELABANGER  avg DMG: 11326821.356  (77.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3264899.602  (22.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 84.706  (0.0%)
+      - BSC        avg DMG: 27560.204  (59.2% of Pearl's DMG)
+      - ELABANGER  avg DMG: 19028.232  (40.8% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 7479525.4
+    Enemy 0 (ELITE)  avg Overkill: 5051423.4
+    Enemy 1 (BOSS)  avg Overkill: 1095673.4
+    Enemy 2 (ELITE)  avg Overkill: 1332428.6
+  DPAV only (select the lines below):
+173544.194
+26212.127
+26530.402
+84.706
+
+  SilverWolf999 e2s1 | Yao Guang e2s0 | AeonAha e2s0 | Pearl e0s0
+  Team DPAV  avg: 263625.954  |  min: 263625.954  |  max: 263625.954  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 193437.075  (73.4%)
+      - ELABANGER  avg DMG: 92514244.995  (87.0% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 13793140.380  (13.0% of SilverWolf999's DMG)
+      - BRK        avg DMG: 43110.995  (0.0% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 14976.336  (5.7%)
+      - ELAPUNCH   avg DMG: 6277223.919  (76.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1902647.593  (23.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 57113.288  (0.7% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 54563.550  (20.7%)
+      - ELABANGER  avg DMG: 24747317.167  (82.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 5262635.365  (17.5% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 648.993  (0.2%)
+      - ELABANGER  avg DMG: 317045.535  (88.8% of Pearl's DMG)
+      - BSC        avg DMG: 39900.775  (11.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 6969834.4
+    Enemy 0 (ELITE)  avg Overkill: 4709727.3
+    Enemy 1 (BOSS)  avg Overkill: 1043313.9
+    Enemy 2 (ELITE)  avg Overkill: 1216793.2
+  DPAV only (select the lines below):
+193437.075
+14976.336
+54563.550
+648.993
+
+  SilverWolf999 e2s1 | Sparxie e2s0 | AeonAha e2s0 | Pearl e0s0
+  Team DPAV  avg: 316664.912  |  min: 316664.912  |  max: 316664.912  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 233907.837  (73.9%)
+      - ELABANGER  avg DMG: 111097160.153  (86.4% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 17506793.607  (13.6% of SilverWolf999's DMG)
+      - BRK        avg DMG: 45356.726  (0.0% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 40401.243  (12.8%)
+      - ELAPUNCH   avg DMG: 12935093.742  (58.2% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 8646077.397  (38.9% of Sparxie's DMG)
+      - BSC        avg DMG: 544373.406  (2.4% of Sparxie's DMG)
+    AeonAha              avg DPAV: 42260.351  (13.3%)
+      - ELABANGER  avg DMG: 18025119.081  (77.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 5218073.889  (22.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 95.481  (0.0%)
+      - BSC        avg DMG: 34115.327  (65.0% of Pearl's DMG)
+      - ELABANGER  avg DMG: 18399.127  (35.0% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 12944787.2
+    Enemy 0 (ELITE)  avg Overkill: 8966992.3
+    Enemy 1 (BOSS)  avg Overkill: 1284878.2
+    Enemy 2 (ELITE)  avg Overkill: 2692916.7
+  DPAV only (select the lines below):
+233907.837
+40401.243
+42260.351
+95.481
+
+  SilverWolf999 e2s1 | Yao Guang e0s0 | AeonAha e2s0 | Pearl e2s0
+  Team DPAV  avg: 290162.444  |  min: 290162.444  |  max: 290162.444  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 217698.954  (75.0%)
+      - ELABANGER  avg DMG: 102409164.105  (85.5% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 17262712.933  (14.4% of SilverWolf999's DMG)
+      - BRK        avg DMG: 47901.106  (0.0% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 16855.645  (5.8%)
+      - ELAPUNCH   avg DMG: 7223909.389  (77.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1998535.506  (21.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 48159.796  (0.5% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 54978.729  (18.9%)
+      - ELABANGER  avg DMG: 23808788.017  (78.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 6429512.783  (21.3% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 629.116  (0.2%)
+      - ELABANGER  avg DMG: 313525.855  (90.6% of Pearl's DMG)
+      - BSC        avg DMG: 32487.707  (9.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 6656055.7
+    Enemy 0 (ELITE)  avg Overkill: 4304268.1
+    Enemy 1 (BOSS)  avg Overkill: 617857.9
+    Enemy 2 (ELITE)  avg Overkill: 1733929.6
+  DPAV only (select the lines below):
+217698.954
+16855.645
+54978.729
+629.116
+
+  SilverWolf999 e2s1 | Sparxie e0s0 | AeonAha e2s0 | Pearl e2s0
+  Team DPAV  avg: 274056.923  |  min: 274056.923  |  max: 274056.923  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 202686.246  (74.0%)
+      - ELABANGER  avg DMG: 93799979.614  (84.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 17643435.754  (15.8% of SilverWolf999's DMG)
+      - BRK        avg DMG: 34019.838  (0.0% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 33546.624  (12.2%)
+      - ELAPUNCH   avg DMG: 11609221.011  (62.9% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 6518578.578  (35.3% of Sparxie's DMG)
+      - BSC        avg DMG: 256901.481  (1.4% of Sparxie's DMG)
+    AeonAha              avg DPAV: 37729.925  (13.8%)
+      - ELABANGER  avg DMG: 16048982.374  (77.3% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 4702476.403  (22.7% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 94.128  (0.0%)
+      - BSC        avg DMG: 28728.696  (55.5% of Pearl's DMG)
+      - ELABANGER  avg DMG: 23041.528  (44.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 11114180.7
+    Enemy 0 (ELITE)  avg Overkill: 7841068.1
+    Enemy 1 (BOSS)  avg Overkill: 1530456.4
+    Enemy 2 (ELITE)  avg Overkill: 1742656.2
+  DPAV only (select the lines below):
+202686.246
+33546.624
+37729.925
+94.128
+
+  SilverWolf999 e2s1 | Yao Guang e2s0 | AeonAha e2s0 | Pearl e2s0
+  Team DPAV  avg: 425511.274  |  min: 425511.274  |  max: 425511.274  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 324223.517  (76.2%)
+      - ELABANGER  avg DMG: 167425062.761  (93.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 10835323.832  (6.1% of SilverWolf999's DMG)
+      - BRK        avg DMG: 47901.106  (0.0% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 23124.373  (5.4%)
+      - ELAPUNCH   avg DMG: 9340343.614  (73.4% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 3325590.848  (26.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 52470.469  (0.4% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 77163.823  (18.1%)
+      - ELABANGER  avg DMG: 34627305.971  (81.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 7812796.535  (18.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 999.562  (0.2%)
+      - ELABANGER  avg DMG: 509635.172  (92.7% of Pearl's DMG)
+      - BSC        avg DMG: 40123.740  (7.3% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 15188757.8
+    Enemy 0 (ELITE)  avg Overkill: 9776420.4
+    Enemy 1 (BOSS)  avg Overkill: 2093809.9
+    Enemy 2 (ELITE)  avg Overkill: 3318527.6
+  DPAV only (select the lines below):
+324223.517
+23124.373
+77163.823
+999.562
+
+  SilverWolf999 e2s1 | Sparxie e2s0 | AeonAha e2s0 | Pearl e2s0
+  Team DPAV  avg: 461821.544  |  min: 461821.544  |  max: 461821.544  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 343991.404  (74.5%)
+      - ELABANGER  avg DMG: 161272557.235  (85.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 27875575.415  (14.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 47139.351  (0.0% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 61460.793  (13.3%)
+      - ELAPUNCH   avg DMG: 19398762.474  (57.4% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 13729487.176  (40.6% of Sparxie's DMG)
+      - BSC        avg DMG: 550715.005  (1.6% of Sparxie's DMG)
+    AeonAha              avg DPAV: 56262.026  (12.2%)
+      - ELABANGER  avg DMG: 23872542.064  (77.1% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 7071572.348  (22.9% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 107.321  (0.0%)
+      - BSC        avg DMG: 33130.940  (56.1% of Pearl's DMG)
+      - ELABANGER  avg DMG: 25895.839  (43.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 28575726.8
+    Enemy 0 (ELITE)  avg Overkill: 21635242.5
+    Enemy 1 (BOSS)  avg Overkill: 2521376.6
+    Enemy 2 (ELITE)  avg Overkill: 4419107.7
+  DPAV only (select the lines below):
+343991.404
+61460.793
+56262.026
+107.321
+
+  SilverWolf999 e0s1 | AeonAha e0s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 104416.890  |  min: 104416.890  |  max: 104416.890  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 72073.455  (69.0%)
+      - ELABANGER  avg DMG: 28402032.220  (71.6% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 11140548.193  (28.1% of SilverWolf999's DMG)
+      - SKL        avg DMG: 62075.180  (0.2% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 23255.758  (22.3%)
+      - ELABANGER  avg DMG: 10282357.062  (80.4% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2508309.805  (19.6% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8746.750  (8.4%)
+      - ELAPUNCH   avg DMG: 3895666.059  (81.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 871295.641  (18.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 43751.011  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 340.927  (0.3%)
+      - ELABANGER  avg DMG: 155400.796  (82.9% of Pearl's DMG)
+      - BSC        avg DMG: 32108.879  (17.1% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1868688.3
+    Enemy 0 (ELITE)  avg Overkill: 928364.5
+    Enemy 1 (BOSS)  avg Overkill: 419971.6
+    Enemy 2 (ELITE)  avg Overkill: 520352.2
+  DPAV only (select the lines below):
+72073.455
+23255.758
+8746.750
+340.927
+
+  SilverWolf999 e0s1 | AeonAha e1s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 101390.840  |  min: 101390.840  |  max: 101390.840  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 65480.454  (64.6%)
+      - ELABANGER  avg DMG: 29506347.637  (81.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6470902.834  (18.0% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 25392.533  (25.0%)
+      - ELABANGER  avg DMG: 10873539.619  (77.9% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3092353.331  (22.1% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 10163.700  (10.0%)
+      - ELAPUNCH   avg DMG: 4243655.466  (75.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1301155.560  (23.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 45224.093  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 354.153  (0.3%)
+      - ELABANGER  avg DMG: 165366.320  (84.9% of Pearl's DMG)
+      - BSC        avg DMG: 29418.009  (15.1% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1605335.9
+    Enemy 0 (ELITE)  avg Overkill: 811000.9
+    Enemy 1 (BOSS)  avg Overkill: 196963.1
+    Enemy 2 (ELITE)  avg Overkill: 597371.9
+  DPAV only (select the lines below):
+65480.454
+25392.533
+10163.700
+354.153
+
+  SilverWolf999 e0s1 | AeonAha e1s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 126239.489  |  min: 126239.489  |  max: 126239.489  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 83546.894  (66.2%)
+      - ELABANGER  avg DMG: 33412999.858  (72.7% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 12476767.744  (27.2% of SilverWolf999's DMG)
+      - BRK        avg DMG: 35744.527  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 30818.139  (24.4%)
+      - ELABANGER  avg DMG: 13540252.464  (79.9% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3409723.761  (20.1% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 11474.984  (9.1%)
+      - ELAPUNCH   avg DMG: 4977068.928  (78.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1282281.399  (20.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 51890.861  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 399.472  (0.3%)
+      - ELABANGER  avg DMG: 187336.564  (85.3% of Pearl's DMG)
+      - BSC        avg DMG: 32373.248  (14.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2381489.2
+    Enemy 0 (ELITE)  avg Overkill: 1547538.4
+    Enemy 1 (BOSS)  avg Overkill: 349806.7
+    Enemy 2 (ELITE)  avg Overkill: 484144.1
+  DPAV only (select the lines below):
+83546.894
+30818.139
+11474.984
+399.472
+
+  SilverWolf999 e0s1 | AeonAha e2s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 128155.806  |  min: 128155.806  |  max: 128155.806  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 81464.663  (63.6%)
+      - ELABANGER  avg DMG: 32766158.751  (73.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 11965169.881  (26.7% of SilverWolf999's DMG)
+      - SKL        avg DMG: 37465.054  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 35833.797  (28.0%)
+      - ELABANGER  avg DMG: 15364842.374  (78.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 4343746.155  (22.0% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 10461.775  (8.2%)
+      - ELAPUNCH   avg DMG: 4594598.713  (79.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1117716.805  (19.4% of YaoGuang's DMG)
+      - BSC        avg DMG: 41660.683  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 395.570  (0.3%)
+      - ELABANGER  avg DMG: 188699.641  (86.7% of Pearl's DMG)
+      - BSC        avg DMG: 28863.935  (13.3% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1803793.5
+    Enemy 0 (ELITE)  avg Overkill: 822653.0
+    Enemy 1 (BOSS)  avg Overkill: 328099.9
+    Enemy 2 (ELITE)  avg Overkill: 653040.5
+  DPAV only (select the lines below):
+81464.663
+35833.797
+10461.775
+395.570
+
+  SilverWolf999 e0s1 | AeonAha e2s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 148090.266  |  min: 148090.266  |  max: 148090.266  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 91304.491  (61.7%)
+      - ELABANGER  avg DMG: 35035036.134  (69.8% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 15122471.592  (30.1% of SilverWolf999's DMG)
+      - BRK        avg DMG: 40212.593  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 44176.221  (29.8%)
+      - ELABANGER  avg DMG: 19593848.935  (80.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 4703072.594  (19.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12137.174  (8.2%)
+      - ELAPUNCH   avg DMG: 5072334.634  (76.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1553834.710  (23.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 49276.532  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 472.380  (0.3%)
+      - ELABANGER  avg DMG: 227637.867  (87.6% of Pearl's DMG)
+      - BSC        avg DMG: 32171.271  (12.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2705804.4
+    Enemy 0 (ELITE)  avg Overkill: 1212719.1
+    Enemy 1 (BOSS)  avg Overkill: 183933.2
+    Enemy 2 (ELITE)  avg Overkill: 1309152.1
+  DPAV only (select the lines below):
+91304.491
+44176.221
+12137.174
+472.380
+
+  SilverWolf999 e0s1 | AeonAha e3s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 148812.300  |  min: 148812.300  |  max: 148812.300  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 92585.498  (62.2%)
+      - ELABANGER  avg DMG: 37124621.789  (72.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 13757189.255  (27.0% of SilverWolf999's DMG)
+      - BRK        avg DMG: 40212.593  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 43512.767  (29.2%)
+      - ELABANGER  avg DMG: 19046677.350  (79.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 4885344.751  (20.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12248.850  (8.2%)
+      - ELAPUNCH   avg DMG: 5089660.923  (75.5% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1593159.854  (23.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 54046.538  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 465.185  (0.3%)
+      - ELABANGER  avg DMG: 223680.620  (87.4% of Pearl's DMG)
+      - BSC        avg DMG: 32171.271  (12.6% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1740156.7
+    Enemy 0 (ELITE)  avg Overkill: 1247471.0
+    Enemy 1 (BOSS)  avg Overkill: 190503.6
+    Enemy 2 (ELITE)  avg Overkill: 302182.2
+  DPAV only (select the lines below):
+92585.498
+43512.767
+12248.850
+465.185
+
+  SilverWolf999 e0s1 | AeonAha e4s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 159596.512  |  min: 159596.512  |  max: 159596.512  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 90726.265  (56.8%)
+      - ELABANGER  avg DMG: 36416341.969  (73.0% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 13442890.946  (26.9% of SilverWolf999's DMG)
+      - BRK        avg DMG: 40212.593  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 56138.609  (35.2%)
+      - ELABANGER  avg DMG: 25988037.594  (84.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 4888197.152  (15.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12262.915  (7.7%)
+      - ELAPUNCH   avg DMG: 5096824.001  (75.6% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1593732.569  (23.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 54046.538  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 468.724  (0.3%)
+      - ELABANGER  avg DMG: 225626.834  (87.5% of Pearl's DMG)
+      - BSC        avg DMG: 32171.271  (12.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2962463.7
+    Enemy 0 (ELITE)  avg Overkill: 1409749.0
+    Enemy 1 (BOSS)  avg Overkill: 367691.5
+    Enemy 2 (ELITE)  avg Overkill: 1185023.3
+  DPAV only (select the lines below):
+90726.265
+56138.609
+12262.915
+468.724
+
+  SilverWolf999 e0s1 | AeonAha e5s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 166530.569  |  min: 166530.569  |  max: 166530.569  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 94195.625  (56.6%)
+      - ELABANGER  avg DMG: 36901564.034  (71.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 14844375.553  (28.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 40212.593  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 59513.429  (35.7%)
+      - ELABANGER  avg DMG: 27624229.119  (84.4% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 5108156.989  (15.6% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12340.353  (7.4%)
+      - ELAPUNCH   avg DMG: 5157240.501  (76.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1580222.436  (23.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 49730.951  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 481.162  (0.3%)
+      - ELABANGER  avg DMG: 232360.620  (87.8% of Pearl's DMG)
+      - BSC        avg DMG: 32278.340  (12.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2767083.9
+    Enemy 0 (ELITE)  avg Overkill: 1141344.8
+    Enemy 1 (BOSS)  avg Overkill: 619902.9
+    Enemy 2 (ELITE)  avg Overkill: 1005836.2
+  DPAV only (select the lines below):
+94195.625
+59513.429
+12340.353
+481.162
+
+  SilverWolf999 e0s1 | AeonAha e6s1 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 184593.090  |  min: 184593.090  |  max: 184593.090  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 109951.302  (59.6%)
+      - ELABANGER  avg DMG: 45319626.756  (74.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 15070143.839  (24.9% of SilverWolf999's DMG)
+      - SKL        avg DMG: 43232.676  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 61412.829  (33.3%)
+      - ELABANGER  avg DMG: 28356459.770  (84.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 5420595.933  (16.0% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12753.820  (6.9%)
+      - ELAPUNCH   avg DMG: 5501965.795  (78.4% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1465472.148  (20.9% of YaoGuang's DMG)
+      - BSC        avg DMG: 47163.273  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 475.140  (0.3%)
+      - ELABANGER  avg DMG: 229251.156  (87.7% of Pearl's DMG)
+      - BSC        avg DMG: 32075.593  (12.3% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 4364944.8
+    Enemy 0 (ELITE)  avg Overkill: 2338558.7
+    Enemy 1 (BOSS)  avg Overkill: 690541.9
+    Enemy 2 (ELITE)  avg Overkill: 1335844.2
+  DPAV only (select the lines below):
+109951.302
+61412.829
+12753.820
+475.140
+
+  SilverWolf999 e0s1 | EagleAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 68031.277  |  min: 68031.277  |  max: 68031.277  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 42579.873  (62.6%)
+      - ELABANGER  avg DMG: 19089825.581  (81.5% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4294976.187  (18.3% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 17518.456  (25.8%)
+      - ELABANGER  avg DMG: 7443609.770  (77.3% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2191541.065  (22.7% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 7650.541  (11.2%)
+      - ELAPUNCH   avg DMG: 3171258.998  (75.4% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 997978.082  (23.7% of YaoGuang's DMG)
+      - BSC        avg DMG: 38560.215  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 282.407  (0.4%)
+      - ELABANGER  avg DMG: 126564.962  (81.5% of Pearl's DMG)
+      - BSC        avg DMG: 28759.137  (18.5% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 640251.7
+    Enemy 0 (ELITE)  avg Overkill: 370805.4
+    Enemy 1 (BOSS)  avg Overkill: 107356.0
+    Enemy 2 (ELITE)  avg Overkill: 162090.3
+  DPAV only (select the lines below):
+42579.873
+17518.456
+7650.541
+282.407
+
+  SilverWolf999 e0s1 | BrokenKeelAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 73527.511  |  min: 73527.511  |  max: 73527.511  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 45946.801  (62.5%)
+      - ELABANGER  avg DMG: 19745988.990  (78.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 5490216.494  (21.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 18959.704  (25.8%)
+      - ELABANGER  avg DMG: 8027207.336  (77.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2400629.664  (23.0% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8316.707  (11.3%)
+      - ELAPUNCH   avg DMG: 3466003.717  (75.8% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1066724.405  (23.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 41460.476  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 304.300  (0.4%)
+      - ELABANGER  avg DMG: 137721.138  (82.3% of Pearl's DMG)
+      - BSC        avg DMG: 29643.755  (17.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 675072.6
+    Enemy 0 (ELITE)  avg Overkill: 364892.7
+    Enemy 1 (BOSS)  avg Overkill: 85048.6
+    Enemy 2 (ELITE)  avg Overkill: 225131.4
+  DPAV only (select the lines below):
+45946.801
+18959.704
+8316.707
+304.300
+
+  SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 65341.105  |  min: 65341.105  |  max: 65341.105  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 40618.022  (62.2%)
+      - ELABANGER  avg DMG: 17333420.936  (77.6% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4972363.249  (22.3% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 17100.697  (26.2%)
+      - ELABANGER  avg DMG: 6949435.794  (73.9% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2455947.440  (26.1% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 7339.476  (11.2%)
+      - ELAPUNCH   avg DMG: 3032766.606  (75.1% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 964342.605  (23.9% of YaoGuang's DMG)
+      - BSC        avg DMG: 39602.347  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 282.911  (0.4%)
+      - ELABANGER  avg DMG: 126239.871  (81.1% of Pearl's DMG)
+      - BSC        avg DMG: 29360.956  (18.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1113846.0
+    Enemy 0 (ELITE)  avg Overkill: 696470.1
+    Enemy 1 (BOSS)  avg Overkill: 191458.0
+    Enemy 2 (ELITE)  avg Overkill: 225917.9
+  DPAV only (select the lines below):
+40618.022
+17100.697
+7339.476
+282.911
+
+  SilverWolf999 e0s1 | ElationBrimmingAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 72681.028  |  min: 72681.028  |  max: 72681.028  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 48571.920  (66.8%)
+      - ELABANGER  avg DMG: 20614636.745  (77.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6065791.002  (22.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 16423.793  (22.6%)
+      - ELABANGER  avg DMG: 7062612.743  (78.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1970473.218  (21.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 7403.638  (10.2%)
+      - ELAPUNCH   avg DMG: 3061272.301  (75.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 971090.013  (23.8% of YaoGuang's DMG)
+      - BSC        avg DMG: 39638.511  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 281.678  (0.4%)
+      - ELABANGER  avg DMG: 125561.942  (81.0% of Pearl's DMG)
+      - BSC        avg DMG: 29360.956  (19.0% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 933866.1
+    Enemy 0 (ELITE)  avg Overkill: 549614.5
+    Enemy 1 (BOSS)  avg Overkill: 75924.4
+    Enemy 2 (ELITE)  avg Overkill: 308327.2
+  DPAV only (select the lines below):
+48571.920
+16423.793
+7403.638
+281.678
+
+  SilverWolf999 e0s1 | WorldsEndAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 75690.269  |  min: 75690.269  |  max: 75690.269  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 45480.258  (60.1%)
+      - ELABANGER  avg DMG: 20840848.284  (83.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4139165.252  (16.5% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 21779.101  (28.8%)
+      - ELABANGER  avg DMG: 9368198.603  (78.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2610306.948  (21.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8134.900  (10.7%)
+      - ELAPUNCH   avg DMG: 3395502.821  (75.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1034381.048  (23.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 44311.139  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 296.010  (0.4%)
+      - ELABANGER  avg DMG: 133259.977  (81.9% of Pearl's DMG)
+      - BSC        avg DMG: 29545.648  (18.1% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1018584.1
+    Enemy 0 (ELITE)  avg Overkill: 467980.2
+    Enemy 1 (BOSS)  avg Overkill: 151264.2
+    Enemy 2 (ELITE)  avg Overkill: 399339.7
+  DPAV only (select the lines below):
+45480.258
+21779.101
+8134.900
+296.010
+
+  SilverWolf999 e0s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 70325.165  |  min: 70325.165  |  max: 70325.165  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 40298.570  (57.3%)
+      - ELABANGER  avg DMG: 15777367.489  (71.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6352717.810  (28.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 21090.087  (30.0%)
+      - ELABANGER  avg DMG: 9067907.479  (78.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2531640.524  (21.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8646.586  (12.3%)
+      - ELAPUNCH   avg DMG: 3604597.276  (75.8% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1106789.102  (23.3% of YaoGuang's DMG)
+      - BSC        avg DMG: 44235.847  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 289.922  (0.4%)
+      - ELABANGER  avg DMG: 130096.409  (81.6% of Pearl's DMG)
+      - BSC        avg DMG: 29360.956  (18.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 543226.9
+    Enemy 0 (ELITE)  avg Overkill: 186204.0
+    Enemy 1 (BOSS)  avg Overkill: 51337.3
+    Enemy 2 (ELITE)  avg Overkill: 305685.6
+  DPAV only (select the lines below):
+40298.570
+21090.087
+8646.586
+289.922
+
+  SilverWolf999 e1s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 77303.855  |  min: 77303.855  |  max: 77303.855  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 47365.859  (61.3%)
+      - ELABANGER  avg DMG: 19474286.882  (74.8% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6538933.225  (25.1% of SilverWolf999's DMG)
+      - BRK        avg DMG: 26345.608  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 20606.771  (26.7%)
+      - ELABANGER  avg DMG: 8772852.313  (77.4% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2560871.562  (22.6% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8993.737  (11.6%)
+      - ELAPUNCH   avg DMG: 3693017.891  (74.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1209196.308  (24.4% of YaoGuang's DMG)
+      - BSC        avg DMG: 44341.045  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 337.488  (0.4%)
+      - ELABANGER  avg DMG: 151841.095  (81.8% of Pearl's DMG)
+      - BSC        avg DMG: 33777.344  (18.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 461199.9
+    Enemy 0 (ELITE)  avg Overkill: 383335.7
+    Enemy 1 (BOSS)  avg Overkill: 43733.2
+    Enemy 2 (ELITE)  avg Overkill: 34130.9
+  DPAV only (select the lines below):
+47365.859
+20606.771
+8993.737
+337.488
+
+  SilverWolf999 e1s1 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 85788.695  |  min: 85788.695  |  max: 85788.695  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 55002.798  (64.1%)
+      - ELABANGER  avg DMG: 23374572.587  (77.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6838964.019  (22.6% of SilverWolf999's DMG)
+      - BRK        avg DMG: 26345.608  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 21436.359  (25.0%)
+      - ELABANGER  avg DMG: 9211612.460  (78.1% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2578384.974  (21.9% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8999.979  (10.5%)
+      - ELAPUNCH   avg DMG: 3712733.809  (75.0% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1190801.589  (24.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 46453.221  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 349.558  (0.4%)
+      - ELABANGER  avg DMG: 158479.583  (82.4% of Pearl's DMG)
+      - BSC        avg DMG: 33777.344  (17.6% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 871719.7
+    Enemy 0 (ELITE)  avg Overkill: 664256.7
+    Enemy 1 (BOSS)  avg Overkill: 56904.9
+    Enemy 2 (ELITE)  avg Overkill: 150558.1
+  DPAV only (select the lines below):
+55002.798
+21436.359
+8999.979
+349.558
+
+  SilverWolf999 e2s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 93858.345  |  min: 93858.345  |  max: 93858.345  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 59097.573  (63.0%)
+      - ELABANGER  avg DMG: 25534490.257  (78.6% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6894112.901  (21.2% of SilverWolf999's DMG)
+      - BRK        avg DMG: 38320.885  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 24480.117  (26.1%)
+      - ELABANGER  avg DMG: 10585066.736  (78.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2878997.426  (21.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 9936.172  (10.6%)
+      - ELAPUNCH   avg DMG: 4123852.125  (75.5% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1290788.234  (23.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 50254.076  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 344.484  (0.4%)
+      - ELABANGER  avg DMG: 155905.235  (82.3% of Pearl's DMG)
+      - BSC        avg DMG: 33560.809  (17.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1029863.1
+    Enemy 0 (ELITE)  avg Overkill: 430243.6
+    Enemy 1 (BOSS)  avg Overkill: 124372.4
+    Enemy 2 (ELITE)  avg Overkill: 475247.1
+  DPAV only (select the lines below):
+59097.573
+24480.117
+9936.172
+344.484
+
+  SilverWolf999 e2s1 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  Team DPAV  avg: 96460.399  |  min: 96460.399  |  max: 96460.399  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 68275.843  (70.8%)
+      - ELABANGER  avg DMG: 31530143.315  (84.0% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 5947568.979  (15.8% of SilverWolf999's DMG)
+      - BRK        avg DMG: 38320.885  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 19650.209  (20.4%)
+      - ELABANGER  avg DMG: 8474140.009  (78.4% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2333474.912  (21.6% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8208.092  (8.5%)
+      - ELAPUNCH   avg DMG: 3337665.821  (73.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1133098.984  (25.1% of YaoGuang's DMG)
+      - BSC        avg DMG: 43685.807  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 326.255  (0.3%)
+      - ELABANGER  avg DMG: 145879.532  (81.3% of Pearl's DMG)
+      - BSC        avg DMG: 33560.809  (18.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 866826.6
+    Enemy 0 (ELITE)  avg Overkill: 446290.7
+    Enemy 1 (BOSS)  avg Overkill: 91162.0
+    Enemy 2 (ELITE)  avg Overkill: 329373.9
+  DPAV only (select the lines below):
+68275.843
+19650.209
+8208.092
+326.255
+
+  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e0s1 | Pearl e0s0
+  Team DPAV  avg: 96738.617  |  min: 96738.617  |  max: 96738.617  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 62580.149  (64.7%)
+      - ELABANGER  avg DMG: 26920736.760  (78.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 7428397.369  (21.6% of SilverWolf999's DMG)
+      - SKL        avg DMG: 43390.654  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 24214.380  (25.0%)
+      - ELABANGER  avg DMG: 10418568.982  (78.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2899340.065  (21.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 9606.968  (9.9%)
+      - ELAPUNCH   avg DMG: 4073035.458  (77.1% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1155638.212  (21.9% of YaoGuang's DMG)
+      - BSC        avg DMG: 55158.954  (1.0% of YaoGuang's DMG)
+    Pearl                avg DPAV: 337.120  (0.3%)
+      - ELABANGER  avg DMG: 149898.934  (80.8% of Pearl's DMG)
+      - BSC        avg DMG: 35516.916  (19.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 958727.3
+    Enemy 0 (ELITE)  avg Overkill: 337375.0
+    Enemy 1 (BOSS)  avg Overkill: 99162.1
+    Enemy 2 (ELITE)  avg Overkill: 522190.2
+  DPAV only (select the lines below):
+62580.149
+24214.380
+9606.968
+337.120
+
+  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e1s0 | Pearl e0s0
+  Team DPAV  avg: 90108.078  |  min: 90108.078  |  max: 90108.078  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 59681.899  (66.2%)
+      - ELABANGER  avg DMG: 26917927.662  (82.0% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 5872988.714  (17.9% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 21488.382  (23.8%)
+      - ELABANGER  avg DMG: 9429110.939  (79.8% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2389499.402  (20.2% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 8603.435  (9.5%)
+      - ELAPUNCH   avg DMG: 3499151.719  (73.9% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1192013.305  (25.2% of YaoGuang's DMG)
+      - BSC        avg DMG: 40723.993  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 334.362  (0.4%)
+      - ELABANGER  avg DMG: 154907.375  (84.2% of Pearl's DMG)
+      - BSC        avg DMG: 28991.574  (15.8% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 960186.8
+    Enemy 0 (ELITE)  avg Overkill: 684593.9
+    Enemy 1 (BOSS)  avg Overkill: 114983.8
+    Enemy 2 (ELITE)  avg Overkill: 160609.1
+  DPAV only (select the lines below):
+59681.899
+21488.382
+8603.435
+334.362
+
+  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e1s1 | Pearl e0s0
+  Team DPAV  avg: 127513.387  |  min: 127513.387  |  max: 127513.387  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 85575.795  (67.1%)
+      - ELABANGER  avg DMG: 35965245.172  (76.4% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 11044637.738  (23.5% of SilverWolf999's DMG)
+      - BRK        avg DMG: 32685.460  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 30948.135  (24.3%)
+      - ELABANGER  avg DMG: 13888849.067  (81.6% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3132625.455  (18.4% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 10565.650  (8.3%)
+      - ELAPUNCH   avg DMG: 4396882.176  (75.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1360038.822  (23.4% of YaoGuang's DMG)
+      - BSC        avg DMG: 54186.342  (0.9% of YaoGuang's DMG)
+    Pearl                avg DPAV: 423.807  (0.3%)
+      - ELABANGER  avg DMG: 197791.940  (84.9% of Pearl's DMG)
+      - BSC        avg DMG: 35301.637  (15.1% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1809411.3
+    Enemy 0 (ELITE)  avg Overkill: 941622.1
+    Enemy 1 (BOSS)  avg Overkill: 207098.4
+    Enemy 2 (ELITE)  avg Overkill: 660690.8
+  DPAV only (select the lines below):
+85575.795
+30948.135
+10565.650
+423.807
+
+  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e2s0 | Pearl e0s0
+  Team DPAV  avg: 102450.536  |  min: 102450.536  |  max: 102450.536  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 66157.670  (64.6%)
+      - ELABANGER  avg DMG: 31051826.331  (85.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 5284627.738  (14.5% of SilverWolf999's DMG)
+      - SKL        avg DMG: 27793.238  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 25929.894  (25.3%)
+      - ELABANGER  avg DMG: 11719140.995  (82.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2542300.543  (17.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 9914.906  (9.7%)
+      - ELAPUNCH   avg DMG: 3940063.841  (72.3% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1472068.213  (27.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 41066.094  (0.8% of YaoGuang's DMG)
+    Pearl                avg DPAV: 448.066  (0.4%)
+      - ELABANGER  avg DMG: 211904.075  (86.0% of Pearl's DMG)
+      - BSC        avg DMG: 34532.315  (14.0% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1791449.4
+    Enemy 0 (ELITE)  avg Overkill: 1186900.9
+    Enemy 1 (BOSS)  avg Overkill: 150914.0
+    Enemy 2 (ELITE)  avg Overkill: 453634.4
+  DPAV only (select the lines below):
+66157.670
+25929.894
+9914.906
+448.066
+
+  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e2s1 | Pearl e0s0
+  Team DPAV  avg: 141085.181  |  min: 141085.181  |  max: 141085.181  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 95567.592  (67.7%)
+      - ELABANGER  avg DMG: 41037151.565  (78.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 11445389.966  (21.8% of SilverWolf999's DMG)
+      - SKL        avg DMG: 46948.689  (0.1% of SilverWolf999's DMG)
+    AeonAha              avg DPAV: 32724.543  (23.2%)
+      - ELABANGER  avg DMG: 14543679.962  (80.8% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3454818.753  (19.2% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    YaoGuang             avg DPAV: 12261.991  (8.7%)
+      - ELAPUNCH   avg DMG: 5213280.561  (77.3% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1481478.069  (22.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 49336.694  (0.7% of YaoGuang's DMG)
+    Pearl                avg DPAV: 531.054  (0.4%)
+      - ELABANGER  avg DMG: 251411.116  (86.1% of Pearl's DMG)
+      - BSC        avg DMG: 40668.703  (13.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2150553.2
+    Enemy 0 (ELITE)  avg Overkill: 1559088.7
+    Enemy 1 (BOSS)  avg Overkill: 97555.7
+    Enemy 2 (ELITE)  avg Overkill: 493908.9
+  DPAV only (select the lines below):
+95567.592
+32724.543
+12261.991
+531.054
+
+  SilverWolf999 e0s1 | Sparxie e0s1 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 76622.507  |  min: 76622.507  |  max: 76622.507  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 51068.803  (66.6%)
+      - ELABANGER  avg DMG: 22984782.532  (81.8% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 5026556.720  (17.9% of SilverWolf999's DMG)
+      - SKL        avg DMG: 50973.457  (0.2% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 11721.616  (15.3%)
+      - ELAPUNCH   avg DMG: 4084253.832  (63.4% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 2138104.596  (33.2% of Sparxie's DMG)
+      - BSC        avg DMG: 198452.955  (3.1% of Sparxie's DMG)
+    AeonAha              avg DPAV: 13768.054  (18.0%)
+      - ELABANGER  avg DMG: 5735491.240  (75.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 1836938.484  (24.3% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 64.033  (0.1%)
+      - BSC        avg DMG: 23995.901  (68.1% of Pearl's DMG)
+      - ELABANGER  avg DMG: 11222.096  (31.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1209580.4
+    Enemy 0 (ELITE)  avg Overkill: 787786.3
+    Enemy 1 (BOSS)  avg Overkill: 143907.7
+    Enemy 2 (ELITE)  avg Overkill: 277886.4
+  DPAV only (select the lines below):
+51068.803
+11721.616
+13768.054
+64.033
+
+  SilverWolf999 e0s1 | Sparxie e1s0 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 91023.965  |  min: 91023.965  |  max: 91023.965  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 62303.089  (68.4%)
+      - ELABANGER  avg DMG: 29280662.648  (85.4% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 4922041.392  (14.4% of SilverWolf999's DMG)
+      - SKL        avg DMG: 40435.646  (0.1% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 12303.440  (13.5%)
+      - ELAPUNCH   avg DMG: 4487746.158  (66.3% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 2065774.721  (30.5% of Sparxie's DMG)
+      - BSC        avg DMG: 186186.960  (2.8% of Sparxie's DMG)
+    AeonAha              avg DPAV: 16342.023  (18.0%)
+      - ELABANGER  avg DMG: 6787134.326  (75.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2200978.256  (24.5% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 75.413  (0.1%)
+      - BSC        avg DMG: 28141.146  (67.8% of Pearl's DMG)
+      - ELABANGER  avg DMG: 13336.032  (32.2% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1496766.8
+    Enemy 0 (ELITE)  avg Overkill: 584344.3
+    Enemy 1 (BOSS)  avg Overkill: 164355.2
+    Enemy 2 (ELITE)  avg Overkill: 748067.3
+  DPAV only (select the lines below):
+62303.089
+12303.440
+16342.023
+75.413
+
+  SilverWolf999 e0s1 | Sparxie e1s1 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 86636.595  |  min: 86636.595  |  max: 86636.595  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 56212.275  (64.9%)
+      - ELABANGER  avg DMG: 27498063.578  (88.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 3320397.823  (10.7% of SilverWolf999's DMG)
+      - SKL        avg DMG: 78400.386  (0.3% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 13564.427  (15.7%)
+      - ELAPUNCH   avg DMG: 4649569.924  (62.3% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 2541823.099  (34.1% of Sparxie's DMG)
+      - BSC        avg DMG: 229179.469  (3.1% of Sparxie's DMG)
+    AeonAha              avg DPAV: 16784.181  (19.4%)
+      - ELABANGER  avg DMG: 7135045.189  (77.3% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2096254.088  (22.7% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 75.712  (0.1%)
+      - BSC        avg DMG: 28270.610  (67.9% of Pearl's DMG)
+      - ELABANGER  avg DMG: 13371.080  (32.1% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1303069.7
+    Enemy 0 (ELITE)  avg Overkill: 890086.4
+    Enemy 1 (BOSS)  avg Overkill: 249318.6
+    Enemy 2 (ELITE)  avg Overkill: 163664.7
+  DPAV only (select the lines below):
+56212.275
+13564.427
+16784.181
+75.712
+
+  SilverWolf999 e0s1 | Sparxie e2s0 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 112169.297  |  min: 112169.297  |  max: 112169.297  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 72395.781  (64.5%)
+      - ELABANGER  avg DMG: 32124890.826  (80.7% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 7579538.098  (19.0% of SilverWolf999's DMG)
+      - SKL        avg DMG: 84186.635  (0.2% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 18244.541  (16.3%)
+      - ELAPUNCH   avg DMG: 5626757.451  (56.1% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 4012714.664  (40.0% of Sparxie's DMG)
+      - BSC        avg DMG: 341742.919  (3.4% of Sparxie's DMG)
+    AeonAha              avg DPAV: 21453.238  (19.1%)
+      - ELABANGER  avg DMG: 9283413.366  (78.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2515867.696  (21.3% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 75.737  (0.1%)
+      - BSC        avg DMG: 28318.139  (68.0% of Pearl's DMG)
+      - ELABANGER  avg DMG: 13337.121  (32.0% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1918179.0
+    Enemy 0 (ELITE)  avg Overkill: 1090189.7
+    Enemy 1 (BOSS)  avg Overkill: 152629.9
+    Enemy 2 (ELITE)  avg Overkill: 675359.4
+  DPAV only (select the lines below):
+72395.781
+18244.541
+21453.238
+75.737
+
+  SilverWolf999 e0s1 | Sparxie e2s1 | AeonAha e0s0 | Pearl e0s0
+  Team DPAV  avg: 105109.079  |  min: 105109.079  |  max: 105109.079  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 66677.683  (63.4%)
+      - ELABANGER  avg DMG: 29764919.441  (81.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6794903.194  (18.5% of SilverWolf999's DMG)
+      - SKL        avg DMG: 83838.871  (0.2% of SilverWolf999's DMG)
+    Sparxie              avg DPAV: 20457.280  (19.5%)
+      - ELAPUNCH   avg DMG: 5845988.693  (52.0% of Sparxie's DMG)
+      - ELABANGER  avg DMG: 4886925.954  (43.4% of Sparxie's DMG)
+      - BSC        avg DMG: 455622.091  (4.0% of Sparxie's DMG)
+    AeonAha              avg DPAV: 17897.977  (17.0%)
+      - ELABANGER  avg DMG: 7430101.708  (75.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2413785.642  (24.5% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 76.139  (0.1%)
+      - BSC        avg DMG: 28318.139  (67.6% of Pearl's DMG)
+      - ELABANGER  avg DMG: 13558.062  (32.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2359357.5
+    Enemy 0 (ELITE)  avg Overkill: 1200250.6
+    Enemy 1 (BOSS)  avg Overkill: 54982.1
+    Enemy 2 (ELITE)  avg Overkill: 1104124.8
+  DPAV only (select the lines below):
+66677.683
+20457.280
+17897.977
+76.139
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s1
+  Team DPAV  avg: 79730.737  |  min: 79730.737  |  max: 79730.737  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 50490.922  (63.3%)
+      - ELABANGER  avg DMG: 21176008.509  (76.3% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6553250.992  (23.6% of SilverWolf999's DMG)
+      - BRK        avg DMG: 26829.902  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 8664.298  (10.9%)
+      - ELAPUNCH   avg DMG: 3585288.963  (75.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1131452.136  (23.7% of YaoGuang's DMG)
+      - BSC        avg DMG: 48623.044  (1.0% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 20218.509  (25.4%)
+      - ELABANGER  avg DMG: 8645019.956  (77.7% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2475159.769  (22.3% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 357.008  (0.4%)
+      - ELABANGER  avg DMG: 147818.115  (75.3% of Pearl's DMG)
+      - BSC        avg DMG: 48536.297  (24.7% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1151187.5
+    Enemy 0 (ELITE)  avg Overkill: 245382.9
+    Enemy 1 (BOSS)  avg Overkill: 502607.3
+    Enemy 2 (ELITE)  avg Overkill: 403197.3
+  DPAV only (select the lines below):
+50490.922
+8664.298
+20218.509
+357.008
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e1s0
+  Team DPAV  avg: 92393.420  |  min: 92393.420  |  max: 92393.420  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 55664.073  (60.2%)
+      - ELABANGER  avg DMG: 23292335.299  (76.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 7288776.589  (23.8% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 10528.430  (11.4%)
+      - ELAPUNCH   avg DMG: 4441002.287  (76.7% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1308995.520  (22.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 40638.468  (0.7% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 25842.315  (28.0%)
+      - ELABANGER  avg DMG: 11228682.121  (79.0% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2984591.035  (21.0% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 358.603  (0.4%)
+      - ELABANGER  avg DMG: 168055.282  (85.2% of Pearl's DMG)
+      - BSC        avg DMG: 29176.265  (14.8% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 1606723.9
+    Enemy 0 (ELITE)  avg Overkill: 600872.8
+    Enemy 1 (BOSS)  avg Overkill: 396421.4
+    Enemy 2 (ELITE)  avg Overkill: 609429.7
+  DPAV only (select the lines below):
+55664.073
+10528.430
+25842.315
+358.603
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e1s1
+  Team DPAV  avg: 91736.227  |  min: 91736.227  |  max: 91736.227  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 56864.381  (62.0%)
+      - ELABANGER  avg DMG: 24668871.519  (78.9% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6565790.142  (21.0% of SilverWolf999's DMG)
+      - BRK        avg DMG: 26829.902  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 10635.529  (11.6%)
+      - ELAPUNCH   avg DMG: 4418531.281  (75.5% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1382488.525  (23.6% of YaoGuang's DMG)
+      - BSC        avg DMG: 48520.929  (0.8% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 23815.952  (26.0%)
+      - ELABANGER  avg DMG: 10151880.129  (77.5% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2946893.620  (22.5% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 420.366  (0.5%)
+      - ELABANGER  avg DMG: 182970.181  (79.1% of Pearl's DMG)
+      - BSC        avg DMG: 48230.986  (20.9% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 786786.1
+    Enemy 0 (ELITE)  avg Overkill: 504431.3
+    Enemy 1 (BOSS)  avg Overkill: 99456.2
+    Enemy 2 (ELITE)  avg Overkill: 182898.6
+  DPAV only (select the lines below):
+56864.381
+10635.529
+23815.952
+420.366
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s0
+  Team DPAV  avg: 111888.193  |  min: 111888.193  |  max: 111888.193  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 73434.900  (65.6%)
+      - ELABANGER  avg DMG: 33623373.963  (83.2% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 6731693.169  (16.7% of SilverWolf999's DMG)
+      - BRK        avg DMG: 22471.254  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 11130.748  (9.9%)
+      - ELAPUNCH   avg DMG: 4623598.699  (75.5% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1458326.738  (23.8% of YaoGuang's DMG)
+      - BSC        avg DMG: 39986.211  (0.7% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 26927.983  (24.1%)
+      - ELABANGER  avg DMG: 11880301.486  (80.2% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 2930089.049  (19.8% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 394.561  (0.4%)
+      - ELABANGER  avg DMG: 187832.186  (86.6% of Pearl's DMG)
+      - BSC        avg DMG: 29176.265  (13.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2218088.4
+    Enemy 0 (ELITE)  avg Overkill: 946051.4
+    Enemy 1 (BOSS)  avg Overkill: 135936.8
+    Enemy 2 (ELITE)  avg Overkill: 1136100.2
+  DPAV only (select the lines below):
+73434.900
+11130.748
+26927.983
+394.561
+
+  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s1
+  Team DPAV  avg: 143043.450  |  min: 143043.450  |  max: 143043.450  |  95% CI margin of error: +/-0.00%
+    SilverWolf999        avg DPAV: 96646.057  (67.6%)
+      - ELABANGER  avg DMG: 42046152.069  (79.1% of SilverWolf999's DMG)
+      - ELAPUNCH   avg DMG: 11068431.288  (20.8% of SilverWolf999's DMG)
+      - BRK        avg DMG: 26829.902  (0.1% of SilverWolf999's DMG)
+    YaoGuang             avg DPAV: 13430.214  (9.4%)
+      - ELAPUNCH   avg DMG: 5629965.536  (76.2% of YaoGuang's DMG)
+      - ELABANGER  avg DMG: 1702494.364  (23.0% of YaoGuang's DMG)
+      - BSC        avg DMG: 54157.625  (0.7% of YaoGuang's DMG)
+    AeonAha              avg DPAV: 32490.388  (22.7%)
+      - ELABANGER  avg DMG: 14259836.805  (79.8% of AeonAha's DMG)
+      - ELAPUNCH   avg DMG: 3609876.614  (20.2% of AeonAha's DMG)
+      - BSC        avg DMG: 0.000  (0.0% of AeonAha's DMG)
+    Pearl                avg DPAV: 476.792  (0.3%)
+      - ELABANGER  avg DMG: 214004.575  (81.6% of Pearl's DMG)
+      - BSC        avg DMG: 48230.986  (18.4% of Pearl's DMG)
+      - SKL        avg DMG: 0.000  (0.0% of Pearl's DMG)
+  Avg Total Overkill DMG: 2522013.3
+    Enemy 0 (ELITE)  avg Overkill: 1003187.3
+    Enemy 1 (BOSS)  avg Overkill: 402863.2
+    Enemy 2 (ELITE)  avg Overkill: 1115962.8
+  DPAV only (select the lines below):
+96646.057
+13430.214
+32490.388
+476.792
+
+  Sheet-layout export written to: TeamCalcs_SheetExport.xlsx
+
+  Battle sheets written to: C:\Users\rapet\Documents\GitHub\Honkai-Star-Rail-Combat-Simulator\TeamCalcs_BattleSheets.xlsx  (45 tab(s), 52s)
+
+======================================================================
+  TEAM ORDER (as defined)
+======================================================================
+  #1  80657.782  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s0
+  #2  72973.261  —  SilverWolf999 e0s1 | Sparxie e0s0 | AeonAha e0s0 | Pearl e0s0
+  #3  73330.461  —  SilverWolf999 e0s1 | Yao Guang e0s0 | Sparxie e0s0 | Pearl e0s0
+  #4  169145.471  —  SilverWolf999 e2s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s0
+  #5  226371.429  —  SilverWolf999 e2s1 | Sparxie e0s0 | AeonAha e0s0 | Pearl e2s0
+  #6  263625.954  —  SilverWolf999 e2s1 | Yao Guang e2s0 | AeonAha e2s0 | Pearl e0s0
+  #7  316664.912  —  SilverWolf999 e2s1 | Sparxie e2s0 | AeonAha e2s0 | Pearl e0s0
+  #8  290162.444  —  SilverWolf999 e2s1 | Yao Guang e0s0 | AeonAha e2s0 | Pearl e2s0
+  #9  274056.923  —  SilverWolf999 e2s1 | Sparxie e0s0 | AeonAha e2s0 | Pearl e2s0
+  #10  425511.274  —  SilverWolf999 e2s1 | Yao Guang e2s0 | AeonAha e2s0 | Pearl e2s0
+  #11  461821.544  —  SilverWolf999 e2s1 | Sparxie e2s0 | AeonAha e2s0 | Pearl e2s0
+  #12  104416.890  —  SilverWolf999 e0s1 | AeonAha e0s1 | Yao Guang e0s0 | Pearl e0s0
+  #13  101390.840  —  SilverWolf999 e0s1 | AeonAha e1s0 | Yao Guang e0s0 | Pearl e0s0
+  #14  126239.489  —  SilverWolf999 e0s1 | AeonAha e1s1 | Yao Guang e0s0 | Pearl e0s0
+  #15  128155.806  —  SilverWolf999 e0s1 | AeonAha e2s0 | Yao Guang e0s0 | Pearl e0s0
+  #16  148090.266  —  SilverWolf999 e0s1 | AeonAha e2s1 | Yao Guang e0s0 | Pearl e0s0
+  #17  148812.300  —  SilverWolf999 e0s1 | AeonAha e3s1 | Yao Guang e0s0 | Pearl e0s0
+  #18  159596.512  —  SilverWolf999 e0s1 | AeonAha e4s1 | Yao Guang e0s0 | Pearl e0s0
+  #19  166530.569  —  SilverWolf999 e0s1 | AeonAha e5s1 | Yao Guang e0s0 | Pearl e0s0
+  #20  184593.090  —  SilverWolf999 e0s1 | AeonAha e6s1 | Yao Guang e0s0 | Pearl e0s0
+  #21  68031.277  —  SilverWolf999 e0s1 | EagleAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #22  73527.511  —  SilverWolf999 e0s1 | BrokenKeelAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #23  65341.105  —  SilverWolf999 e0s1 | SWLCAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #24  72681.028  —  SilverWolf999 e0s1 | ElationBrimmingAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #25  75690.269  —  SilverWolf999 e0s1 | WorldsEndAeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #26  70325.165  —  SilverWolf999 e0s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #27  77303.855  —  SilverWolf999 e1s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #28  85788.695  —  SilverWolf999 e1s1 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #29  93858.345  —  SilverWolf999 e2s0 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #30  96460.399  —  SilverWolf999 e2s1 | AeonAha e0s0 | Yao Guang e0s0 | Pearl e0s0
+  #31  96738.617  —  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e0s1 | Pearl e0s0
+  #32  90108.078  —  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e1s0 | Pearl e0s0
+  #33  127513.387  —  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e1s1 | Pearl e0s0
+  #34  102450.536  —  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e2s0 | Pearl e0s0
+  #35  141085.181  —  SilverWolf999 e0s1 | AeonAha e0s0 | Yao Guang e2s1 | Pearl e0s0
+  #36  76622.507  —  SilverWolf999 e0s1 | Sparxie e0s1 | AeonAha e0s0 | Pearl e0s0
+  #37  91023.965  —  SilverWolf999 e0s1 | Sparxie e1s0 | AeonAha e0s0 | Pearl e0s0
+  #38  86636.595  —  SilverWolf999 e0s1 | Sparxie e1s1 | AeonAha e0s0 | Pearl e0s0
+  #39  112169.297  —  SilverWolf999 e0s1 | Sparxie e2s0 | AeonAha e0s0 | Pearl e0s0
+  #40  105109.079  —  SilverWolf999 e0s1 | Sparxie e2s1 | AeonAha e0s0 | Pearl e0s0
+  #41  79730.737  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e0s1
+  #42  92393.420  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e1s0
+  #43  91736.227  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e1s1
+  #44  111888.193  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s0
+  #45  143043.450  —  SilverWolf999 e0s1 | Yao Guang e0s0 | AeonAha e0s0 | Pearl e2s1
+
+======================================================================
+

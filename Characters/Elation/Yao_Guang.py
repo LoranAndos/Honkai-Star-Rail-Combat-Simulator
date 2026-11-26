@@ -177,12 +177,12 @@ class YaoGuang(Character):
         if self.Banger >= 1 and (turn.moveName not in bonusDMG) and result.enemiesHit and result.TotalDamage > 0 or (turn.moveName in ElationSkillList and turn.moveName != "PearlELASkill"):
             if turn.spChange <= -1:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                               Targeting.SINGLE, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
+                               Targeting.SINGLE, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADDSP"))
             else:
                 tl.append(Turn(turn.charName, turn.charRole, self.bestEnemy(-1),
-                               turn.targeting, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
+                               Targeting.SINGLE, [AtkType.ELABANGER], turn.element, [e5Mul*ExtraAhaMultiplier, 0], [0, 0], 0, Scaling.ELA, 0, "YaoGuangTalentADD"))
 
         pearl = next((c for c in (Character._current_player_team or []) if c.name == "Pearl"), None)
         if result.turnName == "PearlUltimate" and Character.PearlUlt == True and pearl is not None and self.role == pearl.targetRole:
